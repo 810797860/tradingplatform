@@ -4,7 +4,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<modules>
 		<module>testest</module>
-	</modules>
+        <module>yeyeyeyey</module>
+    </modules>
 
 	<parent>
 		<groupId>com.secondhand</groupId>
