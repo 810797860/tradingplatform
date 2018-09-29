@@ -21,7 +21,7 @@ import java.util.*;
 public class MysqlGenerator {
 
     private static String packageName="";
-/*    private static String packageClass="";*/
+    private static String packageClass="tradingplatformgenerator";
     private static String projectName="secondhand";
     private static String authorName="zhangjk";
     private static String[] table=new String[]{"s_base_user"};
@@ -113,8 +113,8 @@ public class MysqlGenerator {
                 // 包配置
                 new PackageConfig()
                         //.setModuleName("UserClient")
-/*                        .setParent("com."+projectName+"."+packageClass)// 自定义包路径*/
-                        .setParent("com." + projectName)
+                        .setParent("com."+projectName+"."+packageClass)// 自定义包路径
+/*                        .setParent("com." + projectName)*/
                         .setController("controller")// 这里是控制器包名，默认 web
                         .setEntity("entity")
                         .setMapper("dao")
