@@ -2,15 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<modules>
-        <module>tradingplatform-admin-controller</module>
-		<module>tradingplatform-admin-doc</module>
-		<module>tradingplatform-admin-entity</module>
-		<module>tradingplatform-admin-entrance</module>
-		<module>tradingplatform-admin-mapper</module>
-		<module>tradingplatform-admin-service</module>
-		<module>tradingplatform-admin-service-impl</module>
-    </modules>
 
 	<parent>
 		<groupId>com.secondhand</groupId>
@@ -19,11 +10,11 @@
 	</parent>
 
 	<groupId>com.secondhand</groupId>
-	<artifactId>tradingplatform-admin</artifactId>
+	<artifactId>tradingplatform-admin-controller</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 
-	<name>tradingplatform-admin</name>
+	<name>tradingplatform-admin-controller</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -35,18 +26,9 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
