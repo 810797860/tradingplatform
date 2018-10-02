@@ -1,6 +1,6 @@
 package com.secondhand.tradingplatformgenerator.example.service.impl;
 
-import com.secondhand.tradingplatformgenerator.base.BaseServiceImpl.BaseServiceImpl;
+import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
 import com.secondhand.tradingplatformgenerator.example.entity.User;
 import com.secondhand.tradingplatformgenerator.example.mapper.UserMapper;
 import com.secondhand.tradingplatformgenerator.example.service.UserService;

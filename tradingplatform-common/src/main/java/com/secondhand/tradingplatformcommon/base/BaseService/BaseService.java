@@ -1,4 +1,4 @@
-package com.secondhand.tradingplatformgenerator.base.BaseService;
+package com.secondhand.tradingplatformcommon.base.BaseService;
 
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.IService;

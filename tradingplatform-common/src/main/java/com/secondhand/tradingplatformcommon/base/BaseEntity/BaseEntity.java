@@ -1,4 +1,4 @@
-package com.secondhand.tradingplatformgenerator.base.BaseEntity;
+package com.secondhand.tradingplatformcommon.base.BaseEntity;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package com.secondhand.tradingplatformgenerator.base.BaseDao;
+package com.secondhand.tradingplatformcommon.base.BaseDao;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.baomidou.mybatisplus.plugins.Page;

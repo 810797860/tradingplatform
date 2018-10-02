@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.secondhand.tradingplatformgenerator.base.BaseMapper.BaseEntityMapper">
-    <resultMap id="baseEntityMapper" type="com.secondhand.tradingplatformgenerator.base.BaseEntity.BaseEntity">
+<mapper namespace="com.secondhand.tradingplatformcommon.base.BaseMapper.BaseEntityMapper">
+    <resultMap id="baseEntityMapper" type="com.secondhand.tradingplatformcommon.base.BaseEntity.BaseEntity">
         <id column="id" property="id" jdbcType="INTEGER"></id>
         <result column="uuid" property="uuid" jdbcType="VARCHAR"></result>
         <result column="description" property="description" jdbcType="VARCHAR"></result>

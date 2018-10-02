@@ -3,7 +3,7 @@ package com.secondhand.tradingplatformgenerator.example.controller;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformcommon.util.JsonResult;
 import com.secondhand.tradingplatformcommon.util.TableJson;
-import com.secondhand.tradingplatformgenerator.base.BaseController.BaseController;
+import com.secondhand.tradingplatformcommon.base.BaseController.BaseController;
 import com.secondhand.tradingplatformgenerator.example.entity.User;
 import com.secondhand.tradingplatformgenerator.example.service.UserService;
 import io.swagger.annotations.Api;

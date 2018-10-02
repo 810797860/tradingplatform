@@ -1,6 +1,6 @@
 package com.secondhand.tradingplatformgenerator.example.service;
 
-import com.secondhand.tradingplatformgenerator.base.BaseService.BaseService;
+import com.secondhand.tradingplatformcommon.base.BaseService.BaseService;
 import com.secondhand.tradingplatformgenerator.example.entity.User;
 
 import java.util.List;

@@ -88,15 +88,15 @@ public class MysqlGenerator {
                         //.setSuperEntityColumns(new String[]{"test_id"})
                         .setTableFillList(tableFillList)
                 // 自定义 dao 父类
-                .setSuperMapperClass("com.secondhand.tradingplatformgenerator.base.BaseDao.BaseDao")
+                .setSuperMapperClass("com.secondhand.tradingplatformcommon.base.BaseDao.BaseDao")
                 // 自定义 service 父类
-                .setSuperServiceClass("com.secondhand.tradingplatformgenerator.base.BaseService.BaseService")
+                .setSuperServiceClass("com.secondhand.tradingplatformcommon.base.BaseService.BaseService")
                 // 自定义 service 实现类父类
-                .setSuperServiceImplClass("com.secondhand.tradingplatformgenerator.base.BaseServiceImpl.BaseServiceImpl")
+                .setSuperServiceImplClass("com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl")
                 // 自定义 controller 父类
-                .setSuperControllerClass("com.secondhand.tradingplatformgenerator.base.BaseController.BaseController")
+                .setSuperControllerClass("com.secondhand.tradingplatformcommon.base.BaseController.BaseController")
                 // 自定义 entity 父类
-                .setSuperEntityClass("com.secondhand.tradingplatformgenerator.base.BaseEntity.BaseEntity")
+                .setSuperEntityClass("com.secondhand.tradingplatformcommon.base.BaseEntity.BaseEntity")
                 // 【实体】是否生成字段常量（默认 false）
                 // public static final String ID = "test_id";
                 // .setEntityColumnConstant(true)

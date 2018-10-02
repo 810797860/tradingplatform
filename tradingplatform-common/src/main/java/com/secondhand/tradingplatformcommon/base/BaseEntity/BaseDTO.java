@@ -1,4 +1,4 @@
-package com.secondhand.tradingplatformgenerator.base.BaseEntity;
+package com.secondhand.tradingplatformcommon.base.BaseEntity;
 
 import com.baomidou.mybatisplus.plugins.Page;
 

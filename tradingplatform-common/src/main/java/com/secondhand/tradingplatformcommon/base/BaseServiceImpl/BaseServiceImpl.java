@@ -1,9 +1,9 @@
-package com.secondhand.tradingplatformgenerator.base.BaseServiceImpl;
+package com.secondhand.tradingplatformcommon.base.BaseServiceImpl;
 
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-import com.secondhand.tradingplatformgenerator.base.BaseDao.BaseDao;
-import com.secondhand.tradingplatformgenerator.base.BaseService.BaseService;
+import com.secondhand.tradingplatformcommon.base.BaseDao.BaseDao;
+import com.secondhand.tradingplatformcommon.base.BaseService.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;

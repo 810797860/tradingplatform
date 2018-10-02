@@ -1,6 +1,6 @@
 package com.secondhand.tradingplatformgenerator.example.mapper;
 
-import com.secondhand.tradingplatformgenerator.base.BaseDao.BaseDao;
+import com.secondhand.tradingplatformcommon.base.BaseDao.BaseDao;
 import com.secondhand.tradingplatformgenerator.example.entity.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
