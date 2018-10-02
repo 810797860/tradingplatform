@@ -6,7 +6,6 @@
         <module>tradingplatform-admin-controller</module>
 		<module>tradingplatform-admin-doc</module>
 		<module>tradingplatform-admin-entity</module>
-		<module>tradingplatform-admin-entrance</module>
 		<module>tradingplatform-admin-mapper</module>
 		<module>tradingplatform-admin-service</module>
 		<module>tradingplatform-admin-service-impl</module>

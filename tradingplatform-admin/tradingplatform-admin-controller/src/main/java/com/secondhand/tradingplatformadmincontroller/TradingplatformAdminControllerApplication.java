@@ -1,12 +1,12 @@
-package com.secondhand.tradingplatformadminentrance;
+package com.secondhand.tradingplatformadmincontroller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TradingplatformAdminEntranceApplication {
+public class TradingplatformAdminControllerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TradingplatformAdminEntranceApplication.class, args);
+		SpringApplication.run(TradingplatformAdminControllerApplication.class, args);
 	}
 }

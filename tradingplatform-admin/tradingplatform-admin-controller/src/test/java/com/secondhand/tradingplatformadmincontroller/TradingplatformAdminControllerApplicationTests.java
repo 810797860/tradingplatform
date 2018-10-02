@@ -1,4 +1,4 @@
-package com.secondhand.tradingplatformadminentrance;
+package com.secondhand.tradingplatformadmincontroller;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class TradingplatformAdminEntranceApplicationTests {
+public class TradingplatformAdminControllerApplicationTests {
 
 	@Test
 	public void contextLoads() {
