@@ -5,9 +5,10 @@
 
 	<parent>
 		<groupId>com.secondhand</groupId>
-		<artifactId>tradingplatform</artifactId>
+		<artifactId>tradingplatform-admin</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
+
 
 	<groupId>com.secondhand</groupId>
 	<artifactId>tradingplatform-admin-controller</artifactId>
