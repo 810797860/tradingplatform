@@ -1,5 +1,6 @@
 package com.secondhand.tradingplatformcommon.base.BaseEntity;
 
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.plugins.Page;
 
 import java.io.Serializable;
@@ -18,6 +19,7 @@ public class BaseDTO implements Serializable {
     /**
      * 分页参数
      */
+    @TableField(exist = false)
     private Page page;
 
     public Page getPage() {

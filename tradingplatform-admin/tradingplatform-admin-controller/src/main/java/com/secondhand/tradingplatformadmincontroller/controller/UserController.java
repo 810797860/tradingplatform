@@ -19,7 +19,7 @@ import java.util.Map;
  * @author 81079
  */
 
-@RestController
+@RestController("adminUserController")
 @Api(value = "/admin/user", description = "User控制器")
 @RequestMapping("/admin/user")
 public class UserController extends BaseController {

@@ -1,5 +1,7 @@
 package com.secondhand.tradingplatformcommon.base.BaseEntity;
 
+import com.baomidou.mybatisplus.annotations.TableField;
+
 import java.util.Date;
 
 /**
@@ -46,6 +48,7 @@ public class BaseEntity extends BaseDTO {
     /**
      * 创建起始时间，用于query搜索时间传参
      */
+    @TableField(exist = false)
     private Date createdAtStart;
 
     /**
@@ -61,6 +64,7 @@ public class BaseEntity extends BaseDTO {
     /**
      * 更新起始时间，用于query搜索时间传参
      */
+    @TableField(exist = false)
     private Date updatedAtStart;
 
     public Long getId() {

@@ -1,9 +1,9 @@
-package com.secondhand.tradingplatformadminserviceimpl.serviceimpl;
+package com.secondhand.tradingplatformadmincontroller.serviceimpl;
 
+import com.secondhand.tradingplatformadminentity.entity.User;
+import com.secondhand.tradingplatformadminmapper.mapper.UserMapper;
+import com.secondhand.tradingplatformadminservice.service.UserService;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
-import com.secondhand.tradingplatformgenerator.example.entity.User;
-import com.secondhand.tradingplatformgenerator.example.mapper.UserMapper;
-import com.secondhand.tradingplatformgenerator.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -2,6 +2,7 @@ package com.secondhand.tradingplatformcommon.base.BaseDao;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import org.apache.ibatis.annotations.Param;
 
 import java.io.Serializable;
 import java.util.List;
@@ -119,4 +120,9 @@ public interface BaseDao<T> extends BaseMapper<T> {
      * @return
      */
     T selectOneByObj(Serializable obj);
+
+
+    List<Map<String,Object>> queryUserWithExampleSortSearch(@Param("example") T example,
+                                                            @Param("offset") long offset, @Param("size") long size,
+                                                            @Param("order") String order, @Param("sort") String sort);
 }

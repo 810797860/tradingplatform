@@ -1,5 +1,7 @@
 package com.secondhand.tradingplatformcommon.base.BaseServiceImpl;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.secondhand.tradingplatformcommon.base.BaseDao.BaseDao;
@@ -21,8 +23,8 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
 
     @Override
     public Page<T> selectPageWithParam(Page<T> page, T param) {
-        page.setRecords(this.baseDao.selectPageWithParam(page, param));
-        return page;
+        Wrapper<T> wrapper = new EntityWrapper<>();
+        return this.selectPage(page, wrapper);
     }
 
     @Override
@@ -94,5 +96,10 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
     @Override
     public T selectOneByObj(Serializable obj) {
         return this.baseDao.selectOneByObj(obj);
+    }
+
+    @Override
+    public List<Map<String, Object>> queryUserWithExampleSortSearch(T param) {
+        return null;
     }
 }

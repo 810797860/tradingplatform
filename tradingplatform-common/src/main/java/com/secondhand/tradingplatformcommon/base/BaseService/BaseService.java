@@ -119,4 +119,11 @@ public interface BaseService<T> extends IService<T> {
      * @return
      */
     T selectOneByObj(Serializable obj);
+
+    /**
+     * 获取指定List<Map<String,Object>>(实体类)
+     * @param param
+     * @return
+     */
+    List<Map<String,Object>> queryUserWithExampleSortSearch(T param);
 }
