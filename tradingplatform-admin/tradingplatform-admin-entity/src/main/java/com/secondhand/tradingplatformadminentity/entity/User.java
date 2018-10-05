@@ -1,8 +1,6 @@
 package com.secondhand.tradingplatformadminentity.entity;
 
-import com.baomidou.mybatisplus.enums.IdType;
 import java.util.Date;
-import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.BaseEntity;
@@ -24,19 +22,11 @@ public class User extends BaseEntity {
 	 */
     private static final long serialVersionUID = 1L;
 
-
-    /**
-     * 主键id
-     */
-	@ApiModelProperty("主键id")
-	@TableId(value="id", type= IdType.AUTO)
-	private Long id;
-
     /**
      * 头像
      */
 	@ApiModelProperty("头像")
-	@TableField("avatar")
+	@TableField(value = "avatar")
 	private String avatar;
 
     /**
@@ -133,66 +123,6 @@ public class User extends BaseEntity {
 	@ApiModelProperty("保留字段")
 	@TableField("version")
 	private Integer version;
-
-    /**
-     * 全局id
-     */
-	@ApiModelProperty("全局id")
-	@TableField("uuid")
-	private String uuid;
-
-    /**
-     * 备注
-     */
-	@ApiModelProperty("备注")
-	@TableField("description")
-	private String description;
-
-    /**
-     * 是否已删除
-     */
-	@ApiModelProperty("是否已删除")
-	@TableField("deleted")
-	private Boolean deleted;
-
-    /**
-     * 创建人
-     */
-	@ApiModelProperty("创建人")
-	private Long createdBy;
-
-    /**
-     * 创建时间
-     */
-	@ApiModelProperty("创建时间")
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-	private Date createdAt;
-
-    /**
-     * 更新人
-     */
-	@ApiModelProperty("更新人")
-	private Long updatedBy;
-
-    /**
-     * 新时间
-     */
-	@ApiModelProperty("新时间")
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-	private Date updatedAt;
-
-
-	@Override
-	public Long getId() {
-		return id;
-	}
-
-	@Override
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getAvatar() {
 		return avatar;
@@ -307,101 +237,22 @@ public class User extends BaseEntity {
 	}
 
 	@Override
-	public String getUuid() {
-		return uuid;
-	}
-
-	@Override
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
-	}
-
-	@Override
-	public String getDescription() {
-		return description;
-	}
-
-	@Override
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	@Override
-	public Boolean getDeleted() {
-		return deleted;
-	}
-
-	@Override
-	public void setDeleted(Boolean deleted) {
-		this.deleted = deleted;
-	}
-
-	@Override
-	public Long getCreatedBy() {
-		return createdBy;
-	}
-
-	@Override
-	public void setCreatedBy(Long createdBy) {
-		this.createdBy = createdBy;
-	}
-
-	@Override
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	@Override
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	@Override
-	public Long getUpdatedBy() {
-		return updatedBy;
-	}
-
-	@Override
-	public void setUpdatedBy(Long updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	@Override
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-
-	@Override
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
-
-
-	@Override
 	public String toString() {
 		return "User{" +
-			", id=" + id +
-			", avatar=" + avatar +
-			", account=" + account +
-			", password=" + password +
-			", salt=" + salt +
-			", name=" + name +
-			", birthday=" + birthday +
-			", sex=" + sex +
-			", email=" + email +
-			", phone=" + phone +
-			", roleId=" + roleId +
-			", deptId=" + deptId +
-			", status=" + status +
-			", createTime=" + createTime +
-			", version=" + version +
-			", uuid=" + uuid +
-			", description=" + description +
-			", deleted=" + deleted +
-			", createdBy=" + createdBy +
-			", createdAt=" + createdAt +
-			", updatedBy=" + updatedBy +
-			", updatedAt=" + updatedAt +
-			"}";
+				"avatar='" + avatar + '\'' +
+				", account='" + account + '\'' +
+				", password='" + password + '\'' +
+				", salt='" + salt + '\'' +
+				", name='" + name + '\'' +
+				", birthday=" + birthday +
+				", sex=" + sex +
+				", email='" + email + '\'' +
+				", phone='" + phone + '\'' +
+				", roleId='" + roleId + '\'' +
+				", deptId=" + deptId +
+				", status=" + status +
+				", createTime=" + createTime +
+				", version=" + version +
+				'}';
 	}
 }

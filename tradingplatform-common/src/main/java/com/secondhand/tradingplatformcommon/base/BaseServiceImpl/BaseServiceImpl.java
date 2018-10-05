@@ -95,7 +95,8 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
 
     @Override
     public T selectOneByObj(Serializable obj) {
-        return this.baseDao.selectOneByObj(obj);
+/*        return this.baseDao.selectOneByObj(obj);*/
+        return this.baseDao.selectById(obj);
     }
 
     @Override

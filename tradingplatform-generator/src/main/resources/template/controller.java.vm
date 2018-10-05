@@ -32,7 +32,7 @@ public class ${table.controllerName} {
 #end
 
     @Autowired
-    public ${table.serviceName} ${table.entityPath}Service;
+    private ${table.serviceName} ${table.entityPath}Service;
 
     /**
      * @description : 获取分页列表
