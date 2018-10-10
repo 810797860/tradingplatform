@@ -65,11 +65,11 @@ public class SelectSqlGenerator {
             }
 
             //特殊关联字段的拼接
-            if (tempParameter.equals("account")){
+/*            if (tempParameter.equals("account")){
                 select.setSelectSql(selectSql);
                 selectSql = concatSql(select, tempParameter, SelectEnum.C_BUSINESS_MATURE_CASE);
                 continue;
-            }
+            }*/
 
             //样式： tableAlias.parameter as parameter，
 

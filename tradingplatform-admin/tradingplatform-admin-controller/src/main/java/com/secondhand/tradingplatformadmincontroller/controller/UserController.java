@@ -113,9 +113,10 @@ public class UserController extends BaseController {
      * @param user
      * @return
      */
-    @PutMapping(value = "create_update", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "create_update", produces = {"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "create_update", notes = "新增或修改user")
     public JsonResult<User> userCreateUpdate(@ApiParam(name = "User", value = "User实体类") @RequestBody User user){
+        user = userService.userCreateUpdate(user);
         JsonResult<User> resJson = new JsonResult<>();
         resJson.setData(user);
         resJson.setSuccess(true);

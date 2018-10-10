@@ -38,7 +38,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper, User> implement
     @Override
     public User userCreateUpdate(User user) {
         Long userId = user.getId();
-        if (userId != null){
+        if (userId == null){
             userMapper.insert(user);
         } else {
             userMapper.updateById(user);

@@ -45,9 +45,5 @@
             #{item}
         </foreach>
     </update>
-    <select id="selectMapById" resultType="java.util.Map">
-        select * from s_base_user
-        where id = #{userId}
-    </select>
 
 </mapper>
