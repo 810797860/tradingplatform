@@ -6,7 +6,6 @@ import com.secondhand.tradingplatformgenerator.select.SelectEnum;
 import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -65,6 +64,7 @@ public class SelectSqlGenerator {
                 break;
             }
 
+            //特殊关联字段的拼接
             if (tempParameter.equals("account")){
                 select.setSelectSql(selectSql);
                 selectSql = concatSql(select, tempParameter, SelectEnum.C_BUSINESS_MATURE_CASE);
