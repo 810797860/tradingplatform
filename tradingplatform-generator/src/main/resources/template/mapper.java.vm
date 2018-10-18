@@ -1,33 +1,21 @@
-package ${package.Mapper};
+##package ${package.Mapper};
 
-import ${package.Entity}.${entity};
-import ${superMapperClassPackage};
+##import ${package.Entity}.${entity};
+##import ${superMapperClassPackage};
+package com.secondhand.tradingplatformadminmapper.mapper;
+
+import com.secondhand.tradingplatformadminentity.entity.${entity};
+import com.secondhand.tradingplatformcommon.base.BaseDao.BaseDao;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 import com.baomidou.mybatisplus.plugins.Page;
 
 import java.util.List;
+import java.util.Map;
 
 /**
- *code is far away from bug with the animal protecting
- *  ┏┓　　　┏┓
- *┏┛┻━━━┛┻┓
- *┃　　　　　　　┃ 　
- *┃　　　━　　　┃
- *┃　┳┛　┗┳　┃
- *┃　　　　　　　┃
- *┃　　　┻　　　┃
- *┃　　　　　　　┃
- *┗━┓　　　┏━┛
- *　　┃　　　┃神兽保佑
- *　　┃　　　┃代码无BUG！
- *　　┃　　　┗━━━┓
- *　　┃　　　　　　　┣┓
- *　　┃　　　　　　　┏┛
- *　　┗┓┓┏━┳┓┏┛
- *　　　┃┫┫　┃┫┫
- *　　　┗┻┛　┗┻┛
- *　　
- *   @description : ${entity} Mapper 接口
+ *   @description : ${entity}Mapper 接口
  *   ---------------------------------
  * 	 @author ${author}
  *   @since ${date}
@@ -35,4 +23,26 @@ import java.util.List;
 @Repository
 public interface ${table.mapperName} extends ${superMapperClass}<${entity}> {
 
+    /**
+     * 根据id进行假删除
+     * @param ${table.entityPath}Id
+     * @return
+     */
+    boolean fakeDeleteById(@Param("${table.entityPath}Id") Long ${table.entityPath}Id);
+
+    /**
+     * 批量假删除
+     * @param ${table.entityPath}Ids
+     * @return
+     */
+    boolean fakeBatchDelete(@Param("${table.entityPath}Ids") List<Long> ${table.entityPath}Ids);
+
+    /**
+     * 获取Map数据（Obj）
+     * 自定化MapSql到MysqlGenerator生成
+     * @param ${table.entityPath}Id
+     * @return
+     */
+    @Select("select * from s_base_${table.entityPath} where id = #{${table.entityPath}Id}")
+    Map<String, Object> selectMapById(@Param("${table.entityPath}Id") Long ${table.entityPath}Id);
 }
