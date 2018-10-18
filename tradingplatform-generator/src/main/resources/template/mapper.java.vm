@@ -43,6 +43,6 @@ public interface ${table.mapperName} extends ${superMapperClass}<${entity}> {
      * @param ${table.entityPath}Id
      * @return
      */
-    @Select("select * from s_base_${table.entityPath} where id = #{${table.entityPath}Id}")
+    @Select("select * from ${table.name} where id = #{${table.entityPath}Id}")
     Map<String, Object> selectMapById(@Param("${table.entityPath}Id") Long ${table.entityPath}Id);
 }

@@ -1,63 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
+##<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="${package.Mapper}.${table.mapperName}">
+##<mapper namespace="${package.Mapper}.${table.mapperName}">
+<mapper namespace="com.secondhand.tradingplatformadminmapper.mapper.${entity}Mapper">
 
 #if(${enableCache})
 	<!-- 开启二级缓存 -->
 	<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
 
 #end
-#if(${baseResultMap})
-	<!-- 通用查询映射结果 -->
-	<resultMap id="BaseResultMap" type="${package.Entity}.${entity}">
-#foreach($field in ${table.fields})
-#if(${field.keyFlag})##生成主键排在第一位
-		<id column="${field.name}" property="${field.propertyName}" />
-#end
-#end
-#foreach($field in ${table.commonFields})##生成公共字段
-	<result column="${field.name}" property="${field.propertyName}" />
-#end
-#foreach($field in ${table.fields})
-#if(!${field.keyFlag})##生成普通字段
-		<result column="${field.name}" property="${field.propertyName}" />
-#end
-#end
-	</resultMap>
+	#if(${baseResultMap})
+		<!-- 通用查询映射结果 -->
+	##	<resultMap id="BaseResultMap" type="${package.Entity}.${entity}">
+		<resultMap id="${table.entityPath}Map" type="com.secondhand.tradingplatformadminentity.entity.${entity}" extends="com.secondhand.tradingplatformcommon.base.BaseMapper.BaseEntityMapper.baseEntityMapper">
+	##foreach($field in ${table.fields})
+	##if(${field.keyFlag})##生成主键排在第一位
+	##		<id column="${field.name}" property="${field.propertyName}" />
+	##end
+	##end
+	##foreach($field in ${table.commonFields})##生成公共字段
+	##	<result column="${field.name}" property="${field.propertyName}" />
+	##end
+	#foreach($field in ${table.fields})
+		#if(${field.name} == "id" || ${field.name} == "uuid" || ${field.name} == "description" || ${field.name} == "deleted" || ${field.name} == "created_by" || ${field.name} == "created_at" || ${field.name} == "updated_by" || ${field.name} == "updated_at")
 
+		#else
+			#if(!${field.keyFlag})##生成普通字段
+				<result column="${field.name}" property="${field.propertyName}" jdbcType="#if(${field.propertyType} == "Integer" || ${field.propertyType} == "Long")INTEGER" />
+			#elseif(${field.propertyType} == "String")VARCHAR" />
+			#elseif(${field.propertyType} == "Boolean")BOOLEAN" />
+			#elseif(${field.propertyType} == "Float")FLOAT" />
+			#elseif(${field.propertyType} == "Date")DATE" />
 #end
-#if(${baseColumnList})
-    <!-- 通用查询结果列 -->
-    <sql id="Base_Column_List">
-#foreach($field in ${table.commonFields})
-	#if(${field.name} == ${field.propertyName})${field.name}#else${field.name} AS ${field.propertyName}#end,
-#end
-        ${table.fieldNames}
-    </sql>
+			#end
+		#end
+	#end
+		</resultMap>
+	#end
 
-#end
-	<select id="selectPageWithParam" resultType="${package.Entity}.${entity}" parameterType="${package.Entity}.${entity}">
-		select
-		#if(${baseColumnList})
-        <include refid="Base_Column_List"/>
-		#end
-		#if(!${baseColumnList})
-		*
-		#end
-		from ${table.name}
-	</select>
+	#if(${baseResultMap})
+        <!-- 通用查询映射结果 -->
+	##	<resultMap id="BaseResultMap" type="${package.Entity}.${entity}">
+	<resultMap id="${table.entityPath}MapSimple" type="com.secondhand.tradingplatformadminentity.entity.${entity}">
+		##foreach($field in ${table.fields})
+		##if(${field.keyFlag})##生成主键排在第一位
+		##		<id column="${field.name}" property="${field.propertyName}" />
+		##end
+		##end
+		##foreach($field in ${table.commonFields})##生成公共字段
+		##	<result column="${field.name}" property="${field.propertyName}" />
+		##end
+			#foreach($field in ${table.fields})
+				#if(${field.name} == "id" || ${field.name} == "uuid" || ${field.name} == "description" || ${field.name} == "deleted" || ${field.name} == "created_by" || ${field.name} == "created_at" || ${field.name} == "updated_by" || ${field.name} == "updated_at")
 
-	<select id="selectOneByObj" resultType="${package.Entity}.${entity}" parameterType="java.lang.Long">
-		select
-		#if(${baseColumnList})
-        <include refid="Base_Column_List"/>
-		#end
-		#if(!${baseColumnList})
-        *
-		#end
-		from ${table.name}
-		<where>
-			id = #{id, jdbcType=VARCHAR}
-		</where>
-	</select>
+				#else
+					#if(!${field.keyFlag})##生成普通字段
+                        <result column="${field.name}" property="${field.propertyName}" jdbcType="#if(${field.propertyType} == "Integer" || ${field.propertyType} == "Long")INTEGER" />
+					#elseif(${field.propertyType} == "String")VARCHAR" />
+					#elseif(${field.propertyType} == "Boolean")BOOLEAN" />
+					#elseif(${field.propertyType} == "Float")FLOAT" />
+					#elseif(${field.propertyType} == "Date")DATE" />
+					#end
+					#end
+				#end
+			#end
+        </resultMap>
+	#end
+
+    <update id="fakeDeleteById">
+        update ${table.name} set deleted = true
+        where id = #{${table.entityPath}Id}
+    </update>
+
+    <update id="fakeBatchDelete" parameterType="java.util.List">
+        update ${table.name} set deleted = true
+        where id IN
+        <foreach collection="${table.entityPath}Ids" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
+
+##if(${baseColumnList})
+##    <!-- 通用查询结果列 -->
+##    <sql id="Base_Column_List">
+##foreach($field in ${table.commonFields})
+##	#if(${field.name} == ${field.propertyName})${field.name}#else${field.name} AS ${field.propertyName}#end,
+##end
+##        ${table.fieldNames}
+##    </sql>
+
+##end
+##	<select id="selectPageWithParam" resultType="${package.Entity}.${entity}" parameterType="${package.Entity}.${entity}">
+##		select
+##		#if(${baseColumnList})
+##        <include refid="Base_Column_List"/>
+##		#end
+##		#if(!${baseColumnList})
+##		*
+##		#end
+##		from ${table.name}
+##	</select>
+
+##	<select id="selectOneByObj" resultType="${package.Entity}.${entity}" parameterType="java.lang.Long">
+##		select
+##		#if(${baseColumnList})
+##        <include refid="Base_Column_List"/>
+##		#end
+##		#if(!${baseColumnList})
+##        *
+##		#end
+##		from ${table.name}
+##		<where>
+##			id = #{id, jdbcType=VARCHAR}
+##		</where>
+##	</select>
 </mapper>

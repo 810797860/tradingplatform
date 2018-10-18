@@ -120,7 +120,7 @@ public class MysqlGenerator {
                         .setMapper("dao")
                         .setService("service")
                         .setServiceImpl("service.impl")
-                        //.setXml("dao")
+                        .setXml("dao")
         ).setCfg(
                 // 注入自定义配置，可以在 VM 中使用 cfg.abc 设置的值
                 new InjectionConfig() {
@@ -146,14 +146,14 @@ public class MysqlGenerator {
                 .setController("")
                 .setEntity("")
                 .setMapper("")
-                //.setXml("")
+                .setXml("")
                 .setService("")
                 .setServiceImpl("")
 
                 .setController("/template/controller.java.vm")
                 .setEntity("/template/entity.java.vm")
                 .setMapper("/template/mapper.java.vm")
-                //.setXml("/template/mapper.xml.vm")
+                .setXml("/template/mapper.xml.vm")
                 .setService("/template/service.java.vm")
                 .setServiceImpl("/template/serviceImpl.java.vm")
         );
