@@ -1,33 +1,49 @@
-package ${package.Service};
+##package ${package.Service};
+##
+##import ${package.Entity}.${entity};
+##import ${superServiceClassPackage};
+package com.secondhand.tradingplatformadminservice.service;
 
-import ${package.Entity}.${entity};
-import ${superServiceClassPackage};
+import com.secondhand.tradingplatformadminentity.entity.${entity};
+import com.secondhand.tradingplatformcommon.base.BaseService.BaseService;
+
+import java.util.List;
+import java.util.Map;
 
 /**
- *code is far away from bug with the animal protecting
- *  ┏┓　　　┏┓
- *┏┛┻━━━┛┻┓
- *┃　　　　　　　┃ 　
- *┃　　　━　　　┃
- *┃　┳┛　┗┳　┃
- *┃　　　　　　　┃
- *┃　　　┻　　　┃
- *┃　　　　　　　┃
- *┗━┓　　　┏━┛
- *　　┃　　　┃神兽保佑
- *　　┃　　　┃代码无BUG！
- *　　┃　　　┗━━━┓
- *　　┃　　　　　　　┣┓
- *　　┃　　　　　　　┏┛
- *　　┗┓┓┏━┳┓┏┛
- *　　　┃┫┫　┃┫┫
- *　　　┗┻┛　┗┻┛
- *　　
  *   @description : ${entity} 服务接口
  *   ---------------------------------
  * 	 @author ${author}
  *   @since ${date}
  */
 public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
-	
+
+        /**
+         * 根据id进行假删除
+         * @param ${table.entityPath}Id
+         * @return
+         */
+        boolean fakeDeleteById(Long ${table.entityPath}Id);
+
+        /**
+         * 根据ids进行批量假删除
+         * @param ${table.entityPath}Ids
+         * @return
+         */
+        boolean fakeBatchDelete(List<Long> ${table.entityPath}Ids);
+
+        /**
+         * 获取Map数据（Obj）
+         * @param ${table.entityPath}Id
+         * @return
+         */
+        Map<String, Object> selectMapById(Long ${table.entityPath}Id);
+
+        /**
+         * 新增或修改${table.entityPath}
+         * @param ${table.entityPath}
+         * @return
+         */
+        ${entity} ${table.entityPath}CreateUpdate(${entity} ${table.entityPath});
+
 }
