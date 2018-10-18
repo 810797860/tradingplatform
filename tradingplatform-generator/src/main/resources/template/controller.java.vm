@@ -65,7 +65,7 @@ public class ${table.controllerName} {
     }
 
     /**
-     * @description : 通过id获取${entity}
+     * @description : 通过id获取${table.entityPath}
      * @author : ${author}
      * @since : Create in ${date}
      */
