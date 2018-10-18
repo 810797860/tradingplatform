@@ -120,9 +120,10 @@ public class ${table.controllerName} {
      * @author : ${author}
      * @since : Create in ${date}
      */
-    @PutMapping(value = "create_update", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "create_update", produces = {"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "create_update", notes = "新增或修改${table.entityPath}")
     public JsonResult<${entity}> ${table.entityPath}CreateUpdate(@ApiParam(name = "${entity}", value = "${entity}实体类") @RequestBody ${entity} ${table.entityPath}){
+            ${table.entityPath} = ${table.entityPath}Service.${table.entityPath}CreateUpdate(${table.entityPath});
             JsonResult<${entity}> resJson = new JsonResult<>();
             resJson.setData(${table.entityPath});
             resJson.setSuccess(true);
