@@ -23,6 +23,11 @@ import ${superControllerClassPackage};
 import com.secondhand.tradingplatformadminentity.entity.${entity};
 import com.secondhand.tradingplatformadminservice.service.${entity}Service;
 
+/**
+ * @description : ${entity} 控制器
+ * @author : ${author}
+ * @since : Create in ${date}
+ */
 #if(${restControllerStyle})
 @RestController
 #else

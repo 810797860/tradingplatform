@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.secondhand.tradingplatformadminmapper.mapper.shiro.ResourcesMapper">
+
+		<!-- 通用查询映射结果 -->
+			<resultMap id="resourcesMap" type="com.secondhand.tradingplatformadminentity.entity.shiro.Resources" extends="com.secondhand.tradingplatformcommon.base.BaseMapper.BaseEntityMapper.baseEntityMapper">
+									
+				<result column="name" property="name" jdbcType="VARCHAR" />
+				<result column="resUrl" property="resUrl" jdbcType="VARCHAR" />
+				<result column="type" property="type" jdbcType="INTEGER" />
+				<result column="parentId" property="parentId" jdbcType="INTEGER" />
+				<result column="sort" property="sort" jdbcType="INTEGER" />
+
+
+
+
+
+
+
+		</resultMap>
+
+        <!-- 通用查询映射结果 -->
+		<resultMap id="resourcesMapSimple" type="com.secondhand.tradingplatformadminentity.entity.shiro.Resources">
+																			
+                        <result column="name" property="name" jdbcType="VARCHAR" />
+                        <result column="resUrl" property="resUrl" jdbcType="VARCHAR" />
+                        <result column="type" property="type" jdbcType="INTEGER" />
+                        <result column="parentId" property="parentId" jdbcType="INTEGER" />
+                        <result column="sort" property="sort" jdbcType="INTEGER" />
+
+
+
+
+
+
+
+        </resultMap>
+
+    <update id="fakeDeleteById">
+        update s_base_resources set deleted = true
+        where id = #{resourcesId}
+    </update>
+
+    <update id="fakeBatchDelete" parameterType="java.util.List">
+        update s_base_resources set deleted = true
+        where id IN
+        <foreach collection="resourcesIds" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
+
+
+
+</mapper>
