@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50709
 File Encoding         : 65001
 
-Date: 2018-10-18 18:34:13
+Date: 2018-10-25 20:09:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -376,11 +376,49 @@ INSERT INTO `s_base_relation` VALUES ('3790', '148', '1', null, null, '\0', null
 INSERT INTO `s_base_relation` VALUES ('3791', '149', '1', null, null, '\0', null, '2018-09-21 16:28:41', null, '2018-09-21 16:29:52');
 
 -- ----------------------------
+-- Table structure for s_base_resources
+-- ----------------------------
+DROP TABLE IF EXISTS `s_base_resources`;
+CREATE TABLE `s_base_resources` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL COMMENT '资源名称',
+  `resUrl` varchar(255) DEFAULT NULL COMMENT '资源url',
+  `type` int(11) DEFAULT NULL COMMENT '资源类型   1:菜单    2：按钮',
+  `parentId` int(11) DEFAULT NULL COMMENT '父资源',
+  `sort` int(11) DEFAULT NULL COMMENT '排序',
+  `uuid` varchar(32) DEFAULT NULL COMMENT '全局id',
+  `description` varchar(1024) DEFAULT NULL COMMENT '备注',
+  `deleted` bit(1) DEFAULT b'0' COMMENT '是否已删除',
+  `created_by` bigint(20) DEFAULT NULL COMMENT '创建人',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_by` bigint(20) DEFAULT NULL COMMENT '更新人',
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of s_base_resources
+-- ----------------------------
+INSERT INTO `s_base_resources` VALUES ('1', '系统设置', '/system', '0', '0', '1', null, null, '\0', null, '2018-10-20 17:08:02', null, '2018-10-20 17:08:50');
+INSERT INTO `s_base_resources` VALUES ('2', '用户管理', '/usersPage', '1', '1', '2', null, null, '\0', null, '2018-10-20 17:08:02', null, '2018-10-20 17:08:50');
+INSERT INTO `s_base_resources` VALUES ('3', '角色管理', '/rolesPage', '1', '1', '3', null, null, '\0', null, '2018-10-20 17:08:02', null, '2018-10-20 17:08:50');
+INSERT INTO `s_base_resources` VALUES ('4', '资源管理', '/resourcesPage', '1', '1', '4', null, null, '\0', null, '2018-10-20 17:08:02', null, '2018-10-20 17:08:50');
+INSERT INTO `s_base_resources` VALUES ('5', '添加用户', '/users/add', '2', '2', '5', null, null, '\0', null, '2018-10-20 17:08:02', null, '2018-10-20 17:08:50');
+INSERT INTO `s_base_resources` VALUES ('6', '删除用户', '/users/delete', '2', '2', '6', null, null, '\0', null, '2018-10-20 17:08:02', null, '2018-10-20 17:08:50');
+INSERT INTO `s_base_resources` VALUES ('7', '添加角色', '/roles/add', '2', '3', '7', null, null, '\0', null, '2018-10-20 17:08:02', null, '2018-10-20 17:08:50');
+INSERT INTO `s_base_resources` VALUES ('8', '删除角色', '/roles/delete', '2', '3', '8', null, null, '\0', null, '2018-10-20 17:08:02', null, '2018-10-20 17:08:50');
+INSERT INTO `s_base_resources` VALUES ('9', '添加资源', '/resources/add', '2', '4', '9', null, null, '\0', null, '2018-10-20 17:08:02', null, '2018-10-20 17:08:50');
+INSERT INTO `s_base_resources` VALUES ('10', '删除资源', '/resources/delete', '2', '4', '10', null, null, '\0', null, '2018-10-20 17:08:02', null, '2018-10-20 17:08:50');
+INSERT INTO `s_base_resources` VALUES ('11', '分配角色', '/users/saveUserRoles', '2', '2', '11', null, null, '\0', null, '2018-10-20 17:08:02', null, '2018-10-20 17:08:50');
+INSERT INTO `s_base_resources` VALUES ('13', '分配权限', '/roles/saveRoleResources', '2', '3', '12', null, null, '\0', null, '2018-10-20 17:08:02', null, '2018-10-20 17:08:50');
+
+-- ----------------------------
 -- Table structure for s_base_role
 -- ----------------------------
 DROP TABLE IF EXISTS `s_base_role`;
 CREATE TABLE `s_base_role` (
   `id` bigint(11) NOT NULL AUTO_INCREMENT COMMENT '主键id',
+  `roleDesc` varchar(255) DEFAULT NULL,
   `num` int(11) DEFAULT NULL COMMENT '序号',
   `pid` bigint(11) DEFAULT NULL COMMENT '父角色id',
   `name` varchar(255) DEFAULT NULL COMMENT '角色名称',
@@ -400,8 +438,54 @@ CREATE TABLE `s_base_role` (
 -- ----------------------------
 -- Records of s_base_role
 -- ----------------------------
-INSERT INTO `s_base_role` VALUES ('1', '1', '0', '超级管理员', '24', 'administrator', '1', null, null, '\0', null, '2018-09-21 16:35:04', null, '2018-09-21 16:37:53');
-INSERT INTO `s_base_role` VALUES ('5', '2', '1', '临时', '26', 'temp', null, null, null, '\0', null, '2018-09-21 16:35:04', null, '2018-09-21 16:37:53');
+INSERT INTO `s_base_role` VALUES ('1', '管理员', null, null, null, null, null, null, null, null, '\0', null, '2018-10-24 15:20:09', null, '2018-10-24 15:20:09');
+INSERT INTO `s_base_role` VALUES ('2', '普通用户', null, null, null, null, null, null, null, null, '\0', null, '2018-10-24 15:20:18', null, '2018-10-24 15:20:18');
+INSERT INTO `s_base_role` VALUES ('3', '超级管理员', null, null, null, null, null, null, null, null, '\0', null, '2018-10-24 15:20:25', null, '2018-10-24 15:20:25');
+
+-- ----------------------------
+-- Table structure for s_base_role_resources
+-- ----------------------------
+DROP TABLE IF EXISTS `s_base_role_resources`;
+CREATE TABLE `s_base_role_resources` (
+  `roleId` int(11) NOT NULL,
+  `resourcesId` int(11) NOT NULL,
+  `uuid` varchar(32) DEFAULT NULL COMMENT '全局id',
+  `description` varchar(1024) DEFAULT NULL COMMENT '备注',
+  `deleted` bit(1) DEFAULT b'0' COMMENT '是否已删除',
+  `created_by` bigint(20) DEFAULT NULL COMMENT '创建人',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_by` bigint(20) DEFAULT NULL COMMENT '更新人',
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`roleId`,`resourcesId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of s_base_role_resources
+-- ----------------------------
+INSERT INTO `s_base_role_resources` VALUES ('1', '2', null, null, '\0', null, '2018-10-20 17:20:48', null, '2018-10-20 17:26:49');
+INSERT INTO `s_base_role_resources` VALUES ('1', '3', null, null, '\0', null, '2018-10-20 17:20:48', null, '2018-10-20 17:26:49');
+INSERT INTO `s_base_role_resources` VALUES ('1', '4', null, null, '\0', null, '2018-10-20 17:20:48', null, '2018-10-20 17:26:49');
+INSERT INTO `s_base_role_resources` VALUES ('1', '5', null, null, '\0', null, '2018-10-20 17:20:48', null, '2018-10-20 17:26:49');
+INSERT INTO `s_base_role_resources` VALUES ('1', '6', null, null, '\0', null, '2018-10-20 17:20:48', null, '2018-10-20 17:26:49');
+INSERT INTO `s_base_role_resources` VALUES ('1', '7', null, null, '\0', null, '2018-10-20 17:20:48', null, '2018-10-20 17:26:49');
+INSERT INTO `s_base_role_resources` VALUES ('1', '8', null, null, '\0', null, '2018-10-20 17:20:48', null, '2018-10-20 17:26:49');
+INSERT INTO `s_base_role_resources` VALUES ('1', '9', null, null, '\0', null, '2018-10-20 17:20:48', null, '2018-10-20 17:26:49');
+INSERT INTO `s_base_role_resources` VALUES ('1', '10', null, null, '\0', null, '2018-10-20 17:20:48', null, '2018-10-20 17:26:49');
+INSERT INTO `s_base_role_resources` VALUES ('1', '11', null, null, '\0', null, '2018-10-20 17:20:48', null, '2018-10-20 17:26:49');
+INSERT INTO `s_base_role_resources` VALUES ('1', '13', null, null, '\0', null, '2018-10-20 17:20:48', null, '2018-10-20 17:26:49');
+INSERT INTO `s_base_role_resources` VALUES ('2', '2', null, null, '\0', null, '2018-10-20 17:20:48', null, '2018-10-20 17:26:49');
+INSERT INTO `s_base_role_resources` VALUES ('2', '3', null, null, '\0', null, '2018-10-20 17:20:48', null, '2018-10-20 17:26:49');
+INSERT INTO `s_base_role_resources` VALUES ('2', '4', null, null, '\0', null, '2018-10-20 17:20:48', null, '2018-10-20 17:26:49');
+INSERT INTO `s_base_role_resources` VALUES ('2', '9', null, null, '\0', null, '2018-10-20 17:20:48', null, '2018-10-20 17:26:49');
+INSERT INTO `s_base_role_resources` VALUES ('3', '2', null, null, '\0', null, '2018-10-20 17:20:48', null, '2018-10-20 17:26:49');
+INSERT INTO `s_base_role_resources` VALUES ('3', '3', null, null, '\0', null, '2018-10-20 17:20:48', null, '2018-10-20 17:26:49');
+INSERT INTO `s_base_role_resources` VALUES ('3', '4', null, null, '\0', null, '2018-10-20 17:20:48', null, '2018-10-20 17:26:49');
+INSERT INTO `s_base_role_resources` VALUES ('3', '5', null, null, '\0', null, '2018-10-20 17:20:48', null, '2018-10-20 17:26:49');
+INSERT INTO `s_base_role_resources` VALUES ('3', '7', null, null, '\0', null, '2018-10-20 17:20:48', null, '2018-10-20 17:26:49');
+INSERT INTO `s_base_role_resources` VALUES ('3', '8', null, null, '\0', null, '2018-10-20 17:20:48', null, '2018-10-20 17:26:49');
+INSERT INTO `s_base_role_resources` VALUES ('3', '9', null, null, '\0', null, '2018-10-20 17:20:48', null, '2018-10-20 17:26:49');
+INSERT INTO `s_base_role_resources` VALUES ('3', '10', null, null, '\0', null, '2018-10-20 17:20:48', null, '2018-10-20 17:26:49');
+INSERT INTO `s_base_role_resources` VALUES ('9', '9', null, null, '\0', null, '2018-10-20 17:20:48', null, '2018-10-20 17:26:49');
 
 -- ----------------------------
 -- Table structure for s_base_user
@@ -413,7 +497,7 @@ CREATE TABLE `s_base_user` (
   `account` varchar(45) DEFAULT NULL COMMENT '账号',
   `password` varchar(45) DEFAULT NULL COMMENT '密码',
   `salt` varchar(45) DEFAULT NULL COMMENT 'md5密码盐',
-  `name` varchar(45) DEFAULT NULL COMMENT '名字',
+  `user_name` varchar(45) DEFAULT NULL COMMENT '名字',
   `birthday` datetime DEFAULT NULL COMMENT '生日',
   `sex` int(11) DEFAULT NULL COMMENT '性别（1：男 2：女）',
   `email` varchar(45) DEFAULT NULL COMMENT '电子邮件',
@@ -423,6 +507,7 @@ CREATE TABLE `s_base_user` (
   `status` int(11) DEFAULT NULL COMMENT '状态(1：启用  2：冻结  3：删除）',
   `createTime` datetime DEFAULT NULL COMMENT '创建时间',
   `version` int(11) DEFAULT NULL COMMENT '保留字段',
+  `enable` bit(1) DEFAULT b'0' COMMENT '是否启用',
   `uuid` varchar(32) DEFAULT NULL COMMENT '全局id',
   `description` varchar(1024) DEFAULT NULL COMMENT '备注',
   `deleted` bit(1) DEFAULT b'0' COMMENT '是否已删除',
@@ -431,12 +516,35 @@ CREATE TABLE `s_base_user` (
   `updated_by` bigint(20) DEFAULT NULL COMMENT '更新人',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8 COMMENT='管理员表';
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8 COMMENT='管理员表';
 
 -- ----------------------------
 -- Records of s_base_user
 -- ----------------------------
-INSERT INTO `s_base_user` VALUES ('1', 'girl.gif', 'admin', 'ecfadcde9305f8891bcfe5a1e28c253e', '8pgby', '张三', '2017-05-05 00:00:00', '0', 'sn93@qq.com', '18200000000', '1', '27', '1', '2016-01-29 08:49:53', '25', null, null, '\0', null, '2018-09-21 16:44:55', null, '2018-10-10 20:08:33');
-INSERT INTO `s_base_user` VALUES ('44', null, 'test', '45abb7879f6a8268f1ef600e6038ac73', 'ssts3', 'test', '2017-05-01 00:00:00', '1', 'abc@123.com', '', '5', '26', '3', '2017-05-16 20:33:37', null, null, null, '\0', null, '2018-09-21 16:44:55', null, '2018-10-10 19:59:31');
-INSERT INTO `s_base_user` VALUES ('45', null, 'boss', '71887a5ad666a18f709e1d4e693d5a35', '1f7bf', '老板', '2017-12-04 00:00:00', '1', '', '', '1', '24', '1', '2017-12-04 22:24:02', null, null, null, '\0', null, '2018-09-21 16:44:55', null, '2018-09-21 16:46:28');
-INSERT INTO `s_base_user` VALUES ('46', null, 'manager', 'b53cac62e7175637d4beb3b16b2f7915', 'j3cs9', '经理', '2017-12-04 00:00:00', '1', '', '', '1', '24', '1', '2017-12-04 22:24:24', null, null, null, '\0', null, '2018-09-21 16:44:55', null, '2018-09-21 16:46:28');
+INSERT INTO `s_base_user` VALUES ('1', 'girl.gif', 'admin', '3ef7164d1f6167cb9f2658c07d3c2f0a', '8pgby', 'admin', '2017-05-05 00:00:00', '0', 'sn93@qq.com', '18200000000', '1', '27', '1', '2016-01-29 08:49:53', '25', '', null, null, '\0', null, '2018-09-21 16:44:55', null, '2018-10-24 22:11:28');
+INSERT INTO `s_base_user` VALUES ('44', null, 'test', '45abb7879f6a8268f1ef600e6038ac73', 'ssts3', 'test', '2017-05-01 00:00:00', '1', 'abc@123.com', '', '5', '26', '3', '2017-05-16 20:33:37', null, '\0', null, null, '\0', null, '2018-09-21 16:44:55', null, '2018-10-10 19:59:31');
+INSERT INTO `s_base_user` VALUES ('45', null, 'boss', '71887a5ad666a18f709e1d4e693d5a35', '1f7bf', '老板', '2017-12-04 00:00:00', '1', '', '', '1', '24', '1', '2017-12-04 22:24:02', null, '\0', null, null, '\0', null, '2018-09-21 16:44:55', null, '2018-09-21 16:46:28');
+INSERT INTO `s_base_user` VALUES ('46', null, 'manager', 'b53cac62e7175637d4beb3b16b2f7915', 'j3cs9', '经理', '2017-12-04 00:00:00', '1', '', '', '1', '24', '1', '2017-12-04 22:24:24', null, '\0', null, null, '\0', null, '2018-09-21 16:44:55', null, '2018-09-21 16:46:28');
+
+-- ----------------------------
+-- Table structure for s_base_user_role
+-- ----------------------------
+DROP TABLE IF EXISTS `s_base_user_role`;
+CREATE TABLE `s_base_user_role` (
+  `userId` int(11) DEFAULT NULL,
+  `roleId` int(11) DEFAULT NULL,
+  `uuid` varchar(32) DEFAULT NULL COMMENT '全局id',
+  `description` varchar(1024) DEFAULT NULL COMMENT '备注',
+  `deleted` bit(1) DEFAULT b'0' COMMENT '是否已删除',
+  `created_by` bigint(20) DEFAULT NULL COMMENT '创建人',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_by` bigint(20) DEFAULT NULL COMMENT '更新人',
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of s_base_user_role
+-- ----------------------------
+INSERT INTO `s_base_user_role` VALUES ('23', '2', null, null, '\0', null, '2018-10-20 17:33:53', null, '2018-10-20 17:34:46');
+INSERT INTO `s_base_user_role` VALUES ('1', '1', null, null, '\0', null, '2018-10-20 17:33:53', null, '2018-10-20 17:34:46');
+INSERT INTO `s_base_user_role` VALUES ('2', '2', null, null, '\0', null, '2018-10-20 17:33:53', null, '2018-10-20 17:34:46');
