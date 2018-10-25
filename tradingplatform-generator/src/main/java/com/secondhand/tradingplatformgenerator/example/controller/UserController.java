@@ -100,8 +100,8 @@ public class UserController extends BaseController {
      * @param userIds
      * @return
      */
-    @PutMapping(value = "batch_delete", produces = {"application/json"}, consumes = {"application/json"})
-    @ApiOperation(value = "batch_delete", notes = "根据ids批量假删除user")
+    @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
+    @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除user")
     public JsonResult<User> fakeBatchDelete(@ApiParam(name = "ids", value = "userIds") @RequestBody List<Long> userIds){
         JsonResult<User> resJson = new JsonResult<>();
         resJson.setSuccess(userService.fakeBatchDelete(userIds));
@@ -113,8 +113,8 @@ public class UserController extends BaseController {
      * @param user
      * @return
      */
-    @PutMapping(value = "create_update", produces = {"application/json"}, consumes = {"application/json"})
-    @ApiOperation(value = "create_update", notes = "新增或修改user")
+    @PutMapping(value = "/create_update", produces = {"application/json"}, consumes = {"application/json"})
+    @ApiOperation(value = "/create_update", notes = "新增或修改user")
     public JsonResult<User> userCreateUpdate(@ApiParam(name = "User", value = "User实体类") @RequestBody User user){
         JsonResult<User> resJson = new JsonResult<>();
         resJson.setData(user);

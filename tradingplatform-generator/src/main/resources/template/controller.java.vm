@@ -117,8 +117,8 @@ public class ${table.controllerName} {
      * @author : ${author}
      * @since : Create in ${date}
      */
-    @PutMapping(value = "batch_delete", produces = {"application/json"}, consumes = {"application/json"})
-    @ApiOperation(value = "batch_delete", notes = "根据ids批量假删除${table.entityPath}")
+    @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
+    @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除${table.entityPath}")
     public JsonResult<${entity}> fakeBatchDelete(@ApiParam(name = "ids", value = "${table.entityPath}Ids") @RequestBody List<Long> ${table.entityPath}Ids){
             JsonResult<${entity}> resJson = new JsonResult<>();
             resJson.setSuccess(${table.entityPath}Service.fakeBatchDelete(${table.entityPath}Ids));
@@ -130,8 +130,8 @@ public class ${table.controllerName} {
      * @author : ${author}
      * @since : Create in ${date}
      */
-    @PostMapping(value = "create_update", produces = {"application/json"}, consumes = {"application/json"})
-    @ApiOperation(value = "create_update", notes = "新增或修改${table.entityPath}")
+    @PostMapping(value = "/create_update", produces = {"application/json"}, consumes = {"application/json"})
+    @ApiOperation(value = "/create_update", notes = "新增或修改${table.entityPath}")
     public JsonResult<${entity}> ${table.entityPath}CreateUpdate(@ApiParam(name = "${entity}", value = "${entity}实体类") @RequestBody ${entity} ${table.entityPath}){
             ${table.entityPath} = ${table.entityPath}Service.${table.entityPath}CreateUpdate(${table.entityPath});
             JsonResult<${entity}> resJson = new JsonResult<>();

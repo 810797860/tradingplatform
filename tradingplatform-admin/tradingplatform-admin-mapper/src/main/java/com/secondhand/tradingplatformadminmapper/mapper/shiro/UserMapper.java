@@ -1,6 +1,7 @@
-package com.secondhand.tradingplatformadminmapper.mapper;
 
-import com.secondhand.tradingplatformadminentity.entity.User;
+package com.secondhand.tradingplatformadminmapper.mapper.shiro;
+
+import com.secondhand.tradingplatformadminentity.entity.shiro.User;
 import com.secondhand.tradingplatformcommon.base.BaseDao.BaseDao;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -10,9 +11,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author 81079
+ *   @description : UserMapper 接口
+ *   ---------------------------------
+ * 	 @author zhangjk
+ *   @since 2018-10-21
  */
-
 @Repository
 public interface UserMapper extends BaseDao<User> {
 
@@ -32,10 +35,10 @@ public interface UserMapper extends BaseDao<User> {
 
     /**
      * 获取Map数据（Obj）
+     * 自定化MapSql到MysqlGenerator生成
      * @param userId
      * @return
      */
-
-    @Select("select sbu.id as id, sbu.avatar as avatar, sbu.account as account, sbu.password as password, sbu.salt as salt, sbu.name as name, sbu.birthday as birthday, sbu.sex as sex, sbu.email as email, sbu.phone as phone, sbu.roleId as roleId, sbu.deptId as deptId, sbu.status as status, sbu.createTime as createTime, sbu.version as version, sbu.deleted as deleted, sbu.created_at as created_at from s_base_user sbu where id = #{userId}")
+    @Select("select * from s_base_user where id = #{userId}")
     Map<String, Object> selectMapById(@Param("userId") Long userId);
 }

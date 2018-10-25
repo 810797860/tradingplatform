@@ -1,8 +1,10 @@
-package com.secondhand.tradingplatformadmincontroller.serviceimpl;
+package com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro;
 
-import com.secondhand.tradingplatformadminentity.entity.User;
-import com.secondhand.tradingplatformadminmapper.mapper.UserMapper;
-import com.secondhand.tradingplatformadminservice.service.UserService;
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
+import com.secondhand.tradingplatformadminentity.entity.shiro.User;
+import com.secondhand.tradingplatformadminmapper.mapper.shiro.UserMapper;
+import com.secondhand.tradingplatformadminservice.service.shiro.UserService;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +13,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author 81079
+ *   @description : User 服务实现类
+ *   ---------------------------------
+ * 	 @author zhangjk
+ *   @since 2018-10-21
  */
 
 @Service
@@ -44,5 +49,18 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper, User> implement
             userMapper.updateById(user);
         }
         return user;
+    }
+
+    @Override
+    public User selectByUsername(String username) {
+        User user = new User();
+        Wrapper<User> wrapper = new EntityWrapper<>(user);
+        wrapper.where("user_name = {0}", username);
+        wrapper.where("deleted = {0}", false);
+        List<User> userList = this.selectList(wrapper);
+        if(userList.size()>0){
+            return userList.get(0);
+        }
+        return null;
     }
 }

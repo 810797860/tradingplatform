@@ -42,4 +42,18 @@ public interface ResourcesMapper extends BaseDao<Resources> {
      */
     @Select("select * from s_base_resources where id = #{resourcesId}")
     Map<String, Object> selectMapById(@Param("resourcesId") Long resourcesId);
+
+    /**
+     * 查询所有的Resources(ShiroConfig)
+     * @return
+     */
+    @Select("SELECT id,name,parentId,resUrl,type,sort FROM s_base_resources ORDER BY sort ASC")
+    public List<Resources> queryAll();
+
+    /**
+     * 加载所有的user_resources(MyShiroRealm)
+     * @param map
+     * @return
+     */
+    List<Resources> loadUserResources(Map<String,Object> map);
 }

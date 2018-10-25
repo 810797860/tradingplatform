@@ -42,4 +42,17 @@ public interface ResourcesService extends BaseService<Resources> {
          */
         Resources resourcesCreateUpdate(Resources resources);
 
+        /**
+         * 查询所有的Resources(ShiroConfig)
+         * @return
+         */
+        List<Resources> queryAll();
+
+        /**
+         * 加载所有的user_resources(MyShiroRealm)
+         * @param map
+         * @return
+         */
+        List<Resources> loadUserResources(Map<String,Object> map);
+
 }

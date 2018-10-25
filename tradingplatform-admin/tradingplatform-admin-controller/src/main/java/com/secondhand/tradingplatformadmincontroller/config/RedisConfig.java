@@ -1,4 +1,3 @@
-/*
 package com.secondhand.tradingplatformadmincontroller.config;
 
 import org.apache.log4j.Logger;
@@ -10,11 +9,9 @@ import org.springframework.context.annotation.Configuration;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
-*/
 /**
  * @author 81079
- *//*
-
+ */
 
 @Configuration
 @EnableCaching
@@ -48,4 +45,3 @@ public class RedisConfig extends CachingConfigurerSupport {
         return jedisPool;
     }
 }
-*/

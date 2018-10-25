@@ -11,12 +11,6 @@
 				<result column="parentId" property="parentId" jdbcType="INTEGER" />
 				<result column="sort" property="sort" jdbcType="INTEGER" />
 
-
-
-
-
-
-
 		</resultMap>
 
         <!-- 通用查询映射结果 -->
@@ -27,12 +21,6 @@
                         <result column="type" property="type" jdbcType="INTEGER" />
                         <result column="parentId" property="parentId" jdbcType="INTEGER" />
                         <result column="sort" property="sort" jdbcType="INTEGER" />
-
-
-
-
-
-
 
         </resultMap>
 
@@ -49,6 +37,18 @@
         </foreach>
     </update>
 
-
-
+    <select id="loadUserResources" parameterType="java.util.HashMap"
+            resultType="com.secondhand.tradingplatformadminentity.entity.shiro.Resources">
+        SELECT re.id,re.name,re.parentId,re.resUrl
+        FROM s_base_resources re LEFT JOIN s_base_role_resources rr
+        ON re.id = rr.resourcesId
+        LEFT JOIN s_base_user_role ur
+        ON rr.roleId =ur.roleId
+        WHERE ur.userId=#{userid}
+        <if test="type != null">
+            AND re.type= #{type}
+        </if>
+        GROUP BY re.id
+        ORDER BY re.sort ASC
+    </select>
 </mapper>

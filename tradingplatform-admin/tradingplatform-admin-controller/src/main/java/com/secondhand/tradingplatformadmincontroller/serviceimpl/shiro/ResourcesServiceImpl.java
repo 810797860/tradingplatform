@@ -48,4 +48,15 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
         }
         return resources;
     }
+
+    @Override
+    public List<Resources> queryAll(){
+        return resourcesMapper.queryAll();
+    }
+
+    @Override
+    //@Cacheable(cacheNames="resources",key="#map['userid'].toString()+#map['type']")
+    public List<Resources> loadUserResources(Map<String, Object> map) {
+        return resourcesMapper.loadUserResources(map);
+    }
 }

@@ -17,9 +17,10 @@ import com.secondhand.tradingplatformadminentity.entity.shiro.Resources;
 import com.secondhand.tradingplatformadminservice.service.shiro.ResourcesService;
 
 /**
- * @author 81079
+ * @description : Resources 控制器
+ * @author : zhangjk
+ * @since : Create in 2018-10-21
  */
-
 @RestController
 @Api(value="/admin/resources", description="Resources 控制器")
 @RequestMapping("/admin/resources")
@@ -101,8 +102,8 @@ public class ResourcesController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-10-20
      */
-    @PutMapping(value = "batch_delete", produces = {"application/json"}, consumes = {"application/json"})
-    @ApiOperation(value = "batch_delete", notes = "根据ids批量假删除resources")
+    @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
+    @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除resources")
     public JsonResult<Resources> fakeBatchDelete(@ApiParam(name = "ids", value = "resourcesIds") @RequestBody List<Long> resourcesIds){
             JsonResult<Resources> resJson = new JsonResult<>();
             resJson.setSuccess(resourcesService.fakeBatchDelete(resourcesIds));
@@ -114,8 +115,8 @@ public class ResourcesController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-10-20
      */
-    @PostMapping(value = "create_update", produces = {"application/json"}, consumes = {"application/json"})
-    @ApiOperation(value = "create_update", notes = "新增或修改resources")
+    @PostMapping(value = "/create_update", produces = {"application/json"}, consumes = {"application/json"})
+    @ApiOperation(value = "/create_update", notes = "新增或修改resources")
     public JsonResult<Resources> resourcesCreateUpdate(@ApiParam(name = "Resources", value = "Resources实体类") @RequestBody Resources resources){
             resources = resourcesService.resourcesCreateUpdate(resources);
             JsonResult<Resources> resJson = new JsonResult<>();
