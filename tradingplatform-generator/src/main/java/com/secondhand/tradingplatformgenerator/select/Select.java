@@ -1,6 +1,6 @@
 package com.secondhand.tradingplatformgenerator.select;
 
-import com.secondhand.tradingplatformcommon.config.MagicalValue;
+import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 
 /**
  * @author 81079

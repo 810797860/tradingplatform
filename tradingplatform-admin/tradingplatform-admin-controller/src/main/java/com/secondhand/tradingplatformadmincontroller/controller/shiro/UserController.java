@@ -2,8 +2,8 @@ package com.secondhand.tradingplatformadmincontroller.controller.shiro;
 
 import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.shiro.User;
-import com.secondhand.tradingplatformcommon.util.JsonResult;
-import com.secondhand.tradingplatformcommon.util.TableJson;
+import com.secondhand.tradingplatformcommon.util.JsonResult.JsonResult;
+import com.secondhand.tradingplatformcommon.util.JsonResult.TableJson;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

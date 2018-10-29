@@ -90,12 +90,6 @@
 			<version>2.0</version>
 		</dependency>
 
-		<dependency>
-			<groupId>com.secondhand</groupId>
-			<artifactId>tradingplatform-common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-
 	</dependencies>
 
 	<build>

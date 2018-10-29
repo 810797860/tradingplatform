@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.secondhand.tradingplatformgenerator.dao.OperationLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.secondhand.tradingplatformgenerator.entity.OperationLog">
+        <id column="id" property="id" />
+        <result column="logtype" property="logtype" />
+        <result column="logname" property="logname" />
+        <result column="userid" property="userid" />
+        <result column="classname" property="classname" />
+        <result column="method" property="method" />
+        <result column="createtime" property="createtime" />
+        <result column="succeed" property="succeed" />
+        <result column="message" property="message" />
+        <result column="uuid" property="uuid" />
+        <result column="description" property="description" />
+        <result column="deleted" property="deleted" />
+        <result column="created_by" property="createdBy" />
+        <result column="created_at" property="createdAt" />
+        <result column="updated_by" property="updatedBy" />
+        <result column="updated_at" property="updatedAt" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, logtype, logname, userid, classname, method, createtime, succeed, message, uuid, description, deleted, created_by, created_at, updated_by, updated_at
+    </sql>
+
+</mapper>

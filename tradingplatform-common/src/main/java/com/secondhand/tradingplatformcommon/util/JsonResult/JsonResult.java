@@ -1,4 +1,4 @@
-package com.secondhand.tradingplatformcommon.util;
+package com.secondhand.tradingplatformcommon.util.JsonResult;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;

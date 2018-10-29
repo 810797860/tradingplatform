@@ -2,7 +2,7 @@ package com.secondhand.tradingplatformadmincontroller.shiro;
 
 import com.secondhand.tradingplatformadminentity.entity.shiro.Resources;
 import com.secondhand.tradingplatformadminservice.service.shiro.ResourcesService;
-import com.secondhand.tradingplatformcommon.util.StringUtil;
+import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.filter.mgt.DefaultFilterChainManager;
 import org.apache.shiro.web.filter.mgt.PathMatchingFilterChainResolver;
@@ -42,7 +42,7 @@ public class ShiroService {
         List<Resources> resourcesList = resourcesService.queryAll();
         for(Resources resources:resourcesList){
 
-            if (StringUtil.isNotEmpty(resources.getResUrl())) {
+            if (ToolUtil.isNotEmpty(resources.getResUrl())) {
                 String permission = "perms[" + resources.getResUrl()+ "]";
                 filterChainDefinitionMap.put(resources.getResUrl(),permission);
             }

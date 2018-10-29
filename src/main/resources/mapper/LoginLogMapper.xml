@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.secondhand.tradingplatformgenerator.dao.RoleMapper">
+<mapper namespace="com.secondhand.tradingplatformgenerator.dao.LoginLogMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.secondhand.tradingplatformgenerator.entity.Role">
+    <resultMap id="BaseResultMap" type="com.secondhand.tradingplatformgenerator.entity.LoginLog">
         <id column="id" property="id" />
-        <result column="roleDesc" property="roleDesc" />
-        <result column="num" property="num" />
-        <result column="pid" property="pid" />
-        <result column="name" property="name" />
-        <result column="deptid" property="deptid" />
-        <result column="tips" property="tips" />
-        <result column="version" property="version" />
+        <result column="logname" property="logname" />
+        <result column="userid" property="userid" />
+        <result column="createtime" property="createtime" />
+        <result column="succeed" property="succeed" />
+        <result column="message" property="message" />
+        <result column="ip" property="ip" />
         <result column="uuid" property="uuid" />
         <result column="description" property="description" />
         <result column="deleted" property="deleted" />
@@ -23,7 +22,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, roleDesc, num, pid, name, deptid, tips, version, uuid, description, deleted, created_by, created_at, updated_by, updated_at
+        id, logname, userid, createtime, succeed, message, ip, uuid, description, deleted, created_by, created_at, updated_by, updated_at
     </sql>
 
 </mapper>

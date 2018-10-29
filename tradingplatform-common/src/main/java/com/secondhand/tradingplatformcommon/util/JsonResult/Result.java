@@ -1,4 +1,4 @@
-package com.secondhand.tradingplatformcommon.util;
+package com.secondhand.tradingplatformcommon.util.JsonResult;
 
 import java.io.Serializable;
 

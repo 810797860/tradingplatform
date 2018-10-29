@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.secondhand.tradingplatformadminmapper.mapper.business.OperationLogMapper">
+
+		<!-- 通用查询映射结果 -->
+			<resultMap id="operationLogMap" type="com.secondhand.tradingplatformadminentity.entity.business.OperationLog" extends="com.secondhand.tradingplatformcommon.base.BaseMapper.BaseEntityMapper.baseEntityMapper">
+									
+				<result column="logtype" property="logtype" jdbcType="VARCHAR" />
+				<result column="logname" property="logname" jdbcType="VARCHAR" />
+				<result column="userid" property="userid" jdbcType="INTEGER" />
+				<result column="classname" property="classname" jdbcType="VARCHAR" />
+				<result column="method" property="method" jdbcType="VARCHAR" />
+				<result column="createtime" property="createtime" jdbcType="DATE" />
+				<result column="succeed" property="succeed" jdbcType="VARCHAR" />
+				<result column="message" property="message" jdbcType="VARCHAR" />
+
+		</resultMap>
+
+        <!-- 通用查询映射结果 -->
+		<resultMap id="operationLogMapSimple" type="com.secondhand.tradingplatformadminentity.entity.business.OperationLog">
+																			
+                        <result column="logtype" property="logtype" jdbcType="VARCHAR" />
+                        <result column="logname" property="logname" jdbcType="VARCHAR" />
+                        <result column="userid" property="userid" jdbcType="INTEGER" />
+                        <result column="classname" property="classname" jdbcType="VARCHAR" />
+                        <result column="method" property="method" jdbcType="VARCHAR" />
+                        <result column="createtime" property="createtime" jdbcType="DATE" />
+                        <result column="succeed" property="succeed" jdbcType="VARCHAR" />
+                        <result column="message" property="message" jdbcType="VARCHAR" />
+
+        </resultMap>
+
+    <update id="fakeDeleteById">
+        update c_business_operation_log set deleted = true
+        where id = #{operationLogId}
+    </update>
+
+    <update id="fakeBatchDelete" parameterType="java.util.List">
+        update c_business_operation_log set deleted = true
+        where id IN
+        <foreach collection="operationLogIds" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
+
+
+
+</mapper>

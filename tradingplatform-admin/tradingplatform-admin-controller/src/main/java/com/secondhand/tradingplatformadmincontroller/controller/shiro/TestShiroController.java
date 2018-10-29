@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 
 @Controller
-public class HomeController {
+public class TestShiroController {
 
     @RequestMapping(value="/login",method= RequestMethod.GET)
     public String login(){
