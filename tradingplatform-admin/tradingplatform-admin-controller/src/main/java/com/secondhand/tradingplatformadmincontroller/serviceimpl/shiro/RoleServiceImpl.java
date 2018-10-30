@@ -1,5 +1,7 @@
 package com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.secondhand.tradingplatformadminentity.entity.shiro.Role;
 import com.secondhand.tradingplatformadminmapper.mapper.shiro.RoleMapper;
 import com.secondhand.tradingplatformadminservice.service.shiro.RoleService;
@@ -35,6 +37,7 @@ public class RoleServiceImpl extends BaseServiceImpl<RoleMapper, Role> implement
 
     @Override
     public Map<String, Object> selectMapById(Long roleId) {
+        Role role = new Role();
         return roleMapper.selectMapById(roleId);
     }
 

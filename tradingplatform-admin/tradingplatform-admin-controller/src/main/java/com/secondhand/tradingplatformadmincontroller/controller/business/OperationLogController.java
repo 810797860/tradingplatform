@@ -1,8 +1,8 @@
 package com.secondhand.tradingplatformadmincontroller.controller.business;
 
 import com.baomidou.mybatisplus.plugins.Page;
-import com.secondhand.tradingplatformcommon.util.JsonResult.JsonResult;
-import com.secondhand.tradingplatformcommon.util.JsonResult.TableJson;
+import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
+import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

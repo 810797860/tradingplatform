@@ -1,4 +1,4 @@
-package com.secondhand.tradingplatformcommon.util.JsonResult;
+package com.secondhand.tradingplatformcommon.jsonResult;
 
 import java.util.HashMap;
 import java.util.Map;

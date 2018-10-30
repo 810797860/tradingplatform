@@ -3,7 +3,7 @@
 <mapper namespace="com.secondhand.tradingplatformadminmapper.mapper.shiro.RoleMapper">
 
 		<!-- 通用查询映射结果 -->
-			<resultMap id="roleMap" type="com.secondhand.tradingplatformadminentity.entity.shiro.Role" extends="com.secondhand.tradingplatformcommon.base.BaseMapper.BaseEntityMapper.baseEntityMapper">
+			<resultMap id="roleMap" type="com.secondhand.tradingplatformadminentity.entity.shiro.Role" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
 									
 				<result column="roleDesc" property="roleDesc" jdbcType="VARCHAR" />
 				<result column="num" property="num" jdbcType="INTEGER" />

@@ -1,8 +1,8 @@
 package com.secondhand.tradingplatformadmincontroller.controller.shiro;
 
 import com.baomidou.mybatisplus.plugins.Page;
-import com.secondhand.tradingplatformcommon.util.JsonResult.JsonResult;
-import com.secondhand.tradingplatformcommon.util.JsonResult.TableJson;
+import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
+import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -76,7 +76,7 @@ public class RoleController extends BaseController {
      */
     @GetMapping(value = "/get_map_by_id/{roleId}", produces = {"application/json"})
     @ApiOperation(value = "/get_map_by_id/{roleId}", notes = "根据id获取roleMap")
-    public JsonResult<Map<String, Object>> getRoleByIdForMap( @ApiParam(name = "id", value = "roleId") @PathVariable("roleId") Long roleId){
+    public JsonResult<Map<String, Object>> getRoleByIdForMap(@ApiParam(name = "id", value = "roleId") @PathVariable("roleId") Long roleId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
             Map<String, Object> role = roleService.selectMapById(roleId);
             resJson.setData(role);

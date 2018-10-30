@@ -1,8 +1,8 @@
 package com.secondhand.tradingplatformgenerator.example.controller;
 
 import com.baomidou.mybatisplus.plugins.Page;
-import com.secondhand.tradingplatformcommon.util.JsonResult.JsonResult;
-import com.secondhand.tradingplatformcommon.util.JsonResult.TableJson;
+import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
+import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
 import com.secondhand.tradingplatformcommon.base.BaseController.BaseController;
 import com.secondhand.tradingplatformgenerator.example.entity.User;
 import com.secondhand.tradingplatformgenerator.example.service.UserService;

@@ -3,7 +3,7 @@
 <mapper namespace="com.secondhand.tradingplatformadminmapper.mapper.shiro.UserMapper">
 
 		<!-- 通用查询映射结果 -->
-			<resultMap id="userMap" type="com.secondhand.tradingplatformadminentity.entity.shiro.User" extends="com.secondhand.tradingplatformcommon.base.BaseMapper.BaseEntityMapper.baseEntityMapper">
+			<resultMap id="userMap" type="com.secondhand.tradingplatformadminentity.entity.shiro.User" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
 									
 				<result column="avatar" property="avatar" jdbcType="VARCHAR" />
 				<result column="account" property="account" jdbcType="VARCHAR" />

@@ -1,4 +1,4 @@
-package com.secondhand.tradingplatformcommon.util.JsonResult;
+package com.secondhand.tradingplatformcommon.jsonResult;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -58,7 +58,7 @@ public class JsonResult<T> extends Result {
 
     @Override
     public String toString() {
-        return "JsonResult{" +
+        return "jsonResult{" +
                 "data=" + data +
                 '}';
     }

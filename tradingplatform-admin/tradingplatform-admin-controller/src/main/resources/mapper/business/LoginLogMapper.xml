@@ -3,7 +3,7 @@
 <mapper namespace="com.secondhand.tradingplatformadminmapper.mapper.business.LoginLogMapper">
 
 		<!-- 通用查询映射结果 -->
-			<resultMap id="loginLogMap" type="com.secondhand.tradingplatformadminentity.entity.business.LoginLog" extends="com.secondhand.tradingplatformcommon.base.BaseMapper.BaseEntityMapper.baseEntityMapper">
+			<resultMap id="loginLogMap" type="com.secondhand.tradingplatformadminentity.entity.business.LoginLog" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
 									
 				<result column="logname" property="logname" jdbcType="VARCHAR" />
 				<result column="userid" property="userid" jdbcType="INTEGER" />
