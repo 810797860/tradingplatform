@@ -10,9 +10,13 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 
+/**
+ * MybatisPlus配置
+ * @author 81079
+ */
+
 @Configuration
-/*@MapperScan("com.secondhand.tradingplatformadminmapper.mapper*")*/
-@MapperScan(basePackages = {"com.secondhand.tradingplatformadminmapper.mapper*", "com.secondhand.tradingplatformcommon.base.BaseMapper*"})
+@MapperScan("com.secondhand.tradingplatformadminmapper.mapper*")
 public class MybatisPlusConfig {
 
     /**
