@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.secondhand.tradingplatformadminmapper.mapper.system.FormMapper">
+
+		<!-- 通用查询映射结果 -->
+			<resultMap id="formMap" type="com.secondhand.tradingplatformadminentity.entity.system.Form" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
+									
+
+				<result column="title" property="title" jdbcType="VARCHAR" />
+				<result column="collection" property="collection" jdbcType="VARCHAR" />
+
+		</resultMap>
+
+        <!-- 通用查询映射结果 -->
+		<resultMap id="formMapSimple" type="com.secondhand.tradingplatformadminentity.entity.system.Form">
+
+                        <result column="title" property="title" jdbcType="VARCHAR" />
+                        <result column="collection" property="collection" jdbcType="VARCHAR" />
+        </resultMap>
+
+    <update id="fakeDeleteById">
+        update s_base_form set deleted = true
+        where id = #{formId}
+    </update>
+
+    <update id="fakeBatchDelete" parameterType="java.util.List">
+        update s_base_form set deleted = true
+        where id IN
+        <foreach collection="formIds" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
+
+
+
+</mapper>

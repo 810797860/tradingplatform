@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.secondhand.tradingplatformadminmapper.mapper.system.FormFieldMapper">
+
+		<!-- 通用查询映射结果 -->
+			<resultMap id="formFieldMap" type="com.secondhand.tradingplatformadminentity.entity.system.FormField" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
+									
+
+				<result column="form_id" property="formId" jdbcType="INTEGER" />
+				<result column="title" property="title" jdbcType="VARCHAR" />
+				<result column="field_name" property="fieldName" jdbcType="VARCHAR" />
+				<result column="target_id" property="targetId" jdbcType="INTEGER" />
+				<result column="sort" property="sort" jdbcType="INTEGER" />
+				<result column="required" property="required" jdbcType="BOOLEAN" />
+				<result column="default_value" property="defaultValue" jdbcType="VARCHAR" />
+				<result column="length" property="length" jdbcType="INTEGER" />
+
+		</resultMap>
+
+        <!-- 通用查询映射结果 -->
+		<resultMap id="formFieldMapSimple" type="com.secondhand.tradingplatformadminentity.entity.system.FormField">
+																			
+
+                        <result column="form_id" property="formId" jdbcType="INTEGER" />
+                        <result column="title" property="title" jdbcType="VARCHAR" />
+                        <result column="field_name" property="fieldName" jdbcType="VARCHAR" />
+                        <result column="target_id" property="targetId" jdbcType="INTEGER" />
+                        <result column="sort" property="sort" jdbcType="INTEGER" />
+                        <result column="required" property="required" jdbcType="BOOLEAN" />
+                        <result column="default_value" property="defaultValue" jdbcType="VARCHAR" />
+                        <result column="length" property="length" jdbcType="INTEGER" />
+
+        </resultMap>
+
+    <update id="fakeDeleteById">
+        update s_base_form_field set deleted = true
+        where id = #{formFieldId}
+    </update>
+
+    <update id="fakeBatchDelete" parameterType="java.util.List">
+        update s_base_form_field set deleted = true
+        where id IN
+        <foreach collection="formFieldIds" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
+
+
+
+</mapper>

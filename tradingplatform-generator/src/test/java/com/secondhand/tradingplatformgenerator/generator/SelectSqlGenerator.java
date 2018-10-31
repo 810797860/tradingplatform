@@ -27,7 +27,7 @@ public class SelectSqlGenerator {
     @Test
     public void testSelectSqlGenerator(){
 
-        Select select = new Select("s_base_user");
+        Select select = new Select("s_base_select_item");
 
         //准备承载selectSql
         StringBuilder selectSql = new StringBuilder();
@@ -64,12 +64,15 @@ public class SelectSqlGenerator {
                 break;
             }
 
+
+//====================================================================================================================
             //特殊关联字段的拼接
-/*            if (tempParameter.equals("account")){
+            if (tempParameter.equals("item_value")){
                 select.setSelectSql(selectSql);
-                selectSql = concatSql(select, tempParameter, SelectEnum.C_BUSINESS_MATURE_CASE);
+                selectSql = concatSql(select, tempParameter, SelectEnum.S_BASE_SELECT_ITEM);
                 continue;
-            }*/
+            }
+//====================================================================================================================
 
             //样式： tableAlias.parameter as parameter，
 
