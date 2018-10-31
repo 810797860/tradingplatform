@@ -42,4 +42,11 @@ public interface SelectItemService extends BaseService<SelectItem> {
          */
         SelectItem selectItemCreateUpdate(SelectItem selectItem);
 
+        /**
+         * 根据pid获取SelectItem列表
+         * @param pid
+         * @return
+         */
+        List<SelectItem> getItemsByPid(Long pid);
+
 }

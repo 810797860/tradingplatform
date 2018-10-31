@@ -7,6 +7,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,7 +20,7 @@ import com.secondhand.tradingplatformadminservice.service.system.FormService;
 /**
  * @description : Form 控制器
  * @author : zhangjk
- * @since : Create in 2018-10-30
+ * @since : Create in 2018-10-31
  */
 @RestController
 @Api(value="/admin/form", description="Form 控制器")
@@ -30,9 +31,45 @@ public class FormController extends BaseController {
     private FormService formService;
 
     /**
+     * @description : 跳转到列表页面
+     * @author : zhangjk
+     * @since : Create in 2018-10-31
+     */
+    @GetMapping(value = "/tabulation.html")
+    @ApiOperation(value = "/tabulation.html", notes = "跳转到form的列表页面")
+    public String toFormList(Model model) {
+        return "form/tabulation";
+    }
+
+    /**
+     * @description : 跳转到修改form的页面
+     * @author : zhangjk
+     * @since : Create in 2018-10-31
+     */
+    @GetMapping(value = "/{formId}/update.html")
+    @ApiOperation(value = "/{formId}/update.html", notes = "跳转到修改页面")
+    public String toUpdateForm(Model model, @PathVariable(value = "formId") Long formId) {
+        //静态注入要回显的数据
+        Map<String, Object> form = formService.selectMapById(formId);
+        model.addAttribute("form", form);
+        return "form/newForm";
+    }
+
+    /**
+     * @description : 跳转到新增form的页面
+     * @author : zhangjk
+     * @since : Create in 2018-10-31
+     */
+    @GetMapping(value = "/create.html")
+    @ApiOperation(value = "/create.html", notes = "跳转到新增form的页面")
+    public String toCreateForm(Model model) {
+        return "form/newForm";
+    }
+    
+    /**
      * @description : 获取分页列表
      * @author : zhangjk
-     * @since : Create in 2018-10-30
+     * @since : Create in 2018-10-31
      */
     @PostMapping(value = "/query", produces = {"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "/query", notes="获取分页列表")
@@ -55,24 +92,9 @@ public class FormController extends BaseController {
     }
 
     /**
-     * @description : 通过id获取form
-     * @author : zhangjk
-     * @since : Create in 2018-10-30
-     */
-    @GetMapping(value = "/get_by_id/{formId}", produces = {"application/json"})
-    @ApiOperation(value = "/get_by_id/{formId}", notes = "根据id获取form")
-    public JsonResult<Form> getFormById( @ApiParam(name = "id",value = "formId") @PathVariable("formId") Long formId) {
-            JsonResult<Form> resJson = new JsonResult<>();
-            Form form = formService.selectOneByObj(formId);
-            resJson.setData(form);
-            resJson.setSuccess(true);
-            return resJson;
-    }
-
-    /**
      * @description : 通过id获取formMap
      * @author : zhangjk
-     * @since : Create in 2018-10-30
+     * @since : Create in 2018-10-31
      */
     @GetMapping(value = "/get_map_by_id/{formId}", produces = {"application/json"})
     @ApiOperation(value = "/get_map_by_id/{formId}", notes = "根据id获取formMap")
@@ -87,7 +109,7 @@ public class FormController extends BaseController {
     /**
      * @description : 根据id假删除form
      * @author : zhangjk
-     * @since : Create in 2018-10-30
+     * @since : Create in 2018-10-31
      */
     @PutMapping(value = "/delete", produces = {"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "/delete", notes = "根据id假删除form")
@@ -100,7 +122,7 @@ public class FormController extends BaseController {
     /**
      * @description : 根据ids批量假删除form
      * @author : zhangjk
-     * @since : Create in 2018-10-30
+     * @since : Create in 2018-10-31
      */
     @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除form")
@@ -113,7 +135,7 @@ public class FormController extends BaseController {
     /**
      * @description : 新增或修改form
      * @author : zhangjk
-     * @since : Create in 2018-10-30
+     * @since : Create in 2018-10-31
      */
     @PostMapping(value = "/create_update", produces = {"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "/create_update", notes = "新增或修改form")

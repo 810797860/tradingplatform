@@ -1,5 +1,7 @@
 package com.secondhand.tradingplatformadmincontroller.serviceimpl.system;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.secondhand.tradingplatformadminentity.entity.system.SelectItem;
 import com.secondhand.tradingplatformadminmapper.mapper.system.SelectItemMapper;
 import com.secondhand.tradingplatformadminservice.service.system.SelectItemService;
@@ -47,5 +49,13 @@ public class SelectItemServiceImpl extends BaseServiceImpl<SelectItemMapper, Sel
             selectItemMapper.updateById(selectItem);
         }
         return selectItem;
+    }
+
+    @Override
+    public List<SelectItem> getItemsByPid(Long pid) {
+        Wrapper<SelectItem> wrapper = new EntityWrapper<>();
+        wrapper.where("pid = {0}", pid);
+        wrapper.where("deleted = {0}", false);
+        return this.selectList(wrapper);
     }
 }
