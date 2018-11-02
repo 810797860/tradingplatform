@@ -3,10 +3,11 @@ package com.secondhand.tradingplatformadminmapper.mapper.shiro;
 
 import com.secondhand.tradingplatformadminentity.entity.shiro.Role;
 import com.secondhand.tradingplatformcommon.base.BaseDao.BaseDao;
+import com.secondhand.tradingplatformcommon.redisCache.RedisCache;
+import org.apache.ibatis.annotations.CacheNamespace;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
-import com.baomidou.mybatisplus.plugins.Page;
 
 import java.util.List;
 import java.util.Map;
@@ -17,7 +18,9 @@ import java.util.Map;
  * 	 @author zhangjk
  *   @since 2018-10-21
  */
+
 @Repository
+@CacheNamespace(implementation = RedisCache.class)
 public interface RoleMapper extends BaseDao<Role> {
 
     /**

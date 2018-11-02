@@ -1,0 +1,4 @@
+2018-11-02 13:01:56.020 [http-nio-8080-exec-4] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象获取失败java.lang.RuntimeException: applicaitonContext属性为null,请检查是否注入了SpringContextHolder!
+2018-11-02 13:01:56.028 [http-nio-8080-exec-4] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象保存失败java.lang.RuntimeException: applicaitonContext属性为null,请检查是否注入了SpringContextHolder!
+2018-11-02 14:17:56.749 [http-nio-8080-exec-4] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象获取失败java.lang.RuntimeException: applicaitonContext属性为null,请检查是否注入了SpringContextHolder!
+2018-11-02 14:17:56.754 [http-nio-8080-exec-4] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象保存失败java.lang.RuntimeException: applicaitonContext属性为null,请检查是否注入了SpringContextHolder!

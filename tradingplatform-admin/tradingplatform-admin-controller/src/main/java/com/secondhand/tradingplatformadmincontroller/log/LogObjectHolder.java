@@ -1,6 +1,6 @@
 package com.secondhand.tradingplatformadmincontroller.log;
 
-import com.secondhand.tradingplatformcommon.util.SpringContextHolder;
+import com.secondhand.tradingplatformcommon.util.ApplicationContextHolder;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
@@ -27,7 +27,7 @@ public class LogObjectHolder implements Serializable{
     }
 
     public static LogObjectHolder me(){
-        LogObjectHolder bean = SpringContextHolder.getBean(LogObjectHolder.class);
+        LogObjectHolder bean = ApplicationContextHolder.getBean(LogObjectHolder.class);
         return bean;
     }
 }

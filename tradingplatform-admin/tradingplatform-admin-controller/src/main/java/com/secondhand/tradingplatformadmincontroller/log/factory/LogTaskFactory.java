@@ -7,7 +7,7 @@ import com.secondhand.tradingplatformadminmapper.mapper.business.OperationLogMap
 import com.secondhand.tradingplatformadmincontroller.log.LogManager;
 import com.secondhand.tradingplatformcommon.state.LogSucceed;
 import com.secondhand.tradingplatformcommon.state.LogType;
-import com.secondhand.tradingplatformcommon.util.DataBase;
+import com.secondhand.tradingplatformcommon.pojo.DataBase;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
