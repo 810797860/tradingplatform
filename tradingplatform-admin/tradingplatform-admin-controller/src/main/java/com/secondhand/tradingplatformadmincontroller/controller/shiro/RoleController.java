@@ -93,7 +93,8 @@ public class RoleController extends BaseController {
     @ApiOperation(value = "/delete", notes = "根据id假删除role")
     public JsonResult<Role> fakeDeleteById(@ApiParam(name = "id", value = "roleId") @RequestBody Long roleId){
             JsonResult<Role> resJson = new JsonResult<>();
-            resJson.setSuccess(roleService.fakeDeleteById(roleId));
+            roleService.fakeDeleteById(roleId);
+            resJson.setSuccess(true);
             return resJson;
     }
 

@@ -1,0 +1,4 @@
+2018-11-03 15:08:25.385 [http-nio-8080-exec-4] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/js/jquery-1.11.2.min.js] in DispatcherServlet with name 'dispatcherServlet'
+2018-11-03 15:08:25.385 [http-nio-8080-exec-6] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/css/matrix-login.css] in DispatcherServlet with name 'dispatcherServlet'
+2018-11-03 15:08:25.385 [http-nio-8080-exec-2] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/img/logo.png] in DispatcherServlet with name 'dispatcherServlet'
+2018-11-03 15:08:25.385 [http-nio-8080-exec-5] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/font-awesome/css/font-awesome.css] in DispatcherServlet with name 'dispatcherServlet'

@@ -19,7 +19,7 @@ public interface RoleService extends BaseService<Role> {
          * @param roleId
          * @return
          */
-        boolean fakeDeleteById(Long roleId);
+        Integer fakeDeleteById(Long roleId);
 
         /**
          * 根据ids进行批量假删除

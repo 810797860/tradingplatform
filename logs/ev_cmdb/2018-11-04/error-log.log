@@ -1,9 +1,5 @@
-2018-11-02 13:01:56.020 [http-nio-8080-exec-4] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象获取失败java.lang.RuntimeException: applicaitonContext属性为null,请检查是否注入了SpringContextHolder!
-2018-11-02 13:01:56.028 [http-nio-8080-exec-4] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象保存失败java.lang.RuntimeException: applicaitonContext属性为null,请检查是否注入了SpringContextHolder!
-2018-11-02 14:17:56.749 [http-nio-8080-exec-4] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象获取失败java.lang.RuntimeException: applicaitonContext属性为null,请检查是否注入了SpringContextHolder!
-2018-11-02 14:17:56.754 [http-nio-8080-exec-4] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象保存失败java.lang.RuntimeException: applicaitonContext属性为null,请检查是否注入了SpringContextHolder!
-2018-11-02 21:52:48.773 [http-nio-8080-exec-2] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [org.apache.shiro.session.UnknownSessionException: There is no session with id [6eab357a-4b5f-4582-be7a-3f29c637d6c4]] with root cause
-org.apache.shiro.session.UnknownSessionException: There is no session with id [6eab357a-4b5f-4582-be7a-3f29c637d6c4]
+2018-11-04 12:05:02.394 [http-nio-8080-exec-4] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [org.apache.shiro.session.UnknownSessionException: There is no session with id [31d7854c-2223-4f67-817b-d48f2ad290cc]] with root cause
+org.apache.shiro.session.UnknownSessionException: There is no session with id [31d7854c-2223-4f67-817b-d48f2ad290cc]
 	at org.apache.shiro.session.mgt.eis.AbstractSessionDAO.readSession(AbstractSessionDAO.java:170)
 	at org.apache.shiro.session.mgt.DefaultSessionManager.retrieveSessionFromDataSource(DefaultSessionManager.java:236)
 	at org.apache.shiro.session.mgt.DefaultSessionManager.retrieveSession(DefaultSessionManager.java:222)
@@ -71,8 +67,8 @@ org.apache.shiro.session.UnknownSessionException: There is no session with id [6
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2018-11-02 21:54:29.498 [http-nio-8080-exec-2] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [org.apache.shiro.session.UnknownSessionException: There is no session with id [87826c98-f7ba-4bb0-8422-ff20a422a23c]] with root cause
-org.apache.shiro.session.UnknownSessionException: There is no session with id [87826c98-f7ba-4bb0-8422-ff20a422a23c]
+2018-11-04 12:07:59.588 [http-nio-8080-exec-4] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [org.apache.shiro.session.UnknownSessionException: There is no session with id [cf668d65-4ba8-43a0-977d-5e710a063ab1]] with root cause
+org.apache.shiro.session.UnknownSessionException: There is no session with id [cf668d65-4ba8-43a0-977d-5e710a063ab1]
 	at org.apache.shiro.session.mgt.eis.AbstractSessionDAO.readSession(AbstractSessionDAO.java:170)
 	at org.apache.shiro.session.mgt.DefaultSessionManager.retrieveSessionFromDataSource(DefaultSessionManager.java:236)
 	at org.apache.shiro.session.mgt.DefaultSessionManager.retrieveSession(DefaultSessionManager.java:222)
@@ -140,8 +136,77 @@ org.apache.shiro.session.UnknownSessionException: There is no session with id [8
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2018-11-02 21:55:41.605 [http-nio-8080-exec-8] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [org.apache.shiro.session.UnknownSessionException: There is no session with id [33c4cfe4-0d8d-44fc-801e-f377339836bb]] with root cause
-org.apache.shiro.session.UnknownSessionException: There is no session with id [33c4cfe4-0d8d-44fc-801e-f377339836bb]
+2018-11-04 12:25:15.034 [http-nio-8080-exec-4] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [org.apache.shiro.session.UnknownSessionException: There is no session with id [0ece079f-b1b1-4ef0-a9c2-f433b74eabf1]] with root cause
+org.apache.shiro.session.UnknownSessionException: There is no session with id [0ece079f-b1b1-4ef0-a9c2-f433b74eabf1]
+	at org.apache.shiro.session.mgt.eis.AbstractSessionDAO.readSession(AbstractSessionDAO.java:170)
+	at org.apache.shiro.session.mgt.DefaultSessionManager.retrieveSessionFromDataSource(DefaultSessionManager.java:236)
+	at org.apache.shiro.session.mgt.DefaultSessionManager.retrieveSession(DefaultSessionManager.java:222)
+	at org.apache.shiro.session.mgt.AbstractValidatingSessionManager.doGetSession(AbstractValidatingSessionManager.java:118)
+	at org.apache.shiro.session.mgt.AbstractNativeSessionManager.lookupSession(AbstractNativeSessionManager.java:148)
+	at org.apache.shiro.session.mgt.AbstractNativeSessionManager.lookupRequiredSession(AbstractNativeSessionManager.java:152)
+	at org.apache.shiro.session.mgt.AbstractNativeSessionManager.getAttribute(AbstractNativeSessionManager.java:249)
+	at org.apache.shiro.session.mgt.DelegatingSession.getAttribute(DelegatingSession.java:141)
+	at org.apache.shiro.session.ProxiedSession.getAttribute(ProxiedSession.java:121)
+	at org.apache.shiro.subject.support.DelegatingSubject.getRunAsPrincipalsStack(DelegatingSubject.java:473)
+	at org.apache.shiro.subject.support.DelegatingSubject.getPrincipals(DelegatingSubject.java:157)
+	at org.apache.shiro.subject.support.DelegatingSubject.getPrincipal(DelegatingSubject.java:153)
+	at org.apache.shiro.web.servlet.ShiroHttpServletRequest.getSubjectPrincipal(ShiroHttpServletRequest.java:96)
+	at org.apache.shiro.web.servlet.ShiroHttpServletRequest.getUserPrincipal(ShiroHttpServletRequest.java:112)
+	at org.springframework.web.servlet.FrameworkServlet.getUsernameForRequest(FrameworkServlet.java:1093)
+	at org.springframework.web.servlet.FrameworkServlet.publishRequestHandledEvent(FrameworkServlet.java:1078)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:888)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:664)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:387)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.session.web.http.SessionRepositoryFilter.doFilterInternal(SessionRepositoryFilter.java:147)
+	at org.springframework.session.web.http.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:81)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:806)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2018-11-04 12:26:31.245 [http-nio-8080-exec-6] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [org.apache.shiro.session.UnknownSessionException: There is no session with id [e47a1a4d-c9cb-41f6-a1c6-1bc2769193c5]] with root cause
+org.apache.shiro.session.UnknownSessionException: There is no session with id [e47a1a4d-c9cb-41f6-a1c6-1bc2769193c5]
 	at org.apache.shiro.session.mgt.eis.AbstractSessionDAO.readSession(AbstractSessionDAO.java:170)
 	at org.apache.shiro.session.mgt.DefaultSessionManager.retrieveSessionFromDataSource(DefaultSessionManager.java:236)
 	at org.apache.shiro.session.mgt.DefaultSessionManager.retrieveSession(DefaultSessionManager.java:222)

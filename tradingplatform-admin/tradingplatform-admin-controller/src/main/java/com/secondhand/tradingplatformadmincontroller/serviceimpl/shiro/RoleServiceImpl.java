@@ -26,8 +26,11 @@ public class RoleServiceImpl extends BaseServiceImpl<RoleMapper, Role> implement
     private RoleMapper roleMapper;
 
     @Override
-    public boolean fakeDeleteById(Long roleId) {
-        return roleMapper.fakeDeleteById(roleId);
+    public Integer fakeDeleteById(Long roleId) {
+        Role role = new Role();
+        role.setId(roleId);
+        role.setDeleted(true);
+        return roleMapper.updateById(role);
     }
 
     @Override
@@ -37,7 +40,6 @@ public class RoleServiceImpl extends BaseServiceImpl<RoleMapper, Role> implement
 
     @Override
     public Map<String, Object> selectMapById(Long roleId) {
-        Role role = new Role();
         return roleMapper.selectMapById(roleId);
     }
 

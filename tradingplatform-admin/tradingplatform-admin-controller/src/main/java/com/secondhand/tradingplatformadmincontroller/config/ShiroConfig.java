@@ -5,23 +5,32 @@ import com.secondhand.tradingplatformadminentity.entity.shiro.Resources;
 import com.secondhand.tradingplatformadminservice.service.shiro.ResourcesService;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
+import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.mgt.SecurityManager;
+import org.apache.shiro.session.ExpiredSessionException;
+import org.apache.shiro.session.InvalidSessionException;
+import org.apache.shiro.session.Session;
+import org.apache.shiro.session.mgt.DefaultSessionKey;
+import org.apache.shiro.session.mgt.SessionKey;
+import org.apache.shiro.session.mgt.SimpleSession;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.apache.shiro.web.servlet.SimpleCookie;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
+import org.apache.shiro.web.session.mgt.WebSessionManager;
 import org.crazycake.shiro.RedisCacheManager;
 import org.crazycake.shiro.RedisManager;
 import org.crazycake.shiro.RedisSessionDAO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author 81079
@@ -44,6 +53,8 @@ public class ShiroConfig {
 
     @Autowired(required = false)
     private ResourcesService resourcesService;
+
+    private static final Logger logger = LoggerFactory.getLogger(ShiroConfig.class);
 
     @Bean
     public static LifecycleBeanPostProcessor getLifecycleBeanPostProcessor() {
@@ -203,8 +214,97 @@ public class ShiroConfig {
      */
     @Bean
     public DefaultWebSessionManager sessionManager() {
+
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
         sessionManager.setSessionDAO(redisSessionDAO());
+
+        //解决sessionID与运行项目容器ID冲突配置
+        sessionManager.setGlobalSessionTimeout(1800000);
+        sessionManager.setSessionValidationInterval(60000);
+        sessionManager.setSessionValidationSchedulerEnabled(true);
+        sessionManager.setSessionIdUrlRewritingEnabled(true);
+        sessionManager.setSessionIdCookie(setSessionIdCookie());
+        sessionManager.setSessionIdCookieEnabled(true);
         return sessionManager;
+
+//        //不走shiro验证，测试用
+//        SimpleWebSessionManager sessionManager = new SimpleWebSessionManager();
+//        return sessionManager;
+    }
+
+    @Bean
+    public SimpleCookie setSessionIdCookie(){
+        SimpleCookie simpleCookie = new SimpleCookie("shiro.sesssion");
+        simpleCookie.setPath("/");
+        simpleCookie.setHttpOnly(true);
+        return simpleCookie;
+    }
+
+    /**
+     * 不走shiro验证，测试用
+     * 解决sessionID与运行项目容器ID冲突配置
+     */
+    public class SimpleWebSessionManager extends DefaultWebSessionManager implements WebSessionManager {
+
+        private CacheManager cacheManager;
+
+        public SimpleWebSessionManager() {
+            super();
+        }
+
+        @Override
+        public void validateSessions() {
+            if (logger.isInfoEnabled()) {
+                logger.info("Validating all active sessions...");
+            }
+            int invalidCount = 0;
+            Collection<?> activeSessions = getActiveSessions();
+            if (activeSessions != null && !activeSessions.isEmpty()) {
+                for (Iterator<?> i$ = activeSessions.iterator(); i$.hasNext();) {
+                    Session session = (Session) i$.next();
+                    try {
+                        SessionKey key = new DefaultSessionKey(session.getId());
+                        validate(session, key);
+                    } catch (InvalidSessionException e) {
+                        if (cacheManager != null) {
+                            SimpleSession s = (SimpleSession) session;
+                            if (s.getAttribute("user") != null) {
+                                cacheManager.getCache(null).remove(
+                                        s.getAttribute("user"));
+                            }
+                        }
+                        if (logger.isDebugEnabled()) {
+                            boolean expired = e instanceof ExpiredSessionException;
+                            String msg = (new StringBuilder()).append(
+                                    "Invalidated session with id [").append(
+                                    session.getId()).append("]").append(
+                                    expired ? " (expired)" : " (stopped)")
+                                    .toString();
+                            logger.debug(msg);
+                        }
+                        invalidCount++;
+                    }
+                }
+
+            }
+            if (logger.isInfoEnabled()) {
+                String msg = "Finished session validation.";
+                if (invalidCount > 0) {
+                    msg = (new StringBuilder()).append(msg).append("  [").append(
+                            invalidCount).append("] sessions were stopped.")
+                            .toString();
+                }
+                else {
+                    msg = (new StringBuilder()).append(msg).append(
+                            "  No sessions were stopped.").toString();
+                }
+                logger.info(msg);
+            }
+        }
+
+        @Override
+        public void setCacheManager(CacheManager cacheManager) {
+            this.cacheManager = cacheManager;
+        }
     }
 }
