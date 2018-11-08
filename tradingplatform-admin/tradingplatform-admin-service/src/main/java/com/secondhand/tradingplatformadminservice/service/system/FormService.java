@@ -10,7 +10,7 @@ import java.util.Map;
  *   @description : Form 服务接口
  *   ---------------------------------
  * 	 @author zhangjk
- *   @since 2018-10-30
+ *   @since 2018-11-08
  */
 public interface FormService extends BaseService<Form> {
 
@@ -19,7 +19,7 @@ public interface FormService extends BaseService<Form> {
          * @param formId
          * @return
          */
-        boolean fakeDeleteById(Long formId);
+        Integer fakeDeleteById(Long formId);
 
         /**
          * 根据ids进行批量假删除

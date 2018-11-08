@@ -6,6 +6,9 @@ import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authz.UnauthorizedException;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +23,7 @@ import com.secondhand.tradingplatformadminservice.service.system.FormService;
 /**
  * @description : Form 控制器
  * @author : zhangjk
- * @since : Create in 2018-10-31
+ * @since : Create in 2018-11-08
  */
 @RestController
 @Api(value="/admin/form", description="Form 控制器")
@@ -33,7 +36,7 @@ public class FormController extends BaseController {
     /**
      * @description : 跳转到列表页面
      * @author : zhangjk
-     * @since : Create in 2018-10-31
+     * @since : Create in 2018-11-08
      */
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到form的列表页面")
@@ -44,7 +47,7 @@ public class FormController extends BaseController {
     /**
      * @description : 跳转到修改form的页面
      * @author : zhangjk
-     * @since : Create in 2018-10-31
+     * @since : Create in 2018-11-08
      */
     @GetMapping(value = "/{formId}/update.html")
     @ApiOperation(value = "/{formId}/update.html", notes = "跳转到修改页面")
@@ -58,10 +61,10 @@ public class FormController extends BaseController {
     /**
      * @description : 跳转到新增form的页面
      * @author : zhangjk
-     * @since : Create in 2018-10-31
+     * @since : Create in 2018-11-08
      */
     @GetMapping(value = "/create.html")
-    @ApiOperation(value = "/create.html", notes = "跳转到新增form的页面")
+    @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
     public String toCreateForm(Model model) {
         return "form/newForm";
     }
@@ -69,13 +72,14 @@ public class FormController extends BaseController {
     /**
      * @description : 获取分页列表
      * @author : zhangjk
-     * @since : Create in 2018-10-31
+     * @since : Create in 2018-11-08
      */
     @PostMapping(value = "/query", produces = {"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "/query", notes="获取分页列表")
     public TableJson<Form> getFormList(@ApiParam(name = "Form", value = "Form 实体类") @RequestBody Form form) {
             TableJson<Form> resJson = new TableJson<>();
             Page resPage = form.getPage();
+            form.setDeleted(false);
             Integer current = resPage.getCurrent();
             Integer size = resPage.getSize();
             if (current == null && size == null) {
@@ -94,7 +98,7 @@ public class FormController extends BaseController {
     /**
      * @description : 通过id获取formMap
      * @author : zhangjk
-     * @since : Create in 2018-10-31
+     * @since : Create in 2018-11-08
      */
     @GetMapping(value = "/get_map_by_id/{formId}", produces = {"application/json"})
     @ApiOperation(value = "/get_map_by_id/{formId}", notes = "根据id获取formMap")
@@ -109,41 +113,66 @@ public class FormController extends BaseController {
     /**
      * @description : 根据id假删除form
      * @author : zhangjk
-     * @since : Create in 2018-10-31
+     * @since : Create in 2018-11-08
      */
     @PutMapping(value = "/delete", produces = {"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "/delete", notes = "根据id假删除form")
     public JsonResult<Form> fakeDeleteById(@ApiParam(name = "id", value = "formId") @RequestBody Long formId){
+            Subject subject = SecurityUtils.getSubject();
             JsonResult<Form> resJson = new JsonResult<>();
-            resJson.setSuccess(formService.fakeDeleteById(formId));
+            try{
+                //检查是否具有权限
+                subject.checkPermission("/admin/form/delete");
+                formService.fakeDeleteById(formId);
+                resJson.setSuccess(true);
+            }catch (UnauthorizedException e){
+                resJson.setSuccess(false);
+                resJson.setMessage(e.getMessage());
+            }
             return resJson;
     }
 
     /**
      * @description : 根据ids批量假删除form
      * @author : zhangjk
-     * @since : Create in 2018-10-31
+     * @since : Create in 2018-11-08
      */
     @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除form")
     public JsonResult<Form> fakeBatchDelete(@ApiParam(name = "ids", value = "formIds") @RequestBody List<Long> formIds){
+            Subject subject = SecurityUtils.getSubject();
             JsonResult<Form> resJson = new JsonResult<>();
-            resJson.setSuccess(formService.fakeBatchDelete(formIds));
+            try{
+                //检查是否具有权限
+                subject.checkPermission("/admin/form/batch_delete");
+                resJson.setSuccess(formService.fakeBatchDelete(formIds));
+            }catch(UnauthorizedException e){
+                resJson.setSuccess(false);
+                resJson.setMessage(e.getMessage());
+            }
             return resJson;
     }
 
     /**
      * @description : 新增或修改form
      * @author : zhangjk
-     * @since : Create in 2018-10-31
+     * @since : Create in 2018-11-08
      */
     @PostMapping(value = "/create_update", produces = {"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "/create_update", notes = "新增或修改form")
     public JsonResult<Form> formCreateUpdate(@ApiParam(name = "Form", value = "Form实体类") @RequestBody Form form){
-            form = formService.formCreateUpdate(form);
+            Subject subject = SecurityUtils.getSubject();
             JsonResult<Form> resJson = new JsonResult<>();
-            resJson.setData(form);
-            resJson.setSuccess(true);
+            try{
+                //检查是否具有权限
+                subject.checkPermission("/admin/form/create_update");
+                form = formService.formCreateUpdate(form);
+                resJson.setData(form);
+                resJson.setSuccess(true);
+            }catch(UnauthorizedException e){
+                resJson.setSuccess(false);
+                resJson.setMessage(e.getMessage());
+            }
             return resJson;
     }
 }

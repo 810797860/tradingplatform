@@ -3,36 +3,21 @@ package com.secondhand.tradingplatformadminmapper.mapper.system;
 
 import com.secondhand.tradingplatformadminentity.entity.system.Form;
 import com.secondhand.tradingplatformcommon.base.BaseDao.BaseDao;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
-import com.baomidou.mybatisplus.plugins.Page;
 
-import java.util.List;
 import java.util.Map;
 
 /**
  *   @description : FormMapper 接口
  *   ---------------------------------
  * 	 @author zhangjk
- *   @since 2018-10-30
+ *   @since 2018-11-08
  */
 @Repository
 public interface FormMapper extends BaseDao<Form> {
-
-    /**
-     * 根据id进行假删除
-     * @param formId
-     * @return
-     */
-    boolean fakeDeleteById(@Param("formId") Long formId);
-
-    /**
-     * 批量假删除
-     * @param formIds
-     * @return
-     */
-    boolean fakeBatchDelete(@Param("formIds") List<Long> formIds);
 
     /**
      * 获取Map数据（Obj）
@@ -40,6 +25,22 @@ public interface FormMapper extends BaseDao<Form> {
      * @param formId
      * @return
      */
-    @Select("select * from s_base_form where id = #{formId}")
     Map<String, Object> selectMapById(@Param("formId") Long formId);
+
+    /**
+     * 在数据库中创建表
+     * @param form
+     * @return
+     */
+    @Insert("create table if not exists ${form.collection}( id  bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键', uuid  varchar(32) NULL COMMENT '全局id', description varchar(1024) DEFAULT NULL COMMENT '备注', deleted bit(1) DEFAULT 0 COMMENT '是否已删除', created_by bigint(20) DEFAULT NULL COMMENT '创建人', created_at timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间', updated_by bigint(20) DEFAULT NULL COMMENT '更新人', updated_at timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间', PRIMARY KEY (id) )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT #{form.collection}")
+    int createTable(@Param("form") Form form);
+
+    /**
+     * 在数据库中修改数据库表名
+     * @param oldCollection
+     * @param newCollection
+     * @return
+     */
+    @Update("alter table ${oldCollection} rename ${newCollection}")
+    int updateTable(@Param("oldCollection") String oldCollection, @Param("newCollection") String newCollection);
 }

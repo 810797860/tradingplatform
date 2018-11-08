@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
  *   @description : Form 实体类
  *   ---------------------------------
  * 	 @author zhangjk
- *   @since 2018-10-30
+ *   @since 2018-11-08
  */
 @TableName("s_base_form")
 public class Form extends BaseEntity {
@@ -25,10 +25,6 @@ public class Form extends BaseEntity {
 	 */
     private static final long serialVersionUID = 1L;
 
-
-
-				
-				
             /**
              * 标题
              */
@@ -45,13 +41,6 @@ public class Form extends BaseEntity {
 												
 			private String collection;
 
-				
-				
-				
-				
-				
-				
-
         	public String getTitle() {
                 return title;
                 }
@@ -67,8 +56,6 @@ public class Form extends BaseEntity {
             public void setCollection(String collection) {
                 this.collection = collection;
                 }
-
-
 
 	@Override
 	public String toString() {

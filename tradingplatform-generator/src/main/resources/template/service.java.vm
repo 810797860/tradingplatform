@@ -23,7 +23,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
          * @param ${table.entityPath}Id
          * @return
          */
-        boolean fakeDeleteById(Long ${table.entityPath}Id);
+        Integer fakeDeleteById(Long ${table.entityPath}Id);
 
         /**
          * 根据ids进行批量假删除

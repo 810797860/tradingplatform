@@ -7,6 +7,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * 高频方法集合类
@@ -101,5 +102,9 @@ public class ToolUtil {
             e.printStackTrace();
         }
         return obj;
+    }
+
+    public static String getUUID(){
+        return UUID.randomUUID().toString().replaceAll("-", "");
     }
 }

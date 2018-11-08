@@ -1,19 +1,13 @@
 ##package ${package.Mapper};
-
 ##import ${package.Entity}.${entity};
 ##import ${superMapperClassPackage};
 package com.secondhand.tradingplatformadminmapper.mapper;
 
 import com.secondhand.tradingplatformadminentity.entity.${entity};
 import com.secondhand.tradingplatformcommon.base.BaseDao.BaseDao;
-import com.secondhand.tradingplatformcommon.redisCache.RedisCache;
-import org.apache.ibatis.annotations.CacheNamespace;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
-import com.baomidou.mybatisplus.plugins.Page;
 
-import java.util.List;
 import java.util.Map;
 
 /**

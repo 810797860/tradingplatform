@@ -70,7 +70,7 @@
 	#end
 
     <select id="selectMapById" resultType="java.util.Map">
-        select * from ${table.name} where id = #{${table.entityPath}Id}
+        select * from ${table.name} where id = #{${table.entityPath}Id} and deleted = false
     </select>
 
 

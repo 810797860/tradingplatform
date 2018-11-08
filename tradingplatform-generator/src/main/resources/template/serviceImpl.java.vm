@@ -9,6 +9,7 @@ import com.secondhand.tradingplatformadminentity.entity.${entity};
 import com.secondhand.tradingplatformadminmapper.mapper.${entity}Mapper;
 import com.secondhand.tradingplatformadminservice.service.${entity}Service;
 import ${superServiceImplClassPackage};
+import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,7 +31,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     private ${entity}Mapper ${table.entityPath}Mapper;
 
     @Override
-    public boolean fakeDeleteById(Long ${table.entityPath}Id) {
+    public Integer fakeDeleteById(Long ${table.entityPath}Id) {
         ${entity} ${table.entityPath} = new ${entity}();
         ${table.entityPath}.setId(${table.entityPath}Id);
         ${table.entityPath}.setDeleted(true);
@@ -55,6 +56,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     public ${entity} ${table.entityPath}CreateUpdate(${entity} ${table.entityPath}) {
         Long ${table.entityPath}Id = ${table.entityPath}.getId();
         if (${table.entityPath}Id == null){
+            ${table.entityPath}.setUuid(ToolUtil.getUUID());
             ${table.entityPath}Mapper.insert(${table.entityPath});
         } else {
             ${table.entityPath}Mapper.updateById(${table.entityPath});
