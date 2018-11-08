@@ -23,22 +23,7 @@ import java.util.Map;
  *   @since ${date}
  */
 @Repository
-@CacheNamespace(implementation = RedisCache.class)
 public interface ${table.mapperName} extends ${superMapperClass}<${entity}> {
-
-    /**
-     * 根据id进行假删除
-     * @param ${table.entityPath}Id
-     * @return
-     */
-    boolean fakeDeleteById(@Param("${table.entityPath}Id") Long ${table.entityPath}Id);
-
-    /**
-     * 批量假删除
-     * @param ${table.entityPath}Ids
-     * @return
-     */
-    boolean fakeBatchDelete(@Param("${table.entityPath}Ids") List<Long> ${table.entityPath}Ids);
 
     /**
      * 获取Map数据（Obj）
@@ -46,6 +31,5 @@ public interface ${table.mapperName} extends ${superMapperClass}<${entity}> {
      * @param ${table.entityPath}Id
      * @return
      */
-    @Select("select * from ${table.name} where id = #{${table.entityPath}Id}")
     Map<String, Object> selectMapById(@Param("${table.entityPath}Id") Long ${table.entityPath}Id);
 }

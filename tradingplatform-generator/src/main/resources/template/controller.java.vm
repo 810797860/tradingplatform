@@ -9,6 +9,8 @@ import com.secondhand.tradingplat${table.entityPath}common.jsonResult.TableJson;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authz.UnauthorizedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -129,8 +131,17 @@ public class ${table.controllerName} {
     @PutMapping(value = "/delete", produces = {"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "/delete", notes = "根据id假删除${table.entityPath}")
     public JsonResult<${entity}> fakeDeleteById(@ApiParam(name = "id", value = "${table.entityPath}Id") @RequestBody Long ${table.entityPath}Id){
+            Subject subject = SecurityUtils.getSubject();
             JsonResult<${entity}> resJson = new JsonResult<>();
-            resJson.setSuccess(${table.entityPath}Service.fakeDeleteById(${table.entityPath}Id));
+            try{
+                //检查是否具有权限
+                subject.checkPermission("/admin/${table.entityPath}/delete");
+                ${table.entityPath}Service.fakeDeleteById(${table.entityPath}Id);
+                resJson.setSuccess(true);
+            }catch (UnauthorizedException e){
+                resJson.setSuccess(false);
+                resJson.setMessage(e.getMessage());
+            }
             return resJson;
     }
 
@@ -142,8 +153,16 @@ public class ${table.controllerName} {
     @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除${table.entityPath}")
     public JsonResult<${entity}> fakeBatchDelete(@ApiParam(name = "ids", value = "${table.entityPath}Ids") @RequestBody List<Long> ${table.entityPath}Ids){
+            Subject subject = SecurityUtils.getSubject();
             JsonResult<${entity}> resJson = new JsonResult<>();
-            resJson.setSuccess(${table.entityPath}Service.fakeBatchDelete(${table.entityPath}Ids));
+            try{
+                //检查是否具有权限
+                subject.checkPermission("/admin/${table.entityPath}/batch_delete");
+                resJson.setSuccess(${table.entityPath}Service.fakeBatchDelete(${table.entityPath}Ids));
+            }catch(UnauthorizedException e){
+                resJson.setSuccess(false);
+                resJson.setMessage(e.getMessage());
+            }
             return resJson;
     }
 
@@ -155,10 +174,18 @@ public class ${table.controllerName} {
     @PostMapping(value = "/create_update", produces = {"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "/create_update", notes = "新增或修改${table.entityPath}")
     public JsonResult<${entity}> ${table.entityPath}CreateUpdate(@ApiParam(name = "${entity}", value = "${entity}实体类") @RequestBody ${entity} ${table.entityPath}){
-            ${table.entityPath} = ${table.entityPath}Service.${table.entityPath}CreateUpdate(${table.entityPath});
+            Subject subject = SecurityUtils.getSubject();
             JsonResult<${entity}> resJson = new JsonResult<>();
-            resJson.setData(${table.entityPath});
-            resJson.setSuccess(true);
+            try{
+                //检查是否具有权限
+                subject.checkPermission("/admin/${table.entityPath}/create_update");
+                ${table.entityPath} = ${table.entityPath}Service.${table.entityPath}CreateUpdate(${table.entityPath});
+                resJson.setData(${table.entityPath});
+                resJson.setSuccess(true);
+            }catch(UnauthorizedException e){
+                resJson.setSuccess(false);
+                resJson.setMessage(e.getMessage());
+            }
             return resJson;
     }
 }

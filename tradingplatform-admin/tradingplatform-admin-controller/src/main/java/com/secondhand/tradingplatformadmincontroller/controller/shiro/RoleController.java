@@ -6,6 +6,9 @@ import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authz.UnauthorizedException;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -92,9 +95,17 @@ public class RoleController extends BaseController {
     @PutMapping(value = "/delete", produces = {"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "/delete", notes = "根据id假删除role")
     public JsonResult<Role> fakeDeleteById(@ApiParam(name = "id", value = "roleId") @RequestBody Long roleId){
+            Subject subject = SecurityUtils.getSubject();
             JsonResult<Role> resJson = new JsonResult<>();
-            roleService.fakeDeleteById(roleId);
-            resJson.setSuccess(true);
+            try {
+                //检查是否具有权限
+                subject.checkPermission("/admin/role/delete");
+                roleService.fakeDeleteById(roleId);
+                resJson.setSuccess(true);
+            } catch (UnauthorizedException e){
+                resJson.setSuccess(false);
+                resJson.setMessage(e.getMessage());
+            }
             return resJson;
     }
 
@@ -106,8 +117,16 @@ public class RoleController extends BaseController {
     @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除role")
     public JsonResult<Role> fakeBatchDelete(@ApiParam(name = "ids", value = "roleIds") @RequestBody List<Long> roleIds){
+            Subject subject = SecurityUtils.getSubject();
             JsonResult<Role> resJson = new JsonResult<>();
-            resJson.setSuccess(roleService.fakeBatchDelete(roleIds));
+            try{
+                //检查是否具有权限
+                subject.checkPermission("/admin/role/batch_delete");
+                resJson.setSuccess(roleService.fakeBatchDelete(roleIds));
+            }catch (UnauthorizedException e){
+                resJson.setSuccess(false);
+                resJson.setMessage(e.getMessage());
+            }
             return resJson;
     }
 
@@ -119,10 +138,18 @@ public class RoleController extends BaseController {
     @PostMapping(value = "/create_update", produces = {"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "/create_update", notes = "新增或修改role")
     public JsonResult<Role> roleCreateUpdate(@ApiParam(name = "Role", value = "Role实体类") @RequestBody Role role){
-            role = roleService.roleCreateUpdate(role);
+            Subject subject = SecurityUtils.getSubject();
             JsonResult<Role> resJson = new JsonResult<>();
-            resJson.setData(role);
-            resJson.setSuccess(true);
+            try {
+                //检查是否具有权限
+                subject.checkPermission("/admin/role/create_update");
+                role = roleService.roleCreateUpdate(role);
+                resJson.setData(role);
+                resJson.setSuccess(true);
+            }catch (UnauthorizedException e){
+                resJson.setSuccess(false);
+                resJson.setMessage(e.getMessage());
+            }
             return resJson;
     }
 }

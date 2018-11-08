@@ -209,6 +209,13 @@ public class ShiroConfig {
         return redisSessionDAO;
     }
 
+//    @Bean
+//    public RedisSessionDao redisSessionDAO() {
+//        RedisSessionDao redisSessionDao = new RedisSessionDao();
+//        redisSessionDao.setRedisManager(redisManager());
+//        return redisSessionDao;
+//    }
+
     /**
      * shiro session的管理
      */
@@ -217,18 +224,19 @@ public class ShiroConfig {
 
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
         sessionManager.setSessionDAO(redisSessionDAO());
-
-        //解决sessionID与运行项目容器ID冲突配置
-        sessionManager.setGlobalSessionTimeout(1800000);
-        sessionManager.setSessionValidationInterval(60000);
-        sessionManager.setSessionValidationSchedulerEnabled(true);
-        sessionManager.setSessionIdUrlRewritingEnabled(true);
-        sessionManager.setSessionIdCookie(setSessionIdCookie());
-        sessionManager.setSessionIdCookieEnabled(true);
+//
+//        //解决sessionID与运行项目容器ID冲突配置
+//        sessionManager.setGlobalSessionTimeout(1800000);
+//        sessionManager.setSessionValidationInterval(60000);
+//        sessionManager.setSessionValidationSchedulerEnabled(true);
+//        sessionManager.setSessionIdUrlRewritingEnabled(true);
+//        sessionManager.setSessionIdCookie(setSessionIdCookie());
+//        sessionManager.setSessionIdCookieEnabled(true);
         return sessionManager;
 
 //        //不走shiro验证，测试用
 //        SimpleWebSessionManager sessionManager = new SimpleWebSessionManager();
+//        sessionManager.setSessionDAO(redisSessionDAO());
 //        return sessionManager;
     }
 

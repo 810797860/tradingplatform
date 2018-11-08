@@ -7,6 +7,7 @@ import com.secondhand.tradingplatformcommon.redisCache.RedisCache;
 import org.apache.ibatis.annotations.CacheNamespace;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -20,22 +21,7 @@ import java.util.Map;
  */
 
 @Repository
-@CacheNamespace(implementation = RedisCache.class)
 public interface RoleMapper extends BaseDao<Role> {
-
-    /**
-     * 根据id进行假删除
-     * @param roleId
-     * @return
-     */
-    boolean fakeDeleteById(@Param("roleId") Long roleId);
-
-    /**
-     * 批量假删除
-     * @param roleIds
-     * @return
-     */
-    boolean fakeBatchDelete(@Param("roleIds") List<Long> roleIds);
 
     /**
      * 获取Map数据（Obj）
@@ -43,6 +29,5 @@ public interface RoleMapper extends BaseDao<Role> {
      * @param roleId
      * @return
      */
-    @Select("select * from s_base_role where id = #{roleId}")
     Map<String, Object> selectMapById(@Param("roleId") Long roleId);
 }

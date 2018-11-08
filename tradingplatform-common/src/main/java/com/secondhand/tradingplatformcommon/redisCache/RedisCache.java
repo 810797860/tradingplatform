@@ -18,6 +18,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  */
 
 public class RedisCache implements Cache {
+
     //slf4j的日志记录器
     private static final Logger logger = LoggerFactory.getLogger(RedisCache.class);
     //缓存对象唯一标识

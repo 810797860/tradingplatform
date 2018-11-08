@@ -8,7 +8,9 @@ import com.secondhand.tradingplatformadminservice.service.shiro.RoleService;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -34,8 +36,12 @@ public class RoleServiceImpl extends BaseServiceImpl<RoleMapper, Role> implement
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean fakeBatchDelete(List<Long> roleIds) {
-        return roleMapper.fakeBatchDelete(roleIds);
+        for (Long roleId : roleIds){
+            fakeDeleteById(roleId);
+        }
+        return true;
     }
 
     @Override

@@ -4,6 +4,8 @@
 ##<mapper namespace="${package.Mapper}.${table.mapperName}">
 <mapper namespace="com.secondhand.tradingplatformadminmapper.mapper.${entity}Mapper">
 
+    <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
+
 #if(${enableCache})
 	<!-- 开启二级缓存 -->
 	<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
@@ -67,18 +69,10 @@
         </resultMap>
 	#end
 
-    <update id="fakeDeleteById">
-        update ${table.name} set deleted = true
-        where id = #{${table.entityPath}Id}
-    </update>
+    <select id="selectMapById" resultType="java.util.Map">
+        select * from ${table.name} where id = #{${table.entityPath}Id}
+    </select>
 
-    <update id="fakeBatchDelete" parameterType="java.util.List">
-        update ${table.name} set deleted = true
-        where id IN
-        <foreach collection="${table.entityPath}Ids" index="index" item="item" open="(" separator="," close=")">
-            #{item}
-        </foreach>
-    </update>
 
 ##if(${baseColumnList})
 ##    <!-- 通用查询结果列 -->
