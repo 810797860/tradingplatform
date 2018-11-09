@@ -10,7 +10,7 @@ import java.util.Map;
  *   @description : FormField 服务接口
  *   ---------------------------------
  * 	 @author zhangjk
- *   @since 2018-10-30
+ *   @since 2018-11-09
  */
 public interface FormFieldService extends BaseService<FormField> {
 
@@ -19,7 +19,7 @@ public interface FormFieldService extends BaseService<FormField> {
          * @param formFieldId
          * @return
          */
-        boolean fakeDeleteById(Long formFieldId);
+        Integer fakeDeleteById(Long formFieldId);
 
         /**
          * 根据ids进行批量假删除

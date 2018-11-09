@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
  *   @description : FormField 实体类
  *   ---------------------------------
  * 	 @author zhangjk
- *   @since 2018-10-30
+ *   @since 2018-11-09
  */
 @TableName("s_base_form_field")
 public class FormField extends BaseEntity {
@@ -25,10 +25,6 @@ public class FormField extends BaseEntity {
 	 */
     private static final long serialVersionUID = 1L;
 
-
-
-				
-				
             /**
              * 所属表单id
              */
@@ -52,11 +48,18 @@ public class FormField extends BaseEntity {
 			private String fieldName;
 
             /**
-             * 目标id--枚举或者关联选择id
+             * 字段类型
              */
-            @ApiModelProperty("目标id--枚举或者关联选择id")
+            @ApiModelProperty("字段类型")
 												
-			private Long targetId;
+			private Long fieldType;
+
+            /**
+             * 展示类型
+             */
+            @ApiModelProperty("展示类型")
+												
+			private Long showType;
 
             /**
              * 排序
@@ -89,13 +92,6 @@ public class FormField extends BaseEntity {
 												
 			private Integer length;
 
-				
-				
-				
-				
-				
-				
-
         	public Long getFormId() {
                 return formId;
                 }
@@ -120,12 +116,20 @@ public class FormField extends BaseEntity {
                 this.fieldName = fieldName;
                 }
 
-        	public Long getTargetId() {
-                return targetId;
+        	public Long getFieldType() {
+                return fieldType;
                 }
 
-            public void setTargetId(Long targetId) {
-                this.targetId = targetId;
+            public void setFieldType(Long fieldType) {
+                this.fieldType = fieldType;
+                }
+
+        	public Long getShowType() {
+                return showType;
+                }
+
+            public void setShowType(Long showType) {
+                this.showType = showType;
                 }
 
         	public Integer getSort() {
@@ -168,7 +172,8 @@ public class FormField extends BaseEntity {
 			", formId=" + formId +
 			", title=" + title +
 			", fieldName=" + fieldName +
-			", targetId=" + targetId +
+			", fieldType=" + fieldType +
+			", showType=" + showType +
 			", sort=" + sort +
 			", required=" + required +
 			", defaultValue=" + defaultValue +

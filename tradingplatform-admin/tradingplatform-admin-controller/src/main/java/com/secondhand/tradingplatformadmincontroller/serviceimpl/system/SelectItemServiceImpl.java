@@ -1,13 +1,13 @@
 package com.secondhand.tradingplatformadmincontroller.serviceimpl.system;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.secondhand.tradingplatformadminentity.entity.system.SelectItem;
 import com.secondhand.tradingplatformadminmapper.mapper.system.SelectItemMapper;
 import com.secondhand.tradingplatformadminservice.service.system.SelectItemService;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
+import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
@@ -16,7 +16,7 @@ import java.util.Map;
  *   @description : SelectItem 服务实现类
  *   ---------------------------------
  * 	 @author zhangjk
- *   @since 2018-10-31
+ *   @since 2018-11-09
  */
 
 @Service
@@ -26,13 +26,20 @@ public class SelectItemServiceImpl extends BaseServiceImpl<SelectItemMapper, Sel
     private SelectItemMapper selectItemMapper;
 
     @Override
-    public boolean fakeDeleteById(Long selectItemId) {
-        return selectItemMapper.fakeDeleteById(selectItemId);
+    public Integer fakeDeleteById(Long selectItemId) {
+        SelectItem selectItem = new SelectItem();
+        selectItem.setId(selectItemId);
+        selectItem.setDeleted(true);
+        return selectItemMapper.updateById(selectItem);
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean fakeBatchDelete(List<Long> selectItemIds) {
-        return selectItemMapper.fakeBatchDelete(selectItemIds);
+        for (Long selectItemId : selectItemIds){
+            fakeDeleteById(selectItemId);
+        }
+        return true;
     }
 
     @Override
@@ -44,6 +51,7 @@ public class SelectItemServiceImpl extends BaseServiceImpl<SelectItemMapper, Sel
     public SelectItem selectItemCreateUpdate(SelectItem selectItem) {
         Long selectItemId = selectItem.getId();
         if (selectItemId == null){
+            selectItem.setUuid(ToolUtil.getUUID());
             selectItemMapper.insert(selectItem);
         } else {
             selectItemMapper.updateById(selectItem);
@@ -53,9 +61,6 @@ public class SelectItemServiceImpl extends BaseServiceImpl<SelectItemMapper, Sel
 
     @Override
     public List<SelectItem> getItemsByPid(Long pid) {
-        Wrapper<SelectItem> wrapper = new EntityWrapper<>();
-        wrapper.where("pid = {0}", pid);
-        wrapper.where("deleted = {0}", false);
-        return this.selectList(wrapper);
+        return selectItemMapper.getItemsByPid(pid);
     }
 }

@@ -24,7 +24,7 @@ public class MysqlGenerator {
     private static String packageClass="tradingplatformgenerator";
     private static String projectName="secondhand";
     private static String authorName="zhangjk";
-    private static String[] table=new String[]{"s_base_form"};
+    private static String[] table=new String[]{"s_base_select_item"};
     private static String[] prefix=new String[]{"s_base_"};
     private static File file = new File(packageName);
     private static String path = file.getAbsolutePath();
@@ -121,22 +121,22 @@ public class MysqlGenerator {
                         .setService("service")
                         .setServiceImpl("service.impl")
                         .setXml("dao")
-        ).setCfg(
-                // 注入自定义配置，可以在 VM 中使用 cfg.abc 设置的值
-                new InjectionConfig() {
-                    @Override
-                    public void initMap() {
-                        Map<String, Object> map = new HashMap<>();
-                        map.put("abc", this.getConfig().getGlobalConfig().getAuthor() + "-mp");
-                        this.setMap(map);
-                    }
-                }.setFileOutConfigList(Collections.<FileOutConfig>singletonList(new FileOutConfig("/templates/mapper.xml.vm") {
-                    // 自定义输出文件目录
-                    @Override
-                    public String outputFile(TableInfo tableInfo) {
-                        return path+"/src/main/resources/mapper/" + tableInfo.getEntityName() + "Mapper.xml";
-                    }
-                }))
+//        ).setCfg(
+//                // 注入自定义配置，可以在 VM 中使用 cfg.abc 设置的值
+//                new InjectionConfig() {
+//                    @Override
+//                    public void initMap() {
+//                        Map<String, Object> map = new HashMap<>();
+//                        map.put("abc", this.getConfig().getGlobalConfig().getAuthor() + "-mp");
+//                        this.setMap(map);
+//                    }
+//                }.setFileOutConfigList(Collections.<FileOutConfig>singletonList(new FileOutConfig("/templates/mapper.xml.vm") {
+//                    // 自定义输出文件目录
+//                    @Override
+//                    public String outputFile(TableInfo tableInfo) {
+//                        return path+"/src/main/resources/mapper/" + tableInfo.getEntityName() + "Mapper.xml";
+//                    }
+//                }))
         ).setTemplate(
                 // 关闭默认 xml 生成，调整生成 至 根目录
                 new TemplateConfig().setXml(null)
@@ -161,8 +161,8 @@ public class MysqlGenerator {
         // 执行生成
         mpg.execute();
 
-        // 打印注入设置，这里演示模板里面怎么获取注入内容【可无】
-        System.err.println(mpg.getCfg().getMap().get("abc"));
+//        // 打印注入设置，这里演示模板里面怎么获取注入内容【可无】
+//        System.err.println(mpg.getCfg().getMap().get("abc"));
     }
 
 }

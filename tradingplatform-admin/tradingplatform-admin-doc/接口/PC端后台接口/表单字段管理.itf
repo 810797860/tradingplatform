@@ -1,0 +1,29 @@
+{
+    name:获取分页列表
+    url:/admin/formField/query
+    contentType:application/json
+    type:post
+    //传参例子
+    post-example:{
+        {
+            "formId": 203,
+            "page":{
+                "current": 1,
+                "size": 10
+            }
+        }
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+

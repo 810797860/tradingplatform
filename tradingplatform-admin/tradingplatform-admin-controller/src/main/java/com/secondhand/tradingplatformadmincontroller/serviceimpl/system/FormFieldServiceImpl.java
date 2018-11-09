@@ -4,8 +4,10 @@ import com.secondhand.tradingplatformadminentity.entity.system.FormField;
 import com.secondhand.tradingplatformadminmapper.mapper.system.FormFieldMapper;
 import com.secondhand.tradingplatformadminservice.service.system.FormFieldService;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
+import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
@@ -14,7 +16,7 @@ import java.util.Map;
  *   @description : FormField 服务实现类
  *   ---------------------------------
  * 	 @author zhangjk
- *   @since 2018-10-30
+ *   @since 2018-11-09
  */
 
 @Service
@@ -24,13 +26,20 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
     private FormFieldMapper formFieldMapper;
 
     @Override
-    public boolean fakeDeleteById(Long formFieldId) {
-        return formFieldMapper.fakeDeleteById(formFieldId);
+    public Integer fakeDeleteById(Long formFieldId) {
+        FormField formField = new FormField();
+        formField.setId(formFieldId);
+        formField.setDeleted(true);
+        return formFieldMapper.updateById(formField);
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean fakeBatchDelete(List<Long> formFieldIds) {
-        return formFieldMapper.fakeBatchDelete(formFieldIds);
+        for (Long formFieldId : formFieldIds){
+            fakeDeleteById(formFieldId);
+        }
+        return true;
     }
 
     @Override
@@ -42,6 +51,7 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
     public FormField formFieldCreateUpdate(FormField formField) {
         Long formFieldId = formField.getId();
         if (formFieldId == null){
+            formField.setUuid(ToolUtil.getUUID());
             formFieldMapper.insert(formField);
         } else {
             formFieldMapper.updateById(formField);

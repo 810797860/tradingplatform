@@ -10,7 +10,7 @@ import java.util.Map;
  *   @description : SelectItem 服务接口
  *   ---------------------------------
  * 	 @author zhangjk
- *   @since 2018-10-31
+ *   @since 2018-11-09
  */
 public interface SelectItemService extends BaseService<SelectItem> {
 
@@ -19,7 +19,7 @@ public interface SelectItemService extends BaseService<SelectItem> {
          * @param selectItemId
          * @return
          */
-        boolean fakeDeleteById(Long selectItemId);
+        Integer fakeDeleteById(Long selectItemId);
 
         /**
          * 根据ids进行批量假删除
@@ -43,7 +43,7 @@ public interface SelectItemService extends BaseService<SelectItem> {
         SelectItem selectItemCreateUpdate(SelectItem selectItem);
 
         /**
-         * 根据pid获取SelectItem列表
+         * 根据pid获取子级枚举列表
          * @param pid
          * @return
          */

@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
  *   @description : SelectItem 实体类
  *   ---------------------------------
  * 	 @author zhangjk
- *   @since 2018-10-31
+ *   @since 2018-11-09
  */
 @TableName("s_base_select_item")
 public class SelectItem extends BaseEntity {
@@ -25,9 +25,6 @@ public class SelectItem extends BaseEntity {
 	 */
     private static final long serialVersionUID = 1L;
 
-
-
-				
             /**
              * 标题
              */
@@ -58,14 +55,6 @@ public class SelectItem extends BaseEntity {
             @TableField("sort")
 												
 			private Integer sort;
-
-				
-				
-				
-				
-				
-				
-				
 
         	public String getTitle() {
                 return title;
