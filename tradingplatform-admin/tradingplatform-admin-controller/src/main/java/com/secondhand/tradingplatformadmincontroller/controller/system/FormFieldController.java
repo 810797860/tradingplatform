@@ -1,8 +1,11 @@
 package com.secondhand.tradingplatformadmincontroller.controller.system;
 
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.system.SelectItem;
+import com.secondhand.tradingplatformadminservice.service.system.SelectItemService;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
+import com.secondhand.tradingplatformcommon.pojo.SystemSelectItem;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -33,6 +36,9 @@ public class FormFieldController extends BaseController {
     @Autowired
     private FormFieldService formFieldService;
 
+    @Autowired
+    private SelectItemService selectItemService;
+
     /**
      * @description : 跳转到列表页面
      * @author : zhangjk
@@ -54,7 +60,10 @@ public class FormFieldController extends BaseController {
     public String toUpdateFormField(Model model, @PathVariable(value = "formFieldId") Long formFieldId) {
         //静态注入要回显的数据
         Map<String, Object> formField = formFieldService.selectMapById(formFieldId);
+        //静态注入展示类型及字段类型
+        List<SelectItem> displayType = selectItemService.getAllItemsByPid(SystemSelectItem.DISPLAY_TYPE);
         model.addAttribute("formField", formField);
+        model.addAttribute("displayType", displayType);
         return "formField/newFormField";
     }
 
@@ -66,6 +75,9 @@ public class FormFieldController extends BaseController {
     @GetMapping(value = "/create.html")
     @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
     public String toCreateFormField(Model model) {
+        //静态注入展示类型及字段类型
+        List<SelectItem> displayType = selectItemService.getAllItemsByPid(SystemSelectItem.DISPLAY_TYPE);
+        model.addAttribute("displayType", displayType);
         return "formField/newFormField";
     }
     

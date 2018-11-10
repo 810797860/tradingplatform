@@ -7,6 +7,6 @@ package com.secondhand.tradingplatformcommon.pojo;
 
 public class SystemSelectItem {
 
-    public static final Long FIELD_TYPE = 101L;
+    public static final Long DISPLAY_TYPE = 100101L;
 
 }

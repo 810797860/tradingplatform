@@ -49,4 +49,10 @@ public interface SelectItemService extends BaseService<SelectItem> {
          */
         List<SelectItem> getItemsByPid(Long pid);
 
+        /**
+         * 根据pid递归获取所有子级枚举列表
+         * @param pid
+         * @return
+         */
+        List<SelectItem> getAllItemsByPid(Long pid);
 }

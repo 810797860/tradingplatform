@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.secondhand.tradingplatformadminmapper.mapper.system.FormFieldMapper">
 
-    <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
+    <!--<cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>-->
 
 		<!-- 通用查询映射结果 -->
 			<resultMap id="formFieldMap" type="com.secondhand.tradingplatformadminentity.entity.system.FormField" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
@@ -13,11 +13,8 @@
 				<result column="field_name" property="fieldName" jdbcType="VARCHAR" />
 				<result column="field_type" property="fieldType" jdbcType="INTEGER" />
 				<result column="show_type" property="showType" jdbcType="INTEGER" />
-				<result column="sort" property="sort" jdbcType="INTEGER" />
 				<result column="required" property="required" jdbcType="BOOLEAN" />
 				<result column="default_value" property="defaultValue" jdbcType="VARCHAR" />
-				<result column="length" property="length" jdbcType="INTEGER" />
-
 
 		</resultMap>
 
@@ -30,10 +27,8 @@
                         <result column="field_name" property="fieldName" jdbcType="VARCHAR" />
                         <result column="field_type" property="fieldType" jdbcType="INTEGER" />
                         <result column="show_type" property="showType" jdbcType="INTEGER" />
-                        <result column="sort" property="sort" jdbcType="INTEGER" />
                         <result column="required" property="required" jdbcType="BOOLEAN" />
                         <result column="default_value" property="defaultValue" jdbcType="VARCHAR" />
-                        <result column="length" property="length" jdbcType="INTEGER" />
 
         </resultMap>
 
@@ -41,7 +36,8 @@
         select * from s_base_form_field where id = #{formFieldId} and deleted = false
     </select>
 
-
-
+    <insert id="createField">
+        ALTER TABLE z_abandon_test DROP lalala
+    </insert>
 
 </mapper>

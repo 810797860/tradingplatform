@@ -31,4 +31,11 @@ public interface SelectItemMapper extends BaseDao<SelectItem> {
      * @return
      */
     List<SelectItem> getItemsByPid(@Param("pid") Long pid);
+
+    /**
+     * 根据pid递归获取所有子级枚举列表
+     * @param pid
+     * @return
+     */
+    List<SelectItem> getAllItemsByPid(@Param("pid") Long pid);
 }

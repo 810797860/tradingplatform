@@ -63,4 +63,9 @@ public class SelectItemServiceImpl extends BaseServiceImpl<SelectItemMapper, Sel
     public List<SelectItem> getItemsByPid(Long pid) {
         return selectItemMapper.getItemsByPid(pid);
     }
+
+    @Override
+    public List<SelectItem> getAllItemsByPid(Long pid) {
+        return selectItemMapper.getAllItemsByPid(pid);
+    }
 }

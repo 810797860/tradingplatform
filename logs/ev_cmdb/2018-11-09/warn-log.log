@@ -1,0 +1,1 @@
+2018-11-09 14:25:51.290 [http-nio-8080-exec-4] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]

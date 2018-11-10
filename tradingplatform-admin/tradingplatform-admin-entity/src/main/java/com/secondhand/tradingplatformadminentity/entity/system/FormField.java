@@ -62,14 +62,6 @@ public class FormField extends BaseEntity {
 			private Long showType;
 
             /**
-             * 排序
-             */
-            @ApiModelProperty("排序")
-            @TableField("sort")
-												
-			private Integer sort;
-
-            /**
              * 是否必填
              */
             @ApiModelProperty("是否必填")
@@ -83,14 +75,6 @@ public class FormField extends BaseEntity {
             @ApiModelProperty("默认值")
 												
 			private String defaultValue;
-
-            /**
-             * 字段长度
-             */
-            @ApiModelProperty("字段长度")
-            @TableField("length")
-												
-			private Integer length;
 
         	public Long getFormId() {
                 return formId;
@@ -132,14 +116,6 @@ public class FormField extends BaseEntity {
                 this.showType = showType;
                 }
 
-        	public Integer getSort() {
-                return sort;
-                }
-
-            public void setSort(Integer sort) {
-                this.sort = sort;
-                }
-
         	public Boolean getRequired() {
                 return required;
                 }
@@ -156,14 +132,6 @@ public class FormField extends BaseEntity {
                 this.defaultValue = defaultValue;
                 }
 
-        	public Integer getLength() {
-                return length;
-                }
-
-            public void setLength(Integer length) {
-                this.length = length;
-                }
-
 
 
 	@Override
@@ -174,10 +142,8 @@ public class FormField extends BaseEntity {
 			", fieldName=" + fieldName +
 			", fieldType=" + fieldType +
 			", showType=" + showType +
-			", sort=" + sort +
 			", required=" + required +
 			", defaultValue=" + defaultValue +
-			", length=" + length +
 			"}";
 	}
 }

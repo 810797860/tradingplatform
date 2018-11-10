@@ -32,7 +32,21 @@ public interface FormMapper extends BaseDao<Form> {
      * @param form
      * @return
      */
-    @Insert("create table if not exists ${form.collection}( id  bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键', uuid  varchar(32) NULL COMMENT '全局id', description varchar(1024) DEFAULT NULL COMMENT '备注', deleted bit(1) DEFAULT 0 COMMENT '是否已删除', created_by bigint(20) DEFAULT NULL COMMENT '创建人', created_at timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间', updated_by bigint(20) DEFAULT NULL COMMENT '更新人', updated_at timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间', PRIMARY KEY (id) )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT #{form.collection}")
+    @Insert("<script>" +
+            "create table if not exists ${form.collection}( " +
+            "id  bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键', " +
+            "uuid  varchar(32) NULL COMMENT '全局id', " +
+            "description varchar(1024) DEFAULT NULL COMMENT '备注', " +
+            "deleted bit(1) DEFAULT 0 COMMENT '是否已删除', " +
+            "created_by bigint(20) DEFAULT NULL COMMENT '创建人', " +
+            "created_at timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间', " +
+            "updated_by bigint(20) DEFAULT NULL COMMENT '更新人', " +
+            "updated_at timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间', " +
+            "PRIMARY KEY (id) )ENGINE=InnoDB DEFAULT CHARSET=utf8 " +
+            "<if test=\"null != form.description\">" +
+            "COMMENT #{form.description}" +
+            "</if>" +
+            "</script>")
     int createTable(@Param("form") Form form);
 
     /**
