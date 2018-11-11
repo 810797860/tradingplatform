@@ -63,7 +63,7 @@ public class UserController extends BaseController {
     @ApiOperation(value = "/get_by_id/{userId}", notes = "根据id获取user")
     public JsonResult<User> getUserById( @ApiParam(name = "id",value = "userId") @PathVariable("userId") Long userId) {
             JsonResult<User> resJson = new JsonResult<>();
-            User user = userService.selectOneByObj(userId);
+            User user = userService.selectById(userId);
             resJson.setData(user);
             resJson.setSuccess(true);
             return resJson;

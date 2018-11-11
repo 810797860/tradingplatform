@@ -29,11 +29,6 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
 
     @Override
     public List<T> selectListWithMap(Map<String, Object> map) {
-        return baseMapper.selectByMap(map);
-    }
-
-    @Override
-    public T selectOneByObj(Serializable obj) {
-        return this.baseDao.selectById(obj);
+        return this.selectByMap(map);
     }
 }

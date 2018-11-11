@@ -50,10 +50,33 @@
             "formId": 214,
             "title": "测试标题",
             "fieldName": "test_field_name",
-            "fieldType": 100305,
-            "showType": 100205,
+            "fieldType": 100305,//字段类型，文本、整形...
+            "showType": 100205,//展示类型，varchar、int...
             "required": true
         }
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+{
+    name:获取分页列表
+    url:/admin/formField/delete
+    contentType:application/json
+    type:putF
+    //传参例子
+    post-example:{
+        1318//formield的id
     }
     //返回接口例子
     response-example:{

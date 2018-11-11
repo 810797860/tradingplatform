@@ -59,7 +59,7 @@ public class FormFieldController extends BaseController {
     @ApiOperation(value = "/{formFieldId}/update.html", notes = "跳转到修改页面")
     public String toUpdateFormField(Model model, @PathVariable(value = "formFieldId") Long formFieldId) {
         //静态注入要回显的数据
-        Map<String, Object> formField = formFieldService.selectMapById(formFieldId);
+        Map<String, Object> formField = formFieldService.mySelectMapById(formFieldId);
         //静态注入展示类型及字段类型
         List<SelectItem> displayType = selectItemService.getAllItemsByPid(SystemSelectItem.DISPLAY_TYPE);
         model.addAttribute("formField", formField);
@@ -100,7 +100,7 @@ public class FormFieldController extends BaseController {
                 return resJson;
             }
             Page<FormField> formFieldPage = new Page<FormField>(current, size);
-            formFieldPage = formFieldService.selectPageWithParam(formFieldPage, formField);
+            formFieldPage = formFieldService.mySelectPageWithParam(formFieldPage, formField);
             resJson.setRecordsTotal(formFieldPage.getTotal());
             resJson.setData(formFieldPage.getRecords());
             resJson.setSuccess(true);
@@ -116,7 +116,7 @@ public class FormFieldController extends BaseController {
     @ApiOperation(value = "/get_map_by_id/{formFieldId}", notes = "根据id获取formFieldMap")
     public JsonResult<Map<String, Object>> getFormFieldByIdForMap( @ApiParam(name = "id", value = "formFieldId") @PathVariable("formFieldId") Long formFieldId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
-            Map<String, Object> formField = formFieldService.selectMapById(formFieldId);
+            Map<String, Object> formField = formFieldService.mySelectMapById(formFieldId);
             resJson.setData(formField);
             resJson.setSuccess(true);
             return resJson;
@@ -135,7 +135,7 @@ public class FormFieldController extends BaseController {
             try{
                 //检查是否具有权限
                 subject.checkPermission("/admin/formField/delete");
-                formFieldService.fakeDeleteById(formFieldId);
+                formFieldService.myFakeDeleteById(formFieldId);
                 resJson.setSuccess(true);
             }catch (UnauthorizedException e){
                 resJson.setSuccess(false);
@@ -157,7 +157,7 @@ public class FormFieldController extends BaseController {
             try{
                 //检查是否具有权限
                 subject.checkPermission("/admin/formField/batch_delete");
-                resJson.setSuccess(formFieldService.fakeBatchDelete(formFieldIds));
+                resJson.setSuccess(formFieldService.myFakeBatchDelete(formFieldIds));
             }catch(UnauthorizedException e){
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
@@ -178,7 +178,7 @@ public class FormFieldController extends BaseController {
             try{
                 //检查是否具有权限
                 subject.checkPermission("/admin/formField/create_update");
-                formField = formFieldService.formFieldCreateUpdate(formField);
+                formField = formFieldService.myFormFieldCreateUpdate(formField);
                 resJson.setData(formField);
                 resJson.setSuccess(true);
             }catch(UnauthorizedException e){

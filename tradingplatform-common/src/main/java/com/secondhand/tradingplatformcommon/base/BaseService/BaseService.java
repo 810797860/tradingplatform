@@ -27,11 +27,4 @@ public interface BaseService<T> extends IService<T> {
      * @return
      */
     List<T> selectListWithMap(Map<String, Object> map);
-
-    /**
-     * 获取指定数据（Obj）
-     * @param obj
-     * @return
-     */
-    T selectOneByObj(Serializable obj);
 }

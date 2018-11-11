@@ -63,7 +63,7 @@ public class OperationLogController extends BaseController {
     @ApiOperation(value = "/get_by_id/{operationLogId}", notes = "根据id获取operationLog")
     public JsonResult<OperationLog> getOperationLogById( @ApiParam(name = "id",value = "operationLogId") @PathVariable("operationLogId") Long operationLogId) {
             JsonResult<OperationLog> resJson = new JsonResult<>();
-            OperationLog operationLog = operationLogService.selectOneByObj(operationLogId);
+            OperationLog operationLog = operationLogService.selectById(operationLogId);
             resJson.setData(operationLog);
             resJson.setSuccess(true);
             return resJson;

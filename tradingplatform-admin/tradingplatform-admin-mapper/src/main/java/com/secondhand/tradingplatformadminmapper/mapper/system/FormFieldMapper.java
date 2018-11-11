@@ -73,4 +73,13 @@ public interface FormFieldMapper extends BaseDao<FormField> {
             "after uuid" +
             "</script>")
     int changeField(@Param("tableName") String tableName, @Param("oldFieldName") String oldFieldName, @Param("columnType") String columnType, @Param("formField") FormField formField);
+
+    /**
+     * 在数据库表中删除字段
+     * @param tableName
+     * @param fieldName
+     * @return
+     */
+    @Update("ALTER TABLE ${tableName} DROP ${fieldName}")
+    int deleteField(@Param("tableName") String tableName, @Param("fieldName") String fieldName);
 }

@@ -63,7 +63,7 @@ public class ResourcesController extends BaseController {
     @ApiOperation(value = "/get_by_id/{resourcesId}", notes = "根据id获取resources")
     public JsonResult<Resources> getResourcesById( @ApiParam(name = "id",value = "resourcesId") @PathVariable("resourcesId") Long resourcesId) {
             JsonResult<Resources> resJson = new JsonResult<>();
-            Resources resources = resourcesService.selectOneByObj(resourcesId);
+            Resources resources = resourcesService.selectById(resourcesId);
             resJson.setData(resources);
             resJson.setSuccess(true);
             return resJson;

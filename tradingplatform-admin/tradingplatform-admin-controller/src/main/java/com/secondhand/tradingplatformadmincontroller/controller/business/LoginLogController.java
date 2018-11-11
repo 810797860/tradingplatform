@@ -63,7 +63,7 @@ public class LoginLogController extends BaseController {
     @ApiOperation(value = "/get_by_id/{loginLogId}", notes = "根据id获取loginLog")
     public JsonResult<LoginLog> getLoginLogById( @ApiParam(name = "id",value = "loginLogId") @PathVariable("loginLogId") Long loginLogId) {
             JsonResult<LoginLog> resJson = new JsonResult<>();
-            LoginLog loginLog = loginLogService.selectOneByObj(loginLogId);
+            LoginLog loginLog = loginLogService.selectById(loginLogId);
             resJson.setData(loginLog);
             resJson.setSuccess(true);
             return resJson;
