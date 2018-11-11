@@ -14,6 +14,7 @@
 
         <!-- 通用查询映射结果 -->
 		<resultMap id="formMapSimple" type="com.secondhand.tradingplatformadminentity.entity.system.Form">
+																			
 
                         <result column="title" property="title" jdbcType="VARCHAR" />
                         <result column="collection" property="collection" jdbcType="VARCHAR" />

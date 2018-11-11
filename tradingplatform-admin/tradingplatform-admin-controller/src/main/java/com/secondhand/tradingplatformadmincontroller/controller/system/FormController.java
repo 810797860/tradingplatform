@@ -23,7 +23,7 @@ import com.secondhand.tradingplatformadminservice.service.system.FormService;
 /**
  * @description : Form 控制器
  * @author : zhangjk
- * @since : Create in 2018-11-08
+ * @since : Create in 2018-11-11
  */
 @RestController
 @Api(value="/admin/form", description="Form 控制器")
@@ -36,7 +36,7 @@ public class FormController extends BaseController {
     /**
      * @description : 跳转到列表页面
      * @author : zhangjk
-     * @since : Create in 2018-11-08
+     * @since : Create in 2018-11-11
      */
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到form的列表页面")
@@ -47,13 +47,13 @@ public class FormController extends BaseController {
     /**
      * @description : 跳转到修改form的页面
      * @author : zhangjk
-     * @since : Create in 2018-11-08
+     * @since : Create in 2018-11-11
      */
     @GetMapping(value = "/{formId}/update.html")
     @ApiOperation(value = "/{formId}/update.html", notes = "跳转到修改页面")
     public String toUpdateForm(Model model, @PathVariable(value = "formId") Long formId) {
         //静态注入要回显的数据
-        Map<String, Object> form = formService.selectMapById(formId);
+        Map<String, Object> form = formService.mySelectMapById(formId);
         model.addAttribute("form", form);
         return "form/newForm";
     }
@@ -61,7 +61,7 @@ public class FormController extends BaseController {
     /**
      * @description : 跳转到新增form的页面
      * @author : zhangjk
-     * @since : Create in 2018-11-08
+     * @since : Create in 2018-11-11
      */
     @GetMapping(value = "/create.html")
     @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
@@ -72,7 +72,7 @@ public class FormController extends BaseController {
     /**
      * @description : 获取分页列表
      * @author : zhangjk
-     * @since : Create in 2018-11-08
+     * @since : Create in 2018-11-11
      */
     @PostMapping(value = "/query", produces = {"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "/query", notes="获取分页列表")
@@ -88,7 +88,7 @@ public class FormController extends BaseController {
                 return resJson;
             }
             Page<Form> formPage = new Page<Form>(current, size);
-            formPage = formService.selectPageWithParam(formPage, form);
+            formPage = formService.mySelectPageWithParam(formPage, form);
             resJson.setRecordsTotal(formPage.getTotal());
             resJson.setData(formPage.getRecords());
             resJson.setSuccess(true);
@@ -98,13 +98,13 @@ public class FormController extends BaseController {
     /**
      * @description : 通过id获取formMap
      * @author : zhangjk
-     * @since : Create in 2018-11-08
+     * @since : Create in 2018-11-11
      */
     @GetMapping(value = "/get_map_by_id/{formId}", produces = {"application/json"})
     @ApiOperation(value = "/get_map_by_id/{formId}", notes = "根据id获取formMap")
     public JsonResult<Map<String, Object>> getFormByIdForMap( @ApiParam(name = "id", value = "formId") @PathVariable("formId") Long formId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
-            Map<String, Object> form = formService.selectMapById(formId);
+            Map<String, Object> form = formService.mySelectMapById(formId);
             resJson.setData(form);
             resJson.setSuccess(true);
             return resJson;
@@ -113,7 +113,7 @@ public class FormController extends BaseController {
     /**
      * @description : 根据id假删除form
      * @author : zhangjk
-     * @since : Create in 2018-11-08
+     * @since : Create in 2018-11-11
      */
     @PutMapping(value = "/delete", produces = {"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "/delete", notes = "根据id假删除form")
@@ -123,7 +123,7 @@ public class FormController extends BaseController {
             try{
                 //检查是否具有权限
                 subject.checkPermission("/admin/form/delete");
-                formService.fakeDeleteById(formId);
+                formService.myFakeDeleteById(formId);
                 resJson.setSuccess(true);
             }catch (UnauthorizedException e){
                 resJson.setSuccess(false);
@@ -135,7 +135,7 @@ public class FormController extends BaseController {
     /**
      * @description : 根据ids批量假删除form
      * @author : zhangjk
-     * @since : Create in 2018-11-08
+     * @since : Create in 2018-11-11
      */
     @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除form")
@@ -145,7 +145,7 @@ public class FormController extends BaseController {
             try{
                 //检查是否具有权限
                 subject.checkPermission("/admin/form/batch_delete");
-                resJson.setSuccess(formService.fakeBatchDelete(formIds));
+                resJson.setSuccess(formService.myFakeBatchDelete(formIds));
             }catch(UnauthorizedException e){
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
@@ -156,7 +156,7 @@ public class FormController extends BaseController {
     /**
      * @description : 新增或修改form
      * @author : zhangjk
-     * @since : Create in 2018-11-08
+     * @since : Create in 2018-11-11
      */
     @PostMapping(value = "/create_update", produces = {"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "/create_update", notes = "新增或修改form")
@@ -166,7 +166,7 @@ public class FormController extends BaseController {
             try{
                 //检查是否具有权限
                 subject.checkPermission("/admin/form/create_update");
-                form = formService.formCreateUpdate(form);
+                form = formService.myFormCreateUpdate(form);
                 resJson.setData(form);
                 resJson.setSuccess(true);
             }catch(UnauthorizedException e){

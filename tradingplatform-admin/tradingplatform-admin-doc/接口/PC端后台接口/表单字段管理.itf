@@ -76,7 +76,7 @@
     type:putF
     //传参例子
     post-example:{
-        1318//formield的id
+        1318//formField的id
     }
     //返回接口例子
     response-example:{
