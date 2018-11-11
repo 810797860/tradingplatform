@@ -128,3 +128,25 @@
     }
 }
 
+{
+    name:新增或修改form
+    url:/admin/form/delete
+    contentType:application/json
+    type:put
+    //传参例子
+    post-example:{
+
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}

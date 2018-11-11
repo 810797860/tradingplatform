@@ -48,13 +48,16 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
     @Transactional(rollbackFor = Exception.class)
     @CacheEvict(key = "#p0")
     public Integer myFakeDeleteById(Long formFieldId) {
-        //先找出该条记录
-        FormField deleteFormField = formFieldMapper.selectById(formFieldId);
-        //找出表名与字段名
-        Form form = formMapper.selectById(deleteFormField.getFormId());
-        String tableName = form.getCollection();
-        String fieldName = deleteFormField.getFieldName();
-        formFieldMapper.deleteField(tableName, fieldName);
+//        为了代码安全，暂时不让删除，只删除记录(备用)
+
+//        //先找出该条记录
+//        FormField deleteFormField = formFieldMapper.selectById(formFieldId);
+//        //找出表名与字段名
+//        Form form = formMapper.selectById(deleteFormField.getFormId());
+//        String tableName = form.getCollection();
+//        String fieldName = deleteFormField.getFieldName();
+//        formFieldMapper.deleteField(tableName, fieldName);
+
         FormField formField = new FormField();
         formField.setId(formFieldId);
         formField.setDeleted(true);
@@ -85,6 +88,7 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
         if (formFieldId == null){
             formField.setUuid(ToolUtil.getUUID());
             formFieldMapper.insert(formField);
+
             //获取表名及字段类型
             Form form = formMapper.selectById(formField.getFormId());
             String formName = form.getCollection();
@@ -92,16 +96,19 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
             String fieldType = selectItem.getTitle();
             formFieldMapper.createField(formName, fieldType, formField);
         } else {
-            //先获取原来的字段名
-            FormField oldFormField = formFieldMapper.selectById(formField.getId());
-            String oldFieldName = oldFormField.getFieldName();
-            //获取表名
-            Form form = formMapper.selectById(formField.getFormId());
-            String formName = form.getCollection();
-            //获取字段类型
-            SelectItem selectItem = selectItemMapper.selectById(formField.getFieldType());
-            String fieldType = selectItem.getTitle();
-            formFieldMapper.changeField(formName, oldFieldName, fieldType, formField);
+//            为了代码安全，暂时不让改，只改记录(备用)
+
+//            //先获取原来的字段名
+//            FormField oldFormField = formFieldMapper.selectById(formField.getId());
+//            String oldFieldName = oldFormField.getFieldName();
+//            //获取表名
+//            Form form = formMapper.selectById(formField.getFormId());
+//            String formName = form.getCollection();
+//            //获取字段类型
+//            SelectItem selectItem = selectItemMapper.selectById(formField.getFieldType());
+//            String fieldType = selectItem.getTitle();
+//            formFieldMapper.changeField(formName, oldFieldName, fieldType, formField);
+
             formFieldMapper.updateById(formField);
         }
         return formField;
