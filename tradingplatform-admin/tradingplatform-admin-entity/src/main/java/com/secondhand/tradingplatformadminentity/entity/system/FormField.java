@@ -29,7 +29,7 @@ public class FormField extends BaseEntity {
              * 所属表单id
              */
             @ApiModelProperty("所属表单id")
-												
+            @TableField("form_id")
 			private Long formId;
 
             /**
@@ -37,28 +37,27 @@ public class FormField extends BaseEntity {
              */
             @ApiModelProperty("标题")
             @TableField("title")
-												
 			private String title;
 
             /**
              * 字段名--数据库字段名
              */
             @ApiModelProperty("字段名--数据库字段名")
-												
+            @TableField("field_name")
 			private String fieldName;
 
             /**
              * 字段类型
              */
             @ApiModelProperty("字段类型")
-												
+            @TableField("field_type")
 			private Long fieldType;
 
             /**
              * 展示类型
              */
             @ApiModelProperty("展示类型")
-												
+            @TableField("show_type")
 			private Long showType;
 
             /**
@@ -66,14 +65,13 @@ public class FormField extends BaseEntity {
              */
             @ApiModelProperty("是否必填")
             @TableField("required")
-												
 			private Boolean required;
 
             /**
              * 默认值
              */
             @ApiModelProperty("默认值")
-												
+            @TableField("default_value")
 			private String defaultValue;
 
         	public Long getFormId() {

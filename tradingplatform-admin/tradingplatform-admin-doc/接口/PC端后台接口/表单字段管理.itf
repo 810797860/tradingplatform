@@ -70,13 +70,36 @@
 }
 
 {
-    name:获取分页列表
+    name:假删除表单字段
     url:/admin/formField/delete
     contentType:application/json
     type:putF
     //传参例子
     post-example:{
         1318//formField的id
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+{
+    name:批量假删除表单字段
+    url:/admin/formField/batch_delete
+    contentType:application/json
+    type:putF
+    //传参例子
+    post-example:{
+        [1318,1319]
     }
     //返回接口例子
     response-example:{

@@ -73,6 +73,8 @@ public class ${entity} implements Serializable {
 				#end
 			#elseif(!${field.convert})
             @TableField("${field.name}")
+			#else
+            @TableField("${field.name}")
 			#end
 			## 乐观锁注解
 			#if(${versionFieldName}==${field.name})

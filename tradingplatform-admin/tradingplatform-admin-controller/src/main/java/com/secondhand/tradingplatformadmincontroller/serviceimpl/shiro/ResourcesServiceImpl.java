@@ -4,9 +4,12 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.shiro.Resources;
+import com.secondhand.tradingplatformadminentity.entity.shiro.RoleResources;
 import com.secondhand.tradingplatformadminmapper.mapper.shiro.ResourcesMapper;
+import com.secondhand.tradingplatformadminmapper.mapper.shiro.RoleResourcesMapper;
 import com.secondhand.tradingplatformadminservice.service.shiro.ResourcesService;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
+import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
@@ -34,9 +37,17 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
     @Autowired
     private ResourcesMapper resourcesMapper;
 
+    @Autowired
+    private RoleResourcesMapper roleResourcesMapper;
+
     @Override
+    @Transactional(rollbackFor = Exception.class)
     @CacheEvict(key = "#p0")
     public Integer myFakeDeleteById(Long resourcesId) {
+
+        //关联的role_resources的权限也假删除掉
+        roleResourcesMapper.deleteWithResourcesById(resourcesId);
+
         Resources resources = new Resources();
         resources.setId(resourcesId);
         resources.setDeleted(true);
@@ -60,12 +71,21 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     @CacheEvict(key = "#p0")
     public Resources myResourcesCreateUpdate(Resources resources) {
         Long resourcesId = resources.getId();
         if (resourcesId == null){
             resources.setUuid(ToolUtil.getUUID());
             resourcesMapper.insert(resources);
+
+            //role_resources表默认给管理员也配上权限
+            RoleResources roleResources = new RoleResources();
+            roleResources.setUuid(ToolUtil.getUUID());
+            roleResources.setRoleId(MagicalValue.ADMINISTRATOR_ID);
+            //新增后resources就会有id了，我也不知道为什么
+            roleResources.setResourcesId(resources.getId());
+            roleResourcesMapper.insert(roleResources);
         } else {
             resourcesMapper.updateById(resources);
         }

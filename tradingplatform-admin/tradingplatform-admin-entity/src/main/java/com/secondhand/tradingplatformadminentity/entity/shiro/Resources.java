@@ -25,9 +25,6 @@ public class Resources extends BaseEntity {
 	 */
     private static final long serialVersionUID = 1L;
 
-
-
-				
             /**
              * 资源标题
              */
@@ -44,14 +41,6 @@ public class Resources extends BaseEntity {
 												
 			private String url;
 
-				
-				
-				
-				
-				
-				
-				
-
         	public String getTitle() {
                 return title;
                 }
@@ -67,8 +56,6 @@ public class Resources extends BaseEntity {
             public void setUrl(String url) {
                 this.url = url;
                 }
-
-
 
 	@Override
 	public String toString() {

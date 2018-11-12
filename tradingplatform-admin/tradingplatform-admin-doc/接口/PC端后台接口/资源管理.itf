@@ -25,3 +25,85 @@
 
     }
 }
+
+
+{
+    name:新增或修改
+    url:/admin/resources/create_update
+    contentType:application/json
+    type:post
+    //传参例子
+    post-example:{
+        新增：
+        {
+            "title": "测试233333333",
+            "url": "/admin/resources/test_ttt",
+            "description": "测试233333333"
+        }
+        修改：
+        {
+        	"id": 27,
+        	"title": "测试233333333",
+        	"url": "/admin/resources/test_ttt",
+        	"description": "测试233333333"
+        }
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+{
+    name:假删除resources
+    url:/admin/resources/delete
+    contentType:application/json
+    type:put
+    //传参例子
+    post-example:{
+        27
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+{
+    name:批量假删除resources
+    url:/admin/resources/delete
+    contentType:application/json
+    type:put
+    //传参例子
+    post-example:{
+        [27,28]
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}

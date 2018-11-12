@@ -6,5 +6,10 @@ package com.secondhand.tradingplatformcommon.pojo;
  */
 
 public class MagicalValue {
+
     public static String UNDERLINE = "_";
+
+    public static Long ADMINISTRATOR_ID = 1L;
+
+    public static int SIMPLE_NAME_INDEX = 2;
 }

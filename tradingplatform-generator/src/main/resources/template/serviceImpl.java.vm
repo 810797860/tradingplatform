@@ -52,9 +52,9 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     @Transactional(rollbackFor = Exception.class)
     @CacheEvict(key = "#p0")
     public boolean myFakeBatchDelete(List<Long> ${table.entityPath}Ids) {
-        for (Long ${table.entityPath}Id : ${table.entityPath}Ids){
+        ${table.entityPath}Ids.forEach(${table.entityPath}Id->{
             myFakeDeleteById(${table.entityPath}Id);
-        }
+        });
         return true;
     }
 
@@ -116,9 +116,9 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     @Override
     @CacheEvict(key = "#p0")
     public boolean myInsertBatch(List<${entity}> ${table.entityPath}List) {
-        for (${entity} ${table.entityPath} : ${table.entityPath}List){
+        ${table.entityPath}List.forEach(${table.entityPath} -> {
             ${table.entityPath}.setUuid(ToolUtil.getUUID());
-        }
+        });
         return this.insertBatch(${table.entityPath}List);
     }
     
@@ -135,12 +135,12 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     @Override
     @CacheEvict(key = "#p0")
     public boolean myInsertOrUpdateBatch(List<${entity}> ${table.entityPath}List) {
-        for (${entity} ${table.entityPath} : ${table.entityPath}List){
-        //没有uuid的话要加上去
+        ${table.entityPath}List.forEach(${table.entityPath} -> {
+            //没有uuid的话要加上去
             if (${table.entityPath}.getUuid().equals(null)){
                 ${table.entityPath}.setUuid(ToolUtil.getUUID());
             }
-        }
+        });
         return this.insertOrUpdateBatch(${table.entityPath}List);
     }
     
