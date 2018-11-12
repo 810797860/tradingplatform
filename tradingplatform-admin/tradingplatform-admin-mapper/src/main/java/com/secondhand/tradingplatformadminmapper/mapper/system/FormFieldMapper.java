@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -82,4 +83,18 @@ public interface FormFieldMapper extends BaseDao<FormField> {
      */
     @Update("ALTER TABLE ${tableName} DROP ${fieldName}")
     int deleteField(@Param("tableName") String tableName, @Param("fieldName") String fieldName);
+
+    /**
+     * 假删除掉该表的字段
+     * @param formId
+     * @return
+     */
+    @Update("update s_base_form_field set deleted = true where form_id = #{formId}")
+    int fakeDeleteByFormId(@Param("formId") Long formId);
+
+    /**
+     * 查询字典表，获取该表物理字段
+     * @return
+     */
+    List<Map<String, Object>> selectByInformationSchema();
 }

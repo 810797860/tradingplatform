@@ -11,6 +11,8 @@ import com.secondhand.tradingplatformadminmapper.mapper.system.FormMapper;
 import com.secondhand.tradingplatformadminmapper.mapper.system.SelectItemMapper;
 import com.secondhand.tradingplatformadminservice.service.system.FormFieldService;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
+import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
+import com.secondhand.tradingplatformcommon.pojo.SystemSelectItem;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
@@ -112,6 +114,87 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
             formFieldMapper.updateById(formField);
         }
         return formField;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    @CacheEvict(key = "#p0")
+    public boolean formFieldUpdateByFormId(Long formId) {
+
+        //查询字典表，获取该表物理字段
+        List<Map<String, Object>> myFormFieldList = formFieldMapper.selectByInformationSchema();
+        myFormFieldList.forEach(myFormField -> {
+            FormField formField = new FormField();
+            formField.setFormId(formId);
+            formField.setTitle(myFormField.get("COLUMN_COMMENT").toString());
+            formField.setDescription(formField.getTitle());
+            formField.setFieldName(myFormField.get("COLUMN_NAME").toString());
+
+            //bigint默认了关联选择（整型？）
+            //longtext默认了HTML编辑器（文本？）
+            //text默认了文本（附件？）
+            //判断字段类型与展示类型
+            String dataType = myFormField.get("DATA_TYPE").toString();
+            if (dataType.equals(MagicalValue.DISPLAY_TYPE_BIGINT)){
+                formField.setFieldType(SystemSelectItem.FIELD_TYPE_BIGINT_ASSOCIATED);
+                formField.setShowType(SystemSelectItem.SHOW_TYPE_ASSOCIATED_CHOICE);
+
+            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_LONGTEXT)){
+                formField.setFieldType(SystemSelectItem.FIELD_TYPE_LONGTEXT_EDITOR);
+                formField.setShowType(SystemSelectItem.SHOW_TYPE_HTML_EDITOR);
+
+            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_TEXT)){
+                formField.setFieldType(SystemSelectItem.FIELD_TYPE_TEXT_TEXT);
+                formField.setShowType(SystemSelectItem.SHOW_TYPE_TEXT);
+
+            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_DATETIME)){
+                formField.setFieldType(SystemSelectItem.FIELD_TYPE_DATETIME);
+                formField.setShowType(SystemSelectItem.SHOW_TYPE_DATE);
+
+            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_VARCHAR)){
+                formField.setFieldType(SystemSelectItem.FIELD_TYPE_VARCHAR);
+                formField.setShowType(SystemSelectItem.SHOW_TYPE_TEXT);
+
+            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_MEDIUMTEXT)){
+                formField.setFieldType(SystemSelectItem.FIELD_TYPE_MEDIUMTEXT);
+                formField.setShowType(SystemSelectItem.SHOW_TYPE_TEXT);
+
+            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_BIT)){
+                formField.setFieldType(SystemSelectItem.FIELD_TYPE_BIT);
+                formField.setShowType(SystemSelectItem.SHOW_TYPE_BIT);
+
+            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_FLOAT)){
+                formField.setFieldType(SystemSelectItem.FIELD_TYPE_FLOAT);
+                formField.setShowType(SystemSelectItem.SHOW_TYPE_FLOATING_POINT);
+
+            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_DOUBLE)){
+                formField.setFieldType(SystemSelectItem.FIELD_TYPE_DOUBLE);
+                formField.setShowType(SystemSelectItem.SHOW_TYPE_FLOATING_POINT);
+
+            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_INT)){
+                formField.setFieldType(SystemSelectItem.FIELD_TYPE_INT);
+                formField.setShowType(SystemSelectItem.SHOW_TYPE_INTEGER);
+            }
+
+            //判断是否为必填项
+            String isNullable = myFormField.get("IS_NULLABLE").toString();
+            if (isNullable.equals(MagicalValue.BOOLEAN_YES)){
+                formField.setRequired(false);
+            } else if (isNullable.equals(MagicalValue.BOOLEAN_NO)){
+                formField.setRequired(true);
+            }
+
+            //默认值
+            //判空
+            if (myFormField.containsKey(MagicalValue.INFORMATION_SCHEMA_COLUMN_DEFAULT)){
+                String columnDefault = myFormField.get("COLUMN_DEFAULT").toString();
+                formField.setDefaultValue(columnDefault);
+            }
+
+            formField.setUuid(ToolUtil.getUUID());
+            formFieldMapper.insert(formField);
+        });
+        return true;
     }
 
     //以下是继承BaseServiceImpl

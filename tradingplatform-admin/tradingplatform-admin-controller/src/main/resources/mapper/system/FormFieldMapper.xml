@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.secondhand.tradingplatformadminmapper.mapper.system.FormFieldMapper">
 
-    <!--<cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>-->
+    <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
 
 		<!-- 通用查询映射结果 -->
 			<resultMap id="formFieldMap" type="com.secondhand.tradingplatformadminentity.entity.system.FormField" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
@@ -36,8 +36,12 @@
         select * from s_base_form_field where id = #{formFieldId} and deleted = false
     </select>
 
-    <insert id="createField">
-        ALTER TABLE z_abandon_test DROP lalala
-    </insert>
+    <select id="selectByInformationSchema" resultType="java.util.Map">
+        SELECT * FROM information_schema.`COLUMNS`
+        WHERE TABLE_SCHEMA = 'myshtp'
+        AND TABLE_NAME = 's_base_resources'
+        AND COLUMN_NAME NOT IN ( 'id', 'uuid', 'description', 'deleted', 'created_by', 'created_at', 'updated_by', 'updated_at' )
+        ORDER BY IS_NULLABLE ASC
+    </select>
 
 </mapper>

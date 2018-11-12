@@ -47,6 +47,13 @@ public interface FormFieldService extends BaseService<FormField> {
         FormField myFormFieldCreateUpdate(FormField formField);
 
         /**
+         * 根据表单id更新FormField
+         * @param formId
+         * @return
+         */
+        boolean formFieldUpdateByFormId(Long formId);
+
+        /**
          * 分页获取FormField列表数据（实体类）
          * @param page
          * @param formField

@@ -202,7 +202,7 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
     }
 
     @Override
-    @Cacheable
+    @Cacheable(key = "'myQueryAll'")
     public List<Resources> myQueryAll() {
         Wrapper<Resources> wrapper = new EntityWrapper<>();
         wrapper.where("deleted = {0}", false);

@@ -50,20 +50,24 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
     @CacheEvict(key = "#p0")
     public Integer myFakeDeleteById(Long formId) {
 
-        //先假删除删掉该表的字段
-        //先找出该表的字段
-        Wrapper<FormField> wrapper = new EntityWrapper<>();
-        wrapper.where("form_id = {0}", formId);
-        wrapper.where("deleted = {0}", false);
-        List<FormField> formFieldList = formFieldMapper.selectList(wrapper);
-        //判空
-        if (formFieldList.size() > 0){
-            formFieldList.forEach(myFormField -> {
-                //假删除
-                myFormField.setDeleted(true);
-                formFieldMapper.updateById(myFormField);
-            });
-        }
+//        //先假删除删掉该表的字段
+//        //先找出该表的字段
+//        Wrapper<FormField> wrapper = new EntityWrapper<>();
+//        wrapper.where("form_id = {0}", formId);
+//        wrapper.where("deleted = {0}", false);
+//        List<FormField> formFieldList = formFieldMapper.selectList(wrapper);
+//        //判空
+//        if (formFieldList.size() > 0){
+//            formFieldList.forEach(myFormField -> {
+//                //假删除
+//                myFormField.setDeleted(true);
+//                formFieldMapper.updateById(myFormField);
+//            });
+//        }
+
+        //由于用mybatisplus写的话太长（上面）还是自己写sql吧
+        //假删除掉该表的字段
+        formFieldMapper.fakeDeleteByFormId(formId);
 
         Form form = new Form();
         form.setId(formId);

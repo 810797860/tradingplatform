@@ -187,4 +187,18 @@ public class FormFieldController extends BaseController {
             }
             return resJson;
     }
+
+    /**
+     * @description : 根据表单id更新FormField(开发后台时方便自己用的)
+     * @author : zhangjk
+     * @since : Create in 2018-11-09
+     */
+    @PostMapping(value = "/update_by_form_id", produces = {"application/json"}, consumes = {"application/json"})
+    @ApiOperation(value = "/update_by_form_id", notes = "根据表单id更新FormField")
+    public JsonResult<FormField> formFieldUpdateByFormId(@ApiParam(name = "formId", value = "表单id") @RequestBody Long formId){
+        //因为是开发后台时方便自己用的，所以就不检测是否有权限了
+        JsonResult<FormField> resJson = new JsonResult<>();
+        resJson.setSuccess(formFieldService.formFieldUpdateByFormId(formId));
+        return resJson;
+    }
 }
