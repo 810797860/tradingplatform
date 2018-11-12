@@ -1,12 +1,22 @@
 package com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
+import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.shiro.Resources;
 import com.secondhand.tradingplatformadminmapper.mapper.shiro.ResourcesMapper;
 import com.secondhand.tradingplatformadminservice.service.shiro.ResourcesService;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
+import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -14,34 +24,47 @@ import java.util.Map;
  *   @description : Resources 服务实现类
  *   ---------------------------------
  * 	 @author zhangjk
- *   @since 2018-10-20
+ *   @since 2018-11-12
  */
 
 @Service
+@CacheConfig(cacheNames = "resources")
 public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resources> implements ResourcesService {
 
     @Autowired
     private ResourcesMapper resourcesMapper;
 
     @Override
-    public boolean fakeDeleteById(Long resourcesId) {
-        return resourcesMapper.fakeDeleteById(resourcesId);
+    @CacheEvict(key = "#p0")
+    public Integer myFakeDeleteById(Long resourcesId) {
+        Resources resources = new Resources();
+        resources.setId(resourcesId);
+        resources.setDeleted(true);
+        return resourcesMapper.updateById(resources);
     }
 
     @Override
-    public boolean fakeBatchDelete(List<Long> resourcesIds) {
-        return resourcesMapper.fakeBatchDelete(resourcesIds);
+    @Transactional(rollbackFor = Exception.class)
+    @CacheEvict(key = "#p0")
+    public boolean myFakeBatchDelete(List<Long> resourcesIds) {
+        for (Long resourcesId : resourcesIds){
+            myFakeDeleteById(resourcesId);
+        }
+        return true;
     }
 
     @Override
-    public Map<String, Object> selectMapById(Long resourcesId) {
+    @Cacheable(key = "#p0")
+    public Map<String, Object> mySelectMapById(Long resourcesId) {
         return resourcesMapper.selectMapById(resourcesId);
     }
 
     @Override
-    public Resources resourcesCreateUpdate(Resources resources) {
+    @CacheEvict(key = "#p0")
+    public Resources myResourcesCreateUpdate(Resources resources) {
         Long resourcesId = resources.getId();
         if (resourcesId == null){
+            resources.setUuid(ToolUtil.getUUID());
             resourcesMapper.insert(resources);
         } else {
             resourcesMapper.updateById(resources);
@@ -49,14 +72,126 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
         return resources;
     }
 
+    //以下是继承BaseServiceImpl
+
     @Override
-    public List<Resources> queryAll(){
-        return resourcesMapper.queryAll();
+    @Cacheable(key = "#p1")
+    public Page<Resources> mySelectPageWithParam(Page<Resources> page, Resources resources) {
+        Wrapper<Resources> wrapper = new EntityWrapper<>(resources);
+        return this.selectPage(page, wrapper);
     }
 
     @Override
-    //@Cacheable(cacheNames="resources",key="#map['userid'].toString()+#map['type']")
-    public List<Resources> loadUserResources(Map<String, Object> map) {
-        return resourcesMapper.loadUserResources(map);
+    @Cacheable(key = "#p0")
+    public List<Resources> mySelectListWithMap(Map<String, Object> map) {
+        return resourcesMapper.selectByMap(map);
+    }
+
+    //以下是继承BaseMapper
+
+    @Override
+    @Cacheable(key = "#p0")
+    public Map<String, Object> mySelectMap(Wrapper<Resources> wrapper) {
+        return this.selectMap(wrapper);
+    }
+
+    @Override
+    @Cacheable(key = "#p0")
+    public List<Resources> mySelectList(Wrapper<Resources> wrapper) {
+        return resourcesMapper.selectList(wrapper);
+    }
+
+    @Override
+    @CacheEvict(key = "#p0")
+    public boolean myInsert(Resources resources) {
+        resources.setUuid(ToolUtil.getUUID());
+        return this.insert(resources);
+    }
+
+    @Override
+    @CacheEvict(key = "#p0")
+    public boolean myInsertBatch(List<Resources> resourcesList) {
+        for (Resources resources : resourcesList){
+            resources.setUuid(ToolUtil.getUUID());
+        }
+        return this.insertBatch(resourcesList);
+    }
+
+    @Override
+    @CacheEvict(key = "#p0")
+    public boolean myInsertOrUpdate(Resources resources) {
+        //没有uuid的话要加上去
+        if (resources.getUuid().equals(null)){
+            resources.setUuid(ToolUtil.getUUID());
+        }
+        return this.insertOrUpdate(resources);
+    }
+
+    @Override
+    @CacheEvict(key = "#p0")
+    public boolean myInsertOrUpdateBatch(List<Resources> resourcesList) {
+        for (Resources resources : resourcesList){
+            //没有uuid的话要加上去
+            if (resources.getUuid().equals(null)){
+                resources.setUuid(ToolUtil.getUUID());
+            }
+        }
+        return this.insertOrUpdateBatch(resourcesList);
+    }
+
+    @Override
+    @Cacheable(key = "#p0")
+    public List<Resources> mySelectBatchIds(Collection<? extends Serializable> resourcesIds) {
+        return resourcesMapper.selectBatchIds(resourcesIds);
+    }
+
+    @Override
+    @Cacheable(key = "#p0")
+    public Resources mySelectById(Serializable resourcesId) {
+        return resourcesMapper.selectById(resourcesId);
+    }
+
+    @Override
+    @Cacheable(key = "#p0")
+    public int mySelectCount(Wrapper<Resources> wrapper) {
+        return resourcesMapper.selectCount(wrapper);
+    }
+
+    @Override
+    @Cacheable(key = "#p0")
+    public Resources mySelectOne(Wrapper<Resources> wrapper) {
+        return this.selectOne(wrapper);
+    }
+
+    @Override
+    @CacheEvict(key = "#p0")
+    public boolean myUpdate(Resources resources, Wrapper<Resources> wrapper) {
+        return this.update(resources, wrapper);
+    }
+
+    @Override
+    @CacheEvict(key = "#p0")
+    public boolean myUpdateBatchById(List<Resources> resourcesList) {
+        return this.updateBatchById(resourcesList);
+    }
+
+    @Override
+    @CacheEvict(key = "#p0")
+    public boolean myUpdateById(Resources resources) {
+        return this.updateById(resources);
+    }
+
+    @Override
+    @Cacheable
+    public List<Resources> myQueryAll() {
+        Wrapper<Resources> wrapper = new EntityWrapper<>();
+        wrapper.where("deleted = {0}", false);
+        return this.selectList(wrapper);
+    }
+
+    @Override
+    @Cacheable(key = "#p0")
+    public List<Resources> myLoadUserResources(Long userId) {
+        return resourcesMapper.loadUserResources(userId);
     }
 }

@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
  *   @description : Resources 实体类
  *   ---------------------------------
  * 	 @author zhangjk
- *   @since 2018-10-20
+ *   @since 2018-11-12
  */
 @TableName("s_base_resources")
 public class Resources extends BaseEntity {
@@ -29,44 +29,20 @@ public class Resources extends BaseEntity {
 
 				
             /**
-             * 资源名称
+             * 资源标题
              */
-            @ApiModelProperty("资源名称")
-            @TableField("name")
+            @ApiModelProperty("资源标题")
+            @TableField("title")
 												
-			private String name;
+			private String title;
 
             /**
              * 资源url
              */
             @ApiModelProperty("资源url")
-            @TableField("resUrl")
+            @TableField("url")
 												
-			private String resUrl;
-
-            /**
-             * 资源类型   1:菜单    2：按钮
-             */
-            @ApiModelProperty("资源类型   1:菜单    2：按钮")
-            @TableField("type")
-												
-			private Integer type;
-
-            /**
-             * 父资源
-             */
-            @ApiModelProperty("父资源")
-            @TableField("parentId")
-												
-			private Integer parentId;
-
-            /**
-             * 排序
-             */
-            @ApiModelProperty("排序")
-            @TableField("sort")
-												
-			private Integer sort;
+			private String url;
 
 				
 				
@@ -76,44 +52,20 @@ public class Resources extends BaseEntity {
 				
 				
 
-        	public String getName() {
-                return name;
+        	public String getTitle() {
+                return title;
                 }
 
-            public void setName(String name) {
-                this.name = name;
+            public void setTitle(String title) {
+                this.title = title;
                 }
 
-        	public String getResUrl() {
-                return resUrl;
+        	public String getUrl() {
+                return url;
                 }
 
-            public void setResUrl(String resUrl) {
-                this.resUrl = resUrl;
-                }
-
-        	public Integer getType() {
-                return type;
-                }
-
-            public void setType(Integer type) {
-                this.type = type;
-                }
-
-        	public Integer getParentId() {
-                return parentId;
-                }
-
-            public void setParentId(Integer parentId) {
-                this.parentId = parentId;
-                }
-
-        	public Integer getSort() {
-                return sort;
-                }
-
-            public void setSort(Integer sort) {
-                this.sort = sort;
+            public void setUrl(String url) {
+                this.url = url;
                 }
 
 
@@ -121,11 +73,8 @@ public class Resources extends BaseEntity {
 	@Override
 	public String toString() {
 		return "Resources{" +
-			", name=" + name +
-			", resUrl=" + resUrl +
-			", type=" + type +
-			", parentId=" + parentId +
-			", sort=" + sort +
+			", title=" + title +
+			", url=" + url +
 			"}";
 	}
 }

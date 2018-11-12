@@ -39,12 +39,12 @@ public class ShiroService {
         filterChainDefinitionMap.put("/js/**","anon");
         filterChainDefinitionMap.put("/img/**","anon");
         filterChainDefinitionMap.put("/font-awesome/**","anon");
-        List<Resources> resourcesList = resourcesService.queryAll();
+        List<Resources> resourcesList = resourcesService.myQueryAll();
         for(Resources resources:resourcesList){
 
-            if (ToolUtil.isNotEmpty(resources.getResUrl())) {
-                String permission = "perms[" + resources.getResUrl()+ "]";
-                filterChainDefinitionMap.put(resources.getResUrl(),permission);
+            if (ToolUtil.isNotEmpty(resources.getUrl())) {
+                String permission = "perms[" + resources.getUrl()+ "]";
+                filterChainDefinitionMap.put(resources.getUrl(),permission);
             }
         }
         filterChainDefinitionMap.put("/**", "authc");

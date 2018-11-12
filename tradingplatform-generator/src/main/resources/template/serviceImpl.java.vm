@@ -89,7 +89,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     @Override
     @Cacheable(key = "#p0")
     public List<${entity}> mySelectListWithMap(Map<String, Object> map) {
-        return this.selectByMap(map);
+        return ${table.entityPath}Mapper.selectByMap(map);
     }
     
     //以下是继承BaseMapper
@@ -103,7 +103,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     @Override
     @Cacheable(key = "#p0")
     public List<${entity}> mySelectList(Wrapper<${entity}> wrapper) {
-        return this.selectList(wrapper);
+        return ${table.entityPath}Mapper.selectList(wrapper);
     }
     
     @Override
@@ -147,19 +147,19 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     @Override
     @Cacheable(key = "#p0")
     public List<${entity}> mySelectBatchIds(Collection<? extends Serializable> ${table.entityPath}Ids) {
-        return this.selectBatchIds(${table.entityPath}Ids);
+        return ${table.entityPath}Mapper.selectBatchIds(${table.entityPath}Ids);
     }
     
     @Override
     @Cacheable(key = "#p0")
     public ${entity} mySelectById(Serializable ${table.entityPath}Id) {
-        return this.selectById(${table.entityPath}Id);
+        return ${table.entityPath}Mapper.selectById(${table.entityPath}Id);
     }
     
     @Override
     @Cacheable(key = "#p0")
     public int mySelectCount(Wrapper<${entity}> wrapper) {
-        return this.selectCount(wrapper);
+        return ${table.entityPath}Mapper.selectCount(wrapper);
     }
     
     @Override

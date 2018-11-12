@@ -39,14 +39,13 @@ public class MyShiroRealm extends AuthorizingRealm {
     //授权
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        User user= (User) SecurityUtils.getSubject().getPrincipal();//User{id=1, username='admin', password='3ef7164d1f6167cb9f2658c07d3c2f0a', enable=1}
-        Map<String,Object> map = new HashMap<String,Object>();
-        map.put("userid",user.getId());
-        List<Resources> resourcesList = resourcesService.loadUserResources(map);
+        //User{id=1, username='admin', password='3ef7164d1f6167cb9f2658c07d3c2f0a', enable=1}
+        User user= (User) SecurityUtils.getSubject().getPrincipal();
+        List<Resources> resourcesList = resourcesService.myLoadUserResources(user.getId());
         // 权限信息对象info,用来存放查出的用户的所有的角色（role）及权限（permission）
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         for(Resources resources: resourcesList){
-            info.addStringPermission(resources.getResUrl());
+            info.addStringPermission(resources.getUrl());
         }
         return info;
     }
@@ -59,13 +58,17 @@ public class MyShiroRealm extends AuthorizingRealm {
         User user = userService.selectByUsername(username);
         if(user==null) {throw new UnknownAccountException();}
         if (false == user.getEnable()) {
-            throw new LockedAccountException(); // 帐号锁定
+            // 帐号锁定
+            throw new LockedAccountException();
         }
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
-                user, //用户
-                user.getPassword(), //密码
+                //用户
+                user,
+                //密码
+                user.getPassword(),
                 ByteSource.Util.bytes(username),
-                getName()  //realm name
+                //realm name
+                getName()
         );
         // 当验证都通过后，把用户信息放在session里
         Session session = SecurityUtils.getSubject().getSession();

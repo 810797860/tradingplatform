@@ -1,0 +1,410 @@
+2018-11-12 10:13:07.691 [http-nio-8080-exec-3] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象获取失败java.lang.ClassCastException: org.apache.ibatis.cache.CacheKey cannot be cast to java.lang.String
+2018-11-12 10:13:07.712 [http-nio-8080-exec-3] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象保存失败java.lang.ClassCastException: org.apache.ibatis.cache.CacheKey cannot be cast to java.lang.String
+2018-11-12 10:13:07.825 [http-nio-8080-exec-3] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [org.springframework.jdbc.UncategorizedSQLException: 
+### Error querying database.  Cause: java.sql.SQLException: sql injection violation, syntax error: syntax error, error in :'     WHERE sbur.user_id = ?
+       ', expect WHERE, actual WHERE pos 374, line 12, column 34, token WHERE : SELECT
+	      sbr.id AS id,
+	      sbr.title AS title,
+	      sbr.url AS url
+        FROM
+	      s_base_resources sbr
+        JOIN s_base_role_resources sbrr ON sbr.id = sbrr.resources_id
+        JOIN s_base_user_role sbur ON sbrr.role_id = sbur.role_id
+        WHERE
+	      sbr.deleted = FALSE
+        AND sbrr.deleted = FALSE
+        AND sbur.deleted = FALSE
+        WHERE sbur.user_id = ?
+        GROUP BY
+	      sbr.id
+### The error may exist in file [D:\spring\tradingplatform\tradingplatform\tradingplatform-admin\tradingplatform-admin-controller\target\classes\mapper\shiro\ResourcesMapper.xml]
+### The error may involve com.secondhand.tradingplatformadminmapper.mapper.shiro.ResourcesMapper.loadUserResources
+### The error occurred while executing a query
+### SQL: SELECT        sbr.id AS id,        sbr.title AS title,        sbr.url AS url         FROM        s_base_resources sbr         JOIN s_base_role_resources sbrr ON sbr.id = sbrr.resources_id         JOIN s_base_user_role sbur ON sbrr.role_id = sbur.role_id         WHERE        sbr.deleted = FALSE         AND sbrr.deleted = FALSE         AND sbur.deleted = FALSE         WHERE sbur.user_id = ?         GROUP BY        sbr.id
+### Cause: java.sql.SQLException: sql injection violation, syntax error: syntax error, error in :'     WHERE sbur.user_id = ?
+       ', expect WHERE, actual WHERE pos 374, line 12, column 34, token WHERE : SELECT
+	      sbr.id AS id,
+	      sbr.title AS title,
+	      sbr.url AS url
+        FROM
+	      s_base_resources sbr
+        JOIN s_base_role_resources sbrr ON sbr.id = sbrr.resources_id
+        JOIN s_base_user_role sbur ON sbrr.role_id = sbur.role_id
+        WHERE
+	      sbr.deleted = FALSE
+        AND sbrr.deleted = FALSE
+        AND sbur.deleted = FALSE
+        WHERE sbur.user_id = ?
+        GROUP BY
+	      sbr.id
+; uncategorized SQLException; SQL state [null]; error code [0]; sql injection violation, syntax error: syntax error, error in :'     WHERE sbur.user_id = ?
+       ', expect WHERE, actual WHERE pos 374, line 12, column 34, token WHERE : SELECT
+	      sbr.id AS id,
+	      sbr.title AS title,
+	      sbr.url AS url
+        FROM
+	      s_base_resources sbr
+        JOIN s_base_role_resources sbrr ON sbr.id = sbrr.resources_id
+        JOIN s_base_user_role sbur ON sbrr.role_id = sbur.role_id
+        WHERE
+	      sbr.deleted = FALSE
+        AND sbrr.deleted = FALSE
+        AND sbur.deleted = FALSE
+        WHERE sbur.user_id = ?
+        GROUP BY
+	      sbr.id; nested exception is java.sql.SQLException: sql injection violation, syntax error: syntax error, error in :'     WHERE sbur.user_id = ?
+       ', expect WHERE, actual WHERE pos 374, line 12, column 34, token WHERE : SELECT
+	      sbr.id AS id,
+	      sbr.title AS title,
+	      sbr.url AS url
+        FROM
+	      s_base_resources sbr
+        JOIN s_base_role_resources sbrr ON sbr.id = sbrr.resources_id
+        JOIN s_base_user_role sbur ON sbrr.role_id = sbur.role_id
+        WHERE
+	      sbr.deleted = FALSE
+        AND sbrr.deleted = FALSE
+        AND sbur.deleted = FALSE
+        WHERE sbur.user_id = ?
+        GROUP BY
+	      sbr.id] with root cause
+com.alibaba.druid.sql.parser.ParserException: syntax error, error in :'     WHERE sbur.user_id = ?
+       ', expect WHERE, actual WHERE pos 374, line 12, column 34, token WHERE
+	at com.alibaba.druid.sql.parser.SQLParser.printError(SQLParser.java:284)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:426)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:83)
+	at com.alibaba.druid.wall.WallProvider.checkInternal(WallProvider.java:624)
+	at com.alibaba.druid.wall.WallProvider.check(WallProvider.java:578)
+	at com.alibaba.druid.wall.WallFilter.checkInternal(WallFilter.java:785)
+	at com.alibaba.druid.wall.WallFilter.connection_prepareStatement(WallFilter.java:251)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_prepareStatement(FilterChainImpl.java:568)
+	at com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl.prepareStatement(ConnectionProxyImpl.java:342)
+	at com.alibaba.druid.pool.DruidPooledConnection.prepareStatement(DruidPooledConnection.java:349)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.instantiateStatement(PreparedStatementHandler.java:87)
+	at org.apache.ibatis.executor.statement.BaseStatementHandler.prepare(BaseStatementHandler.java:88)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.prepare(RoutingStatementHandler.java:59)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:49)
+	at com.baomidou.mybatisplus.plugins.PaginationInterceptor.intercept(PaginationInterceptor.java:112)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at com.sun.proxy.$Proxy95.prepare(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:63)
+	at com.sun.proxy.$Proxy95.prepare(Unknown Source)
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:85)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:326)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:103)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy74.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:139)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:76)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+	at com.sun.proxy.$Proxy92.loadUserResources(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:197)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy93.loadUserResources(Unknown Source)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.ResourcesServiceImpl.myLoadUserResources(ResourcesServiceImpl.java:195)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.ResourcesServiceImpl$$FastClassBySpringCGLIB$$f8314cff.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.cache.interceptor.CacheInterceptor.lambda$invoke$0(CacheInterceptor.java:53)
+	at org.springframework.cache.interceptor.CacheAspectSupport.invokeOperation(CacheAspectSupport.java:336)
+	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:391)
+	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:316)
+	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.ResourcesServiceImpl$$EnhancerBySpringCGLIB$$cff7153f.myLoadUserResources(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.ResourcesServiceImpl$$FastClassBySpringCGLIB$$f8314cff.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.cache.interceptor.CacheInterceptor.lambda$invoke$0(CacheInterceptor.java:53)
+	at org.springframework.cache.interceptor.CacheAspectSupport.invokeOperation(CacheAspectSupport.java:336)
+	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:391)
+	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:316)
+	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.ResourcesServiceImpl$$EnhancerBySpringCGLIB$$f65a2335.myLoadUserResources(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.shiro.MyShiroRealm.doGetAuthorizationInfo(MyShiroRealm.java:46)
+	at org.apache.shiro.realm.AuthorizingRealm.getAuthorizationInfo(AuthorizingRealm.java:341)
+	at org.apache.shiro.realm.AuthorizingRealm.isPermitted(AuthorizingRealm.java:462)
+	at org.apache.shiro.realm.AuthorizingRealm.isPermitted(AuthorizingRealm.java:458)
+	at org.apache.shiro.authz.ModularRealmAuthorizer.isPermitted(ModularRealmAuthorizer.java:223)
+	at org.apache.shiro.mgt.AuthorizingSecurityManager.isPermitted(AuthorizingSecurityManager.java:113)
+	at org.apache.shiro.subject.support.DelegatingSubject.isPermitted(DelegatingSubject.java:162)
+	at org.apache.shiro.web.filter.authz.PermissionsAuthorizationFilter.isAccessAllowed(PermissionsAuthorizationFilter.java:45)
+	at org.apache.shiro.web.filter.AccessControlFilter.onPreHandle(AccessControlFilter.java:162)
+	at org.apache.shiro.web.filter.PathMatchingFilter.isFilterChainContinued(PathMatchingFilter.java:203)
+	at org.apache.shiro.web.filter.PathMatchingFilter.preHandle(PathMatchingFilter.java:178)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:131)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:387)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.session.web.http.SessionRepositoryFilter.doFilterInternal(SessionRepositoryFilter.java:147)
+	at org.springframework.session.web.http.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:81)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:806)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2018-11-12 10:18:01.496 [http-nio-8080-exec-3] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象获取失败java.lang.ClassCastException: org.apache.ibatis.cache.CacheKey cannot be cast to java.lang.String
+2018-11-12 10:18:01.511 [http-nio-8080-exec-3] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象保存失败java.lang.ClassCastException: org.apache.ibatis.cache.CacheKey cannot be cast to java.lang.String
+2018-11-12 10:18:01.560 [http-nio-8080-exec-3] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [org.springframework.jdbc.UncategorizedSQLException: 
+### Error querying database.  Cause: java.sql.SQLException: sql injection violation, syntax error: syntax error, error in :'     WHERE sbur.user_id = ?
+       ', expect WHERE, actual WHERE pos 374, line 12, column 34, token WHERE : SELECT
+	      sbr.id AS id,
+	      sbr.title AS title,
+	      sbr.url AS url
+        FROM
+	      s_base_resources sbr
+        JOIN s_base_role_resources sbrr ON sbr.id = sbrr.resources_id
+        JOIN s_base_user_role sbur ON sbrr.role_id = sbur.role_id
+        WHERE
+	      sbr.deleted = FALSE
+        AND sbrr.deleted = FALSE
+        AND sbur.deleted = FALSE
+        WHERE sbur.user_id = ?
+        GROUP BY
+	      sbr.id
+### The error may exist in file [D:\spring\tradingplatform\tradingplatform\tradingplatform-admin\tradingplatform-admin-controller\target\classes\mapper\shiro\ResourcesMapper.xml]
+### The error may involve com.secondhand.tradingplatformadminmapper.mapper.shiro.ResourcesMapper.loadUserResources
+### The error occurred while executing a query
+### SQL: SELECT        sbr.id AS id,        sbr.title AS title,        sbr.url AS url         FROM        s_base_resources sbr         JOIN s_base_role_resources sbrr ON sbr.id = sbrr.resources_id         JOIN s_base_user_role sbur ON sbrr.role_id = sbur.role_id         WHERE        sbr.deleted = FALSE         AND sbrr.deleted = FALSE         AND sbur.deleted = FALSE         WHERE sbur.user_id = ?         GROUP BY        sbr.id
+### Cause: java.sql.SQLException: sql injection violation, syntax error: syntax error, error in :'     WHERE sbur.user_id = ?
+       ', expect WHERE, actual WHERE pos 374, line 12, column 34, token WHERE : SELECT
+	      sbr.id AS id,
+	      sbr.title AS title,
+	      sbr.url AS url
+        FROM
+	      s_base_resources sbr
+        JOIN s_base_role_resources sbrr ON sbr.id = sbrr.resources_id
+        JOIN s_base_user_role sbur ON sbrr.role_id = sbur.role_id
+        WHERE
+	      sbr.deleted = FALSE
+        AND sbrr.deleted = FALSE
+        AND sbur.deleted = FALSE
+        WHERE sbur.user_id = ?
+        GROUP BY
+	      sbr.id
+; uncategorized SQLException; SQL state [null]; error code [0]; sql injection violation, syntax error: syntax error, error in :'     WHERE sbur.user_id = ?
+       ', expect WHERE, actual WHERE pos 374, line 12, column 34, token WHERE : SELECT
+	      sbr.id AS id,
+	      sbr.title AS title,
+	      sbr.url AS url
+        FROM
+	      s_base_resources sbr
+        JOIN s_base_role_resources sbrr ON sbr.id = sbrr.resources_id
+        JOIN s_base_user_role sbur ON sbrr.role_id = sbur.role_id
+        WHERE
+	      sbr.deleted = FALSE
+        AND sbrr.deleted = FALSE
+        AND sbur.deleted = FALSE
+        WHERE sbur.user_id = ?
+        GROUP BY
+	      sbr.id; nested exception is java.sql.SQLException: sql injection violation, syntax error: syntax error, error in :'     WHERE sbur.user_id = ?
+       ', expect WHERE, actual WHERE pos 374, line 12, column 34, token WHERE : SELECT
+	      sbr.id AS id,
+	      sbr.title AS title,
+	      sbr.url AS url
+        FROM
+	      s_base_resources sbr
+        JOIN s_base_role_resources sbrr ON sbr.id = sbrr.resources_id
+        JOIN s_base_user_role sbur ON sbrr.role_id = sbur.role_id
+        WHERE
+	      sbr.deleted = FALSE
+        AND sbrr.deleted = FALSE
+        AND sbur.deleted = FALSE
+        WHERE sbur.user_id = ?
+        GROUP BY
+	      sbr.id] with root cause
+com.alibaba.druid.sql.parser.ParserException: syntax error, error in :'     WHERE sbur.user_id = ?
+       ', expect WHERE, actual WHERE pos 374, line 12, column 34, token WHERE
+	at com.alibaba.druid.sql.parser.SQLParser.printError(SQLParser.java:284)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:426)
+	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:83)
+	at com.alibaba.druid.wall.WallProvider.checkInternal(WallProvider.java:624)
+	at com.alibaba.druid.wall.WallProvider.check(WallProvider.java:578)
+	at com.alibaba.druid.wall.WallFilter.checkInternal(WallFilter.java:785)
+	at com.alibaba.druid.wall.WallFilter.connection_prepareStatement(WallFilter.java:251)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_prepareStatement(FilterChainImpl.java:568)
+	at com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl.prepareStatement(ConnectionProxyImpl.java:342)
+	at com.alibaba.druid.pool.DruidPooledConnection.prepareStatement(DruidPooledConnection.java:349)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.instantiateStatement(PreparedStatementHandler.java:87)
+	at org.apache.ibatis.executor.statement.BaseStatementHandler.prepare(BaseStatementHandler.java:88)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.prepare(RoutingStatementHandler.java:59)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:49)
+	at com.baomidou.mybatisplus.plugins.PaginationInterceptor.intercept(PaginationInterceptor.java:112)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at com.sun.proxy.$Proxy95.prepare(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:63)
+	at com.sun.proxy.$Proxy95.prepare(Unknown Source)
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:85)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:326)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:103)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy74.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:139)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:76)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+	at com.sun.proxy.$Proxy92.loadUserResources(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:197)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy93.loadUserResources(Unknown Source)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.ResourcesServiceImpl.myLoadUserResources(ResourcesServiceImpl.java:195)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.ResourcesServiceImpl$$FastClassBySpringCGLIB$$f8314cff.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.cache.interceptor.CacheInterceptor.lambda$invoke$0(CacheInterceptor.java:53)
+	at org.springframework.cache.interceptor.CacheAspectSupport.invokeOperation(CacheAspectSupport.java:336)
+	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:391)
+	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:316)
+	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.ResourcesServiceImpl$$EnhancerBySpringCGLIB$$32aebf9b.myLoadUserResources(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.ResourcesServiceImpl$$FastClassBySpringCGLIB$$f8314cff.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.cache.interceptor.CacheInterceptor.lambda$invoke$0(CacheInterceptor.java:53)
+	at org.springframework.cache.interceptor.CacheAspectSupport.invokeOperation(CacheAspectSupport.java:336)
+	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:391)
+	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:316)
+	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.ResourcesServiceImpl$$EnhancerBySpringCGLIB$$e4801c34.myLoadUserResources(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.shiro.MyShiroRealm.doGetAuthorizationInfo(MyShiroRealm.java:44)
+	at org.apache.shiro.realm.AuthorizingRealm.getAuthorizationInfo(AuthorizingRealm.java:341)
+	at org.apache.shiro.realm.AuthorizingRealm.isPermitted(AuthorizingRealm.java:462)
+	at org.apache.shiro.realm.AuthorizingRealm.isPermitted(AuthorizingRealm.java:458)
+	at org.apache.shiro.authz.ModularRealmAuthorizer.isPermitted(ModularRealmAuthorizer.java:223)
+	at org.apache.shiro.mgt.AuthorizingSecurityManager.isPermitted(AuthorizingSecurityManager.java:113)
+	at org.apache.shiro.subject.support.DelegatingSubject.isPermitted(DelegatingSubject.java:162)
+	at org.apache.shiro.web.filter.authz.PermissionsAuthorizationFilter.isAccessAllowed(PermissionsAuthorizationFilter.java:45)
+	at org.apache.shiro.web.filter.AccessControlFilter.onPreHandle(AccessControlFilter.java:162)
+	at org.apache.shiro.web.filter.PathMatchingFilter.isFilterChainContinued(PathMatchingFilter.java:203)
+	at org.apache.shiro.web.filter.PathMatchingFilter.preHandle(PathMatchingFilter.java:178)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:131)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:387)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.session.web.http.SessionRepositoryFilter.doFilterInternal(SessionRepositoryFilter.java:147)
+	at org.springframework.session.web.http.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:81)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:806)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2018-11-12 10:19:41.117 [http-nio-8080-exec-3] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象获取失败java.lang.ClassCastException: org.apache.ibatis.cache.CacheKey cannot be cast to java.lang.String
+2018-11-12 10:19:41.221 [http-nio-8080-exec-3] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象保存失败java.lang.ClassCastException: org.apache.ibatis.cache.CacheKey cannot be cast to java.lang.String
