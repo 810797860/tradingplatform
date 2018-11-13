@@ -175,4 +175,19 @@ public class FormController extends BaseController {
             }
             return resJson;
     }
+
+    /**
+     * @description : 新增或修改form同是加权限（后台列表开发用）
+     * @author : zhangjk
+     * @since : Create in 2018-11-11
+     */
+    @PostMapping(value = "/create_update_with_resources", produces = {"application/json"}, consumes = {"application/json"})
+    @ApiOperation(value = "/create_update_with_resources", notes = "新增或修改form同是加权限（后台列表开发用）")
+    public JsonResult<Form> formCreateUpdateWithResources(@ApiParam(name = "Form", value = "Form实体类") @RequestBody Form form){
+        JsonResult<Form> resJson = new JsonResult<>();
+        form = formService.myFormCreateUpdateWithResources(form);
+        resJson.setData(form);
+        resJson.setSuccess(true);
+        return resJson;
+    }
 }

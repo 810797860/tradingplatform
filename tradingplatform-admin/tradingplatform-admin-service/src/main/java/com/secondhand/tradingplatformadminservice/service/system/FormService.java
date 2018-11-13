@@ -47,6 +47,13 @@ public interface FormService extends BaseService<Form> {
         Form myFormCreateUpdate(Form form);
 
         /**
+         * 新增或修改form同是加权限（后台列表开发用）
+         * @param form
+         * @return
+         */
+        Form myFormCreateUpdateWithResources(Form form);
+
+        /**
          * 分页获取Form列表数据（实体类）
          * @param page
          * @param form

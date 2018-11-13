@@ -5,7 +5,6 @@ import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.shiro.Resources;
 import com.secondhand.tradingplatformadminentity.entity.system.Form;
-import com.secondhand.tradingplatformadminentity.entity.system.FormField;
 import com.secondhand.tradingplatformadminmapper.mapper.system.FormFieldMapper;
 import com.secondhand.tradingplatformadminmapper.mapper.system.FormMapper;
 import com.secondhand.tradingplatformadminservice.service.shiro.ResourcesService;
@@ -120,16 +119,69 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
                 resources.setDescription("新增或修改" + collectionName);
                 resourcesService.myResourcesCreateUpdate(resources);
 
+                resources.setId(null);
                 resources.setTitle("根据id假删除" + collectionName);
                 resources.setUrl("/admin/" + collectionName + "/delete");
                 resources.setDescription("根据id假删除" + collectionName);
                 resourcesService.myResourcesCreateUpdate(resources);
 
+                resources.setId(null);
                 resources.setTitle("批量假删除" + collectionName);
                 resources.setUrl("/admin/" + collectionName + "/batch_delete");
                 resources.setDescription("批量假删除" + collectionName);
                 resourcesService.myResourcesCreateUpdate(resources);
             }
+        } else {
+            formMapper.updateById(form);
+        }
+        return form;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    @CacheEvict(key = "#p0")
+    public Form myFormCreateUpdateWithResources(Form form) {
+        //更新表单表
+        //主要只用于新增方面
+        Long formId = form.getId();
+        if (formId == null){
+            form.setUuid(ToolUtil.getUUID());
+            formMapper.insert(form);
+
+            //然后就加权限
+            //其实就是少了一步createTable(相对于上面的)
+            //加上默认的权限
+            //根据表名获取SimpleName
+            String collectionName = "";
+            String[] collections = form.getCollection().split(MagicalValue.UNDERLINE);
+            if (collections.length > MagicalValue.SIMPLE_NAME_INDEX) {
+                for (int i = MagicalValue.SIMPLE_NAME_INDEX; i < collections.length; i++) {
+                    //首字母变为大写
+                    collections[i] = collections[i].substring(0, 1).toUpperCase() + collections[i].substring(1);
+                    collectionName += collections[i];
+                }
+                //再把第一个转换成小写，实现驼峰写法
+                collectionName = collectionName.substring(0, 1).toLowerCase() + collectionName.substring(1);
+
+                Resources resources = new Resources();
+                resources.setTitle("新增或修改" + collectionName);
+                resources.setUrl("/admin/" + collectionName + "/create_update");
+                resources.setDescription("新增或修改" + collectionName);
+                resourcesService.myResourcesCreateUpdate(resources);
+
+                resources.setId(null);
+                resources.setTitle("根据id假删除" + collectionName);
+                resources.setUrl("/admin/" + collectionName + "/delete");
+                resources.setDescription("根据id假删除" + collectionName);
+                resourcesService.myResourcesCreateUpdate(resources);
+
+                resources.setId(null);
+                resources.setTitle("批量假删除" + collectionName);
+                resources.setUrl("/admin/" + collectionName + "/batch_delete");
+                resources.setDescription("批量假删除" + collectionName);
+                resourcesService.myResourcesCreateUpdate(resources);
+            }
+
         } else {
             formMapper.updateById(form);
         }

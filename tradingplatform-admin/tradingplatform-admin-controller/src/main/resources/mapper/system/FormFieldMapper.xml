@@ -37,9 +37,9 @@
     </select>
 
     <select id="selectByInformationSchema" resultType="java.util.Map">
-        SELECT * FROM information_schema.`COLUMNS`
+        SELECT * FROM information_schema.COLUMNS
         WHERE TABLE_SCHEMA = 'myshtp'
-        AND TABLE_NAME = 's_base_resources'
+        AND TABLE_NAME = #{formName}
         AND COLUMN_NAME NOT IN ( 'id', 'uuid', 'description', 'deleted', 'created_by', 'created_at', 'updated_by', 'updated_at' )
         ORDER BY IS_NULLABLE ASC
     </select>

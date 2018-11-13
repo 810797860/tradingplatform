@@ -1,0 +1,49 @@
+{
+    name:更新表单字段
+    url:/admin/form/create_update_with_resources
+    contentType:application/json
+    type:post
+    //传参例子
+    post-example:{
+        {
+        	"title": "角色资源表",
+            "collection": "s_base_role_resources",
+            "description": "角色资源表"
+        }
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+{
+    name:更新表单字段
+    url:/admin/formField/update_by_form_id
+    contentType:application/json
+    type:post
+    //传参例子
+    post-example:{
+        215
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}

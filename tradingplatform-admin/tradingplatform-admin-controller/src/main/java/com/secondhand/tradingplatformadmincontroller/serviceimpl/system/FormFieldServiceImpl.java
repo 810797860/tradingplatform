@@ -120,9 +120,12 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
     @Transactional(rollbackFor = Exception.class)
     @CacheEvict(key = "#p0")
     public boolean formFieldUpdateByFormId(Long formId) {
+        //获取表名
+        Form form = formMapper.selectById(formId);
+        String formName = form.getCollection();
 
         //查询字典表，获取该表物理字段
-        List<Map<String, Object>> myFormFieldList = formFieldMapper.selectByInformationSchema();
+        List<Map<String, Object>> myFormFieldList = formFieldMapper.selectByInformationSchema(formName);
         myFormFieldList.forEach(myFormField -> {
             FormField formField = new FormField();
             formField.setFormId(formId);

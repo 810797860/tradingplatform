@@ -94,7 +94,8 @@ public interface FormFieldMapper extends BaseDao<FormField> {
 
     /**
      * 查询字典表，获取该表物理字段
+     * @param formName
      * @return
      */
-    List<Map<String, Object>> selectByInformationSchema();
+    List<Map<String, Object>> selectByInformationSchema(@Param("formName") String formName);
 }
