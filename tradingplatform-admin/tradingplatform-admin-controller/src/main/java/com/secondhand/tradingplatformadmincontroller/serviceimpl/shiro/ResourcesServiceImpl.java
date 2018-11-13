@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -42,7 +43,7 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @CacheEvict(allEntries = true)
+    @Caching(evict = {@CacheEvict(cacheNames = "resources", allEntries = true), @CacheEvict(cacheNames = "roleResources", allEntries = true)})
     public Integer myFakeDeleteById(Long resourcesId) {
 
         //关联的role_resources的权限也假删除掉
@@ -72,6 +73,7 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
 
     @Override
     @Transactional(rollbackFor = Exception.class)
+    @Caching(evict = {@CacheEvict(cacheNames = "resources", allEntries = true), @CacheEvict(cacheNames = "roleResources", allEntries = true)})
     @CacheEvict(allEntries = true)
     public Resources myResourcesCreateUpdate(Resources resources) {
         Long resourcesId = resources.getId();

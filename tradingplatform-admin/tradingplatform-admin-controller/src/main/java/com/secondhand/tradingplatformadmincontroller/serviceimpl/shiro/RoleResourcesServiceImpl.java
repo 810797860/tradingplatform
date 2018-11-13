@@ -78,6 +78,8 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
     @Cacheable(key = "#p1")
     public Page<RoleResources> mySelectPageWithParam(Page<RoleResources> page, RoleResources roleResources) {
         Wrapper<RoleResources> wrapper = new EntityWrapper<>(roleResources);
+        //没id，自己重写
+        wrapper.setSqlSelect("uuid", "description", "deleted", "created_by", "created_at", "updated_by", "updated_at", "role_id", "resources_id");
         return this.selectPage(page, wrapper);
     }
     

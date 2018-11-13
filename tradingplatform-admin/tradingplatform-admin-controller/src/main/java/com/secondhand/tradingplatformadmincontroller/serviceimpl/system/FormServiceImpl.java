@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -46,7 +47,7 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @CacheEvict(allEntries = true)
+    @Caching(evict = {@CacheEvict(cacheNames = "formField", allEntries = true), @CacheEvict(cacheNames = "form", allEntries = true)})
     public Integer myFakeDeleteById(Long formId) {
 
 //        //先假删除删掉该表的字段

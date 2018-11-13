@@ -27,13 +27,20 @@
 }
 
 {
-    name:新增角色
+    name:新增或修改角色
     url:/admin/role/create_update
     contentType:application/json
     type:post
     //传参例子
     post-example:{
+        新增：
         {
+            "roleDesc": "测试的角色名",
+            "pid": "1"
+        }
+        修改：
+        {
+            "id": 4,
             "roleDesc": "测试的角色名",
             "pid": "1"
         }
@@ -52,3 +59,48 @@
     }
 }
 
+{
+    name:假删除角色
+    url:/admin/role/delete
+    contentType:application/json
+    type:post
+    //传参例子
+    post-example:{
+        4
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+{
+    name:批量假删除角色
+    url:/admin/role/batch_delete
+    contentType:application/json
+    type:post
+    //传参例子
+    post-example:{
+        [3,4]
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
