@@ -104,3 +104,110 @@
 
     }
 }
+
+{
+    name:查看自己角色的权限
+    url:/admin/roleResources/query
+    contentType:application/json
+    type:post
+    //传参例子
+    post-example:{
+        {
+            "roleId": 1,
+            "page":{
+                "current": 1,
+                "size": 10
+            }
+        }
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+{
+    name:增加自己角色的权限
+    url:/admin/roleResources/batch_create
+    contentType:application/json
+    type:post
+    //传参例子
+    post-example:{
+        {
+        	"roleId": 1,
+        	"resourcesIds": [36,37]
+        }
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+{
+    name:假删除角色的权限
+    url:/admin/roleResources/delete
+    contentType:application/json
+    type:put
+    //传参例子
+    post-example:{
+        {
+        	"roleId": 1,
+        	"resourcesId": 35
+        }
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+{
+    name:批量假删除角色的权限
+    url:/admin/roleResources/batch_delete
+    contentType:application/json
+    type:put
+    //传参例子
+    post-example:{
+        {
+        	"roleId": 1,
+        	"resourcesIds": [34,35]
+        }
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}

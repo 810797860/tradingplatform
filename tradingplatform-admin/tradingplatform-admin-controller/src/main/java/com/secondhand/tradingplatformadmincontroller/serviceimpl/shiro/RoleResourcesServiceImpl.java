@@ -36,19 +36,26 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
 
     @Override
     @CacheEvict(allEntries = true)
-    public Integer myFakeDeleteById(Long roleResourcesId) {
-        RoleResources roleResources = new RoleResources();
-        roleResources.setId(roleResourcesId);
+    public Integer myFakeDeleteByRoleResources(RoleResources roleResources) {
+        Wrapper<RoleResources> wrapper = new EntityWrapper<>();
+        wrapper.where("role_id = {0}", roleResources.getRoleId());
+        wrapper.where("resources_id = {0}", roleResources.getResourcesId());
         roleResources.setDeleted(true);
-        return roleResourcesMapper.updateById(roleResources);
+        return roleResourcesMapper.update(roleResources, wrapper);
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
     @CacheEvict(allEntries = true)
-    public boolean myFakeBatchDelete(List<Long> roleResourcesIds) {
-        roleResourcesIds.forEach(roleResourcesId ->{
-            myFakeDeleteById(roleResourcesId);
+    public boolean myFakeBatchDelete(Long roleId, List<Integer> resourcesIds) {
+        RoleResources roleResources = new RoleResources();
+        roleResources.setDeleted(true);
+        resourcesIds.forEach(resourcesId -> {
+            //这里就直接遍历假删除了，不去调用myFakeDelete
+            Wrapper<RoleResources> wrapper = new EntityWrapper<>();
+            wrapper.where("role_id = {0}", roleId);
+            wrapper.where("resources_id = {0}", resourcesId.longValue());
+            roleResourcesMapper.update(roleResources, wrapper);
         });
         return true;
     }
@@ -70,6 +77,21 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
             roleResourcesMapper.updateById(roleResources);
         }
         return roleResources;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    @CacheEvict(allEntries = true)
+    public boolean myRoleResourcesBatchCreate(Long roleId, List<Integer> resourcesIds) {
+        resourcesIds.forEach(resourcesId->{
+            //这里就自己写了，为了快一点(因为都是新增)
+            RoleResources roleResources = new RoleResources();
+            roleResources.setUuid(ToolUtil.getUUID());
+            roleResources.setRoleId(roleId);
+            roleResources.setResourcesId(resourcesId.longValue());
+            roleResourcesMapper.insert(roleResources);
+        });
+        return true;
     }
 
     //以下是继承BaseServiceImpl

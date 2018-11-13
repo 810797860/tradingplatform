@@ -20,17 +20,18 @@ public interface RoleResourcesService extends BaseService<RoleResources> {
 
         /**
          * 根据id进行假删除
-         * @param roleResourcesId
+         * @param roleResources
          * @return
          */
-        Integer myFakeDeleteById(Long roleResourcesId);
+        Integer myFakeDeleteByRoleResources(RoleResources roleResources);
 
         /**
          * 根据ids进行批量假删除
-         * @param roleResourcesIds
+         * @param roleId
+         * @param resourcesIds
          * @return
          */
-        boolean myFakeBatchDelete(List<Long> roleResourcesIds);
+        boolean myFakeBatchDelete(Long roleId, List<Integer> resourcesIds);
 
         /**
          * 获取Map数据（Obj）
@@ -45,6 +46,14 @@ public interface RoleResourcesService extends BaseService<RoleResources> {
          * @return
          */
         RoleResources myRoleResourcesCreateUpdate(RoleResources roleResources);
+
+        /**
+         * 批量新增roleResources
+         * @param roleId
+         * @param resourcesIds
+         * @return
+         */
+        boolean myRoleResourcesBatchCreate(Long roleId, List<Integer> resourcesIds);
 
         /**
          * 分页获取RoleResources列表数据（实体类）

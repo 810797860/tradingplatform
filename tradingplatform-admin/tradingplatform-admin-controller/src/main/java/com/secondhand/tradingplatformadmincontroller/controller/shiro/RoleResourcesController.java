@@ -111,19 +111,19 @@ public class RoleResourcesController extends BaseController {
     }
 
     /**
-     * @description : 根据id假删除roleResources
+     * @description : 根据roleId和resourcesId假删除roleResources
      * @author : zhangjk
      * @since : Create in 2018-11-12
      */
     @PutMapping(value = "/delete", produces = {"application/json"}, consumes = {"application/json"})
-    @ApiOperation(value = "/delete", notes = "根据id假删除roleResources")
-    public JsonResult<RoleResources> fakeDeleteById(@ApiParam(name = "id", value = "roleResourcesId") @RequestBody Long roleResourcesId){
+    @ApiOperation(value = "/delete", notes = "根据roleId和resourcesId假删除roleResources")
+    public JsonResult<RoleResources> fakeDeleteById(@ApiParam(name = "RoleResources", value = "RoleResources实体类") @RequestBody RoleResources roleResources){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<RoleResources> resJson = new JsonResult<>();
             try{
                 //检查是否具有权限
                 subject.checkPermission("/admin/roleResources/delete");
-                roleResourcesService.myFakeDeleteById(roleResourcesId);
+                roleResourcesService.myFakeDeleteByRoleResources(roleResources);
                 resJson.setSuccess(true);
             }catch (UnauthorizedException e){
                 resJson.setSuccess(false);
@@ -133,19 +133,22 @@ public class RoleResourcesController extends BaseController {
     }
 
     /**
-     * @description : 根据ids批量假删除roleResources
+     * @description : 根据roleId和resourcesIds批量假删除roleResources
      * @author : zhangjk
      * @since : Create in 2018-11-12
      */
     @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
-    @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除roleResources")
-    public JsonResult<RoleResources> fakeBatchDelete(@ApiParam(name = "ids", value = "roleResourcesIds") @RequestBody List<Long> roleResourcesIds){
+    @ApiOperation(value = "/batch_delete", notes = "根据roleId和resourcesIds批量假删除roleResources")
+    public JsonResult<RoleResources> fakeBatchDelete(@ApiParam(name = "parameter", value = "批量假删除的参数") @RequestBody Map<String, Object> parameter){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<RoleResources> resJson = new JsonResult<>();
             try{
                 //检查是否具有权限
                 subject.checkPermission("/admin/roleResources/batch_delete");
-                resJson.setSuccess(roleResourcesService.myFakeBatchDelete(roleResourcesIds));
+                Long roleId = Long.valueOf(parameter.get("roleId").toString());
+                List<Integer> resourcesIds = (List<Integer>) parameter.get("resourcesIds");
+                //这里不判空了，让前端判
+                resJson.setSuccess(roleResourcesService.myFakeBatchDelete(roleId, resourcesIds));
             }catch(UnauthorizedException e){
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
@@ -174,5 +177,29 @@ public class RoleResourcesController extends BaseController {
                 resJson.setMessage(e.getMessage());
             }
             return resJson;
+    }
+
+    /**
+     * @description : 批量新增roleResources
+     * @author : zhangjk
+     * @since : Create in 2018-11-12
+     */
+    @PostMapping(value = "/batch_create", produces = {"application/json"}, consumes = {"application/json"})
+    @ApiOperation(value = "/batch_create", notes = "批量新增roleResources")
+    public JsonResult<RoleResources> roleResourcesBatchCreate(@ApiParam(name = "parameter", value = "批量新增roleResources的参数") @RequestBody Map<String, Object> parameter){
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<RoleResources> resJson = new JsonResult<>();
+        try{
+            //检查是否具有权限
+            subject.checkPermission("/admin/roleResources/batch_create");
+            Long roleId = Long.valueOf(parameter.get("roleId").toString());
+            List<Integer> resourcesIds = (List<Integer>) parameter.get("resourcesIds");
+            //这里不判空了，让前端判
+            resJson.setSuccess(roleResourcesService.myRoleResourcesBatchCreate(roleId, resourcesIds));
+        }catch(UnauthorizedException e){
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 }
