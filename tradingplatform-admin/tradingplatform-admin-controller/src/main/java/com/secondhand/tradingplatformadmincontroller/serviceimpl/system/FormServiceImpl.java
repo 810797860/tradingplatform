@@ -46,7 +46,7 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public Integer myFakeDeleteById(Long formId) {
 
 //        //先假删除删掉该表的字段
@@ -76,7 +76,7 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myFakeBatchDelete(List<Long> formIds) {
         for (Long formId : formIds){
             myFakeDeleteById(formId);
@@ -92,7 +92,7 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public Form myFormCreateUpdate(Form form) {
         Long formId = form.getId();
         if (formId == null){
@@ -139,7 +139,7 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public Form myFormCreateUpdateWithResources(Form form) {
         //更新表单表
         //主要只用于新增方面
@@ -218,14 +218,14 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
     }
 
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myInsert(Form form) {
         form.setUuid(ToolUtil.getUUID());
         return this.insert(form);
     }
 
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myInsertBatch(List<Form> formList) {
         for (Form form : formList){
             form.setUuid(ToolUtil.getUUID());
@@ -234,7 +234,7 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
     }
 
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdate(Form form) {
         //没有uuid的话要加上去
         if (form.getUuid().equals(null)){
@@ -244,7 +244,7 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
     }
 
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdateBatch(List<Form> formList) {
         for (Form form : formList){
             //没有uuid的话要加上去
@@ -280,19 +280,19 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
     }
 
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myUpdate(Form form, Wrapper<Form> wrapper) {
         return this.update(form, wrapper);
     }
 
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myUpdateBatchById(List<Form> formList) {
         return this.updateBatchById(formList);
     }
 
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myUpdateById(Form form) {
         return this.updateById(form);
     }

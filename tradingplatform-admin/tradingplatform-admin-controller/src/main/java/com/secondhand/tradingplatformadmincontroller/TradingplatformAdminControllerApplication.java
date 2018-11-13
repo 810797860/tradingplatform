@@ -14,7 +14,6 @@ import org.springframework.context.annotation.ComponentScans;
  */
 
 @SpringBootApplication
-@EnableCaching
 public class TradingplatformAdminControllerApplication {
 
 	public static void main(String[] args) {

@@ -35,7 +35,7 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
     private RoleResourcesMapper roleResourcesMapper;
 
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public Integer myFakeDeleteById(Long roleResourcesId) {
         RoleResources roleResources = new RoleResources();
         roleResources.setId(roleResourcesId);
@@ -45,7 +45,7 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myFakeBatchDelete(List<Long> roleResourcesIds) {
         roleResourcesIds.forEach(roleResourcesId ->{
             myFakeDeleteById(roleResourcesId);
@@ -60,7 +60,7 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
     }
 
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public RoleResources myRoleResourcesCreateUpdate(RoleResources roleResources) {
         Long roleResourcesId = roleResources.getId();
         if (roleResourcesId == null){
@@ -102,14 +102,14 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
     }
     
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myInsert(RoleResources roleResources) {
         roleResources.setUuid(ToolUtil.getUUID());
         return this.insert(roleResources);
     }
     
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myInsertBatch(List<RoleResources> roleResourcesList) {
         for (RoleResources roleResources : roleResourcesList){
             roleResources.setUuid(ToolUtil.getUUID());
@@ -118,7 +118,7 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
     }
     
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdate(RoleResources roleResources) {
         //没有uuid的话要加上去
         if (roleResources.getUuid().equals(null)){
@@ -128,7 +128,7 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
     }
     
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdateBatch(List<RoleResources> roleResourcesList) {
         for (RoleResources roleResources : roleResourcesList){
         //没有uuid的话要加上去
@@ -164,19 +164,19 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
     }
     
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myUpdate(RoleResources roleResources, Wrapper<RoleResources> wrapper) {
         return this.update(roleResources, wrapper);
     }
     
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myUpdateBatchById(List<RoleResources> roleResourcesList) {
         return this.updateBatchById(roleResourcesList);
     }
     
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myUpdateById(RoleResources roleResources) {
         return this.updateById(roleResources);
     }

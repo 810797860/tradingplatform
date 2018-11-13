@@ -48,7 +48,7 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public Integer myFakeDeleteById(Long formFieldId) {
 //        为了代码安全，暂时不让删除，只删除记录(备用)
 
@@ -68,7 +68,7 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myFakeBatchDelete(List<Long> formFieldIds) {
         formFieldIds.forEach(formFieldId->{
             myFakeDeleteById(formFieldId);
@@ -84,7 +84,7 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public FormField myFormFieldCreateUpdate(FormField formField) {
         Long formFieldId = formField.getId();
         if (formFieldId == null){
@@ -118,7 +118,7 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean formFieldUpdateByFormId(Long formId) {
         //获取表名
         Form form = formMapper.selectById(formId);
@@ -230,14 +230,14 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
     }
 
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myInsert(FormField formField) {
         formField.setUuid(ToolUtil.getUUID());
         return this.insert(formField);
     }
 
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myInsertBatch(List<FormField> formFieldList) {
         formFieldList.forEach(formField -> {
             formField.setUuid(ToolUtil.getUUID());
@@ -246,7 +246,7 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
     }
 
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdate(FormField formField) {
         //没有uuid的话要加上去
         if (formField.getUuid().equals(null)){
@@ -256,7 +256,7 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
     }
 
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdateBatch(List<FormField> formFieldList) {
         formFieldList.forEach(formField -> {
             //没有uuid的话要加上去
@@ -292,19 +292,19 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
     }
 
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myUpdate(FormField formField, Wrapper<FormField> wrapper) {
         return this.update(formField, wrapper);
     }
 
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myUpdateBatchById(List<FormField> formFieldList) {
         return this.updateBatchById(formFieldList);
     }
 
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myUpdateById(FormField formField) {
         return this.updateById(formField);
     }

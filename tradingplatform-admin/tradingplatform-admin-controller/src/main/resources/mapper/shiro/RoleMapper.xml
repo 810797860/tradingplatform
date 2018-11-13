@@ -7,32 +7,21 @@
 		<!-- 通用查询映射结果 -->
 			<resultMap id="roleMap" type="com.secondhand.tradingplatformadminentity.entity.shiro.Role" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
 									
-				<result column="roleDesc" property="roleDesc" jdbcType="VARCHAR" />
-				<result column="num" property="num" jdbcType="INTEGER" />
+				<result column="role_desc" property="roleDesc" jdbcType="VARCHAR" />
 				<result column="pid" property="pid" jdbcType="INTEGER" />
-				<result column="name" property="name" jdbcType="VARCHAR" />
-				<result column="deptid" property="deptid" jdbcType="INTEGER" />
-				<result column="tips" property="tips" jdbcType="VARCHAR" />
-				<result column="version" property="version" jdbcType="INTEGER" />
 
 		</resultMap>
 
         <!-- 通用查询映射结果 -->
 		<resultMap id="roleMapSimple" type="com.secondhand.tradingplatformadminentity.entity.shiro.Role">
 																			
-                        <result column="roleDesc" property="roleDesc" jdbcType="VARCHAR" />
-                        <result column="num" property="num" jdbcType="INTEGER" />
+                        <result column="role_desc" property="roleDesc" jdbcType="VARCHAR" />
                         <result column="pid" property="pid" jdbcType="INTEGER" />
-                        <result column="name" property="name" jdbcType="VARCHAR" />
-                        <result column="deptid" property="deptid" jdbcType="INTEGER" />
-                        <result column="tips" property="tips" jdbcType="VARCHAR" />
-                        <result column="version" property="version" jdbcType="INTEGER" />
 
         </resultMap>
 
-
     <select id="selectMapById" resultType="java.util.Map">
-        select * from s_base_role where id = #{roleId}
+        select * from s_base_role where id = #{roleId} and deleted = false
     </select>
 
 </mapper>

@@ -42,7 +42,7 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public Integer myFakeDeleteById(Long resourcesId) {
 
         //关联的role_resources的权限也假删除掉
@@ -56,7 +56,7 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myFakeBatchDelete(List<Long> resourcesIds) {
         for (Long resourcesId : resourcesIds){
             myFakeDeleteById(resourcesId);
@@ -72,7 +72,7 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public Resources myResourcesCreateUpdate(Resources resources) {
         Long resourcesId = resources.getId();
         if (resourcesId == null){
@@ -122,14 +122,14 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
     }
 
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myInsert(Resources resources) {
         resources.setUuid(ToolUtil.getUUID());
         return this.insert(resources);
     }
 
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myInsertBatch(List<Resources> resourcesList) {
         for (Resources resources : resourcesList){
             resources.setUuid(ToolUtil.getUUID());
@@ -138,7 +138,7 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
     }
 
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdate(Resources resources) {
         //没有uuid的话要加上去
         if (resources.getUuid().equals(null)){
@@ -148,7 +148,7 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
     }
 
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdateBatch(List<Resources> resourcesList) {
         for (Resources resources : resourcesList){
             //没有uuid的话要加上去
@@ -184,19 +184,19 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
     }
 
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myUpdate(Resources resources, Wrapper<Resources> wrapper) {
         return this.update(resources, wrapper);
     }
 
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myUpdateBatchById(List<Resources> resourcesList) {
         return this.updateBatchById(resourcesList);
     }
 
     @Override
-    @CacheEvict(key = "#p0")
+    @CacheEvict(allEntries = true)
     public boolean myUpdateById(Resources resources) {
         return this.updateById(resources);
     }
