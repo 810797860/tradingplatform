@@ -57,7 +57,8 @@ public class MyShiroRealm extends AuthorizingRealm {
         String username = (String)token.getPrincipal();
         User user = userService.selectByUsername(username);
         if(user==null) {throw new UnknownAccountException();}
-        if (false == user.getEnable()) {
+        //如果账号被假删除
+        if (true == user.getDeleted()) {
             // 帐号锁定
             throw new LockedAccountException();
         }

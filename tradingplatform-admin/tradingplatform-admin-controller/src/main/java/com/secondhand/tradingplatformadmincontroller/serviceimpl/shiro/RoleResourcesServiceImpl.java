@@ -97,7 +97,7 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
     //以下是继承BaseServiceImpl
     
     @Override
-    @Cacheable(key = "#p1")
+    @Cacheable(key = "#p0 + '' + #p1")
     public Page<RoleResources> mySelectPageWithParam(Page<RoleResources> page, RoleResources roleResources) {
         Wrapper<RoleResources> wrapper = new EntityWrapper<>(roleResources);
         //没id，自己重写

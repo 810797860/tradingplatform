@@ -80,7 +80,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     //以下是继承BaseServiceImpl
     
     @Override
-    @Cacheable(key = "#p1")
+    @Cacheable(key = "#p0 + '' + #p1")
     public Page<${entity}> mySelectPageWithParam(Page<${entity}> page, ${entity} ${table.entityPath}) {
         Wrapper<${entity}> wrapper = new EntityWrapper<>(${table.entityPath});
         return this.selectPage(page, wrapper);

@@ -192,7 +192,7 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
     //以下是继承BaseServiceImpl
 
     @Override
-    @Cacheable(key = "#p1")
+    @Cacheable(key = "#p0 + '' + #p1")
     public Page<Form> mySelectPageWithParam(Page<Form> page, Form form) {
         Wrapper<Form> wrapper = new EntityWrapper<>(form);
         return this.selectPage(page, wrapper);

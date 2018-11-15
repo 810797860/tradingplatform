@@ -75,7 +75,7 @@ public class RoleServiceImpl extends BaseServiceImpl<RoleMapper, Role> implement
     //以下是继承BaseServiceImpl
     
     @Override
-    @Cacheable(key = "#p1")
+    @Cacheable(key = "#p0 + '' + #p1")
     public Page<Role> mySelectPageWithParam(Page<Role> page, Role role) {
         Wrapper<Role> wrapper = new EntityWrapper<>(role);
         return this.selectPage(page, wrapper);

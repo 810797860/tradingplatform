@@ -97,7 +97,7 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
     //以下是继承BaseServiceImpl
 
     @Override
-    @Cacheable(key = "#p1")
+    @Cacheable(key = "#p0 + '' + #p1")
     public Page<Resources> mySelectPageWithParam(Page<Resources> page, Resources resources) {
         Wrapper<Resources> wrapper = new EntityWrapper<>(resources);
         return this.selectPage(page, wrapper);

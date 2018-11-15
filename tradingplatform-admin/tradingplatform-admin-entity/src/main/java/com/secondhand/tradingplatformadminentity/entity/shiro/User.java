@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
  *   @description : User 实体类
  *   ---------------------------------
  * 	 @author zhangjk
- *   @since 2018-10-21
+ *   @since 2018-11-13
  */
 @TableName("s_base_user")
 public class User extends BaseEntity {
@@ -64,6 +64,7 @@ public class User extends BaseEntity {
              * 名字
              */
             @ApiModelProperty("名字")
+            @TableField("user_name")
 												
 			private String userName;
 
@@ -79,12 +80,12 @@ public class User extends BaseEntity {
 			private Date birthday;
 
             /**
-             * 性别（1：男 2：女）
+             * 性别
              */
-            @ApiModelProperty("性别（1：男 2：女）")
+            @ApiModelProperty("性别")
             @TableField("sex")
 												
-			private Integer sex;
+			private Long sex;
 
             /**
              * 电子邮件
@@ -101,57 +102,6 @@ public class User extends BaseEntity {
             @TableField("phone")
 												
 			private String phone;
-
-            /**
-             * 角色id
-             */
-            @ApiModelProperty("角色id")
-            @TableField("roleId")
-												
-			private String roleId;
-
-            /**
-             * 部门id
-             */
-            @ApiModelProperty("部门id")
-            @TableField("deptId")
-												
-			private Long deptId;
-
-            /**
-             * 状态(1：启用  2：冻结  3：删除）
-             */
-            @ApiModelProperty("状态(1：启用  2：冻结  3：删除）")
-            @TableField("status")
-												
-			private Integer status;
-
-            /**
-             * 创建时间
-             */
-            @ApiModelProperty("创建时间")
-            @TableField("createTime")
-												
-			@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-            @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-
-			private Date createTime;
-
-            /**
-             * 保留字段
-             */
-            @ApiModelProperty("保留字段")
-            @TableField("version")
-												
-			private Integer version;
-
-            /**
-             * 是否启用
-             */
-            @ApiModelProperty("是否启用")
-            @TableField("enable")
-												
-			private Boolean enable;
 
 				
 				
@@ -209,11 +159,11 @@ public class User extends BaseEntity {
                 this.birthday = birthday;
                 }
 
-        	public Integer getSex() {
+        	public Long getSex() {
                 return sex;
                 }
 
-            public void setSex(Integer sex) {
+            public void setSex(Long sex) {
                 this.sex = sex;
                 }
 
@@ -233,54 +183,6 @@ public class User extends BaseEntity {
                 this.phone = phone;
                 }
 
-        	public String getRoleId() {
-                return roleId;
-                }
-
-            public void setRoleId(String roleId) {
-                this.roleId = roleId;
-                }
-
-        	public Long getDeptId() {
-                return deptId;
-                }
-
-            public void setDeptId(Long deptId) {
-                this.deptId = deptId;
-                }
-
-        	public Integer getStatus() {
-                return status;
-                }
-
-            public void setStatus(Integer status) {
-                this.status = status;
-                }
-
-        	public Date getCreateTime() {
-                return createTime;
-                }
-
-            public void setCreateTime(Date createTime) {
-                this.createTime = createTime;
-                }
-
-        	public Integer getVersion() {
-                return version;
-                }
-
-            public void setVersion(Integer version) {
-                this.version = version;
-                }
-
-        	public Boolean getEnable() {
-                return enable;
-                }
-
-            public void setEnable(Boolean enable) {
-                this.enable = enable;
-                }
-
 
 
 	@Override
@@ -295,12 +197,6 @@ public class User extends BaseEntity {
 			", sex=" + sex +
 			", email=" + email +
 			", phone=" + phone +
-			", roleId=" + roleId +
-			", deptId=" + deptId +
-			", status=" + status +
-			", createTime=" + createTime +
-			", version=" + version +
-			", enable=" + enable +
 			"}";
 	}
 }

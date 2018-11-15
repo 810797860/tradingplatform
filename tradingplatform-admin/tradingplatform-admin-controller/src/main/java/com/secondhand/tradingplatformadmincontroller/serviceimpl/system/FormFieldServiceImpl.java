@@ -203,7 +203,7 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
     //以下是继承BaseServiceImpl
 
     @Override
-    @Cacheable(key = "#p1")
+    @Cacheable(key = "#p0 + '' + #p1")
     public Page<FormField> mySelectPageWithParam(Page<FormField> page, FormField formField) {
         Wrapper<FormField> wrapper = new EntityWrapper<>(formField);
         return this.selectPage(page, wrapper);
