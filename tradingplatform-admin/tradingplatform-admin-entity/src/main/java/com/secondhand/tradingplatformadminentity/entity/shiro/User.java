@@ -25,16 +25,13 @@ public class User extends BaseEntity {
 	 */
     private static final long serialVersionUID = 1L;
 
-
-
-				
             /**
              * 头像
              */
             @ApiModelProperty("头像")
             @TableField("avatar")
 												
-			private String avatar;
+			private Long avatar;
 
             /**
              * 账号
@@ -51,14 +48,6 @@ public class User extends BaseEntity {
             @TableField("password")
 												
 			private String password;
-
-            /**
-             * md5密码盐
-             */
-            @ApiModelProperty("md5密码盐")
-            @TableField("salt")
-												
-			private String salt;
 
             /**
              * 名字
@@ -103,19 +92,12 @@ public class User extends BaseEntity {
 												
 			private String phone;
 
-				
-				
-				
-				
-				
-				
-				
 
-        	public String getAvatar() {
+        	public Long getAvatar() {
                 return avatar;
                 }
 
-            public void setAvatar(String avatar) {
+            public void setAvatar(Long avatar) {
                 this.avatar = avatar;
                 }
 
@@ -133,14 +115,6 @@ public class User extends BaseEntity {
 
             public void setPassword(String password) {
                 this.password = password;
-                }
-
-        	public String getSalt() {
-                return salt;
-                }
-
-            public void setSalt(String salt) {
-                this.salt = salt;
                 }
 
         	public String getUserName() {
@@ -191,7 +165,6 @@ public class User extends BaseEntity {
 			", avatar=" + avatar +
 			", account=" + account +
 			", password=" + password +
-			", salt=" + salt +
 			", userName=" + userName +
 			", birthday=" + birthday +
 			", sex=" + sex +

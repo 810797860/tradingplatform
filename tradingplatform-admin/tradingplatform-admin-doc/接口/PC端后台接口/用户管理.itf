@@ -28,15 +28,21 @@
 
 {
     name:新增或修改角色
-    url:/admin/role/create_update
+    url:/admin/user/create_update
     contentType:application/json
     type:post
     //传参例子
     post-example:{
         新增：
         {
-            "roleDesc": "测试的角色名",
-            "pid": "1"
+            "avatar": 647,//头像附件id
+            "account": "testCreate",//登录时账号名
+            "password": "3ef7164d1f6167cb9f2658c07d3c2f0a",
+            "userName": "测试新增的账号",
+            "birthday": "2017-05-05 00:00:00",
+            "sex": "100502",
+            "email": "810797860@qq.com",
+            "phone": "13652288353"
         }
         修改：
         {

@@ -7,10 +7,9 @@
 		<!-- 通用查询映射结果 -->
 			<resultMap id="userMap" type="com.secondhand.tradingplatformadminentity.entity.shiro.User" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
 									
-				<result column="avatar" property="avatar" jdbcType="VARCHAR" />
+				<result column="avatar" property="avatar" jdbcType="INTEGER" />
 				<result column="account" property="account" jdbcType="VARCHAR" />
 				<result column="password" property="password" jdbcType="VARCHAR" />
-				<result column="salt" property="salt" jdbcType="VARCHAR" />
 				<result column="user_name" property="userName" jdbcType="VARCHAR" />
 				<result column="birthday" property="birthday" jdbcType="DATE" />
 				<result column="sex" property="sex" jdbcType="INTEGER" />
@@ -22,10 +21,9 @@
         <!-- 通用查询映射结果 -->
 		<resultMap id="userMapSimple" type="com.secondhand.tradingplatformadminentity.entity.shiro.User">
 																			
-                        <result column="avatar" property="avatar" jdbcType="VARCHAR" />
+                        <result column="avatar" property="avatar" jdbcType="INTEGER" />
                         <result column="account" property="account" jdbcType="VARCHAR" />
                         <result column="password" property="password" jdbcType="VARCHAR" />
-                        <result column="salt" property="salt" jdbcType="VARCHAR" />
                         <result column="user_name" property="userName" jdbcType="VARCHAR" />
                         <result column="birthday" property="birthday" jdbcType="DATE" />
                         <result column="sex" property="sex" jdbcType="INTEGER" />
