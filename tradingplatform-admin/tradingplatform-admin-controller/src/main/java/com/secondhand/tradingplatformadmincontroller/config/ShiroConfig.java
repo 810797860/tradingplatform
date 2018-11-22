@@ -1,9 +1,11 @@
 package com.secondhand.tradingplatformadmincontroller.config;
 
+import com.secondhand.tradingplatformadmincontroller.shiro.DesCredentialsMatcher;
 import com.secondhand.tradingplatformadmincontroller.shiro.MyShiroRealm;
 import com.secondhand.tradingplatformadminentity.entity.shiro.Resources;
 import com.secondhand.tradingplatformadminservice.service.shiro.ResourcesService;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
+import org.apache.shiro.authc.credential.CredentialsMatcher;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.mgt.SecurityManager;
@@ -136,25 +138,32 @@ public class ShiroConfig {
     @Bean
     public MyShiroRealm myShiroRealm(){
         MyShiroRealm myShiroRealm = new MyShiroRealm();
-        myShiroRealm.setCredentialsMatcher(hashedCredentialsMatcher());
+//        myShiroRealm.setCredentialsMatcher(hashedCredentialsMatcher());
+        myShiroRealm.setCredentialsMatcher(desCredentialsMatcher());
         return myShiroRealm;
     }
 
-    /**
-     * 凭证匹配器
-     * （由于我们的密码校验交给Shiro的SimpleAuthenticationInfo进行处理了
-     *  所以我们需要修改下doGetAuthenticationInfo中的代码;
-     * ）
-     * @return
-     */
+//    /**
+//     * 凭证匹配器
+//     * （由于我们的密码校验交给Shiro的SimpleAuthenticationInfo进行处理了
+//     *  所以我们需要修改下doGetAuthenticationInfo中的代码;
+//     * ）
+//     * @return
+//     */
+//    @Bean
+//    public HashedCredentialsMatcher hashedCredentialsMatcher(){
+//        HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
+//
+//        hashedCredentialsMatcher.setHashAlgorithmName("md5");//散列算法:这里使用MD5算法;
+//        hashedCredentialsMatcher.setHashIterations(2);//散列的次数，比如散列两次，相当于 md5(md5(""));
+//
+//        return hashedCredentialsMatcher;
+//    }
+
+
     @Bean
-    public HashedCredentialsMatcher hashedCredentialsMatcher(){
-        HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
-
-        hashedCredentialsMatcher.setHashAlgorithmName("md5");//散列算法:这里使用MD5算法;
-        hashedCredentialsMatcher.setHashIterations(2);//散列的次数，比如散列两次，相当于 md5(md5(""));
-
-        return hashedCredentialsMatcher;
+    public CredentialsMatcher desCredentialsMatcher(){
+        return new DesCredentialsMatcher();
     }
 
 

@@ -1,4 +1,4 @@
-package com.secondhand.tradingplatformcommon.util;
+package com.secondhand.tradingplatformadmincontroller.shiro;
 
 import java.security.SecureRandom;
 
@@ -11,10 +11,15 @@ import javax.crypto.spec.DESKeySpec;
  * @author 81079
  */
 
-public class EncryptionMatcher {
+public class DesEncryptionTool {
 
     private static final byte[] DES_KEY = { 67, 81, 18, -48, -32, -99, 111, 88 };
 
+    /**
+     * 加密
+     * @param data
+     * @return
+     */
     public static String encrypt(String data) {
         String encryptedData = null;
         try {
@@ -35,6 +40,11 @@ public class EncryptionMatcher {
         return encryptedData;
     }
 
+    /**
+     * 解密
+     * @param cryptData
+     * @return
+     */
     public static String decrypt(String cryptData) {
         String decryptedData = null;
         try {

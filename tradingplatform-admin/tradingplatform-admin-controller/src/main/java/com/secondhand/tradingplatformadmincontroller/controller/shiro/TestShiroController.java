@@ -1,5 +1,6 @@
 package com.secondhand.tradingplatformadmincontroller.controller.shiro;
 
+import com.secondhand.tradingplatformadmincontroller.shiro.DesUserToken;
 import com.secondhand.tradingplatformadminentity.entity.shiro.User;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -33,7 +34,8 @@ public class TestShiroController {
             return "login";
         }
         Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token=new UsernamePasswordToken(user.getUserName(),user.getPassword());
+//        UsernamePasswordToken token=new UsernamePasswordToken(user.getUserName(),user.getPassword());
+        DesUserToken token = new DesUserToken(user.getUserName(), user.getPassword());
         try {
             subject.login(token);
             return "redirect:usersPage";

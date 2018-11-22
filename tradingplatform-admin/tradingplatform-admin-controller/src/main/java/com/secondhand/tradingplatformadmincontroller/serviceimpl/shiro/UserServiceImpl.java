@@ -3,6 +3,7 @@ package com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadmincontroller.shiro.DesEncryptionTool;
 import com.secondhand.tradingplatformadminentity.entity.shiro.User;
 import com.secondhand.tradingplatformadminmapper.mapper.shiro.UserMapper;
 import com.secondhand.tradingplatformadminservice.service.shiro.UserService;
@@ -63,6 +64,12 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper, User> implement
     @CacheEvict(allEntries = true)
     public User myUserCreateUpdate(User user) {
         Long userId = user.getId();
+        //加密
+        //通用，有密码时统一加密
+        String password = user.getPassword();
+        if (password != null){
+            user.setPassword(DesEncryptionTool.encrypt(password));
+        }
         if (userId == null){
             user.setUuid(ToolUtil.getUUID());
             userMapper.insert(user);
@@ -73,7 +80,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper, User> implement
     }
 
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "'username:' + #p0")
     public User selectByUsername(String username) {
         User user = new User();
         Wrapper<User> wrapper = new EntityWrapper<>(user);
