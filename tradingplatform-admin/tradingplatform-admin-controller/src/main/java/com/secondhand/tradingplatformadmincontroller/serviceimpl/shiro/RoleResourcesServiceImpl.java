@@ -3,8 +3,11 @@ package com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.shiro.Resources;
 import com.secondhand.tradingplatformadminentity.entity.shiro.RoleResources;
+import com.secondhand.tradingplatformadminmapper.mapper.shiro.ResourcesMapper;
 import com.secondhand.tradingplatformadminmapper.mapper.shiro.RoleResourcesMapper;
+import com.secondhand.tradingplatformadminservice.service.shiro.ResourcesService;
 import com.secondhand.tradingplatformadminservice.service.shiro.RoleResourcesService;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
@@ -16,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +37,9 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
 
     @Autowired
     private RoleResourcesMapper roleResourcesMapper;
+
+    @Autowired
+    private ResourcesService resourcesService;
 
     @Override
     @CacheEvict(allEntries = true)
@@ -94,44 +101,72 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
         return true;
     }
 
-    //以下是继承BaseServiceImpl
-    
     @Override
-    @Cacheable(key = "#p0 + '' + #p1")
-    public Page<RoleResources> mySelectPageWithParam(Page<RoleResources> page, RoleResources roleResources) {
+    @Transactional(rollbackFor = Exception.class)
+    @Cacheable(key = "'EnableCreate' + #p0 + '' + #p1")
+    public Page<Resources> mySelectEnableCreatePage(Page<Resources> page, RoleResources roleResources) {
+
+        //先找出resourcesIds
         Wrapper<RoleResources> wrapper = new EntityWrapper<>(roleResources);
-        //没id，自己重写
-        wrapper.setSqlSelect("uuid", "description", "deleted", "created_by", "created_at", "updated_by", "updated_at", "role_id", "resources_id");
-        return this.selectPage(page, wrapper);
+        wrapper.setSqlSelect("resources_id");
+        List<Object> resourcesIds = this.selectObjs(wrapper);
+        //再根据id找resourcesPage
+        Wrapper<Resources> resourcesWrapper = new EntityWrapper<>();
+        resourcesWrapper.notIn("id", resourcesIds);
+        //判空
+        resourcesWrapper.where("deleted = {0}", false);
+        //这里用service，既能redis又只能用redis
+        return resourcesService.selectPage(page, resourcesWrapper);
     }
-    
+
+    //以下是继承BaseServiceImpl
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    @Cacheable(key = "'MyResources' + #p0 + '' + #p1")
+    public Page<Resources> mySelectPageWithParam(Page<Resources> page, RoleResources roleResources) {
+
+        //先找出resourcesIds
+        Wrapper<RoleResources> wrapper = new EntityWrapper<>(roleResources);
+        wrapper.setSqlSelect("resources_id");
+        List<Object> resourcesIds = this.selectObjs(wrapper);
+        //再根据id找resourcesPage
+        Wrapper<Resources> resourcesWrapper = new EntityWrapper<>();
+        resourcesWrapper.in("id", resourcesIds);
+        //判空
+        resourcesWrapper.where("deleted = {0}", false);
+        //这里用service，既能redis又只能用redis
+        return resourcesService.selectPage(page, resourcesWrapper);
+    }
+
+
     @Override
     @Cacheable(key = "#p0")
     public List<RoleResources> mySelectListWithMap(Map<String, Object> map) {
         return roleResourcesMapper.selectByMap(map);
     }
-    
+
     //以下是继承BaseMapper
-    
+
     @Override
     @Cacheable(key = "#p0")
     public Map<String, Object> mySelectMap(Wrapper<RoleResources> wrapper) {
         return this.selectMap(wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public List<RoleResources> mySelectList(Wrapper<RoleResources> wrapper) {
         return roleResourcesMapper.selectList(wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsert(RoleResources roleResources) {
         roleResources.setUuid(ToolUtil.getUUID());
         return this.insert(roleResources);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertBatch(List<RoleResources> roleResourcesList) {
@@ -140,7 +175,7 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
         }
         return this.insertBatch(roleResourcesList);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdate(RoleResources roleResources) {
@@ -150,55 +185,55 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
         }
         return this.insertOrUpdate(roleResources);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdateBatch(List<RoleResources> roleResourcesList) {
         for (RoleResources roleResources : roleResourcesList){
-        //没有uuid的话要加上去
+            //没有uuid的话要加上去
             if (roleResources.getUuid().equals(null)){
                 roleResources.setUuid(ToolUtil.getUUID());
             }
         }
         return this.insertOrUpdateBatch(roleResourcesList);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public List<RoleResources> mySelectBatchIds(Collection<? extends Serializable> roleResourcesIds) {
         return roleResourcesMapper.selectBatchIds(roleResourcesIds);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public RoleResources mySelectById(Serializable roleResourcesId) {
         return roleResourcesMapper.selectById(roleResourcesId);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public int mySelectCount(Wrapper<RoleResources> wrapper) {
         return roleResourcesMapper.selectCount(wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public RoleResources mySelectOne(Wrapper<RoleResources> wrapper) {
         return this.selectOne(wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdate(RoleResources roleResources, Wrapper<RoleResources> wrapper) {
         return this.update(roleResources, wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdateBatchById(List<RoleResources> roleResourcesList) {
         return this.updateBatchById(roleResourcesList);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdateById(RoleResources roleResources) {

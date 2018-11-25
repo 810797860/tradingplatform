@@ -2,6 +2,7 @@ package com.secondhand.tradingplatformadminservice.service.shiro;
 
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.shiro.Resources;
 import com.secondhand.tradingplatformadminentity.entity.shiro.RoleResources;
 import com.secondhand.tradingplatformcommon.base.BaseService.BaseService;
 
@@ -61,7 +62,15 @@ public interface RoleResourcesService extends BaseService<RoleResources> {
          * @param roleResources
          * @return
          */
-        Page<RoleResources> mySelectPageWithParam(Page<RoleResources> page, RoleResources roleResources);
+        Page<Resources> mySelectPageWithParam(Page<Resources> page, RoleResources roleResources);
+
+        /**
+         * 分页获取能够增加RoleResources的列表（实体类）
+         * @param page
+         * @param roleResources
+         * @return
+         */
+        Page<Resources> mySelectEnableCreatePage(Page<Resources> page, RoleResources roleResources);
 
         /**
          * 获取RoleResources列表数据（Map）

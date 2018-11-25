@@ -1,6 +1,7 @@
 package com.secondhand.tradingplatformadmincontroller.controller.shiro;
 
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.shiro.Resources;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
 import io.swagger.annotations.Api;
@@ -68,7 +69,7 @@ public class RoleResourcesController extends BaseController {
     public String toCreateRoleResources(Model model) {
         return "roleResources/newRoleResources";
     }
-    
+
     /**
      * @description : 获取分页列表
      * @author : zhangjk
@@ -76,8 +77,8 @@ public class RoleResourcesController extends BaseController {
      */
     @PostMapping(value = "/query", produces = {"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "/query", notes="获取分页列表")
-    public TableJson<RoleResources> getRoleResourcesList(@ApiParam(name = "RoleResources", value = "RoleResources 实体类") @RequestBody RoleResources roleResources) {
-            TableJson<RoleResources> resJson = new TableJson<>();
+    public TableJson<Resources> getRoleResourcesList(@ApiParam(name = "RoleResources", value = "RoleResources 实体类") @RequestBody RoleResources roleResources) {
+            TableJson<Resources> resJson = new TableJson<>();
             Page resPage = roleResources.getPage();
             roleResources.setDeleted(false);
             Integer current = resPage.getCurrent();
@@ -87,12 +88,38 @@ public class RoleResourcesController extends BaseController {
                 resJson.setMessage("异常信息：页数和页的大小不能为空");
                 return resJson;
             }
-            Page<RoleResources> roleResourcesPage = new Page<RoleResources>(current, size);
-            roleResourcesPage = roleResourcesService.mySelectPageWithParam(roleResourcesPage, roleResources);
-            resJson.setRecordsTotal(roleResourcesPage.getTotal());
-            resJson.setData(roleResourcesPage.getRecords());
+            Page<Resources> resourcesPage = new Page<Resources>(current, size);
+            resourcesPage = roleResourcesService.mySelectPageWithParam(resourcesPage, roleResources);
+            resJson.setRecordsTotal(resourcesPage.getTotal());
+            resJson.setData(resourcesPage.getRecords());
             resJson.setSuccess(true);
             return resJson;
+    }
+
+    /**
+     * @description : 获取可以增加的权限
+     * @author : zhangjk
+     * @since : Create in 2018-11-12
+     */
+    @PostMapping(value = "/query_enable_create", produces = {"application/json"}, consumes = {"application/json"})
+    @ApiOperation(value = "/query_enable_create", notes="获取分页列表")
+    public TableJson<Resources> getEnableCreateList(@ApiParam(name = "RoleResources", value = "RoleResources 实体类") @RequestBody RoleResources roleResources) {
+        TableJson<Resources> resJson = new TableJson<>();
+        Page resPage = roleResources.getPage();
+        roleResources.setDeleted(false);
+        Integer current = resPage.getCurrent();
+        Integer size = resPage.getSize();
+        if (current == null && size == null) {
+            resJson.setSuccess(false);
+            resJson.setMessage("异常信息：页数和页的大小不能为空");
+            return resJson;
+        }
+        Page<Resources> resourcesPage = new Page<Resources>(current, size);
+        resourcesPage = roleResourcesService.mySelectEnableCreatePage(resourcesPage, roleResources);
+        resJson.setRecordsTotal(resourcesPage.getTotal());
+        resJson.setData(resourcesPage.getRecords());
+        resJson.setSuccess(true);
+        return resJson;
     }
 
     /**

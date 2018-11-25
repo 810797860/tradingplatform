@@ -67,6 +67,7 @@ public class MyShiroRealm extends AuthorizingRealm {
                 user,
                 //密码
                 user.getPassword(),
+                //盐值，注释掉，这里没用到
 //                ByteSource.Util.bytes(username),
                 //realm name
                 getName()

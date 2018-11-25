@@ -27,7 +27,7 @@
 }
 
 {
-    name:新增或修改角色
+    name:新增或修改用户
     url:/admin/user/create_update
     contentType:application/json
     type:post
@@ -46,9 +46,15 @@
         }
         修改：
         {
-            "id": 4,
-            "roleDesc": "测试的角色名",
-            "pid": "1"
+            "id": 47,
+            "avatar": 648,
+            "account": "testCreate2333",
+            "password": "admin",
+            "userName": "测试新增的账号2333",
+            "birthday": "2017-02-23 00:00:00",
+            "sex": "100502",
+            "email": "810792333@qq.com",
+            "phone": "13652282333"
         }
     }
     //返回接口例子
@@ -66,13 +72,13 @@
 }
 
 {
-    name:假删除角色
-    url:/admin/role/delete
+    name:假删除用户
+    url:/admin/user/delete
     contentType:application/json
     type:post
     //传参例子
     post-example:{
-        4
+        47
     }
     //返回接口例子
     response-example:{
@@ -89,13 +95,13 @@
 }
 
 {
-    name:批量假删除角色
-    url:/admin/role/batch_delete
+    name:批量假删除用户
+    url:/admin/user/batch_delete
     contentType:application/json
     type:post
     //传参例子
     post-example:{
-        [3,4]
+        [45 ,46]
     }
     //返回接口例子
     response-example:{
@@ -110,10 +116,11 @@
 
     }
 }
+
 
 {
     name:查看自己角色的权限
-    url:/admin/roleResources/query
+    url:/admin/userRole/query
     contentType:application/json
     type:post
     //传参例子
@@ -141,67 +148,15 @@
 }
 
 {
-    name:增加自己角色的权限
-    url:/admin/roleResources/batch_create
+    name:分配角色给用户
+    url:/admin/userRole/create_update
     contentType:application/json
     type:post
     //传参例子
     post-example:{
         {
-        	"roleId": 1,
-        	"resourcesIds": [36,37]
-        }
-    }
-    //返回接口例子
-    response-example:{
-
-    }
-    //注入参数
-    model-example:{
-
-    }
-    //错误码
-    status-item:{
-
-    }
-}
-
-{
-    name:假删除角色的权限
-    url:/admin/roleResources/delete
-    contentType:application/json
-    type:put
-    //传参例子
-    post-example:{
-        {
-        	"roleId": 1,
-        	"resourcesId": 35
-        }
-    }
-    //返回接口例子
-    response-example:{
-
-    }
-    //注入参数
-    model-example:{
-
-    }
-    //错误码
-    status-item:{
-
-    }
-}
-
-{
-    name:批量假删除角色的权限
-    url:/admin/roleResources/batch_delete
-    contentType:application/json
-    type:put
-    //传参例子
-    post-example:{
-        {
-        	"roleId": 1,
-        	"resourcesIds": [34,35]
+        	"userId": 7,
+        	"roleId": 77
         }
     }
     //返回接口例子
