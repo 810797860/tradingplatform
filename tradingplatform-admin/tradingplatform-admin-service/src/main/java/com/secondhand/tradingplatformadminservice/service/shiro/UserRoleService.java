@@ -2,6 +2,7 @@ package com.secondhand.tradingplatformadminservice.service.shiro;
 
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.shiro.Role;
 import com.secondhand.tradingplatformadminentity.entity.shiro.UserRole;
 import com.secondhand.tradingplatformcommon.base.BaseService.BaseService;
 
@@ -20,17 +21,18 @@ public interface UserRoleService extends BaseService<UserRole> {
 
         /**
          * 根据id进行假删除
-         * @param userRoleId
+         * @param userRole
          * @return
          */
-        Integer myFakeDeleteById(Long userRoleId);
+        Integer myFakeDeleteByUserRole(UserRole userRole);
 
         /**
          * 根据ids进行批量假删除
-         * @param userRoleIds
+         * @param userId
+         * @param roleIds
          * @return
          */
-        boolean myFakeBatchDelete(List<Long> userRoleIds);
+        boolean myFakeBatchDelete(Long userId, List<Integer> roleIds);
 
         /**
          * 获取Map数据（Obj）
@@ -47,12 +49,20 @@ public interface UserRoleService extends BaseService<UserRole> {
         UserRole myUserRoleCreateUpdate(UserRole userRole);
 
         /**
+         * 分页获取能够增加Role的列表（实体类）
+         * @param page
+         * @param userRole
+         * @return
+         */
+        Page<Role> mySelectEnableCreatePage(Page<Role> page, UserRole userRole);
+
+        /**
          * 分页获取UserRole列表数据（实体类）
          * @param page
          * @param userRole
          * @return
          */
-        Page<UserRole> mySelectPageWithParam(Page<UserRole> page, UserRole userRole);
+        Page<Role> mySelectPageWithParam(Page<Role> page, UserRole userRole);
 
         /**
          * 获取UserRole列表数据（Map）

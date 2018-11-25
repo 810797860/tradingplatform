@@ -65,7 +65,7 @@ public interface RoleResourcesService extends BaseService<RoleResources> {
         Page<Resources> mySelectPageWithParam(Page<Resources> page, RoleResources roleResources);
 
         /**
-         * 分页获取能够增加RoleResources的列表（实体类）
+         * 分页获取能够增加Resources的列表（实体类）
          * @param page
          * @param roleResources
          * @return

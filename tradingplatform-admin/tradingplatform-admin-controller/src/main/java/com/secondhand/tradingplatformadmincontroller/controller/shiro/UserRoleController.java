@@ -1,6 +1,7 @@
 package com.secondhand.tradingplatformadmincontroller.controller.shiro;
 
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.shiro.Role;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
 import io.swagger.annotations.Api;
@@ -68,7 +69,33 @@ public class UserRoleController extends BaseController {
     public String toCreateUserRole(Model model) {
         return "userRole/newUserRole";
     }
-    
+
+    /**
+     * @description : 获取可以增加的角色
+     * @author : zhangjk
+     * @since : Create in 2018-11-22
+     */
+    @PostMapping(value = "/query_enable_create", produces = {"application/json"}, consumes = {"application/json"})
+    @ApiOperation(value = "/query_enable_create", notes="获取分页列表")
+    public TableJson<Role> getEnableCreateList(@ApiParam(name = "UserRole", value = "UserRole 实体类") @RequestBody UserRole userRole) {
+        TableJson<Role> resJson = new TableJson<>();
+        Page resPage = userRole.getPage();
+        userRole.setDeleted(false);
+        Integer current = resPage.getCurrent();
+        Integer size = resPage.getSize();
+        if (current == null && size == null) {
+            resJson.setSuccess(false);
+            resJson.setMessage("异常信息：页数和页的大小不能为空");
+            return resJson;
+        }
+        Page<Role> rolePage = new Page<Role>(current, size);
+        rolePage = userRoleService.mySelectEnableCreatePage(rolePage, userRole);
+        resJson.setRecordsTotal(rolePage.getTotal());
+        resJson.setData(rolePage.getRecords());
+        resJson.setSuccess(true);
+        return resJson;
+    }
+
     /**
      * @description : 获取分页列表
      * @author : zhangjk
@@ -76,8 +103,8 @@ public class UserRoleController extends BaseController {
      */
     @PostMapping(value = "/query", produces = {"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "/query", notes="获取分页列表")
-    public TableJson<UserRole> getUserRoleList(@ApiParam(name = "UserRole", value = "UserRole 实体类") @RequestBody UserRole userRole) {
-            TableJson<UserRole> resJson = new TableJson<>();
+    public TableJson<Role> getUserRoleList(@ApiParam(name = "UserRole", value = "UserRole 实体类") @RequestBody UserRole userRole) {
+            TableJson<Role> resJson = new TableJson<>();
             Page resPage = userRole.getPage();
             userRole.setDeleted(false);
             Integer current = resPage.getCurrent();
@@ -87,10 +114,10 @@ public class UserRoleController extends BaseController {
                 resJson.setMessage("异常信息：页数和页的大小不能为空");
                 return resJson;
             }
-            Page<UserRole> userRolePage = new Page<UserRole>(current, size);
-            userRolePage = userRoleService.mySelectPageWithParam(userRolePage, userRole);
-            resJson.setRecordsTotal(userRolePage.getTotal());
-            resJson.setData(userRolePage.getRecords());
+            Page<Role> rolePage = new Page<Role>(current, size);
+            rolePage = userRoleService.mySelectPageWithParam(rolePage, userRole);
+            resJson.setRecordsTotal(rolePage.getTotal());
+            resJson.setData(rolePage.getRecords());
             resJson.setSuccess(true);
             return resJson;
     }
@@ -111,19 +138,19 @@ public class UserRoleController extends BaseController {
     }
 
     /**
-     * @description : 根据id假删除userRole
+     * @description : 根据userId和roleId假删除userRole
      * @author : zhangjk
      * @since : Create in 2018-11-22
      */
     @PutMapping(value = "/delete", produces = {"application/json"}, consumes = {"application/json"})
-    @ApiOperation(value = "/delete", notes = "根据id假删除userRole")
-    public JsonResult<UserRole> fakeDeleteById(@ApiParam(name = "id", value = "userRoleId") @RequestBody Long userRoleId){
+    @ApiOperation(value = "/delete", notes = "根据userId和roleId假删除userRole")
+    public JsonResult<UserRole> fakeDeleteByUserRole(@ApiParam(name = "UserRole", value = "UserRole实体类") @RequestBody UserRole userRole){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<UserRole> resJson = new JsonResult<>();
             try{
                 //检查是否具有权限
                 subject.checkPermission("/admin/userRole/delete");
-                userRoleService.myFakeDeleteById(userRoleId);
+                userRoleService.myFakeDeleteByUserRole(userRole);
                 resJson.setSuccess(true);
             }catch (UnauthorizedException e){
                 resJson.setSuccess(false);
@@ -133,19 +160,21 @@ public class UserRoleController extends BaseController {
     }
 
     /**
-     * @description : 根据ids批量假删除userRole
+     * @description : 根据userId和roleIds批量假删除userRole
      * @author : zhangjk
      * @since : Create in 2018-11-22
      */
     @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
-    @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除userRole")
-    public JsonResult<UserRole> fakeBatchDelete(@ApiParam(name = "ids", value = "userRoleIds") @RequestBody List<Long> userRoleIds){
+    @ApiOperation(value = "/batch_delete", notes = "根据userId和roleIds批量假删除userRole")
+    public JsonResult<UserRole> fakeBatchDelete(@ApiParam(name = "parameter", value = "批量假删除的参数") @RequestBody Map<String, Object> parameter){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<UserRole> resJson = new JsonResult<>();
             try{
                 //检查是否具有权限
                 subject.checkPermission("/admin/userRole/batch_delete");
-                resJson.setSuccess(userRoleService.myFakeBatchDelete(userRoleIds));
+                Long userId = Long.valueOf(parameter.get("userId").toString());
+                List<Integer> roleIds = (List<Integer>) parameter.get("roleIds");
+                resJson.setSuccess(userRoleService.myFakeBatchDelete(userId, roleIds));
             }catch(UnauthorizedException e){
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());

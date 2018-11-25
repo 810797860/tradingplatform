@@ -102,7 +102,7 @@ public class RoleResourcesController extends BaseController {
      * @since : Create in 2018-11-12
      */
     @PostMapping(value = "/query_enable_create", produces = {"application/json"}, consumes = {"application/json"})
-    @ApiOperation(value = "/query_enable_create", notes="获取分页列表")
+    @ApiOperation(value = "/query_enable_create", notes="获取可以增加的权限")
     public TableJson<Resources> getEnableCreateList(@ApiParam(name = "RoleResources", value = "RoleResources 实体类") @RequestBody RoleResources roleResources) {
         TableJson<Resources> resJson = new TableJson<>();
         Page resPage = roleResources.getPage();

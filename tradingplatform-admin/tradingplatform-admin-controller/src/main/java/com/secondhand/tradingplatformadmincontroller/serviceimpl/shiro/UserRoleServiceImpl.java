@@ -3,8 +3,10 @@ package com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.shiro.Role;
 import com.secondhand.tradingplatformadminentity.entity.shiro.UserRole;
 import com.secondhand.tradingplatformadminmapper.mapper.shiro.UserRoleMapper;
+import com.secondhand.tradingplatformadminservice.service.shiro.RoleService;
 import com.secondhand.tradingplatformadminservice.service.shiro.UserRoleService;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
@@ -34,21 +36,32 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
     @Autowired
     private UserRoleMapper userRoleMapper;
 
+    @Autowired
+    private RoleService roleService;
+
     @Override
     @CacheEvict(allEntries = true)
-    public Integer myFakeDeleteById(Long userRoleId) {
-        UserRole userRole = new UserRole();
-        userRole.setId(userRoleId);
+    public Integer myFakeDeleteByUserRole(UserRole userRole) {
+
+        Wrapper<UserRole> wrapper = new EntityWrapper<>();
+        wrapper.where("user_id = {0}", userRole.getUserId());
+        wrapper.where("role_id = {0}", userRole.getRoleId());
         userRole.setDeleted(true);
-        return userRoleMapper.updateById(userRole);
+        return userRoleMapper.update(userRole, wrapper);
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
     @CacheEvict(allEntries = true)
-    public boolean myFakeBatchDelete(List<Long> userRoleIds) {
-        userRoleIds.forEach(userRoleId->{
-            myFakeDeleteById(userRoleId);
+    public boolean myFakeBatchDelete(Long userId, List<Integer> roleIds) {
+        UserRole userRole = new UserRole();
+        userRole.setDeleted(true);
+        roleIds.forEach(roleId -> {
+            //这里就直接遍历假删除了，不去调用myFakeDelete
+            Wrapper<UserRole> wrapper = new EntityWrapper<>();
+            wrapper.where("user_id = {0}", userId);
+            wrapper.where("role_id = {0}", roleId);
+            userRoleMapper.update(userRole, wrapper);
         });
         return true;
     }
@@ -72,44 +85,69 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
         return userRole;
     }
 
-    //以下是继承BaseServiceImpl
-    
     @Override
-    @Cacheable(key = "#p0 + '' + #p1")
-    public Page<UserRole> mySelectPageWithParam(Page<UserRole> page, UserRole userRole) {
+    @Transactional(rollbackFor = Exception.class)
+    @Cacheable(key = "'EnableCreate' + #p0 + '' + #p1")
+    public Page<Role> mySelectEnableCreatePage(Page<Role> page, UserRole userRole) {
+
+        //先找出roleIds
         Wrapper<UserRole> wrapper = new EntityWrapper<>(userRole);
-        //没id，自己重写
-        wrapper.setSqlSelect("uuid", "description", "deleted", "created_by", "created_at", "updated_by", "updated_at", "user_id", "role_id");
-        return this.selectPage(page, wrapper);
+        wrapper.setSqlSelect("role_id");
+        List<Object> roleIds = this.selectObjs(wrapper);
+        //再根据id找rolePage
+        Wrapper<Role> roleWrapper = new EntityWrapper<>();
+        roleWrapper.notIn("id", roleIds);
+        //判空
+        roleWrapper.where("deleted = {0}", false);
+        return roleService.selectPage(page, roleWrapper);
     }
-    
+
+    //以下是继承BaseServiceImpl
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    @Cacheable(key = "'MyRole' + #p0 + '' + #p1")
+    public Page<Role> mySelectPageWithParam(Page<Role> page, UserRole userRole) {
+
+        //先找出roleIds
+        Wrapper<UserRole> wrapper = new EntityWrapper<>(userRole);
+        wrapper.setSqlSelect("role_id");
+        List<Object> roleIds = this.selectObjs(wrapper);
+        //再根据id找rolePage
+        Wrapper<Role> roleWrapper = new EntityWrapper<>();
+        roleWrapper.in("id", roleIds);
+        //判空
+        roleWrapper.where("deleted = {0}", false);
+        return roleService.selectPage(page, roleWrapper);
+    }
+
     @Override
     @Cacheable(key = "#p0")
     public List<UserRole> mySelectListWithMap(Map<String, Object> map) {
         return userRoleMapper.selectByMap(map);
     }
-    
+
     //以下是继承BaseMapper
-    
+
     @Override
     @Cacheable(key = "#p0")
     public Map<String, Object> mySelectMap(Wrapper<UserRole> wrapper) {
         return this.selectMap(wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public List<UserRole> mySelectList(Wrapper<UserRole> wrapper) {
         return userRoleMapper.selectList(wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsert(UserRole userRole) {
         userRole.setUuid(ToolUtil.getUUID());
         return this.insert(userRole);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertBatch(List<UserRole> userRoleList) {
@@ -118,7 +156,7 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
         });
         return this.insertBatch(userRoleList);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdate(UserRole userRole) {
@@ -128,7 +166,7 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
         }
         return this.insertOrUpdate(userRole);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdateBatch(List<UserRole> userRoleList) {
@@ -140,43 +178,43 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
         });
         return this.insertOrUpdateBatch(userRoleList);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public List<UserRole> mySelectBatchIds(Collection<? extends Serializable> userRoleIds) {
         return userRoleMapper.selectBatchIds(userRoleIds);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public UserRole mySelectById(Serializable userRoleId) {
         return userRoleMapper.selectById(userRoleId);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public int mySelectCount(Wrapper<UserRole> wrapper) {
         return userRoleMapper.selectCount(wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public UserRole mySelectOne(Wrapper<UserRole> wrapper) {
         return this.selectOne(wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdate(UserRole userRole, Wrapper<UserRole> wrapper) {
         return this.update(userRole, wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdateBatchById(List<UserRole> userRoleList) {
         return this.updateBatchById(userRoleList);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdateById(UserRole userRole) {
