@@ -7,6 +7,7 @@ import com.secondhand.tradingplatformadmincontroller.shiro.DesEncryptionTool;
 import com.secondhand.tradingplatformadminentity.entity.shiro.User;
 import com.secondhand.tradingplatformadminmapper.mapper.shiro.UserMapper;
 import com.secondhand.tradingplatformadminservice.service.shiro.UserService;
+import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -99,6 +100,17 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper, User> implement
     @Cacheable(key = "#p0 + '' + #p1")
     public Page<User> mySelectPageWithParam(Page<User> page, User user) {
         Wrapper<User> wrapper = new EntityWrapper<>(user);
+        //遍历排序
+        List<Sort> sorts = user.getSorts();
+        if (sorts == null){
+            //为null时，默认按created_at倒序
+            wrapper.orderBy("id", false);
+        } else {
+            //遍历排序
+            sorts.forEach( sort -> {
+                wrapper.orderBy(sort.getField(), sort.getAsc());
+            });
+        }
         return this.selectPage(page, wrapper);
     }
     

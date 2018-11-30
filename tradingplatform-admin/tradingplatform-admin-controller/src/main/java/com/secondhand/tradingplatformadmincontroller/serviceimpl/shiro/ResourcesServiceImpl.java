@@ -8,6 +8,7 @@ import com.secondhand.tradingplatformadminentity.entity.shiro.RoleResources;
 import com.secondhand.tradingplatformadminmapper.mapper.shiro.ResourcesMapper;
 import com.secondhand.tradingplatformadminmapper.mapper.shiro.RoleResourcesMapper;
 import com.secondhand.tradingplatformadminservice.service.shiro.ResourcesService;
+import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
 import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
@@ -100,6 +101,17 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
     @Cacheable(key = "#p0 + '' + #p1")
     public Page<Resources> mySelectPageWithParam(Page<Resources> page, Resources resources) {
         Wrapper<Resources> wrapper = new EntityWrapper<>(resources);
+        //遍历排序
+        List<Sort> sorts = resources.getSorts();
+        if (sorts == null){
+            //为null时，默认按created_at倒序
+            wrapper.orderBy("id", false);
+        } else {
+            //遍历排序
+            sorts.forEach( sort -> {
+                wrapper.orderBy(sort.getField(), sort.getAsc());
+            });
+        }
         return this.selectPage(page, wrapper);
     }
 

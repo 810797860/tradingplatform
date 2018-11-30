@@ -9,6 +9,7 @@ import com.secondhand.tradingplatformadminmapper.mapper.shiro.ResourcesMapper;
 import com.secondhand.tradingplatformadminmapper.mapper.shiro.RoleResourcesMapper;
 import com.secondhand.tradingplatformadminservice.service.shiro.ResourcesService;
 import com.secondhand.tradingplatformadminservice.service.shiro.RoleResourcesService;
+import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -115,6 +116,17 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
         resourcesWrapper.notIn("id", resourcesIds);
         //判空
         resourcesWrapper.where("deleted = {0}", false);
+        //遍历排序
+        List<Sort> sorts = roleResources.getSorts();
+        if (sorts == null){
+            //为null时，默认按created_at倒序
+            wrapper.orderBy("id", false);
+        } else {
+            //遍历排序
+            sorts.forEach( sort -> {
+                wrapper.orderBy(sort.getField(), sort.getAsc());
+            });
+        }
         //这里用service，既能redis又只能用redis
         return resourcesService.selectPage(page, resourcesWrapper);
     }
@@ -135,6 +147,17 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
         resourcesWrapper.in("id", resourcesIds);
         //判空
         resourcesWrapper.where("deleted = {0}", false);
+        //遍历排序
+        List<Sort> sorts = roleResources.getSorts();
+        if (sorts == null){
+            //为null时，默认按created_at倒序
+            wrapper.orderBy("id", false);
+        } else {
+            //遍历排序
+            sorts.forEach( sort -> {
+                wrapper.orderBy(sort.getField(), sort.getAsc());
+            });
+        }
         //这里用service，既能redis又只能用redis
         return resourcesService.selectPage(page, resourcesWrapper);
     }

@@ -10,6 +10,7 @@ import com.secondhand.tradingplatformadminmapper.mapper.system.FormFieldMapper;
 import com.secondhand.tradingplatformadminmapper.mapper.system.FormMapper;
 import com.secondhand.tradingplatformadminmapper.mapper.system.SelectItemMapper;
 import com.secondhand.tradingplatformadminservice.service.system.FormFieldService;
+import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
 import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import com.secondhand.tradingplatformcommon.pojo.SystemSelectItem;
@@ -70,7 +71,7 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
     @Transactional(rollbackFor = Exception.class)
     @CacheEvict(allEntries = true)
     public boolean myFakeBatchDelete(List<Long> formFieldIds) {
-        formFieldIds.forEach(formFieldId->{
+        formFieldIds.forEach(formFieldId -> {
             myFakeDeleteById(formFieldId);
         });
         return true;
@@ -206,6 +207,17 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
     @Cacheable(key = "#p0 + '' + #p1")
     public Page<FormField> mySelectPageWithParam(Page<FormField> page, FormField formField) {
         Wrapper<FormField> wrapper = new EntityWrapper<>(formField);
+        //遍历排序
+        List<Sort> sorts = formField.getSorts();
+        if (sorts == null){
+            //为null时，默认按created_at倒序
+            wrapper.orderBy("id", false);
+        } else {
+            //遍历排序
+            sorts.forEach( sort -> {
+                wrapper.orderBy(sort.getField(), sort.getAsc());
+            });
+        }
         return this.selectPage(page, wrapper);
     }
 

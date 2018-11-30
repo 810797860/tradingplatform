@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.shiro.Role;
 import com.secondhand.tradingplatformadminmapper.mapper.shiro.RoleMapper;
 import com.secondhand.tradingplatformadminservice.service.shiro.RoleService;
+import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,6 +79,17 @@ public class RoleServiceImpl extends BaseServiceImpl<RoleMapper, Role> implement
     @Cacheable(key = "#p0 + '' + #p1")
     public Page<Role> mySelectPageWithParam(Page<Role> page, Role role) {
         Wrapper<Role> wrapper = new EntityWrapper<>(role);
+        //遍历排序
+        List<Sort> sorts = role.getSorts();
+        if (sorts == null){
+            //为null时，默认按created_at倒序
+            wrapper.orderBy("id", false);
+        } else {
+            //遍历排序
+            sorts.forEach( sort -> {
+                wrapper.orderBy(sort.getField(), sort.getAsc());
+            });
+        }
         return this.selectPage(page, wrapper);
     }
     

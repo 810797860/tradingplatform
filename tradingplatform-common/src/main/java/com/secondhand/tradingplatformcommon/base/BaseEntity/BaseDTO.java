@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.plugins.Page;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author 81079
@@ -22,6 +23,12 @@ public class BaseDTO implements Serializable {
     @TableField(exist = false)
     private Page page;
 
+    /**
+     * 排序参数
+     */
+    @TableField(exist = false)
+    public List<Sort> sorts;
+
     public Page getPage() {
         return page;
     }
@@ -30,10 +37,19 @@ public class BaseDTO implements Serializable {
         this.page = page;
     }
 
+    public List<Sort> getSorts() {
+        return sorts;
+    }
+
+    public void setSorts(List<Sort> sorts) {
+        this.sorts = sorts;
+    }
+
     @Override
     public String toString() {
         return "BaseDTO{" +
                 "page=" + page +
+                ", sorts=" + sorts +
                 '}';
     }
 }

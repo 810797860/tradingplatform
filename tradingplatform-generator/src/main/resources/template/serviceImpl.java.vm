@@ -11,6 +11,7 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.${entity};
 import com.secondhand.tradingplatformadminmapper.mapper.${entity}Mapper;
 import com.secondhand.tradingplatformadminservice.service.${entity}Service;
+import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import ${superServiceImplClassPackage};
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,9 +83,21 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     @Override
     @Cacheable(key = "#p0 + '' + #p1")
     public Page<${entity}> mySelectPageWithParam(Page<${entity}> page, ${entity} ${table.entityPath}) {
+
         //判空
         ${table.entityPath}.setDeleted(false);
         Wrapper<${entity}> wrapper = new EntityWrapper<>(${table.entityPath});
+        //遍历排序
+        List<Sort> sorts = ${table.entityPath}.getSorts();
+        if (sorts == null){
+            //为null时，默认按created_at倒序
+            wrapper.orderBy("id", false);
+        } else {
+            //遍历排序
+            sorts.forEach( sort -> {
+                wrapper.orderBy(sort.getField(), sort.getAsc());
+            });
+        }
         return this.selectPage(page, wrapper);
     }
     

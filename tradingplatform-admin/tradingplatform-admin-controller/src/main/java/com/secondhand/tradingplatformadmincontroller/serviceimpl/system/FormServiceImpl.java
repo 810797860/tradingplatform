@@ -9,6 +9,7 @@ import com.secondhand.tradingplatformadminmapper.mapper.system.FormFieldMapper;
 import com.secondhand.tradingplatformadminmapper.mapper.system.FormMapper;
 import com.secondhand.tradingplatformadminservice.service.shiro.ResourcesService;
 import com.secondhand.tradingplatformadminservice.service.system.FormService;
+import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
 import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
@@ -195,6 +196,17 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
     @Cacheable(key = "#p0 + '' + #p1")
     public Page<Form> mySelectPageWithParam(Page<Form> page, Form form) {
         Wrapper<Form> wrapper = new EntityWrapper<>(form);
+        //遍历排序
+        List<Sort> sorts = form.getSorts();
+        if (sorts == null){
+            //为null时，默认按created_at倒序
+            wrapper.orderBy("id", false);
+        } else {
+            //遍历排序
+            sorts.forEach( sort -> {
+                wrapper.orderBy(sort.getField(), sort.getAsc());
+            });
+        }
         return this.selectPage(page, wrapper);
     }
 
