@@ -76,7 +76,7 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuMapper, Menu> implement
     //以下是继承BaseServiceImpl
     
     @Override
-    @Cacheable(key = "#p0 + '' + #p1")
+    @Cacheable(key = "#p0 + '' + #p1 + #p1.sorts")
     public Page<Menu> mySelectPageWithParam(Page<Menu> page, Menu menu) {
 
         //判空

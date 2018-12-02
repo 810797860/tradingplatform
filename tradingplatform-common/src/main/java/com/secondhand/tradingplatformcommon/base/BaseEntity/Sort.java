@@ -31,4 +31,12 @@ public class Sort implements Serializable {
     public void setAsc(Boolean asc) {
         isAsc = asc;
     }
+
+    @Override
+    public String toString() {
+        return "Sort{" +
+                "field='" + field + '\'' +
+                ", isAsc=" + isAsc +
+                '}';
+    }
 }

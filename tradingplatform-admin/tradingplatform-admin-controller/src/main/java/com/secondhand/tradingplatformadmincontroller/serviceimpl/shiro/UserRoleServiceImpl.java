@@ -88,7 +88,7 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @Cacheable(key = "'EnableCreate' + #p0 + '' + #p1")
+    @Cacheable(key = "'EnableCreate' + #p0 + '' + #p1 + #p1.sorts")
     public Page<Role> mySelectEnableCreatePage(Page<Role> page, UserRole userRole) {
 
         //先找出roleIds
@@ -104,11 +104,11 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
         List<Sort> sorts = userRole.getSorts();
         if (sorts == null){
             //为null时，默认按created_at倒序
-            wrapper.orderBy("id", false);
+            roleWrapper.orderBy("id", false);
         } else {
             //遍历排序
             sorts.forEach( sort -> {
-                wrapper.orderBy(sort.getField(), sort.getAsc());
+                roleWrapper.orderBy(sort.getField(), sort.getAsc());
             });
         }
         return roleService.selectPage(page, roleWrapper);
@@ -118,7 +118,7 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @Cacheable(key = "'MyRole' + #p0 + '' + #p1")
+    @Cacheable(key = "'MyRole' + #p0 + '' + #p1 + #p1.sorts")
     public Page<Role> mySelectPageWithParam(Page<Role> page, UserRole userRole) {
 
         //先找出roleIds
@@ -134,11 +134,11 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
         List<Sort> sorts = userRole.getSorts();
         if (sorts == null){
             //为null时，默认按created_at倒序
-            wrapper.orderBy("id", false);
+            roleWrapper.orderBy("id", false);
         } else {
             //遍历排序
             sorts.forEach( sort -> {
-                wrapper.orderBy(sort.getField(), sort.getAsc());
+                roleWrapper.orderBy(sort.getField(), sort.getAsc());
             });
         }
         return roleService.selectPage(page, roleWrapper);

@@ -77,7 +77,7 @@ public class RoleResourcesController extends BaseController {
      */
     @PostMapping(value = "/query", produces = {"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "/query", notes="获取分页列表")
-    public TableJson<Resources> getRoleResourcesList(@ApiParam(name = "RoleResources", value = "RoleResources 实体类") @RequestBody RoleResources roleResources) {
+    public TableJson<Resources> getResourcesList(@ApiParam(name = "RoleResources", value = "RoleResources 实体类") @RequestBody RoleResources roleResources) {
             TableJson<Resources> resJson = new TableJson<>();
             Page resPage = roleResources.getPage();
             roleResources.setDeleted(false);

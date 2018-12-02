@@ -104,7 +104,7 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @Cacheable(key = "'EnableCreate' + #p0 + '' + #p1")
+    @Cacheable(key = "'EnableCreate' + #p0 + '' + #p1 + #p1.sorts")
     public Page<Resources> mySelectEnableCreatePage(Page<Resources> page, RoleResources roleResources) {
 
         //先找出resourcesIds
@@ -120,11 +120,11 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
         List<Sort> sorts = roleResources.getSorts();
         if (sorts == null){
             //为null时，默认按created_at倒序
-            wrapper.orderBy("id", false);
+            resourcesWrapper.orderBy("id", false);
         } else {
             //遍历排序
             sorts.forEach( sort -> {
-                wrapper.orderBy(sort.getField(), sort.getAsc());
+                resourcesWrapper.orderBy(sort.getField(), sort.getAsc());
             });
         }
         //这里用service，既能redis又只能用redis
@@ -135,7 +135,7 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @Cacheable(key = "'MyResources' + #p0 + '' + #p1")
+    @Cacheable(key = "'MyResources' + #p0 + '' + #p1 + #p1.sorts")
     public Page<Resources> mySelectPageWithParam(Page<Resources> page, RoleResources roleResources) {
 
         //先找出resourcesIds
@@ -151,11 +151,11 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
         List<Sort> sorts = roleResources.getSorts();
         if (sorts == null){
             //为null时，默认按created_at倒序
-            wrapper.orderBy("id", false);
+            resourcesWrapper.orderBy("id", false);
         } else {
             //遍历排序
             sorts.forEach( sort -> {
-                wrapper.orderBy(sort.getField(), sort.getAsc());
+                resourcesWrapper.orderBy(sort.getField(), sort.getAsc());
             });
         }
         //这里用service，既能redis又只能用redis

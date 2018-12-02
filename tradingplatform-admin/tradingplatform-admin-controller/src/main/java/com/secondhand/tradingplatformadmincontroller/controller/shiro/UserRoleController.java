@@ -103,7 +103,7 @@ public class UserRoleController extends BaseController {
      */
     @PostMapping(value = "/query", produces = {"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "/query", notes="获取分页列表")
-    public TableJson<Role> getUserRoleList(@ApiParam(name = "UserRole", value = "UserRole 实体类") @RequestBody UserRole userRole) {
+    public TableJson<Role> getRoleList(@ApiParam(name = "UserRole", value = "UserRole 实体类") @RequestBody UserRole userRole) {
             TableJson<Role> resJson = new TableJson<>();
             Page resPage = userRole.getPage();
             userRole.setDeleted(false);

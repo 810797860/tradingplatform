@@ -39,3 +39,5 @@ Caused by: io.lettuce.core.RedisCommandTimeoutException: Command timed out
 2018-11-30 19:43:28.238 [http-nio-8080-exec-5] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象保存失败java.lang.ClassCastException: org.apache.ibatis.cache.CacheKey cannot be cast to java.lang.String
 2018-11-30 20:27:49.432 [http-nio-8080-exec-4] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象获取失败java.lang.ClassCastException: org.apache.ibatis.cache.CacheKey cannot be cast to java.lang.String
 2018-11-30 20:27:49.555 [http-nio-8080-exec-4] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象保存失败java.lang.ClassCastException: org.apache.ibatis.cache.CacheKey cannot be cast to java.lang.String
+2018-11-30 21:32:04.610 [http-nio-8080-exec-5] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象获取失败java.lang.ClassCastException: org.apache.ibatis.cache.CacheKey cannot be cast to java.lang.String
+2018-11-30 21:32:04.632 [http-nio-8080-exec-5] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象保存失败java.lang.ClassCastException: org.apache.ibatis.cache.CacheKey cannot be cast to java.lang.String
