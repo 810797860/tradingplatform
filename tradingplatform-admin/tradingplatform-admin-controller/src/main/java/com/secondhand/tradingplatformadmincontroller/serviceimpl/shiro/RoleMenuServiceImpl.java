@@ -52,9 +52,15 @@ public class RoleMenuServiceImpl extends BaseServiceImpl<RoleMenuMapper, RoleMen
     @Override
     @Transactional(rollbackFor = Exception.class)
     @CacheEvict(allEntries = true)
-    public boolean myFakeBatchDelete(List<Long> roleMenuIds) {
-        roleMenuIds.forEach(roleMenuId->{
-            myFakeDeleteById(roleMenuId);
+    public boolean myFakeBatchDelete(Long roleId, List<Integer> menuIds) {
+        RoleMenu roleMenu = new RoleMenu();
+        roleMenu.setDeleted(true);
+        menuIds.forEach(menuId -> {
+            //这里就直接遍历假删除了，不去调用myFakeDelete
+            Wrapper<RoleMenu> wrapper = new EntityWrapper<>();
+            wrapper.where("role_id = {0}", roleId);
+            wrapper.where("menu_id = {0}", menuId.longValue());
+            roleMenuMapper.update(roleMenu, wrapper);
         });
         return true;
     }
@@ -76,6 +82,21 @@ public class RoleMenuServiceImpl extends BaseServiceImpl<RoleMenuMapper, RoleMen
             roleMenuMapper.updateById(roleMenu);
         }
         return roleMenu;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    @CacheEvict(allEntries = true)
+    public boolean myRoleMenuBatchCreate(Long roleId, List<Integer> menuIds) {
+        menuIds.forEach(menuId->{
+            //这里就自己写了，为了快一点(因为都是新增)
+            RoleMenu roleMenu = new RoleMenu();
+            roleMenu.setUuid(ToolUtil.getUUID());
+            roleMenu.setRoleId(roleId);
+            roleMenu.setMenuId(menuId.longValue());
+            roleMenuMapper.insert(roleMenu);
+        });
+        return true;
     }
 
     @Override

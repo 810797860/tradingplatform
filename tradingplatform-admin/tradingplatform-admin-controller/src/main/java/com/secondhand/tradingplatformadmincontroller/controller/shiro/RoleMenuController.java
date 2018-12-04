@@ -158,24 +158,27 @@ public class RoleMenuController extends BaseController {
     }
 
     /**
-     * @description : 根据ids批量假删除roleMenu
+     * @description : 根据roleId和menuIds批量假删除roleMenu
      * @author : zhangjk
-     * @since : Create in 2018-12-02
+     * @since : Create in 2018-11-12
      */
     @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
-    @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除roleMenu")
-    public JsonResult<RoleMenu> fakeBatchDelete(@ApiParam(name = "ids", value = "roleMenuIds") @RequestBody List<Long> roleMenuIds){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<RoleMenu> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/roleMenu/batch_delete");
-                resJson.setSuccess(roleMenuService.myFakeBatchDelete(roleMenuIds));
-            }catch(UnauthorizedException e){
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    @ApiOperation(value = "/batch_delete", notes = "根据roleId和menuIds批量假删除roleMenu")
+    public JsonResult<RoleMenu> fakeBatchDelete(@ApiParam(name = "parameter", value = "批量假删除的参数") @RequestBody Map<String, Object> parameter){
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<RoleMenu> resJson = new JsonResult<>();
+        try{
+            //检查是否具有权限
+            subject.checkPermission("/admin/roleMenu/batch_delete");
+            Long roleId = Long.valueOf(parameter.get("roleId").toString());
+            List<Integer> menuIds = (List<Integer>) parameter.get("menuIds");
+            //这里不判空了，让前端判
+            resJson.setSuccess(roleMenuService.myFakeBatchDelete(roleId, menuIds));
+        }catch(UnauthorizedException e){
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
@@ -199,5 +202,29 @@ public class RoleMenuController extends BaseController {
                 resJson.setMessage(e.getMessage());
             }
             return resJson;
+    }
+
+    /**
+     * @description : 批量新增roleMenu
+     * @author : zhangjk
+     * @since : Create in 2018-11-12
+     */
+    @PostMapping(value = "/batch_create", produces = {"application/json"}, consumes = {"application/json"})
+    @ApiOperation(value = "/batch_create", notes = "批量新增roleMenu")
+    public JsonResult<RoleMenu> roleMenuBatchCreate(@ApiParam(name = "parameter", value = "批量新增roleMenu的参数") @RequestBody Map<String, Object> parameter){
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<RoleMenu> resJson = new JsonResult<>();
+        try{
+            //检查是否具有权限
+            subject.checkPermission("/admin/roleMenu/batch_create");
+            Long roleId = Long.valueOf(parameter.get("roleId").toString());
+            List<Integer> menuIds = (List<Integer>) parameter.get("menuIds");
+            //这里不判空了，让前端判
+            resJson.setSuccess(roleMenuService.myRoleMenuBatchCreate(roleId, menuIds));
+        }catch(UnauthorizedException e){
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 }

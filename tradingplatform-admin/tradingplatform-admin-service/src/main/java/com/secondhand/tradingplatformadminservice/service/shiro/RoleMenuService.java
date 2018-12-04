@@ -27,11 +27,11 @@ public interface RoleMenuService extends BaseService<RoleMenu> {
         Integer myFakeDeleteById(Long roleMenuId);
 
         /**
-         * 根据ids进行批量假删除
-         * @param roleMenuIds
+         * 根据menuIds进行批量假删除
+         * @param menuIds
          * @return
          */
-        boolean myFakeBatchDelete(List<Long> roleMenuIds);
+        boolean myFakeBatchDelete(Long roleId, List<Integer> menuIds);
 
         /**
          * 获取Map数据（Obj）
@@ -46,6 +46,14 @@ public interface RoleMenuService extends BaseService<RoleMenu> {
          * @return
          */
         RoleMenu myRoleMenuCreateUpdate(RoleMenu roleMenu);
+
+        /**
+         * 批量新增roleMenu
+         * @param roleId
+         * @param menuIds
+         * @return
+         */
+        boolean myRoleMenuBatchCreate(Long roleId, List<Integer> menuIds);
 
         /**
          * 分页获取Menu列表数据（实体类）

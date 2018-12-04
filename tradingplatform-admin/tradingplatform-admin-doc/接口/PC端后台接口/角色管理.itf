@@ -311,15 +311,15 @@
 
 
 {
-    name:增加自己角色的权限
-    url:/admin/roleResources/batch_create
+    name:增加自己角色的菜单
+    url:/admin/roleMenu/batch_create
     contentType:application/json
     type:post
     //传参例子
     post-example:{
         {
         	"roleId": 1,
-        	"resourcesIds": [36,37]
+        	"menuIds": [36,37]
         }
     }
     //返回接口例子
@@ -339,14 +339,14 @@
 
 {
     name:假删除角色的权限
-    url:/admin/roleResources/delete
+    url:/admin/roleMenu/delete
     contentType:application/json
     type:put
     //传参例子
     post-example:{
         {
         	"roleId": 1,
-        	"resourcesId": 35
+        	"menuId": 35
         }
     }
     //返回接口例子
@@ -366,14 +366,14 @@
 
 {
     name:批量假删除角色的权限
-    url:/admin/roleResources/batch_delete
+    url:/admin/roleMenu/batch_delete
     contentType:application/json
     type:put
     //传参例子
     post-example:{
         {
         	"roleId": 1,
-        	"resourcesIds": [34,35]
+        	"menuIds": [34,35]
         }
     }
     //返回接口例子
