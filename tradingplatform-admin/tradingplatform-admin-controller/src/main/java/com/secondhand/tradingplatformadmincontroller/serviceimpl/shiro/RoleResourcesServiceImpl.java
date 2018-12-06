@@ -142,6 +142,10 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
         Wrapper<RoleResources> wrapper = new EntityWrapper<>(roleResources);
         wrapper.setSqlSelect("resources_id");
         List<Object> resourcesIds = this.selectObjs(wrapper);
+        //如果resourcesIds为空，返回空的对象
+        if (resourcesIds.size() == 0){
+            return new Page<Resources>();
+        }
         //再根据id找resourcesPage
         Wrapper<Resources> resourcesWrapper = new EntityWrapper<>();
         resourcesWrapper.in("id", resourcesIds);

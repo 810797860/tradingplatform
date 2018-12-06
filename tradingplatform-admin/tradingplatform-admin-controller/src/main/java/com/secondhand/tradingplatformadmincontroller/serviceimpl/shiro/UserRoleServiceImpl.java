@@ -125,6 +125,10 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
         Wrapper<UserRole> wrapper = new EntityWrapper<>(userRole);
         wrapper.setSqlSelect("role_id");
         List<Object> roleIds = this.selectObjs(wrapper);
+        //如果roleIds为空，返回空的对象
+        if (roleIds.size() == 0){
+            return new Page<Role>();
+        }
         //再根据id找rolePage
         Wrapper<Role> roleWrapper = new EntityWrapper<>();
         roleWrapper.in("id", roleIds);

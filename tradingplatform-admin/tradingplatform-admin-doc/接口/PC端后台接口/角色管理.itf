@@ -389,3 +389,148 @@
 
     }
 }
+
+
+
+=====================================角色按钮表==================================
+
+
+{
+    name:查看自己角色的按钮
+    url:/admin/roleButton/query
+    contentType:application/json
+    type:post
+    //传参例子
+    post-example:{
+        {
+            "roleId": 1,
+            "page":{
+                "current": 1,
+                "size": 10
+            }
+        }
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+
+{
+    name:查看自己能加的角色的按钮
+    url:/admin/roleButton/query_enable_create
+    contentType:application/json
+    type:post
+    //传参例子
+    post-example:{
+        {
+            "roleId": 1,
+            "page":{
+                "current": 1,
+                "size": 10
+            }
+        }
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+
+{
+    name:批量增加自己角色的按钮
+    url:/admin/roleButton/batch_create
+    contentType:application/json
+    type:post
+    //传参例子
+    post-example:{
+        {
+        	"roleId": 1,
+        	"buttonIds": [1,2]
+        }
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+
+{
+    name:假删除角色的按钮
+    url:/admin/roleButton/delete
+    contentType:application/json
+    type:put
+    //传参例子
+    post-example:{
+        {
+        	"roleId": 1,
+        	"buttonId": 35
+        }
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+
+{
+    name:批量假删除角色的按钮
+    url:/admin/roleButton/batch_delete
+    contentType:application/json
+    type:put
+    //传参例子
+    post-example:{
+        {
+        	"roleId": 1,
+        	"buttonIds": [34,35]
+        }
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}

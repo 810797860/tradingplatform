@@ -139,6 +139,10 @@ public class RoleMenuServiceImpl extends BaseServiceImpl<RoleMenuMapper, RoleMen
         Wrapper<RoleMenu> wrapper = new EntityWrapper<>(roleMenu);
         wrapper.setSqlSelect("menu_id");
         List<Object> menuIds = this.selectObjs(wrapper);
+        //如果menuIds为空，返回空的对象
+        if (menuIds.size() == 0){
+            return new Page<Menu>();
+        }
         //再根据id找menuPage
         Wrapper<Menu> menuWrapper = new EntityWrapper<>();
         menuWrapper.in("id", menuIds);
