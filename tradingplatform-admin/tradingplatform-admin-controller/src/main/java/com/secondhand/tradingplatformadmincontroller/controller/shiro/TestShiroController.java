@@ -34,7 +34,6 @@ public class TestShiroController {
             return "login";
         }
         Subject subject = SecurityUtils.getSubject();
-//        UsernamePasswordToken token=new UsernamePasswordToken(user.getUserName(),user.getPassword());
         DesUserToken token = new DesUserToken(user.getUserName(), user.getPassword());
         try {
             subject.login(token);

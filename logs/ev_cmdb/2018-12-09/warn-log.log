@@ -1,0 +1,5 @@
+2018-12-09 15:26:22.647 [http-nio-8080-exec-10] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/admin/menuButton/query_enable_create] in DispatcherServlet with name 'dispatcherServlet'
+2018-12-09 15:31:43.159 [http-nio-8080-exec-6] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/admin/menuButton/query_enable_create] in DispatcherServlet with name 'dispatcherServlet'
+2018-12-09 15:32:14.222 [http-nio-8080-exec-1] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/admin/menuButton/query_enable_create] in DispatcherServlet with name 'dispatcherServlet'
+2018-12-09 15:33:56.907 [http-nio-8080-exec-8] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/admin/menuButton/query_enable_create] in DispatcherServlet with name 'dispatcherServlet'
+2018-12-09 15:34:19.334 [http-nio-8080-exec-4] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/admin/menuButton/query_enable_create] in DispatcherServlet with name 'dispatcherServlet'

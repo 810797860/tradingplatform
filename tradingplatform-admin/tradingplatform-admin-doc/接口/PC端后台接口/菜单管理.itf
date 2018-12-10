@@ -117,3 +117,148 @@
 
     }
 }}
+
+
+
+=====================================菜单按钮表==================================
+
+
+{
+    name:查看菜单的按钮
+    url:/admin/menuButton/query
+    contentType:application/json
+    type:post
+    //传参例子
+    post-example:{
+        {
+            "menuId": 105,
+            "page":{
+                "current": 1,
+                "size": 10
+            }
+        }
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+
+{
+    name:查看菜单能加的按钮
+    url:/admin/menuButton/query_enable_create
+    contentType:application/json
+    type:post
+    //传参例子
+    post-example:{
+        {
+            "menuId": 105
+            "page":{
+                "current": 1,
+                "size": 10
+            }
+        }
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+
+{
+    name:批量增加菜单的按钮
+    url:/admin/menuButton/batch_create
+    contentType:application/json
+    type:post
+    //传参例子
+    post-example:{
+        {
+        	"menuId": 106,
+        	"buttonIds": [3,4]
+        }
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+
+{
+    name:假删除菜单的按钮
+    url:/admin/menuButton/delete
+    contentType:application/json
+    type:put
+    //传参例子
+    post-example:{
+        {
+        	"menuId": 106,
+        	"buttonId": 1
+        }
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+
+{
+    name:批量假删除菜单的按钮
+    url:/admin/menuButton/batch_delete
+    contentType:application/json
+    type:put
+    //传参例子
+    post-example:{
+        {
+        	"menuId": 106,
+        	"buttonIds": [3,4]
+        }
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
