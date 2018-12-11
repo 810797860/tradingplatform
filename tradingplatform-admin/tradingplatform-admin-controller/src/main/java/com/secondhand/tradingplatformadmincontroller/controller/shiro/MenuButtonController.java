@@ -43,7 +43,7 @@ public class MenuButtonController extends BaseController {
      */
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到menuButton的列表页面")
-    public String toMenuButtonList(Model model) {
+    public String toMenuButtonList(@ApiParam(name = "Model", value = "model") Model model) {
         return "menuButton/tabulation";
     }
 
@@ -54,7 +54,7 @@ public class MenuButtonController extends BaseController {
      */
     @GetMapping(value = "/{menuButtonId}/update.html")
     @ApiOperation(value = "/{menuButtonId}/update.html", notes = "跳转到修改页面")
-    public String toUpdateMenuButton(Model model, @PathVariable(value = "menuButtonId") Long menuButtonId) {
+    public String toUpdateMenuButton(@ApiParam(name = "Model", value = "model") Model model, @PathVariable(value = "menuButtonId") Long menuButtonId) {
         //静态注入要回显的数据
         Map<String, Object> menuButton = menuButtonService.mySelectMapById(menuButtonId);
         model.addAttribute("menuButton", menuButton);
@@ -68,7 +68,7 @@ public class MenuButtonController extends BaseController {
      */
     @GetMapping(value = "/create.html")
     @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
-    public String toCreateMenuButton(Model model) {
+    public String toCreateMenuButton(@ApiParam(name = "Model", value = "model") Model model) {
         return "menuButton/newMenuButton";
     }
 

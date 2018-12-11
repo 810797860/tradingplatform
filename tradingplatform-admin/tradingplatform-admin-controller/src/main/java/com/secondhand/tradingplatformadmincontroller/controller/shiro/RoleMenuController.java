@@ -41,7 +41,7 @@ public class RoleMenuController extends BaseController {
      */
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到roleMenu的列表页面")
-    public String toRoleMenuList(Model model) {
+    public String toRoleMenuList(@ApiParam(name = "Model", value = "model") Model model) {
         return "roleMenu/tabulation";
     }
 
@@ -52,7 +52,7 @@ public class RoleMenuController extends BaseController {
      */
     @GetMapping(value = "/{roleMenuId}/update.html")
     @ApiOperation(value = "/{roleMenuId}/update.html", notes = "跳转到修改页面")
-    public String toUpdateRoleMenu(Model model, @PathVariable(value = "roleMenuId") Long roleMenuId) {
+    public String toUpdateRoleMenu(@ApiParam(name = "Model", value = "model") Model model, @PathVariable(value = "roleMenuId") Long roleMenuId) {
         //静态注入要回显的数据
         Map<String, Object> roleMenu = roleMenuService.mySelectMapById(roleMenuId);
         model.addAttribute("roleMenu", roleMenu);
@@ -66,7 +66,7 @@ public class RoleMenuController extends BaseController {
      */
     @GetMapping(value = "/create.html")
     @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
-    public String toCreateRoleMenu(Model model) {
+    public String toCreateRoleMenu(@ApiParam(name = "Model", value = "model") Model model) {
         return "roleMenu/newRoleMenu";
     }
     

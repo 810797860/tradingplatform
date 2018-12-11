@@ -40,7 +40,7 @@ public class SelectItemController extends BaseController {
      */
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到selectItem的列表页面")
-    public String toSelectItemList(Model model) {
+    public String toSelectItemList(@ApiParam(name = "Model", value = "model") Model model) {
         return "selectItem/tabulation";
     }
 
@@ -51,7 +51,7 @@ public class SelectItemController extends BaseController {
      */
     @GetMapping(value = "/{selectItemId}/update.html")
     @ApiOperation(value = "/{selectItemId}/update.html", notes = "跳转到修改页面")
-    public String toUpdateSelectItem(Model model, @PathVariable(value = "selectItemId") Long selectItemId) {
+    public String toUpdateSelectItem(@ApiParam(name = "Model", value = "model") Model model, @PathVariable(value = "selectItemId") Long selectItemId) {
         //静态注入要回显的数据
         Map<String, Object> selectItem = selectItemService.selectMapById(selectItemId);
         model.addAttribute("selectItem", selectItem);
@@ -65,7 +65,7 @@ public class SelectItemController extends BaseController {
      */
     @GetMapping(value = "/create.html")
     @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
-    public String toCreateSelectItem(Model model) {
+    public String toCreateSelectItem(@ApiParam(name = "Model", value = "model") Model model) {
         return "selectItem/newSelectItem";
     }
     

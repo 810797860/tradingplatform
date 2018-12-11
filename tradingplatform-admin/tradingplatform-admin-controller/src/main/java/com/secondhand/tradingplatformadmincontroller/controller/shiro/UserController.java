@@ -40,7 +40,7 @@ public class UserController extends BaseController {
      */
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到user的列表页面")
-    public String toUserList(Model model) {
+    public String toUserList(@ApiParam(name = "Model", value = "model") Model model) {
         return "user/tabulation";
     }
 
@@ -51,7 +51,7 @@ public class UserController extends BaseController {
      */
     @GetMapping(value = "/{userId}/update.html")
     @ApiOperation(value = "/{userId}/update.html", notes = "跳转到修改页面")
-    public String toUpdateUser(Model model, @PathVariable(value = "userId") Long userId) {
+    public String toUpdateUser(@ApiParam(name = "Model", value = "model") Model model, @PathVariable(value = "userId") Long userId) {
         //静态注入要回显的数据
         Map<String, Object> user = userService.mySelectMapById(userId);
         model.addAttribute("user", user);
@@ -65,7 +65,7 @@ public class UserController extends BaseController {
      */
     @GetMapping(value = "/create.html")
     @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
-    public String toCreateUser(Model model) {
+    public String toCreateUser(@ApiParam(name = "Model", value = "model") Model model) {
         return "user/newUser";
     }
     

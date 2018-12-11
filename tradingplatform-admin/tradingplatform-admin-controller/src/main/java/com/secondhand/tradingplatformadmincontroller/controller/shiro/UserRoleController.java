@@ -41,7 +41,7 @@ public class UserRoleController extends BaseController {
      */
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到userRole的列表页面")
-    public String toUserRoleList(Model model) {
+    public String toUserRoleList(@ApiParam(name = "Model", value = "model") Model model) {
         return "userRole/tabulation";
     }
 
@@ -52,7 +52,7 @@ public class UserRoleController extends BaseController {
      */
     @GetMapping(value = "/{userRoleId}/update.html")
     @ApiOperation(value = "/{userRoleId}/update.html", notes = "跳转到修改页面")
-    public String toUpdateUserRole(Model model, @PathVariable(value = "userRoleId") Long userRoleId) {
+    public String toUpdateUserRole(@ApiParam(name = "Model", value = "model") Model model, @PathVariable(value = "userRoleId") Long userRoleId) {
         //静态注入要回显的数据
         Map<String, Object> userRole = userRoleService.mySelectMapById(userRoleId);
         model.addAttribute("userRole", userRole);
@@ -66,7 +66,7 @@ public class UserRoleController extends BaseController {
      */
     @GetMapping(value = "/create.html")
     @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
-    public String toCreateUserRole(Model model) {
+    public String toCreateUserRole(@ApiParam(name = "Model", value = "model") Model model) {
         return "userRole/newUserRole";
     }
 
