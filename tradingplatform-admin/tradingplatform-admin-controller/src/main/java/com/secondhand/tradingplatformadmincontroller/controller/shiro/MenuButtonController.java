@@ -21,6 +21,8 @@ import com.secondhand.tradingplatformcommon.base.BaseController.BaseController;
 import com.secondhand.tradingplatformadminentity.entity.shiro.MenuButton;
 import com.secondhand.tradingplatformadminservice.service.shiro.MenuButtonService;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * @description : MenuButton 控制器
  * @author : zhangjk
@@ -103,7 +105,7 @@ public class MenuButtonController extends BaseController {
      */
     @PostMapping(value = "/query_enable_create", produces = {"application/json"}, consumes = {"application/json"})
     @ApiOperation(value = "/query_enable_create", notes="获取可以增加的按钮")
-    public TableJson<Button> getEnableCreateList(@ApiParam(name = "MenuButton", value = "MenuButton 实体类") @RequestBody MenuButton menuButton) {
+    public TableJson<Button> getEnableCreateList(HttpSession session, @ApiParam(name = "MenuButton", value = "MenuButton 实体类") @RequestBody MenuButton menuButton) {
         TableJson<Button> resJson = new TableJson<>();
         Page resPage = menuButton.getPage();
         menuButton.setDeleted(false);

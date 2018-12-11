@@ -161,7 +161,7 @@
     //传参例子
     post-example:{
         {
-            "menuId": 105
+            "menuId": 105,
             "page":{
                 "current": 1,
                 "size": 10
