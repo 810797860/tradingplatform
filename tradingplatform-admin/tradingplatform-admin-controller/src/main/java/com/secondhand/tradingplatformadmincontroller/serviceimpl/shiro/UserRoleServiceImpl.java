@@ -114,6 +114,21 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
         return roleService.selectPage(page, roleWrapper);
     }
 
+    @Override
+    @Cacheable(key = "'userId' + #p0")
+    public Long getRoleIdByUserId(Long userId) {
+
+        //根据当前用户找当前角色
+        //目前的逻辑是一个用户仅能有一个角色，找最新的那一个角色
+        Wrapper<UserRole> wrapper = new EntityWrapper<>();
+        wrapper.setSqlSelect("role_id");
+        wrapper.where("user_id = {0}", userId);
+        wrapper.where("deleted = {0}", false);
+        wrapper.orderBy("user_id", false);
+        UserRole userRole = userRoleMapper.selectList(wrapper).get(0);
+        return userRole.getRoleId();
+    }
+
     //以下是继承BaseServiceImpl
 
     @Override

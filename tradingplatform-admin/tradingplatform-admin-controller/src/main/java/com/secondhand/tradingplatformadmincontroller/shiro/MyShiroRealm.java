@@ -3,7 +3,9 @@ package com.secondhand.tradingplatformadmincontroller.shiro;
 import com.secondhand.tradingplatformadminentity.entity.shiro.Resources;
 import com.secondhand.tradingplatformadminentity.entity.shiro.User;
 import com.secondhand.tradingplatformadminservice.service.shiro.ResourcesService;
+import com.secondhand.tradingplatformadminservice.service.shiro.UserRoleService;
 import com.secondhand.tradingplatformadminservice.service.shiro.UserService;
+import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -14,7 +16,6 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.SimplePrincipalCollection;
 import org.apache.shiro.subject.support.DefaultSubjectContext;
-import org.apache.shiro.util.ByteSource;
 import org.crazycake.shiro.RedisSessionDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -35,6 +36,9 @@ public class MyShiroRealm extends AuthorizingRealm {
 
     @Autowired
     private RedisSessionDAO redisSessionDAO;
+
+    @Autowired
+    private UserRoleService userRoleService;
 
     //授权
     @Override
@@ -73,9 +77,13 @@ public class MyShiroRealm extends AuthorizingRealm {
                 getName()
         );
         // 当验证都通过后，把用户信息放在session里
+        //根据用户id找改角色的id
+        Long roleId = userRoleService.getRoleIdByUserId(user.getId());
+
         Session session = SecurityUtils.getSubject().getSession();
-        session.setAttribute("userSession", user);
-        session.setAttribute("userSessionId", user.getId());
+        session.setAttribute(MagicalValue.USER_SESSION, user);
+        session.setAttribute(MagicalValue.USER_SESSION_ID, user.getId());
+        session.setAttribute(MagicalValue.ROLE_SESSION_ID, roleId);
         return authenticationInfo;
     }
 

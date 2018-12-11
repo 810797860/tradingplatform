@@ -8,6 +8,9 @@ import org.apache.shiro.web.filter.mgt.DefaultFilterChainManager;
 import org.apache.shiro.web.filter.mgt.PathMatchingFilterChainResolver;
 import org.apache.shiro.web.servlet.AbstractShiroFilter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedHashMap;
@@ -19,6 +22,7 @@ import java.util.Map;
  */
 
 @Service
+@CacheConfig(cacheNames = "myShiro")
 public class ShiroService {
 
     @Autowired
@@ -26,11 +30,14 @@ public class ShiroService {
 
     @Autowired
     private ResourcesService resourcesService;
+
   /*  @Autowired
     private RedisSessionDAO redisSessionDAO;*/
+
     /**
      * 初始化权限
      */
+    @Cacheable(key = "'loadFilterChainDefinitions'")
     public Map<String, String> loadFilterChainDefinitions() {
         // 权限控制map.从数据库获取
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
@@ -54,6 +61,7 @@ public class ShiroService {
     /**
      * 重新加载权限
      */
+    @CacheEvict(allEntries = true)
     public void updatePermission() {
 
         synchronized (shiroFilterFactoryBean) {

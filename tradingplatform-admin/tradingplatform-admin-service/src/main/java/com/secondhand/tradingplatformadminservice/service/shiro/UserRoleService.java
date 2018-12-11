@@ -57,6 +57,13 @@ public interface UserRoleService extends BaseService<UserRole> {
         Page<Role> mySelectEnableCreatePage(Page<Role> page, UserRole userRole);
 
         /**
+         * 根据userId查找roleId
+         * @param userId
+         * @return
+         */
+        Long getRoleIdByUserId(Long userId);
+
+        /**
          * 分页获取UserRole列表数据（实体类）
          * @param page
          * @param userRole

@@ -38,4 +38,10 @@ public class MagicalValue {
     public static String BOOLEAN_NO = "NO";
 
     public static String INFORMATION_SCHEMA_COLUMN_DEFAULT = "COLUMN_DEFAULT";
+
+    public static String USER_SESSION = "user_session";
+
+    public static String USER_SESSION_ID = "user_session_id";
+
+    public static String ROLE_SESSION_ID = "role_session_id";
 }
