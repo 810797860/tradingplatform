@@ -10,6 +10,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,7 +33,7 @@ public class UserController extends BaseController {
      * @param user
      * @return
      */
-    @PostMapping(value = "/query", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes = "获取分页列表")
     public TableJson<User> getUserList(@ApiParam(name = "User", value = "User实体类") @RequestBody User user) {
         TableJson<User> resJson = new TableJson<>();
@@ -57,7 +58,7 @@ public class UserController extends BaseController {
      * @param userId
      * @return
      */
-    @GetMapping(value = "/get_by_id/{userId}", produces = {"application/json"})
+    @GetMapping(value = "/get_by_id/{userId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_by_id/{userId}", notes = "根据id获取user")
     public JsonResult<User> getUserById(@ApiParam(name = "id", value = "userId") @PathVariable("userId") Long userId){
         JsonResult<User> resJson = new JsonResult<>();
@@ -72,7 +73,7 @@ public class UserController extends BaseController {
      * @param userId
      * @return
      */
-    @GetMapping(value = "/get_map_by_id/{userId}", produces = {"application/json"})
+    @GetMapping(value = "/get_map_by_id/{userId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{userId}", notes = "根据id获取userMap")
     public JsonResult<Map<String, Object>> getUserByIdForMap( @ApiParam(name = "id", value = "userId") @PathVariable("userId") Long userId){
         JsonResult<Map<String, Object>> resJson = new JsonResult<>();
@@ -87,7 +88,7 @@ public class UserController extends BaseController {
      * @param userId
      * @return
      */
-    @PutMapping(value = "/delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除user")
     public JsonResult<User> fakeDeleteById(@ApiParam(name = "id", value = "userId") @RequestBody Long userId){
         JsonResult<User> resJson = new JsonResult<>();
@@ -100,7 +101,7 @@ public class UserController extends BaseController {
      * @param userIds
      * @return
      */
-    @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除user")
     public JsonResult<User> fakeBatchDelete(@ApiParam(name = "ids", value = "userIds") @RequestBody List<Long> userIds){
         JsonResult<User> resJson = new JsonResult<>();
@@ -113,7 +114,7 @@ public class UserController extends BaseController {
      * @param user
      * @return
      */
-    @PutMapping(value = "/create_update", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改user")
     public JsonResult<User> userCreateUpdate(@ApiParam(name = "User", value = "User实体类") @RequestBody User user){
         JsonResult<User> resJson = new JsonResult<>();

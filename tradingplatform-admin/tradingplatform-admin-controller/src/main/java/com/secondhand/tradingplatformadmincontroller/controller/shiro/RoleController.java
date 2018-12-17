@@ -12,6 +12,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -74,7 +75,7 @@ public class RoleController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-13
      */
-    @PostMapping(value = "/query", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
     public TableJson<Role> getRoleList(@ApiParam(name = "Role", value = "Role 实体类") @RequestBody Role role) {
             TableJson<Role> resJson = new TableJson<>();
@@ -100,7 +101,7 @@ public class RoleController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-13
      */
-    @GetMapping(value = "/get_map_by_id/{roleId}", produces = {"application/json"})
+    @GetMapping(value = "/get_map_by_id/{roleId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{roleId}", notes = "根据id获取roleMap")
     public JsonResult<Map<String, Object>> getRoleByIdForMap( @ApiParam(name = "id", value = "roleId") @PathVariable("roleId") Long roleId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
@@ -115,7 +116,7 @@ public class RoleController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-13
      */
-    @PutMapping(value = "/delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除role")
     public JsonResult<Role> fakeDeleteById(@ApiParam(name = "id", value = "roleId") @RequestBody Long roleId){
             Subject subject = SecurityUtils.getSubject();
@@ -137,7 +138,7 @@ public class RoleController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-13
      */
-    @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除role")
     public JsonResult<Role> fakeBatchDelete(@ApiParam(name = "ids", value = "roleIds") @RequestBody List<Long> roleIds){
             Subject subject = SecurityUtils.getSubject();
@@ -158,7 +159,7 @@ public class RoleController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-13
      */
-    @PostMapping(value = "/create_update", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改role")
     public JsonResult<Role> roleCreateUpdate(@ApiParam(name = "Role", value = "Role实体类") @RequestBody Role role){
             Subject subject = SecurityUtils.getSubject();

@@ -12,6 +12,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -74,7 +75,7 @@ public class ResourcesController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-12
      */
-    @PostMapping(value = "/query", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
     public TableJson<Resources> getResourcesList(@ApiParam(name = "Resources", value = "Resources 实体类") @RequestBody Resources resources) {
             TableJson<Resources> resJson = new TableJson<>();
@@ -100,7 +101,7 @@ public class ResourcesController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-12
      */
-    @GetMapping(value = "/get_map_by_id/{resourcesId}", produces = {"application/json"})
+    @GetMapping(value = "/get_map_by_id/{resourcesId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{resourcesId}", notes = "根据id获取resourcesMap")
     public JsonResult<Map<String, Object>> getResourcesByIdForMap( @ApiParam(name = "id", value = "resourcesId") @PathVariable("resourcesId") Long resourcesId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
@@ -115,7 +116,7 @@ public class ResourcesController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-12
      */
-    @PutMapping(value = "/delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除resources")
     public JsonResult<Resources> fakeDeleteById(@ApiParam(name = "id", value = "resourcesId") @RequestBody Long resourcesId){
             Subject subject = SecurityUtils.getSubject();
@@ -137,7 +138,7 @@ public class ResourcesController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-12
      */
-    @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除resources")
     public JsonResult<Resources> fakeBatchDelete(@ApiParam(name = "ids", value = "resourcesIds") @RequestBody List<Long> resourcesIds){
             Subject subject = SecurityUtils.getSubject();
@@ -158,7 +159,7 @@ public class ResourcesController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-12
      */
-    @PostMapping(value = "/create_update", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改resources")
     public JsonResult<Resources> resourcesCreateUpdate(@ApiParam(name = "Resources", value = "Resources实体类") @RequestBody Resources resources){
             Subject subject = SecurityUtils.getSubject();

@@ -13,6 +13,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -89,7 +90,7 @@ public class ${table.controllerName} {
      * @author : ${author}
      * @since : Create in ${date}
      */
-    @PostMapping(value = "/query", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
     public TableJson<${entity}> get${entity}List(@ApiParam(name = "${entity}", value = "${entity} 实体类") @RequestBody ${entity} ${table.entityPath}) {
             TableJson<${entity}> resJson = new TableJson<>();
@@ -114,7 +115,7 @@ public class ${table.controllerName} {
      * @author : ${author}
      * @since : Create in ${date}
      */
-    @GetMapping(value = "/get_map_by_id/{${table.entityPath}Id}", produces = {"application/json"})
+    @GetMapping(value = "/get_map_by_id/{${table.entityPath}Id}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{${table.entityPath}Id}", notes = "根据id获取${table.entityPath}Map")
     public JsonResult<Map<String, Object>> get${entity}ByIdForMap( @ApiParam(name = "id", value = "${table.entityPath}Id") @PathVariable("${table.entityPath}Id") Long ${table.entityPath}Id){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
@@ -129,7 +130,7 @@ public class ${table.controllerName} {
      * @author : ${author}
      * @since : Create in ${date}
      */
-    @PutMapping(value = "/delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除${table.entityPath}")
     public JsonResult<${entity}> fakeDeleteById(@ApiParam(name = "id", value = "${table.entityPath}Id") @RequestBody Long ${table.entityPath}Id){
             Subject subject = SecurityUtils.getSubject();
@@ -151,7 +152,7 @@ public class ${table.controllerName} {
      * @author : ${author}
      * @since : Create in ${date}
      */
-    @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除${table.entityPath}")
     public JsonResult<${entity}> fakeBatchDelete(@ApiParam(name = "ids", value = "${table.entityPath}Ids") @RequestBody List<Long> ${table.entityPath}Ids){
             Subject subject = SecurityUtils.getSubject();
@@ -172,7 +173,7 @@ public class ${table.controllerName} {
      * @author : ${author}
      * @since : Create in ${date}
      */
-    @PostMapping(value = "/create_update", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改${table.entityPath}")
     public JsonResult<${entity}> ${table.entityPath}CreateUpdate(@ApiParam(name = "${entity}", value = "${entity}实体类") @RequestBody ${entity} ${table.entityPath}){
             Subject subject = SecurityUtils.getSubject();

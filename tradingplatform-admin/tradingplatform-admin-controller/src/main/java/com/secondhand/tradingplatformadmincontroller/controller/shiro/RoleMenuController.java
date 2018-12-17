@@ -11,6 +11,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -75,7 +76,7 @@ public class RoleMenuController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-12-02
      */
-    @PostMapping(value = "/query", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
     public TableJson<Menu> getRoleMenuList(@ApiParam(name = "RoleMenu", value = "RoleMenu 实体类") @RequestBody RoleMenu roleMenu) {
             TableJson<Menu> resJson = new TableJson<>();
@@ -100,7 +101,7 @@ public class RoleMenuController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-12-02
      */
-    @PostMapping(value = "/query_enable_create", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/query_enable_create", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query_enable_create", notes="获取可以增加的菜单")
     public TableJson<Menu> getEnableCreateList(@ApiParam(name = "RoleMenu", value = "RoleMenu 实体类") @RequestBody RoleMenu roleMenu) {
         TableJson<Menu> resJson = new TableJson<>();
@@ -125,7 +126,7 @@ public class RoleMenuController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-12-02
      */
-    @GetMapping(value = "/get_map_by_id/{roleMenuId}", produces = {"application/json"})
+    @GetMapping(value = "/get_map_by_id/{roleMenuId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{roleMenuId}", notes = "根据id获取roleMenuMap")
     public JsonResult<Map<String, Object>> getRoleMenuByIdForMap( @ApiParam(name = "id", value = "roleMenuId") @PathVariable("roleMenuId") Long roleMenuId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
@@ -140,7 +141,7 @@ public class RoleMenuController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-12-02
      */
-    @PutMapping(value = "/delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除roleMenu")
     public JsonResult<RoleMenu> fakeDeleteById(@ApiParam(name = "id", value = "roleMenuId") @RequestBody Long roleMenuId){
             Subject subject = SecurityUtils.getSubject();
@@ -162,7 +163,7 @@ public class RoleMenuController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-12
      */
-    @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据roleId和menuIds批量假删除roleMenu")
     public JsonResult<RoleMenu> fakeBatchDelete(@ApiParam(name = "parameter", value = "批量假删除的参数") @RequestBody Map<String, Object> parameter){
         Subject subject = SecurityUtils.getSubject();
@@ -186,7 +187,7 @@ public class RoleMenuController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-12-02
      */
-    @PostMapping(value = "/create_update", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改roleMenu")
     public JsonResult<RoleMenu> roleMenuCreateUpdate(@ApiParam(name = "RoleMenu", value = "RoleMenu实体类") @RequestBody RoleMenu roleMenu){
             Subject subject = SecurityUtils.getSubject();
@@ -209,7 +210,7 @@ public class RoleMenuController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-12
      */
-    @PostMapping(value = "/batch_create", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/batch_create", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_create", notes = "批量新增roleMenu")
     public JsonResult<RoleMenu> roleMenuBatchCreate(@ApiParam(name = "parameter", value = "批量新增roleMenu的参数") @RequestBody Map<String, Object> parameter){
         Subject subject = SecurityUtils.getSubject();

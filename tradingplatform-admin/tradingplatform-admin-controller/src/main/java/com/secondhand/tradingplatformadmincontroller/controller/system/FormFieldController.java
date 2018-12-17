@@ -13,6 +13,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -86,7 +87,7 @@ public class FormFieldController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-09
      */
-    @PostMapping(value = "/query", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
     public TableJson<FormField> getFormFieldList(@ApiParam(name = "FormField", value = "FormField 实体类") @RequestBody FormField formField) {
             TableJson<FormField> resJson = new TableJson<>();
@@ -112,7 +113,7 @@ public class FormFieldController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-09
      */
-    @GetMapping(value = "/get_map_by_id/{formFieldId}", produces = {"application/json"})
+    @GetMapping(value = "/get_map_by_id/{formFieldId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{formFieldId}", notes = "根据id获取formFieldMap")
     public JsonResult<Map<String, Object>> getFormFieldByIdForMap( @ApiParam(name = "id", value = "formFieldId") @PathVariable("formFieldId") Long formFieldId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
@@ -127,7 +128,7 @@ public class FormFieldController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-09
      */
-    @PutMapping(value = "/delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除formField")
     public JsonResult<FormField> fakeDeleteById(@ApiParam(name = "id", value = "formFieldId") @RequestBody Long formFieldId){
             Subject subject = SecurityUtils.getSubject();
@@ -149,7 +150,7 @@ public class FormFieldController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-09
      */
-    @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除formField")
     public JsonResult<FormField> fakeBatchDelete(@ApiParam(name = "ids", value = "formFieldIds") @RequestBody List<Long> formFieldIds){
             Subject subject = SecurityUtils.getSubject();
@@ -170,7 +171,7 @@ public class FormFieldController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-09
      */
-    @PostMapping(value = "/create_update", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改formField")
     public JsonResult<FormField> formFieldCreateUpdate(@ApiParam(name = "FormField", value = "FormField实体类") @RequestBody FormField formField){
             Subject subject = SecurityUtils.getSubject();
@@ -193,7 +194,7 @@ public class FormFieldController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-09
      */
-    @PostMapping(value = "/update_by_form_id", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/update_by_form_id", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/update_by_form_id", notes = "根据表单id更新FormField")
     public JsonResult<FormField> formFieldUpdateByFormId(@ApiParam(name = "formId", value = "表单id") @RequestBody Long formId){
         //因为是开发后台时方便自己用的，所以就不检测是否有权限了

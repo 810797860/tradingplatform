@@ -10,6 +10,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -74,7 +75,7 @@ public class SelectItemController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-09
      */
-    @PostMapping(value = "/query", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
     public TableJson<SelectItem> getSelectItemList(@ApiParam(name = "SelectItem", value = "SelectItem 实体类") @RequestBody SelectItem selectItem) {
             TableJson<SelectItem> resJson = new TableJson<>();
@@ -100,7 +101,7 @@ public class SelectItemController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-09
      */
-    @GetMapping(value = "/get_map_by_id/{selectItemId}", produces = {"application/json"})
+    @GetMapping(value = "/get_map_by_id/{selectItemId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{selectItemId}", notes = "根据id获取selectItemMap")
     public JsonResult<Map<String, Object>> getSelectItemByIdForMap( @ApiParam(name = "id", value = "selectItemId") @PathVariable("selectItemId") Long selectItemId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
@@ -115,7 +116,7 @@ public class SelectItemController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-09
      */
-    @PutMapping(value = "/delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除selectItem")
     public JsonResult<SelectItem> fakeDeleteById(@ApiParam(name = "id", value = "selectItemId") @RequestBody Long selectItemId){
             Subject subject = SecurityUtils.getSubject();
@@ -137,7 +138,7 @@ public class SelectItemController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-09
      */
-    @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除selectItem")
     public JsonResult<SelectItem> fakeBatchDelete(@ApiParam(name = "ids", value = "selectItemIds") @RequestBody List<Long> selectItemIds){
             Subject subject = SecurityUtils.getSubject();
@@ -158,7 +159,7 @@ public class SelectItemController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-09
      */
-    @PostMapping(value = "/create_update", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改selectItem")
     public JsonResult<SelectItem> selectItemCreateUpdate(@ApiParam(name = "SelectItem", value = "SelectItem实体类") @RequestBody SelectItem selectItem){
             Subject subject = SecurityUtils.getSubject();

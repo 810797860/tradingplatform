@@ -10,6 +10,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -74,7 +75,7 @@ public class ButtonController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-12-04
      */
-    @PostMapping(value = "/query", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
     public TableJson<Button> getButtonList(@ApiParam(name = "Button", value = "Button 实体类") @RequestBody Button button) {
             TableJson<Button> resJson = new TableJson<>();
@@ -99,7 +100,7 @@ public class ButtonController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-12-04
      */
-    @GetMapping(value = "/get_map_by_id/{buttonId}", produces = {"application/json"})
+    @GetMapping(value = "/get_map_by_id/{buttonId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{buttonId}", notes = "根据id获取buttonMap")
     public JsonResult<Map<String, Object>> getButtonByIdForMap( @ApiParam(name = "id", value = "buttonId") @PathVariable("buttonId") Long buttonId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
@@ -114,7 +115,7 @@ public class ButtonController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-12-04
      */
-    @PutMapping(value = "/delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除button")
     public JsonResult<Button> fakeDeleteById(@ApiParam(name = "id", value = "buttonId") @RequestBody Long buttonId){
             Subject subject = SecurityUtils.getSubject();
@@ -136,7 +137,7 @@ public class ButtonController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-12-04
      */
-    @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除button")
     public JsonResult<Button> fakeBatchDelete(@ApiParam(name = "ids", value = "buttonIds") @RequestBody List<Long> buttonIds){
             Subject subject = SecurityUtils.getSubject();
@@ -157,7 +158,7 @@ public class ButtonController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-12-04
      */
-    @PostMapping(value = "/create_update", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改button")
     public JsonResult<Button> buttonCreateUpdate(@ApiParam(name = "Button", value = "Button实体类") @RequestBody Button button){
             Subject subject = SecurityUtils.getSubject();

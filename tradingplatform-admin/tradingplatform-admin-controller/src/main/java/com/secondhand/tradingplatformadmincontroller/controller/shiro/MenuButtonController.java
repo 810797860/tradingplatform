@@ -11,6 +11,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -77,7 +78,7 @@ public class MenuButtonController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-12
      */
-    @PostMapping(value = "/query", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
     public TableJson<Button> getButtonList(@ApiParam(name = "MenuButton", value = "MenuButton 实体类") @RequestBody MenuButton menuButton) {
         TableJson<Button> resJson = new TableJson<>();
@@ -103,7 +104,7 @@ public class MenuButtonController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-12
      */
-    @PostMapping(value = "/query_enable_create", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/query_enable_create", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query_enable_create", notes="获取可以增加的按钮")
     public TableJson<Button> getEnableCreateList(HttpSession session, @ApiParam(name = "MenuButton", value = "MenuButton 实体类") @RequestBody MenuButton menuButton) {
         TableJson<Button> resJson = new TableJson<>();
@@ -129,7 +130,7 @@ public class MenuButtonController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-12-06
      */
-    @GetMapping(value = "/get_map_by_id/{menuButtonId}", produces = {"application/json"})
+    @GetMapping(value = "/get_map_by_id/{menuButtonId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{menuButtonId}", notes = "根据id获取menuButtonMap")
     public JsonResult<Map<String, Object>> getMenuButtonByIdForMap( @ApiParam(name = "id", value = "menuButtonId") @PathVariable("menuButtonId") Long menuButtonId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
@@ -144,7 +145,7 @@ public class MenuButtonController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-12
      */
-    @PutMapping(value = "/delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据menuId和buttonId假删除menuButton")
     public JsonResult<MenuButton> fakeDeleteById(@ApiParam(name = "MenuButton", value = "MenuButton实体类") @RequestBody MenuButton menuButton){
         Subject subject = SecurityUtils.getSubject();
@@ -166,7 +167,7 @@ public class MenuButtonController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-12
      */
-    @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据menuId和buttonIds批量假删除menuButton")
     public JsonResult<MenuButton> fakeBatchDelete(@ApiParam(name = "parameter", value = "批量假删除的参数") @RequestBody Map<String, Object> parameter){
         Subject subject = SecurityUtils.getSubject();
@@ -190,7 +191,7 @@ public class MenuButtonController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-12
      */
-    @PostMapping(value = "/create_update", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改menuButton")
     public JsonResult<MenuButton> menuButtonCreateUpdate(@ApiParam(name = "MenuButton", value = "MenuButton实体类") @RequestBody MenuButton menuButton){
         Subject subject = SecurityUtils.getSubject();
@@ -213,7 +214,7 @@ public class MenuButtonController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-12
      */
-    @PostMapping(value = "/batch_create", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/batch_create", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_create", notes = "批量新增menuButton")
     public JsonResult<MenuButton> menuButtonBatchCreate(@ApiParam(name = "parameter", value = "批量新增menuButton的参数") @RequestBody Map<String, Object> parameter){
         Subject subject = SecurityUtils.getSubject();

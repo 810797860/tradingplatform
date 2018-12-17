@@ -7,6 +7,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,7 +35,7 @@ public class OperationLogController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-10-28
      */
-    @PostMapping(value = "/query", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
     public TableJson<OperationLog> getOperationLogList(@ApiParam(name = "OperationLog", value = "OperationLog 实体类") @RequestBody OperationLog operationLog) {
             TableJson<OperationLog> resJson = new TableJson<>();
@@ -59,7 +60,7 @@ public class OperationLogController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-10-28
      */
-    @GetMapping(value = "/get_by_id/{operationLogId}", produces = {"application/json"})
+    @GetMapping(value = "/get_by_id/{operationLogId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_by_id/{operationLogId}", notes = "根据id获取operationLog")
     public JsonResult<OperationLog> getOperationLogById( @ApiParam(name = "id",value = "operationLogId") @PathVariable("operationLogId") Long operationLogId) {
             JsonResult<OperationLog> resJson = new JsonResult<>();
@@ -74,7 +75,7 @@ public class OperationLogController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-10-28
      */
-    @GetMapping(value = "/get_map_by_id/{operationLogId}", produces = {"application/json"})
+    @GetMapping(value = "/get_map_by_id/{operationLogId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{operationLogId}", notes = "根据id获取operationLogMap")
     public JsonResult<Map<String, Object>> getOperationLogByIdForMap( @ApiParam(name = "id", value = "operationLogId") @PathVariable("operationLogId") Long operationLogId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
@@ -89,7 +90,7 @@ public class OperationLogController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-10-28
      */
-    @PutMapping(value = "/delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除operationLog")
     public JsonResult<OperationLog> fakeDeleteById(@ApiParam(name = "id", value = "operationLogId") @RequestBody Long operationLogId){
             JsonResult<OperationLog> resJson = new JsonResult<>();
@@ -102,7 +103,7 @@ public class OperationLogController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-10-28
      */
-    @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除operationLog")
     public JsonResult<OperationLog> fakeBatchDelete(@ApiParam(name = "ids", value = "operationLogIds") @RequestBody List<Long> operationLogIds){
             JsonResult<OperationLog> resJson = new JsonResult<>();
@@ -115,7 +116,7 @@ public class OperationLogController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-10-28
      */
-    @PostMapping(value = "/create_update", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改operationLog")
     public JsonResult<OperationLog> operationLogCreateUpdate(@ApiParam(name = "OperationLog", value = "OperationLog实体类") @RequestBody OperationLog operationLog){
             operationLog = operationLogService.operationLogCreateUpdate(operationLog);

@@ -11,6 +11,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -75,7 +76,7 @@ public class UserRoleController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-22
      */
-    @PostMapping(value = "/query_enable_create", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/query_enable_create", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query_enable_create", notes="获取分页列表")
     public TableJson<Role> getEnableCreateList(@ApiParam(name = "UserRole", value = "UserRole 实体类") @RequestBody UserRole userRole) {
         TableJson<Role> resJson = new TableJson<>();
@@ -101,7 +102,7 @@ public class UserRoleController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-22
      */
-    @PostMapping(value = "/query", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
     public TableJson<Role> getRoleList(@ApiParam(name = "UserRole", value = "UserRole 实体类") @RequestBody UserRole userRole) {
             TableJson<Role> resJson = new TableJson<>();
@@ -127,7 +128,7 @@ public class UserRoleController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-22
      */
-    @GetMapping(value = "/get_map_by_id/{userRoleId}", produces = {"application/json"})
+    @GetMapping(value = "/get_map_by_id/{userRoleId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{userRoleId}", notes = "根据id获取userRoleMap")
     public JsonResult<Map<String, Object>> getUserRoleByIdForMap( @ApiParam(name = "id", value = "userRoleId") @PathVariable("userRoleId") Long userRoleId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
@@ -142,7 +143,7 @@ public class UserRoleController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-22
      */
-    @PutMapping(value = "/delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据userId和roleId假删除userRole")
     public JsonResult<UserRole> fakeDeleteByUserRole(@ApiParam(name = "UserRole", value = "UserRole实体类") @RequestBody UserRole userRole){
             Subject subject = SecurityUtils.getSubject();
@@ -164,7 +165,7 @@ public class UserRoleController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-22
      */
-    @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据userId和roleIds批量假删除userRole")
     public JsonResult<UserRole> fakeBatchDelete(@ApiParam(name = "parameter", value = "批量假删除的参数") @RequestBody Map<String, Object> parameter){
             Subject subject = SecurityUtils.getSubject();
@@ -187,7 +188,7 @@ public class UserRoleController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-22
      */
-    @PostMapping(value = "/create_update", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改userRole")
     public JsonResult<UserRole> userRoleCreateUpdate(@ApiParam(name = "UserRole", value = "UserRole实体类") @RequestBody UserRole userRole){
             Subject subject = SecurityUtils.getSubject();

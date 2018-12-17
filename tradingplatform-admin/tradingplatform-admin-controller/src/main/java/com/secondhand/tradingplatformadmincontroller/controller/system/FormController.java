@@ -10,6 +10,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -74,7 +75,7 @@ public class FormController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-11
      */
-    @PostMapping(value = "/query", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
     public TableJson<Form> getFormList(@ApiParam(name = "Form", value = "Form 实体类") @RequestBody Form form) {
             TableJson<Form> resJson = new TableJson<>();
@@ -100,7 +101,7 @@ public class FormController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-11
      */
-    @GetMapping(value = "/get_map_by_id/{formId}", produces = {"application/json"})
+    @GetMapping(value = "/get_map_by_id/{formId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{formId}", notes = "根据id获取formMap")
     public JsonResult<Map<String, Object>> getFormByIdForMap( @ApiParam(name = "id", value = "formId") @PathVariable("formId") Long formId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
@@ -115,7 +116,7 @@ public class FormController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-11
      */
-    @PutMapping(value = "/delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除form")
     public JsonResult<Form> fakeDeleteById(@ApiParam(name = "id", value = "formId") @RequestBody Long formId){
             Subject subject = SecurityUtils.getSubject();
@@ -137,7 +138,7 @@ public class FormController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-11
      */
-    @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除form")
     public JsonResult<Form> fakeBatchDelete(@ApiParam(name = "ids", value = "formIds") @RequestBody List<Long> formIds){
             Subject subject = SecurityUtils.getSubject();
@@ -158,7 +159,7 @@ public class FormController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-11
      */
-    @PostMapping(value = "/create_update", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改form")
     public JsonResult<Form> formCreateUpdate(@ApiParam(name = "Form", value = "Form实体类") @RequestBody Form form){
             Subject subject = SecurityUtils.getSubject();
@@ -181,7 +182,7 @@ public class FormController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-11
      */
-    @PostMapping(value = "/create_update_with_resources", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/create_update_with_resources", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update_with_resources", notes = "新增或修改form同是加权限（后台列表开发用）")
     public JsonResult<Form> formCreateUpdateWithResources(@ApiParam(name = "Form", value = "Form实体类") @RequestBody Form form){
         JsonResult<Form> resJson = new JsonResult<>();

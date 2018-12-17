@@ -10,6 +10,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -74,7 +75,7 @@ public class MenuController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-29
      */
-    @PostMapping(value = "/query", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
     public TableJson<Menu> getMenuList(@ApiParam(name = "Menu", value = "Menu 实体类") @RequestBody Menu menu) {
             TableJson<Menu> resJson = new TableJson<>();
@@ -101,7 +102,7 @@ public class MenuController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-29
      */
-    @GetMapping(value = "/get_map_by_id/{menuId}", produces = {"application/json"})
+    @GetMapping(value = "/get_map_by_id/{menuId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{menuId}", notes = "根据id获取menuMap")
     public JsonResult<Map<String, Object>> getMenuByIdForMap( @ApiParam(name = "id", value = "menuId") @PathVariable("menuId") Long menuId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
@@ -116,7 +117,7 @@ public class MenuController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-29
      */
-    @PutMapping(value = "/delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除menu")
     public JsonResult<Menu> fakeDeleteById(@ApiParam(name = "id", value = "menuId") @RequestBody Long menuId){
             Subject subject = SecurityUtils.getSubject();
@@ -138,7 +139,7 @@ public class MenuController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-29
      */
-    @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除menu")
     public JsonResult<Menu> fakeBatchDelete(@ApiParam(name = "ids", value = "menuIds") @RequestBody List<Long> menuIds){
             Subject subject = SecurityUtils.getSubject();
@@ -159,7 +160,7 @@ public class MenuController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-29
      */
-    @PostMapping(value = "/create_update", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改menu")
     public JsonResult<Menu> menuCreateUpdate(@ApiParam(name = "Menu", value = "Menu实体类") @RequestBody Menu menu){
             Subject subject = SecurityUtils.getSubject();

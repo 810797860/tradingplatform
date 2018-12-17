@@ -11,6 +11,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -75,7 +76,7 @@ public class RoleResourcesController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-12
      */
-    @PostMapping(value = "/query", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
     public TableJson<Resources> getResourcesList(@ApiParam(name = "RoleResources", value = "RoleResources 实体类") @RequestBody RoleResources roleResources) {
             TableJson<Resources> resJson = new TableJson<>();
@@ -101,7 +102,7 @@ public class RoleResourcesController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-12
      */
-    @PostMapping(value = "/query_enable_create", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/query_enable_create", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query_enable_create", notes="获取可以增加的权限")
     public TableJson<Resources> getEnableCreateList(@ApiParam(name = "RoleResources", value = "RoleResources 实体类") @RequestBody RoleResources roleResources) {
         TableJson<Resources> resJson = new TableJson<>();
@@ -127,7 +128,7 @@ public class RoleResourcesController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-12
      */
-    @GetMapping(value = "/get_map_by_id/{roleResourcesId}", produces = {"application/json"})
+    @GetMapping(value = "/get_map_by_id/{roleResourcesId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{roleResourcesId}", notes = "根据id获取roleResourcesMap")
     public JsonResult<Map<String, Object>> getRoleResourcesByIdForMap( @ApiParam(name = "id", value = "roleResourcesId") @PathVariable("roleResourcesId") Long roleResourcesId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
@@ -142,7 +143,7 @@ public class RoleResourcesController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-12
      */
-    @PutMapping(value = "/delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据roleId和resourcesId假删除roleResources")
     public JsonResult<RoleResources> fakeDeleteById(@ApiParam(name = "RoleResources", value = "RoleResources实体类") @RequestBody RoleResources roleResources){
             Subject subject = SecurityUtils.getSubject();
@@ -164,7 +165,7 @@ public class RoleResourcesController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-12
      */
-    @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据roleId和resourcesIds批量假删除roleResources")
     public JsonResult<RoleResources> fakeBatchDelete(@ApiParam(name = "parameter", value = "批量假删除的参数") @RequestBody Map<String, Object> parameter){
             Subject subject = SecurityUtils.getSubject();
@@ -188,7 +189,7 @@ public class RoleResourcesController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-12
      */
-    @PostMapping(value = "/create_update", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改roleResources")
     public JsonResult<RoleResources> roleResourcesCreateUpdate(@ApiParam(name = "RoleResources", value = "RoleResources实体类") @RequestBody RoleResources roleResources){
             Subject subject = SecurityUtils.getSubject();
@@ -211,7 +212,7 @@ public class RoleResourcesController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-12
      */
-    @PostMapping(value = "/batch_create", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/batch_create", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_create", notes = "批量新增roleResources")
     public JsonResult<RoleResources> roleResourcesBatchCreate(@ApiParam(name = "parameter", value = "批量新增roleResources的参数") @RequestBody Map<String, Object> parameter){
         Subject subject = SecurityUtils.getSubject();

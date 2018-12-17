@@ -10,15 +10,18 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.awt.*;
 import java.util.List;
 import java.util.Map;
 
 import com.secondhand.tradingplatformcommon.base.BaseController.BaseController;
 import com.secondhand.tradingplatformadminentity.entity.business.Annex;
 import com.secondhand.tradingplatformadminservice.service.business.AnnexService;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @description : Annex 控制器
@@ -74,7 +77,7 @@ public class AnnexController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-12-14
      */
-    @PostMapping(value = "/query", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
     public TableJson<Annex> getAnnexList(@ApiParam(name = "Annex", value = "Annex 实体类") @RequestBody Annex annex) {
             TableJson<Annex> resJson = new TableJson<>();
@@ -99,7 +102,7 @@ public class AnnexController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-12-14
      */
-    @GetMapping(value = "/get_map_by_id/{annexId}", produces = {"application/json"})
+    @GetMapping(value = "/get_map_by_id/{annexId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{annexId}", notes = "根据id获取annexMap")
     public JsonResult<Map<String, Object>> getAnnexByIdForMap( @ApiParam(name = "id", value = "annexId") @PathVariable("annexId") Long annexId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
@@ -114,7 +117,7 @@ public class AnnexController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-12-14
      */
-    @PutMapping(value = "/delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除annex")
     public JsonResult<Annex> fakeDeleteById(@ApiParam(name = "id", value = "annexId") @RequestBody Long annexId){
             Subject subject = SecurityUtils.getSubject();
@@ -136,7 +139,7 @@ public class AnnexController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-12-14
      */
-    @PutMapping(value = "/batch_delete", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除annex")
     public JsonResult<Annex> fakeBatchDelete(@ApiParam(name = "ids", value = "annexIds") @RequestBody List<Long> annexIds){
             Subject subject = SecurityUtils.getSubject();
@@ -157,7 +160,7 @@ public class AnnexController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-12-14
      */
-    @PostMapping(value = "/create_update", produces = {"application/json"}, consumes = {"application/json"})
+    @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改annex")
     public JsonResult<Annex> annexCreateUpdate(@ApiParam(name = "Annex", value = "Annex实体类") @RequestBody Annex annex){
             Subject subject = SecurityUtils.getSubject();
@@ -173,5 +176,30 @@ public class AnnexController extends BaseController {
                 resJson.setMessage(e.getMessage());
             }
             return resJson;
+    }
+
+    /**
+     * @description : 附件上传接口
+     * @author : zhangjk
+     * @since : Create in 2018-12-14
+     */
+    @PostMapping(value = "/upload", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    @ApiOperation(value = "/upload", notes = "附件上传接口")
+    public JsonResult<Annex> annexUpload( @ApiParam(name = "title", value = "附件标题") @RequestParam(value = "title", required = true) String title,
+                                          @ApiParam(name = "resourceType", value = "附件类型") @RequestParam(value = "resourceType", required = true) String resourceType,
+                                          @ApiParam(name = "description", value = "附件说明") @RequestParam(value = "description", required = false) String description,
+                                          @ApiParam(name = "md5value", value = "附件md5值") @RequestParam(value = "md5value", required = false) String md5value,
+                                          @ApiParam(name = "chunks", value = "附件总分片数") @RequestParam(value = "chunks", required = false) String chunks,
+                                          @ApiParam(name = "chunk", value = "附件当前第几片") @RequestParam(value = "chunk", required = false) String chunk,
+                                          @ApiParam(name = "name", value = "上传附件名") @RequestParam(value = "name", required = false) String name,
+                                          @ApiParam(name = "file", value = "附件") @RequestParam(value = "file", required = false) MultipartFile file){
+
+        JsonResult<Annex> resJson = new JsonResult<>();
+        if (title == null){
+            resJson.setSuccess(false);
+            resJson.setMessage("异常信息：附件标题不能为空");
+            return resJson;
+        }
+        return resJson;
     }
 }
