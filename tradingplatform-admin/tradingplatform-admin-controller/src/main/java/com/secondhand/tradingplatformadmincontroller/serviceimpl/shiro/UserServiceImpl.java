@@ -97,7 +97,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper, User> implement
     //以下是继承BaseServiceImpl
     
     @Override
-    @Cacheable(key = "#p0 + '' + #p1 + #p1.sorts")
+    @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p1.sorts")
     public Page<User> mySelectPageWithParam(Page<User> page, User user) {
         Wrapper<User> wrapper = new EntityWrapper<>(user);
         //遍历排序

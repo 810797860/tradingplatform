@@ -24,8 +24,6 @@ public class RoleButton extends BaseEntity {
 	 */
     private static final long serialVersionUID = 1L;
 
-
-
             /**
              * 角色id
              */
@@ -42,14 +40,6 @@ public class RoleButton extends BaseEntity {
 												
 			private Long buttonId;
 
-				
-				
-				
-				
-				
-				
-				
-
         	public Long getRoleId() {
                 return roleId;
                 }
@@ -65,8 +55,6 @@ public class RoleButton extends BaseEntity {
             public void setButtonId(Long buttonId) {
                 this.buttonId = buttonId;
                 }
-
-
 
 	@Override
 	public String toString() {

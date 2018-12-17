@@ -102,7 +102,7 @@ public class MenuButtonServiceImpl extends BaseServiceImpl<MenuButtonMapper, Men
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @Cacheable(key = "'EnableCreate' + #p0 + '' + #p1 + #p1.sorts")
+    @Cacheable(key = "'EnableCreate' + #p0 + ',' + #p1 + ',' + #p1.sorts")
     public Page<Button> mySelectEnableCreatePage(Page<Button> page, MenuButton menuButton) {
 
         //先找出buttonIds
@@ -133,7 +133,7 @@ public class MenuButtonServiceImpl extends BaseServiceImpl<MenuButtonMapper, Men
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @Cacheable(key = "'MyButton' + #p0 + '' + #p1 + #p1.sorts")
+    @Cacheable(key = "'MyButton' + #p0 + ',' + #p1 + ',' + #p1.sorts")
     public Page<Button> mySelectPageWithParam(Page<Button> page, MenuButton menuButton) {
 
         //先找出buttonIds

@@ -76,7 +76,7 @@ public class ButtonServiceImpl extends BaseServiceImpl<ButtonMapper, Button> imp
     //以下是继承BaseServiceImpl
     
     @Override
-    @Cacheable(key = "#p0 + '' + #p1 + #p1.sorts")
+    @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p1.sorts")
     public Page<Button> mySelectPageWithParam(Page<Button> page, Button button) {
 
         //判空

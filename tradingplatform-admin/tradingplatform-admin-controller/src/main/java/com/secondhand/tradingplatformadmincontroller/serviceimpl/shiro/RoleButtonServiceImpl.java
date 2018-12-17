@@ -104,7 +104,7 @@ public class RoleButtonServiceImpl extends BaseServiceImpl<RoleButtonMapper, Rol
     
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @Cacheable(key = "'MyButton' + #p0 + '' + #p1 + #p1.sorts")
+    @Cacheable(key = "'MyButton' + #p0 + ',' + #p1 + ',' + #p1.sorts")
     public Page<Button> mySelectPageWithParam(Page<Button> page, RoleButton roleButton) {
 
         //先找出buttonIds
@@ -139,7 +139,7 @@ public class RoleButtonServiceImpl extends BaseServiceImpl<RoleButtonMapper, Rol
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @Cacheable(key = "'EnableCreate' + #p0 + '' + #p1 + #p1.sorts")
+    @Cacheable(key = "'EnableCreate' + #p0 + ',' + #p1 + ',' + #p1.sorts")
     public Page<Button> mySelectEnableCreatePage(Page<Button> page, RoleButton roleButton) {
 
         //先找出buttonIds

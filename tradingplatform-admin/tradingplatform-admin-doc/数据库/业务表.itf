@@ -22,3 +22,14 @@ ip地址(ip)
 方法(method)
 是否调用接口(succeed)
 信息(message)
+
+
+附件表(c_business_annex)
+
+文件名(name)
+文件类型(type)
+文件后缀(extension)
+文件大小(size)
+文件地址(path)
+文件md5(md5)
+消息头(content_type)

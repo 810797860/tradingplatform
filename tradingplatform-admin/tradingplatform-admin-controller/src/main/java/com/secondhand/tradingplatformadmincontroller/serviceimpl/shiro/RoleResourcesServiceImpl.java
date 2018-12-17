@@ -104,7 +104,7 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @Cacheable(key = "'EnableCreate' + #p0 + '' + #p1 + #p1.sorts")
+    @Cacheable(key = "'EnableCreate' + #p0 + ',' + #p1 + ',' + #p1.sorts")
     public Page<Resources> mySelectEnableCreatePage(Page<Resources> page, RoleResources roleResources) {
 
         //先找出resourcesIds
@@ -135,7 +135,7 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @Cacheable(key = "'MyResources' + #p0 + '' + #p1 + #p1.sorts")
+    @Cacheable(key = "'MyResources' + #p0 + ',' + #p1 + ',' + #p1.sorts")
     public Page<Resources> mySelectPageWithParam(Page<Resources> page, RoleResources roleResources) {
 
         //先找出resourcesIds

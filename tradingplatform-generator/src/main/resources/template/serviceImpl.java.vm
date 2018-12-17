@@ -81,7 +81,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     //以下是继承BaseServiceImpl
     
     @Override
-    @Cacheable(key = "#p0 + '' + #p1 + #p1.sorts")
+    @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p1.sorts")
     public Page<${entity}> mySelectPageWithParam(Page<${entity}> page, ${entity} ${table.entityPath}) {
 
         //判空

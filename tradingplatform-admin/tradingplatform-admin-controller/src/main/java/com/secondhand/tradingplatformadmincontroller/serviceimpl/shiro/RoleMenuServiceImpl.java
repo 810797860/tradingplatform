@@ -101,7 +101,7 @@ public class RoleMenuServiceImpl extends BaseServiceImpl<RoleMenuMapper, RoleMen
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @Cacheable(key = "'EnableCreate' + #p0 + '' + #p1 + #p1.sorts")
+    @Cacheable(key = "'EnableCreate' + #p0 + ',' + #p1 + ',' + #p1.sorts")
     public Page<Menu> mySelectEnableCreatePage(Page<Menu> page, RoleMenu roleMenu) {
 
         //先找出menuIds
@@ -132,7 +132,7 @@ public class RoleMenuServiceImpl extends BaseServiceImpl<RoleMenuMapper, RoleMen
     
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @Cacheable(key = "'MyMenu' + #p0 + '' + #p1 + #p1.sorts")
+    @Cacheable(key = "'MyMenu' + #p0 + ',' + #p1 + ',' + #p1.sorts")
     public Page<Menu> mySelectPageWithParam(Page<Menu> page, RoleMenu roleMenu) {
 
         //先找出menuIds

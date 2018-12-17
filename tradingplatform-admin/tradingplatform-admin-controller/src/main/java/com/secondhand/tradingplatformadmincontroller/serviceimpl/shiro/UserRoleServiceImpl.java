@@ -88,7 +88,7 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @Cacheable(key = "'EnableCreate' + #p0 + '' + #p1 + #p1.sorts")
+    @Cacheable(key = "'EnableCreate' + #p0 + ',' + #p1 + ',' + #p1.sorts")
     public Page<Role> mySelectEnableCreatePage(Page<Role> page, UserRole userRole) {
 
         //先找出roleIds
@@ -133,7 +133,7 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @Cacheable(key = "'MyRole' + #p0 + '' + #p1 + #p1.sorts")
+    @Cacheable(key = "'MyRole' + #p0 + ',' + #p1 + ',' + #p1.sorts")
     public Page<Role> mySelectPageWithParam(Page<Role> page, UserRole userRole) {
 
         //先找出roleIds
