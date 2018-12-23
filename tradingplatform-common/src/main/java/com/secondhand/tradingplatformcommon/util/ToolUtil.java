@@ -1,10 +1,16 @@
 package com.secondhand.tradingplatformcommon.util;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeStatus;
+import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -104,7 +110,29 @@ public class ToolUtil {
         return obj;
     }
 
+    /**
+     * 获取uuid->给新增数据用
+     * @return
+     */
     public static String getUUID(){
         return UUID.randomUUID().toString().replaceAll("-", "");
+    }
+
+    /**
+     * 获取当天日期
+     * @return
+     */
+    public static String getToday(){
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        return df.format(new Date());
+    }
+
+    /**
+     * 获取当天时分秒
+     * @return
+     */
+    public static String getMinutesAndSeconds(){
+        SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss");
+        return df.format(new Date());
     }
 }

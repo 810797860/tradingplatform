@@ -4,7 +4,11 @@ import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.business.Annex;
 import com.secondhand.tradingplatformcommon.base.BaseService.BaseService;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
@@ -45,6 +49,34 @@ public interface AnnexService extends BaseService<Annex> {
          * @return
          */
         Annex myAnnexCreateUpdate(Annex annex);
+
+        /**
+         * 附件上传
+         * @param resourceType
+         * @param description
+         * @param md5value
+         * @param chunks
+         * @param chunk
+         * @param name
+         * @param file
+         * @return
+         * @throws CustomizeException
+         */
+        Annex myAnnexUpload(String resourceType,String description,String md5value,String chunks,String chunk,String name,MultipartFile file) throws CustomizeException;
+
+        /**
+         * 根据md5值判断该附件是否存在
+         * @param md5value
+         * @return
+         */
+        Annex myGetAnnexExistsByMd5(String md5value);
+
+        /**
+         * 根据附件id获取图片
+         * @param annexId
+         * @param response
+         */
+        void myGetImageByAnnexId(Long annexId,HttpServletResponse response) throws IOException, CustomizeException;
 
         /**
          * 分页获取Annex列表数据（实体类）

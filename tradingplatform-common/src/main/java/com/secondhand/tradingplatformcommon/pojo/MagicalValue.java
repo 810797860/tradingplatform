@@ -9,6 +9,8 @@ public class MagicalValue {
 
     public static String UNDERLINE = "_";
 
+    public static String DIVIDING_LINE = "-";
+
     public static Long ADMINISTRATOR_ID = 1L;
 
     public static int SIMPLE_NAME_INDEX = 2;
@@ -44,4 +46,12 @@ public class MagicalValue {
     public static String USER_SESSION_ID = "user_session_id";
 
     public static String ROLE_SESSION_ID = "role_session_id";
+
+    public static String STRING_OF_ONE = "1";
+
+    public static String DECIMAL_POINT = ".";
+
+    public static String FILE_SEPARATOR = "/";
+
+    public static String IMAGE_PNG_CONTENT_TYPE = "image/png";
 }

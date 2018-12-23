@@ -25,9 +25,6 @@ public class Annex extends BaseEntity {
 	 */
     private static final long serialVersionUID = 1L;
 
-
-
-				
             /**
              * 文件名
              */
@@ -139,8 +136,6 @@ public class Annex extends BaseEntity {
             public void setContentType(String contentType) {
                 this.contentType = contentType;
                 }
-
-
 
 	@Override
 	public String toString() {

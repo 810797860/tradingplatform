@@ -125,8 +125,14 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
         wrapper.where("user_id = {0}", userId);
         wrapper.where("deleted = {0}", false);
         wrapper.orderBy("user_id", false);
-        UserRole userRole = userRoleMapper.selectList(wrapper).get(0);
-        return userRole.getRoleId();
+        List<UserRole> userRoleList = userRoleMapper.selectList(wrapper);
+        //判空
+        if (userRoleList != null) {
+            UserRole userRole = userRoleList.get(0);
+            return userRole.getRoleId();
+        }else {
+            return null;
+        }
     }
 
     //以下是继承BaseServiceImpl

@@ -3,6 +3,7 @@ package com.secondhand.tradingplatformadmincontroller.controller.business;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -14,7 +15,8 @@ import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.*;
+import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -22,6 +24,9 @@ import com.secondhand.tradingplatformcommon.base.BaseController.BaseController;
 import com.secondhand.tradingplatformadminentity.entity.business.Annex;
 import com.secondhand.tradingplatformadminservice.service.business.AnnexService;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @description : Annex 控制器
@@ -185,21 +190,66 @@ public class AnnexController extends BaseController {
      */
     @PostMapping(value = "/upload", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     @ApiOperation(value = "/upload", notes = "附件上传接口")
-    public JsonResult<Annex> annexUpload( @ApiParam(name = "title", value = "附件标题") @RequestParam(value = "title", required = true) String title,
-                                          @ApiParam(name = "resourceType", value = "附件类型") @RequestParam(value = "resourceType", required = true) String resourceType,
+    public JsonResult<Annex> annexUpload(@ApiParam(name = "resourceType", value = "附件类型") @RequestParam(value = "resourceType", required = true) String resourceType,
                                           @ApiParam(name = "description", value = "附件说明") @RequestParam(value = "description", required = false) String description,
                                           @ApiParam(name = "md5value", value = "附件md5值") @RequestParam(value = "md5value", required = false) String md5value,
                                           @ApiParam(name = "chunks", value = "附件总分片数") @RequestParam(value = "chunks", required = false) String chunks,
                                           @ApiParam(name = "chunk", value = "附件当前第几片") @RequestParam(value = "chunk", required = false) String chunk,
                                           @ApiParam(name = "name", value = "上传附件名") @RequestParam(value = "name", required = false) String name,
-                                          @ApiParam(name = "file", value = "附件") @RequestParam(value = "file", required = false) MultipartFile file){
+                                          @ApiParam(name = "file", value = "附件") @RequestParam(value = "file", required = false) MultipartFile file) {
 
         JsonResult<Annex> resJson = new JsonResult<>();
-        if (title == null){
+        if (name == null){
             resJson.setSuccess(false);
-            resJson.setMessage("异常信息：附件标题不能为空");
+            resJson.setMessage("异常信息：附件标题名不能为空");
             return resJson;
         }
+
+        try {
+            resJson.setData(annexService.myAnnexUpload(resourceType, description, md5value, chunks, chunk, name, file));
+            resJson.setSuccess(true);
+        } catch (CustomizeException e){
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
         return resJson;
+    }
+
+    /**
+     * @description : 根据md5值判断该附件是否存在
+     * @author : zhangjk
+     * @since : Create in 2018-12-14
+     */
+    @GetMapping(value = "/getAnnexExistsByMd5/{md5value}", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @ApiOperation(value = "/getAnnexExistsByMd5/{md5value}", notes = "根据md5值判断该附件是否存在")
+    public JsonResult<Annex> getAnnexExistsByMd5(@ApiParam(name = "md5value", value = "md5值") @PathVariable(value = "md5value") String md5value){
+
+        JsonResult<Annex> resJson = new JsonResult<>();
+        Annex annex = annexService.myGetAnnexExistsByMd5(md5value);
+        resJson.setData(annex);
+        resJson.setSuccess(true);
+        return resJson;
+    }
+
+    /**
+     * @description : 根据附件id获取图片
+     * @author : zhangjk
+     * @since : Create in 2018-12-14
+     */
+    @GetMapping(value = "/image/{annexId}")
+    @ApiOperation(value = "/image/{annexId}", notes = "根据附件id获取图片")
+    public void getImageByAnnexId(@ApiParam(name = "annexId", value = "附件id") @PathVariable(value = "annexId") Long annexId,
+                                               @ApiParam(name = "response", value = "服务器响应") HttpServletResponse response) throws IOException, CustomizeException {
+
+        Date date = new Date();
+        //Last-Modified:页面的最后生成时间
+        response.setDateHeader("Last-Modified",date.getTime());
+        //Expires:过时期限值
+        response.setDateHeader("Expires",date.getTime()+1*60*60*1000);
+        //Cache-Control来控制页面的缓存与否,public:浏览器和缓存服务器都可以缓存页面信息；
+        response.setHeader("Cache-Control", "public");
+        //Pragma:设置页面是否缓存，为Pragma则缓存，no-cache则不缓存
+        response.setHeader("Pragma", "Pragma");
+        annexService.myGetImageByAnnexId(annexId, response);
     }
 }
