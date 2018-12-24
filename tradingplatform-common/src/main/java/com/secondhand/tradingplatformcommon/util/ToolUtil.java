@@ -27,15 +27,6 @@ public class ToolUtil {
     }
 
     /**
-     * String不为空
-     * @param str
-     * @return
-     */
-    public static boolean strIsNotEmpty(String str) {
-        return !strIsEmpty(str);
-    }
-
-    /**
      * Object为空
      * @param obj
      * @return
@@ -55,15 +46,6 @@ public class ToolUtil {
         } else {
             return obj instanceof Map ? ((Map)obj).isEmpty() : false;
         }
-    }
-
-    /**
-     * Object不为空
-     * @param obj
-     * @return
-     */
-    public static boolean objIsNotEmpty(Object obj){
-        return !objIsEmpty(obj);
     }
 
     /**

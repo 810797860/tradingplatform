@@ -85,11 +85,21 @@ public interface AnnexService extends BaseService<Annex> {
          * 普通文件下载
          * @param request
          * @param response
-         * @param id
+         * @param annexId
          * @throws CustomizeException
          * @throws IOException
          */
         void myDownloadFile(HttpServletRequest request, HttpServletResponse response, Long annexId) throws CustomizeException, IOException;
+
+        /**
+         * 大文件下载
+         * @param request
+         * @param response
+         * @param annexId
+         * @throws CustomizeException
+         * @throws IOException
+         */
+        void myDownloadLargeFile(HttpServletRequest request, HttpServletResponse response, Long annexId) throws CustomizeException, IOException;
 
         /**
          * 分页获取Annex列表数据（实体类）

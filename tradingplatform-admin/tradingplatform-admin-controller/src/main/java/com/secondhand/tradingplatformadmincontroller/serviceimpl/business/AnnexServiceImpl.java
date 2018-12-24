@@ -171,6 +171,17 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
         downloadFile(request, response, annex);
     }
 
+    @Override
+    public void myDownloadLargeFile(HttpServletRequest request, HttpServletResponse response, Long annexId) throws CustomizeException, IOException {
+
+        //先根据id寻找附件
+        Annex annex = annexMapper.selectById(annexId);
+        if (annex == null){
+            throw new CustomizeException(CustomizeStatus.IMAGE_IS_EMPTY, this.getClass());
+        }
+        downloadLargeFile(request, response, annex);
+    }
+
     /**
      * 文件上传
      * @param temporaryName
@@ -483,7 +494,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
     }
 
     /**
-     * 断点下载文件
+     * 全文下载文件
      * @param request
      * @param response
      * @param annex
@@ -500,8 +511,11 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
             //文件判空
             if (file != null){
 
+                //已下载的文件大小
                 Long frontLength = 0L;
+                //客户端需要下载的字节段的最后一个字节偏移量（比如bytes=27000-39000，则这个值是为39000）
                 Long backLength;
+                //客户端请求的字节总量
                 Long contentLength = 0L;
                 //0,从头开始的全文下载；1,从某字节开始的下载（bytes=27000-）；2,从某字节开始到某字节结束的下载（bytes=27000-39000）
                 int rangeSwitch = 0;
@@ -526,7 +540,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
 
                 //服务端下载文件请求的开始字节位置
                 String range = request.getHeader("Range");
-                if ( ToolUtil.strIsNotEmpty(range) && ! MagicalValue.STRING_OF_NULL.equals(range)){
+                if ( !ToolUtil.strIsEmpty(range) && !MagicalValue.STRING_OF_NULL.equals(range)){
                     //局部内容
                     response.setStatus(HttpServletResponse.SC_PARTIAL_CONTENT);
                     rangeBytes = range.replaceAll("bytes=", "");
@@ -619,16 +633,148 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
                 bis.close();
             }
         }catch (IOException ie){
+            ie.printStackTrace();
             throw new CustomizeException(CustomizeStatus.FILE_READ_FAILED, this.getClass());
         }catch (Exception e){
+            e.printStackTrace();
             throw new CustomizeException(CustomizeStatus.FILE_DOWNLOAD_FAILED, this.getClass());
         }finally {
             try {
                 bis.close();
             } catch (IOException e) {
+                e.printStackTrace();
                 throw new CustomizeException(CustomizeStatus.FILE_READ_FAILED, this.getClass());
             }
         }
+    }
+
+    /**
+     * 大文件下载
+     * @param request
+     * @param response
+     * @param annex
+     */
+    @Transactional(rollbackFor = Exception.class)
+    void downloadLargeFile(HttpServletRequest request, HttpServletResponse response, Annex annex) throws CustomizeException, UnsupportedEncodingException {
+
+        String path = annex.getPath();
+        String contentType = annex.getContentType();
+        File file = new File(path);
+        Long fileLength = file.length();
+        //已下载的文件大小
+        Long downloadLength = 0L;
+        //客户端需要下载的字节段的最后一个字节偏移量（比如bytes=27000-39000，则这个值是为39000）
+        Long offsetLength;
+        //客户端请求的字节总量
+        Long contentLength;
+        //客户端传来的形如“bytes=27000-”或者“bytes=27000-39000”的内容
+        String rangeBytes;
+        String fileName = annex.getName();
+        //文件后缀名
+        String extension = annex.getExtension();
+
+        //ETag header
+        //contentLength + lastModified
+        response.setHeader("ETag", "W/\"" + fileLength + "-" + file.lastModified() + "\"");
+        //Last-Modified header
+        response.setHeader("Last-Modified", new Date(file.lastModified()).toString());
+
+        //设置下载的名字
+        response.addHeader("Content-Disposition", "filename=" + new String(fileName.getBytes("UTF-8"), "ISO8859-1") + MagicalValue.DECIMAL_POINT + extension);
+
+        //客户端请求的下载的文件块的开始字节
+        if (request.getHeader(MagicalValue.STRING_OF_RANGE) != null){
+            response.setStatus(HttpServletResponse.SC_PARTIAL_CONTENT);
+            rangeBytes = request.getHeader("Range").replaceAll("bytes=", "");
+            if (rangeBytes.indexOf(MagicalValue.DIVIDING_LINE) == rangeBytes.length() - 1){
+                // bytes=969998336-
+                rangeBytes = rangeBytes.substring(0, rangeBytes.indexOf("-"));
+                downloadLength = Long.valueOf(rangeBytes);
+                offsetLength = fileLength - 1;
+            } else {
+                // bytes=1275856879-1275877358
+                int dividingIndex = rangeBytes.indexOf("-");
+                // bytes=1275856879-1275877358，从第 1275856879个字节开始下载
+                downloadLength = Long.valueOf(rangeBytes.substring(0, dividingIndex));
+                // bytes=1275856879-1275877358，到第 1275877358 个字节结束
+                offsetLength = Long.valueOf( rangeBytes.substring(dividingIndex + 1, rangeBytes.length()));
+            }
+        } else {
+            // 从开始进行下载
+            offsetLength = fileLength - 1;
+        }
+
+        // 客户端请求的是1275856879-1275877358 之间的字节
+        contentLength = offsetLength - downloadLength + 1;
+        response.setContentLengthLong(contentLength);
+        if ( !ToolUtil.strIsEmpty(contentType)){
+            response.setContentType(contentType);
+        }
+
+        // 告诉客户端允许断点续传多线程连接下载,响应的格式是:Accept-Ranges: bytes
+        response.setHeader("Accept-Ranges", "bytes");
+        // 必须先设置content-length再设置header
+        response.addHeader("Content-Range",
+                new StringBuffer("bytes ")
+                        .append(downloadLength)
+                        .append("-")
+                        .append(offsetLength)
+                        .append("/")
+                        .append(fileLength).toString());
+        response.setBufferSize(2048);
+        InputStream is = null;
+        OutputStream os;
+
+        try {
+            os = response.getOutputStream();
+            is = new BufferedInputStream(new FileInputStream(file), 2048);
+            try {
+                downloadRange(is, os, downloadLength, offsetLength);
+            } catch (IOException ie){
+                ie.printStackTrace();
+                throw new CustomizeException(CustomizeStatus.FILE_READ_FAILED, this.getClass());
+            }
+        } catch (IOException ie) {
+            ie.printStackTrace();
+            throw new CustomizeException(CustomizeStatus.FILE_READ_FAILED, this.getClass());
+        } finally {
+            if (is != null){
+                try {
+                    is.close();
+                } catch (IOException ie){
+                    ie.printStackTrace();
+                    throw new CustomizeException(CustomizeStatus.FILE_READ_FAILED, this.getClass());
+                }
+            }
+        }
+    }
+
+    protected void downloadRange(InputStream is, OutputStream os, long start, long end) throws IOException, CustomizeException {
+
+        long skip = is.skip(start);
+        if (skip < start){
+            System.out.println("文件继续下载失败: skip=" + Long.valueOf(skip) + ", start=" + Long.valueOf(start));
+            throw new CustomizeException(CustomizeStatus.FILE_CONTINUES_TO_DOWNLOAD_FAILED, this.getClass());
+        }
+        long contentBytes = end - start + 1;
+        byte[] bytes = new byte[2048];
+        int length = bytes.length;
+        while ((contentBytes > 0) && (length >= bytes.length)){
+            try{
+                length = is.read(bytes);
+                if (contentBytes >= length){
+                    os.write(bytes, 0, length);
+                    contentBytes -= length;
+                } else {
+                    os.write(bytes, 0, (int) contentBytes);
+                    contentBytes = 0;
+                }
+            } catch (IOException ie){
+                ie.printStackTrace();
+                throw new CustomizeException(CustomizeStatus.FILE_READ_FAILED, this.getClass());
+            }
+        }
+
     }
 
     //以下是继承BaseServiceImpl

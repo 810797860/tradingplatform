@@ -60,4 +60,6 @@ public class MagicalValue {
     public static String STRING_OF_USER_AGENT ="User-Agent";
 
     public static String STRING_OF_MSIE = "MSIE";
+
+    public static String STRING_OF_RANGE = "Range";
 }

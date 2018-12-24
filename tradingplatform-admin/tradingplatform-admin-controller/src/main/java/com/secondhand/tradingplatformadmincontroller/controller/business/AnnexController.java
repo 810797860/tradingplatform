@@ -266,4 +266,25 @@ public class AnnexController extends BaseController {
 
         annexService.myDownloadFile(request, response, annexId);
     }
+
+    /**
+     * @description : 根据附件id下载大文件
+     * @author : zhangjk
+     * @since : Create in 2018-12-14
+     */
+    @GetMapping(value = "/large_download/{annexId}")
+    @ApiOperation(value = "/large_download/{annexId}", notes = "根据附件id下载大文件")
+    public void downloadLargeFile(@ApiParam(name = "request", value = "服务器请求") HttpServletRequest request,
+                                  @ApiParam(name = "response", value = "服务器响应") HttpServletResponse response,
+                                  @ApiParam(name = "annexId", value = "附件id") @PathVariable(value = "annexId") Long annexId) throws IOException, CustomizeException {
+
+        Date date = new Date();
+        //Expires:过时期限值
+        response.setDateHeader("Expires", date.getTime()+1*60*60*1000);
+        //Cache-Control来控制页面的缓存与否,public:浏览器和缓存服务器都可以缓存页面信息；
+        response.setHeader("Cache-Control", "public");
+        //Pragma:设置页面是否缓存，为Pragma则缓存，no-cache则不缓存
+        response.setHeader("Pragma", "Pragma");
+        annexService.myDownloadLargeFile(request, response, annexId);
+    }
 }
