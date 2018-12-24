@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 public class MultiThreadScheduleTask {
 
     @Async("taskExecutor")
-    @Scheduled(cron = "0 0 0 1 1 ? *")
+    @Scheduled(cron = "0 0 0 1 1 ?")
     public void scheduleTest(){
         //测试定时业务，每年执行一次
         System.out.println("元旦快乐！！！");
