@@ -7,6 +7,7 @@ import com.secondhand.tradingplatformcommon.base.BaseService.BaseService;
 import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serializable;
@@ -75,8 +76,20 @@ public interface AnnexService extends BaseService<Annex> {
          * 根据附件id获取图片
          * @param annexId
          * @param response
+         * @throws IOException
+         * @throws CustomizeException
          */
         void myGetImageByAnnexId(Long annexId,HttpServletResponse response) throws IOException, CustomizeException;
+
+        /**
+         * 普通文件下载
+         * @param request
+         * @param response
+         * @param id
+         * @throws CustomizeException
+         * @throws IOException
+         */
+        void myDownloadFile(HttpServletRequest request, HttpServletResponse response, Long annexId) throws CustomizeException, IOException;
 
         /**
          * 分页获取Annex列表数据（实体类）

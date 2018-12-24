@@ -2,6 +2,7 @@ package com.secondhand.tradingplatformadmincontroller.controller.shiro;
 
 import com.secondhand.tradingplatformadmincontroller.shiro.DesUserToken;
 import com.secondhand.tradingplatformadminentity.entity.shiro.User;
+import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -43,8 +44,8 @@ public class TestShiroController {
      */
     @PostMapping(value = "/login")
     @ApiOperation(value = "/login", notes = "用户登录")
-    public String login(HttpServletRequest request, User user, Model model){
-        if (StringUtils.isEmpty(user.getUserName()) || StringUtils.isEmpty(user.getPassword())) {
+    public String login(HttpServletRequest request, User user){
+        if (ToolUtil.strIsEmpty(user.getUserName()) || ToolUtil.strIsEmpty(user.getPassword())) {
             request.setAttribute("msg", "用户名或密码不能为空！");
             return "login";
         }

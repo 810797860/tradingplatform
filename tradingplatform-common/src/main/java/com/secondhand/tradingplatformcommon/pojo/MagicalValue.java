@@ -54,4 +54,10 @@ public class MagicalValue {
     public static String FILE_SEPARATOR = "/";
 
     public static String IMAGE_PNG_CONTENT_TYPE = "image/png";
+
+    public static String STRING_OF_NULL = "null";
+
+    public static String STRING_OF_USER_AGENT ="User-Agent";
+
+    public static String STRING_OF_MSIE = "MSIE";
 }

@@ -21,12 +21,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.net.URLEncoder;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -121,7 +120,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
             List<Annex> oldAnnexList = annexMapper.selectList(oldWrapper);
             //判空
             if (oldAnnexList == null) {
-                throw new CustomizeException(CustomizeStatus.IMAGE_HAS_NO_SUBMIT, this.getClass());
+                throw new CustomizeException(CustomizeStatus.IMAGE_IS_EMPTY, this.getClass());
             }
             //写入到数据库
             annex.setUuid(ToolUtil.getUUID());
@@ -150,7 +149,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
         ///static/default.png默认图片
         InputStream is = this.getClass().getResourceAsStream("/static/default.png");
         if (annexId != null){
-            Annex annex = mySelectById(annexId);
+            Annex annex = annexMapper.selectById(annexId);
             if (annex != null){
                 responseImage(response, annex, is);
             } else {
@@ -159,6 +158,17 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
         }else {
             responseImage(response, null, is);
         }
+    }
+
+    @Override
+    public void myDownloadFile(HttpServletRequest request, HttpServletResponse response, Long annexId) throws CustomizeException, IOException {
+
+        //先根据id寻找附件
+        Annex annex = annexMapper.selectById(annexId);
+        if (annex == null){
+            throw new CustomizeException(CustomizeStatus.IMAGE_IS_EMPTY, this.getClass());
+        }
+        downloadFile(request, response, annex);
     }
 
     /**
@@ -448,7 +458,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
                     inputStream = new FileInputStream(file);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
-                    throw new CustomizeException(CustomizeStatus.IMAGE_HAS_NO_SUBMIT, ToolUtil.class);
+                    throw new CustomizeException(CustomizeStatus.IMAGE_IS_EMPTY, ToolUtil.class);
                 }
             } else {
                 inputStream = stream;
@@ -458,7 +468,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
 
         try{
             outputStream = response.getOutputStream();
-            int index = 0;
+            int index;
             byte[] data = new byte[1024];
             while ((index = inputStream.read(data)) != -1){
                 outputStream.write(data, 0, index);
@@ -469,6 +479,155 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
         }finally {
             inputStream.close();
             outputStream.close();
+        }
+    }
+
+    /**
+     * 断点下载文件
+     * @param request
+     * @param response
+     * @param annex
+     * @throws CustomizeException
+     */
+    @Transactional(rollbackFor = Exception.class)
+    public void downloadFile(HttpServletRequest request, HttpServletResponse response, Annex annex) throws CustomizeException, IOException {
+
+        BufferedInputStream bis = null;
+        String path = annex.getPath();
+        String fileName = annex.getName();
+        try {
+            File file = new File(path);
+            //文件判空
+            if (file != null){
+
+                Long frontLength = 0L;
+                Long backLength;
+                Long contentLength = 0L;
+                //0,从头开始的全文下载；1,从某字节开始的下载（bytes=27000-）；2,从某字节开始到某字节结束的下载（bytes=27000-39000）
+                int rangeSwitch = 0;
+                Long fileLength = file.length();
+                String rangeBytes;
+                String contentRange;
+
+                InputStream is = new FileInputStream(file);
+                bis = new BufferedInputStream(is);
+                response.reset();
+                response.setHeader("Accept-Ranges", "bytes");
+
+                Date date = new Date();
+                //Last-Modified:页面的最后生成时间
+                response.setDateHeader("Last-Modified",date.getTime());
+                //Expires:过时期限值
+                response.setDateHeader("Expires",date.getTime()+1*60*60*1000);
+                //Cache-Control来控制页面的缓存与否,public:浏览器和缓存服务器都可以缓存页面信息；
+                response.setHeader("Cache-Control", "public");
+                //Pragma:设置页面是否缓存，为Pragma则缓存，no-cache则不缓存
+                response.setHeader("Pragma", "Pragma");
+
+                //服务端下载文件请求的开始字节位置
+                String range = request.getHeader("Range");
+                if ( ToolUtil.strIsNotEmpty(range) && ! MagicalValue.STRING_OF_NULL.equals(range)){
+                    //局部内容
+                    response.setStatus(HttpServletResponse.SC_PARTIAL_CONTENT);
+                    rangeBytes = range.replaceAll("bytes=", "");
+                    if (rangeBytes.endsWith(MagicalValue.DIVIDING_LINE)){
+                        //bytes=270000-
+                        rangeSwitch = 1;
+                        frontLength = Long.valueOf(rangeBytes.substring(0, rangeBytes.indexOf("-")));
+                    } else {
+                        // bytes=270000-320000
+                        int dividingIndex = rangeBytes.indexOf("-");
+                        rangeSwitch = 2;
+                        frontLength = Long.valueOf(rangeBytes.substring(0, dividingIndex));
+                        backLength = Long.valueOf(rangeBytes.substring(dividingIndex + 1, rangeBytes.length()));
+                        //计算要下载的文件的大小
+                        contentLength = backLength - frontLength + 1;
+                    }
+                } else {
+                    contentLength = fileLength;
+                }
+
+                // 如果设设置了Content-Length，则客户端会自动进行多线程下载。如果不希望支持多线程，则不要设置这个参数。
+                // Content-Length: [文件的总大小] - [客户端请求的下载的文件块的开始字节]
+                response.setHeader("Content-Length", contentLength.toString());
+                response.setHeader("Yc-Length", contentLength.toString());
+
+                // 断点开始
+                // 响应的格式是:
+                // Content-Range: bytes [文件块的开始字节]-[文件的总大小 - 1]/[文件的总大小]
+                switch (rangeSwitch){
+                    case 1:
+                        contentRange = new StringBuffer("bytes ")
+                                .append(frontLength)
+                                .append("-")
+                                .append(fileLength - 1)
+                                .append("/")
+                                .append(fileLength).toString();
+                        response.setHeader("Content-Range", contentRange);
+                        bis.skip(frontLength);
+                        break;
+                    case 2:
+                        contentRange = range.replace("=", " ") + "/" + fileLength.toString();
+                        response.setHeader("Content-Range", contentRange);
+                        bis.skip(frontLength);
+                        break;
+                    default:
+                        //全文下载
+                        contentRange = new StringBuffer("bytes ")
+                                .append("0-")
+                                .append(fileLength - 1)
+                                .append("/")
+                                .append(fileLength).toString();
+                        response.setHeader("Content-Range", contentRange);
+                        break;
+                }
+
+                response.setContentType("application/octet-stream");
+                if (request.getHeader(MagicalValue.STRING_OF_USER_AGENT).toUpperCase().indexOf(MagicalValue.STRING_OF_MSIE) > 0){
+                    fileName = URLEncoder.encode(fileName, "UTF-8");
+                } else {
+                    fileName = new String(fileName.getBytes("UTF-8"), "ISO8859-1");
+                }
+                response.addHeader("Content-Disposition", "attachment;filename=" + fileName + MagicalValue.DECIMAL_POINT + annex.getExtension());
+                response.addHeader("Yc-filename", fileName);
+
+                OutputStream out = response.getOutputStream();
+                int n;
+                long readLength = 0;
+                int byteSize = 1024;
+                byte[] bytes = new byte[byteSize];
+                switch (rangeSwitch){
+                    case 2:
+                        // 针对 bytes=27000-39000 的请求，从27000开始写数据
+                        while (readLength <= contentLength - byteSize){
+                            n = bis.read(bytes);
+                            readLength += n;
+                            out.write(bytes, 0, n);
+                        }
+                        if (readLength <= contentLength){
+                            n = bis.read(bytes, 0, (int) (contentLength - readLength));
+                            out.write(bytes, 0, n);
+                        }
+                        break;
+                    default:
+                        while ((n = bis.read(bytes)) != -1){
+                            out.write(bytes, 0, n);
+                        }
+                }
+                out.flush();
+                out.close();
+                bis.close();
+            }
+        }catch (IOException ie){
+            throw new CustomizeException(CustomizeStatus.FILE_READ_FAILED, this.getClass());
+        }catch (Exception e){
+            throw new CustomizeException(CustomizeStatus.FILE_DOWNLOAD_FAILED, this.getClass());
+        }finally {
+            try {
+                bis.close();
+            } catch (IOException e) {
+                throw new CustomizeException(CustomizeStatus.FILE_READ_FAILED, this.getClass());
+            }
         }
     }
 

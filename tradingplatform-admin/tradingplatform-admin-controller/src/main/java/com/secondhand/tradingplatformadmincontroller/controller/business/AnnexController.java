@@ -220,7 +220,7 @@ public class AnnexController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-12-14
      */
-    @GetMapping(value = "/getAnnexExistsByMd5/{md5value}", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value = "/getAnnexExistsByMd5/{md5value}")
     @ApiOperation(value = "/getAnnexExistsByMd5/{md5value}", notes = "根据md5值判断该附件是否存在")
     public JsonResult<Annex> getAnnexExistsByMd5(@ApiParam(name = "md5value", value = "md5值") @PathVariable(value = "md5value") String md5value){
 
@@ -251,5 +251,19 @@ public class AnnexController extends BaseController {
         //Pragma:设置页面是否缓存，为Pragma则缓存，no-cache则不缓存
         response.setHeader("Pragma", "Pragma");
         annexService.myGetImageByAnnexId(annexId, response);
+    }
+
+    /**
+     * @description : 根据附件id下载文件
+     * @author : zhangjk
+     * @since : Create in 2018-12-14
+     */
+    @GetMapping(value = "/download/{annexId}")
+    @ApiOperation(value = "/download/{annexId}", notes = "根据附件id下载文件")
+    public void downloadFile (@ApiParam(name = "request", value = "服务器请求") HttpServletRequest request,
+                              @ApiParam(name = "response", value = "服务器响应") HttpServletResponse response,
+                              @ApiParam(name = "annexId", value = "附件id") @PathVariable(value = "annexId") Long annexId) throws CustomizeException, IOException {
+
+        annexService.myDownloadFile(request, response, annexId);
     }
 }

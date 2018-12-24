@@ -49,7 +49,7 @@ public class ShiroService {
         List<Resources> resourcesList = resourcesService.myQueryAll();
         for(Resources resources:resourcesList){
 
-            if (ToolUtil.isNotEmpty(resources.getUrl())) {
+            if (ToolUtil.strIsNotEmpty(resources.getUrl())) {
                 String permission = "perms[" + resources.getUrl()+ "]";
                 filterChainDefinitionMap.put(resources.getUrl(),permission);
             }

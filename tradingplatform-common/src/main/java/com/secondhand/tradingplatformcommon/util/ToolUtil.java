@@ -1,19 +1,14 @@
 package com.secondhand.tradingplatformcommon.util;
 
-import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
-import com.secondhand.tradingplatformcommon.pojo.CustomizeStatus;
-import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.util.ObjectUtils;
+import org.springframework.util.StringUtils;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * 高频方法集合类
@@ -23,21 +18,52 @@ import java.util.UUID;
 public class ToolUtil {
 
     /**
-     * String判空
+     * String为空
      * @param str
      * @return
      */
-    public static boolean isEmpty(String str) {
-        return str == null || str.length() == 0;
+    public static boolean strIsEmpty(String str) {
+        return str == null || "".equals(str);
     }
 
     /**
-     * String判空
+     * String不为空
      * @param str
      * @return
      */
-    public static boolean isNotEmpty(String str) {
-        return !isEmpty(str);
+    public static boolean strIsNotEmpty(String str) {
+        return !strIsEmpty(str);
+    }
+
+    /**
+     * Object为空
+     * @param obj
+     * @return
+     */
+    public static boolean objIsEmpty(Object obj){
+
+        if (obj == null) {
+            return true;
+        } else if (obj instanceof Optional) {
+            return !((Optional)obj).isPresent();
+        } else if (obj instanceof CharSequence) {
+            return ((CharSequence)obj).length() == 0;
+        } else if (obj.getClass().isArray()) {
+            return Array.getLength(obj) == 0;
+        } else if (obj instanceof Collection) {
+            return ((Collection)obj).isEmpty();
+        } else {
+            return obj instanceof Map ? ((Map)obj).isEmpty() : false;
+        }
+    }
+
+    /**
+     * Object不为空
+     * @param obj
+     * @return
+     */
+    public static boolean objIsNotEmpty(Object obj){
+        return !objIsEmpty(obj);
     }
 
     /**

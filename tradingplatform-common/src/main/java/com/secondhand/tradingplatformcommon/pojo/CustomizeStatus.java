@@ -8,9 +8,11 @@ package com.secondhand.tradingplatformcommon.pojo;
 public enum CustomizeStatus {
 
     MD5_VALUE_IS_EMPTY(601, "Md5值为空"),
-    IMAGE_HAS_NO_SUBMIT(602, "资源文件不存在"),
+    IMAGE_IS_EMPTY(602, "资源文件不存在"),
 
-    UPLOADING_IMAGE_FAILED(701, "上传图片失败")
+    UPLOADING_IMAGE_FAILED(701, "上传图片失败"),
+    FILE_READ_FAILED(702, "文件读取失败"),
+    FILE_DOWNLOAD_FAILED(703, "文件下载失败")
     ;
     private int code;
     private String information;
