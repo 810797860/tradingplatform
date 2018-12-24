@@ -1,5 +1,6 @@
 package com.secondhand.tradingplatformadmincontroller.config;
 
+import com.secondhand.tradingplatformadmincontroller.schedule.MultiThreadScheduleTask;
 import com.secondhand.tradingplatformcommon.util.ApplicationContextHolder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,5 +16,10 @@ public class WebConfig {
     @Bean
     public ApplicationContextHolder applicationContextHolder(){
         return new ApplicationContextHolder();
+    }
+
+    @Bean
+    public MultiThreadScheduleTask multiThreadScheduleTask(){
+        return new MultiThreadScheduleTask();
     }
 }

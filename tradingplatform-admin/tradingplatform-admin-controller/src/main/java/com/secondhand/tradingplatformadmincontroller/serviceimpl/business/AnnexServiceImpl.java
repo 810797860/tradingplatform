@@ -39,7 +39,7 @@ import java.util.stream.Collectors;
 @CacheConfig(cacheNames = "annex")
 public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implements AnnexService {
 
-    @Value("${tradingplatform.file.upload.path}")
+    @Value("${tradingplatform.file.uploadPath}")
     private String fileUploadLath;
 
     @Autowired

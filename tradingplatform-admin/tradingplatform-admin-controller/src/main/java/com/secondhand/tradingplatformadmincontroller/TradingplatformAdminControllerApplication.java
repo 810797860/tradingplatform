@@ -4,7 +4,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * @EnableCaching(开启Redis二级缓存)
  * @author 81079
  */
 
