@@ -25,9 +25,6 @@ public class LoginLog extends BaseEntity {
 	 */
     private static final long serialVersionUID = 1L;
 
-
-
-				
             /**
              * 日志名称
              */
@@ -79,14 +76,6 @@ public class LoginLog extends BaseEntity {
 												
 			private String ip;
 
-				
-				
-				
-				
-				
-				
-				
-
         	public String getLogname() {
                 return logname;
                 }
@@ -134,8 +123,6 @@ public class LoginLog extends BaseEntity {
             public void setIp(String ip) {
                 this.ip = ip;
                 }
-
-
 
 	@Override
 	public String toString() {

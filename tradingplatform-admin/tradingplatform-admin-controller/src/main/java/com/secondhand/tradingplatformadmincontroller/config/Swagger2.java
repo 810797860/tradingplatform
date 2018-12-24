@@ -17,7 +17,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
-@EnableWebMvc
 @ComponentScan(basePackages = {"com.secondhand.tradingplatformadmincontroller.controller"})
 public class Swagger2 {
 
