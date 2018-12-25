@@ -62,4 +62,6 @@ public class MagicalValue {
     public static String STRING_OF_MSIE = "MSIE";
 
     public static String STRING_OF_RANGE = "Range";
+
+    public static String STRING_OF_SOCKET_MESSAGE = "socketMessage";
 }

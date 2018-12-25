@@ -17,9 +17,4 @@ public class WebConfig {
     public ApplicationContextHolder applicationContextHolder(){
         return new ApplicationContextHolder();
     }
-
-    @Bean
-    public MultiThreadScheduleTask multiThreadScheduleTask(){
-        return new MultiThreadScheduleTask();
-    }
 }

@@ -33,3 +33,12 @@ ip地址(ip)
 文件地址(path)
 文件md5(md5)
 消息头(content_type)
+
+
+socket消息表(c_business_socket_message)
+
+消息标题(title)
+消息内容(content)
+发送消息者(sender)
+接受消息者(recipient)
+消息详情(details)(备用)
