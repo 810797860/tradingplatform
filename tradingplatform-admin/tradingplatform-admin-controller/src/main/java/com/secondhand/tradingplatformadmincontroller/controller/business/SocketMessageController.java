@@ -190,6 +190,7 @@ public class SocketMessageController extends BaseController {
         // 放值到sockSession： headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
         // 获取sockSession值： String username = (String) headerAccessor.getSessionAttributes().get("username");
         // 后台发送信息： messagingTemplate.convertAndSend("/topic/public", chatMessage); (chatMessage是pojo)
+        // 详情去看：spring-boot-websocket-chat-demo
         JsonResult<SocketMessage> resJson = new JsonResult<>();
         resJson.setData(socketMessage);
         resJson.setSuccess(true);
