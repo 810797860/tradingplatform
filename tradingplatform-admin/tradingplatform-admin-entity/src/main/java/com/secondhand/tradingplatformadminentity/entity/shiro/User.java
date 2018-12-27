@@ -89,8 +89,12 @@ public class User extends BaseEntity {
              */
             @ApiModelProperty("电话")
             @TableField("phone")
-												
-			private String phone;
+            private String phone;
+
+
+            @ApiModelProperty("用户类型")
+            @TableField("type")
+            private Long type;
 
 
         	public Long getAvatar() {
@@ -157,19 +161,26 @@ public class User extends BaseEntity {
                 this.phone = phone;
                 }
 
+            public Long getType() {
+                return type;
+            }
 
+            public void setType(Long type) {
+                this.type = type;
+            }
 
-	@Override
-	public String toString() {
-		return "User{" +
-			", avatar=" + avatar +
-			", account=" + account +
-			", password=" + password +
-			", userName=" + userName +
-			", birthday=" + birthday +
-			", sex=" + sex +
-			", email=" + email +
-			", phone=" + phone +
-			"}";
-	}
+    @Override
+    public String toString() {
+        return "User{" +
+                "avatar=" + avatar +
+                ", account='" + account + '\'' +
+                ", password='" + password + '\'' +
+                ", userName='" + userName + '\'' +
+                ", birthday=" + birthday +
+                ", sex=" + sex +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", type=" + type +
+                '}';
+    }
 }

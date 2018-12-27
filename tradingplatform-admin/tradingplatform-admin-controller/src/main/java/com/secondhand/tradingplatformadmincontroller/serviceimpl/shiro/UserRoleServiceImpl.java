@@ -127,7 +127,7 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
         wrapper.orderBy("user_id", false);
         List<UserRole> userRoleList = userRoleMapper.selectList(wrapper);
         //判空
-        if (userRoleList != null) {
+        if (userRoleList.size() != 0) {
             UserRole userRole = userRoleList.get(0);
             return userRole.getRoleId();
         }else {

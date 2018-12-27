@@ -93,7 +93,7 @@ public class MyShiroRealm extends AuthorizingRealm {
      * @param userIds 已经修改了权限的userId
      */
     public void clearUserAuthByUserId(List<Integer> userIds){
-        if(null == userIds || userIds.size() == 0)	return ;
+        if(null == userIds || userIds.size() == 0)	{return ;}
         //获取所有session
         Collection<Session> sessions = redisSessionDAO.getActiveSessions();
         //定义返回

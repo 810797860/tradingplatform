@@ -15,6 +15,7 @@
 				<result column="sex" property="sex" jdbcType="INTEGER" />
 				<result column="email" property="email" jdbcType="VARCHAR" />
 				<result column="phone" property="phone" jdbcType="VARCHAR" />
+				<result column="type" property="type" jdbcType="INTEGER" />
 
 		</resultMap>
 
@@ -29,6 +30,7 @@
                         <result column="sex" property="sex" jdbcType="INTEGER" />
                         <result column="email" property="email" jdbcType="VARCHAR" />
                         <result column="phone" property="phone" jdbcType="VARCHAR" />
+                        <result column="type" property="type" jdbcType="INTEGER" />
 
         </resultMap>
 
