@@ -1,5 +1,6 @@
 package com.secondhand.tradingplatformadmincontroller.config;
 
+import com.secondhand.tradingplatformadmincontroller.handler.ShiroOriginFilter;
 import com.secondhand.tradingplatformcommon.util.ApplicationContextHolder;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -18,16 +19,16 @@ public class WebConfig {
         return new ApplicationContextHolder();
     }
 
-//    /**
-//     * 解决跨域问题
-//     * @return
-//     */
-//    @Bean
-//    public FilterRegistrationBean globalFilterBean(){
-//        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
-//        filterRegistrationBean.setFilter(new ShiroOriginFilter());
-//        filterRegistrationBean.addUrlPatterns("/*");
-//        filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
-//        return filterRegistrationBean;
-//    }
+    /**
+     * 解决跨域问题
+     * @return
+     */
+    @Bean
+    public FilterRegistrationBean filterRegistration() {
+        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
+        filterRegistrationBean.setFilter(new ShiroOriginFilter());
+        filterRegistrationBean.addUrlPatterns("/*");
+        filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
+        return filterRegistrationBean;
+    }
 }

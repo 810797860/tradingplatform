@@ -136,8 +136,7 @@ public class TestShiroController {
     @GetMapping(value = "/wu")
     @ApiOperation(value = "/wu", notes="获取分页列表")
     @ResponseBody
-    public TableJson<User> getUserList(HttpServletResponse httpServletResponse) {
-        httpServletResponse.setHeader("Access-Control-Allow-Origin", "*");
+    public TableJson<User> getUserList() {
         User user = new User();
         TableJson<User> resJson = new TableJson<>();
         user.setDeleted(false);
