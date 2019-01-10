@@ -1,0 +1,1 @@
+2019-01-09 21:15:00.275 [http-nio-8006-exec-1] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content type '' not supported]

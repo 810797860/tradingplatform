@@ -84,6 +84,7 @@ public class MyShiroRealm extends AuthorizingRealm {
         session.setAttribute(MagicalValue.USER_SESSION, user);
         session.setAttribute(MagicalValue.USER_SESSION_ID, user.getId());
         session.setAttribute(MagicalValue.ROLE_SESSION_ID, roleId);
+        session.setAttribute(MagicalValue.USER_TYPE, user.getType());
         return authenticationInfo;
     }
 

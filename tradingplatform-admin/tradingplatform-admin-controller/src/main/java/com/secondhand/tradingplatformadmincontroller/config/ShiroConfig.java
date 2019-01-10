@@ -6,7 +6,6 @@ import com.secondhand.tradingplatformadminentity.entity.shiro.Resources;
 import com.secondhand.tradingplatformadminservice.service.shiro.ResourcesService;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.apache.shiro.authc.credential.CredentialsMatcher;
-import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.session.ExpiredSessionException;
@@ -89,7 +88,7 @@ public class ShiroConfig {
 
         // 必须设置 SecurityManager
         shiroFilterFactoryBean.setSecurityManager(securityManager);
-        // 如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
+        // 如果不设置默认会自动寻找Web工程根目录下的"/login.html"页面
         shiroFilterFactoryBean.setLoginUrl("/login");
         // 登录成功后要跳转的链接
         shiroFilterFactoryBean.setSuccessUrl("/usersPage");
@@ -100,10 +99,22 @@ public class ShiroConfig {
 
         //配置退出 过滤器,其中的具体的退出代码Shiro已经替我们实现了
         filterChainDefinitionMap.put("/logout", "logout");
+        //Mr.吴
+        filterChainDefinitionMap.put("/wu", "anon");
         filterChainDefinitionMap.put("/css/**","anon");
+        //这个是vue的
+        filterChainDefinitionMap.put("/static/css/**", "anon");
         filterChainDefinitionMap.put("/js/**","anon");
+        //这个是vue的
+        filterChainDefinitionMap.put("/static/js/**", "anon");
         filterChainDefinitionMap.put("/img/**","anon");
         filterChainDefinitionMap.put("/font-awesome/**","anon");
+        //shiro跨域拦截
+//        filterChainDefinitionMap.put("/**", "corsAuthenticationFilter");
+        //自定义拦截器
+//        Map<String, Filter> filterMap = new HashMap<>();
+//        filterMap.put("corsAuthenticationFilter", corsAuthenticationFilter());
+//        shiroFilterFactoryBean.setFilters(filterMap);
         //<!-- 过滤链定义，从上向下顺序执行，一般将 /**放在最为下边 -->:这是一个坑呢，一不小心代码就不好使了;
         //<!-- authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问-->
         //自定义加载权限资源关系
@@ -121,6 +132,11 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
     }
+
+//    //shiro跨域拦截的自定义拦截器
+//    public CorsAuthenticationFilter corsAuthenticationFilter(){
+//        return new CorsAuthenticationFilter();
+//    }
 
 
     @Bean

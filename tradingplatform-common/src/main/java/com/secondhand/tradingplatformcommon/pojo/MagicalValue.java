@@ -47,6 +47,8 @@ public class MagicalValue {
 
     public static String ROLE_SESSION_ID = "role_session_id";
 
+    public static String USER_TYPE = "user_type";
+
     public static String STRING_OF_ONE = "1";
 
     public static String DECIMAL_POINT = ".";
@@ -64,4 +66,6 @@ public class MagicalValue {
     public static String STRING_OF_RANGE = "Range";
 
     public static String STRING_OF_SOCKET_MESSAGE = "socketMessage";
+
+    public static String STRING_OF_OPTIONS = "OPTIONS";
 }

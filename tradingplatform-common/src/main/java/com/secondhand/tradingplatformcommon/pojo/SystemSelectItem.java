@@ -116,4 +116,24 @@ public class SystemSelectItem {
      * bigint(20)
      */
     public static final Long FIELD_TYPE_BIGINT_INTEGER = 100313L;
+
+    /**
+     * 用户类型
+     */
+    public static Long USER_TYPE = 100403L;
+
+    /**
+     * 后台用户
+     */
+    public static Long USER_TYPE_BACK_DESK = 100505L;
+
+    /**
+     * 前台用户
+     */
+    public static Long USER_TYPE_FRONT_DESK = 100506L;
+
+    /**
+     * 微信用户
+     */
+    public static Long USER_TYPE_WECHAT_DESK = 100507L;
 }
