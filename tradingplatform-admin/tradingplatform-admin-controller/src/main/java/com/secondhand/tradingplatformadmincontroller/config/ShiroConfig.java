@@ -1,5 +1,6 @@
 package com.secondhand.tradingplatformadmincontroller.config;
 
+import com.secondhand.tradingplatformadmincontroller.handler.CorsAuthenticationFilter;
 import com.secondhand.tradingplatformadmincontroller.shiro.DesCredentialsMatcher;
 import com.secondhand.tradingplatformadmincontroller.shiro.MyShiroRealm;
 import com.secondhand.tradingplatformadminentity.entity.shiro.Resources;
@@ -31,6 +32,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.servlet.Filter;
 import java.util.*;
 
 /**
@@ -110,11 +112,11 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/img/**","anon");
         filterChainDefinitionMap.put("/font-awesome/**","anon");
         //shiro跨域拦截
-//        filterChainDefinitionMap.put("/**", "corsAuthenticationFilter");
+        filterChainDefinitionMap.put("/**", "corsAuthenticationFilter");
         //自定义拦截器
-//        Map<String, Filter> filterMap = new HashMap<>();
-//        filterMap.put("corsAuthenticationFilter", corsAuthenticationFilter());
-//        shiroFilterFactoryBean.setFilters(filterMap);
+        Map<String, Filter> filterMap = new HashMap<>();
+        filterMap.put("corsAuthenticationFilter", corsAuthenticationFilter());
+        shiroFilterFactoryBean.setFilters(filterMap);
         //<!-- 过滤链定义，从上向下顺序执行，一般将 /**放在最为下边 -->:这是一个坑呢，一不小心代码就不好使了;
         //<!-- authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问-->
         //自定义加载权限资源关系
@@ -133,10 +135,10 @@ public class ShiroConfig {
         return shiroFilterFactoryBean;
     }
 
-//    //shiro跨域拦截的自定义拦截器
-//    public CorsAuthenticationFilter corsAuthenticationFilter(){
-//        return new CorsAuthenticationFilter();
-//    }
+    //shiro跨域拦截的自定义拦截器
+    public CorsAuthenticationFilter corsAuthenticationFilter(){
+        return new CorsAuthenticationFilter();
+    }
 
 
     @Bean
