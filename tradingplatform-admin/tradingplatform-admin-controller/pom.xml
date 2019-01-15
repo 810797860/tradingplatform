@@ -160,11 +160,46 @@
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<inherited>true</inherited>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+
+			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+
+		<filters>
+			<filter>../tradingplatform-admin-controller/src/main/resources/application-${environmental-configuration-name}.properties</filter>
+		</filters>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<environmental-configuration-name>dev</environmental-configuration-name>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>personal</id>
+			<properties>
+				<environmental-configuration-name>personal</environmental-configuration-name>
+			</properties>
+		</profile>
+	</profiles>
 
 
 </project>
