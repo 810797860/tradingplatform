@@ -8,10 +8,12 @@ public class CustomizeException extends Exception{
 
     private CustomizeStatus customizeStatus;
     private String clazz;
+    private int code;
 
     public CustomizeException(CustomizeStatus customizeStatus, Class clazz) {
         this.customizeStatus = customizeStatus;
-        this.clazz = clazz.getName();
+        this.clazz = clazz.getSimpleName();
+        this.code = customizeStatus.getCode();
     }
 
     public CustomizeStatus getCustomizeStatus() {
@@ -30,11 +32,20 @@ public class CustomizeException extends Exception{
         this.clazz = clazz;
     }
 
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
     @Override
     public String toString() {
         return "CustomizeException{" +
                 "customizeStatus=" + customizeStatus +
                 ", clazz='" + clazz + '\'' +
+                ", code=" + code +
                 '}';
     }
 }

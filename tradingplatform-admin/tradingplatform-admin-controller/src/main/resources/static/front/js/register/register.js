@@ -450,14 +450,14 @@ $(function () {
     // 点击图片返回首页
     function getIndex() {
         $('.register-head-left').click(function () {
-            window.location.href = '/f/index.html?pc=true';
-            // window.open('/f/index.html?pc=true', '_self');
+            window.location.href = '/f/wu.html?pc=true';
+            // window.open('/f/wu.html?pc=true', '_self');
         })
     }
 
     // 返回首页
     function getBackHome() {
-        window.location.href = '/f/index.html?pc=true'
+        window.location.href = '/f/wu.html?pc=true'
     }
     // 返回登录页面
     function getBackLogin() {

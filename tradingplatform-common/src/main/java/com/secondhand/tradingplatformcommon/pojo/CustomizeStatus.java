@@ -7,6 +7,15 @@ package com.secondhand.tradingplatformcommon.pojo;
 
 public enum CustomizeStatus {
 
+    SUCCESSFUL_OPERATION(200, "操作成功"),
+    LOGIN_LOG_IN_SUCCESSFUL(208, "登录成功"),
+
+    LOGIN_VERIFICATION_CODE_ERROR(405, "验证码错误或已过期"),
+    LOGIN_WRONG_PASSWORD(406, "密码错误或账号错误"),
+    LOGIN_LOG_IN_ERROR(407, "登录出错"),
+    LOGIN_USER_IS_LOCKED(408, "用户已经被锁定不能登录，请与管理员联系！"),
+
+
     MD5_VALUE_IS_EMPTY(601, "Md5值为空"),
     IMAGE_IS_EMPTY(602, "资源文件不存在"),
 

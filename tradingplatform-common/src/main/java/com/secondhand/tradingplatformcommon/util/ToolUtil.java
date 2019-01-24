@@ -1,8 +1,13 @@
 package com.secondhand.tradingplatformcommon.util;
 
+import com.secondhand.tradingplatformcommon.jsonResult.Result;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
+import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
@@ -142,5 +147,37 @@ public class ToolUtil {
     public static String getMinutesAndSeconds(){
         SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss");
         return df.format(new Date());
+    }
+
+    /**
+     * 验证码校验
+     * @param request
+     * @param frontCaptcha
+     * @return
+     */
+    public static boolean checkVerifyCode(HttpServletRequest request, String frontCaptcha){
+
+        //获取生成的验证码
+        HttpSession session = request.getSession();
+        String captcha = session.getAttribute(MagicalValue.STRING_OF_KAPTCHA).toString();
+        //判断
+        if (strIsEmpty(frontCaptcha) || !captcha.equals(frontCaptcha)){
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Map某参数判空
+     * @param parameter
+     * @param parameterName
+     * @return
+     */
+    public static boolean mapJudgeParameterEmpty(Map<String, Object> parameter, String parameterName){
+
+        if (parameter.containsKey(parameterName) && !objIsEmpty(parameter.get(parameterName))){
+            return true;
+        }
+        return false;
     }
 }

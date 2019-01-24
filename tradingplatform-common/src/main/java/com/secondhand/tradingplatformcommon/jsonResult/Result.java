@@ -18,7 +18,7 @@ public class Result implements Serializable {
     /**
      * 状态码
      */
-    private String statusCode;
+    private int code;
 
     /**
      * 是否成功
@@ -33,12 +33,12 @@ public class Result implements Serializable {
         this.message = message;
     }
 
-    public String getStatusCode() {
-        return statusCode;
+    public int getCode() {
+        return code;
     }
 
-    public void setStatusCode(String statusCode) {
-        this.statusCode = statusCode;
+    public void setCode(int code) {
+        this.code = code;
     }
 
     public boolean isSuccess() {

@@ -22,7 +22,7 @@
 <div class="login-app x-block">
     <div class="login-bg blur"></div>
     <div class="login-container" id="login-frame">
-        <div class="login-title">粤企服</div>
+        <div class="login-title">测试</div>
         <div id="darkbannerwrap"></div>
         <form class="form" role="form">
             <div class="form-group has-feedback" style="margin-bottom: 20px;">
@@ -39,8 +39,7 @@
                         <input type="text" id="captcha-input" name="captcha" placeholder="验证码" class="form-control">
                     </div>
                     <div class="col-sm-5">
-                        <!--th:attr="src=@{/captcha}"-->
-                        <img id="captcha-img" width="120" height="34" alt="Captcha Image" style="border: 1px solid #eee"/>
+                        <img id="captcha-img" th:attr="src=@{/admin/kaptcha/default}" width="120" height="34" alt="Captcha Image" style="border: 1px solid #eee"/>
                     </div>
                 </div>
             </div>

@@ -3,9 +3,12 @@ package com.secondhand.tradingplatformadmincontroller.controller.shiro;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadmincontroller.shiro.DesUserToken;
 import com.secondhand.tradingplatformadminentity.entity.shiro.User;
-import com.secondhand.tradingplatformadminentity.entity.system.SelectItem;
 import com.secondhand.tradingplatformadminservice.service.shiro.UserService;
+import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
+import com.secondhand.tradingplatformcommon.jsonResult.Result;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeStatus;
 import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import com.secondhand.tradingplatformcommon.pojo.SystemSelectItem;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
@@ -19,12 +22,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 /**
  * @description : Shiro 测试控制器
@@ -53,33 +55,44 @@ public class TestShiroController {
      * @author : zhangjk
      * @since : Create in 2018-12-04
      */
-    @PostMapping(value = "/login")
+    @PostMapping(value = "/login", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/login", notes = "用户登录")
-    public String login(HttpServletRequest request, User user, HttpSession session){
-        if (ToolUtil.strIsEmpty(user.getUserName()) || ToolUtil.strIsEmpty(user.getPassword())) {
-            request.setAttribute("msg", "用户名或密码不能为空！");
-            return "login";
+    @ResponseBody
+    public JsonResult login(@ApiParam(name = "request", value = "服务器请求") HttpServletRequest request,
+                            @ApiParam(name = "parameter", value = "用户实体类") @RequestBody Map<String, Object> parameter,
+                            @ApiParam(name = "session", value = "客户端会话") HttpSession session) throws CustomizeException {
+
+        //获取账号、密码、验证码
+        String userName = parameter.get("userName").toString();
+        String password = parameter.get("password").toString();
+        String captcha = parameter.get("captcha").toString();
+        //判断验证码
+        if (!ToolUtil.checkVerifyCode(request, captcha)) {
+            throw  new CustomizeException(CustomizeStatus.LOGIN_VERIFICATION_CODE_ERROR, this.getClass());
         }
         Subject subject = SecurityUtils.getSubject();
-        DesUserToken token = new DesUserToken(user.getUserName(), user.getPassword());
+        DesUserToken token = new DesUserToken(userName, password);
         try {
             subject.login(token);
-            return "redirect:usersPage";
+            //返回登录成功的结果
+            JsonResult successJsonResult = new JsonResult();
+            successJsonResult.setMessage("登录成功");
+            successJsonResult.setSuccess(true);
+            successJsonResult.setCode(208);
+            return successJsonResult;
         }catch (LockedAccountException lae) {
             token.clear();
-            request.setAttribute("msg", "用户已经被锁定不能登录，请与管理员联系！");
-            return "login";
+            throw new CustomizeException(CustomizeStatus.LOGIN_USER_IS_LOCKED, this.getClass());
         } catch (AuthenticationException e) {
             token.clear();
-            request.setAttribute("msg", "用户或密码不正确！");
-            return "login";
+            throw new CustomizeException(CustomizeStatus.LOGIN_WRONG_PASSWORD, this.getClass());
         } finally {
             //进行判断，是否为后台用户
             Long type = Long.valueOf(session.getAttribute(MagicalValue.USER_TYPE).toString());
             if (!type.equals(SystemSelectItem.USER_TYPE_BACK_DESK)){
                 //跳回登录页面
                 //前端调用/logout退出
-                return "login";
+                throw new CustomizeException(CustomizeStatus.LOGIN_LOG_IN_ERROR, this.getClass());
             }
         }
     }

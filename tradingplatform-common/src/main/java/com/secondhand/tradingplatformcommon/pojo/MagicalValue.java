@@ -68,4 +68,12 @@ public class MagicalValue {
     public static String STRING_OF_SOCKET_MESSAGE = "socketMessage";
 
     public static String STRING_OF_OPTIONS = "OPTIONS";
+
+    public static String STRING_OF_KAPTCHA = "kaptcha";
+
+    public static String STRING_OF_USERNAME = "userName";
+
+    public static String STRING_OF_PASSWORD = "password";
+
+    public static String STRING_OF_CAPTCHA = "captcha";
 }

@@ -126,7 +126,7 @@ $(function () {
     }
     // 返回首页
     function backToIndex() {
-        window.location.href = '/f/index.html?pc=true';
+        window.location.href = '/f/wu.html?pc=true';
     }
     // 点击事件
     function handelClick() {
@@ -171,7 +171,7 @@ $(function () {
         })
 
         $('.login-head-left').click(function () {
-            window.open('/f/index.html?pc=true', '_self');
+            window.open('/f/wu.html?pc=true', '_self');
         })
     }
     // 发送验证码
@@ -326,7 +326,7 @@ $(function () {
                             stack: stack_bottomright
                         });
                         saveUserInfo(res.data.data_object)
-                        window.location.href = '/f/index.html?pc=true';
+                        window.location.href = '/f/wu.html?pc=true';
                         break;
                     case 310:
                         oLoadingNode.hide();
@@ -438,7 +438,7 @@ $(function () {
                             stack: stack_bottomright
                         });
                         saveUserInfo(res.data.data_object);
-                        window.location.href = '/f/index.html?pc=true';
+                        window.location.href = '/f/wu.html?pc=true';
                         break;
                     case 800:
                         oLoadingNode.hide();

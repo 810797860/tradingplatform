@@ -45,8 +45,8 @@ function formSubmit(e) {
         return;
     }
     var postData = {
-        account: account,
-        password: passwordEncrypt(password),
+        userName: account,
+        password: password,
         captcha: captcha
     };
     $.ajax({
@@ -56,8 +56,9 @@ function formSubmit(e) {
         dataType:'json',
         data: JSON.stringify(postData),
         success:function(data){
-            switch(data.status){
-                case 200:
+            console.log(data)
+            switch(data.code){
+                case 208:
                     new PNotify({
                         title: '登录',
                         text: '登录成功',
@@ -66,7 +67,7 @@ function formSubmit(e) {
                         addclass: "stack-bottomright",
                         stack: stack_bottomright
                     });
-                    window.location.href = '/index';
+                    window.location.href = '/wu';
                     break;
                 case 310:
                     new PNotify({
@@ -121,11 +122,6 @@ function formSubmit(e) {
             });
         }
     });
-}
-
-// 密码加密
-function passwordEncrypt(password) {
-    return hex_md5(encrypt(password));
 }
 
 // 不能为空的提示

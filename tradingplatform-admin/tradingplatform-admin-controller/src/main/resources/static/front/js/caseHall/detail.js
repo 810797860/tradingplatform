@@ -1168,7 +1168,7 @@ $(function () {
     }
     // 创建qq分享链接
     function createQQShareUrl(data) {
-        var _shareUrl = 'https://connect.qq.com/widget/shareqq/index.html?';
+        var _shareUrl = 'https://connect.qq.com/widget/shareqq/wu.html?';
         // 跳转链接
         _shareUrl += 'url=' + encodeURIComponent(data.url || window.location.href) + '?sharesource=qzone';
         // 标题

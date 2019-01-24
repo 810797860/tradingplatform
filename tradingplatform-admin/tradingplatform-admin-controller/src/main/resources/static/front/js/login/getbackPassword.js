@@ -21,7 +21,7 @@ $(function () {
 
 
     $('.login-head-left').click(function () {
-       window.open('/f/index.html?pc=true','_self');
+       window.open('/f/wu.html?pc=true','_self');
     });
 
     $('#account').blur(function () {
@@ -260,6 +260,6 @@ $(function () {
     }
     // 返回首页
     function getBackHome() {
-        window.location.href = '/f/index.html?pc=true'
+        window.location.href = '/f/wu.html?pc=true'
     }
 })

@@ -19,7 +19,7 @@ html, body {
 }
 .login-bg {
     background: #c3cfe2;
-    background-image: url("/static/assets/login_bg.jpg");
+    background-image: url("../assets/login_bg.jpg");
     background-repeat: no-repeat;
     background-size: auto 100%;
     -moz-background-size: auto 100%;
@@ -50,7 +50,7 @@ html, body {
     font-size: 18px;
 }
 #darkbannerwrap {
-    background: url('/static/assets/aiwrap.png');
+    background: url('../assets/aiwrap.png');
     width: 18px;
     height: 10px;
     margin: 0 0 20px -58px;
