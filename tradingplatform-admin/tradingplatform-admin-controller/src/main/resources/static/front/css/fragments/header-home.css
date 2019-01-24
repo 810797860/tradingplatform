@@ -1,0 +1,392 @@
+.header {
+    width: 100%;
+    min-width: 1320px;
+    height: 526px;
+    background: url("/static/front/assets/image/header-bg.jpg") no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+.header .top {
+    width: 100%;
+    min-width: 1320px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 4px;
+    background-color: transparent;
+}
+.header .bottom {
+    width: 100%;
+    min-width: 1320px;
+    height: 482px;
+    background-color: transparent;
+}
+.header .container {
+    width: 1170px;
+    height: 100%;
+    margin: 0 auto;
+}
+.header .top .top-container .left {
+    height: 100%;
+    font-size: 0;
+}
+.header .top .top-container .left .nav-item {
+    display: inline-block;
+    /*width: 104px;*/
+    height: 100%;
+    margin-left: 36px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+.header .top .top-container .left .nav-item:hover {
+    color: #32c0e8;
+    /*color: #c81414;*/
+    border-bottom: 1px solid #32c0e8;
+}
+.header .top .top-container .left .active {
+    color: #fff !important;
+    border-bottom: 1px solid #fff !important;
+}
+.header .top .top-container .right {
+    margin-top: 10px;
+    width: auto;
+    height: 30px;
+}
+.header .top .top-container .right a{
+    float: left;
+    display: block;
+    margin-right: 30px;
+    width: auto;
+    height: 100%;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    line-height: 30px;
+}
+.header .top .top-container .right a:last-child{
+    margin-right: 0;
+}
+.header .top .top-container .right a:hover{
+    color: #32c0e8;
+}
+.header .top .top-container .right .login-link{
+    width: 66px;
+    border-radius: 15px;
+    color: #000;
+    background-color: #ffffff;
+}
+.header .top .top-container .right .login-link:hover{
+    background-color: #32c0e8;
+    color: #ffffff;
+}
+.header .top .top-container .right .sign-out-link:hover{
+    color: #c81414;
+}
+.header .top .top-container .right .avatar-link{
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #f4f4f4;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.header .top .top-container .right .avatar-link img{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 110%;
+    height: auto;
+}
+/* 原头部右边功能按钮样式 */
+/*
+.header .top .top-container .right {
+    height: 100%;
+    font-size: 0;
+    margin-right: 25px;
+}
+.header .top .top-container .right a {
+    display: inline-block;
+    height: 100%;
+    font-size: 14px;
+    color: #fff;
+}
+.header .top .top-container .right .avatar-login{
+    !*display: inline-block;*!
+    display: none;
+}
+.header .top .top-container .right .login-register{
+    !*display: inline-block;*!
+    display: none;
+}
+.header .top .top-container .right .avatar-login .avatar-img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-bottom: 10px;
+    !*display: none;*!
+}
+.header .top .top-container .right .avatar-login .avatar-center{
+    !*display: none;*!
+}
+.header .top .top-container .right .avatar-login .avatar-out{
+    !*display: none;*!
+}
+.header .top .top-container .right .avatar-login .avatar-out:hover{
+    color: #c81414;
+}
+.header .top .top-container .right a:hover {
+    color: #32c0e8;
+}
+.header .top .top-container .right a .login {
+    display: block;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #fff;
+    border-radius: 15px;
+    color: #474747;
+    text-align: center;
+    vertical-align: middle;
+}
+.header .top .top-container .right a .login:hover {
+    background-color: #32c0e8;
+    color: #fff;
+}*/
+
+/*有用*/
+/*.header .top .top-container .right .avatar-control{*/
+    /*position: absolute;*/
+    /*left: 1098px;*/
+    /*top: 11px;*/
+    /*width: 100px;*/
+    /*height: 120px;*/
+    /*z-index: 2;*/
+/*}*/
+/*.header .top .top-container .right .avatar-control .avatar-img{*/
+    /*width: 30px;*/
+    /*height: 30px;*/
+    /*display: none;*/
+    /*cursor: pointer;*/
+    /*margin-left: 32px;*/
+/*}*/
+/*.header .top .top-container .right .avatar-control .avatar-selected{*/
+    /*width: 100px;*/
+    /*height: 60px;*/
+    /*box-sizing: border-box;*/
+    /*border: 1px solid #f2f2f2;*/
+    /*cursor: pointer;*/
+    /*margin-top: -20px;*/
+    /*display: none;*/
+/*}*/
+/*.header .top .top-container .right .avatar-control .avatar-selected .avatar-center,.avatar-out{*/
+    /*font-size: 14px;*/
+    /*color: #fff;*/
+    /*line-height: 30px;*/
+    /*text-align: center;*/
+    /*box-sizing: border-box;*/
+/*}*/
+/*.header .top .top-container .right .avatar-control .avatar-selected .avatar-center{*/
+    /*border-bottom: 1px solid #f2f2f2;*/
+/*}*/
+/*.header .top .top-container .right .avatar-control .avatar-selected .avatar-center:hover{*/
+   /*background-color: #f79f0a;*/
+/*}*/
+/*.header .top .top-container .right .avatar-control .avatar-selected .avatar-out:hover{*/
+    /*background-color: #c81414;*/
+/*}*/
+
+
+.header .bottom .bottom-container {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+}
+.header .bottom .bottom-container .logo-area {
+    height: 100px;
+    margin-top: 104px;
+    margin-left: 260px;
+    font-size: 0;
+}
+.header .bottom .bottom-container .logo-area .logo {
+    display: inline-block;
+    vertical-align: top;
+    width: 271px;
+    height: 100%;
+}
+.header .bottom .bottom-container .logo-area .info {
+    display: inline-block;
+    vertical-align: top;
+    width: 326px;
+    height: 74px;
+    margin-top: 10px;
+    margin-left: 5px;
+    padding-left: 25px;
+    border-left: 2px solid #fff;
+    box-sizing: border-box;
+    font-size: 30px;
+    color: #fff;
+}
+.header .bottom .bottom-container .logo-area .info .top {
+    display: block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    /*margin-top: 14px;*/
+}
+.header .bottom .bottom-container .logo-area .info .bottom {
+    display: block;
+    width: 326px;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 14px;
+}
+.header .bottom .bottom-container .search-area {
+    display: block;
+    height: 36px;
+    line-height: 36px;
+    margin-top: 66px;
+    margin-left: 232px;
+    font-size: 0;
+}
+.header .bottom .bottom-container .search-area .input-area {
+    display: inline-block;
+    width: 428px;
+    height: 100%;
+    position: relative;
+    vertical-align: top;
+}
+.header .bottom .bottom-container .search-area .input-area .input {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    border: 0;
+    outline: 0;
+    border-radius: 18px;
+    padding-left: 90px;
+    padding-right: 118px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #333;
+}
+
+
+
+.header .bottom .bottom-container .search-area .input-area .select-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80px;
+    height: 36px;
+    line-height: 36px;
+}
+.header .bottom .bottom-container .search-area .input-area .select-area .dropdown-toggle {
+    width: 100%;
+    height: 100%;
+    line-height: 36px;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    border-radius: 18px 0px 0 18px;
+    box-sizing: border-box;
+    font-size: 0;
+    text-align: right;
+    cursor: pointer;
+}
+.header .bottom .bottom-container .search-area .input-area .select-area .dropdown-toggle span {
+    font-size: 14px;
+    color: #333;
+    margin-right: 3px;
+}
+.header .bottom .bottom-container .search-area .input-area .select-area .dropdown-menu {
+    width: 100px;
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    list-style: none;
+    margin-top: 4px;
+    overflow: hidden;
+}
+.header .bottom .bottom-container .search-area .input-area .select-area .up {
+    display: block;
+}
+.header .bottom .bottom-container .search-area .input-area .select-area .down {
+    display: none;
+}
+
+.header .bottom .bottom-container .search-area .input-area .select-area .dropdown-menu li {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 30px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.header .bottom .bottom-container .search-area .input-area .select-area .dropdown-menu li:hover {
+    background-color: #02c0e8;
+    color: #fff;
+}
+.header .bottom .bottom-container .search-area .input-area .select-area .dropdown-menu .active {
+    background-color: #0066cc;
+    color: #fff;
+}
+
+
+
+
+.header .bottom .bottom-container .search-area .input-area .search-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 108px;
+    height: 100%;
+    line-height: 36px;
+    border-radius: 0 18px 18px 0;
+    font-size: 14px;
+    color: #4c4c4c;
+    text-align: center;
+    border-left: 1px solid #32c0e8;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.header .bottom .bottom-container .search-area .input-area .search-button i:before {
+    font-size: 20px;
+    font-weight: 600;
+    color: #32c0e8;
+    margin-right: 6px;
+    vertical-align: top;
+}
+.header .bottom .bottom-container .search-area .accept-send-button {
+    display: inline-block;
+    width: 94px;
+    height: 100%;
+    line-height: 36px;
+    background-color: #ffffff;
+    border-radius: 18px;
+    color: #4c4c4c;
+    font-size: 14px;
+    text-align: center;
+    vertical-align: top;
+    cursor: pointer;
+}
+.header .bottom .bottom-container .search-area .accept-send-button:hover {
+    background-color: #32c0e8;
+    color: #fff;
+}
+.header .bottom .bottom-container .search-area .accept-button {
+    margin-left: 38px;
+}
+.header .bottom .bottom-container .search-area .send-button {
+    margin-left: 24px;
+}
+
+.header .bottom .bottom-container .info-img {
+    width: 310px;
+    height: 110px;
+    position: absolute;
+    bottom: 60px;
+    right: 42px;
+}

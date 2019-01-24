@@ -1,0 +1,474 @@
+.text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+ul {
+    list-style: none;
+}
+.homeContentDiv{
+    min-width: 1320px;
+    width: 100%;
+    height: auto;
+    -webkit-box-shadow:  0 1px 2px #888888;
+    -moz-box-shadow:  0 1px 2px #888888;
+    box-shadow:  0 1px 2px #888888;
+}
+.homeSliderCoverDiv{
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+}
+.homeSliderDiv{
+    position: relative;
+    top: 0;
+    left: 0;
+    min-width: 1320px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.homeSliderLeftPartDiv, .homeSliderRightPartDiv {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    top: 0;
+    left: 0;
+    float: left;
+    width: 50%;
+    height: 100%;
+    padding-right: 585px;
+    background-position:0 center;
+    background-repeat: repeat-x;
+    background-size: contain;
+    overflow: hidden;
+}
+.homeSliderRightPartDiv{
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+.homeSliderLeftImg, .homeSliderRightImg{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    height: 380px;
+}
+.homeSliderRightImg{
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph; /*IE*/
+}
+.homeSliderLeftPartMask, .homeSliderRightPartMask{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(161,213,255,0.8);
+    z-index: 10;
+}
+.homeSliderLeftPartButton, .homeSliderRightPartButton{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 60px;
+    height: 60px;
+    line-height: 64px\9;
+    border-radius: 8px;
+    background-color: rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+.homeSliderLeftPartButton:before, .homeSliderRightPartButton:before{
+    font-size: 55px;
+    color: white;
+    text-align: center;
+}
+.homeSliderLeftPartButton{
+    left: -75px;
+}
+.homeSliderRightPartButton{
+    right: -75px;
+}
+.homeSliderMiddlePartDiv {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    box-sizing: border-box;
+    width: 1170px;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 10;
+}
+.homeExpresswayDiv, .homeSliderImgLinkDiv, .homeUserInfoDiv{
+    float: left;
+    border-right: 1px solid #dcdcdc;
+    box-sizing: border-box;
+}
+.homeUserInfoDiv{
+    border-right-width: 0;
+}
+.homeExpresswayDiv{
+    box-sizing: border-box;
+    width: 180px;
+    height: 100%;
+    padding: 0 15px;
+}
+.homeExpresswayItem{
+    position: relative;
+    box-sizing: border-box;
+    width: 150px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.homeExpresswayItem:last-child{
+    border-bottom-width: 0;
+}
+.homeExpresswayItemLink{
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    width: 100%;
+    height: 21px;
+}
+.homeExpresswayItem .homeExpresswayItemIcon {
+    position: relative;
+    top: 3px;
+    width: 1em;
+    height: 1em;
+    font-size: 18px;
+    fill: currentColor;
+    overflow: hidden;
+}
+.homeExpresswayItem .homeExpresswayItemTitle{
+    font-size: 16px;
+    color: #323232;
+    margin-left: 10px;
+}
+.homeExpresswayItem_select .homeExpresswayItemIcon:before {
+    color: #0066cc;
+}
+.homeExpresswayItem_select .homeExpresswayItemTitle {
+    color: #0066cc;
+}
+.homeExpresswayItemTip{
+    font-size: 14px;
+    color: #646464;
+    word-break: break-all;
+}
+.homeSliderImgLinkDiv{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 750px;
+    height: 100%;
+    overflow: hidden;
+}
+.homeSliderImgLinkDiv .slider-point-area {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    z-index: 1;
+    box-sizing: border-box;
+}
+.homeSliderImgLinkDiv .slider-point-area .slider-point {
+    display: inline-block;
+    vertical-align: middle;
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+    margin-right: 15px;
+    background-color: #dcdcdc;
+    cursor: pointer;
+}
+.homeSliderImgLinkDiv .slider-point-area .slider-point:last-child {
+    margin-right: 0;
+}
+.homeSliderImgLinkDiv .slider-point-area .slider-point-select {
+    background-color: #c81414;
+}
+.homeSliderImgLinkDiv .homeSliderList{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+.homeSliderImgLinkDiv a.homeSliderImgLink{
+    float: left;
+}
+.homeSliderImgLink{
+    display: block;
+    position: relative;
+    top: 50%;
+    left: 0;
+    margin-top: -190px;
+    width: 750px;
+    height: 380px;
+    overflow: hidden;
+}
+.homeSliderImg{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    height: 380px;
+}
+.homeUserInfoDiv{
+    box-sizing: border-box;
+    width: 240px;
+    height: 450px;
+    overflow: hidden;
+}
+.userInfoDiv{
+    display: none;
+    box-sizing: border-box;
+    width: 240px;
+    height: 150px;
+    padding: 18px 0;
+}
+.userBaseInfoDiv{
+    box-sizing: border-box;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    padding-left: 88px;
+    border-top: 1px solid transparent;
+}
+.userImgDiv{
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 66px;
+    height: 66px;
+    border: 1px solid #dcdcdc;
+    border-radius: 33px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.userImg{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.userLoginInfo{
+    position: absolute;
+    top:50%;
+    left:50%;
+    width:100%;
+    transform:translate(-50%,-50%);
+    padding-left: 88px;
+    box-sizing: border-box;
+    line-height: 24px;
+    color: #646464;
+    font-size: 14px;
+}
+.username-area {
+    max-height: 50px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.userName{
+    font-weight: bold;
+    color: #229160;
+}
+.userWelcomeTip {
+    margin-top: 5px;
+}
+.loginBtnDiv{
+    width: 100%;
+    height: 30px;
+    margin-top: 15px;
+}
+.loginBtnDiv button{
+    float: left;
+    margin-left: 20px;
+    width: 90px;
+    height: 30px;
+    border: 1px solid #c81414;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+}
+.userCenter{
+    background-color: #c81414;
+    color: #ffffff;
+}
+.userLoginOut{
+    background-color: #ffffff;
+    color: #c81414;
+}
+.homeUserInfoDiv .loginDiv {
+    box-sizing: border-box;
+    width: 240px;
+    height: 150px;
+    padding: 18px 0;
+    display: none;
+}
+.homeUserInfoDiv .login-reg-button {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 20px;
+    margin-top: 35px;
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 8px;
+    font-size: 14px;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.homeUserInfoDiv .login-btn {
+    background-color: #229160;
+    border: 1px solid #229160;
+    color: #ffffff;
+}
+.homeUserInfoDiv .reg-btn {
+    background-color: #ffffff;
+    border: 1px solid #c81414;
+    color: #c81414;
+}
+
+.homeNoticeInfoDiv{
+    width: 100%;
+    height: 100%;
+}
+.homeNoticeListTitleDiv{
+    width: 100%;
+    height: 40px;
+}
+.homeNoticeListTitle{
+    box-sizing: border-box;
+    float: left;
+    width: 120px;
+    height: 38px;
+    background: #f0f0f0;
+    font-size: 14px;
+    color: #323232;
+    text-align: center;
+    line-height: 38px;
+    /*border-top: 1px solid #dcdcdc;*/
+    /*border-left: 1px solid #0066cc;*/
+    border-bottom: 1px solid #0066cc;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.homeNoticeListTitle:first-child{
+    /*border-left-width: 0;*/
+    border-right: 1px solid #0066cc;
+}
+.homeNoticeListTitle__select{
+    color: #4093d8;
+    background: #ffffff;
+    border-color: transparent;
+}
+.homeNoticeListCoverDiv{
+    width: 240px;
+    height: 410px;
+    overflow: hidden;
+    position: relative;
+}
+
+.homeNoticeListUl {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 520px;
+    height: 100%;
+    overflow: hidden;
+}
+.homeNoticeListUl .homeNoticeListLi {
+    float: left;
+    display: block;
+    width: 240px;
+    height: 100%;
+}
+.homeNoticeListMiddleLayer{
+    display: block;
+    width: 260px;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.homeNoticeList{
+    box-sizing: border-box;
+    padding: 0 15px;
+    width: 240px;
+    height: auto;
+    list-style: square inside;
+}
+.homeNoticeItem{
+    width: 210px;
+    /*height: 40px;*/
+    padding: 10px 5px 10px 0;
+    border-bottom: 1px solid #ededed;
+    box-sizing: border-box;
+    color: #4093d8;
+    /*white-space: nowrap;*/
+    /*overflow: hidden;*/
+}
+.homeNoticeItem:last-child{
+    border-bottom-width: 0;
+}
+/* 原样式 */
+/*.homeNoticeItemLink{
+    float: left;
+    width: 100%;
+    !*position: relative;*!
+    !*max-height: 42px;*!
+    height: 20px;
+    color: #636363;
+    font-size: 14px;
+    line-height: 20px;
+    overflow: hidden;
+    word-break: break-all;
+    cursor: pointer;
+    text-indent: 15px;
+}*/
+/* 新样式 */
+.homeNoticeItem a.homeNoticeItemLink {
+    position: relative;
+    width: 100%;
+    max-height: 42px;
+    color: #636363;
+    font-size: 14px;
+    line-height: 20px;
+    /*white-space: nowrap;
+    text-overflow: ellipsis;*/
+    overflow: hidden;
+    cursor: pointer;
+    /*margin-left: -10px;*/
+}
+/*.homeNoticeItemLink:before {
+    float: left;
+    position: relative;
+    top: 10px;
+    left: 0;
+    margin-top: -2px;
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: red;
+}*/

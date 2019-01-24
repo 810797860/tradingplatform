@@ -1,0 +1,305 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: white;
+}
+.header-div {
+    width: 100%;
+    background-color: #e6e6e6;
+}
+.register {
+    height: 100%;
+    box-sizing: border-box;
+    /*padding-top: 140px;*/
+    background-color: white;
+}
+
+.register-head{
+    height: 79px;
+    line-height: 79px;
+    width: 100%;
+    border-bottom: 1px solid #dcdcdc;
+}
+.register-head .register-head-content{
+    width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+}
+.register-head .register-head-left{
+    float: left;
+}
+.register-head .register-head-left img{
+    height: 60px;
+    cursor: pointer;
+}
+.register-head .register-head-right{
+    float: right;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    color: #0066cc;
+    margin-top: 19px;
+    border: 1px solid #0066cc;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.register-head-right .back-index{
+    text-decoration: none;
+    color: #0066cc;
+}
+
+.header-div p {
+    width: 1170px;
+    margin: 0 auto;
+    line-height: 30px;
+    color: #646464;
+}
+.web-logotype {
+    width: 1170px;
+    margin: 0 auto;
+    padding: 30px;
+}
+.register-main-div .register-logo {
+    width: 100px;
+    height: 100px;
+    margin-left: 230px;
+    margin-bottom: 10px;
+}
+.register-main-div .register-tab {
+    height: 46px;
+    line-height: 46px;
+    margin-bottom: 44px;
+}
+.register-main-div .register-tab .tab-style {
+    font-size: 20px;
+    color: #4c4c4c;
+    display: inline-block;
+    vertical-align: middle;
+    width: 185px;
+    text-align: center;
+    border-bottom: 1px solid #dcdcdc;
+    cursor: pointer;
+}
+.register-main-div .register-tab .tab-style-active {
+    border-bottom: 1px solid #0066cc;
+}
+.trademark-copywriting {
+    display: inline-block;
+}
+.web-name {
+    font-size: 37px;
+    color: #000;
+    line-height: 30px;
+}
+.web-purpose {
+    font-size: 16px;
+    line-height: 24px;
+    color: #323232;
+}
+.register-main-div {
+    width: 480px;
+    margin: 20px auto 0;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 13px 0px rgba(100, 100, 100, 0.25);
+    height: 520px;
+    position: relative;
+    box-sizing: border-box;
+    padding-top: 30px;
+    border-radius: 5px;
+}
+.register-success {
+    width: 1170px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 13px 0px
+    rgba(100, 100, 100, 0.25);
+    height: 632px;
+    position: relative;
+    box-sizing: border-box;
+    padding-top: 56px;
+    padding-left: 320px;
+    display: none;
+}
+.register-success .success-mark {
+    padding-top: 210px;
+    width: 530px;
+    text-align: center;
+}
+.register-success .success-mark i:before {
+    font-size: 60px;
+    color: #0db5fb;
+}
+.register-success p {
+    width: 530px;
+    text-align: center;
+}
+.register-way-tab,.back-to-login {
+    cursor: pointer;
+    width: 360px;
+    margin: 10px auto;
+    text-align: right;
+}
+.register-way-tab .backLogin{
+    float: left;
+}
+.back-to-login {
+    padding-right: 0;
+}
+.register-form {
+    /*margin-top: 105px;*/
+}
+.register-form-div {
+    width: 370px;
+    padding-left: 57px;
+    height: 360px;
+}
+.form-input {
+    width: 370px;
+    height: 50px;
+    box-sizing: border-box;
+    border: solid 1px #dcdcdc;
+    padding-left: 50px;
+    font-size: 14px;
+
+}
+/*.form-input:focus {
+    border: none;
+}*/
+.register-form-input,.verification-input {
+    box-sizing: border-box;
+    position: relative;
+    width: 370px;
+    height: 50px;
+    margin-bottom: 20px;
+    /*margin-left: 100px;*/
+}
+.verification-input .verification {
+    width: 100px;
+    height: 34px;
+    box-sizing: border-box;
+    border: solid 1px #dcdcdc;
+    font-size: 14px;
+    margin-right: 30px;
+    vertical-align: top;
+    padding-left: 12px;
+    border-radius: 5px;
+}
+.verification-input .send-message{
+    /*padding: 5.5px;*/
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    line-height: 34px;
+    height: 34px;
+    width: 82px;
+    text-align: center;
+    /*padding: 0 5px;*/
+    cursor: pointer;
+    background-color: #0db5fb;
+    color: #fff;
+    display: inline-block;
+}
+.verification-input .send-message:disabled{
+    background-color: #aaaaaa;
+}
+.icon-style:before {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    font-size: 28px;
+    color: #dcdcdc;
+}
+.register-button {
+    width: 370px;
+    height: 50px;
+    line-height: 50px;
+    padding: 0;
+    color: #ffffff;
+    background-color: #0066cc;
+    box-shadow: 0 0 5px 0 #646464;
+    font-size: 20px;
+    text-align: center;
+}
+.register-button:hover {
+    color: #ffffff;
+}
+.get-validate-btn {
+    display: inline-block;
+    width: 94px;
+    text-align: center;
+    background-color: #dcdcdc;
+    line-height: 51px;
+    color: #0db5fb;
+}
+.get-back-btn {
+    width: 69px;
+    height: 113px;
+    box-shadow: 0 0 5px 0 #646464;
+    background-color: #0db5fb;
+    position: absolute;
+    top: 0;
+    right: -100px;
+    color: #ffffff;
+    cursor: pointer;
+}
+.get-back-btn p {
+    width: 44px;
+    font-size: 18px;
+    margin: 0 auto;
+    padding: 25px 0px;
+    letter-spacing: 4px;
+    line-height: 35px;
+}
+.register-footer-div {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: #f0f0f0;
+}
+.footer-list {
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    padding: 25px 0 15px;
+    font-size: 18px;
+}
+.footer-list li {
+    display: inline-block;
+}
+.footer-list li i:before{
+    font-size: 20px;
+    padding: 0 5px;
+}
+.footer-list li a {
+    cursor: pointer;
+    color: #818181;
+    text-decoration: none;
+}
+.copyright {
+    text-align: center;
+    font-size: 14px;
+    color: #818181;
+}
+.user-email{
+    display: none;
+}
+
+.register-main-div .input-error{
+    border-color: #ff0000;
+}
+.register-main-div .registerTip{
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translateY(100%);
+    margin-bottom: 0;
+    font-size: 12px;
+    color: #ff0000;
+    white-space: nowrap;
+}

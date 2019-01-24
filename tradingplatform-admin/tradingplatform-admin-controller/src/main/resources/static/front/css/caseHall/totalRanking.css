@@ -1,0 +1,19 @@
+.total-Ranking-div{
+    width: 100%;
+    height: auto;
+    /* 浮动撑开高度 */
+    overflow: hidden;
+}
+.total-Ranking-item{
+    float: left;
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    width: 290px;
+    height: 268px;
+    outline: none;
+}
+
+.total-Ranking-item .solution-card .title .high-light {
+    color: red;
+}

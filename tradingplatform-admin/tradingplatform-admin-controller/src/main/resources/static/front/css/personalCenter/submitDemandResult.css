@@ -1,0 +1,95 @@
+.submit-demand-result{
+    width: 100%;
+    height: auto;
+    font-size: 14px;
+    overflow: hidden;
+}
+.submit-demand-result p{
+    margin-bottom: 0;
+}
+.submit-demand-result-label{
+    height: 35px;
+    line-height: 35px;
+    font-weight: normal;
+}
+.submit-demand-result-show-div, .submit-demand-result-edit-div{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    padding: 15px;
+}
+.submitDemandResultReviewSign{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    line-height: 150px;
+    border-radius: 75px;
+    border: 5px solid transparent;
+    background-color: transparent;
+    font-size: 40px;
+    transform: rotate(25deg);
+    pointer-events: none;
+}
+#submitDemandResultEditFiles{
+    margin-top: 15px;
+}
+.submit-demand-result button:hover{
+    background-color: initial;
+}
+.submit-demand-result button[name="reset"] {
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    background-color: #ff0000;
+}
+.submit-demand-result button[name="upLoad"]{
+    background-color: #0066cc;
+}
+.submit-demand-result button[name="submit"] {
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-150%);
+    width: 100px;
+    background-color: #0066cc;
+}
+.submit-demand-result button[name="cancel"] {
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    background-color: #ff0000;
+}
+.submit-demand-result-edit-input{
+    resize: none;
+}
+.submit-demand-result-tip-div{
+    float: left;
+    min-height: 35px;
+    line-height: 35px;
+}
+.submit-demand-result-tip-div .submit-demand-result-tip {
+    color: #ff0000;
+    font-size: 12px;
+}
+.submit-demand-result-show-text{
+    height: auto;
+    min-height: 34px;
+    word-break: break-all;
+    overflow: hidden;
+}
+#submitDemandResultEditDetail{
+    min-height: 300px !important;
+}

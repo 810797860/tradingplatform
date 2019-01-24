@@ -1,0 +1,251 @@
+.transaction-evaluate{
+    width: 100%;
+}
+.transaction-evaluate .transaction-evaluate-head{
+    height: 120px;
+    background-color: #fff;
+    box-sizing: border-box;
+    padding: 20px 0;
+    font-size: 0;
+}
+.transaction-evaluate-head div[name="headItem"] {
+    float: left;
+    margin: 0;
+    width: 210px;
+    height: 100%;
+}
+.transaction-evaluate-head div[name="headItem"] div[class="star"]{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    letter-spacing: 5px;
+}
+.transaction-evaluate-head div[name="headItem"] div[name="starDiv"] {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -62px;
+    width: 124px;
+    height: 40px;
+    white-space: nowrap;
+}
+.transaction-evaluate .transaction-evaluate-head .head-num-data .praise-rate{
+    font-size: 20px;
+    line-height: 40px;
+    color: #565656;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.transaction-evaluate .transaction-evaluate-head .head-num-data .praise-rate .praise-rate-num{
+    font-size: 22px;
+    color: #ff4e00;
+}
+.transaction-evaluate .transaction-evaluate-head .head-num-data .evaluate-total{
+    font-size: 16px;
+    line-height: 35px;
+    color: #565656;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.transaction-evaluate .transaction-evaluate-head .head-num-data .evaluate-total .evaluate-total-num{
+    font-size: 16px;
+    color: #ff4e00;
+}
+.transaction-evaluate .transaction-evaluate-head .average-speed-star .average-star-title,.average-quality-star .average-star-title,.average-attitude-star .average-star-title{
+    font-size: 20px;
+    line-height: 40px;
+    color: #565656;
+    text-align: center;
+}
+.normal-star:before{
+    color: #d8d8d8;
+}
+.active-star:before{
+    color: #ffbf25;
+}
+.transaction-evaluate .transaction-evaluate-middle{
+    height: 80px;
+    background-color: #f5f5f5;
+}
+.transaction-evaluate .transaction-evaluate-middle .middle-evaluate{
+    margin: 0 auto;
+    width: 544px;
+}
+.transaction-evaluate .transaction-evaluate-middle .middle-evaluate .evaluate-button,.evaluate-button-active{
+    display: inline-block;
+    vertical-align: middle;
+    width: 108px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 5px;
+    opacity: 0.8;
+    margin: 25px 35px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+}
+.transaction-evaluate .transaction-evaluate-middle .middle-evaluate .evaluate-button{
+    background-color: rgba(216, 216, 216, 0.8);
+    opacity: 0.8;
+}
+.transaction-evaluate .transaction-evaluate-middle .middle-evaluate .evaluate-button-active{
+    background-color: #0066cc;
+    color: #fff;
+}
+.transaction-evaluate .transaction-evaluate-bottom{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 120px;
+    background-color: #fff;
+    padding: 16px 36px;
+    overflow: hidden;
+}
+.transaction-evaluate .transaction-evaluate-bottom:nth-child(even){
+    background-color: #f8f8f8;
+}
+.transaction-evaluate .transaction-evaluate-bottom .technology-name{
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 30%;
+    height: 100%;
+    line-height: 88px;
+    font-size: 20px;
+    color: #0088c0;
+    border-right: 1px solid #e2e2e2;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.transaction-evaluate .transaction-evaluate-bottom .technology-detail{
+    float: left;
+    width: 70%;
+    height: 100%;
+}
+.transaction-evaluate .transaction-evaluate-bottom .avatar-information{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    top: 0;
+    left: 0;
+    float: left;
+    width: 40%;
+    height: 100%;
+    padding: 19px 15px 19px 80px;
+}
+.transaction-evaluate .transaction-evaluate-bottom .avatar-information-left{
+    position: absolute;
+    top: 19px;
+    left: 15px;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+}
+.transaction-evaluate .transaction-evaluate-bottom .avatar-information-right{
+    width: 100%;
+    height: 100%;
+}
+.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-information .avatar-information-right .avatar-detail{
+    font-size: 16px;
+    line-height: 25px;
+    color: #565656;
+    width: 100%;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-evaluate{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    width: 60%;
+    height: 100%;
+    padding: 19px 0;
+}
+.transaction-evaluate .avatar-evaluate .good-evaluation {
+    width: 100%;
+    height: 25px;
+    overflow: hidden;
+}
+.transaction-evaluate .avatar-evaluate .good-evaluation-star-area{
+    position: relative;
+    top: 0;
+    left: 65px;
+    width: 146px;
+    height: 100%;
+}
+.transaction-evaluate .avatar-evaluate .good-evaluation-star{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 25px;
+    letter-spacing: 5px;
+}
+.transaction-evaluate .avatar-evaluate .good-evaluation-text{
+    float: left;
+    font-size: 16px;
+    color: #565656;
+}
+
+
+
+/*.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-evaluate .good-evaluation{
+    height: 50%;
+    line-height: 25px;
+}*/
+/*.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-evaluate .good-evaluation .good-evaluation-star{
+    float: right;
+    width: 146px;
+    height: 100%;
+    line-height: 25px;
+    letter-spacing: 5px;
+}*/
+/*.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-evaluate .good-evaluation .good-evaluation-text{
+    float: left;
+    font-size: 16px;
+    color: #565656;
+}*/
+.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-evaluate .evaluation{
+    width: 100%;
+    height: 25px;
+    line-height: 16px;
+    font-size: 16px;
+    color: #565656;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-evaluate .evaluation .evaluation-describe{
+
+}
+.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-evaluate .evaluation .evaluation-text{
+    margin-right: 12px;
+}
+
+.no-comment{
+    display: none;
+    color: #565656;
+    font-size: 18px;
+    line-height: 40px;
+    text-align: center;
+    letter-spacing: normal;
+}
+.transaction-evaluate .noData{
+    height: 60px;
+    width: 130px;
+    line-height: 60px;
+    font-size: 25px;
+    margin: 0 auto;
+    padding-top: 20px;
+    display: none;
+}

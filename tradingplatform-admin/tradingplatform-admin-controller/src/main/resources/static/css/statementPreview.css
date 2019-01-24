@@ -1,0 +1,75 @@
+.headIndicators-container{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+input.my-input {
+    width: 70%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    /*padding: 8px 0;*/
+    box-sizing: border-box;
+}
+
+input.my-input-caption {
+    display: block;
+    margin: 30px auto;
+    text-align: center;
+    width: 100%;
+    border: none;
+    outline: none;
+    /*border-bottom: 1px solid #ccc;*/
+    font-size: 30px;
+    font-weight:bold;
+}
+
+input.my-input-sm {
+    border:none;
+    width: 100%;
+    padding: 8px 0px;
+    outline: none;
+    padding-left: 20px;
+}
+table th{
+    text-align: center;
+}
+
+table td{
+    text-align: center;
+    position: relative;
+}
+
+table th input{
+    text-align: center;
+}
+table td input{
+    text-align: center;
+}
+
+input[disabled='disabled'] {
+    background-color: white;
+    border: none;
+}
+
+select.my-select-el{
+    background-color: #337ab7;
+    color: white;
+    padding: 7px;
+    border-radius: 5px;
+    border-color: #2e6da4;
+    vertical-align: bottom;
+    outline: none;
+}
+
+select.my-select-el option {
+    background-color: white;
+    color: black;
+}
+
+i.glyphicon.glyphicon-new-window {
+    color: blue;
+    position: absolute;
+    top:20px;
+    cursor: pointer;
+}

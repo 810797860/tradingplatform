@@ -1,0 +1,702 @@
+.authentication-div{
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+}
+.authentication-div .form-group {
+    margin-bottom: 0;
+    word-break: break-all;
+}
+.authentication-div .inline-block {
+    display: inline-block;
+    vertical-align: top;
+}
+.authentication-div label {
+    line-height: 34px;
+    font-weight: normal;
+    text-align: right;
+}
+.authentication-form-div{
+    margin-left: 15px;
+    width: 100%;
+    height: auto;
+    font-size: 14px;
+    display: none;
+}
+.authentication-form-div .container{
+    width: 100%;
+}
+.authentication-base-info-div label{
+    width: 120px;
+}
+.authentication-base-info-div .form-control{
+    height: 34px;
+}
+.authentication-base-info-div div[model="show"] {
+    display: none;
+    line-height: 34px;
+    white-space: nowrap;
+}
+.authentication-base-info-div .wechat-number-model{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 50px;
+}
+.authentication-div .title-area {
+    height: 40px;
+    line-height: 40px;
+}
+.authentication-div .title-area .verify-title {
+    width: 120px;
+    height: 100%;
+    border-bottom: 1px solid #ccc;
+    font-weight: 600;
+    color: #000;
+    font-size: 16px;
+}
+.authentication-div .title-area .back-button {
+    display: none;
+    width: 44px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    background-color: #0066cc;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 5px;
+    margin-right: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.authentication-div .select-verify-way-area {
+    width: 100%;
+}
+.authentication-div .select-verify-way-area .select-verify-way-title {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #333;
+    font-size: 16px;
+    margin: 0;
+}
+.authentication-div .select-verify-way-area .verify-way-area {
+    width: 100%;
+    margin-top: 20px;
+    border: 1px solid #e1e2e5;
+    box-shadow: 0 2px 4px rgba(0,0,0,.14);
+    padding-left: 40px;
+    box-sizing: border-box;
+}
+.authentication-div .select-verify-way-area .verify-way-area .verify-way-item {
+    height: 140px;
+    padding: 40px 40px 0 0;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e5e9ef;
+}
+.authentication-div .select-verify-way-area .verify-way-area .verify-way-item .img-logo {
+    width: 72px;
+    height: 72px;
+    line-height: 68px;
+    text-align: center;
+    border-radius: 50%;
+    border: 2px solid #0066cc;
+    box-sizing: border-box;
+}
+.authentication-div .select-verify-way-area .verify-way-area .verify-way-item .img-logo .personal-icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 40px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #0066cc;
+}
+.authentication-div .select-verify-way-area .verify-way-area .verify-way-item .img-logo i:before {
+    font-size: 40px;
+    color: #0066cc;
+}
+.authentication-div .select-verify-way-area .verify-way-area .verify-way-item .verify-way-info {
+    width: 580px;
+    height: 72px;
+    margin-left: 20px;
+}
+.authentication-div .select-verify-way-area .verify-way-area .verify-way-item .verify-way-info .verify-way-info-title {
+    font-size: 18px;
+    color: #222;
+    margin: 8px 0 12px;
+}
+.authentication-div .select-verify-way-area .verify-way-area .verify-way-item .verify-way-info .verify-way-info-label {
+    font-size: 12px;
+    color: #6d757a;
+}
+.authentication-div .select-verify-way-area .verify-way-area .verify-way-item .verify-button-area {
+    width: 120px;
+    height: 72px;
+}
+.authentication-div .select-verify-way-area .verify-way-area .verify-way-item .verify-button-area .verify-button {
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    margin-top: 14px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #0066cc;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+.authentication-div textarea{
+    height: 200px;
+    resize: none;
+}
+.authentication-form-title{
+    width: 100%;
+    height: 80px;
+    font-size: 30px;
+    text-align: center;
+    line-height: 80px;
+}
+.company-logo-div{
+    float: left;
+    box-sizing: border-box;
+    width: 194px;
+    height: 194px;
+    border: 1px solid #dcdcdc;
+    text-align: center;
+    line-height: 194px;
+    cursor: pointer;
+    overflow: hidden;
+}
+.company-logo {
+    display: block;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 110%;
+    height: auto;
+    pointer-events: none;
+}
+.company-wechat-icon-cover{
+    box-sizing: border-box;
+    width: 108px;
+    height: 108px;
+    border: 1px solid #dcdcdc;
+    text-align: center;
+    line-height: 108px;
+    overflow: hidden;
+}
+.company-weChat-code {
+    display: block;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 110%;
+    height: auto;
+    pointer-events: none;
+}
+.company-logo-div .company-plus ,.company-wechat-icon-cover .company-plus{
+    pointer-events: none;
+    font-size: 60px;
+    margin-bottom: 0;
+}
+#area select{
+    float: left;
+    margin-right: 2%;
+    width: 32%;
+}
+#area select:last-child{
+    margin-right: 0;
+}
+.study-area-list-div{
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding-right: 150px;
+}
+.study-area-list-div .study-area-list-move-btn{
+    position: absolute;
+    top: 5px;
+    right: 100px;
+    width: 50px;
+    cursor: pointer;
+    color: #0066cc;
+}
+#studyArea, #serviceArea{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+#studyArea .type-item, #serviceArea .type-item{
+    float: left;
+    margin-right: 15px;
+    width: 90px;
+    height: 34px;
+    text-align: center;
+    line-height: 34px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+#studyArea .type-item:hover, #serviceArea .type-item:hover{
+    background-color: #0066cc;
+    color: #ffffff;
+}
+#studyArea .active, #serviceArea .active{
+    background-color: #0066cc;
+    color: #ffffff;
+}
+.authentication-div .btn {
+    position: relative;
+    left: 50%;
+}
+.authentication-div .form-true-btn{
+    transform: translateX(-150%);
+}
+.authentication-div .form-reset-btn{
+    transform: translateX(-50%);
+}
+.authentication-div .btn{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 127px;
+    height: 40px;
+}
+.authentication-div .form-true-btn{
+    background-color: #0066cc;
+}
+.authentication-div .authentication-company-status{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    box-sizing: border-box;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    line-height: 150px;
+    border-radius: 75px;
+    border: 5px solid transparent;
+    background-color: transparent;
+    font-size: 40px;
+    transform: rotate(25deg);
+    pointer-events: none;
+}
+.authentication-div .ability-info {
+    font-size: 12px;
+    color: #999;
+}
+.authentication-div .error-info-area {
+    height: 24px;
+    line-height: 20px;
+}
+.authentication-div .error-info-area .error-info {
+    display: none;
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: red;
+    margin-bottom: 0;
+    white-space: nowrap;
+}
+.authentication-div .error-border {
+    border: 1px solid red;
+}
+.prersonal-certification-area{
+    display: none;
+    width: 100%;
+    padding: 0 30px 30px 30px;
+    position: relative;
+    /*height: 500px;*/
+}
+.enterprise-certification-area{
+    display: none;
+    width: 100%;
+    /*height: 500px;*/
+    padding-bottom: 20px;
+}
+.certification-inline{
+    display: inline-block;
+    line-height: 34px;
+    height: 34px;
+    vertical-align: top;
+    width: 350px;
+    margin-left: 40px;
+}
+
+
+.authentication-certification {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+.authentication-certification .typeLabel{
+    position: relative;
+    float: left;
+    width: 74px;
+    height: 34px;
+    line-height: 34px;
+    padding: 0;
+    white-space: nowrap;
+}
+.authentication-certification .icon-red{
+    /*position: absolute;*/
+    /*top: 11px;*/
+    /*left: 0;*/
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateX(-100%);
+    color: #ff0000
+}
+.authentication-certification .icon-red:before{
+    font-size: 32px;
+    font-weight: bold;
+}
+.authentication-certification .typeLabelTitle {
+    display: inline-block;
+    vertical-align: top;
+    width: 120px;
+    height: 34px;
+    line-height: 34px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+}
+.authentication-certification .typeLabel {
+    display: inline-block;
+    vertical-align: top;
+    width: 120px;
+    height: 34px;
+    line-height: 34px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+}
+.authentication-certification .expert-info-item-tip-div{
+    position: absolute;
+    left: 15px;
+    bottom: -16px;
+    width: 100%;
+    height: 15px;
+    line-height: 15px;
+}
+.authentication-certification .expert-info-error-tip{
+    display: none;
+    color: #FF0000;
+    font-size: 12px;
+}
+.authentication-certification .form-group{
+    position: relative;
+    margin-bottom: 20px;
+}
+.authentication-certification .container{
+    width: 1090px;
+    position: relative;
+}
+.prersonal-certification-area-head{
+    height: 80px;
+    line-height: 80px;
+    font-size: 32px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+.prersonal-certification-area-head .back-button {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -15px;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #0066cc;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.prersonal-certification-area .prersonal-certification-area-img{
+    display: block;
+    width: 540px;
+    min-height: 200px;
+    /*background-color: #0066cc;*/
+    margin-top: 30px;
+}
+.prersonal-certification-area .prersonal-certification-area-img-content{
+    width: 400px;
+    height: 200px;
+    /*background-color: #FF0000;*/
+    float: right;
+    font-size: 100px;
+    font-weight: normal;
+    line-height: 200px;
+    text-align: center;
+    border: 1px solid #d8d8d8;
+    cursor: pointer;
+    position: relative;
+}
+.prersonal-certification-area-submit{
+    width: 100%;
+    display: block;
+    height: 60px;
+    line-height: 100px;
+    text-align: center;
+}
+.prersonal-certification-area-submit-btn{
+    display: inline-block;
+    width: 120px;
+    height: 34px;
+    line-height: 34px;
+    background-color: #0066cc;
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+.prersonal-certification-area .certification-logo-upload{
+    display: block;
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prersonal-certification-area .certification-logo-download-img{
+    display: none;
+    /*position: absolute;*/
+    top:0;
+    left: 0;
+    width: 400px;
+    height: auto;
+    cursor: pointer;
+    position: relative;
+}
+.prersonal-certification-area .prersonal-certification-area-img-content1{
+    position: relative;
+    margin-left: 140px;
+    cursor: pointer;
+    width: 402px;
+    min-height: 50px;
+    border: 1px solid gainsboro;
+    box-sizing: border-box;
+    /* display: none; */
+}
+.enterprise-certification-area{
+    position: relative;
+    display: none;
+    width: 100%;
+    padding: 0 30px 30px 30px;
+}
+.enterprise-certification-area .certification-logo-upload{
+    display: block;
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.enterprise-certification-area .certification-logo-download-img{
+    display: none;
+    /*position: absolute;*/
+    top:0;
+    left: 0;
+    width: 400px;
+    height: auto;
+    cursor: pointer;
+    position: relative;
+}
+.enterprise-certification-area-submit{
+    width: 100%;
+    display: block;
+    height: 60px;
+    line-height: 100px;
+    text-align: center;
+}
+.enterprise-certification-area-submit-btn{
+    display: inline-block;
+    width: 120px;
+    height: 34px;
+    line-height: 34px;
+    background-color: #0066cc;
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+.authentication-certification-tips{
+    margin-left: 120px;
+    display: block;
+    font-size: 14px;
+    color: red;
+    text-align: left;
+    width: 750px;
+}
+.authentication-certification-tips-color{
+    display: block;
+    font-size: 14px;
+    color: grey;
+    text-align: left;
+}
+.enterprise-certification-area .prersonal-certification-area-img{
+    display: block;
+    width: 100%;
+    min-height: 280px;
+    /* background-color: #0066cc; */
+    margin-top: 30px;
+}
+.enterprise-certification-area .prersonal-certification-area-img-content{
+    width: 400px;
+    height: 200px;
+    /* background-color: #FF0000; */
+    /* float: left; */
+    font-size: 100px;
+    font-weight: normal;
+    line-height: 200px;
+    text-align: center;
+    border: 1px solid #d8d8d8;
+    cursor: pointer;
+    position: relative;
+    margin-left: 120px;
+}
+.enterprise-certification-area .prersonal-certification-area-img-content1{
+    position: relative;
+    margin-left: 120px;
+    min-height: 50px;
+    cursor: pointer;
+    display: none;
+}
+.enterprise-certification-area-status{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    box-sizing: border-box;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    line-height: 150px;
+    border-radius: 75px;
+    border: 5px solid transparent;
+    background-color: transparent;
+    font-size: 40px;
+    transform: rotate(25deg);
+    pointer-events: none;
+}
+.prersonal-certification-area-status{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    box-sizing: border-box;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    line-height: 150px;
+    border-radius: 75px;
+    border: 5px solid transparent;
+    background-color: transparent;
+    font-size: 40px;
+    transform: rotate(25deg);
+    pointer-events: none;
+}
+.authentication-certification-tips-inline{
+    width: 300px;
+    position: absolute;
+    left: 480px;
+    top: 0;
+    font-size: 14px;
+    color: darkgray;
+    text-align: left;
+    height: 34px;
+    line-height: 34px;
+}
+
+.authentication-certification .certification-cut-picture-Area-Bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+    z-index: 10;
+}
+.authentication-certification .certification-cut-picture-Area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 900px;
+    height: 610px;
+}
+.authentication-certification .certification-image {
+    display: block;
+    margin: 0 auto 10px;
+    width: 400px;
+    height: 200px;
+}
+.authentication-certification .certification-cut-picture {
+    width: 100%;
+    height: auto;
+    background: #f0f0f0;
+}
+.authentication-certification .cut-btn {
+    position: relative;
+    top: 10px;
+    left: 50%;
+    width: 100px;
+    height: 40px;
+    font-size: 16px;
+    border-width: 0;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+}
+.authentication-certification .cut-btn[name="cutTrue"] {
+    margin-left: -150px;
+    background: #4093d8;
+}
+.authentication-certification .cut-btn[name="cutCancel"] {
+    margin-left: 100px;
+    background: #FF0000;
+}
+.authentication-certification .cutPicturePluginLoadingMark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 350px;
+    background: rgba(0, 0, 0, 0.2);
+}
+.authentication-certification .cutPicturePluginLoading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -10px;
+    margin-left: -10px;
+    width: 20px;
+    height: 20px;
+}

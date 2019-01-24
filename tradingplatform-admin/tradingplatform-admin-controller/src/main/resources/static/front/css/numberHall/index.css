@@ -1,0 +1,371 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.number-hall{
+    width: 100%;
+    background-color: #fff;
+}
+.number-hall a:link{
+    color: #000;
+}
+.number-hall a:visited{
+    color: #000;
+}
+.number-hall a:hover{
+    color: #000;
+}
+.number-hall a:active{
+    color: #000;
+}
+.number-hall-headImg{
+    display: block;
+    width: 100%;
+    height: 415px;
+    background: url("/static/front/assets/image/numberHall-bg.jpg") no-repeat;
+    background-size: 100% auto;
+    margin-top: -1px;
+}
+.number-hall-industries{
+    width: 1170px;
+    margin: 0 auto;
+}
+.number-hall .head-area {
+    width: 100%;
+    height: 110px;
+    padding: 25px 0 15px 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+.number-hall .head-area .title-ch {
+    font-size: 28px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    color: #4b4b4b;
+}
+.number-hall .head-area .title-ch::before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 162px;
+    height: 6px;
+    border-top: 1px solid #989898;
+    border-bottom: 1px solid #989898;
+    transform:skew(135deg);
+    -moz-transform: skew(135deg);
+    -webkit-transform: skew(135deg);
+    margin-right: 20px;
+}
+.number-hall .head-area .title-ch::after {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 162px;
+    height: 6px;
+    border-top: 1px solid #989898;
+    border-bottom: 1px solid #989898;
+    transform:skew(45deg);
+    -moz-transform: skew(45deg);
+    -webkit-transform: skew(45deg);
+    margin-left: 20px;
+}
+.number-hall .head-area .title-en {
+    font-size: 16px;
+    line-height: 30px;
+    letter-spacing: 0;
+    color: #4b4b4b;
+    margin-top: 5px;
+}
+/*八大分类*/
+.number-hall-industries .type-body {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    left: 50%;
+    margin-left: -488px;
+    width: 975px;
+    height: 70px;
+    padding: 0 50px;
+    overflow: hidden;
+}
+.number-hall-industries .type-body .left-btn,
+.number-hall-industries .type-body .right-btn {
+    position: absolute;
+    top: 0;
+    margin: auto;
+    width: 50px;
+    height: 100%;
+    text-align: center;
+    line-height: 100px;
+    cursor: pointer;
+    background-color: #ffffff;
+    z-index: 1;
+}
+.number-hall-industries .type-body .left-btn {
+    left: 0;
+}
+.number-hall-industries .type-body .right-btn {
+    right: 0;
+}
+.number-hall-industries .type-body .right-btn:before {
+    font-size: 30px;
+    color: #9e9e9e;
+}
+.number-hall-industries .type-body .left-btn:before {
+    font-size: 30px;
+    color: #9e9e9e;
+}
+.number-hall-industries .type-body .type-area {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding-left: 50px;
+}
+.number-hall-industries .type-area .type-item {
+    box-sizing: border-box;
+    margin-top: 30px;
+    width: 175px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-bottom: 1px solid #aaaaaa;
+    font-size: 16px;
+    color: #323232;
+    cursor: pointer;
+}
+/*.number-hall-industries .type-area .type-item .type-title {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-bottom: 0;
+    max-height: 100%;
+    line-height: 18px;
+    text-align: center;
+    word-break: break-all;
+    padding: 0 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+
+}*/
+.number-hall-industries .type-area .type-item .type-title {
+    display: inline-block;
+    height: 38px;
+    border-bottom: 2px solid transparent;
+}
+.number-hall-industries .type-area .type-item .type-title:hover {
+    color: #0066cc;
+    border-bottom: 2px solid #0066cc;
+}
+
+.number-hall-industries .type-area .active > p.type-title {
+    color: #0066cc;
+    border-bottom: 2px solid #0066cc;
+}
+/*八大分类（end）*/
+
+/*数字展厅列表*/
+.number-hall-industries-content {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 293px;
+    overflow: hidden;
+}
+.number-hall-industries-content .content-none {
+    position: relative;
+    top: 50%;
+    left: 0;
+    margin-top: -25px;
+    font-size: 50px;
+    text-align: center;
+}
+.number-hall-industries-list-div{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.number-hall-industries-list{
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    height: 100%;
+}
+.number-hall-industries-page-area{
+    float: left;
+    width: 1170px;
+    height: 100%;
+}
+.number-hall-industries-list .number-hall-industries-item-area {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    float: left;
+    width: 585px;
+    height: 100%;
+    padding: 50px;
+}
+.number-hall-industries-list  .number-hall-industries-link{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 20px 20px 20px 220px;
+    border: 1px solid #aaaaaa;
+    border-radius: 3px;
+    outline: none;
+}
+
+.number-hall-industries-link .number-hall-industries-image {
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 170px;
+    height: 170px;
+    border: 1px solid #eeeeee;
+    overflow: hidden;
+}
+
+/*多行超出隐藏（多浏览器兼容）*/
+.number-hall-industries-link p[class*="number-hall-industries-"] {
+    display: inline-block;
+    width: 100%;
+    max-height: 40px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: normal;
+    overflow: hidden;
+}
+.number-hall-industries-link p[class*="number-hall-industries-"] .content {
+    display: inline-block;
+    float: right;
+    margin-left: -5px;
+    width: 100%;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+    word-break: normal;
+}
+
+.number-hall-industries-link p[class*="number-hall-industries-"]::before {
+    display: block;
+    float: left;
+    width: 5px;
+    content: '';
+    height: 40px;
+}
+
+.number-hall-industries-link p[class*="number-hall-industries-"]::after {
+    float: right;
+    /* 移动省略号位置 */
+    position: relative;
+    left: 100%;
+    top: -20px;
+    /* 使盒子不占位置 */
+    margin-left: -1.1em;
+    content: "...";
+    height: 20px;
+    padding-right: 5px;
+    line-height: 20px;
+    /* 为三个省略号的宽度 */
+    width: 1.1em;
+    background-color: #FFF;
+}
+
+/*.number-hall-industries-link p[class*="number-hall-industries-"] {
+    display: block;
+    margin-bottom: 15px;
+    width: 100%;
+    max-height: 60px;
+    line-height: 30px;
+    font-size: 18px;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}*/
+.number-hall-industries-link p[class*="number-hall-industries-"]:last-child{
+    margin-bottom: 0;
+}
+.number-hall-industries-link p.number-hall-industries-title {
+    max-height: 60px;
+    line-height: 30px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.number-hall-industries-link p.number-hall-industries-title::before {
+    height: 60px;
+}
+.number-hall-industries-link p.number-hall-industries-title::after{
+    top: -30px;
+    height: 30px;
+}
+.number-hall-industries-link p.number-hall-industries-contact{
+    max-height: 20px;
+}
+.number-hall-industries-link p.number-hall-industries-contact::before{
+    height: 20px;
+}
+
+
+.number-hall-industries-content .number-hall-btn {
+    display: none;
+    position: absolute;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    line-height: 293px;
+    text-align: center;
+    cursor: pointer;
+}
+.number-hall-industries-content .number-hall-btn:before{
+    font-size: 50px;
+}
+.number-hall-industries-content .icon-arrow-right{
+    right: 0;
+}
+.number-hall-industries-content .icon-left-arrow{
+    left: 0;
+}
+.number-hall-industries-mark{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/*企业*/
+.number-hall-enterprise {
+    background-color: #f6f6f6;
+}
+.number-hall-enterprise-container {
+    width: 1170px;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+.number-hall-enterprise-content {
+    overflow: hidden;
+}
+.number-hall-enterprise-content .enterprise-card {
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+.number-hall-enterprise-content .enterprise-card:nth-of-type(4n) {
+    margin-right: 0;
+}

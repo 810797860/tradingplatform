@@ -45,7 +45,7 @@ public class TestShiroController {
     @GetMapping(value = "/login")
     @ApiOperation(value = "/login", notes = "跳转到登录页面")
     public String login(Model model) {
-        return "index";
+        return "login";
     }
 
     /**

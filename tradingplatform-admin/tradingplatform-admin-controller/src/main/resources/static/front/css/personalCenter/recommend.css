@@ -1,0 +1,305 @@
+.recommend {
+    width: 100%;
+    height: auto;
+    font-size: 14px;
+    background: #f0f0f0;
+}
+.recommend ul li {
+    list-style: none;
+}
+.recommend a{
+    color: initial;
+    text-decoration: none;
+}
+.recommend a:visited{
+    color: initial;
+}
+.recommend a:link{
+    color: initial;
+}
+.recommend a:active{
+    color: initial;
+}
+.recommend a:hover{
+    color: initial;
+}
+.recommend .recommend-select-model{
+    width: 100%;
+    height: 160px;
+}
+.recommend .recommend-select-model .recommend-select-model-item {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 53px;
+    padding: 10px 30px;
+}
+.recommend .recommend-select-model-item .recommend-select-left-part {
+    float: left;
+    width: 579px;
+    height: 100%;
+}
+.recommend .recommend-select-model-item .recommend-select-left-part .recommend-select-type-list{
+    height: 100%;
+}
+.recommend .recommend-select-model-item .recommend-select-left-part .recommend-select-type-list .recommend-select-type-item {
+    margin-right: 30px;
+    width: 100px;
+    height: 100%;
+    border-radius: 16px;
+}
+.recommend .recommend-select-model-item .recommend-select-left-part .recommend-select-type-list .active-type{
+    background: #ffaa4f;
+    color: #ffffff;
+}
+.recommend .recommend-select-model-item .recommend-select-right-part {
+    float: right;
+    width: 311px;
+    height: 100%;
+}
+.recommend .recommend-select-model-item .recommend-select-right-part .recommend-select-key-input {
+    display: inline-block;
+    width: 189px;
+    height: 100%;
+    padding-left: 20px;
+}
+.recommend .recommend-select-model-item .recommend-select-right-part .recommend-select-key-button{
+    width: 70px;
+    height: 100%;
+    background: #c4c4c4;
+    color: #ffffff;
+}
+.recommend .recommend-select-model-item .recommend-select-title{
+    display: inline-block;
+    height: 100%;
+    line-height: 32px;
+    color: #909090;
+}
+.recommend .recommend-select-model-item .recommend-select-sort-list {
+    margin-left: 30px;
+    width: 810px;
+    height: 100%;
+}
+.recommend .recommend-select-model-item .recommend-select-sort-list .recommend-select-sort-item {
+    float: left;
+    width: 100px;
+    height: 100%;
+    line-height: 32px;
+    color: #000000;
+}
+.recommend .recommend-select-model-item .recommend-select-sort-list .active-sort{
+    color: #ffaa4f;
+}
+.recommend .recommend-select-sort-list .recommend-select-sort-item i:before{
+    font-size: 13px;
+    color: inherit;
+}
+.recommend .recommend-select-model-item .recommend-select-tag-list {
+    margin-left: 30px;
+    width: 810px;
+    height: 100%;
+}
+.recommend .recommend-select-model-item .recommend-select-tag-list .recommend-select-tag-item {
+    display: inline-block;
+    margin-right: 80px;
+    width: auto;
+    height: 100%;
+    line-height: 32px;
+}
+.recommend .recommend-select-model-item .recommend-select-tag-list .active-tag{
+    color: #ffaa4f;
+}
+.recommend .recommend-list{
+    width: 100%;
+    height: auto;
+}
+.recommend .recommend-list .recommend-item{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 283px;
+    background: #ffffff;
+    padding: 30px 30px 30px 260px;
+    -webkit-box-shadow:  0 0 2px #dddddd;
+    -moz-box-shadow:  0 0 2px #dddddd;
+    box-shadow:  0 0 2px #dddddd;
+}
+.recommend .recommend-list .recommend-item .recommend-left-part {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 230px;
+    height: 223px;
+}
+.recommend .recommend-list .recommend-item .recommend-left-part .company-title-link {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    max-height: 32px;
+    line-height: 16px;
+    word-break: break-all;
+    overflow: hidden;
+}
+.recommend .recommend-list .recommend-item .recommend-left-part .company-certification-icon-list {
+    margin-bottom: 10px;
+    width: 100%;
+    height: 20px;
+}
+.recommend .recommend-list .recommend-item .recommend-left-part .company-certification-icon-list .company-certification-icon-item{
+    float: left;
+    margin-right: 20px;
+    width: 25px;
+    height: 100%;
+}
+.recommend .recommend-list .recommend-item .recommend-left-part .company-certification-icon-list .company-certification-icon-item i:before{
+    font-size: 16px;
+    color: #cdcdcd;
+}
+.recommend .recommend-list .recommend-item .recommend-left-part .company-certification-icon-list .active-identity i:before{
+    color: #0066cc;
+}
+.recommend .recommend-list .recommend-item .recommend-left-part .recommend-company-logo-div {
+    margin-bottom: 10px;
+    width: 100%;
+    height: 116px;
+    border: 1px solid silver;
+    overflow: hidden;
+}
+.recommend .recommend-list .recommend-item .recommend-left-part .recommend-company-logo-div .recommend-company-logo{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+.recommend .recommend-list .recommend-item .recommend-left-part .recommend-func-icon-list{
+    width: 100%;
+    height: 20px;
+}
+.recommend .recommend-list .recommend-item .recommend-left-part .recommend-func-icon-list .recommend-func-icon-item {
+    margin-right: 10px;
+    cursor: pointer;
+}
+.recommend .recommend-list .recommend-item .recommend-left-part .recommend-func-icon-list .recommend-func-icon-item .recommend-func-icon:before {
+    color: #cdcdcd;
+    font-size: 20px;
+}
+.recommend .recommend-list .recommend-item .recommend-left-part .recommend-func-icon-list .active-func[type="collection"] i:before{
+    color: #ffaa4f;
+}
+.recommend .recommend-list .recommend-item .recommend-right-part {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    margin-left: 20px;
+    width: 100%;
+    height: 100%;
+    padding: 0 30px;
+}
+.recommend .recommend-list .recommend-item .recommend-right-part .recommend-type-list{
+    margin-bottom: 10px;
+    width: 100%;
+    height: 22px;
+}
+.recommend .recommend-list .recommend-item .recommend-right-part .recommend-type-list .recommend-type{
+    float: left;
+    margin-right: 10px;
+    width: 74px;
+    height: 100%;
+    line-height: 22px;
+    border-radius: 11px;
+    color: #000000;
+    background: #ffffff;
+    text-align: center;
+    cursor: pointer;
+}
+.recommend .recommend-list .recommend-item .recommend-right-part .recommend-type-list .recommend-type:last-child{
+    margin-right: 0;
+}
+.recommend .recommend-list .recommend-item .recommend-right-part .recommend-type-list .active-type{
+    color: #ffffff;
+    background: #ffaa4f;
+}
+.recommend .recommend-list .recommend-item .recommend-right-part .recommend-result-list-div {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    line-height: 160px;
+    text-align: center;
+}
+.recommend .recommend-list .recommend-item .recommend-right-part .recommend-result-list-div .arrow-div {
+    position: absolute;
+    top: 0;
+    width: 30px;
+    height: 100%;
+    text-align: center;
+    line-height: 160px;
+    cursor: pointer;
+}
+.recommend .recommend-list .recommend-item .recommend-right-part .recommend-result-list-div .arrow-div[type="left"] {
+    right: 100%;
+}
+.recommend .recommend-list .recommend-item .recommend-right-part .recommend-result-list-div .arrow-div[type="right"] {
+    left: 100%;
+}
+.recommend .recommend-list .recommend-item .recommend-right-part .recommend-result-list-div .arrow-div i:before {
+    font-size: 17px;
+}
+.recommend .recommend-list .recommend-item .recommend-right-part .recommend-result-list-div .arrow-disable {
+    cursor: not-allowed;
+}
+.recommend .recommend-list .recommend-item .recommend-right-part .recommend-result-list-div .arrow-disable i:before {
+    color: #aaaaaa;
+}
+.recommend .recommend-list .recommend-item .recommend-right-part .recommend-result-list-div .recommend-result-list-area {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+.recommend .recommend-list .recommend-item .recommend-right-part .recommend-result-list-div .recommend-result-list-area .recommend-result-list{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: 100%;
+}
+.recommend .recommend-list .recommend-item .recommend-right-part .recommend-result-list-div .recommend-result-list-area .recommend-result-list .recommend-result-item {
+    float: left;
+    position: relative;
+    margin: 0 17px;
+    width: 160px;
+    height: 160px;
+}
+.recommend .recommend-list .recommend-item .recommend-right-part .recommend-result-list-div .recommend-result-list-area .recommend-result-list .recommend-result-item .recommend-result-item-link{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.recommend .recommend-list .recommend-item .recommend-right-part .recommend-result-list-div .recommend-result-list-area .recommend-result-list .recommend-result-item .recommend-result-item-image-div {
+    width: 100%;
+    height: 100%;
+    border: 1px solid silver;
+    overflow: hidden;
+}
+.recommend .recommend-list .recommend-item .recommend-right-part .recommend-result-list-div .recommend-result-list-area .recommend-result-list .recommend-result-item .recommend-result-item-image-div .recommend-result-item-image{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+.recommend .recommend-list .recommend-item .recommend-right-part .recommend-result-list-div .recommend-result-list-area .recommend-result-list .recommend-result-item .recommend-result-item-title{
+    display: block;
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

@@ -1,0 +1,24 @@
+.case-hall {
+    padding: 30px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.case-hall .product-item {
+    float: left;
+    width: 240px;
+    height: 250px;
+    margin-right: 50px;
+    margin-bottom: 40px;
+}
+.case-hall .product-item:nth-of-type(4n) {
+    margin-right: 0px;
+}
+.case-hall .noData{
+    height: 60px;
+    width: 130px;
+    line-height: 60px;
+    font-size: 25px;
+    margin: 0 auto;
+    /*padding-top: 20px;*/
+    display: none;
+}

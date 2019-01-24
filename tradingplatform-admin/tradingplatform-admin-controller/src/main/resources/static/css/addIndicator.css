@@ -1,0 +1,33 @@
+div.main {
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 1200px;
+    min-width: 800px;
+    margin: 0 auto;
+}
+div.btn-container {
+    margin-bottom: 15px;
+}
+div.panel-body {
+    padding: 20px 40px;
+    text-align: right;
+}
+
+div.row {
+    margin-bottom: 20px;
+}
+
+div.row:last-child {
+    margin-bottom: 0;
+}
+
+
+span.required::before {
+    content: '*';
+    color: #ff3300;
+    font-size: 18px;
+    display: inline-block;
+    vertical-align: -20%;
+    margin-right: 5px;
+}

@@ -1,0 +1,338 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.strategic-partners {
+    width: 100%;
+    height: 285px;
+}
+.strategic-partners .partners-container {
+    width: 1170px;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 19px;
+    box-sizing: border-box;
+}
+.strategic-partners .partners-container .top {
+    width: 1170px;
+    height: 90px;
+    text-align: center;
+}
+.strategic-partners .partners-container .top .title-ch {
+    width: 465px;
+    height: 60px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    font-size: 0;
+}
+.strategic-partners .partners-container .top .title-ch .title {
+    display: inline-block;
+    height: 55px;
+    line-height: 60px;
+    font-size: 30px;
+    color: #323232;
+    border-bottom: 1px solid #999999;
+}
+.strategic-partners .partners-container .top .title-ch i {
+    width: 150px;
+    height: 1px;
+    background-color: #dcdcdc;
+}
+.strategic-partners .partners-container .top .title-ch i.left {
+    position: absolute;
+    left: 0;
+    top: 50%;
+}
+.strategic-partners .partners-container .top .title-ch i.right {
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+.strategic-partners .partners-container .top .title-en {
+    height: 14px;
+    line-height: 14px;
+    font-size: 14px;
+    color: #323232;
+}
+
+/* 合作伙伴 */
+.strategic-partners .partners-container .home-partner-content-div {
+    margin: 25px 0;
+    width: 100%;
+    height: 136px;
+    box-sizing: border-box;
+    font-size: 0;
+    position: relative;
+}
+/* 左右按钮 */
+.home-partner-left-btn, .home-partner-right-btn{
+    float: left;
+    margin-top: 45px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0,0,0, 0.5);
+    border-radius: 8px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+/* 左右按钮图标 */
+.home-partner-left-btn i:before, .home-partner-right-btn i:before{
+    color: #ffffff;
+    font-size: 38px;
+}
+/* 列表承载框*/
+.strategic-partners .partners-container .home-partner-content-div .home-partner-list-div {
+    float: left;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0 20px;
+    width: 1050px;
+    height: 100%;
+    overflow-x: hidden;
+}
+/* 列表 */
+.strategic-partners .partners-container .home-partner-content-div .home-partner-list{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+/* 子项样式 */
+.strategic-partners .partners-container .home-partner-content-div .home-partner-item{
+    position: relative;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 10px;
+    width: 130px;
+    height: 130px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid #c8c8c8;
+    background-color: #fafafa;
+    overflow: hidden;
+}
+.strategic-partners .partners-container .home-partner-content-div .home-partner-item:hover {
+    border: solid 1px #0066cc;
+}
+.strategic-partners .partners-container .home-partner-content-div .active {
+    border: 1px solid #0066cc;
+}
+.strategic-partners .partners-container .home-partner-content-div .home-partner-item img.home-partner-logo {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 104px;
+    height: 104px;
+    border: none;
+}
+
+/* 动画 */
+.animate-partner-left-move{
+    -webkit-animation: left-move 2s;
+    -moz-animation: left-move 2s;
+    -o-animation: left-move 2s;
+    animation: left-move 2s;
+}
+@keyframes left-move {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-1050px);
+    }
+}
+@-webkit-keyframes left-move {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-1050px);
+    }
+}
+@-moz-keyframes left-move {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-1050px);
+    }
+}
+@-ms-keyframes left-move {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-1050px);
+    }
+}
+@-o-keyframes left-move {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-1050px);
+    }
+}
+
+.animate-partner-right-move{
+    -webkit-animation: right-move 2s;
+    -moz-animation: right-move 2s;
+    -o-animation: right-move 2s;
+    animation: right-move 2s;
+}
+@keyframes right-move {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(1050px);
+    }
+}
+@-webkit-keyframes right-move {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(1050px);
+    }
+}
+@-moz-keyframes right-move {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(1050px);
+    }
+}
+@-ms-keyframes right-move {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(1050px);
+    }
+}
+@-o-keyframes right-move {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(1050px);
+    }
+}
+
+.animate-partner-left-move-finish{
+    -webkit-animation: left-move-finish 2s;
+    -moz-animation: left-move-finish 2s;
+    -o-animation: left-move-finish 2s;
+    animation: left-move-finish 2s;
+}
+@keyframes left-move-finish {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        left: 100%;
+        transform: translateX(-100%);
+    }
+}
+@-webkit-keyframes left-move-finish {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        left: 100%;
+        transform: translateX(-100%);
+    }
+}
+@-moz-keyframes left-move-finish {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        left: 100%;
+        transform: translateX(-100%);
+    }
+}
+@-ms-keyframes left-move-finish {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        left: 100%;
+        transform: translateX(-100%);
+    }
+}
+@-o-keyframes left-move-finish {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        left: 100%;
+        transform: translateX(-100%);
+    }
+}
+
+.animate-partner-right-move-finish{
+    -webkit-animation: right-move-finish 2s;
+    -moz-animation: right-move-finish 2s;
+    -o-animation: right-move-finish 2s;
+    animation: right-move-finish 2s;
+}
+@keyframes right-move-finish {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        left: 0;
+        transform: translateX(0);
+    }
+}
+@-webkit-keyframes right-move-finish {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        left: 0;
+        transform: translateX(0);
+    }
+}
+@-moz-keyframes right-move-finish {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        left: 0;
+        transform: translateX(0);
+    }
+}
+@-ms-keyframes right-move-finish {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        left: 0;
+        transform: translateX(0);
+    }
+}
+@-o-keyframes right-move-finish {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        left: 0;
+        transform: translateX(0);
+    }
+}

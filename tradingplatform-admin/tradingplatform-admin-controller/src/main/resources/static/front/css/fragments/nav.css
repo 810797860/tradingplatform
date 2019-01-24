@@ -1,0 +1,202 @@
+a{
+    text-decoration: none;
+    color: inherit;
+}
+a:link{
+    text-decoration: none;
+    color: inherit;
+}
+a:visited{
+    text-decoration: none;
+    color: inherit;
+}
+a:hover{
+    text-decoration: none;
+    color: inherit;
+}
+a:active{
+    text-decoration: none;
+    color: inherit;
+}
+.navDiv{
+    position: relative;
+    top: 0;
+    left: 0;
+    min-width: 1320px;
+    width: 100%;
+    height: 50px;
+    background-color: #d3e6f6;
+    -webkit-box-shadow:  0 1px 2px #888888;
+    -moz-box-shadow:  0 1px 2px #888888;
+    box-shadow:  0 1px 2px #888888;
+    border-bottom: 1px solid #ddd;
+}
+.navContentDiv{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 1170px;
+    height: 100%;
+}
+.navContentDiv div{
+    float: left;
+}
+.fastPassage{
+    box-sizing: border-box;
+    width: 180px;
+    height: 100%;
+    background-color: #0066cc;
+    padding-top: 15px;
+    padding-left: 15px;
+    position: relative;
+}
+.fastPassageIcon:before, .fastPassageName{
+    font-size: 18px;
+    color: #ffffff;
+}
+.fastPassageName{
+    display: inline;
+    margin-left: 15px;
+}
+.pageItem{
+    box-sizing: border-box;
+    width: 140px;
+    height: 100%;
+    background-color: transparent;
+    cursor: pointer;
+    color: #5c5c5c;
+}
+.pageItem .pageLink{
+    display: block;
+    width: 140px;
+    height: 100%;
+    overflow: hidden;
+}
+.pageItem .pageLink .pageName {
+    display: block;
+    box-sizing: border-box;
+    position: relative;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 20px;
+    color: inherit;
+    /*border-right: 1px solid #4093d8;*/
+}
+.pageItem:hover{
+    background-color: #ffaa4f;
+    color: #ffffff;
+}
+.pageItem__select{
+    color: #4093d8;
+}
+.pageItem:hover .pageLink .pageName {
+    border-right-width: 0;
+}
+/*.pageItem__select .pageLink .pageName {
+    color: #4093d8;
+}*/
+
+.navContentDiv .homeExpresswayDiv, .homeSliderImgLinkDiv, .homeUserInfoDiv{
+    float: left;
+    border-right: 1px solid #dcdcdc;
+    box-sizing: border-box;
+}
+.navContentDiv .homeUserInfoDiv{
+    border-right-width: 0;
+}
+.navContentDiv .homeExpresswayDiv{
+    display: none;
+    box-sizing: border-box;
+    border: 1px solid gainsboro;
+    width: 180px;
+    height: 380px;
+    padding: 0 15px;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    z-index: 1000;
+    background-color: white;
+}
+.navContentDiv .homeExpresswayItem{
+    position: relative;
+    box-sizing: border-box;
+    width: 150px;
+    border-bottom: 1px solid #dcdcdc;
+}
+.navContentDiv .homeExpresswayItem:last-child{
+    border-bottom-width: 0;
+}
+.navContentDiv .homeExpresswayItemLink {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    width: 100%;
+    height: 21px;
+}
+.navContentDiv .homeExpresswayItemIcon:before{
+    font-size: 18px;
+    color: #969696;
+}
+.navContentDiv .homeExpresswayItemTitle{
+    font-size: 16px;
+    color: #323232;
+    margin-left: 10px;
+}
+.navContentDiv .homeExpresswayItem_select .homeExpresswayItemIcon:before {
+    color: #0066cc;
+}
+.navContentDiv .homeExpresswayItem_select .homeExpresswayItemTitle {
+    color: #0066cc;
+}
+.navContentDiv .homeExpresswayItemTip{
+    font-size: 14px;
+    color: #646464;
+    word-break: break-all;
+}
+.navContentDiv .homeSliderImgLinkDiv{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 750px;
+    height: 450px;
+    overflow: hidden;
+}
+.navContentDiv .homeSliderImgLinkDiv .homeSliderList{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+.navContentDiv .homeSliderImgLinkDiv a{
+    float: left;
+}
+.navContentDiv .homeSliderImgLink{
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 750px;
+    height: 450px;
+    overflow: hidden;
+}
+.navContentDiv .homeSliderImg{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 450px;
+}
+.navContentDiv .homeUserInfoDiv {
+    box-sizing: border-box;
+    width: 240px;
+    height: 450px;
+    overflow: hidden;
+}

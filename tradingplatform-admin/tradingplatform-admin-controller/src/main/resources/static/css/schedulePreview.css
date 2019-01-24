@@ -1,0 +1,49 @@
+#table caption {
+    text-align: center;
+    color: black;
+    font-size: 26px;
+}
+#table th {
+    text-align: center;
+    min-width: 180px;
+}
+#table tbody tr td {
+    text-align: center;
+    min-width: 180px;
+}
+.button-group {
+    margin-top: 15px;
+}
+
+.form-box {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align:center;
+    display: none;
+}
+
+.form-box .form-box-inner {
+    display: inline-block;
+    width: 350px;
+    position: absolute;
+    top:30%;
+    left: 40%;
+}
+
+.form-box .form-box-inner .panel-heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-container {
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    left:0;
+    right: 0;
+}
