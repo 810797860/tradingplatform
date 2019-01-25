@@ -46,8 +46,7 @@ public class KaptchaController {
     @GetMapping("/default")
     @ApiOperation(value = "/default", notes = "获取验证码")
     public void getDefaultKaptcha(@ApiParam(name = "request", value = "服务器请求") HttpServletRequest request,
-                                  @ApiParam(name = "response", value = "服务器响应") HttpServletResponse response,
-                                  @ApiParam(name = "session", value = "客户端会话") HttpSession session) throws IOException {
+                                  @ApiParam(name = "response", value = "服务器响应") HttpServletResponse response) throws IOException {
 
         //设置响应头
         response.setDateHeader("Expires", 0);
@@ -56,6 +55,7 @@ public class KaptchaController {
         response.setHeader("Pragma", "no-cache");
         response.setContentType("image/jpeg");
         //验证码的字符串，要放到session
+        HttpSession session = request.getSession();
         String createText = captchaProducer.createText();
         session.setAttribute(MagicalValue.STRING_OF_KAPTCHA, createText);
         //向客户端写出

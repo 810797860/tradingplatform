@@ -51,14 +51,14 @@ function formSubmit(e) {
     };
     $.ajax({
         type:'post',
-        url:'/login',
+        url:'/admin/login',
         contentType:'application/json;charset=utf-8',
         dataType:'json',
         data: JSON.stringify(postData),
         success:function(data){
             console.log(data)
             switch(data.code){
-                case 208:
+                case 200:
                     new PNotify({
                         title: '登录',
                         text: '登录成功',
@@ -67,7 +67,7 @@ function formSubmit(e) {
                         addclass: "stack-bottomright",
                         stack: stack_bottomright
                     });
-                    window.location.href = '/wu';
+                    window.location.href = '/admin/index';
                     break;
                 case 310:
                     new PNotify({
