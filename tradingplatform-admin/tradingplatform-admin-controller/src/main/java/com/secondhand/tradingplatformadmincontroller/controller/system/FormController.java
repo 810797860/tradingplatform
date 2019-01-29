@@ -41,7 +41,7 @@ public class FormController extends BaseController {
      */
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到form的列表页面")
-    public String toFormList(@ApiParam(name = "Model", value = "model") Model model) {
+    public String toFormList(@ApiParam(name = "model", value = "Model") Model model) {
         return "form/tabulation";
     }
 
@@ -52,7 +52,7 @@ public class FormController extends BaseController {
      */
     @GetMapping(value = "/{formId}/update.html")
     @ApiOperation(value = "/{formId}/update.html", notes = "跳转到修改页面")
-    public String toUpdateForm(@ApiParam(name = "Model", value = "model") Model model, @PathVariable(value = "formId") Long formId) {
+    public String toUpdateForm(@ApiParam(name = "model", value = "Model") Model model, @PathVariable(value = "formId") Long formId) {
         //静态注入要回显的数据
         Map<String, Object> form = formService.mySelectMapById(formId);
         model.addAttribute("form", form);
@@ -66,7 +66,7 @@ public class FormController extends BaseController {
      */
     @GetMapping(value = "/create.html")
     @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
-    public String toCreateForm(@ApiParam(name = "Model", value = "model") Model model) {
+    public String toCreateForm(@ApiParam(name = "model", value = "Model") Model model) {
         return "form/newForm";
     }
     

@@ -42,7 +42,7 @@ public class RoleButtonController extends BaseController {
      */
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到roleButton的列表页面")
-    public String toRoleButtonList(@ApiParam(name = "Model", value = "model") Model model) {
+    public String toRoleButtonList(@ApiParam(name = "model", value = "Model") Model model) {
         return "roleButton/tabulation";
     }
 
@@ -53,7 +53,7 @@ public class RoleButtonController extends BaseController {
      */
     @GetMapping(value = "/{roleButtonId}/update.html")
     @ApiOperation(value = "/{roleButtonId}/update.html", notes = "跳转到修改页面")
-    public String toUpdateRoleButton(@ApiParam(name = "Model", value = "model") Model model, @PathVariable(value = "roleButtonId") Long roleButtonId) {
+    public String toUpdateRoleButton(@ApiParam(name = "model", value = "Model") Model model, @PathVariable(value = "roleButtonId") Long roleButtonId) {
         //静态注入要回显的数据
         Map<String, Object> roleButton = roleButtonService.mySelectMapById(roleButtonId);
         model.addAttribute("roleButton", roleButton);
@@ -67,7 +67,7 @@ public class RoleButtonController extends BaseController {
      */
     @GetMapping(value = "/create.html")
     @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
-    public String toCreateRoleButton(@ApiParam(name = "Model", value = "model") Model model) {
+    public String toCreateRoleButton(@ApiParam(name = "model", value = "Model") Model model) {
         return "roleButton/newRoleButton";
     }
     

@@ -41,7 +41,7 @@ public class ResourcesController extends BaseController {
      */
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到resources的列表页面")
-    public String toResourcesList(@ApiParam(name = "Model", value = "model") Model model) {
+    public String toResourcesList(@ApiParam(name = "model", value = "Model") Model model) {
         return "resources/tabulation";
     }
 
@@ -52,7 +52,7 @@ public class ResourcesController extends BaseController {
      */
     @GetMapping(value = "/{resourcesId}/update.html")
     @ApiOperation(value = "/{resourcesId}/update.html", notes = "跳转到修改页面")
-    public String toUpdateResources(@ApiParam(name = "Model", value = "model") Model model, @PathVariable(value = "resourcesId") Long resourcesId) {
+    public String toUpdateResources(@ApiParam(name = "model", value = "Model") Model model, @PathVariable(value = "resourcesId") Long resourcesId) {
         //静态注入要回显的数据
         Map<String, Object> resources = resourcesService.mySelectMapById(resourcesId);
         model.addAttribute("resources", resources);
@@ -66,7 +66,7 @@ public class ResourcesController extends BaseController {
      */
     @GetMapping(value = "/create.html")
     @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
-    public String toCreateResources(@ApiParam(name = "Model", value = "model") Model model) {
+    public String toCreateResources(@ApiParam(name = "model", value = "Model") Model model) {
         return "resources/newResources";
     }
     

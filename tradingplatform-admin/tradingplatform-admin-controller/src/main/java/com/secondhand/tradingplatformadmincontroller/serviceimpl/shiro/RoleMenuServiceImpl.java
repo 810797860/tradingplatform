@@ -128,6 +128,28 @@ public class RoleMenuServiceImpl extends BaseServiceImpl<RoleMenuMapper, RoleMen
         return menuService.selectPage(page, menuWrapper);
     }
 
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    @Cacheable(key = "#p0")
+    public List<Menu> mySelectListWithRoleId(Long roleId) {
+
+        //先找出menuIds
+        Wrapper<RoleMenu> wrapper = new EntityWrapper<>();
+        wrapper.setSqlSelect("menu_id");
+        wrapper.where("role_id = {0}", roleId);
+        wrapper.where("deleted = {0}", false);
+        List<Object> menuIds = this.selectObjs(wrapper);
+        //判空
+        if (menuIds.size() == 0){
+            return null;
+        }
+        //再根据menuIds找List<Menu>
+        Wrapper<Menu> menuWrapper = new EntityWrapper<>();
+        menuWrapper.in("id", menuIds);
+        menuWrapper.where("deleted = {0}", false);
+        return menuService.mySelectList(menuWrapper);
+    }
+
     //以下是继承BaseServiceImpl
     
     @Override

@@ -48,7 +48,7 @@ public class AnnexController extends BaseController {
      */
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到annex的列表页面")
-    public String toAnnexList(@ApiParam(name = "Model", value = "model") Model model) {
+    public String toAnnexList(@ApiParam(name = "model", value = "Model") Model model) {
         return "annex/tabulation";
     }
 
@@ -59,7 +59,7 @@ public class AnnexController extends BaseController {
      */
     @GetMapping(value = "/{annexId}/update.html")
     @ApiOperation(value = "/{annexId}/update.html", notes = "跳转到修改页面")
-    public String toUpdateAnnex(@ApiParam(name = "Model", value = "model") Model model, @PathVariable(value = "annexId") Long annexId) {
+    public String toUpdateAnnex(@ApiParam(name = "model", value = "Model") Model model, @PathVariable(value = "annexId") Long annexId) {
         //静态注入要回显的数据
         Map<String, Object> annex = annexService.mySelectMapById(annexId);
         model.addAttribute("annex", annex);
@@ -73,7 +73,7 @@ public class AnnexController extends BaseController {
      */
     @GetMapping(value = "/create.html")
     @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
-    public String toCreateAnnex(@ApiParam(name = "Model", value = "model") Model model) {
+    public String toCreateAnnex(@ApiParam(name = "model", value = "Model") Model model) {
         return "annex/newAnnex";
     }
     

@@ -44,7 +44,7 @@ public class SocketMessageController extends BaseController {
      */
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到socketMessage的列表页面")
-    public String toSocketMessageList(@ApiParam(name = "Model", value = "model") Model model) {
+    public String toSocketMessageList(@ApiParam(name = "model", value = "Model") Model model) {
         return "socketMessage/tabulation";
     }
 
@@ -55,7 +55,7 @@ public class SocketMessageController extends BaseController {
      */
     @GetMapping(value = "/{socketMessageId}/update.html")
     @ApiOperation(value = "/{socketMessageId}/update.html", notes = "跳转到修改页面")
-    public String toUpdateSocketMessage(@ApiParam(name = "Model", value = "model") Model model, @PathVariable(value = "socketMessageId") Long socketMessageId) {
+    public String toUpdateSocketMessage(@ApiParam(name = "model", value = "Model") Model model, @PathVariable(value = "socketMessageId") Long socketMessageId) {
         //静态注入要回显的数据
         Map<String, Object> socketMessage = socketMessageService.mySelectMapById(socketMessageId);
         model.addAttribute("socketMessage", socketMessage);
@@ -69,7 +69,7 @@ public class SocketMessageController extends BaseController {
      */
     @GetMapping(value = "/create.html")
     @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
-    public String toCreateSocketMessage(@ApiParam(name = "Model", value = "model") Model model) {
+    public String toCreateSocketMessage(@ApiParam(name = "model", value = "Model") Model model) {
         return "socketMessage/newSocketMessage";
     }
     

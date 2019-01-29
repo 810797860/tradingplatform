@@ -56,7 +56,7 @@ public class ${table.controllerName} {
      */
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到${table.entityPath}的列表页面")
-    public String to${entity}List(@ApiParam(name = "Model", value = "model") Model model) {
+    public String to${entity}List(@ApiParam(name = "model", value = "Model") Model model) {
         return "${table.entityPath}/tabulation";
     }
 
@@ -67,7 +67,7 @@ public class ${table.controllerName} {
      */
     @GetMapping(value = "/{${table.entityPath}Id}/update.html")
     @ApiOperation(value = "/{${table.entityPath}Id}/update.html", notes = "跳转到修改页面")
-    public String toUpdate${entity}(@ApiParam(name = "Model", value = "model") Model model, @PathVariable(value = "${table.entityPath}Id") Long ${table.entityPath}Id) {
+    public String toUpdate${entity}(@ApiParam(name = "model", value = "Model") Model model, @PathVariable(value = "${table.entityPath}Id") Long ${table.entityPath}Id) {
         //静态注入要回显的数据
         Map<String, Object> ${table.entityPath} = ${table.entityPath}Service.mySelectMapById(${table.entityPath}Id);
         model.addAttribute("${table.entityPath}", ${table.entityPath});
@@ -81,7 +81,7 @@ public class ${table.controllerName} {
      */
     @GetMapping(value = "/create.html")
     @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
-    public String toCreate${entity}(@ApiParam(name = "Model", value = "model") Model model) {
+    public String toCreate${entity}(@ApiParam(name = "model", value = "Model") Model model) {
         return "${table.entityPath}/new${entity}";
     }
     

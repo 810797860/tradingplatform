@@ -41,7 +41,7 @@ public class MenuController extends BaseController {
      */
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到menu的列表页面")
-    public String toMenuList(@ApiParam(name = "Model", value = "model") Model model) {
+    public String toMenuList(@ApiParam(name = "model", value = "Model") Model model) {
         return "menu/tabulation";
     }
 
@@ -52,7 +52,7 @@ public class MenuController extends BaseController {
      */
     @GetMapping(value = "/{menuId}/update.html")
     @ApiOperation(value = "/{menuId}/update.html", notes = "跳转到修改页面")
-    public String toUpdateMenu(@ApiParam(name = "Model", value = "model") Model model, @PathVariable(value = "menuId") Long menuId) {
+    public String toUpdateMenu(@ApiParam(name = "model", value = "Model") Model model, @PathVariable(value = "menuId") Long menuId) {
         //静态注入要回显的数据
         Map<String, Object> menu = menuService.mySelectMapById(menuId);
         model.addAttribute("menu", menu);
@@ -66,7 +66,7 @@ public class MenuController extends BaseController {
      */
     @GetMapping(value = "/create.html")
     @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
-    public String toCreateMenu(@ApiParam(name = "Model", value = "model") Model model) {
+    public String toCreateMenu(@ApiParam(name = "model", value = "Model") Model model) {
         return "menu/newMenu";
     }
     

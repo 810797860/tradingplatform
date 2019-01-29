@@ -47,7 +47,7 @@ public class FormFieldController extends BaseController {
      */
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到formField的列表页面")
-    public String toFormFieldList(@ApiParam(name = "Model", value = "model") Model model) {
+    public String toFormFieldList(@ApiParam(name = "model", value = "Model") Model model) {
         return "formField/tabulation";
     }
 
@@ -58,7 +58,7 @@ public class FormFieldController extends BaseController {
      */
     @GetMapping(value = "/{formFieldId}/update.html")
     @ApiOperation(value = "/{formFieldId}/update.html", notes = "跳转到修改页面")
-    public String toUpdateFormField(@ApiParam(name = "Model", value = "model") Model model, @PathVariable(value = "formFieldId") Long formFieldId) {
+    public String toUpdateFormField(@ApiParam(name = "model", value = "Model") Model model, @PathVariable(value = "formFieldId") Long formFieldId) {
         //静态注入要回显的数据
         Map<String, Object> formField = formFieldService.mySelectMapById(formFieldId);
         //静态注入展示类型及字段类型
@@ -75,7 +75,7 @@ public class FormFieldController extends BaseController {
      */
     @GetMapping(value = "/create.html")
     @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
-    public String toCreateFormField(@ApiParam(name = "Model", value = "model") Model model) {
+    public String toCreateFormField(@ApiParam(name = "model", value = "Model") Model model) {
         //静态注入展示类型及字段类型
         List<SelectItem> displayType = selectItemService.getAllItemsByPid(SystemSelectItem.DISPLAY_TYPE);
         model.addAttribute("displayType", displayType);

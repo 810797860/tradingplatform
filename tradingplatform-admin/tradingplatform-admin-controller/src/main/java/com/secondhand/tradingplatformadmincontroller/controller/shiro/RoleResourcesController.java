@@ -42,7 +42,7 @@ public class RoleResourcesController extends BaseController {
      */
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到roleResources的列表页面")
-    public String toRoleResourcesList(@ApiParam(name = "Model", value = "model") Model model) {
+    public String toRoleResourcesList(@ApiParam(name = "model", value = "Model") Model model) {
         return "roleResources/tabulation";
     }
 
@@ -53,7 +53,7 @@ public class RoleResourcesController extends BaseController {
      */
     @GetMapping(value = "/{roleResourcesId}/update.html")
     @ApiOperation(value = "/{roleResourcesId}/update.html", notes = "跳转到修改页面")
-    public String toUpdateRoleResources(@ApiParam(name = "Model", value = "model") Model model, @PathVariable(value = "roleResourcesId") Long roleResourcesId) {
+    public String toUpdateRoleResources(@ApiParam(name = "model", value = "Model") Model model, @PathVariable(value = "roleResourcesId") Long roleResourcesId) {
         //静态注入要回显的数据
         Map<String, Object> roleResources = roleResourcesService.mySelectMapById(roleResourcesId);
         model.addAttribute("roleResources", roleResources);
@@ -67,7 +67,7 @@ public class RoleResourcesController extends BaseController {
      */
     @GetMapping(value = "/create.html")
     @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
-    public String toCreateRoleResources(@ApiParam(name = "Model", value = "model") Model model) {
+    public String toCreateRoleResources(@ApiParam(name = "model", value = "Model") Model model) {
         return "roleResources/newRoleResources";
     }
 
