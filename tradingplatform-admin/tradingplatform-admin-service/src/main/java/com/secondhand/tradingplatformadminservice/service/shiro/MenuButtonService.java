@@ -73,6 +73,13 @@ public interface MenuButtonService extends BaseService<MenuButton> {
         Page<Button> mySelectEnableCreatePage(Page<Button> page, MenuButton menuButton);
 
         /**
+         * 根据菜单id获取Button列表数据（List）
+         * @param menuId
+         * @return
+         */
+        List<Button> mySelectListWithMenuId(Long menuId);
+
+        /**
          * 获取MenuButton列表数据（Map）
          * @param map
          * @return

@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -127,6 +128,29 @@ public class MenuButtonServiceImpl extends BaseServiceImpl<MenuButtonMapper, Men
         }
         //这里用service，既能redis又只能用redis
         return buttonService.selectPage(page, buttonWrapper);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    @Cacheable(key = "#p0")
+    public List<Button> mySelectListWithMenuId(Long menuId) {
+
+        //先找出buttonIds
+        Wrapper<MenuButton> wrapper = new EntityWrapper<>();
+        wrapper.setSqlSelect("button_id");
+        wrapper.where("menu_id = {0}", menuId);
+        wrapper.where("deleted = {0}", false);
+        List<Object> buttonIds = this.selectObjs(wrapper);
+        //如果buttonIds为空，返回空的对象
+        if (buttonIds.size() == 0){
+            return new ArrayList<>();
+        }
+        //再根据id找List<Button>
+        Wrapper<Button> buttonWrapper = new EntityWrapper<>();
+        buttonWrapper.in("id", buttonIds);
+        //判空
+        buttonWrapper.where("deleted = {0}", false);
+        return buttonService.mySelectList(buttonWrapper);
     }
 
     //以下是继承BaseServiceImpl

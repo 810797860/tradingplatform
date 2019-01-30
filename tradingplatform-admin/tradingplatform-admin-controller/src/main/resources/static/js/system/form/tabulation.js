@@ -138,7 +138,6 @@ function refreshTable() {
 
 // 数据返回处理
 function responseHandler(res) {
-    console.log(res);
     var length = res.data.length;
     for (var i = 0; i < length; i++) {
     }

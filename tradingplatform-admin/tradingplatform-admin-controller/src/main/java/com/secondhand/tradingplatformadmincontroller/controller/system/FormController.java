@@ -2,8 +2,10 @@ package com.secondhand.tradingplatformadmincontroller.controller.system;
 
 import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.shiro.Button;
+import com.secondhand.tradingplatformadminservice.service.shiro.MenuButtonService;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
+import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -24,6 +26,8 @@ import com.secondhand.tradingplatformcommon.base.BaseController.BaseController;
 import com.secondhand.tradingplatformadminentity.entity.system.Form;
 import com.secondhand.tradingplatformadminservice.service.system.FormService;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @description : Form 控制器
  * @author : zhangjk
@@ -37,6 +41,9 @@ public class FormController extends BaseController {
     @Autowired
     private FormService formService;
 
+    @Autowired
+    private MenuButtonService menuButtonService;
+
     /**
      * @description : 跳转到列表页面
      * @author : zhangjk
@@ -44,9 +51,11 @@ public class FormController extends BaseController {
      */
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到form的列表页面")
-    public String toFormList(@ApiParam(name = "model", value = "Model") Model model) {
+    public String toFormList(@ApiParam(name = "model", value = "Model") Model model,
+                             @ApiParam(name = "menuId", value = "菜单id") Long menuId) {
 
-        List<Button> buttons = new ArrayList<>();
+        //根据菜单id找按钮
+        List<Button> buttons = menuButtonService.mySelectListWithMenuId(menuId);
         //注入该表单的按钮
         model.addAttribute("buttons", buttons);
         return "system/form/tabulation";

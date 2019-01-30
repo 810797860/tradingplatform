@@ -76,4 +76,6 @@ public class MagicalValue {
     public static String STRING_OF_PASSWORD = "password";
 
     public static String STRING_OF_CAPTCHA = "captcha";
+
+    public static String STRING_OF_MENUID = "menuId";
 }

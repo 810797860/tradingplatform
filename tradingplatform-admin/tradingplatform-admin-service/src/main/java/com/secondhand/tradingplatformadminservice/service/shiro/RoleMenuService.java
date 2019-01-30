@@ -72,7 +72,7 @@ public interface RoleMenuService extends BaseService<RoleMenu> {
         Page<Menu> mySelectEnableCreatePage(Page<Menu> page, RoleMenu roleMenu);
 
         /**
-         * 分页获取Menu列表数据（List）
+         * 根据roleId分页获取Menu列表数据（List）
          * @param roleId
          * @return
          */
