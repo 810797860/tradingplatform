@@ -1,5 +1,6 @@
 package com.secondhand.tradingplatformadmincontroller.serviceimpl.system;
 
+import com.baomidou.mybatisplus.enums.SqlLike;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
@@ -196,6 +197,11 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
     @Cacheable(key = "#p0 + '' + #p1")
     public Page<Form> mySelectPageWithParam(Page<Form> page, Form form) {
         Wrapper<Form> wrapper = new EntityWrapper<>(form);
+        //字符串模糊匹配
+        wrapper.like("title", form.getTitle(), SqlLike.DEFAULT);
+        form.setTitle(null);
+        wrapper.like("collection", form.getCollection(), SqlLike.DEFAULT);
+        form.setCollection(null);
         //遍历排序
         List<Sort> sorts = form.getSorts();
         if (sorts == null){
