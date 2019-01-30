@@ -1,6 +1,7 @@
 package com.secondhand.tradingplatformadmincontroller.controller.system;
 
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.shiro.Button;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
 import io.swagger.annotations.Api;
@@ -11,9 +12,11 @@ import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +29,7 @@ import com.secondhand.tradingplatformadminservice.service.system.FormService;
  * @author : zhangjk
  * @since : Create in 2018-11-11
  */
-@RestController
+@Controller
 @Api(value="/admin/form", description="Form 控制器")
 @RequestMapping("/admin/form")
 public class FormController extends BaseController {
@@ -42,7 +45,11 @@ public class FormController extends BaseController {
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到form的列表页面")
     public String toFormList(@ApiParam(name = "model", value = "Model") Model model) {
-        return "form/tabulation";
+
+        List<Button> buttons = new ArrayList<>();
+        //注入该表单的按钮
+        model.addAttribute("buttons", buttons);
+        return "system/form/tabulation";
     }
 
     /**
@@ -77,6 +84,7 @@ public class FormController extends BaseController {
      */
     @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
+    @ResponseBody
     public TableJson<Form> getFormList(@ApiParam(name = "Form", value = "Form 实体类") @RequestBody Form form) {
             TableJson<Form> resJson = new TableJson<>();
             Page resPage = form.getPage();
@@ -103,6 +111,7 @@ public class FormController extends BaseController {
      */
     @GetMapping(value = "/get_map_by_id/{formId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{formId}", notes = "根据id获取formMap")
+    @ResponseBody
     public JsonResult<Map<String, Object>> getFormByIdForMap( @ApiParam(name = "id", value = "formId") @PathVariable("formId") Long formId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
             Map<String, Object> form = formService.mySelectMapById(formId);
@@ -118,6 +127,7 @@ public class FormController extends BaseController {
      */
     @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除form")
+    @ResponseBody
     public JsonResult<Form> fakeDeleteById(@ApiParam(name = "id", value = "formId") @RequestBody Long formId){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<Form> resJson = new JsonResult<>();
@@ -140,6 +150,7 @@ public class FormController extends BaseController {
      */
     @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除form")
+    @ResponseBody
     public JsonResult<Form> fakeBatchDelete(@ApiParam(name = "ids", value = "formIds") @RequestBody List<Long> formIds){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<Form> resJson = new JsonResult<>();
@@ -161,6 +172,7 @@ public class FormController extends BaseController {
      */
     @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改form")
+    @ResponseBody
     public JsonResult<Form> formCreateUpdate(@ApiParam(name = "Form", value = "Form实体类") @RequestBody Form form){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<Form> resJson = new JsonResult<>();

@@ -17,11 +17,11 @@ function analysisMenu(menus) {
             if(TEMPS[i].pid === 'undefined' || TEMPS[i].pid === null) { // 无父节点
                 if(TEMPS[i].url === 'undefined' || TEMPS[i].url === '' || TEMPS[i].url === null) {
                     //如果节点无url
-                    menuDom.append('<li class="sub-menu" data-id="'+TEMPS[i].id+'"><a class="icon-plus waves-effect" href="javascript:void(0)"><i class="' + TEMPS[i].icon + '"></i>'+TEMPS[i].title+'</a> <ul> </ul> </li>');
+                    menuDom.append('<li class="sub-menu" data-id="'+TEMPS[i].id+'"><a class="icon-plus waves-effect" href="javascript:void(0)"><i class="' + TEMPS[i].icon + '"></i>'+TEMPS[i].name+'</a> <ul> </ul> </li>');
                 } else {
                     var mark = TEMPS[i].url.indexOf('?') > - 1 ? '&' : '?';
                     var menuInfo = mark + 'menuId=' + TEMPS[i].id;
-                    menuDom.append('<li data-id="'+TEMPS[i].id+'"><a class="waves-effect" href="javascript:Tab.addTab(\''+TEMPS[i].title+'\', \'tab_iframe_'+TEMPS[i].id+'\', \''+TEMPS[i].url + menuInfo +'\')">'+TEMPS[i].title+'</a></li>');
+                    menuDom.append('<li data-id="'+TEMPS[i].id+'"><a class="waves-effect" href="javascript:Tab.addTab(\''+TEMPS[i].name+'\', \'tab_iframe_'+TEMPS[i].id+'\', \''+TEMPS[i].url + menuInfo +'\')">'+TEMPS[i].name+'</a></li>');
                 }
             } else { // 有父节点  --- 层次遍历
                 var queue = [], rear = -1, front = -1, temp;
@@ -33,11 +33,11 @@ function analysisMenu(menus) {
                     var tempId = parseInt(temp.attr('data-id'));
                     if(tempId !== 'undefined' && parseInt(tempId) === parseInt(TEMPS[i].pid)) {
                         if(TEMPS[i].url === 'undefined' || TEMPS[i].url === null) {
-                            temp.children('ul').first().append('<li class="sub-menu" data-id="'+TEMPS[i].id+'"><a class="waves-effect" href="javascript:void(0)"><i></i>'+TEMPS[i].title+'</a> <ul> </ul> </li>');
+                            temp.children('ul').first().append('<li class="sub-menu" data-id="'+TEMPS[i].id+'"><a class="waves-effect" href="javascript:void(0)"><i></i>'+TEMPS[i].name+'</a> <ul> </ul> </li>');
                         } else {
                             var mark = TEMPS[i].url.indexOf('?') > - 1 ? '&' : '?';
                             var menuInfo = mark + 'menuId=' + TEMPS[i].id;
-                            temp.children('ul').first().append('<li data-id="'+TEMPS[i].id+'"><a class="waves-effect" href="javascript:Tab.addTab(\''+TEMPS[i].title+'\', \'tab_iframe_'+TEMPS[i].id+'\', \''+TEMPS[i].url + menuInfo + '\')">'+TEMPS[i].title+'</a></li>');
+                            temp.children('ul').first().append('<li data-id="'+TEMPS[i].id+'"><a class="waves-effect" href="javascript:Tab.addTab(\''+TEMPS[i].name+'\', \'tab_iframe_'+TEMPS[i].id+'\', \''+TEMPS[i].url + menuInfo + '\')">'+TEMPS[i].name+'</a></li>');
                         }
                         found =true;
                         break;
