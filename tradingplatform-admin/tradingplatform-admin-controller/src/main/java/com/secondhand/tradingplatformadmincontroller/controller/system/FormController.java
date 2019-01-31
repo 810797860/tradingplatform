@@ -19,6 +19,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -66,26 +67,22 @@ public class FormController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-11
      */
-    @GetMapping(value = "/{formId}/update.html")
-    @ApiOperation(value = "/{formId}/update.html", notes = "跳转到修改页面")
-    public String toUpdateForm(@ApiParam(name = "model", value = "Model") Model model, @PathVariable(value = "formId") Long formId) {
-        //静态注入要回显的数据
-        Map<String, Object> form = formService.mySelectMapById(formId);
+    @GetMapping(value = {"/{formId}/update.html", "/create.html"})
+    @ApiOperation(value = "/{formId}/update.html、/create.html", notes = "跳转到修改或新增页面")
+    public String toModifyForm(@ApiParam(name = "model", value = "Model") Model model,
+                               @ApiParam(name = "formId", value = "FormId") @PathVariable(value = "formId", required = false) Long formId) {
+
+        Map<String, Object> form = new HashMap<>();
+        //判空
+        if (formId != null) {
+            //根据formId查找记录回显的数据
+            form = formService.mySelectMapById(formId);
+        }
+        //静态注入
         model.addAttribute("form", form);
-        return "form/newForm";
+        return "system/form/modify";
     }
 
-    /**
-     * @description : 跳转到新增form的页面
-     * @author : zhangjk
-     * @since : Create in 2018-11-11
-     */
-    @GetMapping(value = "/create.html")
-    @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
-    public String toCreateForm(@ApiParam(name = "model", value = "Model") Model model) {
-        return "form/newForm";
-    }
-    
     /**
      * @description : 获取分页列表
      * @author : zhangjk
@@ -189,6 +186,7 @@ public class FormController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/form/create_update");
                 form = formService.myFormCreateUpdate(form);
+                resJson.setCode(200);
                 resJson.setData(form);
                 resJson.setSuccess(true);
             }catch(UnauthorizedException e){
