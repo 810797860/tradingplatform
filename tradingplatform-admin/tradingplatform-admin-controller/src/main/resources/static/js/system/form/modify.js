@@ -78,7 +78,7 @@ $(function(){
                 success: function(res) {
                     console.log(res)
                     layer.closeAll();
-                    if(res.status == 200) {
+                    if(res.success == true) {
                         new PNotify({
                             title: '修改表单信息成功！',
                             text: '请在表单详情中查看修改后的内容',
@@ -99,7 +99,6 @@ $(function(){
                     }
                 },
                 error: function(error) {
-                    console.log(error)
                     layer.closeAll();
                     new PNotify({
                         title: '修改表单信息失败！',
@@ -118,10 +117,8 @@ $(function(){
                 type: 'post',
                 contentType:'application/json;charset=utf-8',
                 success: function(res) {
-                    console.log("1111111111111111")
-                    console.log(res)
                     layer.closeAll();
-                    if(res.status === 200) {
+                    if(res.success === true) {
                         parent.window.refreshAndShowMessage({
                             title: '新建表单成功！',
                             text: '请在表单设计列表中查看',
@@ -144,8 +141,6 @@ $(function(){
 
                 },
                 error: function(error) {
-                    console.log("22222222222222")
-                    console.log(error)
                     layer.closeAll();
                     new PNotify({
                         title: '新建表单失败！',

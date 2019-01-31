@@ -27,8 +27,6 @@ import com.secondhand.tradingplatformcommon.base.BaseController.BaseController;
 import com.secondhand.tradingplatformadminentity.entity.system.Form;
 import com.secondhand.tradingplatformadminservice.service.system.FormService;
 
-import javax.servlet.http.HttpServletRequest;
-
 /**
  * @description : Form 控制器
  * @author : zhangjk
@@ -186,8 +184,8 @@ public class FormController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/form/create_update");
                 form = formService.myFormCreateUpdate(form);
-                resJson.setCode(200);
                 resJson.setData(form);
+                resJson.setCode(200);
                 resJson.setSuccess(true);
             }catch(UnauthorizedException e){
                 resJson.setSuccess(false);
