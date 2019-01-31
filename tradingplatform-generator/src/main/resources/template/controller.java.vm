@@ -2,6 +2,8 @@
 package com.secondhand.tradingplat${table.entityPath}admincontroller.controller;
 
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.shiro.Button;
+import com.secondhand.tradingplatformadminservice.service.shiro.MenuButtonService;
 ##import com.mpdemo.util.jsonResult;
 ##import com.mpdemo.util.TableJson;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
@@ -18,6 +20,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -46,6 +49,9 @@ public class ${table.controllerName} {
     @Autowired
     private ${table.serviceName} ${table.entityPath}Service;
 
+    @Autowired
+    private MenuButtonService menuButtonService;
+
     /**
      * @description : 跳转到列表页面
      * @author : ${author}
@@ -53,33 +59,33 @@ public class ${table.controllerName} {
      */
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到${table.entityPath}的列表页面")
-    public String to${entity}List(@ApiParam(name = "model", value = "Model") Model model) {
-        return "${table.entityPath}/tabulation";
+    public String to${entity}List(@ApiParam(name = "model", value = "Model") Model model,
+    @ApiParam(name = "menuId", value = "菜单id") Long menuId) {
+        //根据菜单id找按钮
+        List<Button> buttons = menuButtonService.mySelectListWithMenuId(menuId);
+        //注入该表单的按钮
+        model.addAttribute("buttons", buttons);
+        return "system/${table.entityPath}/tabulation";
     }
 
     /**
-     * @description : 跳转到修改${table.entityPath}的页面
+     * @description : 跳转到修改或新增${table.entityPath}的页面
      * @author : ${author}
      * @since : Create in ${date}
      */
-    @GetMapping(value = "/{${table.entityPath}Id}/update.html")
-    @ApiOperation(value = "/{${table.entityPath}Id}/update.html", notes = "跳转到修改页面")
-    public String toUpdate${entity}(@ApiParam(name = "model", value = "Model") Model model, @PathVariable(value = "${table.entityPath}Id") Long ${table.entityPath}Id) {
-        //静态注入要回显的数据
-        Map<String, Object> ${table.entityPath} = ${table.entityPath}Service.mySelectMapById(${table.entityPath}Id);
+    @GetMapping(value = {"/{${table.entityPath}Id}/update.html", "/create.html"})
+    @ApiOperation(value = "/{${table.entityPath}Id}/update.html、/create.html", notes = "跳转到修改或新增${table.entityPath}的页面")
+    public String toModify${entity}(@ApiParam(name = "model", value = "Model") Model model,
+    @ApiParam(name = "${table.entityPath}Id", value = "${entity}Id") @PathVariable(value = "${table.entityPath}Id", required = false) Long ${table.entityPath}Id) {
+        Map<String, Object> ${table.entityPath} = new HashMap<>();
+        //判空
+        if (${table.entityPath}Id != null) {
+            //根据${table.entityPath}Id查找记录回显的数据
+            ${table.entityPath} = ${table.entityPath}Service.mySelectMapById(${table.entityPath}Id);
+        }
+        //静态注入
         model.addAttribute("${table.entityPath}", ${table.entityPath});
-        return "${table.entityPath}/new${entity}";
-    }
-
-    /**
-     * @description : 跳转到新增${table.entityPath}的页面
-     * @author : ${author}
-     * @since : Create in ${date}
-     */
-    @GetMapping(value = "/create.html")
-    @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
-    public String toCreate${entity}(@ApiParam(name = "model", value = "Model") Model model) {
-        return "${table.entityPath}/new${entity}";
+        return "system/${table.entityPath}/modify";
     }
     
     /**

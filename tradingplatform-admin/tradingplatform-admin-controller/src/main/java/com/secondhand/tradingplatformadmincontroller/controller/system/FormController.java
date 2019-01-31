@@ -5,7 +5,6 @@ import com.secondhand.tradingplatformadminentity.entity.shiro.Button;
 import com.secondhand.tradingplatformadminservice.service.shiro.MenuButtonService;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
-import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -18,7 +17,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -61,7 +59,7 @@ public class FormController extends BaseController {
     }
 
     /**
-     * @description : 跳转到修改form的页面
+     * @description : 跳转到修改或新增form的页面
      * @author : zhangjk
      * @since : Create in 2018-11-11
      */

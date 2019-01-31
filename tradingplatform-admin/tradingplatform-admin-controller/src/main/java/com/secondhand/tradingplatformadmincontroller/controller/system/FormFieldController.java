@@ -1,7 +1,9 @@
 package com.secondhand.tradingplatformadmincontroller.controller.system;
 
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.shiro.Button;
 import com.secondhand.tradingplatformadminentity.entity.system.SelectItem;
+import com.secondhand.tradingplatformadminservice.service.shiro.MenuButtonService;
 import com.secondhand.tradingplatformadminservice.service.system.SelectItemService;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
@@ -40,15 +42,24 @@ public class FormFieldController extends BaseController {
     @Autowired
     private SelectItemService selectItemService;
 
+    @Autowired
+    private MenuButtonService menuButtonService;
+
     /**
      * @description : 跳转到列表页面
      * @author : zhangjk
      * @since : Create in 2018-11-09
      */
     @GetMapping(value = "/tabulation.html")
-    @ApiOperation(value = "/tabulation.html", notes = "跳转到formField的列表页面")
-    public String toFormFieldList(@ApiParam(name = "model", value = "Model") Model model) {
-        return "formField/tabulation";
+    @ApiOperation(value = "/tabulation.html", notes = "跳转到form的列表页面")
+    public String toFormList(@ApiParam(name = "model", value = "Model") Model model,
+                             @ApiParam(name = "menuId", value = "菜单id") Long menuId) {
+
+        //根据菜单id找按钮
+        List<Button> buttons = menuButtonService.mySelectListWithMenuId(menuId);
+        //注入该表单的按钮
+        model.addAttribute("buttons", buttons);
+        return "system/form/tabulation";
     }
 
     /**
