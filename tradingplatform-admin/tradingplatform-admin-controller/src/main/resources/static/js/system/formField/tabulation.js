@@ -51,7 +51,6 @@ function initTable() {
         toolbar: "#toolbar",
         url: '/admin/formField/query',
         method: 'post',
-        // sortOrder: 'desc',
         responseHandler: responseHandler,
         queryParams: queryParams,
         striped: true,
@@ -140,6 +139,8 @@ function refreshTable() {
 function responseHandler(res) {
     var length = res.data.length;
     for (var i = 0; i < length; i++) {
+        //处理是否必填
+        res.data[i].required = res.data[i].required == true ? '是' : '否';
         //处理显示类型
         var showTypeStr = res.data[i].show_type;
         //判空
@@ -172,10 +173,10 @@ function initSearchOptions() {
     searchOptions['title'] = $("#searchTitle").val();
     searchOptions['fieldName'] = $("#searchFieldName") .val();
     searchOptions['required'] = $("#required").val();
-    searchOptions['sort'] = $("#searchSort").val();
     searchOptions['fieldUnit'] = $("#searchUnit").val();
     searchOptions['showType'] = $("#showType").val();
     searchOptions['fieldType'] =$("#fieldType").val();
+    searchOptions['defaultValue'] = $("#searchDefaultValue").val();
 }
 //表格数据获取的参数
 function queryParams(params) {
@@ -195,10 +196,10 @@ function queryParams(params) {
     if (StringNoEmpty(searchOptions.title)) postData['title'] = searchOptions.title;
     if (StringNoEmpty(searchOptions.fieldName)) postData['fieldName'] = searchOptions.fieldName;
     if (StringNoEmpty(searchOptions.required)) postData['required'] = searchOptions.required;
-    if (StringNoEmpty(searchOptions.sort)) postData['sort'] = searchOptions.sort;
     if (StringNoEmpty(searchOptions.fieldUnit)) postData['fieldUnit'] = searchOptions.fieldUnit;
     if (StringNoEmpty(searchOptions.showType)) postData['showType'] = searchOptions.showType;
     if (StringNoEmpty(searchOptions.fieldType)) postData['fieldType'] = searchOptions.fieldType;
+    if (StringNoEmpty(searchOptions.defaultValue)) postData['defaultValue'] = searchOptions.defaultValue;
     return postData;
 }
 // 获取bootstrap table高度

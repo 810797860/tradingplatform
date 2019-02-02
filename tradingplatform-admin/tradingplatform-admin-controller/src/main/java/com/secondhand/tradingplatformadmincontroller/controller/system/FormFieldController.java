@@ -60,10 +60,13 @@ public class FormFieldController extends BaseController {
 
         //根据菜单id找按钮
         List<Button> buttons = menuButtonService.mySelectListWithMenuId(menuId);
+        List<SelectItem> showTypes = selectItemService.getItemsByPid(SystemSelectItem.DISPLAY_TYPE);
         //注入该表单的按钮
         model.addAttribute("buttons", buttons);
         //注入表单id
         model.addAttribute("formId", formId);
+        //注入展示类型
+        model.addAttribute("showTypes", showTypes);
         return "system/formField/tabulation";
     }
 

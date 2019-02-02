@@ -76,6 +76,11 @@ public class SelectSqlGenerator {
                 selectSql = concatSql(select, tempParameter, SelectEnum.S_BASE_SELECT_ITEM);
                 continue;
             }
+
+            if (tempParameter.equals("show_type")){
+                select.setSelectSql(selectSql);
+                selectSql = concatSql(select, tempParameter, SelectEnum.S_BASE_SELECT_ITEM);
+            }
 //====================================================================================================================
 
             //样式： tableAlias.parameter as parameter，
