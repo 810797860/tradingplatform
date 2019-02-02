@@ -56,7 +56,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
          * @param ${table.entityPath}
          * @return
          */
-        Page<${entity}> mySelectPageWithParam(Page<${entity}> page, ${entity} ${table.entityPath});
+        Page<Map<String, Object>> mySelectPageWithParam(Page page, ${entity} ${table.entityPath});
 
         /**
          * 获取${entity}列表数据（Map）

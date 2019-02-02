@@ -80,10 +80,10 @@ public class ${table.controllerName} {
         Map<String, Object> ${table.entityPath} = new HashMap<>();
         //判空
         if (${table.entityPath}Id != null) {
-            //根据${table.entityPath}Id查找记录回显的数据
             ${table.entityPath} = ${table.entityPath}Service.mySelectMapById(${table.entityPath}Id);
         }
         //静态注入
+        //静态注入根据${table.entityPath}Id查找记录回显的数据
         model.addAttribute("${table.entityPath}", ${table.entityPath});
         return "system/${table.entityPath}/modify";
     }
@@ -96,8 +96,8 @@ public class ${table.controllerName} {
     @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
     @ResponseBody
-    public TableJson<${entity}> get${entity}List(@ApiParam(name = "${entity}", value = "${entity} 实体类") @RequestBody ${entity} ${table.entityPath}) {
-            TableJson<${entity}> resJson = new TableJson<>();
+    public TableJson<Map<String, Object>> get${entity}List(@ApiParam(name = "${entity}", value = "${entity} 实体类") @RequestBody ${entity} ${table.entityPath}) {
+            TableJson<Map<String, Object>> resJson = new TableJson<>();
             Page resPage = ${table.entityPath}.getPage();
             Integer current = resPage.getCurrent();
             Integer size = resPage.getSize();
@@ -106,7 +106,7 @@ public class ${table.controllerName} {
                 resJson.setMessage("异常信息：页数和页的大小不能为空");
                 return resJson;
             }
-            Page<${entity}> ${table.entityPath}Page = new Page<${entity}>(current, size);
+            Page<Map<String, Object>> ${table.entityPath}Page = new Page(current, size);
             ${table.entityPath}Page = ${table.entityPath}Service.mySelectPageWithParam(${table.entityPath}Page, ${table.entityPath});
             resJson.setRecordsTotal(${table.entityPath}Page.getTotal());
             resJson.setData(${table.entityPath}Page.getRecords());

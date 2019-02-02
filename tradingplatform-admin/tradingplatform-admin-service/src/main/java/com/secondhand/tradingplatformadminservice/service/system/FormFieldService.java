@@ -59,7 +59,7 @@ public interface FormFieldService extends BaseService<FormField> {
          * @param formField
          * @return
          */
-        Page<FormField> mySelectPageWithParam(Page<FormField> page, FormField formField);
+        Page<Map<String, Object>> mySelectPageWithParam(Page page, FormField formField);
 
         /**
          * 获取FormField列表数据（Map）

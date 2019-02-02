@@ -82,7 +82,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     
     @Override
     @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p1.sorts")
-    public Page<${entity}> mySelectPageWithParam(Page<${entity}> page, ${entity} ${table.entityPath}) {
+    public Page<Map<String, Object>> mySelectPageWithParam(Page page, ${entity} ${table.entityPath}) {
 
         //判空
         ${table.entityPath}.setDeleted(false);
@@ -98,7 +98,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
                 wrapper.orderBy(sort.getField(), sort.getAsc());
             });
         }
-        return this.selectPage(page, wrapper);
+        return this.selectMapsPage(page, wrapper);
     }
     
     @Override

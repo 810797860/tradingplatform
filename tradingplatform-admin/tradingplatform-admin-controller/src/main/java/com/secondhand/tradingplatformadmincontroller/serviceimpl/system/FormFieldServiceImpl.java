@@ -205,8 +205,9 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
 
     @Override
     @Cacheable(key = "#p0 + '' + #p1")
-    public Page<FormField> mySelectPageWithParam(Page<FormField> page, FormField formField) {
+    public Page<Map<String, Object>> mySelectPageWithParam(Page page, FormField formField) {
         Wrapper<FormField> wrapper = new EntityWrapper<>(formField);
+        wrapper.setSqlSelect("s_base_form_field.id as id, s_base_form_field.show_type as show_type, s_base_form_field.created_by as created_by, (select concat('{\"id\":\"', sbsi.id, '\",\"pid\":\"', sbsi.pid, '\",\"title\":\"', sbsi.title, '\"}') from s_base_select_item sbsi where (sbsi.id = s_base_form_field.field_type)) AS field_type, s_base_form_field.deleted as deleted, s_base_form_field.field_name as field_name, s_base_form_field.description as description, s_base_form_field.updated_at as updated_at, s_base_form_field.title as title, s_base_form_field.default_value as default_value, s_base_form_field.updated_by as updated_by, s_base_form_field.form_id as form_id, s_base_form_field.required as required, s_base_form_field.created_at as created_at");
         //遍历排序
         List<Sort> sorts = formField.getSorts();
         if (sorts == null){
@@ -218,7 +219,7 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
                 wrapper.orderBy(sort.getField(), sort.getAsc());
             });
         }
-        return this.selectPage(page, wrapper);
+        return this.selectMapsPage(page, wrapper);
     }
 
     @Override

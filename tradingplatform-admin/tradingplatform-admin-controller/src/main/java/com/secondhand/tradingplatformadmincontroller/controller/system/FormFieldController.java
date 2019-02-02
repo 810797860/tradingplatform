@@ -16,9 +16,11 @@ import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -31,7 +33,7 @@ import com.secondhand.tradingplatformadminservice.service.system.FormFieldServic
  * @author : zhangjk
  * @since : Create in 2018-11-09
  */
-@RestController
+@Controller
 @Api(value="/admin/formField", description="FormField 控制器")
 @RequestMapping("/admin/formField")
 public class FormFieldController extends BaseController {
@@ -53,44 +55,41 @@ public class FormFieldController extends BaseController {
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到form的列表页面")
     public String toFormList(@ApiParam(name = "model", value = "Model") Model model,
-                             @ApiParam(name = "menuId", value = "菜单id") Long menuId) {
+                             @ApiParam(name = "menuId", value = "菜单id") Long menuId,
+                             @ApiParam(name = "formId", value = "表单id") Long formId) {
 
         //根据菜单id找按钮
         List<Button> buttons = menuButtonService.mySelectListWithMenuId(menuId);
         //注入该表单的按钮
         model.addAttribute("buttons", buttons);
-        return "system/form/tabulation";
+        //注入表单id
+        model.addAttribute("formId", formId);
+        return "system/formField/tabulation";
     }
 
     /**
-     * @description : 跳转到修改formField的页面
+     * @description : 跳转到修改或新增formField的页面
      * @author : zhangjk
-     * @since : Create in 2018-11-09
+     * @since : Create in 2018-11-11
      */
-    @GetMapping(value = "/{formFieldId}/update.html")
-    @ApiOperation(value = "/{formFieldId}/update.html", notes = "跳转到修改页面")
-    public String toUpdateFormField(@ApiParam(name = "model", value = "Model") Model model, @PathVariable(value = "formFieldId") Long formFieldId) {
-        //静态注入要回显的数据
-        Map<String, Object> formField = formFieldService.mySelectMapById(formFieldId);
+    @GetMapping(value = {"/{formFieldId}/update.html", "/create.html"})
+    @ApiOperation(value = "/{formFieldId}/update.html、/create.html", notes = "跳转到修改或新增formField页面")
+    public String toModifyForm(@ApiParam(name = "model", value = "Model") Model model,
+                               @ApiParam(name = "formFieldId", value = "FormId") @PathVariable(value = "formFieldId", required = false) Long formFieldId) {
+
+        Map<String, Object> formField = new HashMap<>();
+        //判空
+        if (formFieldId != null) {
+            formField = formFieldService.mySelectMapById(formFieldId);
+        }
         //静态注入展示类型及字段类型
         List<SelectItem> displayType = selectItemService.getAllItemsByPid(SystemSelectItem.DISPLAY_TYPE);
+        //静态注入
+        //根据formFieldId查找记录回显的数据
         model.addAttribute("formField", formField);
-        model.addAttribute("displayType", displayType);
-        return "formField/newFormField";
-    }
-
-    /**
-     * @description : 跳转到新增formField的页面
-     * @author : zhangjk
-     * @since : Create in 2018-11-09
-     */
-    @GetMapping(value = "/create.html")
-    @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
-    public String toCreateFormField(@ApiParam(name = "model", value = "Model") Model model) {
         //静态注入展示类型及字段类型
-        List<SelectItem> displayType = selectItemService.getAllItemsByPid(SystemSelectItem.DISPLAY_TYPE);
         model.addAttribute("displayType", displayType);
-        return "formField/newFormField";
+        return "system/formField/modify";
     }
     
     /**
@@ -100,8 +99,9 @@ public class FormFieldController extends BaseController {
      */
     @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
-    public TableJson<FormField> getFormFieldList(@ApiParam(name = "FormField", value = "FormField 实体类") @RequestBody FormField formField) {
-            TableJson<FormField> resJson = new TableJson<>();
+    @ResponseBody
+    public TableJson<Map<String, Object>> getFormFieldList(@ApiParam(name = "FormField", value = "FormField 实体类") @RequestBody FormField formField) {
+            TableJson<Map<String, Object>> resJson = new TableJson<>();
             Page resPage = formField.getPage();
             formField.setDeleted(false);
             Integer current = resPage.getCurrent();
@@ -111,7 +111,7 @@ public class FormFieldController extends BaseController {
                 resJson.setMessage("异常信息：页数和页的大小不能为空");
                 return resJson;
             }
-            Page<FormField> formFieldPage = new Page<FormField>(current, size);
+            Page<Map<String, Object>> formFieldPage = new Page(current, size);
             formFieldPage = formFieldService.mySelectPageWithParam(formFieldPage, formField);
             resJson.setRecordsTotal(formFieldPage.getTotal());
             resJson.setData(formFieldPage.getRecords());
@@ -126,6 +126,7 @@ public class FormFieldController extends BaseController {
      */
     @GetMapping(value = "/get_map_by_id/{formFieldId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{formFieldId}", notes = "根据id获取formFieldMap")
+    @ResponseBody
     public JsonResult<Map<String, Object>> getFormFieldByIdForMap( @ApiParam(name = "id", value = "formFieldId") @PathVariable("formFieldId") Long formFieldId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
             Map<String, Object> formField = formFieldService.mySelectMapById(formFieldId);
@@ -141,6 +142,7 @@ public class FormFieldController extends BaseController {
      */
     @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除formField")
+    @ResponseBody
     public JsonResult<FormField> fakeDeleteById(@ApiParam(name = "id", value = "formFieldId") @RequestBody Long formFieldId){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<FormField> resJson = new JsonResult<>();
@@ -163,6 +165,7 @@ public class FormFieldController extends BaseController {
      */
     @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除formField")
+    @ResponseBody
     public JsonResult<FormField> fakeBatchDelete(@ApiParam(name = "ids", value = "formFieldIds") @RequestBody List<Long> formFieldIds){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<FormField> resJson = new JsonResult<>();
@@ -184,6 +187,7 @@ public class FormFieldController extends BaseController {
      */
     @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改formField")
+    @ResponseBody
     public JsonResult<FormField> formFieldCreateUpdate(@ApiParam(name = "FormField", value = "FormField实体类") @RequestBody FormField formField){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<FormField> resJson = new JsonResult<>();
@@ -207,6 +211,7 @@ public class FormFieldController extends BaseController {
      */
     @PostMapping(value = "/update_by_form_id", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/update_by_form_id", notes = "根据表单id更新FormField")
+    @ResponseBody
     public JsonResult<FormField> formFieldUpdateByFormId(@ApiParam(name = "formId", value = "表单id") @RequestBody Long formId){
         //因为是开发后台时方便自己用的，所以就不检测是否有权限了
         JsonResult<FormField> resJson = new JsonResult<>();

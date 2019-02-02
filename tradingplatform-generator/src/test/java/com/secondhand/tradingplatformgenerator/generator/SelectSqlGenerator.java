@@ -27,7 +27,7 @@ public class SelectSqlGenerator {
     @Test
     public void testSelectSqlGenerator(){
 
-        Select select = new Select("s_base_select_item");
+        Select select = new Select("s_base_form_field");
 
         //准备承载selectSql
         StringBuilder selectSql = new StringBuilder();
@@ -45,7 +45,7 @@ public class SelectSqlGenerator {
          * 使用字典表查询该表字段
          */
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-        List<Map<String, Object>> resultList = jdbcTemplate.queryForList("SELECT COLUMN_NAME AS COLUMN_NAME FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = 'myshtp' AND TABLE_NAME = '" + tableName + "' ORDER BY IS_NULLABLE ASC");
+        List<Map<String, Object>> resultList = jdbcTemplate.queryForList("SELECT COLUMN_NAME AS COLUMN_NAME FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = 'myshtp' AND TABLE_NAME = '" + tableName + "' GROUP BY COLUMN_NAME ORDER BY IS_NULLABLE ASC");
 
         /**
          * 拼接简单形式的sql（参数部分）
@@ -61,13 +61,17 @@ public class SelectSqlGenerator {
 
             //把公共字段剔除
             if (tempParameter.equals("uuid")){
-                break;
+                continue;
+            }
+
+            if (tempParameter.equals("created_at")){
+                continue;
             }
 
 
 //====================================================================================================================
             //特殊关联字段的拼接
-            if (tempParameter.equals("item_value")){
+            if (tempParameter.equals("field_type")){
                 select.setSelectSql(selectSql);
                 selectSql = concatSql(select, tempParameter, SelectEnum.S_BASE_SELECT_ITEM);
                 continue;
@@ -86,10 +90,10 @@ public class SelectSqlGenerator {
             selectSql.append(", ");
         }
 
-        //再把常用的deleted和created_at放进去，趁机把最后那个逗号人为弄走
-        //tableAlias.parameter as parameter， tableAlias.parameter as parameter，
-        selectSql.append(tableAlias);
-        selectSql.append(".deleted as deleted, ");
+//        //再把常用的deleted和created_at放进去，趁机把最后那个逗号人为弄走
+//        //tableAlias.parameter as parameter， tableAlias.parameter as parameter，
+//        selectSql.append(tableAlias);
+//        selectSql.append(".deleted as deleted, ");
         selectSql.append(tableAlias);
         selectSql.append(".created_at as created_at ");
 

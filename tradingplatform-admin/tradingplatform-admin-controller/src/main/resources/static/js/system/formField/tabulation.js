@@ -49,7 +49,7 @@ function initTable() {
     $table.bootstrapTable({
         height: getHeight(),
         toolbar: "#toolbar",
-        url: '/formField/query',
+        url: '/admin/formField/query',
         method: 'post',
         // sortOrder: 'desc',
         responseHandler: responseHandler,
@@ -138,26 +138,26 @@ function refreshTable() {
 
 // 数据返回处理
 function responseHandler(res) {
-    var length = res.data.data_list.length;
+    var length = res.data.length;
     for (var i = 0; i < length; i++) {
         //处理显示类型
-        var showTypeStr = res.data.data_list[i].show_type;
+        var showTypeStr = res.data[i].show_type;
         //判空
         if (!!showTypeStr) {
             var showTypeObj = JSON.parse(showTypeStr);
-            res.data.data_list[i].show_type = showTypeObj.title;
+            res.data[i].show_type = showTypeObj.title;
         }
         //处理字段类型
-        var fieldTypeStr = res.data.data_list[i].field_type;
+        var fieldTypeStr = res.data[i].field_type;
         //判空
         if (!!fieldTypeStr) {
             var fieldTypeObj = JSON.parse(fieldTypeStr);
-            res.data.data_list[i].field_type = fieldTypeObj.title;
+            res.data[i].field_type = fieldTypeObj.title;
         }
     }
     return {
-        "total": res.data.total,//总页数
-        "rows": res.data.data_list   //数据
+        "total": res.recordsTotal,//总页数
+        "rows": res.data   //数据
     };
 }
 
@@ -179,14 +179,18 @@ function initSearchOptions() {
 }
 //表格数据获取的参数
 function queryParams(params) {
-    var pager = {};
-    pager.current = params.offset/params.limit + 1;
-    pager.size = params.limit;
+    var page = {};
+    page.current = params.offset/params.limit + 1;
+    page.size = params.limit;
+    var sorts = [];
+    var defaultSort = {};
+    defaultSort.field = 'id';
+    defaultSort.isAsc = true;
+    sorts.push(defaultSort);
     var postData = {
-        pager: pager,
-        formId : formId
-        // order: params.order,
-        // sort: params.sort
+        formId: formId,
+        page: page,
+        sorts:sorts
     };
     if (StringNoEmpty(searchOptions.title)) postData['title'] = searchOptions.title;
     if (StringNoEmpty(searchOptions.fieldName)) postData['fieldName'] = searchOptions.fieldName;

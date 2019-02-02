@@ -59,11 +59,11 @@
     </div>
     <div th:if="${form['id']}!=null">
         <ul id="fieldTab" class="nav nav-tabs">
-            <li class="active"><a href="#fieldSetting" data-toggle="tab" th:data-url="'/formField/manage?formId='+${form['id']}+'&menuId=26'">表单字段设置</a></li>
+            <li class="active"><a href="#fieldSetting" data-toggle="tab" th:data-url="'/admin/formField/tabulation.html?formId='+${form['id']}+'&menuId=170'">表单字段设置</a></li>
         </ul>
         <div id="fieldTabContent" class="tab-content">
             <div class="tab-pane fade in active" id="fieldSetting">
-                <iframe class="tab_iframe" th:src="'/formField/manage?formId='+${form['id']}+'&menuId=26'" frameborder="0" width="100%" onload="changeFrameHeight(this)" scrolling="auto"></iframe>
+                <iframe class="tab_iframe" th:src="'/admin/formField/tabulation.html?formId='+${form['id']}+'&menuId=170'" frameborder="0" width="100%" onload="changeFrameHeight(this)" scrolling="auto"></iframe>
             </div>
         </div>
     </div>
