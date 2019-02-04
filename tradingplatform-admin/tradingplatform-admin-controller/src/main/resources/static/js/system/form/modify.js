@@ -78,7 +78,7 @@ $(function(){
                 success: function(res) {
                     console.log(res)
                     layer.closeAll();
-                    if(res.success == true) {
+                    if(res.success === true) {
                         new PNotify({
                             title: '修改表单信息成功！',
                             text: '请在表单详情中查看修改后的内容',

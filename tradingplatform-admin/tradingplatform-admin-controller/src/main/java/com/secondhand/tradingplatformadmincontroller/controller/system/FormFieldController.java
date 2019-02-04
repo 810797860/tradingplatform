@@ -75,10 +75,11 @@ public class FormFieldController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-11
      */
-    @GetMapping(value = {"/{formFieldId}/update.html", "/create.html"})
-    @ApiOperation(value = "/{formFieldId}/update.html、/create.html", notes = "跳转到修改或新增formField页面")
+    @GetMapping(value = {"/{formId}/{formFieldId}/update.html", "/{formId}/create.html"})
+    @ApiOperation(value = "/{formId}/{formFieldId}/update.html、/{formId}/create.html", notes = "跳转到修改或新增formField页面")
     public String toModifyForm(@ApiParam(name = "model", value = "Model") Model model,
-                               @ApiParam(name = "formFieldId", value = "FormId") @PathVariable(value = "formFieldId", required = false) Long formFieldId) {
+                               @ApiParam(name = "formId", value = "表单id") @PathVariable(value = "formId") Long formId,
+                               @ApiParam(name = "formFieldId", value = "字段id") @PathVariable(value = "formFieldId", required = false) Long formFieldId) {
 
         Map<String, Object> formField = new HashMap<>();
         //判空
@@ -86,12 +87,14 @@ public class FormFieldController extends BaseController {
             formField = formFieldService.mySelectMapById(formFieldId);
         }
         //静态注入展示类型及字段类型
-        List<SelectItem> displayType = selectItemService.getAllItemsByPid(SystemSelectItem.DISPLAY_TYPE);
+        List<SelectItem> fieldTypes = selectItemService.getAllItemsByPid(SystemSelectItem.DISPLAY_TYPE);
         //静态注入
+        //静态注入表单id
+        model.addAttribute("formId", formId);
         //根据formFieldId查找记录回显的数据
         model.addAttribute("formField", formField);
         //静态注入展示类型及字段类型
-        model.addAttribute("displayType", displayType);
+        model.addAttribute("fieldTypes", fieldTypes);
         return "system/formField/modify";
     }
     

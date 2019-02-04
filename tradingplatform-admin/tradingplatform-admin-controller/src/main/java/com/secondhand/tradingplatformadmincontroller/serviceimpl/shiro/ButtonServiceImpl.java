@@ -111,7 +111,7 @@ public class ButtonServiceImpl extends BaseServiceImpl<ButtonMapper, Button> imp
     }
     
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "'paramNameValuePairs' + #p0.paramNameValuePairs")
     public List<Button> mySelectList(Wrapper<Button> wrapper) {
         return buttonMapper.selectList(wrapper);
     }
