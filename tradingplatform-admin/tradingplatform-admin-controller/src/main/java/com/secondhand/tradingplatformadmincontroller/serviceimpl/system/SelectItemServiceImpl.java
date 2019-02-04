@@ -48,6 +48,11 @@ public class SelectItemServiceImpl extends BaseServiceImpl<SelectItemMapper, Sel
     }
 
     @Override
+    public List<Map<String, Object>> getSelectItemByPidForList(Long pid) {
+        return null;
+    }
+
+    @Override
     public SelectItem selectItemCreateUpdate(SelectItem selectItem) {
         Long selectItemId = selectItem.getId();
         if (selectItemId == null){

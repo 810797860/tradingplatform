@@ -11,6 +11,7 @@ import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,7 +27,7 @@ import com.secondhand.tradingplatformadminservice.service.system.SelectItemServi
  * @author : zhangjk
  * @since : Create in 2018-11-09
  */
-@RestController
+@Controller
 @Api(value="/admin/selectItem", description="SelectItem 控制器")
 @RequestMapping("/admin/selectItem")
 public class SelectItemController extends BaseController {
@@ -77,6 +78,7 @@ public class SelectItemController extends BaseController {
      */
     @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
+    @ResponseBody
     public TableJson<SelectItem> getSelectItemList(@ApiParam(name = "SelectItem", value = "SelectItem 实体类") @RequestBody SelectItem selectItem) {
             TableJson<SelectItem> resJson = new TableJson<>();
             Page resPage = selectItem.getPage();
@@ -103,6 +105,7 @@ public class SelectItemController extends BaseController {
      */
     @GetMapping(value = "/get_map_by_id/{selectItemId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{selectItemId}", notes = "根据id获取selectItemMap")
+    @ResponseBody
     public JsonResult<Map<String, Object>> getSelectItemByIdForMap( @ApiParam(name = "id", value = "selectItemId") @PathVariable("selectItemId") Long selectItemId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
             Map<String, Object> selectItem = selectItemService.selectMapById(selectItemId);
@@ -118,6 +121,7 @@ public class SelectItemController extends BaseController {
      */
     @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除selectItem")
+    @ResponseBody
     public JsonResult<SelectItem> fakeDeleteById(@ApiParam(name = "id", value = "selectItemId") @RequestBody Long selectItemId){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<SelectItem> resJson = new JsonResult<>();
@@ -140,6 +144,7 @@ public class SelectItemController extends BaseController {
      */
     @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除selectItem")
+    @ResponseBody
     public JsonResult<SelectItem> fakeBatchDelete(@ApiParam(name = "ids", value = "selectItemIds") @RequestBody List<Long> selectItemIds){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<SelectItem> resJson = new JsonResult<>();
@@ -161,6 +166,7 @@ public class SelectItemController extends BaseController {
      */
     @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改selectItem")
+    @ResponseBody
     public JsonResult<SelectItem> selectItemCreateUpdate(@ApiParam(name = "SelectItem", value = "SelectItem实体类") @RequestBody SelectItem selectItem){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<SelectItem> resJson = new JsonResult<>();
@@ -175,5 +181,21 @@ public class SelectItemController extends BaseController {
                 resJson.setMessage(e.getMessage());
             }
             return resJson;
+    }
+
+    /**
+     * @description : 通过pid获取List<selectItem>
+     * @author : zhangjk
+     * @since : Create in 2018-11-09
+     */
+    @GetMapping(value = "/get_list_by_pid/{pid}")
+    @ApiOperation(value = "/get_list_by_pid/{pid}", notes = "通过pid获取List<selectItem>")
+    @ResponseBody
+    public JsonResult<List<Map<String, Object>>> getSelectItemByPidForList( @ApiParam(name = "pid", value = "selectItem的父级id") @PathVariable("pid") Long pid){
+        JsonResult<List<Map<String, Object>>> resJson = new JsonResult<>();
+        List<Map<String, Object>> selectItemList = selectItemService.getSelectItemByPidForList(pid);
+        resJson.setData(selectItemList);
+        resJson.setSuccess(true);
+        return resJson;
     }
 }

@@ -25,6 +25,8 @@ import com.secondhand.tradingplatformcommon.base.BaseController.BaseController;
 import com.secondhand.tradingplatformadminentity.entity.system.Form;
 import com.secondhand.tradingplatformadminservice.service.system.FormService;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * @description : Form 控制器
  * @author : zhangjk
@@ -87,7 +89,7 @@ public class FormController extends BaseController {
     @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
     @ResponseBody
-    public TableJson<Form> getFormList(@ApiParam(name = "Form", value = "Form 实体类") @RequestBody Form form) {
+    public TableJson<Form> getFormList(@ApiParam(name = "form", value = "Form 实体类") @RequestBody Form form) {
             TableJson<Form> resJson = new TableJson<>();
             Page resPage = form.getPage();
             form.setDeleted(false);

@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.shiro.Menu;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
+import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -21,6 +22,8 @@ import java.util.Map;
 import com.secondhand.tradingplatformcommon.base.BaseController.BaseController;
 import com.secondhand.tradingplatformadminentity.entity.shiro.RoleMenu;
 import com.secondhand.tradingplatformadminservice.service.shiro.RoleMenuService;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * @description : RoleMenu 控制器
@@ -78,7 +81,12 @@ public class RoleMenuController extends BaseController {
      */
     @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
-    public TableJson<Menu> getRoleMenuList(@ApiParam(name = "RoleMenu", value = "RoleMenu 实体类") @RequestBody RoleMenu roleMenu) {
+    public TableJson<Menu> getRoleMenuList(@ApiParam(name = "roleMenu", value = "RoleMenu 实体类") @RequestBody RoleMenu roleMenu,
+                                           @ApiParam(name = "session", value = "客户端会话") HttpSession session) {
+
+            //根据roleId找menuId，放进去条件里
+            Long roleId = Long.valueOf(session.getAttribute(MagicalValue.ROLE_SESSION_ID).toString());
+            roleMenu.setRoleId(roleId);
             TableJson<Menu> resJson = new TableJson<>();
             Page resPage = roleMenu.getPage();
             Integer current = resPage.getCurrent();

@@ -96,7 +96,7 @@ public class ${table.controllerName} {
     @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
     @ResponseBody
-    public TableJson<Map<String, Object>> get${entity}List(@ApiParam(name = "${entity}", value = "${entity} 实体类") @RequestBody ${entity} ${table.entityPath}) {
+    public TableJson<Map<String, Object>> get${entity}List(@ApiParam(name = "${table.entityPath}", value = "${entity} 实体类") @RequestBody ${entity} ${table.entityPath}) {
             TableJson<Map<String, Object>> resJson = new TableJson<>();
             Page resPage = ${table.entityPath}.getPage();
             Integer current = resPage.getCurrent();
@@ -183,7 +183,7 @@ public class ${table.controllerName} {
     @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改${table.entityPath}")
     @ResponseBody
-    public JsonResult<${entity}> ${table.entityPath}CreateUpdate(@ApiParam(name = "${entity}", value = "${entity}实体类") @RequestBody ${entity} ${table.entityPath}){
+    public JsonResult<${entity}> ${table.entityPath}CreateUpdate(@ApiParam(name = "${table.entityPath}", value = "${entity}实体类") @RequestBody ${entity} ${table.entityPath}){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<${entity}> resJson = new JsonResult<>();
             try{
