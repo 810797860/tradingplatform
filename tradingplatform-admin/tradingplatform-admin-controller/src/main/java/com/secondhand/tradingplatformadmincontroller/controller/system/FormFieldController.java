@@ -60,7 +60,7 @@ public class FormFieldController extends BaseController {
 
         //根据菜单id找按钮
         List<Button> buttons = menuButtonService.mySelectListWithMenuId(menuId);
-        List<SelectItem> showTypes = selectItemService.getItemsByPid(SystemSelectItem.DISPLAY_TYPE);
+        List<SelectItem> showTypes = selectItemService.myGetItemsByPid(SystemSelectItem.DISPLAY_TYPE);
         //注入该表单的按钮
         model.addAttribute("buttons", buttons);
         //注入表单id
@@ -87,7 +87,7 @@ public class FormFieldController extends BaseController {
             formField = formFieldService.mySelectMapById(formFieldId);
         }
         //静态注入展示类型及字段类型
-        List<SelectItem> fieldTypes = selectItemService.getAllItemsByPid(SystemSelectItem.DISPLAY_TYPE);
+        List<SelectItem> fieldTypes = selectItemService.myGetAllItemsByPid(SystemSelectItem.DISPLAY_TYPE);
         //静态注入
         //静态注入表单id
         model.addAttribute("formId", formId);

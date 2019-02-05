@@ -12,7 +12,7 @@ import java.util.Map;
  *   @description : SelectItemMapper 接口
  *   ---------------------------------
  * 	 @author zhangjk
- *   @since 2018-11-09
+ *   @since 2019-02-05
  */
 @Repository
 public interface SelectItemMapper extends BaseDao<SelectItem> {
@@ -30,12 +30,12 @@ public interface SelectItemMapper extends BaseDao<SelectItem> {
      * @param pid
      * @return
      */
-    List<SelectItem> getItemsByPid(@Param("pid") Long pid);
+    List<SelectItem> myGetItemsByPid(@Param("pid") Long pid);
 
     /**
      * 根据pid递归获取所有子级枚举列表
      * @param pid
      * @return
      */
-    List<SelectItem> getAllItemsByPid(@Param("pid") Long pid);
+    List<SelectItem> myGetAllItemsByPid(@Param("pid") Long pid);
 }

@@ -109,11 +109,10 @@ function addMenu(){
 function getEnumeration(pid, parentDom) {
     $.ajax({
         type:'get',
-        // url:'/selectItem/' + pid + '/get_by_pid',
-        url:'/selectItem/' + pid + '/get_by_pid',
+        url:'/admin/selectItem/get_list_by_pid/' + pid,
         contentType:'application/json;charset=utf-8',
         success: function (res) {
-            var list = res.data.data_list;
+            var list = res.data;
             var menuTypeList = [];
             for (var i = 0; i < list.length; i++) {
                 var item = list[i];
