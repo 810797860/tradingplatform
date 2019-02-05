@@ -103,37 +103,37 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
             formMapper.createTable(form);
             formMapper.insert(form);
 
-//            //加上默认的权限
-//            //根据表名获取SimpleName
-//            String collectionName = "";
-//            String[] collections = form.getCollection().split(MagicalValue.UNDERLINE);
-//            if (collections.length > MagicalValue.SIMPLE_NAME_INDEX) {
-//                for (int i = MagicalValue.SIMPLE_NAME_INDEX; i < collections.length; i++) {
-//                    //首字母变为大写
-//                    collections[i] = collections[i].substring(0, 1).toUpperCase() + collections[i].substring(1);
-//                    collectionName += collections[i];
-//                }
-//                //再把第一个转换成小写，实现驼峰写法
-//                collectionName = collectionName.substring(0, 1).toLowerCase() + collectionName.substring(1);
-//
-//                Resources resources = new Resources();
-//                resources.setTitle("新增或修改" + collectionName);
-//                resources.setUrl("/admin/" + collectionName + "/create_update");
-//                resources.setDescription("新增或修改" + collectionName);
-//                resourcesService.myResourcesCreateUpdate(resources);
-//
-//                resources.setId(null);
-//                resources.setTitle("根据id假删除" + collectionName);
-//                resources.setUrl("/admin/" + collectionName + "/delete");
-//                resources.setDescription("根据id假删除" + collectionName);
-//                resourcesService.myResourcesCreateUpdate(resources);
-//
-//                resources.setId(null);
-//                resources.setTitle("批量假删除" + collectionName);
-//                resources.setUrl("/admin/" + collectionName + "/batch_delete");
-//                resources.setDescription("批量假删除" + collectionName);
-//                resourcesService.myResourcesCreateUpdate(resources);
-//            }
+            //加上默认的权限
+            //根据表名获取SimpleName
+            String collectionName = "";
+            String[] collections = form.getCollection().split(MagicalValue.UNDERLINE);
+            if (collections.length > MagicalValue.SIMPLE_NAME_INDEX) {
+                for (int i = MagicalValue.SIMPLE_NAME_INDEX; i < collections.length; i++) {
+                    //首字母变为大写
+                    collections[i] = collections[i].substring(0, 1).toUpperCase() + collections[i].substring(1);
+                    collectionName += collections[i];
+                }
+                //再把第一个转换成小写，实现驼峰写法
+                collectionName = collectionName.substring(0, 1).toLowerCase() + collectionName.substring(1);
+
+                Resources resources = new Resources();
+                resources.setTitle("新增或修改" + collectionName);
+                resources.setUrl("/admin/" + collectionName + "/create_update");
+                resources.setDescription("新增或修改" + collectionName);
+                resourcesService.myResourcesCreateUpdate(resources);
+
+                resources.setId(null);
+                resources.setTitle("根据id假删除" + collectionName);
+                resources.setUrl("/admin/" + collectionName + "/delete");
+                resources.setDescription("根据id假删除" + collectionName);
+                resourcesService.myResourcesCreateUpdate(resources);
+
+                resources.setId(null);
+                resources.setTitle("批量假删除" + collectionName);
+                resources.setUrl("/admin/" + collectionName + "/batch_delete");
+                resources.setDescription("批量假删除" + collectionName);
+                resourcesService.myResourcesCreateUpdate(resources);
+            }
         } else {
             formMapper.updateById(form);
         }
