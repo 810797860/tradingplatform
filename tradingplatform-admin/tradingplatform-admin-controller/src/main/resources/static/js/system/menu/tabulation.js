@@ -29,24 +29,24 @@ $(function(){
     };
     menus.unshift(obj);
     showTreeTable(menus);
-    getEnumeration(802, $('#menu-openway'));
+    // getEnumeration(802, $('#menu-openway'));
     $('#add-menu-btn').bind('click', addMenu);
 });
 
 function addMenu(){
-    if(!StringNoEmpty($("#menu-title").val())||!StringNoEmpty($("#menu-sort").val())){
+    if(!StringNoEmpty($("#menu-name").val())||!StringNoEmpty($("#menu-num").val())){
         layer.msg("请完整填写名称和排序",function(){});
         return;
     }
     var postData = {
-        title: $('#menu-title').val() || null,
+        name: $('#menu-name').val() || null,
         url: $('#menu-path').val() || null,
-        sort: $('#menu-sort').val() || null,
-        openWay: $('#menu-openway option:selected').val() || null,
+        num: $('#menu-num').val() || null,
+        // openWay: $('#menu-openway option:selected').val() || null,
         description: $('#menu-description').val() || null,
         icon: $('#menu-icon').val() || null
     }
-    var url = '/menu/create_update';
+    var url = '/admin/menu/create_update';
     if (modalType == 1) {
         postData.id = currentNode.id;
         postData.pid = currentNode.pid;
@@ -58,20 +58,20 @@ function addMenu(){
     }
     $.ajax({
         type:'post',
-        url: '/menu/create_update',
+        url: '/admin/menu/create_update',
         contentType:'application/json;charset=utf-8',
         dataType:'json',
         data: JSON.stringify(postData),
         success:function(res){
             var zTree = $.fn.zTree.getZTreeObj("menu-tree");
-            var title = '添加菜单';
+            var name = '添加菜单';
             var text = '添加菜单成功';
             if (modalType == 1) {
-                title = '修改菜单';
+                name = '修改菜单';
                 text = '修改菜单成功';
             }
             new PNotify({
-                title: title,
+                name: name,
                 text: text,
                 type: 'success',
                 delay: 3000,
@@ -82,14 +82,14 @@ function addMenu(){
                 var nodeObj = {
                     id:res.data.id,
                     pId:currentNode.id,
-                    name:$('#menu-title').val(),
+                    name:$('#menu-name').val(),
                     data: {
                         id:res.data.id,
                         pId:currentNode.id,
-                        title: $('#menu-title').val() || null,
+                        name: $('#menu-name').val() || null,
                         url: $('#menu-path').val() || null,
-                        sort: $('#menu-sort').val() || null,
-                        openWay: $('#menu-openway option:selected').val() || null,
+                        num: $('#menu-num').val() || null,
+                        // openWay: $('#menu-openway option:selected').val() || null,
                         description: $('#menu-description').val() || null,
                         icon: $('#menu-icon').val() || null
                     }
@@ -190,14 +190,14 @@ function onClick(event, treeId, treeNode) {
     currentNode = treeNode;
     var data = treeNode.data;
     console.log(data);
-    $('#menu-title').val(data.title);
+    $('#menu-name').val(data.name);
     $('#menu-path').val(data.url);
-    $('#menu-sort').val(data.sort);
+    $('#menu-num').val(data.num);
     $('#menu-icon').val(data.icon);
     // $('#menu-openway').val(data.open_way);
-    $('#menu-openway option[value="'+data.open_way+'"]').attr('selected',true);
+    // $('#menu-openway option[value="'+data.open_way+'"]').attr('selected',true);
     $('#menu-description').val(data.description);
-    $('#modal-title').text('新增菜单');
+    $('#modal-name').text('新增菜单');
     $addMenuModal.modal('show');
 }
 
@@ -235,12 +235,12 @@ function beforeDrop(treeId, treeNodes, targetNode, moveType) {
             url:data.url,
             icon:data.icon,
             openWay:data.openWay,
-            sort:data.sort,
+            num:data.num,
             pid: targetNode.data.id
         }
         $.ajax({
             type:'post',
-            url:'/menu/create_update',
+            url:'/admin/menu/create_update',
             contentType:'application/json;charset=utf-8',
             dataType:'json',
             data: JSON.stringify(postData),
@@ -266,8 +266,8 @@ function beforeEditName(treeId, treeNode) {
     console.log(data);
     $('#menu-title').val(data.title);
     $('#menu-path').val(data.url);
-    $('#menu-sort').val(data.sort);
-    $('#menu-openway option[value="'+data.open_way+'"]').attr("selected",true);
+    $('#menu-num').val(data.num);
+    // $('#menu-openway option[value="'+data.open_way+'"]').attr("selected",true);
     $('#menu-description').val(data.description);
     $addMenuModal.modal('show');
     return false;
@@ -281,8 +281,8 @@ function beforeRemove(treeId, treeNode) {
         var nodeArr = getAllChildrenNodes(treeNode, [treeNode.id]);
         console.log(nodeArr);
         $.ajax({
-            type:'post',
-            url:'/menu/batch_delete',
+            type:'put',
+            url:'/admin/menu/batch_delete',
             data: JSON.stringify(nodeArr),
             contentType:'application/json;charset=utf-8',
             dataType:'json',
@@ -391,7 +391,7 @@ function confResourceOpen(menuId){
     var id=menuId;
     var index = layer.open({
         type: 2,
-        content: '/menu/'+id+'/buttons',
+        content: '/admin/menu/'+id+'/buttons',
         area: ['80%', '80%'],
         maxmin: true,
         success: function(index,layero){

@@ -61,7 +61,7 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuMapper, Menu> implement
     }
 
     @Override
-    @CacheEvict(allEntries = true)
+    @CacheEvict(cacheNames = {"menu", "roleMenu"}, allEntries = true)
     public Menu myMenuCreateUpdate(Menu menu) {
         Long menuId = menu.getId();
         if (menuId == null){

@@ -42,11 +42,11 @@ public class RoleMenuServiceImpl extends BaseServiceImpl<RoleMenuMapper, RoleMen
 
     @Override
     @CacheEvict(allEntries = true)
-    public Integer myFakeDeleteById(Long roleMenuId) {
-        RoleMenu roleMenu = new RoleMenu();
-        roleMenu.setId(roleMenuId);
-        roleMenu.setDeleted(true);
-        return roleMenuMapper.updateById(roleMenu);
+    public Integer myFakeDeleteByRoleMenu(RoleMenu roleMenu) {
+        Wrapper<RoleMenu> wrapper = new EntityWrapper<>();
+        wrapper.where("role_id = {0}", roleMenu.getRoleId());
+        wrapper.where("menu_id = {0}", roleMenu.getMenuId());
+        return roleMenuMapper.delete(wrapper);
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.secondhand.tradingplatformadminservice.service.shiro;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.shiro.Menu;
+import com.secondhand.tradingplatformadminentity.entity.shiro.Role;
 import com.secondhand.tradingplatformadminentity.entity.shiro.RoleMenu;
 import com.secondhand.tradingplatformcommon.base.BaseService.BaseService;
 
@@ -21,10 +22,10 @@ public interface RoleMenuService extends BaseService<RoleMenu> {
 
         /**
          * 根据id进行假删除
-         * @param roleMenuId
+         * @param roleMenu
          * @return
          */
-        Integer myFakeDeleteById(Long roleMenuId);
+        Integer myFakeDeleteByRoleMenu(RoleMenu roleMenu);
 
         /**
          * 根据menuIds进行批量假删除

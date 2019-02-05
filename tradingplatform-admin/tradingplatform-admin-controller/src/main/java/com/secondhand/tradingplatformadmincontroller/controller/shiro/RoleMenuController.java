@@ -151,13 +151,17 @@ public class RoleMenuController extends BaseController {
      */
     @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除roleMenu")
-    public JsonResult<RoleMenu> fakeDeleteById(@ApiParam(name = "id", value = "roleMenuId") @RequestBody Long roleMenuId){
+    public JsonResult<RoleMenu> fakeDeleteById(@ApiParam(name = "id", value = "roleMenuId") @RequestBody Long roleMenuId, @ApiParam(name = "session", value = "客户端会话") HttpSession session){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<RoleMenu> resJson = new JsonResult<>();
             try{
                 //检查是否具有权限
                 subject.checkPermission("/admin/roleMenu/delete");
-                roleMenuService.myFakeDeleteById(roleMenuId);
+                RoleMenu roleMenu = new RoleMenu();
+                Long roleId = Long.valueOf(session.getAttribute(MagicalValue.ROLE_SESSION_ID).toString());
+                roleMenu.setMenuId(roleMenuId);
+                roleMenu.setRoleId(roleId);
+                roleMenuService.myFakeDeleteByRoleMenu(roleMenu);
                 resJson.setSuccess(true);
             }catch (UnauthorizedException e){
                 resJson.setSuccess(false);

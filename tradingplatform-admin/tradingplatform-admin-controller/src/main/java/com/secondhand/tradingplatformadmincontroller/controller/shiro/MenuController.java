@@ -2,11 +2,13 @@ package com.secondhand.tradingplatformadmincontroller.controller.shiro;
 
 import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.shiro.Button;
+import com.secondhand.tradingplatformadminentity.entity.shiro.RoleMenu;
 import com.secondhand.tradingplatformadminservice.service.shiro.MenuButtonService;
 import com.secondhand.tradingplatformadminservice.service.shiro.RoleMenuService;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
 import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
+import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -167,12 +169,20 @@ public class MenuController extends BaseController {
     @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除menu")
     @ResponseBody
-    public JsonResult<Menu> fakeBatchDelete(@ApiParam(name = "ids", value = "menuIds") @RequestBody List<Long> menuIds){
+    public JsonResult<Menu> fakeBatchDelete(@ApiParam(name = "ids", value = "menuIds") @RequestBody List<Long> menuIds, @ApiParam(name = "session", value = "客户端会话") HttpSession session){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<Menu> resJson = new JsonResult<>();
             try{
                 //检查是否具有权限
                 subject.checkPermission("/admin/menu/batch_delete");
+                //实际情况为单条删除
+                //把该条记录先关的roleMenu记录也删除掉
+                RoleMenu roleMenu = new RoleMenu();
+                Long roleId = Long.valueOf(session.getAttribute(MagicalValue.ROLE_SESSION_ID).toString());
+                Long menuId = menuIds.get(0);
+                roleMenu.setRoleId(roleId);
+                roleMenu.setMenuId(menuId);
+                roleMenuService.myFakeDeleteByRoleMenu(roleMenu);
                 resJson.setSuccess(menuService.myFakeBatchDelete(menuIds));
             }catch(UnauthorizedException e){
                 resJson.setSuccess(false);
@@ -189,13 +199,33 @@ public class MenuController extends BaseController {
     @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改menu")
     @ResponseBody
-    public JsonResult<Menu> menuCreateUpdate(@ApiParam(name = "Menu", value = "Menu实体类") @RequestBody Menu menu){
+    public JsonResult<Menu> menuCreateUpdate(@ApiParam(name = "Menu", value = "Menu实体类") @RequestBody Menu menu, @ApiParam(name = "session", value = "客户端会话") HttpSession session){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<Menu> resJson = new JsonResult<>();
             try{
                 //检查是否具有权限
                 subject.checkPermission("/admin/menu/create_update");
+                //先判断是否为新增的情况
+                Boolean ifInsert = menu.getId() == null ? true : false;
                 menu = menuService.myMenuCreateUpdate(menu);
+                //给角色配上菜单
+                //判断是否为新增的情况
+                if (ifInsert) {
+                    //先找出角色id
+                    Long roleId = Long.valueOf(session.getAttribute(MagicalValue.ROLE_SESSION_ID).toString());
+                    RoleMenu roleMenu = new RoleMenu();
+                    roleMenu.setRoleId(roleId);
+                    roleMenu.setMenuId(menu.getId());
+                    roleMenuService.myInsert(roleMenu);
+
+                    //默认给管理员也添加
+                    if (roleId != MagicalValue.ADMINISTRATOR_ID){
+                        RoleMenu adminRoleMenu = new RoleMenu();
+                        adminRoleMenu.setRoleId(MagicalValue.ADMINISTRATOR_ID);
+                        adminRoleMenu.setMenuId(menu.getId());
+                        roleMenuService.myInsert(roleMenu);
+                    }
+                }
                 resJson.setData(menu);
                 resJson.setSuccess(true);
             }catch(UnauthorizedException e){
