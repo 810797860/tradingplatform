@@ -42,6 +42,13 @@ public interface UserRoleService extends BaseService<UserRole> {
         Map<String, Object> mySelectMapById(Long userRoleId);
 
         /**
+         * 清除旧的角色
+         * @param userId
+         * @return
+         */
+        Integer myUpdateCharacters(Long userId, List<Long> roleIds);
+
+        /**
          * 新增或修改userRole
          * @param userRole
          * @return
@@ -55,6 +62,13 @@ public interface UserRoleService extends BaseService<UserRole> {
          * @return
          */
         Page<Role> mySelectEnableCreatePage(Page<Role> page, UserRole userRole);
+
+        /**
+         * 根据用户id选择所选的角色（默认只选最新的一条）
+         * @param userId
+         * @return
+         */
+        List<Role> mySelectSelectedList(Long userId);
 
         /**
          * 根据userId查找roleId

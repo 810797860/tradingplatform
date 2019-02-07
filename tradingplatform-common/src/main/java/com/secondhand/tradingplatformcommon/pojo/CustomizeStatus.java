@@ -22,7 +22,9 @@ public enum CustomizeStatus {
     UPLOADING_IMAGE_FAILED(701, "上传图片失败"),
     FILE_READ_FAILED(702, "文件读取失败"),
     FILE_DOWNLOAD_FAILED(703, "文件下载失败"),
-    FILE_CONTINUES_TO_DOWNLOAD_FAILED(704, "文件继续下载失败")
+    FILE_CONTINUES_TO_DOWNLOAD_FAILED(704, "文件继续下载失败"),
+
+    ADMIN_USER_ACCOUNT_ALREADY_EXISTS(801, "后台用户该账号已存在")
     ;
     private int code;
     private String information;

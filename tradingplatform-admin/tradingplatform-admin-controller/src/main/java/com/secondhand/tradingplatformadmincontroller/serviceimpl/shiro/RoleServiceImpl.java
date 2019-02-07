@@ -192,4 +192,12 @@ public class RoleServiceImpl extends BaseServiceImpl<RoleMapper, Role> implement
     public boolean myUpdateById(Role role) {
         return this.updateById(role);
     }
+
+    @Override
+    @Cacheable(key = "'selectAllList'")
+    public List<Role> mySelectAllList() {
+        Wrapper<Role> wrapper = new EntityWrapper<>();
+        wrapper.where("deleted = {0}", false);
+        return this.selectList(wrapper);
+    }
 }

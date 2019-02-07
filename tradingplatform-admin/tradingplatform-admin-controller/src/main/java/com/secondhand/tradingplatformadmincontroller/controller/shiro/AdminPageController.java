@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -62,6 +63,10 @@ public class AdminPageController {
         //先找改用户的角色id
         Long roleId = Long.valueOf(session.getAttribute(MagicalValue.ROLE_SESSION_ID).toString());
         List<Menu> roleMenus = roleMenuService.mySelectListWithRoleId(roleId);
+        //前端没判空后台来判咯
+        if (roleMenus == null){
+            roleMenus = new ArrayList<>();
+        }
         //注入后台用户信息
         model.addAttribute("user", user);
         //注入该用户的菜单

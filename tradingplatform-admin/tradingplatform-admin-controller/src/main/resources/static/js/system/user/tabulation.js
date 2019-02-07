@@ -18,7 +18,7 @@ var relevanceObj = {
     name: null,
     fieldType: null
 };
-var searchOptions = {};
+
 var $table = $('#table'),
     $remove = $('#remove'),
     $searchPart = $("#search-part"),
@@ -32,26 +32,137 @@ var SEARCHING = false
 var $addUserModal = $('#add-user-modal');
 
 $(function(){
-    // 时间插件初始化
-    $('.datepicker').datetimepicker({
-        locale: 'zh-CN',
-        format: "YYYY-MM-DD"
-    })
-    $('.datetimepicker').datetimepicker({
-        locale: 'zh-CN',
-        format: 'YYYY-MM-DD hh:mm:ss'
-    });
+    // 消息弹出框弹出位置设置
+    var stack_bottomright = {"dir1": "up", "dir2": "left", "firstpos1": 25, "firstpos2": 25};
+
+    // 请求url
+    // var url = '/report/reportList/' + reportId;
+    // var urlParams = '';
+    //
+    // if(reportId !== 15) {
+    //     // 拼接url中的参数
+    //     for( var key in urlDatas) {
+    //         if(urlParams === '') {
+    //             urlParams += '?';
+    //         }else {
+    //             urlParams += '&';
+    //         }
+    //         urlParams += key + '=' + urlDatas[key];
+    //     }
+    //     // 拼接url
+    //     url += urlParams;
+    // } else {
+    //     var tempFormId = $("#formId", window.parent.document).val();
+    //     if(!urlDatas['target_id']) {
+    //         // pass
+    //     } else if(typeof tempFormId === 'undefined' || tempFormId === null) { // 父页面没有form id
+    //         url += '?button_type=1517&target_id='+urlDatas['target_id'];
+    //     }else {
+    //         url += '?button_type=1518&target_id='+urlDatas['target_id'];
+    //     }
+    // }
+    $('#add-user-btn').bind('click', addUser);
     initTable();
 });
 
+// 新增用户
+function addUser(){
+    if(!StringNoEmpty($('#user-name').val())||!StringNoEmpty($('#user-account').val())||!StringNoEmpty($('#user-password').val())){
+        layer.msg("请检查是否完整填写用户名、账号、密码", function () {});
+        return;
+    }
+    var postData = {
+        userName: $('#user-name').val() || null,
+        account: $('#user-account').val() || null,
+        password: $('#user-password').val() || null,
+        phone: $('#user-phone').val() || null,
+        email: $('#user-email').val() || null
+    };
+    $.ajax({
+        type:'post',
+        url: '/admin/user/create_update',
+        contentType:'application/json;charset=utf-8',
+        dataType:'json',
+        data: JSON.stringify(postData),
+        success:function(res){
+            if(res.success === true) {
+                refreshTable();
+                $addUserModal.modal('hide');
+                new PNotify({
+                    title: '添加用户',
+                    text: '添加用户成功！',
+                    type: 'success',
+                    delay: 3000,
+                    addclass: "stack-bottomright",
+                    stack: stack_bottomright
+                });
+            } else {
+                new PNotify({
+                    title: '添加用户',
+                    text: '添加用户失败！' + res.message,
+                    type: 'error',
+                    delay: 3000,
+                    addclass: "stack-bottomright",
+                    stack: stack_bottomright
+                });
+            }
+        },error:function(XMLHttpRequest, textStatus, errorThrown){
+            alert('添加用户失败，服务器内部错误');
+        }
+    });
+}
+
+// 删除用户
+function deleteUser(){
+    var selectIds = getSelection('id');
+    if(selectIds.length === 0) {
+        layer.msg("至少选择一项！", function(){});
+        return ;
+    }
+    if(confirm('你确定要删除这些吗？')){
+        var postData = [];
+        for(var i = 0; i < selectIds.length; i++) {
+            postData.push(selectIds[i].id);
+        }
+        console.log(selectIds);
+        $.ajax({
+            url: '/systemUser/batch_delete',
+            data: JSON.stringify(postData),
+            type: 'post',
+            contentType:'application/json;charset=utf-8',
+            success: function(res) {
+                new PNotify({
+                    title: '删除用户',
+                    text: '删除用户成功',
+                    type: 'success',
+                    delay: 3000,
+                    addclass: "stack-bottomright",
+                    stack: stack_bottomright
+                });
+                layer.closeAll();
+                if(res.success === true) {
+                    refreshTable();
+                } else {
+                }
+            },
+            error: function(error) {
+                console.log("error");
+            }
+        });
+    }
+}
+
+// // 密码加密
+// function passwordEncrypt(password) {
+//     return encrypt(password);
+// }
 
 function initTable() {
     $table.bootstrapTable({
         height: getHeight(),
         toolbar: "#toolbar",
-        url: '/admin/form/query',
+        url: '/admin/user/query',
         method: 'post',
-        // sortOrder: 'desc',
         responseHandler: responseHandler,
         queryParams: queryParams,
         striped: true,
@@ -65,8 +176,7 @@ function initTable() {
         pageNumber: 1,
         pageSize: 15,
         showFooter: false,
-        sidePagination: "server",
-        clickToSelect:true
+        sidePagination: "server"
     });
     // sometimes footer render error.
     setTimeout(function () {
@@ -85,14 +195,12 @@ function initTable() {
             height: getHeight()
         });
     });
-    $toggleSearch.off('click').on('click', function(e){
+    $toggleSearch.on('click', function(e){
         e.stopPropagation();
         if($searchPart.css('display') === 'none') {
             $toggleSearch.html('<i class="icon-angle-up"></i> 收起搜索');
         } else {
             $toggleSearch.html('<i class="icon-angle-down"></i> 展开搜索');
-            searchOptions={}
-            $('#table').bootstrapTable('refresh', {pageNumber:1});
         }
         $searchPart.slideToggle(function(){
             $table.bootstrapTable('resetView', {
@@ -147,15 +255,10 @@ function responseHandler(res) {
 // 搜索功能
 function searchInfo(flag) {
     SEARCHING = !!flag
-    initSearchOptions()
     if (SEARCHING) $('#table').bootstrapTable('refresh', {pageNumber:1}); // 重置页码
     else $table.bootstrapTable(('refresh'));
 }
-//更新搜索的选项
-function initSearchOptions() {
-    searchOptions['title'] = $("#searchTitle").val();
-    searchOptions['collection'] = $("#searchCollection").val();
-}
+
 //表格数据获取的参数
 function queryParams(params) {
     var page = {};
@@ -170,8 +273,6 @@ function queryParams(params) {
         page: page,
         sorts:sorts
     };
-    if (StringNoEmpty(searchOptions.title)) postData['title'] = searchOptions.title;
-    if (StringNoEmpty(searchOptions.collection)) postData['collection'] = searchOptions.collection;
     return postData;
 }
 // 获取bootstrap table高度
@@ -360,6 +461,35 @@ function getSelection(option) {
             }
             return obj;
         });
+    }
+}
+
+//分配角色
+function setUserRole() {
+    var selectedIds = getSelection('id');
+    if(selectedIds.length === 0) {
+        layer.msg("请选择一项！", function(){});
+    } else if (selectedIds.length === 1) {
+        var url = '/admin/userRole/' + selectedIds[0].id + '/create.html';
+        var title = '分配角色';
+        layer.open({
+            type: 2,
+            content: url,
+            area: ['80%', '80%'],
+            maxmin: true,
+            shadeClose: true,
+            title: title
+        });
+    } else if (selectedIds.length > 1) {
+        layer.msg("只能选择一项！", function(){});
+    }
+}
+
+// 关闭模态窗
+function closeFrame() {
+    if(parent.layer) {
+        var layerIndex = parent.layer.getFrameIndex(window.name);
+        parent.layer.close(layerIndex);
     }
 }
 function StringNoEmpty(str){

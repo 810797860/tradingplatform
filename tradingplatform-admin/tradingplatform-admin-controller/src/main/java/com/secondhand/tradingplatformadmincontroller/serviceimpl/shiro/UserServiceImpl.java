@@ -5,10 +5,16 @@ import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadmincontroller.shiro.DesEncryptionTool;
 import com.secondhand.tradingplatformadminentity.entity.shiro.User;
+import com.secondhand.tradingplatformadminentity.entity.shiro.UserRole;
 import com.secondhand.tradingplatformadminmapper.mapper.shiro.UserMapper;
+import com.secondhand.tradingplatformadminmapper.mapper.shiro.UserRoleMapper;
 import com.secondhand.tradingplatformadminservice.service.shiro.UserService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeStatus;
+import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
+import com.secondhand.tradingplatformcommon.pojo.SystemSelectItem;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
@@ -36,6 +42,9 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper, User> implement
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private UserRoleMapper userRoleMapper;
+
     @Override
     @CacheEvict(allEntries = true)
     public Integer myFakeDeleteById(Long userId) {
@@ -62,8 +71,9 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper, User> implement
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     @CacheEvict(allEntries = true)
-    public User myUserCreateUpdate(User user) {
+    public User myUserCreateUpdate(User user) throws CustomizeException {
         Long userId = user.getId();
         //加密
         //通用，有密码时统一加密
@@ -72,8 +82,25 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper, User> implement
             user.setPassword(DesEncryptionTool.encrypt(password));
         }
         if (userId == null){
+            //判断该账号名是否被人注册了
+            User judgeUser = new User();
+            judgeUser.setType(SystemSelectItem.USER_TYPE_BACK_DESK);
+            judgeUser.setDeleted(false);
+            judgeUser.setAccount(user.getAccount());
+            judgeUser = userMapper.selectOne(judgeUser);
+            if (!ToolUtil.objIsEmpty(judgeUser)){
+                throw new CustomizeException(CustomizeStatus.ADMIN_USER_ACCOUNT_ALREADY_EXISTS, this.getClass());
+            }
             user.setUuid(ToolUtil.getUUID());
+            //设置为后台用户的类型
+            user.setType(SystemSelectItem.USER_TYPE_BACK_DESK);
             userMapper.insert(user);
+
+            //为用户配上默认的角色
+            UserRole userRole = new UserRole();
+            userRole.setRoleId(MagicalValue.DEFAULT_ROLE_ID);
+            userRole.setUserId(user.getId());
+            userRoleMapper.insert(userRole);
         } else {
             userMapper.updateById(user);
         }
@@ -81,11 +108,11 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper, User> implement
     }
 
     @Override
-    @Cacheable(key = "'username:' + #p0")
-    public User selectByUsername(String username) {
+    @Cacheable(key = "'account:' + #p0")
+    public User selectByUserAccount(String account) {
         User user = new User();
         Wrapper<User> wrapper = new EntityWrapper<>(user);
-        wrapper.where("user_name = {0}", username);
+        wrapper.where("account = {0}", account);
         wrapper.where("deleted = {0}", false);
         List<User> userList = userMapper.selectList(wrapper);
         if(userList.size()>0){

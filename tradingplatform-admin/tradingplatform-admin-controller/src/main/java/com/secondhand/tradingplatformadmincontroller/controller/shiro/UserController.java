@@ -1,10 +1,14 @@
 package com.secondhand.tradingplatformadmincontroller.controller.shiro;
 
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.shiro.Button;
 import com.secondhand.tradingplatformadminentity.entity.shiro.User;
+import com.secondhand.tradingplatformadminservice.service.shiro.MenuButtonService;
 import com.secondhand.tradingplatformadminservice.service.shiro.UserService;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
+import com.secondhand.tradingplatformcommon.pojo.SystemSelectItem;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -13,9 +17,11 @@ import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,48 +32,53 @@ import com.secondhand.tradingplatformcommon.base.BaseController.BaseController;
  * @author : zhangjk
  * @since : Create in 2018-11-13
  */
-@RestController
+@Controller
 @Api(value="/admin/user", description="User 控制器")
 @RequestMapping("/admin/user")
 public class UserController extends BaseController {
 
     @Autowired
     private UserService userService;
+    
+    @Autowired
+    private MenuButtonService menuButtonService;
 
     /**
      * @description : 跳转到列表页面
      * @author : zhangjk
-     * @since : Create in 2018-11-13
+     * @since : Create in 2018-11-11
      */
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到user的列表页面")
-    public String toUserList(@ApiParam(name = "model", value = "Model") Model model) {
-        return "user/tabulation";
+    public String toUserList(@ApiParam(name = "model", value = "Model") Model model,
+                             @ApiParam(name = "menuId", value = "菜单id") Long menuId) {
+
+        //根据菜单id找按钮
+        List<Button> buttons = menuButtonService.mySelectListWithMenuId(menuId);
+        //注入该表单的按钮
+        model.addAttribute("buttons", buttons);
+        return "system/user/tabulation";
     }
 
     /**
-     * @description : 跳转到修改user的页面
+     * @description : 跳转到修改或新增user的页面
      * @author : zhangjk
-     * @since : Create in 2018-11-13
+     * @since : Create in 2018-11-11
      */
-    @GetMapping(value = "/{userId}/update.html")
-    @ApiOperation(value = "/{userId}/update.html", notes = "跳转到修改页面")
-    public String toUpdateUser(@ApiParam(name = "model", value = "Model") Model model, @PathVariable(value = "userId") Long userId) {
-        //静态注入要回显的数据
-        Map<String, Object> user = userService.mySelectMapById(userId);
+    @GetMapping(value = {"/{userId}/update.html", "/create.html"})
+    @ApiOperation(value = "/{userId}/update.html、/create.html", notes = "跳转到修改或新增页面")
+    public String toModifyUser(@ApiParam(name = "model", value = "Model") Model model,
+                               @ApiParam(name = "userId", value = "UserId") @PathVariable(value = "userId", required = false) Long userId) {
+
+        Map<String, Object> user = new HashMap<>();
+        //判空
+        if (userId != null) {
+            //根据userId查找记录回显的数据
+            user = userService.mySelectMapById(userId);
+        }
+        //静态注入
         model.addAttribute("user", user);
-        return "user/newUser";
-    }
-
-    /**
-     * @description : 跳转到新增user的页面
-     * @author : zhangjk
-     * @since : Create in 2018-11-13
-     */
-    @GetMapping(value = "/create.html")
-    @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
-    public String toCreateUser(@ApiParam(name = "model", value = "Model") Model model) {
-        return "user/newUser";
+        return "system/user/modify";
     }
     
     /**
@@ -77,7 +88,11 @@ public class UserController extends BaseController {
      */
     @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
+    @ResponseBody
     public TableJson<User> getUserList(@ApiParam(name = "User", value = "User 实体类") @RequestBody User user) {
+
+            //查后台用户，加上type
+            user.setType(SystemSelectItem.USER_TYPE_BACK_DESK);
             TableJson<User> resJson = new TableJson<>();
             Page resPage = user.getPage();
             user.setDeleted(false);
@@ -103,6 +118,7 @@ public class UserController extends BaseController {
      */
     @GetMapping(value = "/get_map_by_id/{userId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{userId}", notes = "根据id获取userMap")
+    @ResponseBody
     public JsonResult<Map<String, Object>> getUserByIdForMap( @ApiParam(name = "id", value = "userId") @PathVariable("userId") Long userId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
             Map<String, Object> user = userService.mySelectMapById(userId);
@@ -118,6 +134,7 @@ public class UserController extends BaseController {
      */
     @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除user")
+    @ResponseBody
     public JsonResult<User> fakeDeleteById(@ApiParam(name = "id", value = "userId") @RequestBody Long userId){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<User> resJson = new JsonResult<>();
@@ -140,6 +157,7 @@ public class UserController extends BaseController {
      */
     @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除user")
+    @ResponseBody
     public JsonResult<User> fakeBatchDelete(@ApiParam(name = "ids", value = "userIds") @RequestBody List<Long> userIds){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<User> resJson = new JsonResult<>();
@@ -161,6 +179,7 @@ public class UserController extends BaseController {
      */
     @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改user")
+    @ResponseBody
     public JsonResult<User> userCreateUpdate(@ApiParam(name = "User", value = "User实体类") @RequestBody User user){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<User> resJson = new JsonResult<>();
@@ -173,7 +192,9 @@ public class UserController extends BaseController {
             }catch(UnauthorizedException e){
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
+            } catch (CustomizeException e) {
+                e.printStackTrace();
             }
-            return resJson;
+        return resJson;
     }
 }

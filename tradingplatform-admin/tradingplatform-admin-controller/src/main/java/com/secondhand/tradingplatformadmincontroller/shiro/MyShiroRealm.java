@@ -58,8 +58,8 @@ public class MyShiroRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         //获取用户的输入的账号.
-        String username = (String)token.getPrincipal();
-        User user = userService.selectByUsername(username);
+        String account = (String)token.getPrincipal();
+        User user = userService.selectByUserAccount(account);
         if(user==null) {throw new UnknownAccountException();}
         //如果账号被假删除
         if (true == user.getDeleted()) {

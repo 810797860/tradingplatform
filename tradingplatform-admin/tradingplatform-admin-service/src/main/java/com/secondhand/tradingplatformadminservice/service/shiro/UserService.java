@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.shiro.User;
 import com.secondhand.tradingplatformcommon.base.BaseService.BaseService;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -44,14 +45,14 @@ public interface UserService extends BaseService<User> {
          * @param user
          * @return
          */
-        User myUserCreateUpdate(User user);
+        User myUserCreateUpdate(User user) throws CustomizeException;
 
         /**
-         * 根据username查找user
-         * @param username
+         * 根据account查找user
+         * @param account
          * @return
          */
-        User selectByUsername(String username);
+        User selectByUserAccount(String account);
 
         /**
          * 分页获取User列表数据（实体类）

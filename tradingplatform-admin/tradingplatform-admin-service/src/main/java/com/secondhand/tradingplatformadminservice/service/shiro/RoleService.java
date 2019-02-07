@@ -153,4 +153,9 @@ public interface RoleService extends BaseService<Role> {
          */
         boolean myUpdateById(Role role);
 
+        /**
+         * 查找所有的角色
+         * @return
+         */
+        List<Role> mySelectAllList();
 }

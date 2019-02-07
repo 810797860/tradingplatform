@@ -4,7 +4,9 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.shiro.Role;
+import com.secondhand.tradingplatformadminentity.entity.shiro.User;
 import com.secondhand.tradingplatformadminentity.entity.shiro.UserRole;
+import com.secondhand.tradingplatformadminmapper.mapper.shiro.RoleMapper;
 import com.secondhand.tradingplatformadminmapper.mapper.shiro.UserRoleMapper;
 import com.secondhand.tradingplatformadminservice.service.shiro.RoleService;
 import com.secondhand.tradingplatformadminservice.service.shiro.UserRoleService;
@@ -19,6 +21,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -36,6 +39,9 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
 
     @Autowired
     private UserRoleMapper userRoleMapper;
+
+    @Autowired
+    private RoleMapper roleMapper;
 
     @Autowired
     private RoleService roleService;
@@ -71,6 +77,24 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
     @Cacheable(key = "#p0")
     public Map<String, Object> mySelectMapById(Long userRoleId) {
         return userRoleMapper.selectMapById(userRoleId);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    @CacheEvict(allEntries = true)
+    public Integer myUpdateCharacters(Long userId, List<Long> roleIds) {
+        //先默认只能选一个
+        //优先选排在上面的
+        //先删除旧的
+        Wrapper<UserRole> wrapper = new EntityWrapper();
+        wrapper.where("user_id = {0}", userId);
+        userRoleMapper.delete(wrapper);
+
+        //再更新新的进去
+        UserRole userRole = new UserRole();
+        userRole.setUserId(userId);
+        userRole.setRoleId(roleIds.get(0));
+        return userRoleMapper.insert(userRole);
     }
 
     @Override
@@ -112,6 +136,30 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
             });
         }
         return roleService.selectPage(page, roleWrapper);
+    }
+
+    @Override
+    @Cacheable(key = "#p0")
+    public List<Role> mySelectSelectedList(Long userId) {
+
+        //找最新的一条的角色id
+        //因为每个用户都有默认角色，所以不用判空
+        Wrapper<UserRole> wrapper = new EntityWrapper<>();
+        wrapper.setSqlSelect("role_id");
+        //判断找出的role_id是否被删
+        wrapper.where("ISNULL( ( SELECT sbr.id FROM " +
+                "s_base_role sbr WHERE " +
+                "sbr.id = s_base_user_role.role_id " +
+                "AND sbr.deleted = FALSE LIMIT 1 ) ) = 0");
+        wrapper.where("user_id = {0}", userId);
+        wrapper.where("deleted = {0}", false);
+        wrapper.orderBy("created_at");
+        wrapper.last("limit 1");
+        List<UserRole> userRoles = userRoleMapper.selectList(wrapper);
+        //查那一条出来
+        List<Role> roles = new ArrayList<>();
+        roles.add(roleMapper.selectById(userRoles.get(0).getRoleId()));
+        return roles;
     }
 
     @Override

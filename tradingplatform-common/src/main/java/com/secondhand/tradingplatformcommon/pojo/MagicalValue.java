@@ -78,4 +78,6 @@ public class MagicalValue {
     public static String STRING_OF_CAPTCHA = "captcha";
 
     public static String STRING_OF_MENUID = "menuId";
+
+    public static Long DEFAULT_ROLE_ID = 2L;
 }

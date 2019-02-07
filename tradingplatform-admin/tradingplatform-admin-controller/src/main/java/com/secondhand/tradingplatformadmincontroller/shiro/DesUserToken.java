@@ -1,6 +1,5 @@
 package com.secondhand.tradingplatformadmincontroller.shiro;
 
-import com.secondhand.tradingplatformadminentity.entity.shiro.User;
 import org.apache.shiro.authc.UsernamePasswordToken;
 
 /**
@@ -15,10 +14,10 @@ public class DesUserToken extends UsernamePasswordToken {
     public DesUserToken() {
     }
 
-    public DesUserToken(String userName, String password) {
-        this.principal = userName;
+    public DesUserToken(String account, String password) {
+        this.principal = account;
         this.credentials = password;
-        this.setUsername(userName);
+        this.setUsername(account);
         this.setPassword(password.toCharArray());
     }
 
