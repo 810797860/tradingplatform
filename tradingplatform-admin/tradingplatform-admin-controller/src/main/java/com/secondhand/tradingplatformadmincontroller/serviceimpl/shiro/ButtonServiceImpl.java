@@ -1,5 +1,6 @@
 package com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro;
 
+import com.baomidou.mybatisplus.enums.SqlLike;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
@@ -82,6 +83,11 @@ public class ButtonServiceImpl extends BaseServiceImpl<ButtonMapper, Button> imp
         //判空
         button.setDeleted(false);
         Wrapper<Button> wrapper = new EntityWrapper<>(button);
+        //字符串模糊匹配
+        wrapper.like("title", button.getTitle(), SqlLike.DEFAULT);
+        button.setTitle(null);
+        wrapper.like("description", button.getDescription(), SqlLike.DEFAULT);
+        button.setDescription(null);
         //遍历排序
         List<Sort> sorts = button.getSorts();
         if (sorts == null){

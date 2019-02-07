@@ -1,6 +1,7 @@
 package com.secondhand.tradingplatformadmincontroller.controller.shiro;
 
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminservice.service.shiro.MenuButtonService;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
 import io.swagger.annotations.Api;
@@ -11,9 +12,11 @@ import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +29,7 @@ import com.secondhand.tradingplatformadminservice.service.shiro.ButtonService;
  * @author : zhangjk
  * @since : Create in 2018-12-04
  */
-@RestController
+@Controller
 @Api(value="/admin/button", description="Button 控制器")
 @RequestMapping("/admin/button")
 public class ButtonController extends BaseController {
@@ -34,40 +37,45 @@ public class ButtonController extends BaseController {
     @Autowired
     private ButtonService buttonService;
 
+    @Autowired
+    private MenuButtonService menuButtonService;
+
     /**
      * @description : 跳转到列表页面
      * @author : zhangjk
-     * @since : Create in 2018-12-04
+     * @since : Create in 2018-11-11
      */
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到button的列表页面")
-    public String toButtonList(@ApiParam(name = "model", value = "Model") Model model) {
-        return "button/tabulation";
+    public String toButtonList(@ApiParam(name = "model", value = "Model") Model model,
+                             @ApiParam(name = "menuId", value = "菜单id") Long menuId) {
+
+        //根据菜单id找按钮
+        List<Button> buttons = menuButtonService.mySelectListWithMenuId(menuId);
+        //注入该表单的按钮
+        model.addAttribute("buttons", buttons);
+        return "system/button/tabulation";
     }
 
     /**
-     * @description : 跳转到修改button的页面
+     * @description : 跳转到修改或新增button的页面
      * @author : zhangjk
-     * @since : Create in 2018-12-04
+     * @since : Create in 2018-11-11
      */
-    @GetMapping(value = "/{buttonId}/update.html")
-    @ApiOperation(value = "/{buttonId}/update.html", notes = "跳转到修改页面")
-    public String toUpdateButton(@ApiParam(name = "model", value = "Model") Model model, @PathVariable(value = "buttonId") Long buttonId) {
-        //静态注入要回显的数据
-        Map<String, Object> button = buttonService.mySelectMapById(buttonId);
+    @GetMapping(value = {"/{buttonId}/update.html", "/create.html"})
+    @ApiOperation(value = "/{buttonId}/update.html、/create.html", notes = "跳转到修改或新增页面")
+    public String toModifyButton(@ApiParam(name = "model", value = "Model") Model model,
+                               @ApiParam(name = "buttonId", value = "ButtonId") @PathVariable(value = "buttonId", required = false) Long buttonId) {
+
+        Map<String, Object> button = new HashMap<>();
+        //判空
+        if (buttonId != null) {
+            //根据buttonId查找记录回显的数据
+            button = buttonService.mySelectMapById(buttonId);
+        }
+        //静态注入
         model.addAttribute("button", button);
-        return "button/newButton";
-    }
-
-    /**
-     * @description : 跳转到新增button的页面
-     * @author : zhangjk
-     * @since : Create in 2018-12-04
-     */
-    @GetMapping(value = "/create.html")
-    @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
-    public String toCreateButton(@ApiParam(name = "model", value = "Model") Model model) {
-        return "button/newButton";
+        return "system/button/modify";
     }
     
     /**
@@ -77,6 +85,7 @@ public class ButtonController extends BaseController {
      */
     @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
+    @ResponseBody
     public TableJson<Button> getButtonList(@ApiParam(name = "Button", value = "Button 实体类") @RequestBody Button button) {
             TableJson<Button> resJson = new TableJson<>();
             Page resPage = button.getPage();
@@ -102,6 +111,7 @@ public class ButtonController extends BaseController {
      */
     @GetMapping(value = "/get_map_by_id/{buttonId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{buttonId}", notes = "根据id获取buttonMap")
+    @ResponseBody
     public JsonResult<Map<String, Object>> getButtonByIdForMap( @ApiParam(name = "id", value = "buttonId") @PathVariable("buttonId") Long buttonId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
             Map<String, Object> button = buttonService.mySelectMapById(buttonId);
@@ -117,6 +127,7 @@ public class ButtonController extends BaseController {
      */
     @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除button")
+    @ResponseBody
     public JsonResult<Button> fakeDeleteById(@ApiParam(name = "id", value = "buttonId") @RequestBody Long buttonId){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<Button> resJson = new JsonResult<>();
@@ -139,6 +150,7 @@ public class ButtonController extends BaseController {
      */
     @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除button")
+    @ResponseBody
     public JsonResult<Button> fakeBatchDelete(@ApiParam(name = "ids", value = "buttonIds") @RequestBody List<Long> buttonIds){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<Button> resJson = new JsonResult<>();
@@ -160,6 +172,7 @@ public class ButtonController extends BaseController {
      */
     @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改button")
+    @ResponseBody
     public JsonResult<Button> buttonCreateUpdate(@ApiParam(name = "Button", value = "Button实体类") @RequestBody Button button){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<Button> resJson = new JsonResult<>();
