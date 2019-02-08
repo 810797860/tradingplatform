@@ -71,9 +71,12 @@ public class SelectItemController extends BaseController {
         if (selectItemId != null) {
             selectItem = selectItemService.mySelectMapById(selectItemId);
         }
+        String pid = "/admin/selectItem/tabulation.html?menuId=180";
         //静态注入
         //静态注入根据selectItemId查找记录回显的数据
         model.addAttribute("selectItem", selectItem);
+        //静态注入父级枚举url
+        model.addAttribute("pid", pid);
         return "system/selectItem/modify";
     }
     

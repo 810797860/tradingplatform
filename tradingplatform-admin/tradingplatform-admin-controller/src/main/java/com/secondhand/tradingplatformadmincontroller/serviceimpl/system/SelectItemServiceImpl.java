@@ -1,5 +1,6 @@
 package com.secondhand.tradingplatformadmincontroller.serviceimpl.system;
 
+import com.baomidou.mybatisplus.enums.SqlLike;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
@@ -76,12 +77,23 @@ public class SelectItemServiceImpl extends BaseServiceImpl<SelectItemMapper, Sel
     //以下是继承BaseServiceImpl
     
     @Override
-    @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p1.sorts")
+    @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p1.sorts + ',' + #p1.id")
     public Page<Map<String, Object>> mySelectPageWithParam(Page page, SelectItem selectItem) {
 
         //判空
         selectItem.setDeleted(false);
         Wrapper<SelectItem> wrapper = new EntityWrapper<>(selectItem);
+        //模糊匹配
+        if (selectItem.getId() != null) {
+            wrapper.like("id", selectItem.getId().toString(), SqlLike.DEFAULT);
+            selectItem.setId(null);
+        }
+        wrapper.like("title", selectItem.getTitle(), SqlLike.DEFAULT);
+        selectItem.setTitle(null);
+        if (selectItem.getPid() != null) {
+            wrapper.like("pid", selectItem.getPid().toString(), SqlLike.DEFAULT);
+            selectItem.setPid(null);
+        }
         //遍历排序
         List<Sort> sorts = selectItem.getSorts();
         if (sorts == null){

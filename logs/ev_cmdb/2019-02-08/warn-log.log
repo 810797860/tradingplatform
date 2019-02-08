@@ -1,0 +1,7 @@
+2019-02-08 10:19:01.842 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shirFilter' defined in class path resource [com/secondhand/tradingplatformadmincontroller/config/ShiroConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.shiro.spring.web.ShiroFilterFactoryBean]: Factory method 'shirFilter' threw exception; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: com.baomidou.mybatisplus.exceptions.MybatisPlusException:  The SQL execution time is too large, please optimize ! 
+### The error may exist in com/secondhand/tradingplatformadminmapper/mapper/shiro/ResourcesMapper.java (best guess)
+### The error may involve com.secondhand.tradingplatformadminmapper.mapper.shiro.ResourcesMapper.selectList
+### The error occurred while handling results
+### SQL: SELECT  id AS id,title,url,uuid,description,deleted,created_by AS createdBy,created_at AS createdAt,updated_by AS updatedBy,updated_at AS updatedAt  FROM s_base_resources   WHERE  (deleted = ?)
+### Cause: com.baomidou.mybatisplus.exceptions.MybatisPlusException:  The SQL execution time is too large, please optimize ! 

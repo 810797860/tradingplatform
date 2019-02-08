@@ -27,7 +27,7 @@ public class SelectSqlGenerator {
     @Test
     public void testSelectSqlGenerator(){
 
-        Select select = new Select("s_base_form_field");
+        Select select = new Select("s_base_select_item");
 
         //准备承载selectSql
         StringBuilder selectSql = new StringBuilder();
@@ -71,15 +71,10 @@ public class SelectSqlGenerator {
 
 //====================================================================================================================
             //特殊关联字段的拼接
-            if (tempParameter.equals("field_type")){
+            if (tempParameter.equals("pid")){
                 select.setSelectSql(selectSql);
                 selectSql = concatSql(select, tempParameter, SelectEnum.S_BASE_SELECT_ITEM);
                 continue;
-            }
-
-            if (tempParameter.equals("show_type")){
-                select.setSelectSql(selectSql);
-                selectSql = concatSql(select, tempParameter, SelectEnum.S_BASE_SELECT_ITEM);
             }
 //====================================================================================================================
 
