@@ -391,7 +391,7 @@ function confResourceOpen(menuId){
     var id=menuId;
     var index = layer.open({
         type: 2,
-        content: '/admin/menu/'+id+'/buttons',
+        content: '/admin/menuButton/'+id+'/tabulation.html',
         area: ['80%', '80%'],
         maxmin: true,
         success: function(index,layero){

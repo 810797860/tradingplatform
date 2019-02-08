@@ -5,7 +5,9 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.shiro.Button;
+import com.secondhand.tradingplatformadminentity.entity.shiro.MenuButton;
 import com.secondhand.tradingplatformadminmapper.mapper.shiro.ButtonMapper;
+import com.secondhand.tradingplatformadminmapper.mapper.shiro.MenuButtonMapper;
 import com.secondhand.tradingplatformadminservice.service.shiro.ButtonService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
@@ -35,6 +37,9 @@ public class ButtonServiceImpl extends BaseServiceImpl<ButtonMapper, Button> imp
 
     @Autowired
     private ButtonMapper buttonMapper;
+
+    @Autowired
+    private MenuButtonMapper menuButtonMapper;
 
     @Override
     @CacheEvict(allEntries = true)
@@ -77,12 +82,27 @@ public class ButtonServiceImpl extends BaseServiceImpl<ButtonMapper, Button> imp
     //以下是继承BaseServiceImpl
     
     @Override
-    @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p1.sorts")
-    public Page<Button> mySelectPageWithParam(Page<Button> page, Button button) {
+    @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p1.sorts + ',' + #p1.description + ',' + #p2")
+    public Page<Button> mySelectPageWithParam(Page<Button> page, Button button, Long menuId) {
 
         //判空
         button.setDeleted(false);
         Wrapper<Button> wrapper = new EntityWrapper<>(button);
+        //判断“找自己菜单对应的按钮的情况”
+        if (menuId != null){
+            //找出button的ids
+            Wrapper<MenuButton> menuButtonWrapper = new EntityWrapper<>();
+            menuButtonWrapper.setSqlSelect("button_id");
+            menuButtonWrapper.where("menu_id = {0}", menuId);
+            menuButtonWrapper.where("deleted = {0}", false);
+            List<Object> buttonIds = menuButtonMapper.selectObjs(menuButtonWrapper);
+            //如果buttonIds为空，返回空的对象
+            if (buttonIds.size() == 0){
+                return new Page<>();
+            }
+            //放进去搜索按钮的条件里
+            wrapper.in("id", buttonIds);
+        }
         //字符串模糊匹配
         wrapper.like("title", button.getTitle(), SqlLike.DEFAULT);
         button.setTitle(null);

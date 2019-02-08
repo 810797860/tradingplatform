@@ -57,7 +57,7 @@ function analysisMenu(menus) {
         TEMPS = tempMenus;
     }
     menuDom.prepend('<li><a class="waves-effect" href="javascript:Tab.addTab(\'首页\', \'home\', \'/\')"><i class="icon-home"></i> 首页</a></li>');
-    menuDom.append('<li><div class="copyright">Copyright © 智汇+</div></li>');
+    menuDom.append('<li><div class="copyright">Copyright © 待定</div></li>');
     $(".main-menu").append(menuDom);
 }
 

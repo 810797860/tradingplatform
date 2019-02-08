@@ -929,7 +929,7 @@ function CompanyAuthentication() {
     }
 
     function certificationUploadPicture (files, type, callback) {
-        files.append('waterMarkContent', '仅用于智汇＋平台实名认证');
+        files.append('waterMarkContent', '仅用于待定平台实名认证');
         new NewAjax({
             type: "POST",
             url: "/adjuncts/true/file_upload",

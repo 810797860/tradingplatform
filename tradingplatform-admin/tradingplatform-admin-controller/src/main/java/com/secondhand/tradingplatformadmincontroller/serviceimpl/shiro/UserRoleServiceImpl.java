@@ -94,6 +94,7 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
         UserRole userRole = new UserRole();
         userRole.setUserId(userId);
         userRole.setRoleId(roleIds.get(0));
+        userRole.setUuid(ToolUtil.getUUID());
         return userRoleMapper.insert(userRole);
     }
 

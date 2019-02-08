@@ -52,7 +52,7 @@ public interface ButtonService extends BaseService<Button> {
          * @param button
          * @return
          */
-        Page<Button> mySelectPageWithParam(Page<Button> page, Button button);
+        Page<Button> mySelectPageWithParam(Page<Button> page, Button button, Long menuId);
 
         /**
          * 获取Button列表数据（Map）

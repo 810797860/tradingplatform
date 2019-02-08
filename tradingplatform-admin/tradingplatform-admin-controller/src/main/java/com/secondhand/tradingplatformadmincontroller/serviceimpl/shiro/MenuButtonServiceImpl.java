@@ -74,16 +74,25 @@ public class MenuButtonServiceImpl extends BaseServiceImpl<MenuButtonMapper, Men
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     @CacheEvict(allEntries = true)
-    public MenuButton myMenuButtonCreateUpdate(MenuButton menuButton) {
-        Long menuButtonId = menuButton.getId();
-        if (menuButtonId == null){
+    public Boolean myMenuButtonCreateUpdate(List<Long> buttonIds, Long menuId) {
+
+        //先删除该菜单的按钮
+        Wrapper<MenuButton> wrapper = new EntityWrapper<>();
+        wrapper.where("menu_id = {0}", menuId);
+        menuButtonMapper.delete(wrapper);
+
+        //然后再加进去
+        buttonIds.forEach(buttonId->{
+            //这里就自己写了，为了快一点(因为都是新增)
+            MenuButton menuButton = new MenuButton();
             menuButton.setUuid(ToolUtil.getUUID());
+            menuButton.setMenuId(menuId);
+            menuButton.setButtonId(buttonId.longValue());
             menuButtonMapper.insert(menuButton);
-        } else {
-            menuButtonMapper.updateById(menuButton);
-        }
-        return menuButton;
+        });
+        return true;
     }
 
     @Override
@@ -166,7 +175,7 @@ public class MenuButtonServiceImpl extends BaseServiceImpl<MenuButtonMapper, Men
         List<Object> buttonIds = this.selectObjs(wrapper);
         //如果buttonIds为空，返回空的对象
         if (buttonIds.size() == 0){
-            return new Page<Button>();
+            return new Page<>();
         }
         //再根据id找buttonPage
         Wrapper<Button> buttonWrapper = new EntityWrapper<>();

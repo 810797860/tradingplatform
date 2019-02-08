@@ -42,11 +42,12 @@ public interface MenuButtonService extends BaseService<MenuButton> {
         Map<String, Object> mySelectMapById(Long menuButtonId);
 
         /**
-         * 新增或修改menuButton
-         * @param menuButton
+         * 配置菜单-按钮
+         * @param buttonIds
+         * @param menuId
          * @return
          */
-        MenuButton myMenuButtonCreateUpdate(MenuButton menuButton);
+        Boolean myMenuButtonCreateUpdate(List<Long> buttonIds, Long menuId);
 
         /**
          * 批量新增menuButton

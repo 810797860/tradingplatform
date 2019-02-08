@@ -115,7 +115,7 @@ public class RoleButtonServiceImpl extends BaseServiceImpl<RoleButtonMapper, Rol
         List<Object> buttonIds = this.selectObjs(wrapper);
         //如果buttonIds为空，返回空的对象
         if (buttonIds.size() == 0){
-            return new Page<Button>();
+            return new Page<>();
         }
         //再根据id找buttonPage
         Wrapper<Button> buttonWrapper = new EntityWrapper<>();

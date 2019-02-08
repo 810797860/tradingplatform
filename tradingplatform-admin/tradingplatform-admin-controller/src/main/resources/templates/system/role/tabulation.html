@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0 user-scalable=no">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>角色管理</title>
+    <link rel="icon" th:href="@{/assets/logo.png}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/plugin/bootstrap-3.3.7/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/plugin/zTree/css/metroStyle/metroStyle.css}">
+    <link rel="stylesheet" th:href="@{/plugin/font/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css}">
+    <link rel="stylesheet" th:href="@{/plugin/pnotify/pnotify.css}">
+    <link rel="stylesheet" th:href="@{/plugin/pnotify/pnotify.brighttheme.css}">
+    <link rel="stylesheet" th:href="@{/plugin/pnotify/pnotify.buttons.css}">
+    <!--[if IE 7]>
+    <link rel="stylesheet" th:href="@{/plugin/font/css/font-awesome-ie7.min.css}">
+    <style type="text/css">
+        .ztree li span.button.add {margin-left:2px; margin-right: -1px; background-position:-144px 0; vertical-align:top; *vertical-align:middle}
+    </style>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script th:src="@{/compatibility/html5shiv.js}"></script>
+    <script th:src="@{/compatibility/respond.min.js}"></script>
+    <![endif]-->
+</head>
+<body>
+    <div style="padding: 15px;">
+        <!--<div>
+            <button id="permission-setting" class="btn btn-primary btn-sm" th:if="${userId} == 0">应用权限设置</button>
+            <button id="confirm" class="btn btn-primary btn-sm" onclick="confirmPost(event)" th:if="${userId} != 0">确定</button>
+        </div>-->
+        <div>
+            <ul id="role-tree" class="ztree"></ul>
+        </div>
+    </div>
+<script th:src="@{/plugin/jquery-1.10.2.min.js}"></script>
+<script th:src="@{/plugin/bootstrap-3.3.7/js/bootstrap.min.js}"></script>
+<script th:src="@{/plugin/jquery.slimscroll.min.js}"></script>
+<script th:src="@{/plugin/select2/js/select2.min.js}"></script>
+<script th:src="@{/plugin/select2/js/i18n/zh-CN.js}"></script>
+<script th:src="@{/plugin/zTree/js/jquery.ztree.core.min.js}"></script>
+<script th:src="@{/plugin/zTree/js/jquery.ztree.exhide.min.js}"></script>
+<script th:src="@{/plugin/zTree/js/jquery.ztree.exedit.min.js}"></script>
+<script th:src="@{/plugin/zTree/js/jquery.ztree.excheck.min.js}"></script>
+<script th:src="@{/plugin/pnotify/pnotify.js}"></script>
+<script th:src="@{/plugin/pnotify/pnotify.buttons.js}"></script>
+<script th:src="@{/plugin/layer/layer.js}"></script>
+<script type="text/javascript" th:inline="javascript">
+    // 获取报表id
+    var roleList = [[${roleList}]];
+    // 获取参数
+    var userId = [[${userId}]];
+</script>
+<script th:src="@{/js/system/role/tabulation.js}"></script>
+</body>
+</html>

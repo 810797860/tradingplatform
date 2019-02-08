@@ -100,6 +100,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper, User> implement
             UserRole userRole = new UserRole();
             userRole.setRoleId(MagicalValue.DEFAULT_ROLE_ID);
             userRole.setUserId(user.getId());
+            userRole.setUuid(ToolUtil.getUUID());
             userRoleMapper.insert(userRole);
         } else {
             userMapper.updateById(user);
