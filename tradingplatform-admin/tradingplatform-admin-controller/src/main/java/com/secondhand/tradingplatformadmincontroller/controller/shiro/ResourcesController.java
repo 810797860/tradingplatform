@@ -1,7 +1,9 @@
 package com.secondhand.tradingplatformadmincontroller.controller.shiro;
 
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.shiro.Button;
 import com.secondhand.tradingplatformadminentity.entity.shiro.Resources;
+import com.secondhand.tradingplatformadminservice.service.shiro.MenuButtonService;
 import com.secondhand.tradingplatformadminservice.service.shiro.ResourcesService;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
@@ -13,9 +15,11 @@ import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +30,7 @@ import com.secondhand.tradingplatformcommon.base.BaseController.BaseController;
  * @author : zhangjk
  * @since : Create in 2018-11-12
  */
-@RestController
+@Controller
 @Api(value="/admin/resources", description="Resources 控制器")
 @RequestMapping("/admin/resources")
 public class ResourcesController extends BaseController {
@@ -34,40 +38,45 @@ public class ResourcesController extends BaseController {
     @Autowired
     private ResourcesService resourcesService;
 
+    @Autowired
+    private MenuButtonService menuButtonService;
+
     /**
      * @description : 跳转到列表页面
      * @author : zhangjk
-     * @since : Create in 2018-11-12
+     * @since : Create in 2018-11-11
      */
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到resources的列表页面")
-    public String toResourcesList(@ApiParam(name = "model", value = "Model") Model model) {
-        return "resources/tabulation";
+    public String toResourcesList(@ApiParam(name = "model", value = "Model") Model model,
+                             @ApiParam(name = "menuId", value = "菜单id") Long menuId) {
+
+        //根据菜单id找按钮
+        List<Button> buttons = menuButtonService.mySelectListWithMenuId(menuId);
+        //注入该表单的按钮
+        model.addAttribute("buttons", buttons);
+        return "system/resources/tabulation";
     }
 
     /**
-     * @description : 跳转到修改resources的页面
+     * @description : 跳转到修改或新增resources的页面
      * @author : zhangjk
-     * @since : Create in 2018-11-12
+     * @since : Create in 2018-11-11
      */
-    @GetMapping(value = "/{resourcesId}/update.html")
-    @ApiOperation(value = "/{resourcesId}/update.html", notes = "跳转到修改页面")
-    public String toUpdateResources(@ApiParam(name = "model", value = "Model") Model model, @PathVariable(value = "resourcesId") Long resourcesId) {
-        //静态注入要回显的数据
-        Map<String, Object> resources = resourcesService.mySelectMapById(resourcesId);
+    @GetMapping(value = {"/{resourcesId}/update.html", "/create.html"})
+    @ApiOperation(value = "/{resourcesId}/update.html、/create.html", notes = "跳转到修改或新增页面")
+    public String toModifyResources(@ApiParam(name = "model", value = "Model") Model model,
+                               @ApiParam(name = "resourcesId", value = "ResourcesId") @PathVariable(value = "resourcesId", required = false) Long resourcesId) {
+
+        Map<String, Object> resources = new HashMap<>();
+        //判空
+        if (resourcesId != null) {
+            //根据resourcesId查找记录回显的数据
+            resources = resourcesService.mySelectMapById(resourcesId);
+        }
+        //静态注入
         model.addAttribute("resources", resources);
-        return "resources/newResources";
-    }
-
-    /**
-     * @description : 跳转到新增resources的页面
-     * @author : zhangjk
-     * @since : Create in 2018-11-12
-     */
-    @GetMapping(value = "/create.html")
-    @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
-    public String toCreateResources(@ApiParam(name = "model", value = "Model") Model model) {
-        return "resources/newResources";
+        return "system/resources/modify";
     }
     
     /**
@@ -77,6 +86,7 @@ public class ResourcesController extends BaseController {
      */
     @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
+    @ResponseBody
     public TableJson<Resources> getResourcesList(@ApiParam(name = "Resources", value = "Resources 实体类") @RequestBody Resources resources) {
             TableJson<Resources> resJson = new TableJson<>();
             Page resPage = resources.getPage();
@@ -103,6 +113,7 @@ public class ResourcesController extends BaseController {
      */
     @GetMapping(value = "/get_map_by_id/{resourcesId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{resourcesId}", notes = "根据id获取resourcesMap")
+    @ResponseBody
     public JsonResult<Map<String, Object>> getResourcesByIdForMap( @ApiParam(name = "id", value = "resourcesId") @PathVariable("resourcesId") Long resourcesId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
             Map<String, Object> resources = resourcesService.mySelectMapById(resourcesId);
@@ -118,6 +129,7 @@ public class ResourcesController extends BaseController {
      */
     @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除resources")
+    @ResponseBody
     public JsonResult<Resources> fakeDeleteById(@ApiParam(name = "id", value = "resourcesId") @RequestBody Long resourcesId){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<Resources> resJson = new JsonResult<>();
@@ -140,6 +152,7 @@ public class ResourcesController extends BaseController {
      */
     @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除resources")
+    @ResponseBody
     public JsonResult<Resources> fakeBatchDelete(@ApiParam(name = "ids", value = "resourcesIds") @RequestBody List<Long> resourcesIds){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<Resources> resJson = new JsonResult<>();
@@ -161,6 +174,7 @@ public class ResourcesController extends BaseController {
      */
     @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改resources")
+    @ResponseBody
     public JsonResult<Resources> resourcesCreateUpdate(@ApiParam(name = "Resources", value = "Resources实体类") @RequestBody Resources resources){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<Resources> resJson = new JsonResult<>();

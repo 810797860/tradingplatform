@@ -1,5 +1,6 @@
 package com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro;
 
+import com.baomidou.mybatisplus.enums.SqlLike;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
@@ -101,6 +102,11 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
     @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p1.sorts")
     public Page<Resources> mySelectPageWithParam(Page<Resources> page, Resources resources) {
         Wrapper<Resources> wrapper = new EntityWrapper<>(resources);
+        //模糊匹配
+        wrapper.like("title", resources.getTitle(), SqlLike.DEFAULT);
+        resources.setTitle(null);
+        wrapper.like("url", resources.getUrl(), SqlLike.DEFAULT);
+        resources.setUrl(null);
         //遍历排序
         List<Sort> sorts = resources.getSorts();
         if (sorts == null){
