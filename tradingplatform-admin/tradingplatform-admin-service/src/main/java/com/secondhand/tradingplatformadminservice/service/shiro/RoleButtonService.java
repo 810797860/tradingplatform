@@ -35,6 +35,14 @@ public interface RoleButtonService extends BaseService<RoleButton> {
         boolean myFakeBatchDelete(Long roleId, List<Integer> buttonIds);
 
         /**
+         * 更新该角色的按钮
+         * @param roleId
+         * @param buttonIds
+         * @return
+         */
+        Integer myUpdateRoleButton(Long roleId, List<Long> buttonIds);
+
+        /**
          * 获取Map数据（Obj）
          * @param roleButtonId
          * @return
@@ -178,4 +186,10 @@ public interface RoleButtonService extends BaseService<RoleButton> {
          */
         boolean myUpdateById(RoleButton roleButton);
 
+        /**
+         * 根据角色id查找角色已选的按钮
+         * @param roleId
+         * @return
+         */
+        List<Button> mySelectSelectedList(Long roleId);
 }

@@ -76,7 +76,7 @@ public class RoleMenuServiceImpl extends BaseServiceImpl<RoleMenuMapper, RoleMen
         //先删除旧的roleMenu
         Wrapper<RoleMenu> wrapper = new EntityWrapper<>();
         wrapper.where("role_id = {0}", roleId);
-        roleMenuMapper.delete(wrapper);
+        Integer deleteResult = roleMenuMapper.delete(wrapper);
 
         //再更新新的进去
         menuIds.forEach(menuId -> {
@@ -86,7 +86,7 @@ public class RoleMenuServiceImpl extends BaseServiceImpl<RoleMenuMapper, RoleMen
             roleMenu.setUuid(ToolUtil.getUUID());
             roleMenuMapper.insert(roleMenu);
         });
-        return null;
+        return deleteResult;
     }
 
     @Override

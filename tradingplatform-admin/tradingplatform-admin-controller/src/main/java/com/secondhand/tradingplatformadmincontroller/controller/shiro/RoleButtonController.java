@@ -2,6 +2,7 @@ package com.secondhand.tradingplatformadmincontroller.controller.shiro;
 
 import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.shiro.Button;
+import com.secondhand.tradingplatformadminservice.service.shiro.ButtonService;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
 import io.swagger.annotations.Api;
@@ -12,9 +13,11 @@ import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -27,7 +30,7 @@ import com.secondhand.tradingplatformadminservice.service.shiro.RoleButtonServic
  * @author : zhangjk
  * @since : Create in 2018-12-04
  */
-@RestController
+@Controller
 @Api(value="/admin/roleButton", description="RoleButton 控制器")
 @RequestMapping("/admin/roleButton")
 public class RoleButtonController extends BaseController {
@@ -35,40 +38,48 @@ public class RoleButtonController extends BaseController {
     @Autowired
     private RoleButtonService roleButtonService;
 
+    @Autowired
+    private ButtonService buttonService;
+
     /**
      * @description : 跳转到列表页面
      * @author : zhangjk
-     * @since : Create in 2018-12-04
+     * @since : Create in 2018-11-11
      */
-    @GetMapping(value = "/tabulation.html")
-    @ApiOperation(value = "/tabulation.html", notes = "跳转到roleButton的列表页面")
-    public String toRoleButtonList(@ApiParam(name = "model", value = "Model") Model model) {
-        return "roleButton/tabulation";
+    @GetMapping(value = "/{roleId}/tabulation.html")
+    @ApiOperation(value = "/{roleId}/tabulation.html", notes = "跳转到roleButton的列表页面")
+    public String toRoleButtonList(@ApiParam(name = "model", value = "Model") Model model,
+                                 @ApiParam(name = "roleId", value = "角色id") @PathVariable("roleId") Long roleId) {
+
+        //根据所选角色找菜单
+        List<Button> roleButtons = roleButtonService.mySelectSelectedList(roleId);
+        //静态注入
+        //静态注入角色id
+        model.addAttribute("roleId", roleId);
+        //静态注入所选菜单
+        model.addAttribute("roleButtons", roleButtons);
+        return "system/role/roleButton";
     }
 
     /**
-     * @description : 跳转到修改roleButton的页面
+     * @description : 跳转到修改或新增roleButton的页面
      * @author : zhangjk
-     * @since : Create in 2018-12-04
+     * @since : Create in 2018-11-11
      */
-    @GetMapping(value = "/{roleButtonId}/update.html")
-    @ApiOperation(value = "/{roleButtonId}/update.html", notes = "跳转到修改页面")
-    public String toUpdateRoleButton(@ApiParam(name = "model", value = "Model") Model model, @PathVariable(value = "roleButtonId") Long roleButtonId) {
-        //静态注入要回显的数据
-        Map<String, Object> roleButton = roleButtonService.mySelectMapById(roleButtonId);
+    @GetMapping(value = {"/{roleButtonId}/update.html", "/create.html"})
+    @ApiOperation(value = "/{roleButtonId}/update.html、/create.html", notes = "跳转到修改或新增页面")
+    public String toModifyRoleButton(@ApiParam(name = "model", value = "Model") Model model,
+                                   @ApiParam(name = "roleButtonId", value = "RoleButtonId") @PathVariable(value = "roleButtonId", required = false) Long roleButtonId) {
+
+        Map<String, Object> roleButton = new HashMap<>();
+        //判空
+        if (roleButtonId != null) {
+            //根据roleButtonId查找记录回显的数据
+            roleButton = roleButtonService.mySelectMapById(roleButtonId);
+        }
+        //静态注入
         model.addAttribute("roleButton", roleButton);
-        return "roleButton/newRoleButton";
-    }
-
-    /**
-     * @description : 跳转到新增roleButton的页面
-     * @author : zhangjk
-     * @since : Create in 2018-12-04
-     */
-    @GetMapping(value = "/create.html")
-    @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
-    public String toCreateRoleButton(@ApiParam(name = "model", value = "Model") Model model) {
-        return "roleButton/newRoleButton";
+        return "system/roleButton/modify";
     }
     
     /**
@@ -78,6 +89,7 @@ public class RoleButtonController extends BaseController {
      */
     @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
+    @ResponseBody
     public TableJson<Button> getRoleButtonList(@ApiParam(name = "RoleButton", value = "RoleButton 实体类") @RequestBody RoleButton roleButton) {
             TableJson<Button> resJson = new TableJson<>();
             Page resPage = roleButton.getPage();
@@ -103,6 +115,7 @@ public class RoleButtonController extends BaseController {
      */
     @PostMapping(value = "/query_enable_create", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query_enable_create", notes="获取可以增加的按钮")
+    @ResponseBody
     public TableJson<Button> getEnableCreateList(@ApiParam(name = "RoleButton", value = "RoleButton 实体类") @RequestBody RoleButton roleButton) {
         TableJson<Button> resJson = new TableJson<>();
         Page resPage = roleButton.getPage();
@@ -129,6 +142,7 @@ public class RoleButtonController extends BaseController {
      */
     @GetMapping(value = "/get_map_by_id/{roleButtonId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{roleButtonId}", notes = "根据id获取roleButtonMap")
+    @ResponseBody
     public JsonResult<Map<String, Object>> getRoleButtonByIdForMap( @ApiParam(name = "id", value = "roleButtonId") @PathVariable("roleButtonId") Long roleButtonId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
             Map<String, Object> roleButton = roleButtonService.mySelectMapById(roleButtonId);
@@ -144,6 +158,7 @@ public class RoleButtonController extends BaseController {
      */
     @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据roleId和buttonId假删除roleButton")
+    @ResponseBody
     public JsonResult<RoleButton> fakeDeleteById(@ApiParam(name = "RoleButton", value = "RoleButton实体类") @RequestBody RoleButton roleButton){
         Subject subject = SecurityUtils.getSubject();
         JsonResult<RoleButton> resJson = new JsonResult<>();
@@ -166,6 +181,7 @@ public class RoleButtonController extends BaseController {
      */
     @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据roleId和buttonIds批量假删除roleButton")
+    @ResponseBody
     public JsonResult<RoleButton> fakeBatchDelete(@ApiParam(name = "parameter", value = "批量假删除的参数") @RequestBody Map<String, Object> parameter){
         Subject subject = SecurityUtils.getSubject();
         JsonResult<RoleButton> resJson = new JsonResult<>();
@@ -186,24 +202,25 @@ public class RoleButtonController extends BaseController {
     /**
      * @description : 新增或修改roleButton
      * @author : zhangjk
-     * @since : Create in 2018-12-04
+     * @since : Create in 2018-12-02
      */
-    @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    @ApiOperation(value = "/create_update", notes = "新增或修改roleButton")
-    public JsonResult<RoleButton> roleButtonCreateUpdate(@ApiParam(name = "RoleButton", value = "RoleButton实体类") @RequestBody RoleButton roleButton){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<RoleButton> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/roleButton/create_update");
-                roleButton = roleButtonService.myRoleButtonCreateUpdate(roleButton);
-                resJson.setData(roleButton);
-                resJson.setSuccess(true);
-            }catch(UnauthorizedException e){
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    @PostMapping(value = "/create_update/{roleId}", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @ApiOperation(value = "/create_update/{roleId}", notes = "新增或修改roleButton")
+    @ResponseBody
+    public JsonResult<RoleButton> roleButtonCreateUpdate(@ApiParam(name = "roleId", value = "角色id") @PathVariable("roleId") Long roleId,
+                                                     @ApiParam(name = "buttonIds", value = "按钮Ids") @RequestBody List<Long> buttonIds){
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<RoleButton> resJson = new JsonResult<>();
+        try{
+            //检查是否具有权限
+            subject.checkPermission("/admin/roleButton/create_update");
+            roleButtonService.myUpdateRoleButton(roleId, buttonIds);
+            resJson.setSuccess(true);
+        }catch(UnauthorizedException e){
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
@@ -213,6 +230,7 @@ public class RoleButtonController extends BaseController {
      */
     @PostMapping(value = "/batch_create", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_create", notes = "批量新增roleButton")
+    @ResponseBody
     public JsonResult<RoleButton> roleButtonBatchCreate(@ApiParam(name = "parameter", value = "批量新增roleButton的参数") @RequestBody Map<String, Object> parameter){
         Subject subject = SecurityUtils.getSubject();
         JsonResult<RoleButton> resJson = new JsonResult<>();

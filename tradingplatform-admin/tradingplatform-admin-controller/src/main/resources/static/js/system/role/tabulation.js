@@ -397,7 +397,7 @@ function roleConfig(menuId){
     var id=menuId;
     var index = layer.open({
         type: 2,
-        content: '/role/'+id+'/buttons',
+        content: '/admin/roleButton/'+id+'/tabulation.html',
         area: ['80%', '80%'],
         maxmin: true,
         success: function(index,layero){

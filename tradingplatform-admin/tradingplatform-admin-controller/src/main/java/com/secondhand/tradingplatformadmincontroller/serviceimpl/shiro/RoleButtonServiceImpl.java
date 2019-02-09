@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -64,6 +65,27 @@ public class RoleButtonServiceImpl extends BaseServiceImpl<RoleButtonMapper, Rol
             roleButtonMapper.update(roleButton, wrapper);
         });
         return true;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    @CacheEvict(allEntries = true)
+    public Integer myUpdateRoleButton(Long roleId, List<Long> buttonIds) {
+
+        //先删除旧的roleButton
+        Wrapper<RoleButton> wrapper = new EntityWrapper<>();
+        wrapper.where("role_id = {0}", roleId);
+        Integer deleteResult = roleButtonMapper.delete(wrapper);
+
+        //再更新新的进去
+        buttonIds.forEach(buttonId -> {
+            RoleButton roleButton = new RoleButton();
+            roleButton.setRoleId(roleId);
+            roleButton.setButtonId(buttonId);
+            roleButton.setUuid(ToolUtil.getUUID());
+            roleButtonMapper.insert(roleButton);
+        });
+        return deleteResult;
     }
 
     @Override
@@ -270,5 +292,25 @@ public class RoleButtonServiceImpl extends BaseServiceImpl<RoleButtonMapper, Rol
     @CacheEvict(allEntries = true)
     public boolean myUpdateById(RoleButton roleButton) {
         return this.updateById(roleButton);
+    }
+
+    @Override
+    @Cacheable(key = "#p0")
+    public List<Button> mySelectSelectedList(Long roleId) {
+        //找出buttonIds
+        Wrapper<RoleButton> wrapper = new EntityWrapper<>();
+        wrapper.setSqlSelect("button_id");
+        wrapper.where("role_id = {0}", roleId);
+        wrapper.where("deleted = {0}", false);
+        List<Object> buttonIds = this.selectObjs(wrapper);
+        //判空
+        if (buttonIds.size() == 0){
+            return new ArrayList<>();
+        }
+        //再根据buttonIds来找
+        Wrapper<Button> buttonWrapper = new EntityWrapper<>();
+        buttonWrapper.in("id", buttonIds);
+        buttonWrapper.where("deleted = {0}", false);
+        return buttonService.mySelectList(buttonWrapper);
     }
 }

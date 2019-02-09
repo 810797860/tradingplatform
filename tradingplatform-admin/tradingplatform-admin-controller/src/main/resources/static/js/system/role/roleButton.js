@@ -8,8 +8,6 @@ var SINGLE_CHOICE = 1011,
 // 存储所选项
 var selections = [];
 var searchOptions = {};
-var tempFirstId;
-var tempFinalId;
 // layer弹出层的下标
 var layerIndex = 0;
 // 关联选择对象
@@ -18,23 +16,18 @@ var relevanceObj = {
     name: null,
     fieldType: null
 };
+
 var $table = $('#table'),
     $remove = $('#remove'),
-    // $searchPart = $("#search-part"),
     $search = $('#search'),
-    $search1 = $('#search1'),
     $saveSel=$("#saveSelection");
-    // $toggleSearch = $('#toggle-search');
-
 var $authority = $('#authorityTable');
-
 var formId = $('#formId').val();
 
 var SEARCHING = false;
-var SEARCHING1 = false;
 
 $(function(){
-    selections = initSeletor(menubtns);
+    selections = initSeletor(rolebtns);
     initTable();
 });
 //初始化选项
@@ -49,7 +42,6 @@ function initSeletor(data) {
     }
     return list
 }
-
 //初始化穿梭框
 function initShuttle(list) {
     $authority.bootstrapTable({
@@ -81,7 +73,7 @@ function initShuttle(list) {
 
 function initTable() {
     $table.bootstrapTable({
-        height: getHeight(),
+        height: getHeight,
         toolbar: "#toolbar",
         url: '/admin/button/query',
         method: 'post',
@@ -96,14 +88,15 @@ function initTable() {
         pagination: true,
         pageList: "[15, 20, 25, 50, 100]",
         pageNumber: 1,
-        maintainSelected:true,
         pageSize: 15,
         showFooter: false,
-        sidePagination: "server",
+        sidePagination: "server"
     });
+    // sometimes footer render error.
     setTimeout(function () {
         $table.bootstrapTable('resetView');
     }, 200);
+
     $table.on('expand-row.bs.table', function (e, index, row, $detail) {
         var html = [];
         $.each(row, function (key, value) {
@@ -131,18 +124,6 @@ function initTable() {
         e.stopPropagation();
         searchInfo(true);
     });
-    $search1.on('click', function(e) {
-        e.stopPropagation();
-        searchInfo1(true);
-    });
-    // 搜索表单域中绑定的事件
-    $("#search-form input.search-control").on('keydown',function(e){
-        // e.preventDefault();
-        e.stopPropagation();
-        if(e.keyCode == "13") {
-            searchInfo(true);
-        }
-    });
     // 搜索表单域中绑定的事件
     $("#search-form input.search-control").on('keydown',function(e){
         // e.preventDefault();
@@ -167,11 +148,16 @@ function initTable() {
             }
             $.ajax({
                 type:"post",
-                url:'/admin/button/query/' + menuId,
+                url:'/role/'+roleId+'/role_buttons',
                 contentType:'application/json',
                 data:JSON.stringify(json),
                 success:function(res){
+                    console.log(res);
+                    // setTimeout(function () {
+                    //     layer.msg("提交成功", function(){});
+                    // }, 1000);
                     initShuttle(res.data.data_list);
+                    // refreshTable();
                 },
                 error:function(error){
                     console.log("提交失败");
@@ -242,14 +228,14 @@ function initTable() {
 function submitData(data){
     $.ajax({
         type:"post",
-        url:'/admin/menuButton/create_update/'+ menuId,
+        url:'/admin/roleButton/create_update/' + roleId,
         contentType:'application/json',
         data:JSON.stringify(data),
         success:function(data){
-            refreshTable();
             setTimeout(function () {
                 layer.msg("提交成功", function(){});
             }, 1000);
+            refreshTable();
         },
         error:function(error){
             console.log("提交失败");
@@ -258,7 +244,7 @@ function submitData(data){
 }
 // 刷新列表
 function refreshTable() {
-    initTable();
+    location.reload();
 }
 
 // 数据返回处理
@@ -266,6 +252,7 @@ function responseHandler(res) {
     var data=res;
     var data_list;
     data_list=CheckresponseHander(data);
+    $('.shuttle-add').attr('disabled','disabled').removeClass('btn-primary');
     return {
         "total": res.recordsTotal,//总页数
         "rows": res.data   //数据
@@ -273,42 +260,25 @@ function responseHandler(res) {
 }
 function CheckresponseHander(res){
     var list=res.data;
-    var thmenubtns=menubtns;
-    for(var i=0;i<thmenubtns.length;i++){
+    // var thmenubtns=rolebtns;
+    for(var i=0;i<selections.length;i++){
         for(var j=0;j<list.length;j++){
-            if(list[j].id == thmenubtns[i].id){
-                list[j].state=true;
-            }
+            if(list[j].id == selections[i].id)list[j].state=true;
             else continue;
         }
-    }
-    if(res.data.total != 0){
-        tempFirstId=list[0].id;
-        tempFinalId=list[list.length-1].id;
     }
     return list;
 }
 // 搜索功能
 function searchInfo(flag) {
-    SEARCHING = !!flag
+    SEARCHING = !!flag;
     initSearchOptions();
     if (SEARCHING) $('#table').bootstrapTable('refresh', {pageNumber:1}); // 重置页码
     else $table.bootstrapTable(('refresh'));
 }
-// 搜索功能
-function searchInfo1(flag) {
-    SEARCHING1 = !!flag
-    initSearchOptions1();
-    if (SEARCHING1) $('#authorityTable').bootstrapTable('refresh', {pageNumber:1}); // 重置页码
-    else $authority.bootstrapTable(('refresh'));
-}
 function initSearchOptions() {
     searchOptions['title'] = $("#title").val();
     searchOptions['description'] = $("#description").val();
-}
-function initSearchOptions1() {
-    searchOptions['title'] = $("#title1").val();
-    searchOptions['description'] = $("#description1").val();
 }
 //表格数据获取的参数
 function queryParams(params) {
@@ -484,6 +454,9 @@ function getSelectionMessage(option) {
 }
 // 消息框位置控制
 var stack_bottomright = {"dir1": "up", "dir2": "left", "firstpos1": 25, "firstpos2": 25};
+function submitSelection(){
+
+}
 /**
  * 获取选中项
  * @param  可以是：空值、字符串、字符串数组
@@ -515,31 +488,6 @@ function getSelection(option) {
         });
     }
 }
-/* 页码发生改变时 */
-function changePage(){
-    var data=[];
-    data=$table.bootstrapTable('getAllSelections');//获得的当前页被选中的数据
-    var index;//用于循环
-    if(data.length==0 && selections.length==0)return ;
-    else if(data.length==0 && selections.length != 0){
-        for(index=0;index<selections.length;index++){
-            if(selections[index]>=tempFirstId && selections[index]<=tempFinalId){
-                selections.splice(index,1);
-            }
-        }
-        console.log(selections);
-    }
-    else if(data.length != 0){
-        for(index=0;index<selections.length;index++){
-            if(selections[index]>=tempFirstId && selections[index]<=tempFinalId){
-                selections.splice(index,1);
-            }
-        }
-        for(var i=0;i<data.length;i++){
-            selections.push(data[index].id);
-        }
-    }
-}
 function StringNoEmpty(str){
     if(str!=null&&str!=""&&str!=undefined){
         return true;
@@ -569,7 +517,7 @@ function buttonClickSreach () {
         }
         $.ajax({
             type:"post",
-            url:'/admin/button/query_by_menu/' + menuId,
+            url:'/admin/button/query_by_role/'+ roleId,
             contentType:'application/json',
             data:JSON.stringify(postData),
             success:function(res){
