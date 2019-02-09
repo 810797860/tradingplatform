@@ -60,9 +60,12 @@ public class ${table.controllerName} {
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到${table.entityPath}的列表页面")
     public String to${entity}List(@ApiParam(name = "model", value = "Model") Model model,
-    @ApiParam(name = "menuId", value = "菜单id") Long menuId) {
+                                    @ApiParam(name = "menuId", value = "菜单id") Long menuId,
+                                    @ApiParam(name = "session", value = "客户端会话") HttpSession session) {
+
+        Long roleId = Long.valueOf(session.getAttribute(MagicalValue.ROLE_SESSION_ID).toString());
         //根据菜单id找按钮
-        List<Button> buttons = menuButtonService.mySelectListWithMenuId(menuId);
+        List<Button> buttons = menuButtonService.mySelectListWithMenuId(menuId, roleId);
         //注入该表单的按钮
         model.addAttribute("buttons", buttons);
         return "system/${table.entityPath}/tabulation";

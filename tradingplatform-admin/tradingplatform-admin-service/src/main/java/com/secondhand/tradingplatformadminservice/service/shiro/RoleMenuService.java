@@ -35,6 +35,14 @@ public interface RoleMenuService extends BaseService<RoleMenu> {
         boolean myFakeBatchDelete(Long roleId, List<Integer> menuIds);
 
         /**
+         * 配置角色-菜单
+         * @param roleId
+         * @param menuIds
+         * @return
+         */
+        Integer myUpdateRoleMenu(Long roleId, List<Long> menuIds);
+
+        /**
          * 获取Map数据（Obj）
          * @param roleMenuId
          * @return
@@ -178,4 +186,10 @@ public interface RoleMenuService extends BaseService<RoleMenu> {
          */
         boolean myUpdateById(RoleMenu roleMenu);
 
+        /**
+         * 根据角色找所选的菜单
+         * @param roleId
+         * @return
+         */
+        List<Menu> mySelectSelectedList(Long roleId);
 }

@@ -76,9 +76,10 @@ public interface MenuButtonService extends BaseService<MenuButton> {
         /**
          * 根据菜单id获取Button列表数据（List）
          * @param menuId
+         * @param roleId
          * @return
          */
-        List<Button> mySelectListWithMenuId(Long menuId);
+        List<Button> mySelectListWithMenuId(Long menuId, Long roleId);
 
         /**
          * 获取MenuButton列表数据（Map）
@@ -156,6 +157,13 @@ public interface MenuButtonService extends BaseService<MenuButton> {
          * @return
          */
         MenuButton mySelectOne(Wrapper<MenuButton> wrapper);
+
+        /**
+         * 根据wrapper获取List<Object>
+         * @param wrapper
+         * @return
+         */
+        List<Object> mySelectObjs(Wrapper<MenuButton> wrapper);
 
         /**
          * 根据menuButton和wrapper更新menuButton

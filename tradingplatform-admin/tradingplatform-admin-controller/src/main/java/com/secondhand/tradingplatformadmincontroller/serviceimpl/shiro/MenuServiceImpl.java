@@ -105,13 +105,13 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuMapper, Menu> implement
     //以下是继承BaseMapper
     
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "#p0.paramNameValuePairs")
     public Map<String, Object> mySelectMap(Wrapper<Menu> wrapper) {
         return this.selectMap(wrapper);
     }
     
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "#p0.paramNameValuePairs")
     public List<Menu> mySelectList(Wrapper<Menu> wrapper) {
         return menuMapper.selectList(wrapper);
     }
@@ -167,13 +167,13 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuMapper, Menu> implement
     }
     
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "#p0.paramNameValuePairs")
     public int mySelectCount(Wrapper<Menu> wrapper) {
         return menuMapper.selectCount(wrapper);
     }
     
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "#p0.paramNameValuePairs")
     public Menu mySelectOne(Wrapper<Menu> wrapper) {
         return this.selectOne(wrapper);
     }
@@ -194,5 +194,13 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuMapper, Menu> implement
     @CacheEvict(allEntries = true)
     public boolean myUpdateById(Menu menu) {
         return this.updateById(menu);
+    }
+
+    @Override
+    @Cacheable(key = "'selectAllList'")
+    public List<Menu> mySelectAllList() {
+        Wrapper<Menu> wrapper = new EntityWrapper<>();
+        wrapper.where("deleted = {0}", false);
+        return this.selectList(wrapper);
     }
 }

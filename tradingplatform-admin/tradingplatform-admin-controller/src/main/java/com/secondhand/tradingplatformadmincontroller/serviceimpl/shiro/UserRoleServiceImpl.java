@@ -41,9 +41,6 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
     private UserRoleMapper userRoleMapper;
 
     @Autowired
-    private RoleMapper roleMapper;
-
-    @Autowired
     private RoleService roleService;
 
     @Override
@@ -82,7 +79,7 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
     @Override
     @Transactional(rollbackFor = Exception.class)
     @CacheEvict(allEntries = true)
-    public Integer myUpdateCharacters(Long userId, List<Long> roleIds) {
+    public Integer myUpdateUserRole(Long userId, List<Long> roleIds) {
         //先默认只能选一个
         //优先选排在上面的
         //先删除旧的
@@ -159,7 +156,7 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
         List<UserRole> userRoles = userRoleMapper.selectList(wrapper);
         //查那一条出来
         List<Role> roles = new ArrayList<>();
-        roles.add(roleMapper.selectById(userRoles.get(0).getRoleId()));
+        roles.add(roleService.mySelectById(userRoles.get(0).getRoleId()));
         return roles;
     }
 
@@ -197,7 +194,7 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
         List<Object> roleIds = this.selectObjs(wrapper);
         //如果roleIds为空，返回空的对象
         if (roleIds.size() == 0){
-            return new Page<Role>();
+            return new Page<>();
         }
         //再根据id找rolePage
         Wrapper<Role> roleWrapper = new EntityWrapper<>();

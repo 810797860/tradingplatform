@@ -64,7 +64,7 @@ public class MenuController extends BaseController {
         //找出roleId并放进去搜索条件
         Long roleId = Long.valueOf(session.getAttribute(MagicalValue.ROLE_SESSION_ID).toString());
         //根据菜单id找按钮
-        List<Button> buttons = menuButtonService.mySelectListWithMenuId(menuId);
+        List<Button> buttons = menuButtonService.mySelectListWithMenuId(menuId, roleId);
         List<Menu> menuList = roleMenuService.mySelectListWithRoleId(roleId);
         //注入该表单的按钮
         model.addAttribute("buttons", buttons);

@@ -5,9 +5,11 @@ import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.shiro.Button;
 import com.secondhand.tradingplatformadminentity.entity.shiro.MenuButton;
+import com.secondhand.tradingplatformadminentity.entity.shiro.RoleButton;
 import com.secondhand.tradingplatformadminmapper.mapper.shiro.MenuButtonMapper;
 import com.secondhand.tradingplatformadminservice.service.shiro.ButtonService;
 import com.secondhand.tradingplatformadminservice.service.shiro.MenuButtonService;
+import com.secondhand.tradingplatformadminservice.service.shiro.RoleButtonService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
@@ -40,6 +42,9 @@ public class MenuButtonServiceImpl extends BaseServiceImpl<MenuButtonMapper, Men
 
     @Autowired
     private ButtonService buttonService;
+
+    @Autowired
+    private RoleButtonService roleButtonService;
 
     @Override
     @CacheEvict(allEntries = true)
@@ -141,8 +146,8 @@ public class MenuButtonServiceImpl extends BaseServiceImpl<MenuButtonMapper, Men
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    @Cacheable(key = "#p0")
-    public List<Button> mySelectListWithMenuId(Long menuId) {
+    @Cacheable(key = "#p0 + '' + #p1")
+    public List<Button> mySelectListWithMenuId(Long menuId, Long roleId) {
 
         //先找出buttonIds
         Wrapper<MenuButton> wrapper = new EntityWrapper<>();
@@ -154,6 +159,15 @@ public class MenuButtonServiceImpl extends BaseServiceImpl<MenuButtonMapper, Men
         if (buttonIds.size() == 0){
             return new ArrayList<>();
         }
+
+        //再判断这些id该角色是否有权限
+        Wrapper<RoleButton> roleButtonWrapper = new EntityWrapper<>();
+        roleButtonWrapper.setSqlSelect("button_id");
+        roleButtonWrapper.where("role_id = {0}", roleId);
+        roleButtonWrapper.where("deleted = {0}", false);
+        roleButtonWrapper.in("button_id", buttonIds);
+        buttonIds = roleButtonService.mySelectObjs(roleButtonWrapper);
+
         //再根据id找List<Button>
         Wrapper<Button> buttonWrapper = new EntityWrapper<>();
         buttonWrapper.in("id", buttonIds);
@@ -206,13 +220,13 @@ public class MenuButtonServiceImpl extends BaseServiceImpl<MenuButtonMapper, Men
     //以下是继承BaseMapper
     
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "#p0.paramNameValuePairs")
     public Map<String, Object> mySelectMap(Wrapper<MenuButton> wrapper) {
         return this.selectMap(wrapper);
     }
     
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "#p0.paramNameValuePairs")
     public List<MenuButton> mySelectList(Wrapper<MenuButton> wrapper) {
         return menuButtonMapper.selectList(wrapper);
     }
@@ -268,17 +282,23 @@ public class MenuButtonServiceImpl extends BaseServiceImpl<MenuButtonMapper, Men
     }
     
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "#p0.paramNameValuePairs")
     public int mySelectCount(Wrapper<MenuButton> wrapper) {
         return menuButtonMapper.selectCount(wrapper);
     }
     
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "#p0.paramNameValuePairs")
     public MenuButton mySelectOne(Wrapper<MenuButton> wrapper) {
         return this.selectOne(wrapper);
     }
-    
+
+    @Override
+    @Cacheable(key = "#p0.paramNameValuePairs")
+    public List<Object> mySelectObjs(Wrapper<MenuButton> wrapper) {
+        return this.selectObjs(wrapper);
+    }
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdate(MenuButton menuButton, Wrapper<MenuButton> wrapper) {

@@ -11,6 +11,8 @@ import com.secondhand.tradingplatformadminmapper.mapper.system.FormFieldMapper;
 import com.secondhand.tradingplatformadminmapper.mapper.system.FormMapper;
 import com.secondhand.tradingplatformadminmapper.mapper.system.SelectItemMapper;
 import com.secondhand.tradingplatformadminservice.service.system.FormFieldService;
+import com.secondhand.tradingplatformadminservice.service.system.FormService;
+import com.secondhand.tradingplatformadminservice.service.system.SelectItemService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
 import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
@@ -43,10 +45,10 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
     private FormFieldMapper formFieldMapper;
 
     @Autowired
-    private FormMapper formMapper;
+    private FormService formService;
 
     @Autowired
-    private SelectItemMapper selectItemMapper;
+    private SelectItemService selectItemService;
 
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -57,7 +59,7 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
 //        //先找出该条记录
 //        FormField deleteFormField = formFieldMapper.selectById(formFieldId);
 //        //找出表名与字段名
-//        Form form = formMapper.selectById(deleteFormField.getFormId());
+//        Form form = formService.mySelectById(deleteFormField.getFormId());
 //        String tableName = form.getCollection();
 //        String fieldName = deleteFormField.getFieldName();
 //        formFieldMapper.deleteField(tableName, fieldName);
@@ -94,9 +96,9 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
             formFieldMapper.insert(formField);
 
             //获取表名及字段类型
-            Form form = formMapper.selectById(formField.getFormId());
+            Form form = formService.mySelectById(formField.getFormId());
             String formName = form.getCollection();
-            SelectItem selectItem = selectItemMapper.selectById(formField.getFieldType());
+            SelectItem selectItem = selectItemService.mySelectById(formField.getFieldType());
             String fieldType = selectItem.getTitle();
             formFieldMapper.createField(formName, fieldType, formField);
         } else {
@@ -106,10 +108,10 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
 //            FormField oldFormField = formFieldMapper.selectById(formField.getId());
 //            String oldFieldName = oldFormField.getFieldName();
 //            //获取表名
-//            Form form = formMapper.selectById(formField.getFormId());
+//            Form form = formService.mySelectById(formField.getFormId());
 //            String formName = form.getCollection();
 //            //获取字段类型
-//            SelectItem selectItem = selectItemMapper.selectById(formField.getFieldType());
+//            SelectItem selectItem = selectItemService.mySelectById(formField.getFieldType());
 //            String fieldType = selectItem.getTitle();
 //            formFieldMapper.changeField(formName, oldFieldName, fieldType, formField);
 
@@ -123,7 +125,7 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
     @CacheEvict(allEntries = true)
     public boolean formFieldUpdateByFormId(Long formId) {
         //获取表名
-        Form form = formMapper.selectById(formId);
+        Form form = formService.mySelectById(formId);
         String formName = form.getCollection();
 
         //查询字典表，获取该表物理字段

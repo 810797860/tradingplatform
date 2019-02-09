@@ -9,6 +9,7 @@ import com.secondhand.tradingplatformadminentity.entity.shiro.RoleResources;
 import com.secondhand.tradingplatformadminmapper.mapper.shiro.ResourcesMapper;
 import com.secondhand.tradingplatformadminmapper.mapper.shiro.RoleResourcesMapper;
 import com.secondhand.tradingplatformadminservice.service.shiro.ResourcesService;
+import com.secondhand.tradingplatformadminservice.service.shiro.RoleResourcesService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
 import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
@@ -42,6 +43,9 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
 
     @Autowired
     private RoleResourcesMapper roleResourcesMapper;
+
+    @Autowired
+    private RoleResourcesService roleResourcesService;
 
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -89,7 +93,7 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
             roleResources.setRoleId(MagicalValue.ADMINISTRATOR_ID);
             //新增后resources就会有id了，我也不知道为什么
             roleResources.setResourcesId(resources.getId());
-            roleResourcesMapper.insert(roleResources);
+            roleResourcesService.myInsert(roleResources);
         } else {
             resourcesMapper.updateById(resources);
         }

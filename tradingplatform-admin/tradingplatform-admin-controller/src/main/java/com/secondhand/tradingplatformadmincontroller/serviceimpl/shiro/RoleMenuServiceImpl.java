@@ -5,12 +5,14 @@ import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.shiro.Menu;
 import com.secondhand.tradingplatformadminentity.entity.shiro.RoleMenu;
+import com.secondhand.tradingplatformadminmapper.mapper.shiro.MenuMapper;
 import com.secondhand.tradingplatformadminmapper.mapper.shiro.RoleMenuMapper;
 import com.secondhand.tradingplatformadminservice.service.shiro.MenuService;
 import com.secondhand.tradingplatformadminservice.service.shiro.RoleMenuService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
@@ -19,6 +21,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -63,6 +66,27 @@ public class RoleMenuServiceImpl extends BaseServiceImpl<RoleMenuMapper, RoleMen
             roleMenuMapper.update(roleMenu, wrapper);
         });
         return true;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    @CacheEvict(allEntries = true)
+    public Integer myUpdateRoleMenu(Long roleId, List<Long> menuIds) {
+
+        //先删除旧的roleMenu
+        Wrapper<RoleMenu> wrapper = new EntityWrapper<>();
+        wrapper.where("role_id = {0}", roleId);
+        roleMenuMapper.delete(wrapper);
+
+        //再更新新的进去
+        menuIds.forEach(menuId -> {
+            RoleMenu roleMenu = new RoleMenu();
+            roleMenu.setRoleId(roleId);
+            roleMenu.setMenuId(menuId);
+            roleMenu.setUuid(ToolUtil.getUUID());
+            roleMenuMapper.insert(roleMenu);
+        });
+        return null;
     }
 
     @Override
@@ -283,5 +307,26 @@ public class RoleMenuServiceImpl extends BaseServiceImpl<RoleMenuMapper, RoleMen
     @CacheEvict(allEntries = true)
     public boolean myUpdateById(RoleMenu roleMenu) {
         return this.updateById(roleMenu);
+    }
+
+    @Override
+    @Cacheable(key = "#p0")
+    public List<Menu> mySelectSelectedList(Long roleId) {
+
+        //找出menuIds
+        Wrapper<RoleMenu> wrapper = new EntityWrapper<>();
+        wrapper.setSqlSelect("menu_id");
+        wrapper.where("role_id = {0}", roleId);
+        wrapper.where("deleted = {0}", false);
+        List<Object> menuIds = this.selectObjs(wrapper);
+        //判空
+        if (menuIds.size() == 0){
+            return new ArrayList<>();
+        }
+        //再根据menuIds来找
+        Wrapper<Menu> menuWrapper = new EntityWrapper<>();
+        menuWrapper.in("id", menuIds);
+        menuWrapper.where("deleted = {0}", false);
+        return menuService.mySelectList(menuWrapper);
     }
 }

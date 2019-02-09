@@ -247,7 +247,13 @@ public class RoleButtonServiceImpl extends BaseServiceImpl<RoleButtonMapper, Rol
     public RoleButton mySelectOne(Wrapper<RoleButton> wrapper) {
         return this.selectOne(wrapper);
     }
-    
+
+    @Override
+    @Cacheable(key = "#p0.paramNameValuePairs")
+    public List<Object> mySelectObjs(Wrapper<RoleButton> wrapper) {
+        return this.selectObjs(wrapper);
+    }
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdate(RoleButton roleButton, Wrapper<RoleButton> wrapper) {

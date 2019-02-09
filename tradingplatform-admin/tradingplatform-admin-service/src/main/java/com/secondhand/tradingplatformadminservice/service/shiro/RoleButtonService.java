@@ -150,6 +150,13 @@ public interface RoleButtonService extends BaseService<RoleButton> {
         RoleButton mySelectOne(Wrapper<RoleButton> wrapper);
 
         /**
+         * 根据wrapper获取List<Object>
+         * @param wrapper
+         * @return
+         */
+        List<Object> mySelectObjs(Wrapper<RoleButton> wrapper);
+
+        /**
          * 根据roleButton和wrapper更新roleButton
          * @param roleButton
          * @param wrapper

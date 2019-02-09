@@ -2,6 +2,7 @@ package com.secondhand.tradingplatformadmincontroller.controller.shiro;
 
 import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.shiro.Menu;
+import com.secondhand.tradingplatformadminservice.service.shiro.MenuService;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
 import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
@@ -13,9 +14,11 @@ import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -30,7 +33,7 @@ import javax.servlet.http.HttpSession;
  * @author : zhangjk
  * @since : Create in 2018-12-02
  */
-@RestController
+@Controller
 @Api(value="/admin/roleMenu", description="RoleMenu 控制器")
 @RequestMapping("/admin/roleMenu")
 public class RoleMenuController extends BaseController {
@@ -38,40 +41,51 @@ public class RoleMenuController extends BaseController {
     @Autowired
     private RoleMenuService roleMenuService;
 
+    @Autowired
+    private MenuService menuService;
+
     /**
      * @description : 跳转到列表页面
      * @author : zhangjk
-     * @since : Create in 2018-12-02
+     * @since : Create in 2018-11-11
      */
-    @GetMapping(value = "/tabulation.html")
-    @ApiOperation(value = "/tabulation.html", notes = "跳转到roleMenu的列表页面")
-    public String toRoleMenuList(@ApiParam(name = "model", value = "Model") Model model) {
-        return "roleMenu/tabulation";
+    @GetMapping(value = "/{roleId}/tabulation.html")
+    @ApiOperation(value = "/{roleId}/tabulation.html", notes = "跳转到roleMenu的列表页面")
+    public String toRoleMenuList(@ApiParam(name = "model", value = "Model") Model model,
+                                 @ApiParam(name = "roleId", value = "角色id") @PathVariable("roleId") Long roleId) {
+
+        List<Menu> allRoleMenus = menuService.mySelectAllList();
+        //根据所选角色找菜单
+        List<Menu> selectedRoleMenus = roleMenuService.mySelectSelectedList(roleId);
+        //静态注入
+        //静态注入角色id
+        model.addAttribute("roleId", roleId);
+        //静态注入所有菜单
+        model.addAttribute("allRoleMenus", allRoleMenus);
+        //静态注入所选菜单
+        model.addAttribute("selectedRoleMenus", selectedRoleMenus);
+        return "system/role/roleMenu";
     }
 
     /**
-     * @description : 跳转到修改roleMenu的页面
+     * @description : 跳转到修改或新增roleMenu的页面
      * @author : zhangjk
-     * @since : Create in 2018-12-02
+     * @since : Create in 2018-11-11
      */
-    @GetMapping(value = "/{roleMenuId}/update.html")
-    @ApiOperation(value = "/{roleMenuId}/update.html", notes = "跳转到修改页面")
-    public String toUpdateRoleMenu(@ApiParam(name = "model", value = "Model") Model model, @PathVariable(value = "roleMenuId") Long roleMenuId) {
-        //静态注入要回显的数据
-        Map<String, Object> roleMenu = roleMenuService.mySelectMapById(roleMenuId);
+    @GetMapping(value = {"/{roleMenuId}/update.html", "/create.html"})
+    @ApiOperation(value = "/{roleMenuId}/update.html、/create.html", notes = "跳转到修改或新增页面")
+    public String toModifyRoleMenu(@ApiParam(name = "model", value = "Model") Model model,
+                               @ApiParam(name = "roleMenuId", value = "RoleMenuId") @PathVariable(value = "roleMenuId", required = false) Long roleMenuId) {
+
+        Map<String, Object> roleMenu = new HashMap<>();
+        //判空
+        if (roleMenuId != null) {
+            //根据roleMenuId查找记录回显的数据
+            roleMenu = roleMenuService.mySelectMapById(roleMenuId);
+        }
+        //静态注入
         model.addAttribute("roleMenu", roleMenu);
-        return "roleMenu/newRoleMenu";
-    }
-
-    /**
-     * @description : 跳转到新增roleMenu的页面
-     * @author : zhangjk
-     * @since : Create in 2018-12-02
-     */
-    @GetMapping(value = "/create.html")
-    @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
-    public String toCreateRoleMenu(@ApiParam(name = "model", value = "Model") Model model) {
-        return "roleMenu/newRoleMenu";
+        return "system/roleMenu/modify";
     }
     
     /**
@@ -81,6 +95,7 @@ public class RoleMenuController extends BaseController {
      */
     @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
+    @ResponseBody
     public TableJson<Menu> getRoleMenuList(@ApiParam(name = "roleMenu", value = "RoleMenu 实体类") @RequestBody RoleMenu roleMenu,
                                            @ApiParam(name = "session", value = "客户端会话") HttpSession session) {
 
@@ -111,6 +126,7 @@ public class RoleMenuController extends BaseController {
      */
     @PostMapping(value = "/query_enable_create", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query_enable_create", notes="获取可以增加的菜单")
+    @ResponseBody
     public TableJson<Menu> getEnableCreateList(@ApiParam(name = "RoleMenu", value = "RoleMenu 实体类") @RequestBody RoleMenu roleMenu) {
         TableJson<Menu> resJson = new TableJson<>();
         Page resPage = roleMenu.getPage();
@@ -136,6 +152,7 @@ public class RoleMenuController extends BaseController {
      */
     @GetMapping(value = "/get_map_by_id/{roleMenuId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{roleMenuId}", notes = "根据id获取roleMenuMap")
+    @ResponseBody
     public JsonResult<Map<String, Object>> getRoleMenuByIdForMap( @ApiParam(name = "id", value = "roleMenuId") @PathVariable("roleMenuId") Long roleMenuId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
             Map<String, Object> roleMenu = roleMenuService.mySelectMapById(roleMenuId);
@@ -151,6 +168,7 @@ public class RoleMenuController extends BaseController {
      */
     @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除roleMenu")
+    @ResponseBody
     public JsonResult<RoleMenu> fakeDeleteById(@ApiParam(name = "id", value = "roleMenuId") @RequestBody Long roleMenuId, @ApiParam(name = "session", value = "客户端会话") HttpSession session){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<RoleMenu> resJson = new JsonResult<>();
@@ -177,6 +195,7 @@ public class RoleMenuController extends BaseController {
      */
     @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据roleId和menuIds批量假删除roleMenu")
+    @ResponseBody
     public JsonResult<RoleMenu> fakeBatchDelete(@ApiParam(name = "parameter", value = "批量假删除的参数") @RequestBody Map<String, Object> parameter){
         Subject subject = SecurityUtils.getSubject();
         JsonResult<RoleMenu> resJson = new JsonResult<>();
@@ -199,16 +218,17 @@ public class RoleMenuController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-12-02
      */
-    @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    @ApiOperation(value = "/create_update", notes = "新增或修改roleMenu")
-    public JsonResult<RoleMenu> roleMenuCreateUpdate(@ApiParam(name = "RoleMenu", value = "RoleMenu实体类") @RequestBody RoleMenu roleMenu){
+    @PostMapping(value = "/create_update/{roleId}", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @ApiOperation(value = "/create_update/{roleId}", notes = "新增或修改roleMenu")
+    @ResponseBody
+    public JsonResult<RoleMenu> roleMenuCreateUpdate(@ApiParam(name = "roleId", value = "角色id") @PathVariable("roleId") Long roleId,
+                                                     @ApiParam(name = "menuIds", value = "菜单Ids") @RequestBody List<Long> menuIds){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<RoleMenu> resJson = new JsonResult<>();
             try{
                 //检查是否具有权限
                 subject.checkPermission("/admin/roleMenu/create_update");
-                roleMenu = roleMenuService.myRoleMenuCreateUpdate(roleMenu);
-                resJson.setData(roleMenu);
+                roleMenuService.myUpdateRoleMenu(roleId, menuIds);
                 resJson.setSuccess(true);
             }catch(UnauthorizedException e){
                 resJson.setSuccess(false);
@@ -224,6 +244,7 @@ public class RoleMenuController extends BaseController {
      */
     @PostMapping(value = "/batch_create", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_create", notes = "批量新增roleMenu")
+    @ResponseBody
     public JsonResult<RoleMenu> roleMenuBatchCreate(@ApiParam(name = "parameter", value = "批量新增roleMenu的参数") @RequestBody Map<String, Object> parameter){
         Subject subject = SecurityUtils.getSubject();
         JsonResult<RoleMenu> resJson = new JsonResult<>();

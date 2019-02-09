@@ -136,6 +136,13 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
         ${entity} mySelectOne(Wrapper<${entity}> wrapper);
 
         /**
+         * 根据wrapper获取List<Object>
+         * @param wrapper
+         * @return
+         */
+        List<Object> mySelectObjs(Wrapper<${entity}> wrapper);
+
+        /**
          * 根据${table.entityPath}和wrapper更新${table.entityPath}
          * @param ${table.entityPath}
          * @param wrapper

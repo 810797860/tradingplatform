@@ -174,7 +174,7 @@ function confirmPost(event) {
 
 function onClick(event, treeId, treeNode) {
     console.log(event.target);
-    var url = '/role/' + treeNode.id + '/menus'
+    var url = '/admin/roleMenu/' + treeNode.id + '/tabulation.html'
     var title = '菜单配置 - ' + treeNode.name
     layer.open({
         type: 2,

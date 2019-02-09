@@ -153,4 +153,9 @@ public interface MenuService extends BaseService<Menu> {
          */
         boolean myUpdateById(Menu menu);
 
+        /**
+         * 查找所有的菜单
+         * @return
+         */
+        List<Menu> mySelectAllList();
 }

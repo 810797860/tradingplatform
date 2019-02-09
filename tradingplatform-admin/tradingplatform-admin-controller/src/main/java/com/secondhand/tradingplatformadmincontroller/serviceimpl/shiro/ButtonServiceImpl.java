@@ -6,11 +6,14 @@ import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.shiro.Button;
 import com.secondhand.tradingplatformadminentity.entity.shiro.MenuButton;
+import com.secondhand.tradingplatformadminentity.entity.shiro.RoleButton;
 import com.secondhand.tradingplatformadminmapper.mapper.shiro.ButtonMapper;
-import com.secondhand.tradingplatformadminmapper.mapper.shiro.MenuButtonMapper;
 import com.secondhand.tradingplatformadminservice.service.shiro.ButtonService;
+import com.secondhand.tradingplatformadminservice.service.shiro.MenuButtonService;
+import com.secondhand.tradingplatformadminservice.service.shiro.RoleButtonService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
+import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
@@ -39,7 +42,10 @@ public class ButtonServiceImpl extends BaseServiceImpl<ButtonMapper, Button> imp
     private ButtonMapper buttonMapper;
 
     @Autowired
-    private MenuButtonMapper menuButtonMapper;
+    private MenuButtonService menuButtonService;
+
+    @Autowired
+    private RoleButtonService roleButtonService;
 
     @Override
     @CacheEvict(allEntries = true)
@@ -67,12 +73,20 @@ public class ButtonServiceImpl extends BaseServiceImpl<ButtonMapper, Button> imp
     }
 
     @Override
-    @CacheEvict(allEntries = true)
+    @Transactional(rollbackFor = Exception.class)
+    @CacheEvict(cacheNames = {"button", "roleButton"}, allEntries = true)
     public Button myButtonCreateUpdate(Button button) {
         Long buttonId = button.getId();
         if (buttonId == null){
             button.setUuid(ToolUtil.getUUID());
-            buttonMapper.insert(button);
+            Integer insertId = buttonMapper.insert(button);
+
+            //默认给管理员也加上去
+            RoleButton roleButton = new RoleButton();
+            roleButton.setButtonId(Long.valueOf(insertId));
+            roleButton.setRoleId(MagicalValue.ADMINISTRATOR_ID);
+            roleButton.setUuid(ToolUtil.getUUID());
+            roleButtonService.myInsert(roleButton);
         } else {
             buttonMapper.updateById(button);
         }
@@ -95,7 +109,7 @@ public class ButtonServiceImpl extends BaseServiceImpl<ButtonMapper, Button> imp
             menuButtonWrapper.setSqlSelect("button_id");
             menuButtonWrapper.where("menu_id = {0}", menuId);
             menuButtonWrapper.where("deleted = {0}", false);
-            List<Object> buttonIds = menuButtonMapper.selectObjs(menuButtonWrapper);
+            List<Object> buttonIds = menuButtonService.mySelectObjs(menuButtonWrapper);
             //如果buttonIds为空，返回空的对象
             if (buttonIds.size() == 0){
                 return new Page<>();
@@ -137,7 +151,7 @@ public class ButtonServiceImpl extends BaseServiceImpl<ButtonMapper, Button> imp
     }
     
     @Override
-    @Cacheable(key = "'paramNameValuePairs' + #p0.paramNameValuePairs")
+    @Cacheable(key = "#p0.paramNameValuePairs")
     public List<Button> mySelectList(Wrapper<Button> wrapper) {
         return buttonMapper.selectList(wrapper);
     }

@@ -7,6 +7,7 @@ import com.secondhand.tradingplatformadminservice.service.shiro.MenuButtonServic
 import com.secondhand.tradingplatformadminservice.service.shiro.ResourcesService;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
+import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -24,6 +25,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.secondhand.tradingplatformcommon.base.BaseController.BaseController;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * @description : Resources 控制器
@@ -49,10 +52,12 @@ public class ResourcesController extends BaseController {
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到resources的列表页面")
     public String toResourcesList(@ApiParam(name = "model", value = "Model") Model model,
-                             @ApiParam(name = "menuId", value = "菜单id") Long menuId) {
+                                  @ApiParam(name = "menuId", value = "菜单id") Long menuId,
+                                  @ApiParam(name = "session", value = "客户端会话") HttpSession session) {
 
+        Long roleId = Long.valueOf(session.getAttribute(MagicalValue.ROLE_SESSION_ID).toString());
         //根据菜单id找按钮
-        List<Button> buttons = menuButtonService.mySelectListWithMenuId(menuId);
+        List<Button> buttons = menuButtonService.mySelectListWithMenuId(menuId, roleId);
         //注入该表单的按钮
         model.addAttribute("buttons", buttons);
         return "system/resources/tabulation";

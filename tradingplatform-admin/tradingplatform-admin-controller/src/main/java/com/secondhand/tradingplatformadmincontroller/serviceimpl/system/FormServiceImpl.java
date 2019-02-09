@@ -9,6 +9,7 @@ import com.secondhand.tradingplatformadminentity.entity.system.Form;
 import com.secondhand.tradingplatformadminmapper.mapper.system.FormFieldMapper;
 import com.secondhand.tradingplatformadminmapper.mapper.system.FormMapper;
 import com.secondhand.tradingplatformadminservice.service.shiro.ResourcesService;
+import com.secondhand.tradingplatformadminservice.service.system.FormFieldService;
 import com.secondhand.tradingplatformadminservice.service.system.FormService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
@@ -57,13 +58,13 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
 //        Wrapper<FormField> wrapper = new EntityWrapper<>();
 //        wrapper.where("form_id = {0}", formId);
 //        wrapper.where("deleted = {0}", false);
-//        List<FormField> formFieldList = formFieldMapper.selectList(wrapper);
+//        List<FormField> formFieldList = formFieldService.mySelectList(wrapper);
 //        //判空
 //        if (formFieldList.size() > 0){
 //            formFieldList.forEach(myFormField -> {
 //                //假删除
 //                myFormField.setDeleted(true);
-//                formFieldMapper.updateById(myFormField);
+//                formFieldService.myUpdateById(myFormField);
 //            });
 //        }
 

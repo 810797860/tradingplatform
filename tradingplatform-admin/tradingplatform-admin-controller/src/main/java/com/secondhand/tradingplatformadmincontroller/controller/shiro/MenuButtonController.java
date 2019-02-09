@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.shiro.Button;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
+import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -47,10 +48,12 @@ public class MenuButtonController extends BaseController {
     @GetMapping(value = "/{menuId}/tabulation.html")
     @ApiOperation(value = "/{menuId}/tabulation.html", notes = "跳转到menuButton的列表页面")
     public String toMenuButtonList(@ApiParam(name = "model", value = "Model") Model model,
-                             @ApiParam(name = "menuId", value = "菜单id") @PathVariable("menuId") Long menuId) {
+                                   @ApiParam(name = "menuId", value = "菜单id") @PathVariable("menuId") Long menuId,
+                                   @ApiParam(name = "session", value = "客户端会话") HttpSession session) {
 
+        Long roleId = Long.valueOf(session.getAttribute(MagicalValue.ROLE_SESSION_ID).toString());
         //根据菜单id找按钮
-        List<Button> buttons = menuButtonService.mySelectListWithMenuId(menuId);
+        List<Button> buttons = menuButtonService.mySelectListWithMenuId(menuId, roleId);
         //注入该表单的按钮
         model.addAttribute("buttons", buttons);
         //注入菜单id

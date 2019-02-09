@@ -42,11 +42,11 @@ public interface UserRoleService extends BaseService<UserRole> {
         Map<String, Object> mySelectMapById(Long userRoleId);
 
         /**
-         * 清除旧的角色
+         * 配置用户-角色
          * @param userId
          * @return
          */
-        Integer myUpdateCharacters(Long userId, List<Long> roleIds);
+        Integer myUpdateUserRole(Long userId, List<Long> roleIds);
 
         /**
          * 新增或修改userRole

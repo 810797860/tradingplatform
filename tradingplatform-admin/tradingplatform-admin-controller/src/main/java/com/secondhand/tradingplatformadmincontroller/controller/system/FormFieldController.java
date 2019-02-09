@@ -7,6 +7,7 @@ import com.secondhand.tradingplatformadminservice.service.shiro.MenuButtonServic
 import com.secondhand.tradingplatformadminservice.service.system.SelectItemService;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
+import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import com.secondhand.tradingplatformcommon.pojo.SystemSelectItem;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -27,6 +28,8 @@ import java.util.Map;
 import com.secondhand.tradingplatformcommon.base.BaseController.BaseController;
 import com.secondhand.tradingplatformadminentity.entity.system.FormField;
 import com.secondhand.tradingplatformadminservice.service.system.FormFieldService;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * @description : FormField 控制器
@@ -56,10 +59,12 @@ public class FormFieldController extends BaseController {
     @ApiOperation(value = "/tabulation.html", notes = "跳转到form的列表页面")
     public String toFormList(@ApiParam(name = "model", value = "Model") Model model,
                              @ApiParam(name = "menuId", value = "菜单id") Long menuId,
-                             @ApiParam(name = "formId", value = "表单id") Long formId) {
+                             @ApiParam(name = "formId", value = "表单id") Long formId,
+                             @ApiParam(name = "session", value = "客户端会话") HttpSession session) {
 
+        Long roleId = Long.valueOf(session.getAttribute(MagicalValue.ROLE_SESSION_ID).toString());
         //根据菜单id找按钮
-        List<Button> buttons = menuButtonService.mySelectListWithMenuId(menuId);
+        List<Button> buttons = menuButtonService.mySelectListWithMenuId(menuId, roleId);
         List<SelectItem> showTypes = selectItemService.myGetItemsByPid(SystemSelectItem.DISPLAY_TYPE);
         //注入该表单的按钮
         model.addAttribute("buttons", buttons);

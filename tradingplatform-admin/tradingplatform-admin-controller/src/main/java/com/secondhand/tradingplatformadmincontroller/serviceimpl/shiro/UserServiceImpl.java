@@ -8,6 +8,7 @@ import com.secondhand.tradingplatformadminentity.entity.shiro.User;
 import com.secondhand.tradingplatformadminentity.entity.shiro.UserRole;
 import com.secondhand.tradingplatformadminmapper.mapper.shiro.UserMapper;
 import com.secondhand.tradingplatformadminmapper.mapper.shiro.UserRoleMapper;
+import com.secondhand.tradingplatformadminservice.service.shiro.UserRoleService;
 import com.secondhand.tradingplatformadminservice.service.shiro.UserService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
@@ -43,7 +44,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper, User> implement
     private UserMapper userMapper;
 
     @Autowired
-    private UserRoleMapper userRoleMapper;
+    private UserRoleService userRoleService;
 
     @Override
     @CacheEvict(allEntries = true)
@@ -101,7 +102,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper, User> implement
             userRole.setRoleId(MagicalValue.DEFAULT_ROLE_ID);
             userRole.setUserId(user.getId());
             userRole.setUuid(ToolUtil.getUUID());
-            userRoleMapper.insert(userRole);
+            userRoleService.myInsert(userRole);
         } else {
             userMapper.updateById(user);
         }

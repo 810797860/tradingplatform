@@ -110,13 +110,13 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     //以下是继承BaseMapper
     
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "#p0.paramNameValuePairs")
     public Map<String, Object> mySelectMap(Wrapper<${entity}> wrapper) {
         return this.selectMap(wrapper);
     }
     
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "#p0.paramNameValuePairs")
     public List<${entity}> mySelectList(Wrapper<${entity}> wrapper) {
         return ${table.entityPath}Mapper.selectList(wrapper);
     }
@@ -172,15 +172,21 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     }
     
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "#p0.paramNameValuePairs")
     public int mySelectCount(Wrapper<${entity}> wrapper) {
         return ${table.entityPath}Mapper.selectCount(wrapper);
     }
     
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "#p0.paramNameValuePairs")
     public ${entity} mySelectOne(Wrapper<${entity}> wrapper) {
         return this.selectOne(wrapper);
+    }
+
+    @Override
+    @Cacheable(key = "#p0.paramNameValuePairs")
+    public List<Object> mySelectObjs(Wrapper<${entity}> wrapper) {
+        return this.selectObjs(wrapper);
     }
     
     @Override
