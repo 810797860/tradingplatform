@@ -202,7 +202,7 @@ public class RoleController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-13
      */
-    @PostMapping(value = "/create_update_drag/{roleId}", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @PutMapping(value = "/create_update_drag/{roleId}", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update_drag/{roleId}", notes = "拖拽角色zTree")
     @ResponseBody
     public JsonResult<Role> roleCreateUpdateDrag(@ApiParam(name = "roleId", value = "角色id") @PathVariable("roleId") Long roleId, @ApiParam(name = "Role", value = "Role实体类") @RequestBody Role role){

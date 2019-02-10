@@ -214,7 +214,7 @@ function beforeDrop(treeId, treeNodes, targetNode, moveType) {
             pid: targetNode.id
         }
         $.ajax({
-            type:'post',
+            type:'put',
             url:'/admin/role/create_update_drag/' + treeNodes[0].id,
             contentType:'application/json;charset=utf-8',
             dataType:'json',

@@ -239,8 +239,8 @@ function beforeDrop(treeId, treeNodes, targetNode, moveType) {
             pid: targetNode.data.id
         }
         $.ajax({
-            type:'post',
-            url:'/admin/menu/create_update',
+            type:'put',
+            url:'/admin/menu/create_update_drag/' + treeNodes[0].id,
             contentType:'application/json;charset=utf-8',
             dataType:'json',
             data: JSON.stringify(postData),

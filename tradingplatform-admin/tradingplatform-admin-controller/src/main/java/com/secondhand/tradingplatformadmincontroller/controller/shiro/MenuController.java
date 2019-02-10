@@ -234,4 +234,29 @@ public class MenuController extends BaseController {
             }
             return resJson;
     }
+
+    /**
+     * @description : 拖拽角色zTree
+     * @author : zhangjk
+     * @since : Create in 2018-11-13
+     */
+    @PutMapping(value = "/create_update_drag/{menuId}", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @ApiOperation(value = "/create_update_drag/{menuId}", notes = "拖拽角色zTree")
+    @ResponseBody
+    public JsonResult<Menu> menuCreateUpdateDrag(@ApiParam(name = "menuId", value = "角色id") @PathVariable("menuId") Long menuId, @ApiParam(name = "Menu", value = "Menu实体类") @RequestBody Menu menu){
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<Menu> resJson = new JsonResult<>();
+        try{
+            //检查是否具有权限
+            subject.checkPermission("/admin/menu/create_update");
+            menu.setId(menuId);
+            menu = menuService.myMenuCreateUpdate(menu);
+            resJson.setData(menu);
+            resJson.setSuccess(true);
+        }catch(UnauthorizedException e){
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
+    }
 }
