@@ -12,9 +12,11 @@ import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -27,7 +29,7 @@ import com.secondhand.tradingplatformadminservice.service.shiro.RoleResourcesSer
  * @author : zhangjk
  * @since : Create in 2018-11-12
  */
-@RestController
+@Controller
 @Api(value="/admin/roleResources", description="RoleResources 控制器")
 @RequestMapping("/admin/roleResources")
 public class RoleResourcesController extends BaseController {
@@ -38,37 +40,42 @@ public class RoleResourcesController extends BaseController {
     /**
      * @description : 跳转到列表页面
      * @author : zhangjk
-     * @since : Create in 2018-11-12
+     * @since : Create in 2018-11-11
      */
-    @GetMapping(value = "/tabulation.html")
-    @ApiOperation(value = "/tabulation.html", notes = "跳转到roleResources的列表页面")
-    public String toRoleResourcesList(@ApiParam(name = "model", value = "Model") Model model) {
-        return "roleResources/tabulation";
+    @GetMapping(value = "/{roleId}/tabulation.html")
+    @ApiOperation(value = "/{roleId}/tabulation.html", notes = "跳转到roleResources的列表页面")
+    public String toRoleResourcesList(@ApiParam(name = "model", value = "Model") Model model,
+                                      @ApiParam(name = "roleId", value = "角色id") @PathVariable("roleId") Long roleId) {
+
+        //根据所选角色找菜单
+        List<Resources> selectedRoleResources = roleResourcesService.mySelectSelectedList(roleId);
+        //静态注入
+        //静态注入角色id
+        model.addAttribute("roleId", roleId);
+        //静态注入所选菜单
+        model.addAttribute("selectedRoleResources", selectedRoleResources);
+        return "system/role/roleResources";
     }
 
     /**
-     * @description : 跳转到修改roleResources的页面
+     * @description : 跳转到修改或新增roleResources的页面
      * @author : zhangjk
-     * @since : Create in 2018-11-12
+     * @since : Create in 2018-11-11
      */
-    @GetMapping(value = "/{roleResourcesId}/update.html")
-    @ApiOperation(value = "/{roleResourcesId}/update.html", notes = "跳转到修改页面")
-    public String toUpdateRoleResources(@ApiParam(name = "model", value = "Model") Model model, @PathVariable(value = "roleResourcesId") Long roleResourcesId) {
-        //静态注入要回显的数据
-        Map<String, Object> roleResources = roleResourcesService.mySelectMapById(roleResourcesId);
+    @GetMapping(value = {"/{roleResourcesId}/update.html", "/create.html"})
+    @ApiOperation(value = "/{roleResourcesId}/update.html、/create.html", notes = "跳转到修改或新增页面")
+    public String toModifyRoleResources(@ApiParam(name = "model", value = "Model") Model model,
+                                        @ApiParam(name = "roleResourcesId", value = "RoleResourcesId") @PathVariable(value = "roleResourcesId", required = false) Long roleResourcesId) {
+
+        Map<String, Object> roleResources = new HashMap<>();
+        //判空
+        if (roleResourcesId != null) {
+            //根据roleResourcesId查找记录回显的数据
+            roleResources = roleResourcesService.mySelectMapById(roleResourcesId);
+        }
+        //静态注入
         model.addAttribute("roleResources", roleResources);
-        return "roleResources/newRoleResources";
-    }
-
-    /**
-     * @description : 跳转到新增roleResources的页面
-     * @author : zhangjk
-     * @since : Create in 2018-11-12
-     */
-    @GetMapping(value = "/create.html")
-    @ApiOperation(value = "/create.html", notes = "跳转到新增页面")
-    public String toCreateRoleResources(@ApiParam(name = "model", value = "Model") Model model) {
-        return "roleResources/newRoleResources";
+        return "system/roleResources/modify";
     }
 
     /**
@@ -78,23 +85,24 @@ public class RoleResourcesController extends BaseController {
      */
     @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
+    @ResponseBody
     public TableJson<Resources> getResourcesList(@ApiParam(name = "RoleResources", value = "RoleResources 实体类") @RequestBody RoleResources roleResources) {
-            TableJson<Resources> resJson = new TableJson<>();
-            Page resPage = roleResources.getPage();
-            roleResources.setDeleted(false);
-            Integer current = resPage.getCurrent();
-            Integer size = resPage.getSize();
-            if (current == null && size == null) {
-                resJson.setSuccess(false);
-                resJson.setMessage("异常信息：页数和页的大小不能为空");
-                return resJson;
-            }
-            Page<Resources> resourcesPage = new Page<Resources>(current, size);
-            resourcesPage = roleResourcesService.mySelectPageWithParam(resourcesPage, roleResources);
-            resJson.setRecordsTotal(resourcesPage.getTotal());
-            resJson.setData(resourcesPage.getRecords());
-            resJson.setSuccess(true);
+        TableJson<Resources> resJson = new TableJson<>();
+        Page resPage = roleResources.getPage();
+        roleResources.setDeleted(false);
+        Integer current = resPage.getCurrent();
+        Integer size = resPage.getSize();
+        if (current == null && size == null) {
+            resJson.setSuccess(false);
+            resJson.setMessage("异常信息：页数和页的大小不能为空");
             return resJson;
+        }
+        Page<Resources> resourcesPage = new Page<Resources>(current, size);
+        resourcesPage = roleResourcesService.mySelectPageWithParam(resourcesPage, roleResources);
+        resJson.setRecordsTotal(resourcesPage.getTotal());
+        resJson.setData(resourcesPage.getRecords());
+        resJson.setSuccess(true);
+        return resJson;
     }
 
     /**
@@ -104,6 +112,7 @@ public class RoleResourcesController extends BaseController {
      */
     @PostMapping(value = "/query_enable_create", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query_enable_create", notes="获取可以增加的权限")
+    @ResponseBody
     public TableJson<Resources> getEnableCreateList(@ApiParam(name = "RoleResources", value = "RoleResources 实体类") @RequestBody RoleResources roleResources) {
         TableJson<Resources> resJson = new TableJson<>();
         Page resPage = roleResources.getPage();
@@ -130,12 +139,13 @@ public class RoleResourcesController extends BaseController {
      */
     @GetMapping(value = "/get_map_by_id/{roleResourcesId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{roleResourcesId}", notes = "根据id获取roleResourcesMap")
+    @ResponseBody
     public JsonResult<Map<String, Object>> getRoleResourcesByIdForMap( @ApiParam(name = "id", value = "roleResourcesId") @PathVariable("roleResourcesId") Long roleResourcesId){
-            JsonResult<Map<String, Object>> resJson = new JsonResult<>();
-            Map<String, Object> roleResources = roleResourcesService.mySelectMapById(roleResourcesId);
-            resJson.setData(roleResources);
-            resJson.setSuccess(true);
-            return resJson;
+        JsonResult<Map<String, Object>> resJson = new JsonResult<>();
+        Map<String, Object> roleResources = roleResourcesService.mySelectMapById(roleResourcesId);
+        resJson.setData(roleResources);
+        resJson.setSuccess(true);
+        return resJson;
     }
 
     /**
@@ -145,19 +155,20 @@ public class RoleResourcesController extends BaseController {
      */
     @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据roleId和resourcesId假删除roleResources")
+    @ResponseBody
     public JsonResult<RoleResources> fakeDeleteById(@ApiParam(name = "RoleResources", value = "RoleResources实体类") @RequestBody RoleResources roleResources){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<RoleResources> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/roleResources/delete");
-                roleResourcesService.myFakeDeleteByRoleResources(roleResources);
-                resJson.setSuccess(true);
-            }catch (UnauthorizedException e){
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<RoleResources> resJson = new JsonResult<>();
+        try{
+            //检查是否具有权限
+            subject.checkPermission("/admin/roleResources/delete");
+            roleResourcesService.myFakeDeleteByRoleResources(roleResources);
+            resJson.setSuccess(true);
+        }catch (UnauthorizedException e){
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
@@ -167,44 +178,46 @@ public class RoleResourcesController extends BaseController {
      */
     @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据roleId和resourcesIds批量假删除roleResources")
+    @ResponseBody
     public JsonResult<RoleResources> fakeBatchDelete(@ApiParam(name = "parameter", value = "批量假删除的参数") @RequestBody Map<String, Object> parameter){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<RoleResources> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/roleResources/batch_delete");
-                Long roleId = Long.valueOf(parameter.get("roleId").toString());
-                List<Integer> resourcesIds = (List<Integer>) parameter.get("resourcesIds");
-                //这里不判空了，让前端判
-                resJson.setSuccess(roleResourcesService.myFakeBatchDelete(roleId, resourcesIds));
-            }catch(UnauthorizedException e){
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<RoleResources> resJson = new JsonResult<>();
+        try{
+            //检查是否具有权限
+            subject.checkPermission("/admin/roleResources/batch_delete");
+            Long roleId = Long.valueOf(parameter.get("roleId").toString());
+            List<Integer> resourcesIds = (List<Integer>) parameter.get("resourcesIds");
+            //这里不判空了，让前端判
+            resJson.setSuccess(roleResourcesService.myFakeBatchDelete(roleId, resourcesIds));
+        }catch(UnauthorizedException e){
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
      * @description : 新增或修改roleResources
      * @author : zhangjk
-     * @since : Create in 2018-11-12
+     * @since : Create in 2018-12-02
      */
-    @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    @ApiOperation(value = "/create_update", notes = "新增或修改roleResources")
-    public JsonResult<RoleResources> roleResourcesCreateUpdate(@ApiParam(name = "RoleResources", value = "RoleResources实体类") @RequestBody RoleResources roleResources){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<RoleResources> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/roleResources/create_update");
-                roleResources = roleResourcesService.myRoleResourcesCreateUpdate(roleResources);
-                resJson.setData(roleResources);
-                resJson.setSuccess(true);
-            }catch(UnauthorizedException e){
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    @PostMapping(value = "/create_update/{roleId}", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @ApiOperation(value = "/create_update/{roleId}", notes = "新增或修改roleResources")
+    @ResponseBody
+    public JsonResult<RoleResources> roleResourcesCreateUpdate(@ApiParam(name = "roleId", value = "角色id") @PathVariable("roleId") Long roleId,
+                                                               @ApiParam(name = "resourcesIds", value = "按钮Ids") @RequestBody List<Long> resourcesIds){
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<RoleResources> resJson = new JsonResult<>();
+        try{
+            //检查是否具有权限
+            subject.checkPermission("/admin/roleResources/create_update");
+            roleResourcesService.myUpdateRoleResources(roleId, resourcesIds);
+            resJson.setSuccess(true);
+        }catch(UnauthorizedException e){
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
@@ -214,6 +227,7 @@ public class RoleResourcesController extends BaseController {
      */
     @PostMapping(value = "/batch_create", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_create", notes = "批量新增roleResources")
+    @ResponseBody
     public JsonResult<RoleResources> roleResourcesBatchCreate(@ApiParam(name = "parameter", value = "批量新增roleResources的参数") @RequestBody Map<String, Object> parameter){
         Subject subject = SecurityUtils.getSubject();
         JsonResult<RoleResources> resJson = new JsonResult<>();

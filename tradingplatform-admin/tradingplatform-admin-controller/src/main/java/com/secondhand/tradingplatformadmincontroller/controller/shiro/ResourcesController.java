@@ -83,32 +83,48 @@ public class ResourcesController extends BaseController {
         model.addAttribute("resources", resources);
         return "system/resources/modify";
     }
-    
+
     /**
      * @description : 获取分页列表
      * @author : zhangjk
-     * @since : Create in 2018-11-12
+     * @since : Create in 2018-12-04
      */
     @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query", notes="获取分页列表")
     @ResponseBody
-    public TableJson<Resources> getResourcesList(@ApiParam(name = "Resources", value = "Resources 实体类") @RequestBody Resources resources) {
-            TableJson<Resources> resJson = new TableJson<>();
-            Page resPage = resources.getPage();
-            resources.setDeleted(false);
-            Integer current = resPage.getCurrent();
-            Integer size = resPage.getSize();
-            if (current == null && size == null) {
-                resJson.setSuccess(false);
-                resJson.setMessage("异常信息：页数和页的大小不能为空");
-                return resJson;
-            }
-            Page<Resources> resourcesPage = new Page<Resources>(current, size);
-            resourcesPage = resourcesService.mySelectPageWithParam(resourcesPage, resources);
-            resJson.setRecordsTotal(resourcesPage.getTotal());
-            resJson.setData(resourcesPage.getRecords());
-            resJson.setSuccess(true);
+    public TableJson<Resources> getResourcesList(@ApiParam(name = "resources", value = "Resources 实体类") @RequestBody Resources resources){
+        TableJson<Resources> resJson = new TableJson<>();
+        Page resPage = resources.getPage();
+        Integer current = resPage.getCurrent();
+        Integer size = resPage.getSize();
+        if (current == null && size == null) {
+            resJson.setSuccess(false);
+            resJson.setMessage("异常信息：页数和页的大小不能为空");
             return resJson;
+        }
+        Page<Resources> resourcesPage = new Page<>(current, size);
+        resourcesPage = resourcesService.mySelectPageWithParam(resourcesPage, resources);
+        resJson.setRecordsTotal(resourcesPage.getTotal());
+        resJson.setData(resourcesPage.getRecords());
+        resJson.setSuccess(true);
+        return resJson;
+    }
+
+    /**
+     * @description : 获取配置子列表
+     * @author : zhangjk
+     * @since : Create in 2018-12-04
+     */
+    @PostMapping(value = "/query_by_role/{roleId}", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @ApiOperation(value = "/query_by_role/{roleId}", notes="获取分页列表")
+    @ResponseBody
+    public JsonResult<List<Resources>> getResourcesListWithRoleId(@ApiParam(name = "resources", value = "Resources 实体类") @RequestBody Resources resources,
+                                                 @ApiParam(name = "roleId", value = "菜单id") @PathVariable(name = "roleId", required = false) Long roleId) {
+        JsonResult<List<Resources>> resJson = new JsonResult<>();
+        List<Resources> resourcesList = resourcesService.mySelectListWithParam(resources, roleId);
+        resJson.setData(resourcesList);
+        resJson.setSuccess(true);
+        return resJson;
     }
 
     /**

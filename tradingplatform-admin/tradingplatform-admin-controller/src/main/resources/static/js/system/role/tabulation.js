@@ -414,7 +414,7 @@ function permissionConfig(menuId){
     var id=menuId;
     var index = layer.open({
         type: 2,
-        content: '/role/'+id+'/permissions',
+        content: '/admin/roleResources/'+id+'/tabulation.html',
         area: ['80%', '80%'],
         maxmin: true,
         success: function(index,layero){

@@ -23,6 +23,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
+import java.sql.SQLClientInfoException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -103,14 +105,19 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
     //以下是继承BaseServiceImpl
 
     @Override
-    @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p1.sorts")
+    @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p1.sorts + ',' + #p1.description")
     public Page<Resources> mySelectPageWithParam(Page<Resources> page, Resources resources) {
+
+        //判空
+        resources.setDeleted(false);
         Wrapper<Resources> wrapper = new EntityWrapper<>(resources);
-        //模糊匹配
+        //字符串模糊匹配
         wrapper.like("title", resources.getTitle(), SqlLike.DEFAULT);
         resources.setTitle(null);
         wrapper.like("url", resources.getUrl(), SqlLike.DEFAULT);
         resources.setUrl(null);
+        wrapper.like("description", resources.getDescription(), SqlLike.DEFAULT);
+        resources.setDescription(null);
         //遍历排序
         List<Sort> sorts = resources.getSorts();
         if (sorts == null){
@@ -123,6 +130,37 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
             });
         }
         return this.selectPage(page, wrapper);
+    }
+
+    @Override
+    @Cacheable(key = "#p0 + '' + #p0.description + #p1")
+    public List<Resources> mySelectListWithParam(Resources resources, Long roleId) {
+        resources.setDeleted(null);
+        Wrapper<Resources> wrapper = new EntityWrapper<>(resources);
+
+        //判断“找自己菜单对应的按钮的情况”
+        if (roleId != null){
+            //找出resources的ids
+            Wrapper<RoleResources> roleResourcesWrapper = new EntityWrapper<>();
+            roleResourcesWrapper.setSqlSelect("resources_id");
+            roleResourcesWrapper.where("role_id = {0}", roleId);
+            roleResourcesWrapper.where("deleted = {0}", false);
+            List<Object> resourcesIds = roleResourcesService.mySelectObjs(roleResourcesWrapper);
+            //如果resourcesIds为空，返回空的对象
+            if (resourcesIds.size() == 0){
+                return new ArrayList<>();
+            }
+            //放进去搜索按钮的条件里
+            wrapper.in("id", resourcesIds);
+        }
+
+        //字符串模糊匹配
+        wrapper.like("title", resources.getTitle(), SqlLike.DEFAULT);
+        resources.setTitle(null);
+        wrapper.like("description", resources.getDescription(), SqlLike.DEFAULT);
+        resources.setDescription(null);
+        wrapper.orderBy("id", false);
+        return this.selectList(wrapper);
     }
 
     @Override

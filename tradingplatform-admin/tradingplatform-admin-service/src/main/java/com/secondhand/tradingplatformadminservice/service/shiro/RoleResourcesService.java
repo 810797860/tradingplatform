@@ -35,6 +35,14 @@ public interface RoleResourcesService extends BaseService<RoleResources> {
         boolean myFakeBatchDelete(Long roleId, List<Integer> resourcesIds);
 
         /**
+         * 根据角色id配置权限
+         * @param roleId
+         * @param resourcesIds
+         * @return
+         */
+        Integer myUpdateRoleResources(Long roleId, List<Long> resourcesIds);
+
+        /**
          * 获取Map数据（Obj）
          * @param roleResourcesId
          * @return
@@ -150,6 +158,13 @@ public interface RoleResourcesService extends BaseService<RoleResources> {
         RoleResources mySelectOne(Wrapper<RoleResources> wrapper);
 
         /**
+         * 根据wrapper获取List<Object>
+         * @param wrapper
+         * @return
+         */
+        List<Object> mySelectObjs(Wrapper<RoleResources> wrapper);
+
+        /**
          * 根据roleResources和wrapper更新roleResources
          * @param roleResources
          * @param wrapper
@@ -171,4 +186,10 @@ public interface RoleResourcesService extends BaseService<RoleResources> {
          */
         boolean myUpdateById(RoleResources roleResources);
 
+        /**
+         * 根据角色id查找权限
+         * @param roleId
+         * @return
+         */
+        List<Resources> mySelectSelectedList(Long roleId);
 }

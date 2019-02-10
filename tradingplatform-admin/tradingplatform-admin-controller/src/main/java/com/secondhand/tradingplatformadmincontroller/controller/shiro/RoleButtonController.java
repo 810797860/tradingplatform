@@ -38,9 +38,6 @@ public class RoleButtonController extends BaseController {
     @Autowired
     private RoleButtonService roleButtonService;
 
-    @Autowired
-    private ButtonService buttonService;
-
     /**
      * @description : 跳转到列表页面
      * @author : zhangjk

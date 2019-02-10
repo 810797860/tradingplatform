@@ -69,6 +69,27 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
+    @CacheEvict(allEntries = true)
+    public Integer myUpdateRoleResources(Long roleId, List<Long> resourcesIds) {
+
+        //先删除旧的roleResources
+        Wrapper<RoleResources> wrapper = new EntityWrapper<>();
+        wrapper.where("role_id = {0}", roleId);
+        Integer deleteResult = roleResourcesMapper.delete(wrapper);
+
+        //再更新新的进去
+        resourcesIds.forEach(resourcesId -> {
+            RoleResources roleResources = new RoleResources();
+            roleResources.setRoleId(roleId);
+            roleResources.setResourcesId(resourcesId);
+            roleResources.setUuid(ToolUtil.getUUID());
+            roleResourcesMapper.insert(roleResources);
+        });
+        return deleteResult;
+    }
+
+    @Override
     @Cacheable(key = "#p0")
     public Map<String, Object> mySelectMapById(Long roleResourcesId) {
         return roleResourcesMapper.selectMapById(roleResourcesId);
@@ -176,13 +197,13 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
     //以下是继承BaseMapper
 
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "#p0.paramNameValuePairs")
     public Map<String, Object> mySelectMap(Wrapper<RoleResources> wrapper) {
         return this.selectMap(wrapper);
     }
 
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "#p0.paramNameValuePairs")
     public List<RoleResources> mySelectList(Wrapper<RoleResources> wrapper) {
         return roleResourcesMapper.selectList(wrapper);
     }
@@ -238,15 +259,21 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
     }
 
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "#p0.paramNameValuePairs")
     public int mySelectCount(Wrapper<RoleResources> wrapper) {
         return roleResourcesMapper.selectCount(wrapper);
     }
 
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "#p0.paramNameValuePairs")
     public RoleResources mySelectOne(Wrapper<RoleResources> wrapper) {
         return this.selectOne(wrapper);
+    }
+
+    @Override
+    @Cacheable(key = "#p0.paramNameValuePairs")
+    public List<Object> mySelectObjs(Wrapper<RoleResources> wrapper) {
+        return this.selectObjs(wrapper);
     }
 
     @Override
@@ -265,5 +292,26 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
     @CacheEvict(allEntries = true)
     public boolean myUpdateById(RoleResources roleResources) {
         return this.updateById(roleResources);
+    }
+
+    @Override
+    @Cacheable(key = "#p0")
+    public List<Resources> mySelectSelectedList(Long roleId) {
+
+        //找出resourcesIds
+        Wrapper<RoleResources> wrapper = new EntityWrapper<>();
+        wrapper.setSqlSelect("resources_id");
+        wrapper.where("role_id = {0}", roleId);
+        wrapper.where("deleted = {0}", false);
+        List<Object> resourcesIds = this.selectObjs(wrapper);
+        //判空
+        if (resourcesIds.size() == 0){
+            return new ArrayList<>();
+        }
+        //再根据resourcesIds来找
+        Wrapper<Resources> resourcesWrapper = new EntityWrapper<>();
+        resourcesWrapper.in("id", resourcesIds);
+        resourcesWrapper.where("deleted = {0}", false);
+        return resourcesService.mySelectList(resourcesWrapper);
     }
 }

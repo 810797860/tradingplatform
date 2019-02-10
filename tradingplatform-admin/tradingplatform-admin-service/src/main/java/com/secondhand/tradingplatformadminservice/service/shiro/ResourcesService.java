@@ -50,9 +50,18 @@ public interface ResourcesService extends BaseService<Resources> {
          * 分页获取Resources列表数据（实体类）
          * @param page
          * @param resources
+         * @param roleId
          * @return
          */
         Page<Resources> mySelectPageWithParam(Page<Resources> page, Resources resources);
+
+        /**
+         * 根据资源搜寻列表
+         * @param resources
+         * @param roleId
+         * @return
+         */
+        List<Resources> mySelectListWithParam(Resources resources, Long roleId);
 
         /**
          * 获取Resources列表数据（Map）
