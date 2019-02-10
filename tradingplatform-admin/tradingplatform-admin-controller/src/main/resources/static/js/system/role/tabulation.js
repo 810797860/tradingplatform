@@ -255,8 +255,8 @@ function beforeRemove(treeId, treeNode) {
     zTree.selectNode(treeNode);
     if (confirm("确认删除 -- " + treeNode.name + " 吗？")) {
         $.ajax({
-            type:'post',
-            url:'/role/delete/' + treeNode.id,
+            type:'put',
+            url:'/admin/role/delete/' + treeNode.id,
             contentType:'application/json;charset=utf-8',
             dataType:'json',
             success:function(data){
@@ -300,7 +300,7 @@ function onRename(e, treeId, treeNode, isCancel) {
         url:'/admin/role/create_update',
         contentType:'application/json;charset=utf-8',
         dataType:'json',
-        data: JSON.stringify({name: treeNode.name, id: treeNode.id}),
+        data: JSON.stringify({roleDesc: treeNode.name, id: treeNode.id}),
         success:function(data){
             console.log(data);
         },error:function(XMLHttpRequest, textStatus, errorThrown){

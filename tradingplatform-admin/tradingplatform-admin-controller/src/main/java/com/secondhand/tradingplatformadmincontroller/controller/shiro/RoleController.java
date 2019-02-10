@@ -133,10 +133,10 @@ public class RoleController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-11-13
      */
-    @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    @ApiOperation(value = "/delete", notes = "根据id假删除role")
+    @PutMapping(value = "/delete/{roleId}", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @ApiOperation(value = "/delete/{roleId}", notes = "根据id假删除role")
     @ResponseBody
-    public JsonResult<Role> fakeDeleteById(@ApiParam(name = "id", value = "roleId") @RequestBody Long roleId){
+    public JsonResult<Role> fakeDeleteById(@ApiParam(name = "id", value = "roleId") @PathVariable("roleId") Long roleId){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<Role> resJson = new JsonResult<>();
             try{
