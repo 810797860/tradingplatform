@@ -23,6 +23,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -96,27 +97,13 @@ public class ButtonServiceImpl extends BaseServiceImpl<ButtonMapper, Button> imp
     //以下是继承BaseServiceImpl
     
     @Override
-    @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p1.sorts + ',' + #p1.description + ',' + #p2")
-    public Page<Button> mySelectPageWithParam(Page<Button> page, Button button, Long menuId) {
+    @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p1.sorts + ',' + #p1.description")
+    public Page<Button> mySelectPageWithParam(Page<Button> page, Button button) {
 
         //判空
         button.setDeleted(false);
         Wrapper<Button> wrapper = new EntityWrapper<>(button);
-        //判断“找自己菜单对应的按钮的情况”
-        if (menuId != null){
-            //找出button的ids
-            Wrapper<MenuButton> menuButtonWrapper = new EntityWrapper<>();
-            menuButtonWrapper.setSqlSelect("button_id");
-            menuButtonWrapper.where("menu_id = {0}", menuId);
-            menuButtonWrapper.where("deleted = {0}", false);
-            List<Object> buttonIds = menuButtonService.mySelectObjs(menuButtonWrapper);
-            //如果buttonIds为空，返回空的对象
-            if (buttonIds.size() == 0){
-                return new Page<>();
-            }
-            //放进去搜索按钮的条件里
-            wrapper.in("id", buttonIds);
-        }
+
         //字符串模糊匹配
         wrapper.like("title", button.getTitle(), SqlLike.DEFAULT);
         button.setTitle(null);
@@ -134,6 +121,38 @@ public class ButtonServiceImpl extends BaseServiceImpl<ButtonMapper, Button> imp
             });
         }
         return this.selectPage(page, wrapper);
+    }
+
+    @Override
+    @Cacheable(key = "#p0 + '' + #p0.description + #p1")
+    public List<Button> mySelectListWithParamWithMenuId(Button button, Long menuId) {
+
+        button.setDeleted(null);
+        Wrapper<Button> wrapper = new EntityWrapper<>(button);
+
+        //判断“找自己菜单对应的按钮的情况”
+        if (menuId != null){
+            //找出button的ids
+            Wrapper<MenuButton> menuButtonWrapper = new EntityWrapper<>();
+            menuButtonWrapper.setSqlSelect("button_id");
+            menuButtonWrapper.where("menu_id = {0}", menuId);
+            menuButtonWrapper.where("deleted = {0}", false);
+            List<Object> buttonIds = menuButtonService.mySelectObjs(menuButtonWrapper);
+            //如果buttonIds为空，返回空的对象
+            if (buttonIds.size() == 0){
+                return new ArrayList<>();
+            }
+            //放进去搜索按钮的条件里
+            wrapper.in("id", buttonIds);
+        }
+
+        //字符串模糊匹配
+        wrapper.like("title", button.getTitle(), SqlLike.DEFAULT);
+        button.setTitle(null);
+        wrapper.like("description", button.getDescription(), SqlLike.DEFAULT);
+        button.setDescription(null);
+        wrapper.orderBy("id", false);
+        return this.selectList(wrapper);
     }
 
     @Override

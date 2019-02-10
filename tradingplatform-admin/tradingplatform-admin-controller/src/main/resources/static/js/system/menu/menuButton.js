@@ -282,7 +282,7 @@ function CheckresponseHander(res){
             else continue;
         }
     }
-    if(res.data.total != 0){
+    if(res.recordsTotal != 0){
         tempFirstId=list[0].id;
         tempFinalId=list[list.length-1].id;
     }
@@ -549,18 +549,7 @@ function StringNoEmpty(str){
 // 搜索按钮点击事件
 function buttonClickSreach () {
     $('#search1').click(function () {
-        var page = {};
-        page.current = 1;
-        page.size = 15;
-        var sorts = [];
-        var defaultSort = {};
-        defaultSort.field = 'id';
-        defaultSort.isAsc = true;
-        sorts.push(defaultSort);
-        var postData = {
-            page: page,
-            sorts:sorts
-        };
+        var postData = {};
         if (!!$('#title1').val()) {
             postData.title = $('#title1').val();
         }

@@ -88,11 +88,10 @@ public class ButtonController extends BaseController {
      * @author : zhangjk
      * @since : Create in 2018-12-04
      */
-    @PostMapping(value = {"/query", "/query_by_menu/{menuId}"}, produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    @ApiOperation(value = "/query、/query_by_menu/{menuId}", notes="获取分页列表")
+    @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @ApiOperation(value = "/query", notes="获取分页列表")
     @ResponseBody
-    public TableJson<Button> getButtonList(@ApiParam(name = "button", value = "Button 实体类") @RequestBody Button button,
-                                           @ApiParam(name = "menuId", value = "菜单id") @PathVariable(name = "menuId", required = false) Long menuId) {
+    public TableJson<Button> getButtonList(@ApiParam(name = "button", value = "Button 实体类") @RequestBody Button button) {
             TableJson<Button> resJson = new TableJson<>();
             Page resPage = button.getPage();
             Integer current = resPage.getCurrent();
@@ -103,11 +102,28 @@ public class ButtonController extends BaseController {
                 return resJson;
             }
             Page<Button> buttonPage = new Page<Button>(current, size);
-            buttonPage = buttonService.mySelectPageWithParam(buttonPage, button, menuId);
+            buttonPage = buttonService.mySelectPageWithParam(buttonPage, button);
             resJson.setRecordsTotal(buttonPage.getTotal());
             resJson.setData(buttonPage.getRecords());
             resJson.setSuccess(true);
             return resJson;
+    }
+
+    /**
+     * @description : 获取配置子列表
+     * @author : zhangjk
+     * @since : Create in 2018-12-04
+     */
+    @PostMapping(value = "/query_by_menu/{menuId}", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @ApiOperation(value = "/query_by_menu/{menuId}", notes="获取分页列表")
+    @ResponseBody
+    public JsonResult<List<Button>> getButtonListWithMenuId(@ApiParam(name = "button", value = "Button 实体类") @RequestBody Button button,
+                                                                  @ApiParam(name = "menuId", value = "菜单id") @PathVariable(name = "menuId", required = false) Long menuId) {
+        JsonResult<List<Button>> resJson = new JsonResult<>();
+        List<Button> buttonList = buttonService.mySelectListWithParamWithMenuId(button, menuId);
+        resJson.setData(buttonList);
+        resJson.setSuccess(true);
+        return resJson;
     }
 
     /**

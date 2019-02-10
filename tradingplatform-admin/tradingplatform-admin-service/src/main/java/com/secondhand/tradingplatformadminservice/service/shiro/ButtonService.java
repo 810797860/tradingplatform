@@ -52,7 +52,15 @@ public interface ButtonService extends BaseService<Button> {
          * @param button
          * @return
          */
-        Page<Button> mySelectPageWithParam(Page<Button> page, Button button, Long menuId);
+        Page<Button> mySelectPageWithParam(Page<Button> page, Button button);
+
+        /**
+         * 根据菜单id查询已选按钮列表
+         * @param button
+         * @param menuId
+         * @return
+         */
+        List<Button> mySelectListWithParamWithMenuId(Button button, Long menuId);
 
         /**
          * 根据roleId获取该角色已配置的按钮
