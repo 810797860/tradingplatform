@@ -186,7 +186,7 @@ function queryParams(params) {
     var sorts = [];
     var defaultSort = {};
     defaultSort.field = 'id';
-    defaultSort.isAsc = true;
+    defaultSort.isAsc = false;
     sorts.push(defaultSort);
     var postData = {
         formId: formId,

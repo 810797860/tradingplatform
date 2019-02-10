@@ -156,44 +156,35 @@ public class ButtonServiceImpl extends BaseServiceImpl<ButtonMapper, Button> imp
     }
 
     @Override
-    @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p1.sorts + ',' + #p1.description + ',' + #p2")
-    public Page<Button> mySelectPageWithParamWithRoleId(Page<Button> page, Button button, Long roleId) {
-        
-        //判空
-        button.setDeleted(false);
-        Wrapper<Button> wrapper = new EntityWrapper<>(button);
-        //判断“找自己角色对应的按钮的情况”
+    @Cacheable(key = "#p0 + '' + #p0.description + #p1")
+    public List<Button> mySelectListWithParamWithRoleId(Button button, Long roleId) {
 
-        //找出button的ids
-        Wrapper<RoleButton> roleButtonWrapper = new EntityWrapper<>();
-        roleButtonWrapper.setSqlSelect("button_id");
-        roleButtonWrapper.where("role_id = {0}", roleId);
-        roleButtonWrapper.where("deleted = {0}", false);
-        List<Object> buttonIds = roleButtonService.mySelectObjs(roleButtonWrapper);
-        //如果buttonIds为空，返回空的对象
-        if (buttonIds.size() == 0){
-            return new Page<>();
+        button.setDeleted(null);
+        Wrapper<Button> wrapper = new EntityWrapper<>(button);
+
+        //判断“找自己角色对应的按钮的情况”
+        if (roleId != null){
+            //找出button的ids
+            Wrapper<RoleButton> roleButtonWrapper = new EntityWrapper<>();
+            roleButtonWrapper.setSqlSelect("button_id");
+            roleButtonWrapper.where("role_id = {0}", roleId);
+            roleButtonWrapper.where("deleted = {0}", false);
+            List<Object> buttonIds = roleButtonService.mySelectObjs(roleButtonWrapper);
+            //如果buttonIds为空，返回空的对象
+            if (buttonIds.size() == 0){
+                return new ArrayList<>();
+            }
+            //放进去搜索按钮的条件里
+            wrapper.in("id", buttonIds);
         }
-        //放进去搜索按钮的条件里
-        wrapper.in("id", buttonIds);
 
         //字符串模糊匹配
         wrapper.like("title", button.getTitle(), SqlLike.DEFAULT);
         button.setTitle(null);
         wrapper.like("description", button.getDescription(), SqlLike.DEFAULT);
         button.setDescription(null);
-        //遍历排序
-        List<Sort> sorts = button.getSorts();
-        if (sorts == null){
-            //为null时，默认按created_at倒序
-            wrapper.orderBy("id", false);
-        } else {
-            //遍历排序
-            sorts.forEach( sort -> {
-                wrapper.orderBy(sort.getField(), sort.getAsc());
-            });
-        }
-        return this.selectPage(page, wrapper);
+        wrapper.orderBy("id", false);
+        return this.selectList(wrapper);
     }
 
     @Override

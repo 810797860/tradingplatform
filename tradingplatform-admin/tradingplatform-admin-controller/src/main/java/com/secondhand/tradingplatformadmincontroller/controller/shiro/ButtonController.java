@@ -127,28 +127,18 @@ public class ButtonController extends BaseController {
     }
 
     /**
-     * @description : 获取分页列表
+     * @description : 获取配置子列表
      * @author : zhangjk
      * @since : Create in 2018-12-04
      */
     @PostMapping(value = "/query_by_role/{roleId}", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/query_by_role/{roleId}", notes="获取分页列表")
     @ResponseBody
-    public TableJson<Button> getButtonListByRole(@ApiParam(name = "button", value = "Button 实体类") @RequestBody Button button,
-                                           @ApiParam(name = "roleId", value = "角色id") @PathVariable(name = "roleId", required = false) Long roleId) {
-        TableJson<Button> resJson = new TableJson<>();
-        Page resPage = button.getPage();
-        Integer current = resPage.getCurrent();
-        Integer size = resPage.getSize();
-        if (current == null && size == null) {
-            resJson.setSuccess(false);
-            resJson.setMessage("异常信息：页数和页的大小不能为空");
-            return resJson;
-        }
-        Page<Button> buttonPage = new Page<>(current, size);
-        buttonPage = buttonService.mySelectPageWithParamWithRoleId(buttonPage, button, roleId);
-        resJson.setRecordsTotal(buttonPage.getTotal());
-        resJson.setData(buttonPage.getRecords());
+    public JsonResult<List<Button>> getButtonListWithRoleId(@ApiParam(name = "button", value = "Button 实体类") @RequestBody Button button,
+                                                            @ApiParam(name = "roleId", value = "菜单id") @PathVariable(name = "roleId", required = false) Long roleId) {
+        JsonResult<List<Button>> resJson = new JsonResult<>();
+        List<Button> buttonList = buttonService.mySelectListWithParamWithRoleId(button, roleId);
+        resJson.setData(buttonList);
         resJson.setSuccess(true);
         return resJson;
     }
