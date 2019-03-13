@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.secondhand.tradingplatformadminmapper.mapper.admin.system.FormFieldMapper">
+
+    <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
+
+		<!-- 通用查询映射结果 -->
+			<resultMap id="formFieldMap" type="com.secondhand.tradingplatformadminentity.entity.admin.system.FormField" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
+									
+
+				<result column="form_id" property="formId" jdbcType="INTEGER" />
+				<result column="title" property="title" jdbcType="VARCHAR" />
+				<result column="field_name" property="fieldName" jdbcType="VARCHAR" />
+				<result column="field_type" property="fieldType" jdbcType="INTEGER" />
+				<result column="show_type" property="showType" jdbcType="INTEGER" />
+				<result column="required" property="required" jdbcType="BOOLEAN" />
+				<result column="default_value" property="defaultValue" jdbcType="VARCHAR" />
+
+		</resultMap>
+
+        <!-- 通用查询映射结果 -->
+		<resultMap id="formFieldMapSimple" type="com.secondhand.tradingplatformadminentity.entity.admin.system.FormField">
+																			
+
+                        <result column="form_id" property="formId" jdbcType="INTEGER" />
+                        <result column="title" property="title" jdbcType="VARCHAR" />
+                        <result column="field_name" property="fieldName" jdbcType="VARCHAR" />
+                        <result column="field_type" property="fieldType" jdbcType="INTEGER" />
+                        <result column="show_type" property="showType" jdbcType="INTEGER" />
+                        <result column="required" property="required" jdbcType="BOOLEAN" />
+                        <result column="default_value" property="defaultValue" jdbcType="VARCHAR" />
+
+        </resultMap>
+
+    <select id="selectMapById" resultType="java.util.Map">
+        select s_base_form_field.id as id, (select concat('{"id":"', sbsi.id, '","pid":"', sbsi.pid, '","title":"', sbsi.title, '"}') from s_base_select_item sbsi where (sbsi.id = s_base_form_field.show_type)) AS show_type, s_base_form_field.show_type as show_type, s_base_form_field.created_by as created_by, (select concat('{"id":"', sbsi.id, '","pid":"', sbsi.pid, '","title":"', sbsi.title, '"}') from s_base_select_item sbsi where (sbsi.id = s_base_form_field.field_type)) AS field_type, s_base_form_field.deleted as deleted, s_base_form_field.field_name as field_name, s_base_form_field.description as description, s_base_form_field.updated_at as updated_at, s_base_form_field.title as title, s_base_form_field.default_value as default_value, s_base_form_field.updated_by as updated_by, s_base_form_field.form_id as form_id, s_base_form_field.required as required, s_base_form_field.created_at as created_at from s_base_form_field where s_base_form_field.id = #{formFieldId} and s_base_form_field.deleted = false
+    </select>
+
+    <select id="selectByInformationSchema" resultType="java.util.Map">
+        SELECT * FROM information_schema.COLUMNS
+        WHERE TABLE_SCHEMA = 'myshtp'
+        AND TABLE_NAME = #{formName}
+        AND COLUMN_NAME NOT IN ( 'id', 'uuid', 'description', 'deleted', 'created_by', 'created_at', 'updated_by', 'updated_at' )
+        ORDER BY IS_NULLABLE ASC
+    </select>
+
+</mapper>

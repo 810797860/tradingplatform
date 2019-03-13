@@ -1,7 +1,7 @@
 package com.secondhand.tradingplatformadmincontroller.log.factory;
 
-import com.secondhand.tradingplatformadminentity.entity.business.LoginLog;
-import com.secondhand.tradingplatformadminentity.entity.business.OperationLog;
+import com.secondhand.tradingplatformadminentity.entity.admin.business.LoginLog;
+import com.secondhand.tradingplatformadminentity.entity.admin.business.OperationLog;
 import com.secondhand.tradingplatformcommon.state.LogSucceed;
 import com.secondhand.tradingplatformcommon.state.LogType;
 

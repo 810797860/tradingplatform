@@ -91,7 +91,7 @@ Caused by: io.lettuce.core.RedisCommandTimeoutException: Command timed out
 2019-02-05 21:37:03.933 [http-nio-8006-exec-7] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象保存失败java.lang.ClassCastException: org.apache.ibatis.cache.CacheKey cannot be cast to java.lang.String
 2019-02-05 21:50:16.324 [http-nio-8006-exec-4] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_VERIFICATION_CODE_ERROR, clazz='LogInController', code=405}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.LogInController.login(LogInController.java:56)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.LogInController.login(LogInController.java:56)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -272,8 +272,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
 	at com.sun.proxy.$Proxy132.updateById(Unknown Source)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.RoleMenuServiceImpl.myFakeDeleteByRoleMenu(RoleMenuServiceImpl.java:47)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.RoleMenuServiceImpl$$FastClassBySpringCGLIB$$c6380c71.invoke(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.shiro.RoleMenuServiceImpl.myFakeDeleteByRoleMenu(RoleMenuServiceImpl.java:47)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.shiro.RoleMenuServiceImpl$$FastClassBySpringCGLIB$$c6380c71.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -284,8 +284,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.RoleMenuServiceImpl$$EnhancerBySpringCGLIB$$e6a9c4fd.myFakeDeleteByRoleMenu(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.RoleMenuServiceImpl$$FastClassBySpringCGLIB$$c6380c71.invoke(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.shiro.RoleMenuServiceImpl$$EnhancerBySpringCGLIB$$e6a9c4fd.myFakeDeleteByRoleMenu(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.shiro.RoleMenuServiceImpl$$FastClassBySpringCGLIB$$c6380c71.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -296,8 +296,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.RoleMenuServiceImpl$$EnhancerBySpringCGLIB$$f5d3c93d.myFakeDeleteByRoleMenu(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.MenuController.fakeBatchDelete(MenuController.java:185)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.shiro.RoleMenuServiceImpl$$EnhancerBySpringCGLIB$$f5d3c93d.myFakeDeleteByRoleMenu(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.MenuController.fakeBatchDelete(MenuController.java:185)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -378,7 +378,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at java.lang.Thread.run(Thread.java:748)
 2019-02-05 23:13:50.409 [http-nio-8006-exec-3] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DuplicateKeyException: 
 ### Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry '1-175' for key 'PRIMARY'
-### The error may involve com.secondhand.tradingplatformadminmapper.mapper.shiro.RoleMenuMapper.updateById-Inline
+### The error may involve com.secondhand.tradingplatformadminmapper.mapper.admin.shiro.RoleMenuMapper.updateById-Inline
 ### The error occurred while setting parameters
 ### SQL: UPDATE s_base_role_menu  SET menu_id=?,        deleted=?  WHERE role_id=?
 ### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry '1-175' for key 'PRIMARY'
@@ -452,8 +452,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
 	at com.sun.proxy.$Proxy132.updateById(Unknown Source)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.RoleMenuServiceImpl.myFakeDeleteByRoleMenu(RoleMenuServiceImpl.java:47)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.RoleMenuServiceImpl$$FastClassBySpringCGLIB$$c6380c71.invoke(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.shiro.RoleMenuServiceImpl.myFakeDeleteByRoleMenu(RoleMenuServiceImpl.java:47)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.shiro.RoleMenuServiceImpl$$FastClassBySpringCGLIB$$c6380c71.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -464,8 +464,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.RoleMenuServiceImpl$$EnhancerBySpringCGLIB$$e6a9c4fd.myFakeDeleteByRoleMenu(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.RoleMenuServiceImpl$$FastClassBySpringCGLIB$$c6380c71.invoke(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.shiro.RoleMenuServiceImpl$$EnhancerBySpringCGLIB$$e6a9c4fd.myFakeDeleteByRoleMenu(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.shiro.RoleMenuServiceImpl$$FastClassBySpringCGLIB$$c6380c71.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -476,8 +476,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.RoleMenuServiceImpl$$EnhancerBySpringCGLIB$$f5d3c93d.myFakeDeleteByRoleMenu(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.MenuController.fakeBatchDelete(MenuController.java:185)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.shiro.RoleMenuServiceImpl$$EnhancerBySpringCGLIB$$f5d3c93d.myFakeDeleteByRoleMenu(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.MenuController.fakeBatchDelete(MenuController.java:185)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -560,7 +560,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 2019-02-05 23:22:14.075 [http-nio-8006-exec-9] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象保存失败java.lang.ClassCastException: org.apache.ibatis.cache.CacheKey cannot be cast to java.lang.String
 2019-02-05 23:57:15.025 [http-nio-8006-exec-6] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 java.lang.NullPointerException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.UserController.getUserList(UserController.java:94)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.UserController.getUserList(UserController.java:94)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

@@ -421,7 +421,7 @@ org.apache.shiro.session.UnknownSessionException: There is no session with id [7
 2019-01-25 10:06:09.145 [http-nio-8006-exec-1] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 java.lang.NullPointerException: null
 	at com.secondhand.tradingplatformcommon.util.ToolUtil.checkVerifyCode(ToolUtil.java:162)
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.LogInController.login(LogInController.java:55)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.LogInController.login(LogInController.java:55)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -503,7 +503,7 @@ java.lang.NullPointerException: null
 2019-01-25 10:06:33.531 [http-nio-8006-exec-7] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 java.lang.NullPointerException: null
 	at com.secondhand.tradingplatformcommon.util.ToolUtil.checkVerifyCode(ToolUtil.java:162)
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.LogInController.login(LogInController.java:55)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.LogInController.login(LogInController.java:55)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -585,7 +585,7 @@ java.lang.NullPointerException: null
 2019-01-25 10:07:07.585 [http-nio-8006-exec-6] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 java.lang.NullPointerException: null
 	at com.secondhand.tradingplatformcommon.util.ToolUtil.checkVerifyCode(ToolUtil.java:162)
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.LogInController.login(LogInController.java:55)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.LogInController.login(LogInController.java:55)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -667,7 +667,7 @@ java.lang.NullPointerException: null
 2019-01-25 10:07:59.982 [http-nio-8006-exec-8] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 java.lang.NullPointerException: null
 	at com.secondhand.tradingplatformcommon.util.ToolUtil.checkVerifyCode(ToolUtil.java:162)
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.LogInController.login(LogInController.java:55)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.LogInController.login(LogInController.java:55)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1001,7 +1001,7 @@ org.apache.shiro.session.UnknownSessionException: There is no session with id [8
 2019-01-25 10:10:53.624 [http-nio-8006-exec-9] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 java.lang.NullPointerException: null
 	at com.secondhand.tradingplatformcommon.util.ToolUtil.checkVerifyCode(ToolUtil.java:162)
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.LogInController.login(LogInController.java:55)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.LogInController.login(LogInController.java:55)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

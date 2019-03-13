@@ -1,6 +1,6 @@
 2019-01-24 17:17:24.112 [http-nio-8006-exec-3] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 java.lang.NullPointerException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.TestShiroController.login(TestShiroController.java:64)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.TestShiroController.login(TestShiroController.java:64)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -79,9 +79,9 @@ java.lang.NullPointerException: null
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2019-01-24 17:26:56.538 [http-nio-8006-exec-9] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_LOG_IN_SUCCESSFUL, clazz='com.secondhand.tradingplatformadmincontroller.controller.shiro.TestShiroController'}] with root cause
+2019-01-24 17:26:56.538 [http-nio-8006-exec-9] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_LOG_IN_SUCCESSFUL, clazz='com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.TestShiroController'}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.TestShiroController.login(TestShiroController.java:76)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.TestShiroController.login(TestShiroController.java:76)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -160,9 +160,9 @@ com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2019-01-24 17:40:37.688 [http-nio-8006-exec-3] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_VERIFICATION_CODE_ERROR, clazz='com.secondhand.tradingplatformadmincontroller.controller.shiro.TestShiroController'}] with root cause
+2019-01-24 17:40:37.688 [http-nio-8006-exec-3] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_VERIFICATION_CODE_ERROR, clazz='com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.TestShiroController'}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.TestShiroController.login(TestShiroController.java:69)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.TestShiroController.login(TestShiroController.java:69)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -241,9 +241,9 @@ com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2019-01-24 17:43:03.530 [http-nio-8006-exec-6] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_LOG_IN_SUCCESSFUL, clazz='com.secondhand.tradingplatformadmincontroller.controller.shiro.TestShiroController'}] with root cause
+2019-01-24 17:43:03.530 [http-nio-8006-exec-6] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_LOG_IN_SUCCESSFUL, clazz='com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.TestShiroController'}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.TestShiroController.login(TestShiroController.java:76)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.TestShiroController.login(TestShiroController.java:76)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -325,7 +325,7 @@ com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
 2019-01-24 17:45:49.058 [http-nio-8006-exec-7] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 java.lang.NullPointerException: null
 	at com.secondhand.tradingplatformcommon.util.ToolUtil.checkVerifyCode(ToolUtil.java:162)
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.TestShiroController.login(TestShiroController.java:68)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.TestShiroController.login(TestShiroController.java:68)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -407,7 +407,7 @@ java.lang.NullPointerException: null
 2019-01-24 17:46:48.645 [http-nio-8006-exec-1] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 java.lang.NullPointerException: null
 	at com.secondhand.tradingplatformcommon.util.ToolUtil.checkVerifyCode(ToolUtil.java:162)
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.TestShiroController.login(TestShiroController.java:68)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.TestShiroController.login(TestShiroController.java:68)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -486,9 +486,9 @@ java.lang.NullPointerException: null
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2019-01-24 18:54:54.778 [http-nio-8006-exec-2] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_LOG_IN_SUCCESSFUL, clazz='com.secondhand.tradingplatformadmincontroller.controller.shiro.TestShiroController', code=208}] with root cause
+2019-01-24 18:54:54.778 [http-nio-8006-exec-2] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_LOG_IN_SUCCESSFUL, clazz='com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.TestShiroController', code=208}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.TestShiroController.login(TestShiroController.java:76)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.TestShiroController.login(TestShiroController.java:76)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -567,9 +567,9 @@ com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2019-01-24 18:56:44.081 [http-nio-8006-exec-4] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_LOG_IN_SUCCESSFUL, clazz='com.secondhand.tradingplatformadmincontroller.controller.shiro.TestShiroController', code=208}] with root cause
+2019-01-24 18:56:44.081 [http-nio-8006-exec-4] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_LOG_IN_SUCCESSFUL, clazz='com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.TestShiroController', code=208}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.TestShiroController.login(TestShiroController.java:76)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.TestShiroController.login(TestShiroController.java:76)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -962,7 +962,7 @@ org.thymeleaf.exceptions.TemplateInputException: Error resolving template "user/
 	at java.lang.Thread.run(Thread.java:748)
 2019-01-24 19:05:39.511 [http-nio-8006-exec-1] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_VERIFICATION_CODE_ERROR, clazz='TestShiroController', code=405}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.TestShiroController.login(TestShiroController.java:69)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.TestShiroController.login(TestShiroController.java:69)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1043,7 +1043,7 @@ com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
 	at java.lang.Thread.run(Thread.java:748)
 2019-01-24 19:05:56.172 [http-nio-8006-exec-7] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_VERIFICATION_CODE_ERROR, clazz='TestShiroController', code=405}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.TestShiroController.login(TestShiroController.java:69)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.TestShiroController.login(TestShiroController.java:69)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1125,7 +1125,7 @@ com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
 2019-01-24 19:08:17.625 [http-nio-8006-exec-5] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 java.lang.NullPointerException: null
 	at com.secondhand.tradingplatformcommon.util.ToolUtil.checkVerifyCode(ToolUtil.java:162)
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.TestShiroController.login(TestShiroController.java:68)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.TestShiroController.login(TestShiroController.java:68)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1207,7 +1207,7 @@ java.lang.NullPointerException: null
 2019-01-24 19:08:36.638 [http-nio-8006-exec-10] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 java.lang.NullPointerException: null
 	at com.secondhand.tradingplatformcommon.util.ToolUtil.checkVerifyCode(ToolUtil.java:162)
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.TestShiroController.login(TestShiroController.java:68)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.TestShiroController.login(TestShiroController.java:68)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1289,7 +1289,7 @@ java.lang.NullPointerException: null
 2019-01-24 19:08:53.910 [http-nio-8006-exec-9] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 java.lang.NullPointerException: null
 	at com.secondhand.tradingplatformcommon.util.ToolUtil.checkVerifyCode(ToolUtil.java:162)
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.TestShiroController.login(TestShiroController.java:68)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.TestShiroController.login(TestShiroController.java:68)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1370,7 +1370,7 @@ java.lang.NullPointerException: null
 	at java.lang.Thread.run(Thread.java:748)
 2019-01-24 19:46:18.963 [http-nio-8006-exec-5] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_VERIFICATION_CODE_ERROR, clazz='TestShiroController', code=405}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.TestShiroController.login(TestShiroController.java:70)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.TestShiroController.login(TestShiroController.java:70)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1451,7 +1451,7 @@ com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
 	at java.lang.Thread.run(Thread.java:748)
 2019-01-24 19:46:33.905 [http-nio-8006-exec-1] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_VERIFICATION_CODE_ERROR, clazz='TestShiroController', code=405}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.TestShiroController.login(TestShiroController.java:70)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.TestShiroController.login(TestShiroController.java:70)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1532,7 +1532,7 @@ com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
 	at java.lang.Thread.run(Thread.java:748)
 2019-01-24 19:50:19.644 [http-nio-8006-exec-3] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_VERIFICATION_CODE_ERROR, clazz='TestShiroController', code=405}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.TestShiroController.login(TestShiroController.java:70)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.TestShiroController.login(TestShiroController.java:70)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

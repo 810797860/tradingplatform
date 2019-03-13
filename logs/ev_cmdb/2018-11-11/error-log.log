@@ -9,8 +9,8 @@ java.lang.IllegalArgumentException: Cache 'formField' does not allow 'null' valu
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$8da6c30d.selectMapById(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$8da6c30d.selectMapById(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -21,8 +21,8 @@ java.lang.IllegalArgumentException: Cache 'formField' does not allow 'null' valu
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$20fae504.selectMapById(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.controller.system.FormFieldController.getFormFieldList(FormFieldController.java:103)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$20fae504.selectMapById(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.system.FormFieldController.getFormFieldList(FormFieldController.java:103)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -86,8 +86,8 @@ java.lang.IllegalArgumentException: Cache 'formField' does not allow 'null' valu
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2018-11-11 00:40:14.034 [http-nio-8080-exec-3] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: Cannot find cache named 'formField' for Builder[public java.util.Map com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl.selectMapById(java.lang.Long)] caches=[formField] | key='#formFieldId' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'] with root cause
-java.lang.IllegalArgumentException: Cannot find cache named 'formField' for Builder[public java.util.Map com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl.selectMapById(java.lang.Long)] caches=[formField] | key='#formFieldId' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
+2018-11-11 00:40:14.034 [http-nio-8080-exec-3] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: Cannot find cache named 'formField' for Builder[public java.util.Map com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl.selectMapById(java.lang.Long)] caches=[formField] | key='#formFieldId' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'] with root cause
+java.lang.IllegalArgumentException: Cannot find cache named 'formField' for Builder[public java.util.Map com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl.selectMapById(java.lang.Long)] caches=[formField] | key='#formFieldId' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
 	at org.springframework.cache.interceptor.AbstractCacheResolver.resolveCaches(AbstractCacheResolver.java:92)
 	at org.springframework.cache.interceptor.CacheAspectSupport.getCaches(CacheAspectSupport.java:223)
 	at org.springframework.cache.interceptor.CacheAspectSupport$CacheOperationContext.<init>(CacheAspectSupport.java:675)
@@ -97,8 +97,8 @@ java.lang.IllegalArgumentException: Cannot find cache named 'formField' for Buil
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$6d5df602.selectMapById(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.controller.system.FormFieldController.getFormFieldList(FormFieldController.java:103)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$6d5df602.selectMapById(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.system.FormFieldController.getFormFieldList(FormFieldController.java:103)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -162,8 +162,8 @@ java.lang.IllegalArgumentException: Cannot find cache named 'formField' for Buil
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2018-11-11 01:16:23.670 [http-nio-8080-exec-4] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property or field 'toString' cannot be found on object of type 'com.secondhand.tradingplatformadminentity.entity.system.FormField' - maybe not public or not valid?] with root cause
-org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property or field 'toString' cannot be found on object of type 'com.secondhand.tradingplatformadminentity.entity.system.FormField' - maybe not public or not valid?
+2018-11-11 01:16:23.670 [http-nio-8080-exec-4] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property or field 'toString' cannot be found on object of type 'com.secondhand.tradingplatformadminentity.entity.admin.system.FormField' - maybe not public or not valid?] with root cause
+org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property or field 'toString' cannot be found on object of type 'com.secondhand.tradingplatformadminentity.entity.admin.system.FormField' - maybe not public or not valid?
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:217)
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:104)
 	at org.springframework.expression.spel.ast.PropertyOrFieldReference.access$000(PropertyOrFieldReference.java:51)
@@ -180,8 +180,8 @@ org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property o
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$cce792bb.selectPageWithParam(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.controller.system.FormFieldController.getFormFieldList(FormFieldController.java:104)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$cce792bb.selectPageWithParam(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.system.FormFieldController.getFormFieldList(FormFieldController.java:104)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

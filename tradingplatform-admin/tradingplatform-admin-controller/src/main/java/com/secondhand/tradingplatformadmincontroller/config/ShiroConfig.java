@@ -1,10 +1,9 @@
 package com.secondhand.tradingplatformadmincontroller.config;
 
-import com.secondhand.tradingplatformadmincontroller.handler.CorsAuthenticationFilter;
 import com.secondhand.tradingplatformadmincontroller.shiro.DesCredentialsMatcher;
 import com.secondhand.tradingplatformadmincontroller.shiro.MyShiroRealm;
-import com.secondhand.tradingplatformadminentity.entity.shiro.Resources;
-import com.secondhand.tradingplatformadminservice.service.shiro.ResourcesService;
+import com.secondhand.tradingplatformadminentity.entity.admin.shiro.Resources;
+import com.secondhand.tradingplatformadminservice.service.admin.shiro.ResourcesService;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.apache.shiro.authc.credential.CredentialsMatcher;
 import org.apache.shiro.cache.CacheManager;
@@ -32,7 +31,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.servlet.Filter;
 import java.util.*;
 
 /**

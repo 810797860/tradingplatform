@@ -1,2 +1,2 @@
 2018-11-30 20:28:08.337 [http-nio-8080-exec-8] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `java.util.ArrayList` out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.util.ArrayList` out of START_OBJECT token
- at [Source: (PushbackInputStream); line: 6, column: 21] (through reference chain: com.secondhand.tradingplatformadminentity.entity.shiro.Menu["sorts"])]
+ at [Source: (PushbackInputStream); line: 6, column: 21] (through reference chain: com.secondhand.tradingplatformadminentity.entity.admin.shiro.Menu["sorts"])]

@@ -1,10 +1,10 @@
 package com.secondhand.tradingplatformadmincontroller.shiro;
 
-import com.secondhand.tradingplatformadminentity.entity.shiro.Resources;
-import com.secondhand.tradingplatformadminentity.entity.shiro.User;
-import com.secondhand.tradingplatformadminservice.service.shiro.ResourcesService;
-import com.secondhand.tradingplatformadminservice.service.shiro.UserRoleService;
-import com.secondhand.tradingplatformadminservice.service.shiro.UserService;
+import com.secondhand.tradingplatformadminentity.entity.admin.shiro.Resources;
+import com.secondhand.tradingplatformadminentity.entity.admin.shiro.User;
+import com.secondhand.tradingplatformadminservice.service.admin.shiro.ResourcesService;
+import com.secondhand.tradingplatformadminservice.service.admin.shiro.UserRoleService;
+import com.secondhand.tradingplatformadminservice.service.admin.shiro.UserService;
 import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;

@@ -102,7 +102,7 @@ Verify the connector's configuration, identify and stop any process that's liste
 
 2019-01-31 21:30:03.060 [http-nio-8006-exec-9] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_VERIFICATION_CODE_ERROR, clazz='LogInController', code=405}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.LogInController.login(LogInController.java:56)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.LogInController.login(LogInController.java:56)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -185,7 +185,7 @@ com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
 2019-01-31 21:30:19.856 [http-nio-8006-exec-5] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象保存失败java.lang.ClassCastException: org.apache.ibatis.cache.CacheKey cannot be cast to java.lang.String
 2019-01-31 21:39:20.665 [http-nio-8006-exec-1] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_VERIFICATION_CODE_ERROR, clazz='LogInController', code=405}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.LogInController.login(LogInController.java:56)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.LogInController.login(LogInController.java:56)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -268,7 +268,7 @@ com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
 2019-01-31 21:39:37.471 [http-nio-8006-exec-10] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象保存失败java.lang.ClassCastException: org.apache.ibatis.cache.CacheKey cannot be cast to java.lang.String
 2019-01-31 21:50:11.171 [http-nio-8006-exec-2] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 java.lang.NullPointerException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.system.FormFieldController.getFormFieldList(FormFieldController.java:104)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.system.FormFieldController.getFormFieldList(FormFieldController.java:104)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

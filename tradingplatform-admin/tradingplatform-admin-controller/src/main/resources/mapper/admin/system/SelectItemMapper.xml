@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.secondhand.tradingplatformadminmapper.mapper.admin.system.SelectItemMapper">
+
+    <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
+
+		<!-- 通用查询映射结果 -->
+			<resultMap id="selectItemMap" type="com.secondhand.tradingplatformadminentity.entity.admin.system.SelectItem" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
+									
+				<result column="title" property="title" jdbcType="VARCHAR" />
+				<result column="pid" property="pid" jdbcType="INTEGER" />
+				<result column="item_value" property="itemValue" jdbcType="VARCHAR" />
+				<result column="sort" property="sort" jdbcType="INTEGER" />
+
+		</resultMap>
+
+        <!-- 通用查询映射结果 -->
+		<resultMap id="selectItemMapSimple" type="com.secondhand.tradingplatformadminentity.entity.admin.system.SelectItem">
+																			
+                        <result column="title" property="title" jdbcType="VARCHAR" />
+                        <result column="pid" property="pid" jdbcType="INTEGER" />
+                        <result column="item_value" property="itemValue" jdbcType="VARCHAR" />
+                        <result column="sort" property="sort" jdbcType="INTEGER" />
+
+        </resultMap>
+
+    <select id="selectMapById" resultType="java.util.Map">
+        select s_base_select_item.title as title, s_base_select_item.id as id, s_base_select_item.created_by as created_by, (select concat('{"id":"', sbsi.id, '","pid":"', sbsi.pid, '","title":"', sbsi.title, '"}') from s_base_select_item sbsi where (sbsi.id = s_base_select_item.pid)) AS pid, s_base_select_item.deleted as deleted, s_base_select_item.description as description, s_base_select_item.updated_at as updated_at, s_base_select_item.updated_by as updated_by, s_base_select_item.sort as sort, s_base_select_item.item_value as item_value, s_base_select_item.created_at as created_at from s_base_select_item s_base_select_item where s_base_select_item.id = #{selectItemId} and s_base_select_item.deleted = false
+    </select>
+
+    <select id="myGetItemsByPid" resultMap="selectItemMap">
+        select * from s_base_select_item where pid = #{pid} and deleted = false
+    </select>
+
+    <select id="myGetAllItemsByPid" resultMap="selectItemMap">
+        SELECT * FROM s_base_select_item sbsi WHERE FIND_IN_SET( sbsi.id, (
+        SELECT SUBSTRING( @pid FROM LOCATE(',', @pid) + 1 FOR LENGTH(@pid) ) AS pid FROM (
+        SELECT u0.id, u0.pid, IF ( FIND_IN_SET(u0.pid ,@pid), @count := @count + 1, 0 ) AS total_childern,
+        IF ( FIND_IN_SET(u0.pid ,@pid), @pid := CONCAT(@pid, ',', u0.id), 0 ) AS childern FROM (
+        SELECT * FROM s_base_select_item bsi WHERE bsi.deleted = FALSE ORDER BY bsi.pid, bsi.id ) u0,
+        ( SELECT @pid := 100101) u1,
+        ( SELECT @count := 1) u2 ) u3 LIMIT 1 ) ) ORDER BY sbsi.sort DESC
+    </select>
+</mapper>

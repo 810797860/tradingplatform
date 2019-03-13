@@ -1,7 +1,7 @@
 2018-11-13 11:13:39.385 [http-nio-8080-exec-4] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/admin/query] in DispatcherServlet with name 'dispatcherServlet'
 2018-11-13 11:14:06.375 [http-nio-8080-exec-5] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
 2018-11-13 17:51:07.677 [http-nio-8080-exec-2] WARN  org.apache.shiro.authc.AbstractAuthenticator - Authentication failed for token submission [org.apache.shiro.authc.UsernamePasswordToken - null, rememberMe=false (0:0:0:0:0:0:0:1)].  Possible unexpected error? (Typical or expected login exceptions should extend from AuthenticationException).
-java.lang.IllegalArgumentException: Null key returned for cache operation (maybe you are using named params on classes without debug info?) Builder[public com.secondhand.tradingplatformadminentity.entity.shiro.User com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.UserServiceImpl.selectByUsername(java.lang.String)] caches=[user] | key='#p0' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
+java.lang.IllegalArgumentException: Null key returned for cache operation (maybe you are using named params on classes without debug info?) Builder[public com.secondhand.tradingplatformadminentity.entity.admin.shiro.User com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.shiro.UserServiceImpl.selectByUsername(java.lang.String)] caches=[user] | key='#p0' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
 	at org.springframework.cache.interceptor.CacheAspectSupport.generateKey(CacheAspectSupport.java:549)
 	at org.springframework.cache.interceptor.CacheAspectSupport.findCachedItem(CacheAspectSupport.java:489)
 	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:372)
@@ -9,7 +9,7 @@ java.lang.IllegalArgumentException: Null key returned for cache operation (maybe
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.UserServiceImpl$$EnhancerBySpringCGLIB$$ca557fd0.selectByUsername(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.shiro.UserServiceImpl$$EnhancerBySpringCGLIB$$ca557fd0.selectByUsername(<generated>)
 	at com.secondhand.tradingplatformadmincontroller.shiro.AdminRealm.doGetAuthenticationInfo(MyShiroRealm.java:58)
 	at org.apache.shiro.realm.AuthenticatingRealm.getAuthenticationInfo(AuthenticatingRealm.java:571)
 	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doSingleRealmAuthentication(ModularRealmAuthenticator.java:180)
@@ -64,7 +64,7 @@ java.lang.IllegalArgumentException: Null key returned for cache operation (maybe
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 2018-11-13 17:52:47.782 [http-nio-8080-exec-5] WARN  org.apache.shiro.authc.AbstractAuthenticator - Authentication failed for token submission [org.apache.shiro.authc.UsernamePasswordToken - null, rememberMe=false (0:0:0:0:0:0:0:1)].  Possible unexpected error? (Typical or expected login exceptions should extend from AuthenticationException).
-java.lang.IllegalArgumentException: Null key returned for cache operation (maybe you are using named params on classes without debug info?) Builder[public com.secondhand.tradingplatformadminentity.entity.shiro.User com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.UserServiceImpl.selectByUsername(java.lang.String)] caches=[user] | key='#p0' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
+java.lang.IllegalArgumentException: Null key returned for cache operation (maybe you are using named params on classes without debug info?) Builder[public com.secondhand.tradingplatformadminentity.entity.admin.shiro.User com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.shiro.UserServiceImpl.selectByUsername(java.lang.String)] caches=[user] | key='#p0' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
 	at org.springframework.cache.interceptor.CacheAspectSupport.generateKey(CacheAspectSupport.java:549)
 	at org.springframework.cache.interceptor.CacheAspectSupport.findCachedItem(CacheAspectSupport.java:489)
 	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:372)
@@ -72,7 +72,7 @@ java.lang.IllegalArgumentException: Null key returned for cache operation (maybe
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.UserServiceImpl$$EnhancerBySpringCGLIB$$ca557fd0.selectByUsername(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.shiro.UserServiceImpl$$EnhancerBySpringCGLIB$$ca557fd0.selectByUsername(<generated>)
 	at com.secondhand.tradingplatformadmincontroller.shiro.AdminRealm.doGetAuthenticationInfo(MyShiroRealm.java:58)
 	at org.apache.shiro.realm.AuthenticatingRealm.getAuthenticationInfo(AuthenticatingRealm.java:571)
 	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doSingleRealmAuthentication(ModularRealmAuthenticator.java:180)
@@ -127,7 +127,7 @@ java.lang.IllegalArgumentException: Null key returned for cache operation (maybe
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 2018-11-13 17:53:37.284 [http-nio-8080-exec-7] WARN  org.apache.shiro.authc.AbstractAuthenticator - Authentication failed for token submission [org.apache.shiro.authc.UsernamePasswordToken - null, rememberMe=false (0:0:0:0:0:0:0:1)].  Possible unexpected error? (Typical or expected login exceptions should extend from AuthenticationException).
-java.lang.IllegalArgumentException: Null key returned for cache operation (maybe you are using named params on classes without debug info?) Builder[public com.secondhand.tradingplatformadminentity.entity.shiro.User com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.UserServiceImpl.selectByUsername(java.lang.String)] caches=[user] | key='#p0' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
+java.lang.IllegalArgumentException: Null key returned for cache operation (maybe you are using named params on classes without debug info?) Builder[public com.secondhand.tradingplatformadminentity.entity.admin.shiro.User com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.shiro.UserServiceImpl.selectByUsername(java.lang.String)] caches=[user] | key='#p0' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
 	at org.springframework.cache.interceptor.CacheAspectSupport.generateKey(CacheAspectSupport.java:549)
 	at org.springframework.cache.interceptor.CacheAspectSupport.findCachedItem(CacheAspectSupport.java:489)
 	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:372)
@@ -135,7 +135,7 @@ java.lang.IllegalArgumentException: Null key returned for cache operation (maybe
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.UserServiceImpl$$EnhancerBySpringCGLIB$$ca557fd0.selectByUsername(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.shiro.UserServiceImpl$$EnhancerBySpringCGLIB$$ca557fd0.selectByUsername(<generated>)
 	at com.secondhand.tradingplatformadmincontroller.shiro.AdminRealm.doGetAuthenticationInfo(MyShiroRealm.java:58)
 	at org.apache.shiro.realm.AuthenticatingRealm.getAuthenticationInfo(AuthenticatingRealm.java:571)
 	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doSingleRealmAuthentication(ModularRealmAuthenticator.java:180)
@@ -190,7 +190,7 @@ java.lang.IllegalArgumentException: Null key returned for cache operation (maybe
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 2018-11-13 17:55:20.185 [http-nio-8080-exec-3] WARN  org.apache.shiro.authc.AbstractAuthenticator - Authentication failed for token submission [org.apache.shiro.authc.UsernamePasswordToken - null, rememberMe=false (0:0:0:0:0:0:0:1)].  Possible unexpected error? (Typical or expected login exceptions should extend from AuthenticationException).
-java.lang.IllegalArgumentException: Null key returned for cache operation (maybe you are using named params on classes without debug info?) Builder[public com.secondhand.tradingplatformadminentity.entity.shiro.User com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.UserServiceImpl.selectByUsername(java.lang.String)] caches=[user] | key='#p0' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
+java.lang.IllegalArgumentException: Null key returned for cache operation (maybe you are using named params on classes without debug info?) Builder[public com.secondhand.tradingplatformadminentity.entity.admin.shiro.User com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.shiro.UserServiceImpl.selectByUsername(java.lang.String)] caches=[user] | key='#p0' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
 	at org.springframework.cache.interceptor.CacheAspectSupport.generateKey(CacheAspectSupport.java:549)
 	at org.springframework.cache.interceptor.CacheAspectSupport.findCachedItem(CacheAspectSupport.java:489)
 	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:372)
@@ -198,7 +198,7 @@ java.lang.IllegalArgumentException: Null key returned for cache operation (maybe
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.UserServiceImpl$$EnhancerBySpringCGLIB$$f93421d7.selectByUsername(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.shiro.UserServiceImpl$$EnhancerBySpringCGLIB$$f93421d7.selectByUsername(<generated>)
 	at com.secondhand.tradingplatformadmincontroller.shiro.AdminRealm.doGetAuthenticationInfo(MyShiroRealm.java:58)
 	at org.apache.shiro.realm.AuthenticatingRealm.getAuthenticationInfo(AuthenticatingRealm.java:571)
 	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doSingleRealmAuthentication(ModularRealmAuthenticator.java:180)
@@ -253,7 +253,7 @@ java.lang.IllegalArgumentException: Null key returned for cache operation (maybe
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 2018-11-13 17:55:41.877 [http-nio-8080-exec-2] WARN  org.apache.shiro.authc.AbstractAuthenticator - Authentication failed for token submission [org.apache.shiro.authc.UsernamePasswordToken - null, rememberMe=false (0:0:0:0:0:0:0:1)].  Possible unexpected error? (Typical or expected login exceptions should extend from AuthenticationException).
-java.lang.IllegalArgumentException: Null key returned for cache operation (maybe you are using named params on classes without debug info?) Builder[public com.secondhand.tradingplatformadminentity.entity.shiro.User com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.UserServiceImpl.selectByUsername(java.lang.String)] caches=[user] | key='#p0' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
+java.lang.IllegalArgumentException: Null key returned for cache operation (maybe you are using named params on classes without debug info?) Builder[public com.secondhand.tradingplatformadminentity.entity.admin.shiro.User com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.shiro.UserServiceImpl.selectByUsername(java.lang.String)] caches=[user] | key='#p0' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
 	at org.springframework.cache.interceptor.CacheAspectSupport.generateKey(CacheAspectSupport.java:549)
 	at org.springframework.cache.interceptor.CacheAspectSupport.findCachedItem(CacheAspectSupport.java:489)
 	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:372)
@@ -261,7 +261,7 @@ java.lang.IllegalArgumentException: Null key returned for cache operation (maybe
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.UserServiceImpl$$EnhancerBySpringCGLIB$$f93421d7.selectByUsername(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.shiro.UserServiceImpl$$EnhancerBySpringCGLIB$$f93421d7.selectByUsername(<generated>)
 	at com.secondhand.tradingplatformadmincontroller.shiro.AdminRealm.doGetAuthenticationInfo(MyShiroRealm.java:58)
 	at org.apache.shiro.realm.AuthenticatingRealm.getAuthenticationInfo(AuthenticatingRealm.java:571)
 	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doSingleRealmAuthentication(ModularRealmAuthenticator.java:180)
@@ -316,7 +316,7 @@ java.lang.IllegalArgumentException: Null key returned for cache operation (maybe
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 2018-11-13 17:58:06.317 [http-nio-8080-exec-2] WARN  org.apache.shiro.authc.AbstractAuthenticator - Authentication failed for token submission [org.apache.shiro.authc.UsernamePasswordToken - null, rememberMe=false (0:0:0:0:0:0:0:1)].  Possible unexpected error? (Typical or expected login exceptions should extend from AuthenticationException).
-java.lang.IllegalArgumentException: Null key returned for cache operation (maybe you are using named params on classes without debug info?) Builder[public com.secondhand.tradingplatformadminentity.entity.shiro.User com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.UserServiceImpl.selectByUsername(java.lang.String)] caches=[user] | key='#p0' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
+java.lang.IllegalArgumentException: Null key returned for cache operation (maybe you are using named params on classes without debug info?) Builder[public com.secondhand.tradingplatformadminentity.entity.admin.shiro.User com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.shiro.UserServiceImpl.selectByUsername(java.lang.String)] caches=[user] | key='#p0' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
 	at org.springframework.cache.interceptor.CacheAspectSupport.generateKey(CacheAspectSupport.java:549)
 	at org.springframework.cache.interceptor.CacheAspectSupport.findCachedItem(CacheAspectSupport.java:489)
 	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:372)
@@ -324,7 +324,7 @@ java.lang.IllegalArgumentException: Null key returned for cache operation (maybe
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.shiro.UserServiceImpl$$EnhancerBySpringCGLIB$$394e2ac4.selectByUsername(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.shiro.UserServiceImpl$$EnhancerBySpringCGLIB$$394e2ac4.selectByUsername(<generated>)
 	at com.secondhand.tradingplatformadmincontroller.shiro.AdminRealm.doGetAuthenticationInfo(MyShiroRealm.java:58)
 	at org.apache.shiro.realm.AuthenticatingRealm.getAuthenticationInfo(AuthenticatingRealm.java:571)
 	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doSingleRealmAuthentication(ModularRealmAuthenticator.java:180)

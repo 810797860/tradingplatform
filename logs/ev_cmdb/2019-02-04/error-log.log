@@ -10,7 +10,7 @@
 2019-02-04 10:39:13.971 [http-nio-8006-exec-5] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象保存失败java.lang.ClassCastException: org.apache.ibatis.cache.CacheKey cannot be cast to java.lang.String
 2019-02-04 10:43:43.742 [http-nio-8006-exec-4] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_VERIFICATION_CODE_ERROR, clazz='LogInController', code=405}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.LogInController.login(LogInController.java:56)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.LogInController.login(LogInController.java:56)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -91,7 +91,7 @@ com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
 	at java.lang.Thread.run(Thread.java:748)
 2019-02-04 10:43:52.697 [http-nio-8006-exec-4] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_VERIFICATION_CODE_ERROR, clazz='LogInController', code=405}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.LogInController.login(LogInController.java:56)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.LogInController.login(LogInController.java:56)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -233,8 +233,8 @@ Caused by: io.lettuce.core.RedisCommandTimeoutException: Command timed out
 2019-02-04 10:56:40.556 [http-nio-8006-exec-3] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象保存失败java.lang.ClassCastException: org.apache.ibatis.cache.CacheKey cannot be cast to java.lang.String
 2019-02-04 10:56:40.696 [http-nio-8006-exec-3] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 java.lang.NullPointerException: null
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl.myFormFieldCreateUpdate(FormFieldServiceImpl.java:98)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl.myFormFieldCreateUpdate(FormFieldServiceImpl.java:98)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -248,8 +248,8 @@ java.lang.NullPointerException: null
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$bd60eb92.myFormFieldCreateUpdate(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$bd60eb92.myFormFieldCreateUpdate(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -263,8 +263,8 @@ java.lang.NullPointerException: null
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$19b50d11.myFormFieldCreateUpdate(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.controller.system.FormFieldController.formFieldCreateUpdate(FormFieldController.java:200)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$19b50d11.myFormFieldCreateUpdate(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.system.FormFieldController.formFieldCreateUpdate(FormFieldController.java:200)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -425,8 +425,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
 	at com.sun.proxy.$Proxy144.createField(Unknown Source)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl.myFormFieldCreateUpdate(FormFieldServiceImpl.java:101)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl.myFormFieldCreateUpdate(FormFieldServiceImpl.java:101)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -440,8 +440,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$ea02d80a.myFormFieldCreateUpdate(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$ea02d80a.myFormFieldCreateUpdate(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -455,8 +455,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$bf749c06.myFormFieldCreateUpdate(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.controller.system.FormFieldController.formFieldCreateUpdate(FormFieldController.java:203)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$bf749c06.myFormFieldCreateUpdate(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.system.FormFieldController.formFieldCreateUpdate(FormFieldController.java:203)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -537,7 +537,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at java.lang.Thread.run(Thread.java:748)
 2019-02-04 11:33:31.230 [http-nio-8006-exec-6] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
 ### Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name 'test1'
-### The error may involve com.secondhand.tradingplatformadminmapper.mapper.system.FormFieldMapper.createField-Inline
+### The error may involve com.secondhand.tradingplatformadminmapper.mapper.admin.system.FormFieldMapper.createField-Inline
 ### The error occurred while setting parameters
 ### SQL: ALTER TABLE c_business_test ADD COLUMN test1      bigint(20)  NOT NULL DEFAULT 0 COMMENT ? after uuid
 ### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name 'test1'
@@ -611,8 +611,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
 	at com.sun.proxy.$Proxy144.createField(Unknown Source)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl.myFormFieldCreateUpdate(FormFieldServiceImpl.java:101)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl.myFormFieldCreateUpdate(FormFieldServiceImpl.java:101)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -626,8 +626,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$ea02d80a.myFormFieldCreateUpdate(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$ea02d80a.myFormFieldCreateUpdate(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -641,8 +641,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$bf749c06.myFormFieldCreateUpdate(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.controller.system.FormFieldController.formFieldCreateUpdate(FormFieldController.java:203)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$bf749c06.myFormFieldCreateUpdate(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.system.FormFieldController.formFieldCreateUpdate(FormFieldController.java:203)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -801,8 +801,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
 	at com.sun.proxy.$Proxy144.createField(Unknown Source)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl.myFormFieldCreateUpdate(FormFieldServiceImpl.java:101)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl.myFormFieldCreateUpdate(FormFieldServiceImpl.java:101)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -816,8 +816,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$ea02d80a.myFormFieldCreateUpdate(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$ea02d80a.myFormFieldCreateUpdate(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -831,8 +831,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$bf749c06.myFormFieldCreateUpdate(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.controller.system.FormFieldController.formFieldCreateUpdate(FormFieldController.java:203)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$bf749c06.myFormFieldCreateUpdate(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.system.FormFieldController.formFieldCreateUpdate(FormFieldController.java:203)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -913,7 +913,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at java.lang.Thread.run(Thread.java:748)
 2019-02-04 11:39:00.557 [http-nio-8006-exec-2] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
 ### Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name 'test1'
-### The error may involve com.secondhand.tradingplatformadminmapper.mapper.system.FormFieldMapper.createField-Inline
+### The error may involve com.secondhand.tradingplatformadminmapper.mapper.admin.system.FormFieldMapper.createField-Inline
 ### The error occurred while setting parameters
 ### SQL: ALTER TABLE c_business_test ADD COLUMN test1      bigint(20)  NOT NULL DEFAULT 0 COMMENT ? after uuid
 ### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name 'test1'
@@ -987,8 +987,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
 	at com.sun.proxy.$Proxy144.createField(Unknown Source)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl.myFormFieldCreateUpdate(FormFieldServiceImpl.java:101)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl.myFormFieldCreateUpdate(FormFieldServiceImpl.java:101)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -1002,8 +1002,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$ea02d80a.myFormFieldCreateUpdate(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$ea02d80a.myFormFieldCreateUpdate(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -1017,8 +1017,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$bf749c06.myFormFieldCreateUpdate(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.controller.system.FormFieldController.formFieldCreateUpdate(FormFieldController.java:203)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$bf749c06.myFormFieldCreateUpdate(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.system.FormFieldController.formFieldCreateUpdate(FormFieldController.java:203)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1183,8 +1183,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
 	at com.sun.proxy.$Proxy144.createField(Unknown Source)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl.myFormFieldCreateUpdate(FormFieldServiceImpl.java:101)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl.myFormFieldCreateUpdate(FormFieldServiceImpl.java:101)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -1198,8 +1198,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$ea02d80a.myFormFieldCreateUpdate(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$ea02d80a.myFormFieldCreateUpdate(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -1213,8 +1213,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$bf749c06.myFormFieldCreateUpdate(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.controller.system.FormFieldController.formFieldCreateUpdate(FormFieldController.java:203)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$bf749c06.myFormFieldCreateUpdate(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.system.FormFieldController.formFieldCreateUpdate(FormFieldController.java:203)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1295,7 +1295,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at java.lang.Thread.run(Thread.java:748)
 2019-02-04 11:41:44.159 [http-nio-8006-exec-7] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
 ### Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name 'test1'
-### The error may involve com.secondhand.tradingplatformadminmapper.mapper.system.FormFieldMapper.createField-Inline
+### The error may involve com.secondhand.tradingplatformadminmapper.mapper.admin.system.FormFieldMapper.createField-Inline
 ### The error occurred while setting parameters
 ### SQL: ALTER TABLE c_business_test ADD COLUMN test1      bigint(20)  NOT NULL DEFAULT 0 COMMENT ? after uuid
 ### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name 'test1'
@@ -1367,8 +1367,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
 	at com.sun.proxy.$Proxy144.createField(Unknown Source)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl.myFormFieldCreateUpdate(FormFieldServiceImpl.java:101)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl.myFormFieldCreateUpdate(FormFieldServiceImpl.java:101)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -1382,8 +1382,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$ea02d80a.myFormFieldCreateUpdate(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$ea02d80a.myFormFieldCreateUpdate(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -1397,8 +1397,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$bf749c06.myFormFieldCreateUpdate(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.controller.system.FormFieldController.formFieldCreateUpdate(FormFieldController.java:203)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$bf749c06.myFormFieldCreateUpdate(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.system.FormFieldController.formFieldCreateUpdate(FormFieldController.java:203)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1555,8 +1555,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
 	at com.sun.proxy.$Proxy144.createField(Unknown Source)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl.myFormFieldCreateUpdate(FormFieldServiceImpl.java:101)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl.myFormFieldCreateUpdate(FormFieldServiceImpl.java:101)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -1570,8 +1570,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$ea02d80a.myFormFieldCreateUpdate(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$ea02d80a.myFormFieldCreateUpdate(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -1585,8 +1585,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$bf749c06.myFormFieldCreateUpdate(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.controller.system.FormFieldController.formFieldCreateUpdate(FormFieldController.java:203)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$bf749c06.myFormFieldCreateUpdate(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.system.FormFieldController.formFieldCreateUpdate(FormFieldController.java:203)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1667,7 +1667,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at java.lang.Thread.run(Thread.java:748)
 2019-02-04 12:36:34.678 [http-nio-8006-exec-3] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
 ### Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name 'test1'
-### The error may involve com.secondhand.tradingplatformadminmapper.mapper.system.FormFieldMapper.createField-Inline
+### The error may involve com.secondhand.tradingplatformadminmapper.mapper.admin.system.FormFieldMapper.createField-Inline
 ### The error occurred while setting parameters
 ### SQL: ALTER TABLE c_business_test ADD COLUMN test1      bigint(20)  NOT NULL DEFAULT 0 COMMENT ? after uuid
 ### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name 'test1'
@@ -1739,8 +1739,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
 	at com.sun.proxy.$Proxy144.createField(Unknown Source)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl.myFormFieldCreateUpdate(FormFieldServiceImpl.java:101)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl.myFormFieldCreateUpdate(FormFieldServiceImpl.java:101)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -1754,8 +1754,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$ea02d80a.myFormFieldCreateUpdate(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$ea02d80a.myFormFieldCreateUpdate(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$FastClassBySpringCGLIB$$e834dccc.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -1769,8 +1769,8 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
-	at com.secondhand.tradingplatformadmincontroller.serviceimpl.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$bf749c06.myFormFieldCreateUpdate(<generated>)
-	at com.secondhand.tradingplatformadmincontroller.controller.system.FormFieldController.formFieldCreateUpdate(FormFieldController.java:203)
+	at com.secondhand.tradingplatformadmincontroller.serviceimpl.admin.system.FormFieldServiceImpl$$EnhancerBySpringCGLIB$$bf749c06.myFormFieldCreateUpdate(<generated>)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.system.FormFieldController.formFieldCreateUpdate(FormFieldController.java:203)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1865,9 +1865,9 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 2019-02-04 12:41:01.603 [http-nio-8006-exec-5] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象保存失败java.lang.ClassCastException: org.apache.ibatis.cache.CacheKey cannot be cast to java.lang.String
 2019-02-04 13:24:40.265 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
 org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'documentationPluginsBootstrapper' defined in URL [jar:file:/F:/software/installation/maven3.5/maven-dependcies/io/springfox/springfox-spring-web/2.7.0/springfox-spring-web-2.7.0.jar!/springfox/documentation/spring/web/plugins/DocumentationPluginsBootstrapper.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'webMvcRequestHandlerProvider' defined in URL [jar:file:/F:/software/installation/maven3.5/maven-dependcies/io/springfox/springfox-spring-web/2.7.0/springfox-spring-web-2.7.0.jar!/springfox/documentation/spring/web/plugins/WebMvcRequestHandlerProvider.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'menuController' method 
-public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.shiro.MenuController.toMenuList(org.springframework.ui.Model)
+public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.MenuController.toMenuList(org.springframework.ui.Model)
 to {[/admin/menu/tabulation.html],methods=[GET]}: There is already 'menuController' bean method
-public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.shiro.MenuController.toMenuList(org.springframework.ui.Model,java.lang.Long) mapped.
+public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.MenuController.toMenuList(org.springframework.ui.Model,java.lang.Long) mapped.
 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:732)
 	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:197)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1267)
@@ -1889,9 +1889,9 @@ public java.lang.String com.secondhand.tradingplatformadmincontroller.controller
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1265)
 	at com.secondhand.tradingplatformadmincontroller.TradingplatformAdminControllerApplication.main(TradingplatformAdminControllerApplication.java:14)
 Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'webMvcRequestHandlerProvider' defined in URL [jar:file:/F:/software/installation/maven3.5/maven-dependcies/io/springfox/springfox-spring-web/2.7.0/springfox-spring-web-2.7.0.jar!/springfox/documentation/spring/web/plugins/WebMvcRequestHandlerProvider.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'menuController' method 
-public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.shiro.MenuController.toMenuList(org.springframework.ui.Model)
+public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.MenuController.toMenuList(org.springframework.ui.Model)
 to {[/admin/menu/tabulation.html],methods=[GET]}: There is already 'menuController' bean method
-public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.shiro.MenuController.toMenuList(org.springframework.ui.Model,java.lang.Long) mapped.
+public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.MenuController.toMenuList(org.springframework.ui.Model,java.lang.Long) mapped.
 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:732)
 	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:197)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1267)
@@ -1912,9 +1912,9 @@ public java.lang.String com.secondhand.tradingplatformadmincontroller.controller
 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:724)
 	... 19 common frames omitted
 Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'menuController' method 
-public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.shiro.MenuController.toMenuList(org.springframework.ui.Model)
+public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.MenuController.toMenuList(org.springframework.ui.Model)
 to {[/admin/menu/tabulation.html],methods=[GET]}: There is already 'menuController' bean method
-public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.shiro.MenuController.toMenuList(org.springframework.ui.Model,java.lang.Long) mapped.
+public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.MenuController.toMenuList(org.springframework.ui.Model,java.lang.Long) mapped.
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1699)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:573)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
@@ -1932,9 +1932,9 @@ public java.lang.String com.secondhand.tradingplatformadmincontroller.controller
 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:724)
 	... 36 common frames omitted
 Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'menuController' method 
-public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.shiro.MenuController.toMenuList(org.springframework.ui.Model)
+public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.MenuController.toMenuList(org.springframework.ui.Model)
 to {[/admin/menu/tabulation.html],methods=[GET]}: There is already 'menuController' bean method
-public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.shiro.MenuController.toMenuList(org.springframework.ui.Model,java.lang.Long) mapped.
+public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.MenuController.toMenuList(org.springframework.ui.Model,java.lang.Long) mapped.
 	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.assertUniqueMethodMapping(AbstractHandlerMethodMapping.java:581)
 	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:545)
 	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.registerHandlerMethod(AbstractHandlerMethodMapping.java:267)
@@ -1949,9 +1949,9 @@ public java.lang.String com.secondhand.tradingplatformadmincontroller.controller
 	... 50 common frames omitted
 2019-02-04 13:26:23.096 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
 org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'documentationPluginsBootstrapper' defined in URL [jar:file:/F:/software/installation/maven3.5/maven-dependcies/io/springfox/springfox-spring-web/2.7.0/springfox-spring-web-2.7.0.jar!/springfox/documentation/spring/web/plugins/DocumentationPluginsBootstrapper.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'webMvcRequestHandlerProvider' defined in URL [jar:file:/F:/software/installation/maven3.5/maven-dependcies/io/springfox/springfox-spring-web/2.7.0/springfox-spring-web-2.7.0.jar!/springfox/documentation/spring/web/plugins/WebMvcRequestHandlerProvider.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'menuController' method 
-public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.shiro.MenuController.toMenuList(org.springframework.ui.Model)
+public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.MenuController.toMenuList(org.springframework.ui.Model)
 to {[/admin/menu/tabulation.html],methods=[GET]}: There is already 'menuController' bean method
-public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.shiro.MenuController.toMenuList(org.springframework.ui.Model,java.lang.Long) mapped.
+public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.MenuController.toMenuList(org.springframework.ui.Model,java.lang.Long) mapped.
 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:732)
 	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:197)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1267)
@@ -1973,9 +1973,9 @@ public java.lang.String com.secondhand.tradingplatformadmincontroller.controller
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1265)
 	at com.secondhand.tradingplatformadmincontroller.TradingplatformAdminControllerApplication.main(TradingplatformAdminControllerApplication.java:14)
 Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'webMvcRequestHandlerProvider' defined in URL [jar:file:/F:/software/installation/maven3.5/maven-dependcies/io/springfox/springfox-spring-web/2.7.0/springfox-spring-web-2.7.0.jar!/springfox/documentation/spring/web/plugins/WebMvcRequestHandlerProvider.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'menuController' method 
-public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.shiro.MenuController.toMenuList(org.springframework.ui.Model)
+public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.MenuController.toMenuList(org.springframework.ui.Model)
 to {[/admin/menu/tabulation.html],methods=[GET]}: There is already 'menuController' bean method
-public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.shiro.MenuController.toMenuList(org.springframework.ui.Model,java.lang.Long) mapped.
+public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.MenuController.toMenuList(org.springframework.ui.Model,java.lang.Long) mapped.
 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:732)
 	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:197)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1267)
@@ -1996,9 +1996,9 @@ public java.lang.String com.secondhand.tradingplatformadmincontroller.controller
 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:724)
 	... 19 common frames omitted
 Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'menuController' method 
-public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.shiro.MenuController.toMenuList(org.springframework.ui.Model)
+public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.MenuController.toMenuList(org.springframework.ui.Model)
 to {[/admin/menu/tabulation.html],methods=[GET]}: There is already 'menuController' bean method
-public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.shiro.MenuController.toMenuList(org.springframework.ui.Model,java.lang.Long) mapped.
+public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.MenuController.toMenuList(org.springframework.ui.Model,java.lang.Long) mapped.
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1699)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:573)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
@@ -2016,9 +2016,9 @@ public java.lang.String com.secondhand.tradingplatformadmincontroller.controller
 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:724)
 	... 36 common frames omitted
 Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'menuController' method 
-public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.shiro.MenuController.toMenuList(org.springframework.ui.Model)
+public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.MenuController.toMenuList(org.springframework.ui.Model)
 to {[/admin/menu/tabulation.html],methods=[GET]}: There is already 'menuController' bean method
-public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.shiro.MenuController.toMenuList(org.springframework.ui.Model,java.lang.Long) mapped.
+public java.lang.String com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.MenuController.toMenuList(org.springframework.ui.Model,java.lang.Long) mapped.
 	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.assertUniqueMethodMapping(AbstractHandlerMethodMapping.java:581)
 	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:545)
 	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.registerHandlerMethod(AbstractHandlerMethodMapping.java:267)
@@ -2033,7 +2033,7 @@ public java.lang.String com.secondhand.tradingplatformadmincontroller.controller
 	... 50 common frames omitted
 2019-02-04 13:29:22.396 [http-nio-8006-exec-1] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_VERIFICATION_CODE_ERROR, clazz='LogInController', code=405}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.LogInController.login(LogInController.java:56)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.LogInController.login(LogInController.java:56)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -2114,7 +2114,7 @@ com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
 	at java.lang.Thread.run(Thread.java:748)
 2019-02-04 13:29:31.741 [http-nio-8006-exec-3] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_VERIFICATION_CODE_ERROR, clazz='LogInController', code=405}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.LogInController.login(LogInController.java:56)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.LogInController.login(LogInController.java:56)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

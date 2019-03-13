@@ -1,6 +1,6 @@
 2019-02-03 09:14:47.911 [http-nio-8006-exec-4] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_VERIFICATION_CODE_ERROR, clazz='LogInController', code=405}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.LogInController.login(LogInController.java:56)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.LogInController.login(LogInController.java:56)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -81,7 +81,7 @@ com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
 	at java.lang.Thread.run(Thread.java:748)
 2019-02-03 09:15:00.768 [http-nio-8006-exec-6] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_VERIFICATION_CODE_ERROR, clazz='LogInController', code=405}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.LogInController.login(LogInController.java:56)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.LogInController.login(LogInController.java:56)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -162,7 +162,7 @@ com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
 	at java.lang.Thread.run(Thread.java:748)
 2019-02-03 09:15:13.593 [http-nio-8006-exec-10] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_VERIFICATION_CODE_ERROR, clazz='LogInController', code=405}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.LogInController.login(LogInController.java:56)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.LogInController.login(LogInController.java:56)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -243,7 +243,7 @@ com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
 	at java.lang.Thread.run(Thread.java:748)
 2019-02-03 09:15:23.993 [http-nio-8006-exec-10] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_VERIFICATION_CODE_ERROR, clazz='LogInController', code=405}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.LogInController.login(LogInController.java:56)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.LogInController.login(LogInController.java:56)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -356,7 +356,7 @@ com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
 2019-02-03 10:35:17.954 [http-nio-8006-exec-3] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象保存失败java.lang.ClassCastException: org.apache.ibatis.cache.CacheKey cannot be cast to java.lang.String
 2019-02-03 10:39:31.488 [http-nio-8006-exec-7] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_VERIFICATION_CODE_ERROR, clazz='LogInController', code=405}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.LogInController.login(LogInController.java:56)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.LogInController.login(LogInController.java:56)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -447,7 +447,7 @@ com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
 2019-02-03 10:45:36.477 [http-nio-8006-exec-1] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象保存失败java.lang.ClassCastException: org.apache.ibatis.cache.CacheKey cannot be cast to java.lang.String
 2019-02-03 10:45:51.118 [http-nio-8006-exec-4] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_VERIFICATION_CODE_ERROR, clazz='LogInController', code=405}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.LogInController.login(LogInController.java:56)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.LogInController.login(LogInController.java:56)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -528,7 +528,7 @@ com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
 	at java.lang.Thread.run(Thread.java:748)
 2019-02-03 10:45:59.317 [http-nio-8006-exec-5] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_WRONG_PASSWORD, clazz='LogInController', code=406}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.LogInController.login(LogInController.java:73)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.LogInController.login(LogInController.java:73)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -625,7 +625,7 @@ com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
 2019-02-03 10:59:48.663 [http-nio-8006-exec-4] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象保存失败java.lang.ClassCastException: org.apache.ibatis.cache.CacheKey cannot be cast to java.lang.String
 2019-02-03 11:00:37.262 [http-nio-8006-exec-4] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_VERIFICATION_CODE_ERROR, clazz='LogInController', code=405}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.LogInController.login(LogInController.java:56)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.LogInController.login(LogInController.java:56)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -955,7 +955,7 @@ org.springframework.expression.spel.SpelEvaluationException: EL1012E: Cannot ind
 2019-02-03 13:40:13.980 [http-nio-8006-exec-1] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象保存失败java.lang.ClassCastException: org.apache.ibatis.cache.CacheKey cannot be cast to java.lang.String
 2019-02-03 14:33:54.175 [http-nio-8006-exec-6] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_VERIFICATION_CODE_ERROR, clazz='LogInController', code=405}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.LogInController.login(LogInController.java:56)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.LogInController.login(LogInController.java:56)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1036,7 +1036,7 @@ com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
 	at java.lang.Thread.run(Thread.java:748)
 2019-02-03 14:34:02.861 [http-nio-8006-exec-4] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is CustomizeException{customizeStatus=LOGIN_VERIFICATION_CODE_ERROR, clazz='LogInController', code=405}] with root cause
 com.secondhand.tradingplatformcommon.pojo.CustomizeException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.LogInController.login(LogInController.java:56)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.LogInController.login(LogInController.java:56)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

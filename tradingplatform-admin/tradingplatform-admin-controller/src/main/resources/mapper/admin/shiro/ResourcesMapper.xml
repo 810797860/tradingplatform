@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.secondhand.tradingplatformadminmapper.mapper.admin.shiro.ResourcesMapper">
+
+    <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
+
+		<!-- 通用查询映射结果 -->
+			<resultMap id="resourcesMap" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.Resources" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
+									
+				<result column="title" property="title" jdbcType="VARCHAR" />
+				<result column="url" property="url" jdbcType="VARCHAR" />
+
+		</resultMap>
+
+        <!-- 通用查询映射结果 -->
+		<resultMap id="resourcesMapSimple" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.Resources">
+																			
+                        <result column="title" property="title" jdbcType="VARCHAR" />
+                        <result column="url" property="url" jdbcType="VARCHAR" />
+
+        </resultMap>
+
+    <select id="selectMapById" resultType="java.util.Map">
+        select * from s_base_resources where id = #{resourcesId} and deleted = false
+    </select>
+
+    <select id="loadUserResources" resultType="com.secondhand.tradingplatformadminentity.entity.admin.shiro.Resources">
+        SELECT
+	      sbr.id AS id,
+	      sbr.title AS title,
+	      sbr.url AS url
+        FROM
+	      s_base_resources sbr
+        JOIN s_base_role_resources sbrr ON sbr.id = sbrr.resources_id
+        JOIN s_base_user_role sbur ON sbrr.role_id = sbur.role_id
+        WHERE
+	      sbr.deleted = FALSE
+        AND sbrr.deleted = FALSE
+        AND sbur.deleted = FALSE
+        AND sbur.user_id = #{userId}
+        GROUP BY
+	      sbr.id
+    </select>
+
+</mapper>

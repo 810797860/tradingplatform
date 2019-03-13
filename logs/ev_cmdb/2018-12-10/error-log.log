@@ -2,7 +2,7 @@
 2018-12-10 10:13:03.531 [http-nio-8080-exec-1] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象保存失败java.lang.ClassCastException: org.apache.ibatis.cache.CacheKey cannot be cast to java.lang.String
 2018-12-10 10:26:50.481 [http-nio-8080-exec-6] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 java.lang.NullPointerException: null
-	at com.secondhand.tradingplatformadmincontroller.controller.shiro.MenuButtonController.fakeBatchDelete(MenuButtonController.java:175)
+	at com.secondhand.tradingplatformadmincontroller.controller.admin.shiro.MenuButtonController.fakeBatchDelete(MenuButtonController.java:175)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
