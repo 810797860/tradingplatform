@@ -35,7 +35,7 @@ import javax.servlet.http.HttpSession;
  * @author : zhangjk
  * @since : Create in 2018-11-29
  */
-@Controller
+@Controller("adminMenuController")
 @Api(value="/admin/menu", description="Menu 控制器")
 @RequestMapping("/admin/menu")
 public class MenuController extends BaseController {

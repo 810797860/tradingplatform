@@ -1,4 +1,4 @@
-package com.secondhand.tradingplatformadmincontroller.controller.admin.shiro;
+package com.secondhand.tradingplatformadmincontroller.controller.front.shiro;
 
 import com.secondhand.tradingplatformadmincontroller.shiro.DesUserToken;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
@@ -15,7 +15,11 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -26,9 +30,10 @@ import java.util.Map;
  * @author : zhangjk
  * @since : Create in 2018-12-04
  */
-@RestController("adminLogInController")
-@Api(value = "/admin", description = "登录控制器")
-@RequestMapping("/admin")
+@RestController
+@Api(value = "/front", description = "登录控制器")
+@RequestMapping("/front")
+@Controller("frontLogInController")
 public class LogInController {
 
     /**
@@ -67,9 +72,9 @@ public class LogInController {
             token.clear();
             throw new CustomizeException(CustomizeStatus.LOGIN_WRONG_PASSWORD, this.getClass());
         } finally {
-            //进行判断，是否为后台用户
+            //进行判断，是否为前台用户
             Long type = Long.valueOf(session.getAttribute(MagicalValue.USER_TYPE).toString());
-            if (!type.equals(SystemSelectItem.USER_TYPE_BACK_DESK)){
+            if (!type.equals(SystemSelectItem.USER_TYPE_FRONT_DESK)){
                 //跳回登录页面
                 //前端调用/logout退出
                 throw new CustomizeException(CustomizeStatus.LOGIN_LOG_IN_ERROR, this.getClass());

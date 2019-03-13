@@ -33,7 +33,7 @@ import javax.servlet.http.HttpSession;
  * @author : zhangjk
  * @since : Create in 2018-12-02
  */
-@Controller
+@Controller("adminRoleMenuController")
 @Api(value="/admin/roleMenu", description="RoleMenu 控制器")
 @RequestMapping("/admin/roleMenu")
 public class RoleMenuController extends BaseController {

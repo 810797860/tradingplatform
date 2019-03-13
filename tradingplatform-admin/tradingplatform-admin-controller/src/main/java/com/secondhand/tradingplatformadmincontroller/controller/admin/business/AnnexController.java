@@ -12,6 +12,7 @@ import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,7 +34,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author : zhangjk
  * @since : Create in 2018-12-14
  */
-@RestController
+@RestController("adminAnnexController")
 @Api(value="/admin/annex", description="Annex 控制器")
 @RequestMapping("/admin/annex")
 public class AnnexController extends BaseController {

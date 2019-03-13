@@ -33,7 +33,7 @@ import javax.servlet.http.HttpSession;
  * @author : zhangjk
  * @since : Create in 2019-02-05
  */
-@Controller
+@Controller("adminSelectItemController")
 @Api(value="/admin/selectItem", description="SelectItem 控制器")
 @RequestMapping("/admin/selectItem")
 public class SelectItemController extends BaseController {

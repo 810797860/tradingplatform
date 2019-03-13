@@ -22,7 +22,7 @@ import java.io.IOException;
  * 生成验证码
  * @author 81079
  */
-@Controller
+@Controller("adminKaptchaController")
 @Api(value = "/admin/kaptcha", description = "kaptcha 控制器")
 @RequestMapping("/admin/kaptcha")
 public class KaptchaController {

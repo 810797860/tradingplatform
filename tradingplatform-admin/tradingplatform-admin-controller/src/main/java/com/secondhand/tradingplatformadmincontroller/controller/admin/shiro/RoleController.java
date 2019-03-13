@@ -32,7 +32,7 @@ import javax.servlet.http.HttpSession;
  * @author : zhangjk
  * @since : Create in 2018-11-13
  */
-@Controller
+@Controller("adminRoleController")
 @Api(value="/admin/role", description="Role 控制器")
 @RequestMapping("/admin/role")
 public class RoleController extends BaseController {

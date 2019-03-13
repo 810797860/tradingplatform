@@ -28,7 +28,7 @@ import com.secondhand.tradingplatformadminservice.service.admin.business.SocketM
  * @author : zhangjk
  * @since : Create in 2018-12-25
  */
-@RestController
+@RestController("adminSocketMessageController")
 @Api(value="/admin/socketMessage", description="SocketMessage 控制器")
 @RequestMapping("/admin/socketMessage")
 public class SocketMessageController extends BaseController {

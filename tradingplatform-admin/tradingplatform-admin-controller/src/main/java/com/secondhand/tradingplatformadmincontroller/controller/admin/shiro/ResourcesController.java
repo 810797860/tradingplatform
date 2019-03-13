@@ -33,7 +33,7 @@ import javax.servlet.http.HttpSession;
  * @author : zhangjk
  * @since : Create in 2018-11-12
  */
-@Controller
+@Controller("adminResourcesController")
 @Api(value="/admin/resources", description="Resources 控制器")
 @RequestMapping("/admin/resources")
 public class ResourcesController extends BaseController {

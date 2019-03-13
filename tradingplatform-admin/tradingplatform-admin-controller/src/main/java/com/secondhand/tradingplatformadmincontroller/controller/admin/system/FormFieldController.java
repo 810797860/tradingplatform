@@ -36,7 +36,7 @@ import javax.servlet.http.HttpSession;
  * @author : zhangjk
  * @since : Create in 2018-11-09
  */
-@Controller
+@Controller("adminFormFieldController")
 @Api(value="/admin/formField", description="FormField 控制器")
 @RequestMapping("/admin/formField")
 public class FormFieldController extends BaseController {

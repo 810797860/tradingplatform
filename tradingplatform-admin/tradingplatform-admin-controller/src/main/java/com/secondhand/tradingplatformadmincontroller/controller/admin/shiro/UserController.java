@@ -35,7 +35,7 @@ import javax.servlet.http.HttpSession;
  * @author : zhangjk
  * @since : Create in 2018-11-13
  */
-@Controller
+@Controller("adminUserController")
 @Api(value="/admin/user", description="User 控制器")
 @RequestMapping("/admin/user")
 public class UserController extends BaseController {

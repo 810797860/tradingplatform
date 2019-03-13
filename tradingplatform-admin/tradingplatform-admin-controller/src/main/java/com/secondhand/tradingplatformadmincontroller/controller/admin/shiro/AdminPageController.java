@@ -26,7 +26,7 @@ import java.util.List;
  * @author : zhangjk
  * @since : Create in 2018-12-04
  */
-@Controller
+@Controller("adminAdminPageController")
 @Api(value = "/admin", description = "后台重要页面入口控制器")
 @RequestMapping("/admin")
 public class AdminPageController {

@@ -22,7 +22,7 @@ import com.secondhand.tradingplatformadminservice.service.admin.business.LoginLo
  * @author : zhangjk
  * @since : Create in 2018-10-28
  */
-@RestController
+@RestController("adminLoginLogController")
 @Api(value="/admin/loginLog", description="LoginLog 控制器")
 @RequestMapping("/admin/loginLog")
 public class LoginLogController extends BaseController {

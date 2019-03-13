@@ -32,7 +32,7 @@ import javax.servlet.http.HttpSession;
  * @author : zhangjk
  * @since : Create in 2018-12-06
  */
-@Controller
+@Controller("adminMenuButtonController")
 @Api(value="/admin/menuButton", description="MenuButton 控制器")
 @RequestMapping("/admin/menuButton")
 public class MenuButtonController extends BaseController {

@@ -29,7 +29,7 @@ import com.secondhand.tradingplatformadminservice.service.admin.shiro.RoleResour
  * @author : zhangjk
  * @since : Create in 2018-11-12
  */
-@Controller
+@Controller("adminRoleResourcesController")
 @Api(value="/admin/roleResources", description="RoleResources 控制器")
 @RequestMapping("/admin/roleResources")
 public class RoleResourcesController extends BaseController {

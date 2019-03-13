@@ -33,7 +33,7 @@ import javax.servlet.http.HttpSession;
  * @author : zhangjk
  * @since : Create in 2018-11-11
  */
-@Controller
+@Controller("adminFormController")
 @Api(value="/admin/form", description="Form 控制器")
 @RequestMapping("/admin/form")
 public class FormController extends BaseController {

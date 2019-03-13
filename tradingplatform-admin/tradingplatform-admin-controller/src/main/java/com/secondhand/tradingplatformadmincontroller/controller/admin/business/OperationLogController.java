@@ -22,7 +22,7 @@ import com.secondhand.tradingplatformadminservice.service.admin.business.Operati
  * @author : zhangjk
  * @since : Create in 2018-10-28
  */
-@RestController
+@RestController("adminOperationLogController")
 @Api(value="/admin/operationLog", description="OperationLog 控制器")
 @RequestMapping("/admin/operationLog")
 public class OperationLogController extends BaseController {

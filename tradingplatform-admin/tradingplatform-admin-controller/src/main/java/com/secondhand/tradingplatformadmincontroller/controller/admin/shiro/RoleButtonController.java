@@ -29,7 +29,7 @@ import com.secondhand.tradingplatformadminservice.service.admin.shiro.RoleButton
  * @author : zhangjk
  * @since : Create in 2018-12-04
  */
-@Controller
+@Controller("adminRoleButtonController")
 @Api(value="/admin/roleButton", description="RoleButton 控制器")
 @RequestMapping("/admin/roleButton")
 public class RoleButtonController extends BaseController {
