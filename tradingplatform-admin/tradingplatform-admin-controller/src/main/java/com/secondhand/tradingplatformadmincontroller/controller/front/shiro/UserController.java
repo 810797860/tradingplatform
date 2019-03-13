@@ -1,14 +1,13 @@
-package com.secondhand.tradingplatformadmincontroller.controller.admin.shiro;
+package com.secondhand.tradingplatformadmincontroller.controller.front.shiro;
 
 import com.baomidou.mybatisplus.plugins.Page;
-import com.secondhand.tradingplatformadminentity.entity.admin.shiro.Button;
 import com.secondhand.tradingplatformadminentity.entity.admin.shiro.User;
-import com.secondhand.tradingplatformadminservice.service.admin.shiro.MenuButtonService;
 import com.secondhand.tradingplatformadminservice.service.admin.shiro.UserService;
+import com.secondhand.tradingplatformcommon.base.BaseController.BaseController;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
 import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
-import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeStatus;
 import com.secondhand.tradingplatformcommon.pojo.SystemSelectItem;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -26,44 +25,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.secondhand.tradingplatformcommon.base.BaseController.BaseController;
-
-import javax.servlet.http.HttpSession;
-
 /**
  * @description : User 控制器
  * @author : zhangjk
  * @since : Create in 2018-11-13
  */
-@Controller("adminUserController")
-@Api(value="/admin/user", description="User 控制器")
-@RequestMapping("/admin/user")
+@Controller("frontUserController")
+@Api(value="/front/user", description="User 控制器")
+@RequestMapping("/front/user")
 public class UserController extends BaseController {
 
     @Autowired
     private UserService userService;
-    
-    @Autowired
-    private MenuButtonService menuButtonService;
-
-    /**
-     * @description : 跳转到列表页面
-     * @author : zhangjk
-     * @since : Create in 2018-11-11
-     */
-    @GetMapping(value = "/tabulation.html")
-    @ApiOperation(value = "/tabulation.html", notes = "跳转到user的列表页面")
-    public String toUserList(@ApiParam(name = "model", value = "Model") Model model,
-                             @ApiParam(name = "menuId", value = "菜单id") Long menuId,
-                             @ApiParam(name = "session", value = "客户端会话") HttpSession session) {
-
-        Long roleId = Long.valueOf(session.getAttribute(MagicalValue.ROLE_SESSION_ID).toString());
-        //根据菜单id找按钮
-        List<Button> buttons = menuButtonService.mySelectListWithMenuId(menuId, roleId);
-        //注入该表单的按钮
-        model.addAttribute("buttons", buttons);
-        return "system/user/tabulation";
-    }
 
     /**
      * @description : 跳转到修改或新增user的页面
@@ -85,7 +58,7 @@ public class UserController extends BaseController {
         model.addAttribute("user", user);
         return "system/user/modify";
     }
-    
+
     /**
      * @description : 获取分页列表
      * @author : zhangjk
@@ -145,7 +118,7 @@ public class UserController extends BaseController {
             JsonResult<User> resJson = new JsonResult<>();
             try{
                 //检查是否具有权限
-                subject.checkPermission("/admin/user/delete");
+                subject.checkPermission("/front/user/delete");
                 userService.myFakeDeleteById(userId);
                 resJson.setSuccess(true);
             }catch (UnauthorizedException e){
@@ -168,7 +141,7 @@ public class UserController extends BaseController {
             JsonResult<User> resJson = new JsonResult<>();
             try{
                 //检查是否具有权限
-                subject.checkPermission("/admin/user/batch_delete");
+                subject.checkPermission("/front/user/batch_delete");
                 resJson.setSuccess(userService.myFakeBatchDelete(userIds));
             }catch(UnauthorizedException e){
                 resJson.setSuccess(false);
@@ -186,12 +159,13 @@ public class UserController extends BaseController {
     @ApiOperation(value = "/create_update", notes = "新增或修改user")
     @ResponseBody
     public JsonResult<User> userCreateUpdate(@ApiParam(name = "User", value = "User实体类") @RequestBody User user){
-            Subject subject = SecurityUtils.getSubject();
             JsonResult<User> resJson = new JsonResult<>();
             try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/user/create_update");
-                user = userService.myUserCreateUpdate(user, SystemSelectItem.USER_TYPE_BACK_DESK);
+                //只允许注册，不允许修改
+                if (user.getId() != null){
+                    throw new CustomizeException(CustomizeStatus.LOGIN_CAN_ONLY_REGISTER, this.getClass());
+                }
+                user = userService.myUserCreateUpdate(user, SystemSelectItem.USER_TYPE_FRONT_DESK);
                 resJson.setData(user);
                 resJson.setSuccess(true);
             }catch(UnauthorizedException e){

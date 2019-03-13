@@ -45,7 +45,7 @@ public interface UserService extends BaseService<User> {
          * @param user
          * @return
          */
-        User myUserCreateUpdate(User user) throws CustomizeException;
+        User myUserCreateUpdate(User user, Long userType) throws CustomizeException;
 
         /**
          * 根据account查找user

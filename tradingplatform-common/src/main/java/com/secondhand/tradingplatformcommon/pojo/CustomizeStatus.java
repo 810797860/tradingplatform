@@ -14,6 +14,7 @@ public enum CustomizeStatus {
     LOGIN_WRONG_PASSWORD(406, "密码错误或账号错误"),
     LOGIN_LOG_IN_ERROR(407, "登录出错"),
     LOGIN_USER_IS_LOCKED(408, "用户已经被锁定不能登录，请与管理员联系！"),
+    LOGIN_CAN_ONLY_REGISTER(409, "只能注册新用户，不能修改用户信息"),
 
 
     MD5_VALUE_IS_EMPTY(601, "Md5值为空"),

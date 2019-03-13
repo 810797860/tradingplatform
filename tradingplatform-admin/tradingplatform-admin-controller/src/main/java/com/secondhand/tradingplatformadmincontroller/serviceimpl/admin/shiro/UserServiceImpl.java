@@ -73,7 +73,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper, User> implement
     @Override
     @Transactional(rollbackFor = Exception.class)
     @CacheEvict(allEntries = true)
-    public User myUserCreateUpdate(User user) throws CustomizeException {
+    public User myUserCreateUpdate(User user, Long userType) throws CustomizeException {
         Long userId = user.getId();
         //加密
         //通用，有密码时统一加密
@@ -84,7 +84,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper, User> implement
         if (userId == null){
             //判断该账号名是否被人注册了
             User judgeUser = new User();
-            judgeUser.setType(SystemSelectItem.USER_TYPE_BACK_DESK);
+            judgeUser.setType(userType);
             judgeUser.setDeleted(false);
             judgeUser.setAccount(user.getAccount());
             judgeUser = userMapper.selectOne(judgeUser);
@@ -93,7 +93,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper, User> implement
             }
             user.setUuid(ToolUtil.getUUID());
             //设置为后台用户的类型
-            user.setType(SystemSelectItem.USER_TYPE_BACK_DESK);
+            user.setType(userType);
             userMapper.insert(user);
 
             //为用户配上默认的角色

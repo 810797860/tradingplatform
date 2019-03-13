@@ -2,7 +2,7 @@
 package com.secondhand.tradingplat${table.entityPath}admincontroller.controller;
 
 import com.secondhand.tradingplatformadminentity.entity.admin.shiro.Button;
-import com.secondhand.tradingplatformadminservice.service.admin.shiro.MenuButtonService;
+##import com.secondhand.tradingplatformadminservice.service.admin.shiro.MenuButtonService;
 ##import com.mpdemo.util.jsonResult;
 ##import com.mpdemo.util.TableJson;
 import io.swagger.annotations.Api;
@@ -41,10 +41,10 @@ public class ${table.controllerName} {
     @Autowired
     private ${table.serviceName} ${table.entityPath}Service;
 
-    @Autowired
-    private MenuButtonService menuButtonService;
+#*    @Autowired
+    private MenuButtonService menuButtonService;*#
 
-    /**
+#*    /**
      * @description : 跳转到列表页面
      * @author : ${author}
      * @since : Create in ${date}
@@ -61,7 +61,7 @@ public class ${table.controllerName} {
         //注入该表单的按钮
         model.addAttribute("buttons", buttons);
         return "system/${table.entityPath}/tabulation";
-    }
+    }*#
 
     /**
      * @description : 跳转到修改或新增${table.entityPath}的页面
