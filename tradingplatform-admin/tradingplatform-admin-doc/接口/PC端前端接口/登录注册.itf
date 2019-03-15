@@ -1,0 +1,81 @@
+{
+    name:用户验证码
+    url:http://120.79.51.168:8006/admin/kaptcha/default
+    contentType:application/json
+    type:get
+    //传参例子
+    post-example:{
+
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+
+
+
+{
+    name:用户登录
+    url:http://120.79.51.168/:8006/front/login
+    contentType:application/json
+    type:post
+    //传参例子
+    post-example:{
+        {
+		"userName": "test123",
+		"password": "admin",
+		"captcha": "ng8n"
+	}
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+
+
+{
+    name:用户注册
+    url:http://120.79.51.168/:8006/front/user/create_update
+    contentType:application/json
+    type:post
+    //传参例子
+    post-example:{
+        {
+            "account": "t3",//登录用的账号名
+            "password": "123456",//密码
+            "userName": "t2"//昵称
+        }
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
