@@ -149,6 +149,7 @@ public class MenuButtonController extends BaseController {
     public JsonResult<Map<String, Object>> getMenuButtonByIdForMap( @ApiParam(name = "id", value = "menuButtonId") @PathVariable("menuButtonId") Long menuButtonId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
             Map<String, Object> menuButton = menuButtonService.mySelectMapById(menuButtonId);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setData(menuButton);
             resJson.setSuccess(true);
             return resJson;
@@ -169,8 +170,10 @@ public class MenuButtonController extends BaseController {
             //检查是否具有权限
             subject.checkPermission("/admin/menuButton/delete");
             menuButtonService.myFakeDeleteByMenuButton(menuButton);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setSuccess(true);
         }catch (UnauthorizedException e){
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
             resJson.setSuccess(false);
             resJson.setMessage(e.getMessage());
         }
@@ -195,7 +198,9 @@ public class MenuButtonController extends BaseController {
             List<Integer> buttonIds = (List<Integer>) parameter.get("buttonIds");
             //这里不判空了，让前端判
             resJson.setSuccess(menuButtonService.myFakeBatchDelete(menuId, buttonIds));
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
         }catch(UnauthorizedException e){
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
             resJson.setSuccess(false);
             resJson.setMessage(e.getMessage());
         }
@@ -218,8 +223,10 @@ public class MenuButtonController extends BaseController {
             //检查是否具有权限
             subject.checkPermission("/admin/menuButton/create_update");
             menuButtonService.myMenuButtonCreateUpdate(buttonIds, menuId);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setSuccess(true);
         }catch(UnauthorizedException e){
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
             resJson.setSuccess(false);
             resJson.setMessage(e.getMessage());
         }
@@ -244,7 +251,9 @@ public class MenuButtonController extends BaseController {
             List<Integer> buttonIds = (List<Integer>) parameter.get("buttonIds");
             //这里不判空了，让前端判
             resJson.setSuccess(menuButtonService.myMenuButtonBatchCreate(menuId, buttonIds));
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
         }catch(UnauthorizedException e){
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
             resJson.setSuccess(false);
             resJson.setMessage(e.getMessage());
         }

@@ -77,7 +77,15 @@ public class MagicalValue {
 
     public static String STRING_OF_CAPTCHA = "captcha";
 
-    public static String STRING_OF_MENUID = "menuId";
+    public static String STRING_OF_MENU_ID = "menuId";
 
     public static Long DEFAULT_ROLE_ID = 2L;
+
+    public static Long FRONT_END_ROLE_ID = 4L;
+
+    public static int CODE_OF_SUCCESS = 200;
+
+    public static int CODE_OF_UNAUTHORIZED_EXCEPTION = 511;
+
+    public static int CODE_OF_CUSTOMIZE_EXCEPTION = 512;
 }

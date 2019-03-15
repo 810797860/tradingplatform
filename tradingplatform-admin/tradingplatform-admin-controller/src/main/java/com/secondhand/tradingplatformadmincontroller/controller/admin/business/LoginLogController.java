@@ -3,6 +3,7 @@ package com.secondhand.tradingplatformadmincontroller.controller.admin.business;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
+import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -65,6 +66,7 @@ public class LoginLogController extends BaseController {
     public JsonResult<LoginLog> getLoginLogById( @ApiParam(name = "id",value = "loginLogId") @PathVariable("loginLogId") Long loginLogId) {
             JsonResult<LoginLog> resJson = new JsonResult<>();
             LoginLog loginLog = loginLogService.selectById(loginLogId);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setData(loginLog);
             resJson.setSuccess(true);
             return resJson;
@@ -80,6 +82,7 @@ public class LoginLogController extends BaseController {
     public JsonResult<Map<String, Object>> getLoginLogByIdForMap( @ApiParam(name = "id", value = "loginLogId") @PathVariable("loginLogId") Long loginLogId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
             Map<String, Object> loginLog = loginLogService.selectMapById(loginLogId);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setData(loginLog);
             resJson.setSuccess(true);
             return resJson;
@@ -95,6 +98,7 @@ public class LoginLogController extends BaseController {
     public JsonResult<LoginLog> fakeDeleteById(@ApiParam(name = "id", value = "loginLogId") @RequestBody Long loginLogId){
             JsonResult<LoginLog> resJson = new JsonResult<>();
             resJson.setSuccess(loginLogService.fakeDeleteById(loginLogId));
+            resJson.setCode(resJson.isSuccess() == true ? MagicalValue.CODE_OF_SUCCESS : MagicalValue.CODE_OF_CUSTOMIZE_EXCEPTION);
             return resJson;
     }
 
@@ -108,6 +112,7 @@ public class LoginLogController extends BaseController {
     public JsonResult<LoginLog> fakeBatchDelete(@ApiParam(name = "ids", value = "loginLogIds") @RequestBody List<Long> loginLogIds){
             JsonResult<LoginLog> resJson = new JsonResult<>();
             resJson.setSuccess(loginLogService.fakeBatchDelete(loginLogIds));
+            resJson.setCode(resJson.isSuccess() == true ? MagicalValue.CODE_OF_SUCCESS : MagicalValue.CODE_OF_CUSTOMIZE_EXCEPTION);
             return resJson;
     }
 
@@ -121,6 +126,7 @@ public class LoginLogController extends BaseController {
     public JsonResult<LoginLog> loginLogCreateUpdate(@ApiParam(name = "LoginLog", value = "LoginLog实体类") @RequestBody LoginLog loginLog){
             loginLog = loginLogService.loginLogCreateUpdate(loginLog);
             JsonResult<LoginLog> resJson = new JsonResult<>();
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setData(loginLog);
             resJson.setSuccess(true);
             return resJson;

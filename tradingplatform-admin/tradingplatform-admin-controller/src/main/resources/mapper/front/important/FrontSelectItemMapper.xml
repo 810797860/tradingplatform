@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.secondhand.tradingplatformadminmapper.mapper.front.important.FrontSelectItemMapper">
+
+    <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
+
+		<!-- 通用查询映射结果 -->
+			<resultMap id="frontSelectItemMap" type="com.secondhand.tradingplatformadminentity.entity.front.important.FrontSelectItem" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
+
+				<result column="sort" property="sort" jdbcType="INTEGER" />
+				<result column="item_value" property="itemValue" jdbcType="VARCHAR" />
+				<result column="pid" property="pid" jdbcType="INTEGER" />
+				<result column="title" property="title" jdbcType="VARCHAR" />
+
+		</resultMap>
+
+        <!-- 通用查询映射结果 -->
+		<resultMap id="frontSelectItemMapSimple" type="com.secondhand.tradingplatformadminentity.entity.front.important.FrontSelectItem">
+
+                        <result column="sort" property="sort" jdbcType="INTEGER" />
+                        <result column="item_value" property="itemValue" jdbcType="VARCHAR" />
+                        <result column="pid" property="pid" jdbcType="INTEGER" />
+                        <result column="title" property="title" jdbcType="VARCHAR" />
+
+        </resultMap>
+
+    <select id="selectMapById" resultType="java.util.Map">
+        select * from c_business_front_select_item where id = #{frontSelectItemId} and deleted = false
+    </select>
+
+    <select id="myGetItemsByPid" resultMap="frontSelectItemMap">
+        select * from c_business_front_select_item where pid = #{pid} and deleted = false
+    </select>
+
+    <select id="myGetAllItemsByPid" resultMap="frontSelectItemMap">
+        SELECT * FROM c_business_front_select_item cbfsi WHERE FIND_IN_SET( cbfsi.id, (
+        SELECT SUBSTRING( @pid FROM LOCATE(',', @pid) + 1 FOR LENGTH(@pid) ) AS pid FROM (
+        SELECT u0.id, u0.pid, IF ( FIND_IN_SET(u0.pid ,@pid), @count := @count + 1, 0 ) AS total_childern,
+        IF ( FIND_IN_SET(u0.pid ,@pid), @pid := CONCAT(@pid, ',', u0.id), 0 ) AS childern FROM (
+        SELECT * FROM c_business_front_select_item fsi WHERE fsi.deleted = FALSE ORDER BY fsi.pid, fsi.id ) u0,
+        ( SELECT @pid := #{pid}) u1,
+        ( SELECT @count := 1) u2 ) u3 LIMIT 1 ) ) ORDER BY cbfsi.sort DESC
+    </select>
+
+</mapper>

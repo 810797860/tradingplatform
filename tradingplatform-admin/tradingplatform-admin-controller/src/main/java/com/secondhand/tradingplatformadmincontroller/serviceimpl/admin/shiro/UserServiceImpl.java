@@ -96,9 +96,9 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper, User> implement
             user.setType(userType);
             userMapper.insert(user);
 
-            //为用户配上默认的角色
+            //为用户配上前端的角色
             UserRole userRole = new UserRole();
-            userRole.setRoleId(MagicalValue.DEFAULT_ROLE_ID);
+            userRole.setRoleId(MagicalValue.FRONT_END_ROLE_ID);
             userRole.setUserId(user.getId());
             userRole.setUuid(ToolUtil.getUUID());
             userRoleService.myInsert(userRole);

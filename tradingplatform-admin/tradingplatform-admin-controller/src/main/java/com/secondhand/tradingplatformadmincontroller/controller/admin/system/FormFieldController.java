@@ -141,6 +141,7 @@ public class FormFieldController extends BaseController {
     public JsonResult<Map<String, Object>> getFormFieldByIdForMap( @ApiParam(name = "id", value = "formFieldId") @PathVariable("formFieldId") Long formFieldId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
             Map<String, Object> formField = formFieldService.mySelectMapById(formFieldId);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setData(formField);
             resJson.setSuccess(true);
             return resJson;
@@ -161,8 +162,10 @@ public class FormFieldController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/formField/delete");
                 formFieldService.myFakeDeleteById(formFieldId);
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setSuccess(true);
             }catch (UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -184,7 +187,9 @@ public class FormFieldController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/formField/batch_delete");
                 resJson.setSuccess(formFieldService.myFakeBatchDelete(formFieldIds));
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -206,9 +211,11 @@ public class FormFieldController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/formField/create_update");
                 formField = formFieldService.myFormFieldCreateUpdate(formField);
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setData(formField);
                 resJson.setSuccess(true);
             }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -227,6 +234,7 @@ public class FormFieldController extends BaseController {
         //因为是开发后台时方便自己用的，所以就不检测是否有权限了
         JsonResult<FormField> resJson = new JsonResult<>();
         resJson.setSuccess(formFieldService.formFieldUpdateByFormId(formId));
+        resJson.setCode(resJson.isSuccess() == true ? MagicalValue.CODE_OF_SUCCESS : MagicalValue.CODE_OF_CUSTOMIZE_EXCEPTION);
         return resJson;
     }
 }

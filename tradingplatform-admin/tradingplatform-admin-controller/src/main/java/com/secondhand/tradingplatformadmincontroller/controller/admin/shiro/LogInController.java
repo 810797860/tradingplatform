@@ -56,9 +56,9 @@ public class LogInController {
             subject.login(token);
             //返回登录成功的结果
             JsonResult successJsonResult = new JsonResult();
+            successJsonResult.setCode(MagicalValue.CODE_OF_SUCCESS);
             successJsonResult.setMessage("登录成功");
             successJsonResult.setSuccess(true);
-            successJsonResult.setCode(200);
             return successJsonResult;
         }catch (LockedAccountException lae) {
             token.clear();

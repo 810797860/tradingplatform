@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.admin.shiro.Resources;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
+import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -143,6 +144,7 @@ public class RoleResourcesController extends BaseController {
     public JsonResult<Map<String, Object>> getRoleResourcesByIdForMap( @ApiParam(name = "id", value = "roleResourcesId") @PathVariable("roleResourcesId") Long roleResourcesId){
         JsonResult<Map<String, Object>> resJson = new JsonResult<>();
         Map<String, Object> roleResources = roleResourcesService.mySelectMapById(roleResourcesId);
+        resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
         resJson.setData(roleResources);
         resJson.setSuccess(true);
         return resJson;
@@ -163,8 +165,10 @@ public class RoleResourcesController extends BaseController {
             //检查是否具有权限
             subject.checkPermission("/admin/roleResources/delete");
             roleResourcesService.myFakeDeleteByRoleResources(roleResources);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setSuccess(true);
         }catch (UnauthorizedException e){
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
             resJson.setSuccess(false);
             resJson.setMessage(e.getMessage());
         }
@@ -189,7 +193,9 @@ public class RoleResourcesController extends BaseController {
             List<Integer> resourcesIds = (List<Integer>) parameter.get("resourcesIds");
             //这里不判空了，让前端判
             resJson.setSuccess(roleResourcesService.myFakeBatchDelete(roleId, resourcesIds));
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
         }catch(UnauthorizedException e){
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
             resJson.setSuccess(false);
             resJson.setMessage(e.getMessage());
         }
@@ -212,8 +218,10 @@ public class RoleResourcesController extends BaseController {
             //检查是否具有权限
             subject.checkPermission("/admin/roleResources/create_update");
             roleResourcesService.myUpdateRoleResources(roleId, resourcesIds);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setSuccess(true);
         }catch(UnauthorizedException e){
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
             resJson.setSuccess(false);
             resJson.setMessage(e.getMessage());
         }
@@ -238,7 +246,9 @@ public class RoleResourcesController extends BaseController {
             List<Integer> resourcesIds = (List<Integer>) parameter.get("resourcesIds");
             //这里不判空了，让前端判
             resJson.setSuccess(roleResourcesService.myRoleResourcesBatchCreate(roleId, resourcesIds));
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
         }catch(UnauthorizedException e){
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
             resJson.setSuccess(false);
             resJson.setMessage(e.getMessage());
         }

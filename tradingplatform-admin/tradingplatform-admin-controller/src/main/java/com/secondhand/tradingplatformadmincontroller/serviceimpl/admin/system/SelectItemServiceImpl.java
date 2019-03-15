@@ -215,7 +215,7 @@ public class SelectItemServiceImpl extends BaseServiceImpl<SelectItemMapper, Sel
     }
 
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "'myGetAllItemsByPid' + #p0")
     public List<SelectItem> myGetAllItemsByPid(Long pid) {
         return selectItemMapper.myGetAllItemsByPid(pid);
     }

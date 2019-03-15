@@ -3,6 +3,7 @@ package com.secondhand.tradingplatformadmincontroller.controller.admin.business;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
+import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -107,6 +108,7 @@ public class SocketMessageController extends BaseController {
     public JsonResult<Map<String, Object>> getSocketMessageByIdForMap( @ApiParam(name = "id", value = "socketMessageId") @PathVariable("socketMessageId") Long socketMessageId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
             Map<String, Object> socketMessage = socketMessageService.mySelectMapById(socketMessageId);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setData(socketMessage);
             resJson.setSuccess(true);
             return resJson;
@@ -126,8 +128,10 @@ public class SocketMessageController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/socketMessage/delete");
                 socketMessageService.myFakeDeleteById(socketMessageId);
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setSuccess(true);
             }catch (UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -148,7 +152,9 @@ public class SocketMessageController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/socketMessage/batch_delete");
                 resJson.setSuccess(socketMessageService.myFakeBatchDelete(socketMessageIds));
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -169,9 +175,11 @@ public class SocketMessageController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/socketMessage/create_update");
                 socketMessage = socketMessageService.mySocketMessageCreateUpdate(socketMessage);
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setData(socketMessage);
                 resJson.setSuccess(true);
             }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -191,6 +199,7 @@ public class SocketMessageController extends BaseController {
         // 后台发送信息： messagingTemplate.convertAndSend("/topic/public", chatMessage); (chatMessage是pojo)
         // 详情去看：spring-boot-websocket-chat-demo
         JsonResult<SocketMessage> resJson = new JsonResult<>();
+        resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
         resJson.setData(socketMessage);
         resJson.setSuccess(true);
         return resJson;

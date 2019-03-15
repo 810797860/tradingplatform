@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
 import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
+import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -12,7 +13,6 @@ import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -113,6 +113,7 @@ public class AnnexController extends BaseController {
     public JsonResult<Map<String, Object>> getAnnexByIdForMap( @ApiParam(name = "id", value = "annexId") @PathVariable("annexId") Long annexId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
             Map<String, Object> annex = annexService.mySelectMapById(annexId);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setData(annex);
             resJson.setSuccess(true);
             return resJson;
@@ -132,8 +133,10 @@ public class AnnexController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/annex/delete");
                 annexService.myFakeDeleteById(annexId);
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setSuccess(true);
             }catch (UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -154,7 +157,9 @@ public class AnnexController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/annex/batch_delete");
                 resJson.setSuccess(annexService.myFakeBatchDelete(annexIds));
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -175,9 +180,11 @@ public class AnnexController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/annex/create_update");
                 annex = annexService.myAnnexCreateUpdate(annex);
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setData(annex);
                 resJson.setSuccess(true);
             }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -201,6 +208,7 @@ public class AnnexController extends BaseController {
 
         JsonResult<Annex> resJson = new JsonResult<>();
         if (name == null){
+            resJson.setCode(MagicalValue.CODE_OF_CUSTOMIZE_EXCEPTION);
             resJson.setSuccess(false);
             resJson.setMessage("异常信息：附件标题名不能为空");
             return resJson;
@@ -208,8 +216,10 @@ public class AnnexController extends BaseController {
 
         try {
             resJson.setData(annexService.myAnnexUpload(resourceType, description, md5value, chunks, chunk, name, file));
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setSuccess(true);
         } catch (CustomizeException e){
+            resJson.setCode(MagicalValue.CODE_OF_CUSTOMIZE_EXCEPTION);
             resJson.setSuccess(false);
             resJson.setMessage(e.getMessage());
         }
@@ -227,6 +237,7 @@ public class AnnexController extends BaseController {
 
         JsonResult<Annex> resJson = new JsonResult<>();
         Annex annex = annexService.myGetAnnexExistsByMd5(md5value);
+        resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
         resJson.setData(annex);
         resJson.setSuccess(true);
         return resJson;

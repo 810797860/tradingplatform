@@ -122,6 +122,7 @@ public class ResourcesController extends BaseController {
                                                  @ApiParam(name = "roleId", value = "菜单id") @PathVariable(name = "roleId", required = false) Long roleId) {
         JsonResult<List<Resources>> resJson = new JsonResult<>();
         List<Resources> resourcesList = resourcesService.mySelectListWithParam(resources, roleId);
+        resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
         resJson.setData(resourcesList);
         resJson.setSuccess(true);
         return resJson;
@@ -138,6 +139,7 @@ public class ResourcesController extends BaseController {
     public JsonResult<Map<String, Object>> getResourcesByIdForMap( @ApiParam(name = "id", value = "resourcesId") @PathVariable("resourcesId") Long resourcesId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
             Map<String, Object> resources = resourcesService.mySelectMapById(resourcesId);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setData(resources);
             resJson.setSuccess(true);
             return resJson;
@@ -158,8 +160,10 @@ public class ResourcesController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/resources/delete");
                 resourcesService.myFakeDeleteById(resourcesId);
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setSuccess(true);
             }catch (UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -181,7 +185,9 @@ public class ResourcesController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/resources/batch_delete");
                 resJson.setSuccess(resourcesService.myFakeBatchDelete(resourcesIds));
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -203,9 +209,11 @@ public class ResourcesController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/resources/create_update");
                 resources = resourcesService.myResourcesCreateUpdate(resources);
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setData(resources);
                 resJson.setSuccess(true);
             }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }

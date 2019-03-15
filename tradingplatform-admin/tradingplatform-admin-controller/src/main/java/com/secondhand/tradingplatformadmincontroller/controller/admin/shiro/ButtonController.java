@@ -121,6 +121,7 @@ public class ButtonController extends BaseController {
                                                                   @ApiParam(name = "menuId", value = "菜单id") @PathVariable(name = "menuId", required = false) Long menuId) {
         JsonResult<List<Button>> resJson = new JsonResult<>();
         List<Button> buttonList = buttonService.mySelectListWithParamWithMenuId(button, menuId);
+        resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
         resJson.setData(buttonList);
         resJson.setSuccess(true);
         return resJson;
@@ -138,6 +139,7 @@ public class ButtonController extends BaseController {
                                                             @ApiParam(name = "roleId", value = "菜单id") @PathVariable(name = "roleId", required = false) Long roleId) {
         JsonResult<List<Button>> resJson = new JsonResult<>();
         List<Button> buttonList = buttonService.mySelectListWithParamWithRoleId(button, roleId);
+        resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
         resJson.setData(buttonList);
         resJson.setSuccess(true);
         return resJson;
@@ -154,6 +156,7 @@ public class ButtonController extends BaseController {
     public JsonResult<Map<String, Object>> getButtonByIdForMap( @ApiParam(name = "id", value = "buttonId") @PathVariable("buttonId") Long buttonId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
             Map<String, Object> button = buttonService.mySelectMapById(buttonId);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setData(button);
             resJson.setSuccess(true);
             return resJson;
@@ -174,8 +177,10 @@ public class ButtonController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/button/delete");
                 buttonService.myFakeDeleteById(buttonId);
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setSuccess(true);
             }catch (UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -197,7 +202,9 @@ public class ButtonController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/button/batch_delete");
                 resJson.setSuccess(buttonService.myFakeBatchDelete(buttonIds));
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -219,9 +226,11 @@ public class ButtonController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/button/create_update");
                 button = buttonService.myButtonCreateUpdate(button);
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setData(button);
                 resJson.setSuccess(true);
             }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }

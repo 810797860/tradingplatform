@@ -122,6 +122,7 @@ public class RoleController extends BaseController {
     public JsonResult<Map<String, Object>> getRoleByIdForMap( @ApiParam(name = "id", value = "roleId") @PathVariable("roleId") Long roleId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
             Map<String, Object> role = roleService.mySelectMapById(roleId);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setData(role);
             resJson.setSuccess(true);
             return resJson;
@@ -142,8 +143,10 @@ public class RoleController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/role/delete");
                 roleService.myFakeDeleteById(roleId);
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setSuccess(true);
             }catch (UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -165,7 +168,9 @@ public class RoleController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/role/batch_delete");
                 resJson.setSuccess(roleService.myFakeBatchDelete(roleIds));
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -187,9 +192,11 @@ public class RoleController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/role/create_update");
                 role = roleService.myRoleCreateUpdate(role);
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setData(role);
                 resJson.setSuccess(true);
             }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -212,9 +219,11 @@ public class RoleController extends BaseController {
             subject.checkPermission("/admin/role/create_update");
             role.setId(roleId);
             role = roleService.myRoleCreateUpdate(role);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setData(role);
             resJson.setSuccess(true);
         }catch(UnauthorizedException e){
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
             resJson.setSuccess(false);
             resJson.setMessage(e.getMessage());
         }

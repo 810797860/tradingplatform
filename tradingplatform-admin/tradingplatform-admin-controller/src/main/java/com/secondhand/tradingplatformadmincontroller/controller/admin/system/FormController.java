@@ -187,10 +187,11 @@ public class FormController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/form/create_update");
                 form = formService.myFormCreateUpdate(form);
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setData(form);
-                resJson.setCode(200);
                 resJson.setSuccess(true);
             }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -207,6 +208,7 @@ public class FormController extends BaseController {
     public JsonResult<Form> formCreateUpdateWithResources(@ApiParam(name = "Form", value = "Form实体类") @RequestBody Form form){
         JsonResult<Form> resJson = new JsonResult<>();
         form = formService.myFormCreateUpdateWithResources(form);
+        resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
         resJson.setData(form);
         resJson.setSuccess(true);
         return resJson;

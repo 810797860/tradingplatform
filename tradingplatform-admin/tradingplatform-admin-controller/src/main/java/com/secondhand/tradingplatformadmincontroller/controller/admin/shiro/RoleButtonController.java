@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.admin.shiro.Button;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
+import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -142,6 +143,7 @@ public class RoleButtonController extends BaseController {
     public JsonResult<Map<String, Object>> getRoleButtonByIdForMap( @ApiParam(name = "id", value = "roleButtonId") @PathVariable("roleButtonId") Long roleButtonId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
             Map<String, Object> roleButton = roleButtonService.mySelectMapById(roleButtonId);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setData(roleButton);
             resJson.setSuccess(true);
             return resJson;
@@ -162,8 +164,10 @@ public class RoleButtonController extends BaseController {
             //检查是否具有权限
             subject.checkPermission("/admin/roleButton/delete");
             roleButtonService.myFakeDeleteByRoleButton(roleButton);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setSuccess(true);
         }catch (UnauthorizedException e){
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
             resJson.setSuccess(false);
             resJson.setMessage(e.getMessage());
         }
@@ -188,7 +192,9 @@ public class RoleButtonController extends BaseController {
             List<Integer> buttonIds = (List<Integer>) parameter.get("buttonIds");
             //这里不判空了，让前端判
             resJson.setSuccess(roleButtonService.myFakeBatchDelete(roleId, buttonIds));
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
         }catch(UnauthorizedException e){
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
             resJson.setSuccess(false);
             resJson.setMessage(e.getMessage());
         }
@@ -211,8 +217,10 @@ public class RoleButtonController extends BaseController {
             //检查是否具有权限
             subject.checkPermission("/admin/roleButton/create_update");
             roleButtonService.myUpdateRoleButton(roleId, buttonIds);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setSuccess(true);
         }catch(UnauthorizedException e){
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
             resJson.setSuccess(false);
             resJson.setMessage(e.getMessage());
         }
@@ -237,7 +245,9 @@ public class RoleButtonController extends BaseController {
             List<Integer> buttonIds = (List<Integer>) parameter.get("buttonIds");
             //这里不判空了，让前端判
             resJson.setSuccess(roleButtonService.myRoleButtonBatchCreate(roleId, buttonIds));
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
         }catch(UnauthorizedException e){
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
             resJson.setSuccess(false);
             resJson.setMessage(e.getMessage());
         }

@@ -156,6 +156,7 @@ public class RoleMenuController extends BaseController {
     public JsonResult<Map<String, Object>> getRoleMenuByIdForMap( @ApiParam(name = "id", value = "roleMenuId") @PathVariable("roleMenuId") Long roleMenuId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
             Map<String, Object> roleMenu = roleMenuService.mySelectMapById(roleMenuId);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setData(roleMenu);
             resJson.setSuccess(true);
             return resJson;
@@ -180,8 +181,10 @@ public class RoleMenuController extends BaseController {
                 roleMenu.setMenuId(roleMenuId);
                 roleMenu.setRoleId(roleId);
                 roleMenuService.myFakeDeleteByRoleMenu(roleMenu);
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setSuccess(true);
             }catch (UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -206,7 +209,9 @@ public class RoleMenuController extends BaseController {
             List<Integer> menuIds = (List<Integer>) parameter.get("menuIds");
             //这里不判空了，让前端判
             resJson.setSuccess(roleMenuService.myFakeBatchDelete(roleId, menuIds));
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
         }catch(UnauthorizedException e){
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
             resJson.setSuccess(false);
             resJson.setMessage(e.getMessage());
         }
@@ -229,8 +234,10 @@ public class RoleMenuController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/roleMenu/create_update");
                 roleMenuService.myUpdateRoleMenu(roleId, menuIds);
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setSuccess(true);
             }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -255,7 +262,9 @@ public class RoleMenuController extends BaseController {
             List<Integer> menuIds = (List<Integer>) parameter.get("menuIds");
             //这里不判空了，让前端判
             resJson.setSuccess(roleMenuService.myRoleMenuBatchCreate(roleId, menuIds));
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
         }catch(UnauthorizedException e){
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
             resJson.setSuccess(false);
             resJson.setMessage(e.getMessage());
         }

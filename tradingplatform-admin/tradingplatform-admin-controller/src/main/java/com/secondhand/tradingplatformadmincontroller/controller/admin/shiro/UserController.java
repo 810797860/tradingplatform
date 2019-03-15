@@ -16,6 +16,7 @@ import io.swagger.annotations.ApiParam;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
+import org.omg.CORBA.MARSHAL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -127,6 +128,7 @@ public class UserController extends BaseController {
     public JsonResult<Map<String, Object>> getUserByIdForMap( @ApiParam(name = "id", value = "userId") @PathVariable("userId") Long userId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
             Map<String, Object> user = userService.mySelectMapById(userId);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setData(user);
             resJson.setSuccess(true);
             return resJson;
@@ -147,8 +149,10 @@ public class UserController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/user/delete");
                 userService.myFakeDeleteById(userId);
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setSuccess(true);
             }catch (UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -170,7 +174,9 @@ public class UserController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/user/batch_delete");
                 resJson.setSuccess(userService.myFakeBatchDelete(userIds));
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -192,12 +198,18 @@ public class UserController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/user/create_update");
                 user = userService.myUserCreateUpdate(user, SystemSelectItem.USER_TYPE_BACK_DESK);
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setData(user);
                 resJson.setSuccess(true);
             }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
+                e.printStackTrace();
             } catch (CustomizeException e) {
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
+                resJson.setSuccess(false);
+                resJson.setMessage(e.getMessage());
                 e.printStackTrace();
             }
         return resJson;

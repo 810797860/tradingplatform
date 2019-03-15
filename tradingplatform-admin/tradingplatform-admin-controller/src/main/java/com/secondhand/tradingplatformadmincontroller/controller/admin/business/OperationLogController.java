@@ -3,6 +3,7 @@ package com.secondhand.tradingplatformadmincontroller.controller.admin.business;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
+import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -67,6 +68,7 @@ public class OperationLogController extends BaseController {
             OperationLog operationLog = operationLogService.selectById(operationLogId);
             resJson.setData(operationLog);
             resJson.setSuccess(true);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             return resJson;
     }
 
@@ -80,6 +82,7 @@ public class OperationLogController extends BaseController {
     public JsonResult<Map<String, Object>> getOperationLogByIdForMap( @ApiParam(name = "id", value = "operationLogId") @PathVariable("operationLogId") Long operationLogId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
             Map<String, Object> operationLog = operationLogService.selectMapById(operationLogId);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setData(operationLog);
             resJson.setSuccess(true);
             return resJson;
@@ -95,6 +98,7 @@ public class OperationLogController extends BaseController {
     public JsonResult<OperationLog> fakeDeleteById(@ApiParam(name = "id", value = "operationLogId") @RequestBody Long operationLogId){
             JsonResult<OperationLog> resJson = new JsonResult<>();
             resJson.setSuccess(operationLogService.fakeDeleteById(operationLogId));
+            resJson.setCode(resJson.isSuccess() == true ? MagicalValue.CODE_OF_SUCCESS : MagicalValue.CODE_OF_CUSTOMIZE_EXCEPTION);
             return resJson;
     }
 
@@ -108,6 +112,7 @@ public class OperationLogController extends BaseController {
     public JsonResult<OperationLog> fakeBatchDelete(@ApiParam(name = "ids", value = "operationLogIds") @RequestBody List<Long> operationLogIds){
             JsonResult<OperationLog> resJson = new JsonResult<>();
             resJson.setSuccess(operationLogService.fakeBatchDelete(operationLogIds));
+            resJson.setCode(resJson.isSuccess() == true ? MagicalValue.CODE_OF_SUCCESS : MagicalValue.CODE_OF_CUSTOMIZE_EXCEPTION);
             return resJson;
     }
 
@@ -121,6 +126,7 @@ public class OperationLogController extends BaseController {
     public JsonResult<OperationLog> operationLogCreateUpdate(@ApiParam(name = "OperationLog", value = "OperationLog实体类") @RequestBody OperationLog operationLog){
             operationLog = operationLogService.operationLogCreateUpdate(operationLog);
             JsonResult<OperationLog> resJson = new JsonResult<>();
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setData(operationLog);
             resJson.setSuccess(true);
             return resJson;

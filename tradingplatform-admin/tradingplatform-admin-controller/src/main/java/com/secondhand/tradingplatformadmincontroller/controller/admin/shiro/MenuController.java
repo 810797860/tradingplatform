@@ -132,6 +132,7 @@ public class MenuController extends BaseController {
     public JsonResult<Map<String, Object>> getMenuByIdForMap( @ApiParam(name = "id", value = "menuId") @PathVariable("menuId") Long menuId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
             Map<String, Object> menu = menuService.mySelectMapById(menuId);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setData(menu);
             resJson.setSuccess(true);
             return resJson;
@@ -152,8 +153,10 @@ public class MenuController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/menu/delete");
                 menuService.myFakeDeleteById(menuId);
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setSuccess(true);
             }catch (UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -183,7 +186,9 @@ public class MenuController extends BaseController {
                 roleMenu.setMenuId(menuId);
                 roleMenuService.myFakeDeleteByRoleMenu(roleMenu);
                 resJson.setSuccess(menuService.myFakeBatchDelete(menuIds));
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -225,9 +230,11 @@ public class MenuController extends BaseController {
                         roleMenuService.myInsert(roleMenu);
                     }
                 }
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setData(menu);
                 resJson.setSuccess(true);
             }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -250,9 +257,11 @@ public class MenuController extends BaseController {
             subject.checkPermission("/admin/menu/create_update");
             menu.setId(menuId);
             menu = menuService.myMenuCreateUpdate(menu);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setData(menu);
             resJson.setSuccess(true);
         }catch(UnauthorizedException e){
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
             resJson.setSuccess(false);
             resJson.setMessage(e.getMessage());
         }

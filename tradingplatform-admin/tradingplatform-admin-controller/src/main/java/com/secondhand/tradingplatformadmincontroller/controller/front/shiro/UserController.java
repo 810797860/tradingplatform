@@ -8,6 +8,7 @@ import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
 import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
 import com.secondhand.tradingplatformcommon.pojo.CustomizeStatus;
+import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import com.secondhand.tradingplatformcommon.pojo.SystemSelectItem;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -100,6 +101,7 @@ public class UserController extends BaseController {
     public JsonResult<Map<String, Object>> getUserByIdForMap( @ApiParam(name = "id", value = "userId") @PathVariable("userId") Long userId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
             Map<String, Object> user = userService.mySelectMapById(userId);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setData(user);
             resJson.setSuccess(true);
             return resJson;
@@ -120,8 +122,10 @@ public class UserController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/front/user/delete");
                 userService.myFakeDeleteById(userId);
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setSuccess(true);
             }catch (UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -143,7 +147,9 @@ public class UserController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/front/user/batch_delete");
                 resJson.setSuccess(userService.myFakeBatchDelete(userIds));
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -166,12 +172,18 @@ public class UserController extends BaseController {
                     throw new CustomizeException(CustomizeStatus.LOGIN_CAN_ONLY_REGISTER, this.getClass());
                 }
                 user = userService.myUserCreateUpdate(user, SystemSelectItem.USER_TYPE_FRONT_DESK);
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setData(user);
                 resJson.setSuccess(true);
             }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
+                e.printStackTrace();
             } catch (CustomizeException e) {
+                resJson.setCode(MagicalValue.CODE_OF_CUSTOMIZE_EXCEPTION);
+                resJson.setSuccess(false);
+                resJson.setMessage(e.getMessage());
                 e.printStackTrace();
             }
         return resJson;

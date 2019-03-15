@@ -118,19 +118,19 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
 
                 Resources resources = new Resources();
                 resources.setTitle("新增或修改" + collectionName);
-                resources.setUrl("/admin/" + collectionName + "/create_update");
+                resources.setUrl("/front/" + collectionName + "/create_update");
                 resources.setDescription("新增或修改" + collectionName);
                 resourcesService.myResourcesCreateUpdate(resources);
 
                 resources.setId(null);
                 resources.setTitle("根据id假删除" + collectionName);
-                resources.setUrl("/admin/" + collectionName + "/delete");
+                resources.setUrl("/front/" + collectionName + "/delete");
                 resources.setDescription("根据id假删除" + collectionName);
                 resourcesService.myResourcesCreateUpdate(resources);
 
                 resources.setId(null);
                 resources.setTitle("批量假删除" + collectionName);
-                resources.setUrl("/admin/" + collectionName + "/batch_delete");
+                resources.setUrl("/front/" + collectionName + "/batch_delete");
                 resources.setDescription("批量假删除" + collectionName);
                 resourcesService.myResourcesCreateUpdate(resources);
             }
@@ -168,19 +168,19 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
 
                 Resources resources = new Resources();
                 resources.setTitle("新增或修改" + collectionName);
-                resources.setUrl("/admin/" + collectionName + "/create_update");
+                resources.setUrl("/front/" + collectionName + "/create_update");
                 resources.setDescription("新增或修改" + collectionName);
                 resourcesService.myResourcesCreateUpdate(resources);
 
                 resources.setId(null);
                 resources.setTitle("根据id假删除" + collectionName);
-                resources.setUrl("/admin/" + collectionName + "/delete");
+                resources.setUrl("/front/" + collectionName + "/delete");
                 resources.setDescription("根据id假删除" + collectionName);
                 resourcesService.myResourcesCreateUpdate(resources);
 
                 resources.setId(null);
                 resources.setTitle("批量假删除" + collectionName);
-                resources.setUrl("/admin/" + collectionName + "/batch_delete");
+                resources.setUrl("/front/" + collectionName + "/batch_delete");
                 resources.setDescription("批量假删除" + collectionName);
                 resourcesService.myResourcesCreateUpdate(resources);
             }
@@ -281,7 +281,7 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
     }
 
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "'mySelectById' + #p0")
     public Form mySelectById(Serializable formId) {
         return this.selectById(formId);
     }

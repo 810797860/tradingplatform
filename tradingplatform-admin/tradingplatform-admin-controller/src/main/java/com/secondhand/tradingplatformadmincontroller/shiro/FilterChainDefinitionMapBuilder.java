@@ -16,6 +16,13 @@ public class FilterChainDefinitionMapBuilder {
 
         //图片加载
         filterChainDefinitionMap.put("/admin/annex/image/*", "anon");
+
+        //前端枚举
+        filterChainDefinitionMap.put("/front/frontSelectItem/query", "anon");
+        filterChainDefinitionMap.put("/front/frontSelectItem/get_map_by_id/*", "anon");
+        //电器商城
+        filterChainDefinitionMap.put("/front/electricAppliance/query", "anon");
+        filterChainDefinitionMap.put("/front/electricAppliance/get_map_by_id/*", "anon");
         return (LinkedHashMap<String, String>) filterChainDefinitionMap;
     }
 }

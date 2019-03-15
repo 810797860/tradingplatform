@@ -123,6 +123,7 @@ public class SelectItemController extends BaseController {
     public JsonResult<Map<String, Object>> getSelectItemByIdForMap( @ApiParam(name = "id", value = "selectItemId") @PathVariable("selectItemId") Long selectItemId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
             Map<String, Object> selectItem = selectItemService.mySelectMapById(selectItemId);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setData(selectItem);
             resJson.setSuccess(true);
             return resJson;
@@ -143,8 +144,10 @@ public class SelectItemController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/selectItem/delete");
                 selectItemService.myFakeDeleteById(selectItemId);
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setSuccess(true);
             }catch (UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_CUSTOMIZE_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -166,7 +169,9 @@ public class SelectItemController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/selectItem/batch_delete");
                 resJson.setSuccess(selectItemService.myFakeBatchDelete(selectItemIds));
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -188,9 +193,11 @@ public class SelectItemController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/selectItem/create_update");
                 selectItem = selectItemService.mySelectItemCreateUpdate(selectItem);
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setData(selectItem);
                 resJson.setSuccess(true);
             }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -208,6 +215,7 @@ public class SelectItemController extends BaseController {
     public JsonResult<List<SelectItem>> getSelectItemByPidForList( @ApiParam(name = "pid", value = "selectItem的父级id") @PathVariable("pid") Long pid){
         JsonResult<List<SelectItem>> resJson = new JsonResult<>();
         List<SelectItem> selectItemList = selectItemService.myGetItemsByPid(pid);
+        resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
         resJson.setData(selectItemList);
         resJson.setSuccess(true);
         return resJson;

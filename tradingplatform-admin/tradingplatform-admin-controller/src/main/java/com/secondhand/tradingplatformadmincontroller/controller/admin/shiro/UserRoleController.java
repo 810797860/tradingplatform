@@ -157,6 +157,7 @@ public class UserRoleController extends BaseController {
     public JsonResult<Map<String, Object>> getUserRoleByIdForMap( @ApiParam(name = "id", value = "userRoleId") @PathVariable("userRoleId") Long userRoleId){
             JsonResult<Map<String, Object>> resJson = new JsonResult<>();
             Map<String, Object> userRole = userRoleService.mySelectMapById(userRoleId);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setData(userRole);
             resJson.setSuccess(true);
             return resJson;
@@ -177,8 +178,10 @@ public class UserRoleController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/userRole/delete");
                 userRoleService.myFakeDeleteByUserRole(userRole);
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setSuccess(true);
             }catch (UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -202,7 +205,9 @@ public class UserRoleController extends BaseController {
                 Long userId = Long.valueOf(parameter.get("userId").toString());
                 List<Integer> roleIds = (List<Integer>) parameter.get("roleIds");
                 resJson.setSuccess(userRoleService.myFakeBatchDelete(userId, roleIds));
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
@@ -224,8 +229,10 @@ public class UserRoleController extends BaseController {
                 //检查是否具有权限
                 subject.checkPermission("/admin/userRole/create_update");
                 userRoleService.myUpdateUserRole(userId, roleIds);
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setSuccess(true);
             }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
                 resJson.setSuccess(false);
                 resJson.setMessage(e.getMessage());
             }
