@@ -12,13 +12,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- *   @description : ElectricAppliance 实体类
+ *   @description : RentingHouse 实体类
  *   ---------------------------------
  * 	 @author zhangjk
- *   @since 2019-03-15
+ *   @since 2019-03-17
  */
-@TableName("c_business_electric_appliance")
-public class ElectricAppliance extends BaseEntity {
+@TableName("c_business_renting_house")
+public class RentingHouse extends BaseEntity {
 
     /**
      * 序列化标志
@@ -53,52 +53,84 @@ public class ElectricAppliance extends BaseEntity {
     private Date backCheckTime;
 
     /**
-     * 电器详情
+     * 租房详情
      */
-    @ApiModelProperty("电器详情")
+    @ApiModelProperty("租房详情")
     @TableField("details")
 
     private String details;
 
     /**
-     * 电器分类
+     * 租房分类
      */
-    @ApiModelProperty("电器分类")
+    @ApiModelProperty("租房分类")
     @TableField("classification")
 
     private Long classification;
 
     /**
-     * 电器类型
+     * 租房配套
      */
-    @ApiModelProperty("电器类型")
-    @TableField("type")
+    @ApiModelProperty("租房配套")
+    @TableField("matching")
 
-    private String type;
+    private Long matching;
 
     /**
-     * 电器能耗等级
+     * 租房小区
      */
-    @ApiModelProperty("电器能耗等级")
-    @TableField("efficiency_rating")
+    @ApiModelProperty("租房小区")
+    @TableField("community")
 
-    private String efficiencyRating;
+    private String community;
 
     /**
-     * 电器型号
+     * 租房类型
      */
-    @ApiModelProperty("电器型号")
-    @TableField("model")
+    @ApiModelProperty("租房类型")
+    @TableField("genre")
 
-    private String model;
+    private String genre;
 
     /**
-     * 电器品牌
+     * 租房装修
      */
-    @ApiModelProperty("电器品牌")
-    @TableField("brand")
+    @ApiModelProperty("租房装修")
+    @TableField("decoration")
 
-    private String brand;
+    private String decoration;
+
+    /**
+     * 租房楼层
+     */
+    @ApiModelProperty("租房楼层")
+    @TableField("floor_layer")
+
+    private String floorLayer;
+
+    /**
+     * 租房朝向
+     */
+    @ApiModelProperty("租房朝向")
+    @TableField("oriented")
+
+    private String oriented;
+
+    /**
+     * 租房面积
+     */
+    @ApiModelProperty("租房面积")
+    @TableField("area")
+
+    private Integer area;
+
+    /**
+     * 租房户型
+     */
+    @ApiModelProperty("租房户型")
+    @TableField("house_type")
+
+    private String houseType;
 
     /**
      * 所属用户
@@ -109,41 +141,41 @@ public class ElectricAppliance extends BaseEntity {
     private Long userId;
 
     /**
-     * 电器评论数
+     * 租房评论数
      */
-    @ApiModelProperty("电器评论数")
+    @ApiModelProperty("租房评论数")
     @TableField("comment_num")
 
     private Integer commentNum;
 
     /**
-     * 电器星级
+     * 租房星级
      */
-    @ApiModelProperty("电器星级")
+    @ApiModelProperty("租房星级")
     @TableField("star")
 
     private Float star;
 
     /**
-     * 电器价格
+     * 租房价格
      */
-    @ApiModelProperty("电器价格")
+    @ApiModelProperty("租房价格")
     @TableField("price")
 
     private Float price;
 
     /**
-     * 电器封面
+     * 租房封面
      */
-    @ApiModelProperty("电器封面")
+    @ApiModelProperty("租房封面")
     @TableField("cover")
 
     private String cover;
 
     /**
-     * 电器标题
+     * 租房标题
      */
-    @ApiModelProperty("电器标题")
+    @ApiModelProperty("租房标题")
     @TableField("title")
 
     private String title;
@@ -188,36 +220,68 @@ public class ElectricAppliance extends BaseEntity {
         this.classification = classification;
     }
 
-    public String getType() {
-        return type;
+    public Long getMatching() {
+        return matching;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setMatching(Long matching) {
+        this.matching = matching;
     }
 
-    public String getEfficiencyRating() {
-        return efficiencyRating;
+    public String getCommunity() {
+        return community;
     }
 
-    public void setEfficiencyRating(String efficiencyRating) {
-        this.efficiencyRating = efficiencyRating;
+    public void setCommunity(String community) {
+        this.community = community;
     }
 
-    public String getModel() {
-        return model;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setModel(String model) {
-        this.model = model;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
-    public String getBrand() {
-        return brand;
+    public String getDecoration() {
+        return decoration;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public void setDecoration(String decoration) {
+        this.decoration = decoration;
+    }
+
+    public String getFloorLayer() {
+        return floorLayer;
+    }
+
+    public void setFloorLayer(String floorLayer) {
+        this.floorLayer = floorLayer;
+    }
+
+    public String getOriented() {
+        return oriented;
+    }
+
+    public void setOriented(String oriented) {
+        this.oriented = oriented;
+    }
+
+    public Integer getArea() {
+        return area;
+    }
+
+    public void setArea(Integer area) {
+        this.area = area;
+    }
+
+    public String getHouseType() {
+        return houseType;
+    }
+
+    public void setHouseType(String houseType) {
+        this.houseType = houseType;
     }
 
     public Long getUserId() {
@@ -268,18 +332,24 @@ public class ElectricAppliance extends BaseEntity {
         this.title = title;
     }
 
+
+
     @Override
     public String toString() {
-        return "ElectricAppliance{" +
+        return "RentingHouse{" +
                 ", backCheckStatus=" + backCheckStatus +
                 ", notPassReason=" + notPassReason +
                 ", backCheckTime=" + backCheckTime +
                 ", details=" + details +
                 ", classification=" + classification +
-                ", type=" + type +
-                ", efficiencyRating=" + efficiencyRating +
-                ", model=" + model +
-                ", brand=" + brand +
+                ", matching=" + matching +
+                ", community=" + community +
+                ", genre=" + genre +
+                ", decoration=" + decoration +
+                ", floorLayer=" + floorLayer +
+                ", oriented=" + oriented +
+                ", area=" + area +
+                ", houseType=" + houseType +
                 ", userId=" + userId +
                 ", commentNum=" + commentNum +
                 ", star=" + star +

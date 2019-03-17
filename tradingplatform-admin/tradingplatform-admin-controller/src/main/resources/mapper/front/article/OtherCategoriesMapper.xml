@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.secondhand.tradingplatformadminmapper.mapper.front.article.OtherCategoriesMapper">
+
+    <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
+
+		<!-- 通用查询映射结果 -->
+			<resultMap id="otherCategoriesMap" type="com.secondhand.tradingplatformadminentity.entity.front.article.OtherCategories" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
+									
+
+				<result column="back_check_status" property="backCheckStatus" jdbcType="INTEGER" />
+				<result column="not_pass_reason" property="notPassReason" jdbcType="VARCHAR" />
+				<result column="back_check_time" property="backCheckTime" jdbcType="DATE" />
+				<result column="details" property="details" jdbcType="VARCHAR" />
+				<result column="pattern" property="pattern" jdbcType="VARCHAR" />
+				<result column="brand" property="brand" jdbcType="VARCHAR" />
+				<result column="user_id" property="userId" jdbcType="INTEGER" />
+				<result column="comment_num" property="commentNum" jdbcType="INTEGER" />
+				<result column="star" property="star" jdbcType="FLOAT" />
+				<result column="price" property="price" jdbcType="FLOAT" />
+				<result column="cover" property="cover" jdbcType="VARCHAR" />
+				<result column="title" property="title" jdbcType="VARCHAR" />
+
+
+		</resultMap>
+
+        <!-- 通用查询映射结果 -->
+		<resultMap id="otherCategoriesMapSimple" type="com.secondhand.tradingplatformadminentity.entity.front.article.OtherCategories">
+
+                        <result column="back_check_status" property="backCheckStatus" jdbcType="INTEGER" />
+                        <result column="not_pass_reason" property="notPassReason" jdbcType="VARCHAR" />
+                        <result column="back_check_time" property="backCheckTime" jdbcType="DATE" />
+                        <result column="details" property="details" jdbcType="VARCHAR" />
+                        <result column="pattern" property="pattern" jdbcType="VARCHAR" />
+                        <result column="brand" property="brand" jdbcType="VARCHAR" />
+                        <result column="user_id" property="userId" jdbcType="INTEGER" />
+                        <result column="comment_num" property="commentNum" jdbcType="INTEGER" />
+                        <result column="star" property="star" jdbcType="FLOAT" />
+                        <result column="price" property="price" jdbcType="FLOAT" />
+                        <result column="cover" property="cover" jdbcType="VARCHAR" />
+                        <result column="title" property="title" jdbcType="VARCHAR" />
+
+        </resultMap>
+
+    <select id="selectMapById" resultType="java.util.Map">
+        select * from c_business_other_categories where id = #{otherCategoriesId} and deleted = false
+    </select>
+
+</mapper>

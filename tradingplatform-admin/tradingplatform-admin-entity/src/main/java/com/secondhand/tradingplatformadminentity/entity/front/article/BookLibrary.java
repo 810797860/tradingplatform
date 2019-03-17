@@ -12,13 +12,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- *   @description : ElectricAppliance 实体类
+ *   @description : BookLibrary 实体类
  *   ---------------------------------
  * 	 @author zhangjk
- *   @since 2019-03-15
+ *   @since 2019-03-16
  */
-@TableName("c_business_electric_appliance")
-public class ElectricAppliance extends BaseEntity {
+@TableName("c_business_book_library")
+public class BookLibrary extends BaseEntity {
 
     /**
      * 序列化标志
@@ -53,52 +53,87 @@ public class ElectricAppliance extends BaseEntity {
     private Date backCheckTime;
 
     /**
-     * 电器详情
+     * 图书详情
      */
-    @ApiModelProperty("电器详情")
+    @ApiModelProperty("图书详情")
     @TableField("details")
 
     private String details;
 
     /**
-     * 电器分类
+     * 图书分类
      */
-    @ApiModelProperty("电器分类")
+    @ApiModelProperty("图书分类")
     @TableField("classification")
 
     private Long classification;
 
     /**
-     * 电器类型
+     * 图书国际标准书号ISBN
      */
-    @ApiModelProperty("电器类型")
-    @TableField("type")
+    @ApiModelProperty("图书国际标准书号ISBN")
+    @TableField("isbn")
 
-    private String type;
+    private String isbn;
 
     /**
-     * 电器能耗等级
+     * 图书是否套装
      */
-    @ApiModelProperty("电器能耗等级")
-    @TableField("efficiency_rating")
+    @ApiModelProperty("图书是否套装")
+    @TableField("suited")
 
-    private String efficiencyRating;
+    private Boolean suited;
 
     /**
-     * 电器型号
+     * 图书包装
      */
-    @ApiModelProperty("电器型号")
-    @TableField("model")
+    @ApiModelProperty("图书包装")
+    @TableField("enfold")
 
-    private String model;
+    private String enfold;
 
     /**
-     * 电器品牌
+     * 图书纸张
      */
-    @ApiModelProperty("电器品牌")
-    @TableField("brand")
+    @ApiModelProperty("图书纸张")
+    @TableField("paper")
 
-    private String brand;
+    private String paper;
+
+    /**
+     * 图书开本
+     */
+    @ApiModelProperty("图书开本")
+    @TableField("format")
+
+    private String format;
+
+    /**
+     * 出版时间
+     */
+    @ApiModelProperty("出版时间")
+    @TableField("published_time")
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+
+    private Date publishedTime;
+
+    /**
+     * 图书出版社
+     */
+    @ApiModelProperty("图书出版社")
+    @TableField("publishing_house")
+
+    private String publishingHouse;
+
+    /**
+     * 图书作者
+     */
+    @ApiModelProperty("图书作者")
+    @TableField("author")
+
+    private String author;
 
     /**
      * 所属用户
@@ -109,41 +144,41 @@ public class ElectricAppliance extends BaseEntity {
     private Long userId;
 
     /**
-     * 电器评论数
+     * 图书评论数
      */
-    @ApiModelProperty("电器评论数")
+    @ApiModelProperty("图书评论数")
     @TableField("comment_num")
 
     private Integer commentNum;
 
     /**
-     * 电器星级
+     * 图书星级
      */
-    @ApiModelProperty("电器星级")
+    @ApiModelProperty("图书星级")
     @TableField("star")
 
     private Float star;
 
     /**
-     * 电器价格
+     * 图书价格
      */
-    @ApiModelProperty("电器价格")
+    @ApiModelProperty("图书价格")
     @TableField("price")
 
     private Float price;
 
     /**
-     * 电器封面
+     * 图书封面
      */
-    @ApiModelProperty("电器封面")
+    @ApiModelProperty("图书封面")
     @TableField("cover")
 
     private String cover;
 
     /**
-     * 电器标题
+     * 图书标题
      */
-    @ApiModelProperty("电器标题")
+    @ApiModelProperty("图书标题")
     @TableField("title")
 
     private String title;
@@ -188,36 +223,68 @@ public class ElectricAppliance extends BaseEntity {
         this.classification = classification;
     }
 
-    public String getType() {
-        return type;
+    public String getIsbn() {
+        return isbn;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
-    public String getEfficiencyRating() {
-        return efficiencyRating;
+    public Boolean getSuited() {
+        return suited;
     }
 
-    public void setEfficiencyRating(String efficiencyRating) {
-        this.efficiencyRating = efficiencyRating;
+    public void setSuited(Boolean suited) {
+        this.suited = suited;
     }
 
-    public String getModel() {
-        return model;
+    public String getEnfold() {
+        return enfold;
     }
 
-    public void setModel(String model) {
-        this.model = model;
+    public void setEnfold(String enfold) {
+        this.enfold = enfold;
     }
 
-    public String getBrand() {
-        return brand;
+    public String getPaper() {
+        return paper;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public void setPaper(String paper) {
+        this.paper = paper;
+    }
+
+    public String getFormat() {
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
+    }
+
+    public Date getPublishedTime() {
+        return publishedTime;
+    }
+
+    public void setPublishedTime(Date publishedTime) {
+        this.publishedTime = publishedTime;
+    }
+
+    public String getPublishingHouse() {
+        return publishingHouse;
+    }
+
+    public void setPublishingHouse(String publishingHouse) {
+        this.publishingHouse = publishingHouse;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public Long getUserId() {
@@ -268,18 +335,24 @@ public class ElectricAppliance extends BaseEntity {
         this.title = title;
     }
 
+
+
     @Override
     public String toString() {
-        return "ElectricAppliance{" +
+        return "BookLibrary{" +
                 ", backCheckStatus=" + backCheckStatus +
                 ", notPassReason=" + notPassReason +
                 ", backCheckTime=" + backCheckTime +
                 ", details=" + details +
                 ", classification=" + classification +
-                ", type=" + type +
-                ", efficiencyRating=" + efficiencyRating +
-                ", model=" + model +
-                ", brand=" + brand +
+                ", isbn=" + isbn +
+                ", suited=" + suited +
+                ", enfold=" + enfold +
+                ", paper=" + paper +
+                ", format=" + format +
+                ", publishedTime=" + publishedTime +
+                ", publishingHouse=" + publishingHouse +
+                ", author=" + author +
                 ", userId=" + userId +
                 ", commentNum=" + commentNum +
                 ", star=" + star +

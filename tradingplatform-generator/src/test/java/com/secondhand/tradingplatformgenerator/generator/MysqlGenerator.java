@@ -24,7 +24,7 @@ public class MysqlGenerator {
     private static String packageClass="tradingplatformgenerator";
     private static String projectName="secondhand";
     private static String authorName="zhangjk";
-    private static String[] table=new String[]{"c_business_front_select_item"};
+    private static String[] table=new String[]{"c_business_other_categories"};
     private static String[] prefix=new String[]{"c_business"};
     private static File file = new File(packageName);
     private static String path = file.getAbsolutePath();

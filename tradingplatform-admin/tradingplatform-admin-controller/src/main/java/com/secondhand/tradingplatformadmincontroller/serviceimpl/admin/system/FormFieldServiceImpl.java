@@ -102,16 +102,16 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
         } else {
 //            为了代码安全，暂时不让改，只改记录(备用)
 
-//            //先获取原来的字段名
-//            FormField oldFormField = formFieldMapper.selectById(formField.getId());
-//            String oldFieldName = oldFormField.getFieldName();
-//            //获取表名
-//            Form form = formService.mySelectById(formField.getFormId());
-//            String formName = form.getCollection();
-//            //获取字段类型
-//            SelectItem selectItem = selectItemService.mySelectById(formField.getFieldType());
-//            String fieldType = selectItem.getTitle();
-//            formFieldMapper.changeField(formName, oldFieldName, fieldType, formField);
+            //先获取原来的字段名
+            FormField oldFormField = formFieldMapper.selectById(formField.getId());
+            String oldFieldName = oldFormField.getFieldName();
+            //获取表名
+            Form form = formService.mySelectById(formField.getFormId());
+            String formName = form.getCollection();
+            //获取字段类型
+            SelectItem selectItem = selectItemService.mySelectById(formField.getFieldType());
+            String fieldType = selectItem.getTitle();
+            formFieldMapper.changeField(formName, oldFieldName, fieldType, formField);
 
             formFieldMapper.updateById(formField);
         }

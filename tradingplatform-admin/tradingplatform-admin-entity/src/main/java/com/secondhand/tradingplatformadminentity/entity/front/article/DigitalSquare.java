@@ -12,13 +12,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- *   @description : ElectricAppliance 实体类
+ *   @description : DigitalSquare 实体类
  *   ---------------------------------
  * 	 @author zhangjk
- *   @since 2019-03-15
+ *   @since 2019-03-17
  */
-@TableName("c_business_electric_appliance")
-public class ElectricAppliance extends BaseEntity {
+@TableName("c_business_digital_square")
+public class DigitalSquare extends BaseEntity {
 
     /**
      * 序列化标志
@@ -53,49 +53,33 @@ public class ElectricAppliance extends BaseEntity {
     private Date backCheckTime;
 
     /**
-     * 电器详情
+     * 数码详情
      */
-    @ApiModelProperty("电器详情")
+    @ApiModelProperty("数码详情")
     @TableField("details")
 
     private String details;
 
     /**
-     * 电器分类
+     * 数码分类
      */
-    @ApiModelProperty("电器分类")
+    @ApiModelProperty("数码分类")
     @TableField("classification")
 
     private Long classification;
 
     /**
-     * 电器类型
+     * 数码型号
      */
-    @ApiModelProperty("电器类型")
-    @TableField("type")
+    @ApiModelProperty("数码型号")
+    @TableField("pattern")
 
-    private String type;
+    private String pattern;
 
     /**
-     * 电器能耗等级
+     * 数码品牌
      */
-    @ApiModelProperty("电器能耗等级")
-    @TableField("efficiency_rating")
-
-    private String efficiencyRating;
-
-    /**
-     * 电器型号
-     */
-    @ApiModelProperty("电器型号")
-    @TableField("model")
-
-    private String model;
-
-    /**
-     * 电器品牌
-     */
-    @ApiModelProperty("电器品牌")
+    @ApiModelProperty("数码品牌")
     @TableField("brand")
 
     private String brand;
@@ -109,44 +93,51 @@ public class ElectricAppliance extends BaseEntity {
     private Long userId;
 
     /**
-     * 电器评论数
+     * 数码评论数
      */
-    @ApiModelProperty("电器评论数")
+    @ApiModelProperty("数码评论数")
     @TableField("comment_num")
 
     private Integer commentNum;
 
     /**
-     * 电器星级
+     * 数码星级
      */
-    @ApiModelProperty("电器星级")
+    @ApiModelProperty("数码星级")
     @TableField("star")
 
     private Float star;
 
     /**
-     * 电器价格
+     * 数码价格
      */
-    @ApiModelProperty("电器价格")
+    @ApiModelProperty("数码价格")
     @TableField("price")
 
     private Float price;
 
     /**
-     * 电器封面
+     * 数码封面
      */
-    @ApiModelProperty("电器封面")
+    @ApiModelProperty("数码封面")
     @TableField("cover")
 
     private String cover;
 
     /**
-     * 电器标题
+     * 数码标题
      */
-    @ApiModelProperty("电器标题")
+    @ApiModelProperty("数码标题")
     @TableField("title")
 
     private String title;
+
+
+
+
+
+
+
 
     public Long getBackCheckStatus() {
         return backCheckStatus;
@@ -188,28 +179,12 @@ public class ElectricAppliance extends BaseEntity {
         this.classification = classification;
     }
 
-    public String getType() {
-        return type;
+    public String getPattern() {
+        return pattern;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getEfficiencyRating() {
-        return efficiencyRating;
-    }
-
-    public void setEfficiencyRating(String efficiencyRating) {
-        this.efficiencyRating = efficiencyRating;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
+    public void setPattern(String pattern) {
+        this.pattern = pattern;
     }
 
     public String getBrand() {
@@ -268,17 +243,17 @@ public class ElectricAppliance extends BaseEntity {
         this.title = title;
     }
 
+
+
     @Override
     public String toString() {
-        return "ElectricAppliance{" +
+        return "DigitalSquare{" +
                 ", backCheckStatus=" + backCheckStatus +
                 ", notPassReason=" + notPassReason +
                 ", backCheckTime=" + backCheckTime +
                 ", details=" + details +
                 ", classification=" + classification +
-                ", type=" + type +
-                ", efficiencyRating=" + efficiencyRating +
-                ", model=" + model +
+                ", pattern=" + pattern +
                 ", brand=" + brand +
                 ", userId=" + userId +
                 ", commentNum=" + commentNum +
