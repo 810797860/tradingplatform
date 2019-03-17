@@ -4,25 +4,26 @@
 
     <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
 
-		<!-- 通用查询映射结果 -->
-			<resultMap id="selectItemMap" type="com.secondhand.tradingplatformadminentity.entity.admin.system.SelectItem" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
-									
-				<result column="title" property="title" jdbcType="VARCHAR" />
-				<result column="pid" property="pid" jdbcType="INTEGER" />
-				<result column="item_value" property="itemValue" jdbcType="VARCHAR" />
-				<result column="sort" property="sort" jdbcType="INTEGER" />
+    <!-- 通用查询映射结果 -->
+    <resultMap id="selectItemMap" type="com.secondhand.tradingplatformadminentity.entity.admin.system.SelectItem"
+               extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
 
-		</resultMap>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="pid" property="pid" jdbcType="INTEGER"/>
+        <result column="item_value" property="itemValue" jdbcType="VARCHAR"/>
+        <result column="sort" property="sort" jdbcType="INTEGER"/>
 
-        <!-- 通用查询映射结果 -->
-		<resultMap id="selectItemMapSimple" type="com.secondhand.tradingplatformadminentity.entity.admin.system.SelectItem">
-																			
-                        <result column="title" property="title" jdbcType="VARCHAR" />
-                        <result column="pid" property="pid" jdbcType="INTEGER" />
-                        <result column="item_value" property="itemValue" jdbcType="VARCHAR" />
-                        <result column="sort" property="sort" jdbcType="INTEGER" />
+    </resultMap>
 
-        </resultMap>
+    <!-- 通用查询映射结果 -->
+    <resultMap id="selectItemMapSimple" type="com.secondhand.tradingplatformadminentity.entity.admin.system.SelectItem">
+
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="pid" property="pid" jdbcType="INTEGER"/>
+        <result column="item_value" property="itemValue" jdbcType="VARCHAR"/>
+        <result column="sort" property="sort" jdbcType="INTEGER"/>
+
+    </resultMap>
 
     <select id="selectMapById" resultType="java.util.Map">
         select s_base_select_item.title as title, s_base_select_item.id as id, s_base_select_item.created_by as created_by, (select concat('{"id":"', sbsi.id, '","pid":"', sbsi.pid, '","title":"', sbsi.title, '"}') from s_base_select_item sbsi where (sbsi.id = s_base_select_item.pid)) AS pid, s_base_select_item.deleted as deleted, s_base_select_item.description as description, s_base_select_item.updated_at as updated_at, s_base_select_item.updated_by as updated_by, s_base_select_item.sort as sort, s_base_select_item.item_value as item_value, s_base_select_item.created_at as created_at from s_base_select_item s_base_select_item where s_base_select_item.id = #{selectItemId} and s_base_select_item.deleted = false

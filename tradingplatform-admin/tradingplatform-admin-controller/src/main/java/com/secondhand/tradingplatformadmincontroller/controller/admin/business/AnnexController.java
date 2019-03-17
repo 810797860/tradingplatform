@@ -30,12 +30,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @description : Annex 控制器
  * @author : zhangjk
+ * @description : Annex 控制器
  * @since : Create in 2018-12-14
  */
 @RestController("adminAnnexController")
-@Api(value="/admin/annex", description="Annex 控制器")
+@Api(value = "/admin/annex", description = "Annex 控制器")
 @RequestMapping("/admin/annex")
 public class AnnexController extends BaseController {
 
@@ -77,30 +77,30 @@ public class AnnexController extends BaseController {
     public String toCreateAnnex(@ApiParam(name = "model", value = "Model") Model model) {
         return "annex/newAnnex";
     }
-    
+
     /**
      * @description : 获取分页列表
      * @author : zhangjk
      * @since : Create in 2018-12-14
      */
     @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    @ApiOperation(value = "/query", notes="获取分页列表")
+    @ApiOperation(value = "/query", notes = "获取分页列表")
     public TableJson<Annex> getAnnexList(@ApiParam(name = "Annex", value = "Annex 实体类") @RequestBody Annex annex) {
-            TableJson<Annex> resJson = new TableJson<>();
-            Page resPage = annex.getPage();
-            Integer current = resPage.getCurrent();
-            Integer size = resPage.getSize();
-            if (current == null && size == null) {
-                resJson.setSuccess(false);
-                resJson.setMessage("异常信息：页数和页的大小不能为空");
-                return resJson;
-            }
-            Page<Annex> annexPage = new Page<Annex>(current, size);
-            annexPage = annexService.mySelectPageWithParam(annexPage, annex);
-            resJson.setRecordsTotal(annexPage.getTotal());
-            resJson.setData(annexPage.getRecords());
-            resJson.setSuccess(true);
+        TableJson<Annex> resJson = new TableJson<>();
+        Page resPage = annex.getPage();
+        Integer current = resPage.getCurrent();
+        Integer size = resPage.getSize();
+        if (current == null && size == null) {
+            resJson.setSuccess(false);
+            resJson.setMessage("异常信息：页数和页的大小不能为空");
             return resJson;
+        }
+        Page<Annex> annexPage = new Page<Annex>(current, size);
+        annexPage = annexService.mySelectPageWithParam(annexPage, annex);
+        resJson.setRecordsTotal(annexPage.getTotal());
+        resJson.setData(annexPage.getRecords());
+        resJson.setSuccess(true);
+        return resJson;
     }
 
     /**
@@ -110,13 +110,13 @@ public class AnnexController extends BaseController {
      */
     @GetMapping(value = "/get_map_by_id/{annexId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{annexId}", notes = "根据id获取annexMap")
-    public JsonResult<Map<String, Object>> getAnnexByIdForMap( @ApiParam(name = "id", value = "annexId") @PathVariable("annexId") Long annexId){
-            JsonResult<Map<String, Object>> resJson = new JsonResult<>();
-            Map<String, Object> annex = annexService.mySelectMapById(annexId);
-            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-            resJson.setData(annex);
-            resJson.setSuccess(true);
-            return resJson;
+    public JsonResult<Map<String, Object>> getAnnexByIdForMap(@ApiParam(name = "id", value = "annexId") @PathVariable("annexId") Long annexId) {
+        JsonResult<Map<String, Object>> resJson = new JsonResult<>();
+        Map<String, Object> annex = annexService.mySelectMapById(annexId);
+        resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+        resJson.setData(annex);
+        resJson.setSuccess(true);
+        return resJson;
     }
 
     /**
@@ -126,21 +126,21 @@ public class AnnexController extends BaseController {
      */
     @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除annex")
-    public JsonResult<Annex> fakeDeleteById(@ApiParam(name = "id", value = "annexId") @RequestBody Long annexId){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<Annex> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/annex/delete");
-                annexService.myFakeDeleteById(annexId);
-                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-                resJson.setSuccess(true);
-            }catch (UnauthorizedException e){
-                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    public JsonResult<Annex> fakeDeleteById(@ApiParam(name = "id", value = "annexId") @RequestBody Long annexId) {
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<Annex> resJson = new JsonResult<>();
+        try {
+            //检查是否具有权限
+            subject.checkPermission("/admin/annex/delete");
+            annexService.myFakeDeleteById(annexId);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+            resJson.setSuccess(true);
+        } catch (UnauthorizedException e) {
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
@@ -150,20 +150,20 @@ public class AnnexController extends BaseController {
      */
     @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除annex")
-    public JsonResult<Annex> fakeBatchDelete(@ApiParam(name = "ids", value = "annexIds") @RequestBody List<Long> annexIds){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<Annex> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/annex/batch_delete");
-                resJson.setSuccess(annexService.myFakeBatchDelete(annexIds));
-                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-            }catch(UnauthorizedException e){
-                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    public JsonResult<Annex> fakeBatchDelete(@ApiParam(name = "ids", value = "annexIds") @RequestBody List<Long> annexIds) {
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<Annex> resJson = new JsonResult<>();
+        try {
+            //检查是否具有权限
+            subject.checkPermission("/admin/annex/batch_delete");
+            resJson.setSuccess(annexService.myFakeBatchDelete(annexIds));
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+        } catch (UnauthorizedException e) {
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
@@ -173,22 +173,22 @@ public class AnnexController extends BaseController {
      */
     @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改annex")
-    public JsonResult<Annex> annexCreateUpdate(@ApiParam(name = "Annex", value = "Annex实体类") @RequestBody Annex annex){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<Annex> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/annex/create_update");
-                annex = annexService.myAnnexCreateUpdate(annex);
-                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-                resJson.setData(annex);
-                resJson.setSuccess(true);
-            }catch(UnauthorizedException e){
-                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    public JsonResult<Annex> annexCreateUpdate(@ApiParam(name = "Annex", value = "Annex实体类") @RequestBody Annex annex) {
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<Annex> resJson = new JsonResult<>();
+        try {
+            //检查是否具有权限
+            subject.checkPermission("/admin/annex/create_update");
+            annex = annexService.myAnnexCreateUpdate(annex);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+            resJson.setData(annex);
+            resJson.setSuccess(true);
+        } catch (UnauthorizedException e) {
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
@@ -199,15 +199,15 @@ public class AnnexController extends BaseController {
     @PostMapping(value = "/upload", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     @ApiOperation(value = "/upload", notes = "附件上传接口")
     public JsonResult<Annex> annexUpload(@ApiParam(name = "resourceType", value = "附件类型") @RequestParam(value = "resourceType", required = true) String resourceType,
-                                          @ApiParam(name = "description", value = "附件说明") @RequestParam(value = "description", required = false) String description,
-                                          @ApiParam(name = "md5value", value = "附件md5值") @RequestParam(value = "md5value", required = false) String md5value,
-                                          @ApiParam(name = "chunks", value = "附件总分片数") @RequestParam(value = "chunks", required = false) String chunks,
-                                          @ApiParam(name = "chunk", value = "附件当前第几片") @RequestParam(value = "chunk", required = false) String chunk,
-                                          @ApiParam(name = "name", value = "上传附件名") @RequestParam(value = "name", required = false) String name,
-                                          @ApiParam(name = "file", value = "附件") @RequestParam(value = "file", required = false) MultipartFile file) {
+                                         @ApiParam(name = "description", value = "附件说明") @RequestParam(value = "description", required = false) String description,
+                                         @ApiParam(name = "md5value", value = "附件md5值") @RequestParam(value = "md5value", required = false) String md5value,
+                                         @ApiParam(name = "chunks", value = "附件总分片数") @RequestParam(value = "chunks", required = false) String chunks,
+                                         @ApiParam(name = "chunk", value = "附件当前第几片") @RequestParam(value = "chunk", required = false) String chunk,
+                                         @ApiParam(name = "name", value = "上传附件名") @RequestParam(value = "name", required = false) String name,
+                                         @ApiParam(name = "file", value = "附件") @RequestParam(value = "file", required = false) MultipartFile file) {
 
         JsonResult<Annex> resJson = new JsonResult<>();
-        if (name == null){
+        if (name == null) {
             resJson.setCode(MagicalValue.CODE_OF_CUSTOMIZE_EXCEPTION);
             resJson.setSuccess(false);
             resJson.setMessage("异常信息：附件标题名不能为空");
@@ -218,7 +218,7 @@ public class AnnexController extends BaseController {
             resJson.setData(annexService.myAnnexUpload(resourceType, description, md5value, chunks, chunk, name, file));
             resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setSuccess(true);
-        } catch (CustomizeException e){
+        } catch (CustomizeException e) {
             resJson.setCode(MagicalValue.CODE_OF_CUSTOMIZE_EXCEPTION);
             resJson.setSuccess(false);
             resJson.setMessage(e.getMessage());
@@ -233,7 +233,7 @@ public class AnnexController extends BaseController {
      */
     @GetMapping(value = "/getAnnexExistsByMd5/{md5value}")
     @ApiOperation(value = "/getAnnexExistsByMd5/{md5value}", notes = "根据md5值判断该附件是否存在")
-    public JsonResult<Annex> getAnnexExistsByMd5(@ApiParam(name = "md5value", value = "md5值") @PathVariable(value = "md5value") String md5value){
+    public JsonResult<Annex> getAnnexExistsByMd5(@ApiParam(name = "md5value", value = "md5值") @PathVariable(value = "md5value") String md5value) {
 
         JsonResult<Annex> resJson = new JsonResult<>();
         Annex annex = annexService.myGetAnnexExistsByMd5(md5value);
@@ -251,13 +251,13 @@ public class AnnexController extends BaseController {
     @GetMapping(value = "/image/{annexId}")
     @ApiOperation(value = "/image/{annexId}", notes = "根据附件id获取图片")
     public void getImageByAnnexId(@ApiParam(name = "annexId", value = "附件id") @PathVariable(value = "annexId") Long annexId,
-                                               @ApiParam(name = "response", value = "服务器响应") HttpServletResponse response) throws IOException, CustomizeException {
+                                  @ApiParam(name = "response", value = "服务器响应") HttpServletResponse response) throws IOException, CustomizeException {
 
         Date date = new Date();
         //Last-Modified:页面的最后生成时间
-        response.setDateHeader("Last-Modified",date.getTime());
+        response.setDateHeader("Last-Modified", date.getTime());
         //Expires:过时期限值
-        response.setDateHeader("Expires",date.getTime()+1*60*60*1000);
+        response.setDateHeader("Expires", date.getTime() + 1 * 60 * 60 * 1000);
         //Cache-Control来控制页面的缓存与否,public:浏览器和缓存服务器都可以缓存页面信息；
         response.setHeader("Cache-Control", "public");
         //Pragma:设置页面是否缓存，为Pragma则缓存，no-cache则不缓存
@@ -272,9 +272,9 @@ public class AnnexController extends BaseController {
      */
     @GetMapping(value = "/download/{annexId}")
     @ApiOperation(value = "/download/{annexId}", notes = "根据附件id下载文件")
-    public void downloadFile (@ApiParam(name = "request", value = "服务器请求") HttpServletRequest request,
-                              @ApiParam(name = "response", value = "服务器响应") HttpServletResponse response,
-                              @ApiParam(name = "annexId", value = "附件id") @PathVariable(value = "annexId") Long annexId) throws CustomizeException, IOException {
+    public void downloadFile(@ApiParam(name = "request", value = "服务器请求") HttpServletRequest request,
+                             @ApiParam(name = "response", value = "服务器响应") HttpServletResponse response,
+                             @ApiParam(name = "annexId", value = "附件id") @PathVariable(value = "annexId") Long annexId) throws CustomizeException, IOException {
 
         annexService.myDownloadFile(request, response, annexId);
     }
@@ -292,7 +292,7 @@ public class AnnexController extends BaseController {
 
         Date date = new Date();
         //Expires:过时期限值
-        response.setDateHeader("Expires", date.getTime()+1*60*60*1000);
+        response.setDateHeader("Expires", date.getTime() + 1 * 60 * 60 * 1000);
         //Cache-Control来控制页面的缓存与否,public:浏览器和缓存服务器都可以缓存页面信息；
         response.setHeader("Cache-Control", "public");
         //Pragma:设置页面是否缓存，为Pragma则缓存，no-cache则不缓存

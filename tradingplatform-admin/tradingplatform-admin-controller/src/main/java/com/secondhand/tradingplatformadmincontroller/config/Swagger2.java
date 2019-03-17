@@ -22,15 +22,16 @@ public class Swagger2 {
 
     /**
      * 生成SWAGGER2的api
+     *
      * @return
      */
     @Bean
-    public Docket customDocket(){
+    public Docket customDocket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo());
     }
 
-    private ApiInfo apiInfo(){
+    private ApiInfo apiInfo() {
         Contact contact = new Contact("zhangjk", "http://www.baidu.com", "810797860@qq.com");
         return new ApiInfoBuilder()
                 .title("mybatis-plus-demo")

@@ -320,7 +320,7 @@ function MyShop() {
 
 
     // 点击事件
-    function handleClickEvent () {
+    function handleClickEvent() {
         var nowTab = null;
         var nowTabName = '';
         var homeModel = $('#tab-index');

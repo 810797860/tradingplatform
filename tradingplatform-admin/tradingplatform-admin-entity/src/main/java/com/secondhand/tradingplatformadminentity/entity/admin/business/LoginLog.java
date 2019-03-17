@@ -10,127 +10,127 @@ import org.springframework.format.annotation.DateTimeFormat;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- *   @description : LoginLog 实体类
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2018-10-28
+ * @author zhangjk
+ * @description : LoginLog 实体类
+ * ---------------------------------
+ * @since 2018-10-28
  */
 @TableName("c_business_login_log")
 public class LoginLog extends BaseEntity {
 
-	/**
-	 * 序列化标志
-	 */
+    /**
+     * 序列化标志
+     */
     private static final long serialVersionUID = 1L;
 
-            /**
-             * 日志名称
-             */
-            @ApiModelProperty("日志名称")
-            @TableField("logname")
-												
-			private String logname;
+    /**
+     * 日志名称
+     */
+    @ApiModelProperty("日志名称")
+    @TableField("logname")
 
-            /**
-             * 管理员id
-             */
-            @ApiModelProperty("管理员id")
-            @TableField("userid")
-												
-			private Long userid;
+    private String logname;
 
-            /**
-             * 创建时间
-             */
-            @ApiModelProperty("创建时间")
-            @TableField("createtime")
-												
-			@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-            @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    /**
+     * 管理员id
+     */
+    @ApiModelProperty("管理员id")
+    @TableField("userid")
 
-			private Date createtime;
+    private Long userid;
 
-            /**
-             * 是否执行成功
-             */
-            @ApiModelProperty("是否执行成功")
-            @TableField("succeed")
-												
-			private String succeed;
+    /**
+     * 创建时间
+     */
+    @ApiModelProperty("创建时间")
+    @TableField("createtime")
 
-            /**
-             * 具体消息
-             */
-            @ApiModelProperty("具体消息")
-            @TableField("message")
-												
-			private String message;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 
-            /**
-             * 登录ip
-             */
-            @ApiModelProperty("登录ip")
-            @TableField("ip")
-												
-			private String ip;
+    private Date createtime;
 
-        	public String getLogname() {
-                return logname;
-                }
+    /**
+     * 是否执行成功
+     */
+    @ApiModelProperty("是否执行成功")
+    @TableField("succeed")
 
-            public void setLogname(String logname) {
-                this.logname = logname;
-                }
+    private String succeed;
 
-        	public Long getUserid() {
-                return userid;
-                }
+    /**
+     * 具体消息
+     */
+    @ApiModelProperty("具体消息")
+    @TableField("message")
 
-            public void setUserid(Long userid) {
-                this.userid = userid;
-                }
+    private String message;
 
-        	public Date getCreatetime() {
-                return createtime;
-                }
+    /**
+     * 登录ip
+     */
+    @ApiModelProperty("登录ip")
+    @TableField("ip")
 
-            public void setCreatetime(Date createtime) {
-                this.createtime = createtime;
-                }
+    private String ip;
 
-        	public String getSucceed() {
-                return succeed;
-                }
+    public String getLogname() {
+        return logname;
+    }
 
-            public void setSucceed(String succeed) {
-                this.succeed = succeed;
-                }
+    public void setLogname(String logname) {
+        this.logname = logname;
+    }
 
-        	public String getMessage() {
-                return message;
-                }
+    public Long getUserid() {
+        return userid;
+    }
 
-            public void setMessage(String message) {
-                this.message = message;
-                }
+    public void setUserid(Long userid) {
+        this.userid = userid;
+    }
 
-        	public String getIp() {
-                return ip;
-                }
+    public Date getCreatetime() {
+        return createtime;
+    }
 
-            public void setIp(String ip) {
-                this.ip = ip;
-                }
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
+    }
 
-	@Override
-	public String toString() {
-		return "LoginLog{" +
-			", logname=" + logname +
-			", userid=" + userid +
-			", createtime=" + createtime +
-			", succeed=" + succeed +
-			", message=" + message +
-			", ip=" + ip +
-			"}";
-	}
+    public String getSucceed() {
+        return succeed;
+    }
+
+    public void setSucceed(String succeed) {
+        this.succeed = succeed;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
+
+    @Override
+    public String toString() {
+        return "LoginLog{" +
+                ", logname=" + logname +
+                ", userid=" + userid +
+                ", createtime=" + createtime +
+                ", succeed=" + succeed +
+                ", message=" + message +
+                ", ip=" + ip +
+                "}";
+    }
 }

@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     /**
      * Russian language package
      * Translated by @cylon-v. Improved by @stepin, @oleg-voloshyn
@@ -42,7 +42,7 @@
             'default': 'Пожалуйста, введите другое значение'
         },
         digits: {
-             'default': 'Пожалуйста, введите только цифры'
+            'default': 'Пожалуйста, введите только цифры'
         },
         ean: {
             'default': 'Пожалуйста, введите правильный номер EAN'

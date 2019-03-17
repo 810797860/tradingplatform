@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     /**
      * Norwegian language package
      * Translated by @trondulseth
@@ -42,7 +42,7 @@
             'default': 'Vennligst fyll ut dette feltet med en annen verdi'
         },
         digits: {
-             'default': 'Vennligst tast inn kun sifre'
+            'default': 'Vennligst tast inn kun sifre'
         },
         ean: {
             'default': 'Vennligst fyll ut dette feltet med et gyldig EAN-nummer'

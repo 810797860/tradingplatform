@@ -28,163 +28,171 @@
     <![endif]-->
 </head>
 <body>
-    <div id="main">
-        <input type="hidden" th:value="${formId}" id="formId"/>
-        <input type="hidden" th:value="${formField['id']}" id="formFieldId"/>
-        <div class="main-content">
-            <div style="margin-bottom:10px;">
-                <button id="save" type="button" class="btn btn-sm btn-info"><i class="icon-save"></i> 保存</button>
-                <button id="reset" type="button" class="btn btn-sm btn-default"><i class="icon-refresh"></i> 重置</button>
+<div id="main">
+    <input type="hidden" th:value="${formId}" id="formId"/>
+    <input type="hidden" th:value="${formField['id']}" id="formFieldId"/>
+    <div class="main-content">
+        <div style="margin-bottom:10px;">
+            <button id="save" type="button" class="btn btn-sm btn-info"><i class="icon-save"></i> 保存</button>
+            <button id="reset" type="button" class="btn btn-sm btn-default"><i class="icon-refresh"></i> 重置</button>
+        </div>
+        <div class="panel panel-default" style="clear: both">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <i class="icon-edit"></i> 表单字段基本信息
+                </h3>
             </div>
-            <div class="panel panel-default" style="clear: both">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        <i class="icon-edit"></i> 表单字段基本信息
-                    </h3>
-                </div>
-                <div class="panel-body">
-                    <form  role="form" id="newField" name="newField" th:object="${formField}" onkeydown="if(event.keyCode==13)return false;">
-                        <div class="form-group form-group-sm">
-                            <label>字段标题</label> <span style="color:#FF3333;font-size:18px">*</span>
-                            <input type="text" class="form-control" name="title" id="title" placeholder="请输入字段标题" th:value="${formField['title']}"required>
-                        </div>
-                        <div class="form-group form-group-sm">
-                            <label>字段名称</label> <span style="color:#FF3333;font-size:18px">*</span>
-                            <input type="text" class="form-control" name="fieldName" id="fieldName" placeholder="请输入字段名称" th:value="${formField['field_name']}" required>
-                        </div>
+            <div class="panel-body">
+                <form role="form" id="newField" name="newField" th:object="${formField}"
+                      onkeydown="if(event.keyCode==13)return false;">
+                    <div class="form-group form-group-sm">
+                        <label>字段标题</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <input type="text" class="form-control" name="title" id="title" placeholder="请输入字段标题"
+                               th:value="${formField['title']}" required>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label>字段名称</label> <span style="color:#FF3333;font-size:18px">*</span>
+                        <input type="text" class="form-control" name="fieldName" id="fieldName" placeholder="请输入字段名称"
+                               th:value="${formField['field_name']}" required>
+                    </div>
 
-                        <div class="form-group form-group-sm">
-                            <label for="showType">显示类型</label><span style="color:#FF3333;font-size:18px">*</span>
-                            <select class="form-control select-inline select2" name="showType" id="showType" required th:data-showtype="${formField['show_type']}">
-                                <script th:inline="javascript">
-                                    var fieldTypesArr = [[${fieldTypes}]];
-                                </script>
-                            </select>
-                        </div>
+                    <div class="form-group form-group-sm">
+                        <label for="showType">显示类型</label><span style="color:#FF3333;font-size:18px">*</span>
+                        <select class="form-control select-inline select2" name="showType" id="showType" required
+                                th:data-showtype="${formField['show_type']}">
+                            <script th:inline="javascript">
+                                var fieldTypesArr = [[${fieldTypes}]];
+                            </script>
+                        </select>
+                    </div>
 
-                        <div class="form-group form-group-sm">
-                            <label for="fieldType">字段类型</label><span style="color:#FF3333;font-size:18px">*</span>
-                            <select class="form-control select-inline select2" name="fieldType" id="fieldType" required th:data-fieldtype="${formField['field_type']}">
-                            </select>
-                        </div>
+                    <div class="form-group form-group-sm">
+                        <label for="fieldType">字段类型</label><span style="color:#FF3333;font-size:18px">*</span>
+                        <select class="form-control select-inline select2" name="fieldType" id="fieldType" required
+                                th:data-fieldtype="${formField['field_type']}">
+                        </select>
+                    </div>
 
-                        <!--<div class="form-group form-group-sm">-->
-                            <!--<label>展示类型</label>-->
-                            <!--<select class="form-control" name="showType" id="showType" th:value="*{showType}">-->
-                                <!--<option th:each="showType:${showTypes}" th:value="${showType.id}" th:text="${showType.title}" th:data-value="${showType.itemValue}" th:selected="(*{showType} == ${showType.id})"></option>-->
-                            <!--</select>-->
-                        <!--</div>-->
-                        <!--<div class="form-group form-group-sm">-->
-                            <!--<label>字段类型</label>-->
-                            <!--<select class="form-control" name="fieldType" id="fieldType" th:value="*{fieldType}">-->
-                                <!--<option th:each="fieldType:${fieldTypes}" th:value="${fieldType.id}" th:text="${fieldType.description}" th:selected="(*{fieldType} == ${fieldType.id})"></option>-->
-                            <!--</select>-->
-                        <!--</div>-->
+                    <!--<div class="form-group form-group-sm">-->
+                    <!--<label>展示类型</label>-->
+                    <!--<select class="form-control" name="showType" id="showType" th:value="*{showType}">-->
+                    <!--<option th:each="showType:${showTypes}" th:value="${showType.id}" th:text="${showType.title}" th:data-value="${showType.itemValue}" th:selected="(*{showType} == ${showType.id})"></option>-->
+                    <!--</select>-->
+                    <!--</div>-->
+                    <!--<div class="form-group form-group-sm">-->
+                    <!--<label>字段类型</label>-->
+                    <!--<select class="form-control" name="fieldType" id="fieldType" th:value="*{fieldType}">-->
+                    <!--<option th:each="fieldType:${fieldTypes}" th:value="${fieldType.id}" th:text="${fieldType.description}" th:selected="(*{fieldType} == ${fieldType.id})"></option>-->
+                    <!--</select>-->
+                    <!--</div>-->
 
-                        <!--<div class="form-group form-group-sm">-->
-                            <!--<label>关联选择项</label>-->
-                            <!--<select class="form-control" name="targetId" id="targetId" th:value="*{targetId}">-->
-                                <!--<option th:each="reference:${references}" th:value="${reference.id}" th:text="${reference.title}" th:selected="*{targetId} == ${reference.id}"></option>-->
-                            <!--</select>-->
-                        <!--</div>-->
-                        <!--<div class="form-group form-group-sm" style="display: none;">-->
-                            <!--<label>字段长度</label>-->
-                            <!--<input type="number" class="form-control" name="length" id="length" placeholder="请输入字段长度" th:value="*{length}"/>-->
-                        <!--</div>-->
+                    <!--<div class="form-group form-group-sm">-->
+                    <!--<label>关联选择项</label>-->
+                    <!--<select class="form-control" name="targetId" id="targetId" th:value="*{targetId}">-->
+                    <!--<option th:each="reference:${references}" th:value="${reference.id}" th:text="${reference.title}" th:selected="*{targetId} == ${reference.id}"></option>-->
+                    <!--</select>-->
+                    <!--</div>-->
+                    <!--<div class="form-group form-group-sm" style="display: none;">-->
+                    <!--<label>字段长度</label>-->
+                    <!--<input type="number" class="form-control" name="length" id="length" placeholder="请输入字段长度" th:value="*{length}"/>-->
+                    <!--</div>-->
 
-                        <div class="form-group form-group-sm">
-                            <label>默认值</label>
-                            <input type="text" class="form-control" name="defaultValue" id="defaultValue" placeholder="请输入字段名称" th:value="${formField['default_value']}"/>
-                        </div>
-                        <!--<div class="form-group form-group-sm">
-                            <label>单位</label>
-                            <input type="text" class="form-control" name="fieldUnit" id="fieldUnit" placeholder="请输入单位名称" th:value="*{fieldUnit}"/>
-                        </div>
-                        <div class="form-group form-group-sm">
-                            <label>附件个数</label>
-                            <input type="text" class="form-control" name="attachNum" id="attachNum" placeholder="请输入附件个数" th:value="*{attachNum}"/>
-                        </div>-->
-                        <!--<div class="form-group checkbox-group">-->
-                            <!--<span class="checkbox-label"><span>是否存入搜索引擎:</span></span>-->
-                            <!--<span class="checkbox-input">-->
-                            <!--<span class="checkbox-inner"></span>-->
-                            <!--<input type="checkbox" name="saveToSearchEngine" id="saveToSearchEngine" class="checkbox-original" th:checked="*{saveToSearchEngine}"/>-->
-                        <!--</span>-->
-                        <!--</div>-->
-                        <div class="form-group checkbox-group">
-                            <span class="checkbox-label"><span>是否必填:</span></span>
-                            <span class="checkbox-input">
+                    <div class="form-group form-group-sm">
+                        <label>默认值</label>
+                        <input type="text" class="form-control" name="defaultValue" id="defaultValue"
+                               placeholder="请输入字段名称" th:value="${formField['default_value']}"/>
+                    </div>
+                    <!--<div class="form-group form-group-sm">
+                        <label>单位</label>
+                        <input type="text" class="form-control" name="fieldUnit" id="fieldUnit" placeholder="请输入单位名称" th:value="*{fieldUnit}"/>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label>附件个数</label>
+                        <input type="text" class="form-control" name="attachNum" id="attachNum" placeholder="请输入附件个数" th:value="*{attachNum}"/>
+                    </div>-->
+                    <!--<div class="form-group checkbox-group">-->
+                    <!--<span class="checkbox-label"><span>是否存入搜索引擎:</span></span>-->
+                    <!--<span class="checkbox-input">-->
+                    <!--<span class="checkbox-inner"></span>-->
+                    <!--<input type="checkbox" name="saveToSearchEngine" id="saveToSearchEngine" class="checkbox-original" th:checked="*{saveToSearchEngine}"/>-->
+                    <!--</span>-->
+                    <!--</div>-->
+                    <div class="form-group checkbox-group">
+                        <span class="checkbox-label"><span>是否必填:</span></span>
+                        <span class="checkbox-input">
                             <span class="checkbox-inner"></span>
-                            <input type="checkbox" name="required" id="required" class="checkbox-original" th:checked="${formField['required']}"/>
+                            <input type="checkbox" name="required" id="required" class="checkbox-original"
+                                   th:checked="${formField['required']}"/>
                         </span>
-                        </div>
-                        <!--<div class="form-group checkbox-group">-->
-                            <!--<span class="checkbox-label"><span>是否只读:</span></span>-->
-                            <!--<span class="checkbox-input">-->
-                            <!--<span class="checkbox-inner"></span>-->
-                            <!--<input type="checkbox" name="readonly" id="readonly" class="checkbox-original" th:checked="*{readonly}"/>-->
-                        <!--</span>-->
-                        <!--</div>-->
-                        <!--<div class="form-group checkbox-group">-->
-                            <!--<span class="checkbox-label"><span>是否隐藏:</span></span>-->
-                            <!--<span class="checkbox-input">-->
-                            <!--<span class="checkbox-inner"></span>-->
-                            <!--<input type="checkbox" name="hidden" id="hidden" class="checkbox-original" th:checked="*{hidden}"/>-->
-                        <!--</span>-->
-                        <!--</div>-->
-                        <!--<div class="form-group form-group-sm">-->
-                            <!--<label>输入组件</label>-->
-                            <!--<select class="form-control" name="pageComponentInput" id="pageComponentInput" th:value="*{pageComponentInput}">-->
-                                <!--<option th:each="item:${inputComponent}" th:value="${item.id}" th:text="${item.title}" th:selected="(*{pageComponentInput} == ${item.id})"></option>-->
-                            <!--</select>-->
-                        <!--</div>-->
-                        <!--<div class="form-group form-group-sm">-->
-                            <!--<label>输出组件</label>-->
-                            <!--<select class="form-control" name="pageComponentOutput" id="pageComponentOutput" th:value="*{pageComponentOutput}">-->
-                                <!--<option th:each="item:${outputComponent}" th:value="${item.id}" th:text="${item.title}" th:selected="(*{pageComponentOutput} == ${item.id})"></option>-->
-                            <!--</select>-->
-                        <!--</div>-->
-                        <!--<div class="form-group form-group-sm">-->
-                            <!--<label>排序</label>-->
-                            <!--<input type="number" class="form-control" name="sort" id="sort" th:value="*{sort}"/>-->
-                        <!--</div>-->
-                        <!--<div class="form-group form-group-sm">-->
-                            <!--<label>JS脚本 (按F10全屏)</label>-->
-                            <!--<textarea id="code" rows="5" class="form-control" name="jsHandle" th:text="*{jsHandle}"></textarea>-->
-                        <!--</div>-->
-                        <div class="form-group form-group-sm">
-                            <label>备注</label>
-                            <textarea rows="4" class="form-control" name="description" id="description" placeholder="请输入备注" th:text="${formField['description']}"></textarea>
-                        </div>
-                        <!--<div class="form-group form-group-sm">-->
-                            <!--<label>KEY</label>-->
-                            <!--<input type="text" class="form-control" disabled="true" name="id" id="id" th:value="*{id}"/>-->
-                        <!--</div>-->
-                        <!--<div class="form-group form-group-sm">-->
-                            <!--<label>UUID</label>-->
-                            <!--<input type="text" class="form-control" disabled="true" name="uuid" id="uuid" th:value="*{uuid}"/>-->
-                        <!--</div>-->
-                    </form>
-                </div>
+                    </div>
+                    <!--<div class="form-group checkbox-group">-->
+                    <!--<span class="checkbox-label"><span>是否只读:</span></span>-->
+                    <!--<span class="checkbox-input">-->
+                    <!--<span class="checkbox-inner"></span>-->
+                    <!--<input type="checkbox" name="readonly" id="readonly" class="checkbox-original" th:checked="*{readonly}"/>-->
+                    <!--</span>-->
+                    <!--</div>-->
+                    <!--<div class="form-group checkbox-group">-->
+                    <!--<span class="checkbox-label"><span>是否隐藏:</span></span>-->
+                    <!--<span class="checkbox-input">-->
+                    <!--<span class="checkbox-inner"></span>-->
+                    <!--<input type="checkbox" name="hidden" id="hidden" class="checkbox-original" th:checked="*{hidden}"/>-->
+                    <!--</span>-->
+                    <!--</div>-->
+                    <!--<div class="form-group form-group-sm">-->
+                    <!--<label>输入组件</label>-->
+                    <!--<select class="form-control" name="pageComponentInput" id="pageComponentInput" th:value="*{pageComponentInput}">-->
+                    <!--<option th:each="item:${inputComponent}" th:value="${item.id}" th:text="${item.title}" th:selected="(*{pageComponentInput} == ${item.id})"></option>-->
+                    <!--</select>-->
+                    <!--</div>-->
+                    <!--<div class="form-group form-group-sm">-->
+                    <!--<label>输出组件</label>-->
+                    <!--<select class="form-control" name="pageComponentOutput" id="pageComponentOutput" th:value="*{pageComponentOutput}">-->
+                    <!--<option th:each="item:${outputComponent}" th:value="${item.id}" th:text="${item.title}" th:selected="(*{pageComponentOutput} == ${item.id})"></option>-->
+                    <!--</select>-->
+                    <!--</div>-->
+                    <!--<div class="form-group form-group-sm">-->
+                    <!--<label>排序</label>-->
+                    <!--<input type="number" class="form-control" name="sort" id="sort" th:value="*{sort}"/>-->
+                    <!--</div>-->
+                    <!--<div class="form-group form-group-sm">-->
+                    <!--<label>JS脚本 (按F10全屏)</label>-->
+                    <!--<textarea id="code" rows="5" class="form-control" name="jsHandle" th:text="*{jsHandle}"></textarea>-->
+                    <!--</div>-->
+                    <div class="form-group form-group-sm">
+                        <label>备注</label>
+                        <textarea rows="4" class="form-control" name="description" id="description" placeholder="请输入备注"
+                                  th:text="${formField['description']}"></textarea>
+                    </div>
+                    <!--<div class="form-group form-group-sm">-->
+                    <!--<label>KEY</label>-->
+                    <!--<input type="text" class="form-control" disabled="true" name="id" id="id" th:value="*{id}"/>-->
+                    <!--</div>-->
+                    <!--<div class="form-group form-group-sm">-->
+                    <!--<label>UUID</label>-->
+                    <!--<input type="text" class="form-control" disabled="true" name="uuid" id="uuid" th:value="*{uuid}"/>-->
+                    <!--</div>-->
+                </form>
             </div>
         </div>
     </div>
-    <script th:src="@{/plugin/jquery-1.10.2.min.js}"></script>
-    <script th:src="@{/plugin/bootstrap-3.3.7/js/bootstrap.min.js}"></script>
-    <script th:src="@{/plugin/bootstrapValidator/js/bootstrapValidator.min.js}"></script>
-    <script th:src="@{/plugin/bootstrapValidator/js/language/zh_CN.js}"></script>
-    <script th:src="@{/plugin/codemirror/lib/codemirror.js}"></script>
-    <script th:src="@{/plugin/codemirror/mode/javascript/javascript.js}"></script>
-    <script th:src="@{/plugin/codemirror/mode/javascript/javascript.js}"></script>
-    <script th:src="@{/plugin/codemirror/addon/display/fullscreen.js}"></script>
-    <script th:src="@{/plugin/pnotify/pnotify.js}"></script>
-    <script th:src="@{/plugin/pnotify/pnotify.buttons.js}"></script>
-    <script th:src="@{/plugin/layer/layer.js}"></script>
-    <script th:src="@{/plugin/select2/js/select2.min.js}"></script>
-    <script th:src="@{/plugin/select2/js/i18n/zh-CN.js}"></script>
-    <script type="text/javascript" th:inline="javascript">
-        var tempTargetId = [[${references}]];
-    </script>
-    <script th:src="@{/js/system/formField/modify.js}"></script>
+</div>
+<script th:src="@{/plugin/jquery-1.10.2.min.js}"></script>
+<script th:src="@{/plugin/bootstrap-3.3.7/js/bootstrap.min.js}"></script>
+<script th:src="@{/plugin/bootstrapValidator/js/bootstrapValidator.min.js}"></script>
+<script th:src="@{/plugin/bootstrapValidator/js/language/zh_CN.js}"></script>
+<script th:src="@{/plugin/codemirror/lib/codemirror.js}"></script>
+<script th:src="@{/plugin/codemirror/mode/javascript/javascript.js}"></script>
+<script th:src="@{/plugin/codemirror/mode/javascript/javascript.js}"></script>
+<script th:src="@{/plugin/codemirror/addon/display/fullscreen.js}"></script>
+<script th:src="@{/plugin/pnotify/pnotify.js}"></script>
+<script th:src="@{/plugin/pnotify/pnotify.buttons.js}"></script>
+<script th:src="@{/plugin/layer/layer.js}"></script>
+<script th:src="@{/plugin/select2/js/select2.min.js}"></script>
+<script th:src="@{/plugin/select2/js/i18n/zh-CN.js}"></script>
+<script type="text/javascript" th:inline="javascript">
+    var tempTargetId = [[${references}]];
+</script>
+<script th:src="@{/js/system/formField/modify.js}"></script>
 </body>
 </html>

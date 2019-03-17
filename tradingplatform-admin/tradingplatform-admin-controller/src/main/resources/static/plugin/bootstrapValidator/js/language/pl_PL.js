@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     /**
      * Polish language package
      * Translated by @grzesiek
@@ -42,7 +42,7 @@
             'default': 'Wprowadź inną wartość'
         },
         digits: {
-             'default': 'Wprowadź tylko cyfry'
+            'default': 'Wprowadź tylko cyfry'
         },
         ean: {
             'default': 'Wprowadź poprawny numer EAN'

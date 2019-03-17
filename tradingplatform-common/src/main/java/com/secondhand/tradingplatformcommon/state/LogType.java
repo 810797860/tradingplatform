@@ -2,6 +2,7 @@ package com.secondhand.tradingplatformcommon.state;
 
 /**
  * 日志类型
+ *
  * @author 81079
  */
 

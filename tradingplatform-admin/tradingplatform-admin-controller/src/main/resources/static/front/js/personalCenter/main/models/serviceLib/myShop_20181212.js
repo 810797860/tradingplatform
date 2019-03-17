@@ -42,38 +42,38 @@ function MyShop() {
     var submitBtn = $('#shopHomeEditTrueBtn');
 
     // 初始化富文本
-    _this.initRichText = function() {
+    _this.initRichText = function () {
         //初始化富文本插件
-        richText = CKEDITOR.replace('myShopHome',{
-            resize_enabled : false,
-            autoUpdateElement : true,
+        richText = CKEDITOR.replace('myShopHome', {
+            resize_enabled: false,
+            autoUpdateElement: true,
             height: 300,
             toolbarGroups: [
-                { name: 'document', groups: [] },
-                { name: 'clipboard', groups: [] },
-                { name: 'editing', groups: [] },
-                { name: 'forms', groups: [ 'forms' ] },
+                {name: 'document', groups: []},
+                {name: 'clipboard', groups: []},
+                {name: 'editing', groups: []},
+                {name: 'forms', groups: ['forms']},
                 '/',
-                { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-                { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
-                { name: 'links', groups: [ 'links' ] },
-                { name: 'insert', groups: [ 'insert' ] },
+                {name: 'basicstyles', groups: ['basicstyles', 'cleanup']},
+                {name: 'paragraph', groups: ['list', 'indent', 'blocks', 'align', 'bidi', 'paragraph']},
+                {name: 'links', groups: ['links']},
+                {name: 'insert', groups: ['insert']},
                 '/',
-                { name: 'styles', groups: [ 'styles' ] },
-                { name: 'colors', groups: [ 'colors' ] },
-                { name: 'tools', groups: [ 'tools' ] },
-                { name: 'others', groups: [ 'others' ] },
-                { name: 'about', groups: [ 'about' ] }
+                {name: 'styles', groups: ['styles']},
+                {name: 'colors', groups: ['colors']},
+                {name: 'tools', groups: ['tools']},
+                {name: 'others', groups: ['others']},
+                {name: 'about', groups: ['about']}
             ]
         });
     };
     // 初始数据
-    _this.initData = function(){
+    _this.initData = function () {
         //  设置评价的头部数据
         setEvaluationHeadData();
     };
     // 初始化dom结构
-    _this.initDom = function() {
+    _this.initDom = function () {
         $("#detail-data").show();
         $("#case-hall").hide();
         $("#complete-task").hide();
@@ -277,17 +277,18 @@ function MyShop() {
             })
         }
     };
-    
+
     // 更新案例展示solutionCard的样式
     function updateSolutionCard() {
-        $(".case-hall .solution-card .solution-card-content .detail").css("display",'none');
-        $(".case-hall .solution-card .solution-card-content .browse-money").css("display",'block');
-        $(".case-hall .solution-card .solution-card-content .browse-money .money").css("display",'inline');
+        $(".case-hall .solution-card .solution-card-content .detail").css("display", 'none');
+        $(".case-hall .solution-card .solution-card-content .browse-money").css("display", 'block');
+        $(".case-hall .solution-card .solution-card-content .browse-money .money").css("display", 'inline');
         // $(".case-hall .solution-card .type-area").append("<div class='type-area'><span>应用行业：</span><span class='application-content'>暂无</span></div>");
         // $(".case-hall .solution-card .type-area").css("height", "43px");
     }
+
     // 写入详细资料
-    function setDetailData () {
+    function setDetailData() {
         // 公司名(大标题)
         $(".detail-data .big-title").html(valueFilter($_serviceLibInfo['name'], '暂无数据')); //名字
         // 能力
@@ -299,7 +300,7 @@ function MyShop() {
         $(".area-content").html(valueFilter($_serviceLibInfo['address'], '暂无数据')); //所属地区
         $(".telephone-content").html(valueFilter($_serviceLibInfo['fixed_telephone'], '暂无数据')); //电话
         $(".address-content").html(valueFilter($_serviceLibInfo['address_detail'], '暂无数据')); //详细地址
-        if (!!$_serviceLibInfo['phone']){
+        if (!!$_serviceLibInfo['phone']) {
             $(".phone-content").html(valueFilter($_serviceLibInfo['phone'], '暂无数据')); //手机
             $(".phone-authentication i").removeClass("icon-false").addClass("icon-true");
         } else {
@@ -314,7 +315,7 @@ function MyShop() {
                 $(".email-authentication i").removeClass("icon-false").addClass("icon-true");
             }
         }
-        if (!!$_serviceLibInfo['contact_wechat']){
+        if (!!$_serviceLibInfo['contact_wechat']) {
             $(".wechat").attr("src", $(this).getAvatar($_serviceLibInfo['contact_wechat']));
             $(".weixin-authentication i").removeClass("icon-false").addClass("icon-true");
         } else {
@@ -326,14 +327,14 @@ function MyShop() {
         // 主营业务
         $(".main-business-content").html(valueFilter($_serviceLibInfo['main_business'], '暂无数据'));
     }
-    
+
     // 请求案例数据
     function getCaseDataPage() {
         var json = {
             "id": $_serviceLibInfo.id,
-            "pager":{
-                "current":currentPage,
-                "size":searchSizeCase
+            "pager": {
+                "current": currentPage,
+                "size": searchSizeCase
             }
         };
         new NewAjax({
@@ -345,12 +346,20 @@ function MyShop() {
             success: function (res) {
                 var list = res.data.data_object;
                 var totalRecord = res.data.total;
-                if(list.length > 0){
-                    if(clickPage === 0){
-                        $('.case-hall #pageToolbar').Paging({pagesize:searchSizeCase,count:totalRecord,toolbar:true});
+                if (list.length > 0) {
+                    if (clickPage === 0) {
+                        $('.case-hall #pageToolbar').Paging({
+                            pagesize: searchSizeCase,
+                            count: totalRecord,
+                            toolbar: true
+                        });
                         $('.case-hall #pageToolbar').find("div:eq(1)").remove();
-                    }else {
-                        $('.case-hall #pageToolbar').Paging({pagesize:searchSizeCase,count:totalRecord,toolbar:true});
+                    } else {
+                        $('.case-hall #pageToolbar').Paging({
+                            pagesize: searchSizeCase,
+                            count: totalRecord,
+                            toolbar: true
+                        });
                         $('.case-hall #pageToolbar').find("div:eq(0)").remove();
                         clickPage = 0;
                     }
@@ -361,6 +370,7 @@ function MyShop() {
             }
         })
     }
+
     // 写入案例数据
     function setCaseData(list) {
         var caseHallCard = $(".case-hall .solution-card");
@@ -371,19 +381,19 @@ function MyShop() {
                 $(caseHallCard[k]).css("display", 'inline-block')
             }
         }
-        if (list.length > 0){
+        if (list.length > 0) {
             for (var i = 0; i < list.length; i++) {
                 $(caseHallCard[i]).attr("data-id", list[i]['id']); // id
                 $(caseHallCard[i]).find(".type-content").html(JSON.parse(list[i]['application_industry'])[0]['title']);  // 类型
                 $(caseHallCard[i]).find(".belong-class-name").html(JSON.parse(list[i]['skilled_label'])['title']);  // 行业领域
                 $(caseHallCard[i]).find(".text-overflow").html(list[i]['title']); // 大标题
                 $(caseHallCard[i]).find(".browse-Number").html(list[i]['click_rate']); // 点击数
-                if(list[i]['case_money'] !== 0){
+                if (list[i]['case_money'] !== 0) {
                     $(caseHallCard[i]).find(".money-part .money").html('￥' + list[i]['case_money'] + ' 万元'); // 金额
                 } else {
                     $(caseHallCard[i]).find(".money-part .money").html('￥' + ' 面议'); // 金额
                 }
-                if($.parseJSON(list[i]['picture_cover'])){
+                if ($.parseJSON(list[i]['picture_cover'])) {
                     $(caseHallCard[i]).find(".solution-card-image").attr("src", $(this).getAvatar($.parseJSON(list[i]['picture_cover'])[0]['id']));
                 }
             }
@@ -394,9 +404,9 @@ function MyShop() {
     function getCompleteDataPage() {
         var json = {
             "id": $_serviceLibInfo.id,
-            "pager":{
-                "current":currentPage,
-                "size":searchSize
+            "pager": {
+                "current": currentPage,
+                "size": searchSize
             }
         };
         new NewAjax({
@@ -408,12 +418,20 @@ function MyShop() {
             success: function (res) {
                 var list = res.data.data_object;
                 var totalRecord = res.data.total;
-                if(list.length > 0){
-                    if(clickPage === 0){
-                        $('.complete-task #pageToolbar').Paging({pagesize:searchSize,count:totalRecord,toolbar:true});
+                if (list.length > 0) {
+                    if (clickPage === 0) {
+                        $('.complete-task #pageToolbar').Paging({
+                            pagesize: searchSize,
+                            count: totalRecord,
+                            toolbar: true
+                        });
                         $('.complete-task #pageToolbar').find("div:eq(1)").remove();
-                    }else {
-                        $('.complete-task #pageToolbar').Paging({pagesize:searchSize,count:totalRecord,toolbar:true});
+                    } else {
+                        $('.complete-task #pageToolbar').Paging({
+                            pagesize: searchSize,
+                            count: totalRecord,
+                            toolbar: true
+                        });
                         $('.complete-task #pageToolbar').find("div:eq(0)").remove();
                         clickPage = 0;
                     }
@@ -424,6 +442,7 @@ function MyShop() {
             }
         })
     }
+
     // 写入完成任务数据
     function setCompleteData(list) {
         var completeTaskCard = $(".complete-task-card");
@@ -447,9 +466,9 @@ function MyShop() {
         var json = {
             "providerId": $_serviceLibInfo.id,
             "evaluationType": 202103,
-            "pager":{
-                "current":currentPage,
-                "size":searchSizeTransaction
+            "pager": {
+                "current": currentPage,
+                "size": searchSizeTransaction
             }
         };
         switch (evaluationStandard) {
@@ -474,24 +493,25 @@ function MyShop() {
                 if (list !== null && list.length > 0) {
                     $(".transaction-evaluate .noData").css("display", "none");
                     $('.transaction-evaluate #splitpage').css("display", "block");
-                    if(clickPage === 0){
+                    if (clickPage === 0) {
                         $('.transaction-evaluate #pageToolbar').Paging({
-                            pagesize:searchSizeTransaction,
-                            count:list[0].total_comments,
-                            toolbar:true
+                            pagesize: searchSizeTransaction,
+                            count: list[0].total_comments,
+                            toolbar: true
                         });
                         $('.transaction-evaluate #pageToolbar').find("div:eq(1)").remove();
-                    }else {
+                    } else {
                         $('.transaction-evaluate #pageToolbar').Paging({
-                            pagesize:searchSizeTransaction,
-                            count:list[0].total_comments,
-                            toolbar:true});
+                            pagesize: searchSizeTransaction,
+                            count: list[0].total_comments,
+                            toolbar: true
+                        });
                         $('.transaction-evaluate #pageToolbar').find("div:eq(0)").remove();
                         clickPage = 0;
                     }
                     $(".transaction-evaluate .noData").css("display", "none");
                     setTransactionData(list);
-                }else {
+                } else {
                     // 表示当前级别的没有数据
                     $('.transaction-evaluate-middle').eq(0).css({
                         display: ''
@@ -506,65 +526,73 @@ function MyShop() {
             }
         })
     }
+
     // 写入评估数据
     function setEvaluationHeadData() {
-        if($_evaluationHead !== null){
-            if($_evaluationHead['favorable_rate']) {
+        if ($_evaluationHead !== null) {
+            if ($_evaluationHead['favorable_rate']) {
                 $(".praise-rate-num").html($_evaluationHead['favorable_rate'] + '%'); // 好评率
             } else {
                 $(".praise-rate-num").html('暂无数据'); // 好评率
             }
 
-            if($_evaluationHead['total_comments']){
+            if ($_evaluationHead['total_comments']) {
                 $(".evaluate-total-num").html($_evaluationHead['total_comments']); // 评价总数
             } else {
                 $(".evaluate-total-num").html('暂无数据'); // 评价总数
             }
 
-            if($_evaluationHead.work_speed_star){
+            if ($_evaluationHead.work_speed_star) {
                 var work_speed_star = $(".average-speed-light"); // 平均工作速度
-                $(work_speed_star).css("width",function(){return Math.floor(146 * $_evaluationHead.work_speed_star);});
-            } else{
-                $(".average-speed-light").css("display","none");
-                $(".average-speed-normal").css("display","none");
-                $(".speed-no-comment").css("display","block");
+                $(work_speed_star).css("width", function () {
+                    return Math.floor(146 * $_evaluationHead.work_speed_star);
+                });
+            } else {
+                $(".average-speed-light").css("display", "none");
+                $(".average-speed-normal").css("display", "none");
+                $(".speed-no-comment").css("display", "block");
             }
 
-            if($_evaluationHead.work_quality_star){
+            if ($_evaluationHead.work_quality_star) {
                 var work_quality_star = $(".average-quality-light");  // 平均工作质量
-                $(work_quality_star).css("width",function(){return Math.floor(146 * $_evaluationHead.work_quality_star);});
-            } else{
-                $(".average-quality-light").css("display","none");
-                $(".average-quality-normal").css("display","none");
-                $(".quality-no-comment").css("display","block");
+                $(work_quality_star).css("width", function () {
+                    return Math.floor(146 * $_evaluationHead.work_quality_star);
+                });
+            } else {
+                $(".average-quality-light").css("display", "none");
+                $(".average-quality-normal").css("display", "none");
+                $(".quality-no-comment").css("display", "block");
             }
 
-            if($_evaluationHead.work_attitude_star){
+            if ($_evaluationHead.work_attitude_star) {
                 var work_attitude_star = $(".average-attitude-light");  // 平均工作态度
-                $(work_attitude_star).css("width",function(){return Math.floor(146 * $_evaluationHead.work_attitude_star);});
-            } else{
-                $(".average-attitude-light").css("display","none");
-                $(".average-attitude-normal").css("display","none");
-                $(".attitude-no-comment").css("display","block");
+                $(work_attitude_star).css("width", function () {
+                    return Math.floor(146 * $_evaluationHead.work_attitude_star);
+                });
+            } else {
+                $(".average-attitude-light").css("display", "none");
+                $(".average-attitude-normal").css("display", "none");
+                $(".attitude-no-comment").css("display", "block");
             }
         } else {
             $(".praise-rate-num").html('暂无数据'); // 好评率
 
             $(".evaluate-total-num").html('暂无数据'); // 评价总数
 
-            $(".average-speed-light").css("display","none");
-            $(".average-speed-normal").css("display","none");
-            $(".speed-no-comment").css("display","block");
+            $(".average-speed-light").css("display", "none");
+            $(".average-speed-normal").css("display", "none");
+            $(".speed-no-comment").css("display", "block");
 
-            $(".average-quality-light").css("display","none");
-            $(".average-quality-normal").css("display","none");
-            $(".quality-no-comment").css("display","block");
+            $(".average-quality-light").css("display", "none");
+            $(".average-quality-normal").css("display", "none");
+            $(".quality-no-comment").css("display", "block");
 
-            $(".average-attitude-light").css("display","none");
-            $(".average-attitude-normal").css("display","none");
-            $(".attitude-no-comment").css("display","block");
+            $(".average-attitude-light").css("display", "none");
+            $(".average-attitude-normal").css("display", "none");
+            $(".attitude-no-comment").css("display", "block");
         }
     }
+
     // 写入交易数据
     function setTransactionData(list) {
         var transactionEvaluateCard = $(".transaction-evaluate-bottom");
@@ -576,7 +604,7 @@ function MyShop() {
                 $(transactionEvaluateCard[k]).css("display", 'block')
             }
         }
-        if(list.length > 0){
+        if (list.length > 0) {
             for (var i = 0; i < list.length; i++) {
                 if (list[i]['user_info']) {
                     // 头像
@@ -614,21 +642,23 @@ function MyShop() {
     }
 
     /*** 复原案例展示currentPage ***/
-    function resetCurrentPageCase () {
+    function resetCurrentPageCase() {
         $('.case-hall #pageToolbar').data('currentpage', 1);
         currentPage = 1;
         clickPage = 0;//hrz
         $('.case-hall #pageToolbar').find('li[data-page="' + currentPage + '"]').addClass('focus').siblings().removeClass('focus');
     }
+
     /*** 复原完成任务currentPage ***/
-    function resetCurrentPageComplete () {
+    function resetCurrentPageComplete() {
         $('.complete-task #pageToolbar').data('currentpage', 1);
         currentPage = 1;
         clickPage = 0;//hrz
         $('.complete-task #pageToolbar').find('li[data-page="' + currentPage + '"]').addClass('focus').siblings().removeClass('focus');
     }
+
     /*** 复原交易评价currentPage ***/
-    function resetCurrentPageTransaction () {
+    function resetCurrentPageTransaction() {
         $('.transaction-evaluate #pageToolbar').data('currentpage', 1);
         currentPage = 1;
         clickPage = 0;//hrz
@@ -638,7 +668,7 @@ function MyShop() {
     // 资料修改
     function submitEditData(callback) {
         // 遍历变量是否存在非法字符
-        Object.keys(editData).forEach(function(key) {
+        Object.keys(editData).forEach(function (key) {
             editData[key] = (editData[key] === undefined || editData[key] === '') ? null : editData[key]
         });
         editData.id = $_serviceLibInfo.id;
@@ -649,7 +679,7 @@ function MyShop() {
             type: 'post',
             data: JSON.stringify(editData),
             success: function (res) {
-                if(res.status === 200 && callback) {
+                if (res.status === 200 && callback) {
                     callback(res.data)
                 }
             },
@@ -658,6 +688,7 @@ function MyShop() {
             }
         })
     }
+
     // 复选框选中事件
     function eventOfCheckBoxChange() {
         // 获取复选框节点
@@ -667,7 +698,7 @@ function MyShop() {
         // 获取默认背景图预览节点
         var defaultBgImgShowNode = $('.shopHomeDefaultBgImage').eq(0);
         // change监听
-        checkNode.off().change(function() {
+        checkNode.off().change(function () {
             if (checkNode.is(':checked')) {
                 defaultBgImgShowNode.css({
                     display: ''
@@ -685,25 +716,27 @@ function MyShop() {
             }
         })
     }
+
     // 图片区域点击事件
     function eventOfImageAreaClick() {
         var inputNode = $('#shopBgImageUpload');
         var imageArea = inputNode.prev();
-        imageArea.off().click(function() {
+        imageArea.off().click(function () {
             inputNode.click()
         })
     }
+
     // 获取fileInput的上传事件
     function eventOfFileInputChange() {
         var fileInput = $('#shopBgImageUpload');
         var imgNode = fileInput.prev().find('img').eq(0);
-        fileInput.off().change(function() {
-            uploadFile(fileInput.get(0).files, function(data) {
+        fileInput.off().change(function () {
+            uploadFile(fileInput.get(0).files, function (data) {
                 // 存入富文本信息
                 editData.detailCover = data[0].id;
                 editData.personalizedHomepage = undefined;
                 // 提交修改信息
-                submitEditData(function() {
+                submitEditData(function () {
                     // 写入url
                     imgNode.attr({
                         src: imgNode.getAvatar(data[0].id)
@@ -716,8 +749,9 @@ function MyShop() {
             })
         })
     }
+
     // 文件上传
-    function uploadFile (files, callback) {
+    function uploadFile(files, callback) {
         if (files.length === 0) return; //如果文件为空
         var formData = new FormData();
         for (var i = 0; i < files.length; i++) {
@@ -731,21 +765,22 @@ function MyShop() {
             processData: false,
             contentType: false,
             success: function (res) {
-                if (res.status === 200 && callback){
+                if (res.status === 200 && callback) {
                     callback(res.data.data_list)
                 }
             },
             error: function (err) {
-                console.error('上传头像：'+err)
+                console.error('上传头像：' + err)
             }
         });
     }
+
     // 展示区域编辑按钮点击监听
     function eventOfEditShowBtnClick() {
         var showArea = editBtn.parent();
         var editArea = showArea.next();
         var showHtml = '';
-        editBtn.off().on('click', function() {
+        editBtn.off().on('click', function () {
             showHtml = editBtn.prev().html();
             richText.setData(showHtml);
             showArea.css({
@@ -756,6 +791,7 @@ function MyShop() {
             })
         })
     }
+
     // 编辑区域提交按钮点击事件
     function eventOfEditSubmitBtnClick() {
         var editArea = submitBtn.parent();
@@ -766,7 +802,7 @@ function MyShop() {
             // 存入富文本信息
             editData.personalizedHomepage = saveNewHomeContent;
             // 提交修改信息
-            submitEditData(function() {
+            submitEditData(function () {
                 // 更新展示内容
                 shopHomeShowNode.html(saveNewHomeContent);
                 // 关闭编辑模式
@@ -780,6 +816,7 @@ function MyShop() {
             })
         })
     }
+
     // 编辑区域取消按钮点击事件
     function eventOfEditCancelBtnClick() {
         var cancelBtn = $('#shopHomeEditCancelBtn');
@@ -797,19 +834,19 @@ function MyShop() {
 }
 
 // 时间戳转日期
-function getMyDate(str){
+function getMyDate(str) {
     var oDate = new Date(str),
         oYear = oDate.getFullYear(),
-        oMonth = oDate.getMonth()+1,
+        oMonth = oDate.getMonth() + 1,
         oDay = oDate.getDate(),
-        oTime = oYear +'-'+ getzf(oMonth) +'-'+ getzf(oDay);//最后拼接时间
+        oTime = oYear + '-' + getzf(oMonth) + '-' + getzf(oDay);//最后拼接时间
     return oTime;
 };
 
 //补0操作
-function getzf(num){
-    if(parseInt(num) < 10){
-        num = '0'+num;
+function getzf(num) {
+    if (parseInt(num) < 10) {
+        num = '0' + num;
     }
     return num;
 }

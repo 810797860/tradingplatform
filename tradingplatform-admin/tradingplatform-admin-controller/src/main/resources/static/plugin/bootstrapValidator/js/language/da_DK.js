@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     /**
      * Danish language package
      * Translated by @Djarnis
@@ -42,7 +42,7 @@
             'default': 'Udfyld venligst dette felt med en anden værdi'
         },
         digits: {
-             'default': 'Indtast venligst kun cifre'
+            'default': 'Indtast venligst kun cifre'
         },
         ean: {
             'default': 'Udfyld venligst dette felt med et gyldigt EAN-nummer'

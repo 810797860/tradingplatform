@@ -30,12 +30,12 @@ import com.secondhand.tradingplatformadminservice.service.admin.shiro.UserRoleSe
 import javax.servlet.http.HttpSession;
 
 /**
- * @description : UserRole 控制器
  * @author : zhangjk
+ * @description : UserRole 控制器
  * @since : Create in 2018-11-22
  */
 @Controller("adminUserRoleController")
-@Api(value="/admin/userRole", description="UserRole 控制器")
+@Api(value = "/admin/userRole", description = "UserRole 控制器")
 @RequestMapping("/admin/userRole")
 public class UserRoleController extends BaseController {
 
@@ -56,7 +56,7 @@ public class UserRoleController extends BaseController {
     @GetMapping(value = "/tabulation.html")
     @ApiOperation(value = "/tabulation.html", notes = "跳转到userRole的列表页面")
     public String toUserRoleList(@ApiParam(name = "model", value = "Model") Model model,
-                             @ApiParam(name = "menuId", value = "菜单id") Long menuId,
+                                 @ApiParam(name = "menuId", value = "菜单id") Long menuId,
                                  @ApiParam(name = "session", value = "客户端会话") HttpSession session) {
 
         Long roleId = Long.valueOf(session.getAttribute(MagicalValue.ROLE_SESSION_ID).toString());
@@ -75,8 +75,8 @@ public class UserRoleController extends BaseController {
     @GetMapping(value = {"/{userId}/{userRoleId}/update.html", "/{userId}/create.html"})
     @ApiOperation(value = "/{userId}/{userRoleId}/update.html、/{userId}/create.html", notes = "跳转到修改或新增页面")
     public String toModifyUserRole(@ApiParam(name = "model", value = "Model") Model model,
-                               @ApiParam(name = "userId", value = "用户id") @PathVariable("userId") Long userId,
-                               @ApiParam(name = "userRoleId", value = "用户角色id") @PathVariable(value = "userRoleId", required = false) Long userRoleId) {
+                                   @ApiParam(name = "userId", value = "用户id") @PathVariable("userId") Long userId,
+                                   @ApiParam(name = "userRoleId", value = "用户角色id") @PathVariable(value = "userRoleId", required = false) Long userRoleId) {
 
         //静态注入
         //找所有的角色
@@ -98,7 +98,7 @@ public class UserRoleController extends BaseController {
      * @since : Create in 2018-11-22
      */
     @PostMapping(value = "/query_enable_create", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    @ApiOperation(value = "/query_enable_create", notes="获取分页列表")
+    @ApiOperation(value = "/query_enable_create", notes = "获取分页列表")
     @ResponseBody
     public TableJson<Role> getEnableCreateList(@ApiParam(name = "UserRole", value = "UserRole 实体类") @RequestBody UserRole userRole) {
         TableJson<Role> resJson = new TableJson<>();
@@ -125,25 +125,25 @@ public class UserRoleController extends BaseController {
      * @since : Create in 2018-11-22
      */
     @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    @ApiOperation(value = "/query", notes="获取分页列表")
+    @ApiOperation(value = "/query", notes = "获取分页列表")
     @ResponseBody
     public TableJson<Role> getRoleList(@ApiParam(name = "UserRole", value = "UserRole 实体类") @RequestBody UserRole userRole) {
-            TableJson<Role> resJson = new TableJson<>();
-            Page resPage = userRole.getPage();
-            userRole.setDeleted(false);
-            Integer current = resPage.getCurrent();
-            Integer size = resPage.getSize();
-            if (current == null && size == null) {
-                resJson.setSuccess(false);
-                resJson.setMessage("异常信息：页数和页的大小不能为空");
-                return resJson;
-            }
-            Page<Role> rolePage = new Page<Role>(current, size);
-            rolePage = userRoleService.mySelectPageWithParam(rolePage, userRole);
-            resJson.setRecordsTotal(rolePage.getTotal());
-            resJson.setData(rolePage.getRecords());
-            resJson.setSuccess(true);
+        TableJson<Role> resJson = new TableJson<>();
+        Page resPage = userRole.getPage();
+        userRole.setDeleted(false);
+        Integer current = resPage.getCurrent();
+        Integer size = resPage.getSize();
+        if (current == null && size == null) {
+            resJson.setSuccess(false);
+            resJson.setMessage("异常信息：页数和页的大小不能为空");
             return resJson;
+        }
+        Page<Role> rolePage = new Page<Role>(current, size);
+        rolePage = userRoleService.mySelectPageWithParam(rolePage, userRole);
+        resJson.setRecordsTotal(rolePage.getTotal());
+        resJson.setData(rolePage.getRecords());
+        resJson.setSuccess(true);
+        return resJson;
     }
 
     /**
@@ -154,13 +154,13 @@ public class UserRoleController extends BaseController {
     @GetMapping(value = "/get_map_by_id/{userRoleId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{userRoleId}", notes = "根据id获取userRoleMap")
     @ResponseBody
-    public JsonResult<Map<String, Object>> getUserRoleByIdForMap( @ApiParam(name = "id", value = "userRoleId") @PathVariable("userRoleId") Long userRoleId){
-            JsonResult<Map<String, Object>> resJson = new JsonResult<>();
-            Map<String, Object> userRole = userRoleService.mySelectMapById(userRoleId);
-            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-            resJson.setData(userRole);
-            resJson.setSuccess(true);
-            return resJson;
+    public JsonResult<Map<String, Object>> getUserRoleByIdForMap(@ApiParam(name = "id", value = "userRoleId") @PathVariable("userRoleId") Long userRoleId) {
+        JsonResult<Map<String, Object>> resJson = new JsonResult<>();
+        Map<String, Object> userRole = userRoleService.mySelectMapById(userRoleId);
+        resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+        resJson.setData(userRole);
+        resJson.setSuccess(true);
+        return resJson;
     }
 
     /**
@@ -171,21 +171,21 @@ public class UserRoleController extends BaseController {
     @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据userId和roleId假删除userRole")
     @ResponseBody
-    public JsonResult<UserRole> fakeDeleteByUserRole(@ApiParam(name = "UserRole", value = "UserRole实体类") @RequestBody UserRole userRole){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<UserRole> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/userRole/delete");
-                userRoleService.myFakeDeleteByUserRole(userRole);
-                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-                resJson.setSuccess(true);
-            }catch (UnauthorizedException e){
-                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    public JsonResult<UserRole> fakeDeleteByUserRole(@ApiParam(name = "UserRole", value = "UserRole实体类") @RequestBody UserRole userRole) {
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<UserRole> resJson = new JsonResult<>();
+        try {
+            //检查是否具有权限
+            subject.checkPermission("/admin/userRole/delete");
+            userRoleService.myFakeDeleteByUserRole(userRole);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+            resJson.setSuccess(true);
+        } catch (UnauthorizedException e) {
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
@@ -196,22 +196,22 @@ public class UserRoleController extends BaseController {
     @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据userId和roleIds批量假删除userRole")
     @ResponseBody
-    public JsonResult<UserRole> fakeBatchDelete(@ApiParam(name = "parameter", value = "批量假删除的参数") @RequestBody Map<String, Object> parameter){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<UserRole> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/userRole/batch_delete");
-                Long userId = Long.valueOf(parameter.get("userId").toString());
-                List<Integer> roleIds = (List<Integer>) parameter.get("roleIds");
-                resJson.setSuccess(userRoleService.myFakeBatchDelete(userId, roleIds));
-                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-            }catch(UnauthorizedException e){
-                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    public JsonResult<UserRole> fakeBatchDelete(@ApiParam(name = "parameter", value = "批量假删除的参数") @RequestBody Map<String, Object> parameter) {
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<UserRole> resJson = new JsonResult<>();
+        try {
+            //检查是否具有权限
+            subject.checkPermission("/admin/userRole/batch_delete");
+            Long userId = Long.valueOf(parameter.get("userId").toString());
+            List<Integer> roleIds = (List<Integer>) parameter.get("roleIds");
+            resJson.setSuccess(userRoleService.myFakeBatchDelete(userId, roleIds));
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+        } catch (UnauthorizedException e) {
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
@@ -222,20 +222,20 @@ public class UserRoleController extends BaseController {
     @PostMapping(value = "/create_update/{userId}", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update/{userId}", notes = "新增或修改userRole")
     @ResponseBody
-    public JsonResult<UserRole> userRoleCreateUpdate(@ApiParam(name = "userId", value = "用户id") @PathVariable("userId") Long userId, @ApiParam(name = "roleIds", value = "角色id") @RequestBody List<Long> roleIds){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<UserRole> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/userRole/create_update");
-                userRoleService.myUpdateUserRole(userId, roleIds);
-                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-                resJson.setSuccess(true);
-            }catch(UnauthorizedException e){
-                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    public JsonResult<UserRole> userRoleCreateUpdate(@ApiParam(name = "userId", value = "用户id") @PathVariable("userId") Long userId, @ApiParam(name = "roleIds", value = "角色id") @RequestBody List<Long> roleIds) {
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<UserRole> resJson = new JsonResult<>();
+        try {
+            //检查是否具有权限
+            subject.checkPermission("/admin/userRole/create_update");
+            userRoleService.myUpdateUserRole(userId, roleIds);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+            resJson.setSuccess(true);
+        } catch (UnauthorizedException e) {
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 }

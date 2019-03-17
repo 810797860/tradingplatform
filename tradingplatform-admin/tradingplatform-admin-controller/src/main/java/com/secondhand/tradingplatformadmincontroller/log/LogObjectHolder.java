@@ -9,12 +9,13 @@ import java.io.Serializable;
 
 /**
  * 被修改的bean临时存放的地方
+ *
  * @author 81079
  */
 
 @Component
 @Scope(scopeName = WebApplicationContext.SCOPE_SESSION)
-public class LogObjectHolder implements Serializable{
+public class LogObjectHolder implements Serializable {
 
     private Object object = null;
 
@@ -26,7 +27,7 @@ public class LogObjectHolder implements Serializable{
         return object;
     }
 
-    public static LogObjectHolder me(){
+    public static LogObjectHolder me() {
         LogObjectHolder bean = ApplicationContextHolder.getBean(LogObjectHolder.class);
         return bean;
     }

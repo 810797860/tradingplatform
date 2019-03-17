@@ -11,6 +11,7 @@ import java.util.Date;
 
 /**
  * User实体类
+ *
  * @author 81079
  */
 

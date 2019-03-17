@@ -1,7 +1,9 @@
 package com.secondhand.tradingplatformadminentity.entity.front.article;
 
 import com.baomidou.mybatisplus.enums.IdType;
+
 import java.util.Date;
+
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
@@ -12,10 +14,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- *   @description : RentingHouse 实体类
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2019-03-17
+ * @author zhangjk
+ * @description : RentingHouse 实体类
+ * ---------------------------------
+ * @since 2019-03-17
  */
 @TableName("c_business_renting_house")
 public class RentingHouse extends BaseEntity {
@@ -331,7 +333,6 @@ public class RentingHouse extends BaseEntity {
     public void setTitle(String title) {
         this.title = title;
     }
-
 
 
     @Override

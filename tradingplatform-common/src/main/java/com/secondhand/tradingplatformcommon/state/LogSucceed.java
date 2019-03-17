@@ -2,6 +2,7 @@ package com.secondhand.tradingplatformcommon.state;
 
 /**
  * 业务是否成功的日志记录
+ *
  * @author 81079
  */
 

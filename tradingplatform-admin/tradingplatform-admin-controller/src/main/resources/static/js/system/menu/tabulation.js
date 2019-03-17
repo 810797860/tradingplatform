@@ -13,12 +13,12 @@ var stack_bottomright = {"dir1": "up", "dir2": "left", "firstpos1": 25, "firstpo
 // 角色获取子节点的formId
 var formId = 43;
 
-$("#add-menu-modal").on('hidden.bs.modal', function() {
+$("#add-menu-modal").on('hidden.bs.modal', function () {
     $('#menu-form')[0].reset();
 });
 
-$(function(){
-    var menus = sortUp(menuList,"sort");
+$(function () {
+    var menus = sortUp(menuList, "sort");
     var obj = {
         id: 0,
         pid: -1,
@@ -33,9 +33,10 @@ $(function(){
     $('#add-menu-btn').bind('click', addMenu);
 });
 
-function addMenu(){
-    if(!StringNoEmpty($("#menu-name").val())||!StringNoEmpty($("#menu-num").val())){
-        layer.msg("请完整填写名称和排序",function(){});
+function addMenu() {
+    if (!StringNoEmpty($("#menu-name").val()) || !StringNoEmpty($("#menu-num").val())) {
+        layer.msg("请完整填写名称和排序", function () {
+        });
         return;
     }
     var postData = {
@@ -50,19 +51,19 @@ function addMenu(){
     if (modalType == 1) {
         postData.id = currentNode.id;
         postData.pid = currentNode.pid;
-    }else if(modalType==2){
+    } else if (modalType == 2) {
         postData.pid = currentNode.id
     }
-    if(postData.pid === 0){
+    if (postData.pid === 0) {
         postData.pid = null;
     }
     $.ajax({
-        type:'post',
+        type: 'post',
         url: '/admin/menu/create_update',
-        contentType:'application/json;charset=utf-8',
-        dataType:'json',
+        contentType: 'application/json;charset=utf-8',
+        dataType: 'json',
         data: JSON.stringify(postData),
-        success:function(res){
+        success: function (res) {
             var zTree = $.fn.zTree.getZTreeObj("menu-tree");
             var name = '添加菜单';
             var text = '添加菜单成功';
@@ -80,12 +81,12 @@ function addMenu(){
             });
             if (modalType == 2) {
                 var nodeObj = {
-                    id:res.data.id,
-                    pId:currentNode.id,
-                    name:$('#menu-name').val(),
+                    id: res.data.id,
+                    pId: currentNode.id,
+                    name: $('#menu-name').val(),
                     data: {
-                        id:res.data.id,
-                        pId:currentNode.id,
+                        id: res.data.id,
+                        pId: currentNode.id,
                         name: $('#menu-name').val() || null,
                         url: $('#menu-path').val() || null,
                         num: $('#menu-num').val() || null,
@@ -99,7 +100,7 @@ function addMenu(){
             $addMenuModal.modal('hide');
             location.reload();
             return false;
-        },error:function(XMLHttpRequest, textStatus, errorThrown){
+        }, error: function (XMLHttpRequest, textStatus, errorThrown) {
             alert('添加菜单失败，服务器内部错误');
         }
     });
@@ -108,9 +109,9 @@ function addMenu(){
 // 新增菜单时获取菜单类型枚举: pid: pid, parentDom: 插入的select下拉框
 function getEnumeration(pid, parentDom) {
     $.ajax({
-        type:'get',
-        url:'/admin/selectItem/get_list_by_pid/' + pid,
-        contentType:'application/json;charset=utf-8',
+        type: 'get',
+        url: '/admin/selectItem/get_list_by_pid/' + pid,
+        contentType: 'application/json;charset=utf-8',
         success: function (res) {
             var list = res.data;
             var menuTypeList = [];
@@ -123,7 +124,7 @@ function getEnumeration(pid, parentDom) {
             }
             for (var j = 0; j < menuTypeList.length; j++) {
                 var dom = '';
-                dom = "<option value='"+ menuTypeList[j].id +"'>" + menuTypeList[j].title + "</option>";
+                dom = "<option value='" + menuTypeList[j].id + "'>" + menuTypeList[j].title + "</option>";
                 parentDom.append(dom);
             }
         },
@@ -136,7 +137,7 @@ function getEnumeration(pid, parentDom) {
 
 // 显示数据源的树状结构
 function showTreeTable(menuList) {
-    for(var i = 0, iLen = menuList.length; i < iLen; i++) {
+    for (var i = 0, iLen = menuList.length; i < iLen; i++) {
         var obj = {
             id: menuList[i].id,
             pId: menuList[i].pid || 0,
@@ -204,7 +205,7 @@ function onClick(event, treeId, treeNode) {
 function filter(treeId, parentNode, childNodes) {
     if (!childNodes) return null;
     if (childNodes.length > 0) {
-        for (var i=0, l=childNodes.length; i<l; i++) {
+        for (var i = 0, l = childNodes.length; i < l; i++) {
             childNodes[i].name = childNodes[i].title;
             childNodes[i].name = childNodes[i].name.replace(/\.n/g, '.');
             childNodes[i].isParent = true;
@@ -216,8 +217,9 @@ function filter(treeId, parentNode, childNodes) {
 }
 
 var log, className = "dark";
+
 function beforeDrag(treeId, treeNodes) {
-    for (var i=0,l=treeNodes.length; i<l; i++) {
+    for (var i = 0, l = treeNodes.length; i < l; i++) {
         if (treeNodes[i].drag === false) {
             return false;
         }
@@ -226,28 +228,28 @@ function beforeDrag(treeId, treeNodes) {
 }
 
 function beforeDrop(treeId, treeNodes, targetNode, moveType) {
-    var data=treeNodes[0];
+    var data = treeNodes[0];
     console.log(data);
     if (targetNode) {
         var postData = {
-            title:data.title,
-            id:data.id,
-            url:data.url,
-            icon:data.icon,
-            openWay:data.openWay,
-            num:data.num,
+            title: data.title,
+            id: data.id,
+            url: data.url,
+            icon: data.icon,
+            openWay: data.openWay,
+            num: data.num,
             pid: targetNode.data.id
         }
         $.ajax({
-            type:'put',
-            url:'/admin/menu/create_update_drag/' + treeNodes[0].id,
-            contentType:'application/json;charset=utf-8',
-            dataType:'json',
+            type: 'put',
+            url: '/admin/menu/create_update_drag/' + treeNodes[0].id,
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'json',
             data: JSON.stringify(postData),
-            success:function(data){
+            success: function (data) {
                 console.log(data);
                 return treeNodes.drop !== false
-            },error:function(XMLHttpRequest, textStatus, errorThrown){
+            }, error: function (XMLHttpRequest, textStatus, errorThrown) {
                 alert('修改失败，服务器内部错误');
                 return treeNodes.drop !== false
             }
@@ -274,22 +276,22 @@ function beforeEditName(treeId, treeNode) {
 }
 
 function beforeRemove(treeId, treeNode) {
-    className = (className === "dark" ? "":"dark");
+    className = (className === "dark" ? "" : "dark");
     var zTree = $.fn.zTree.getZTreeObj("menu-tree");
     zTree.selectNode(treeNode);
     if (confirm("确认删除 -- " + treeNode.name + " 吗？")) {
         var nodeArr = getAllChildrenNodes(treeNode, [treeNode.id]);
         console.log(nodeArr);
         $.ajax({
-            type:'put',
-            url:'/admin/menu/batch_delete',
+            type: 'put',
+            url: '/admin/menu/batch_delete',
             data: JSON.stringify(nodeArr),
-            contentType:'application/json;charset=utf-8',
-            dataType:'json',
-            success:function(data){
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'json',
+            success: function (data) {
                 console.log(data);
                 return true;
-            },error:function(XMLHttpRequest, textStatus, errorThrown){
+            }, error: function (XMLHttpRequest, textStatus, errorThrown) {
                 alert('删除失败，服务器内部错误');
                 return false;
             }
@@ -306,9 +308,9 @@ function onRemove(e, treeId, treeNode) {
 
 function beforeRename(treeId, treeNode, newName, isCancel) {
     oldNodeName = treeNode.name
-    className = (className === "dark" ? "":"dark");
+    className = (className === "dark" ? "" : "dark");
     if (newName.length == 0) {
-        setTimeout(function() {
+        setTimeout(function () {
             var zTree = $.fn.zTree.getZTreeObj("menu-tree");
             zTree.cancelEditName();
             alert("节点名称不能为空.");
@@ -320,14 +322,14 @@ function beforeRename(treeId, treeNode, newName, isCancel) {
 
 function onRename(e, treeId, treeNode, isCancel) {
     $.ajax({
-        type:'post',
-        url:'/form/create_update_data/' + formId + '/' + treeNode.id,
-        contentType:'application/json;charset=utf-8',
-        dataType:'json',
+        type: 'post',
+        url: '/form/create_update_data/' + formId + '/' + treeNode.id,
+        contentType: 'application/json;charset=utf-8',
+        dataType: 'json',
         data: JSON.stringify({title: treeNode.name}),
-        success:function(data){
+        success: function (data) {
             console.log(data);
-        },error:function(XMLHttpRequest, textStatus, errorThrown){
+        }, error: function (XMLHttpRequest, textStatus, errorThrown) {
             treeNode.name = oldNodeName
             var zTree = $.fn.zTree.getZTreeObj("menu-tree");
             zTree.cancelEditName();
@@ -335,9 +337,11 @@ function onRename(e, treeId, treeNode, isCancel) {
         }
     });
 }
-function onDrop(e, treeId, treeNode,targetNode,moveType,isCopy){
+
+function onDrop(e, treeId, treeNode, targetNode, moveType, isCopy) {
     console.log(isCopy);
 }
+
 function showRemoveBtn(treeId, treeNode) {
     return true;
 }
@@ -348,80 +352,83 @@ function showRenameBtn(treeId, treeNode) {
 
 function showLog(str) {
     if (!log) log = $("#log");
-    log.append("<li class='"+className+"'>"+str+"</li>");
-    if(log.children("li").length > 8) {
+    log.append("<li class='" + className + "'>" + str + "</li>");
+    if (log.children("li").length > 8) {
         log.get(0).removeChild(log.children("li")[0]);
     }
 }
 
 function getTime() {
-    var now= new Date(),
-        h=now.getHours(),
-        m=now.getMinutes(),
-        s=now.getSeconds(),
-        ms=now.getMilliseconds();
-    return (h+":"+m+":"+s+ " " +ms);
+    var now = new Date(),
+        h = now.getHours(),
+        m = now.getMinutes(),
+        s = now.getSeconds(),
+        ms = now.getMilliseconds();
+    return (h + ":" + m + ":" + s + " " + ms);
 }
 
 var newCount = 1;
+
 function addHoverDom(treeId, treeNode) {
     var aObj = $("#" + treeNode.tId + "_a");
-    if (treeNode.editNameFlag || $("#addBtn_"+treeNode.tId).length>0 || $("#setBtn_"+treeNode.tId).length>0) return;
+    if (treeNode.editNameFlag || $("#addBtn_" + treeNode.tId).length > 0 || $("#setBtn_" + treeNode.tId).length > 0) return;
     var addStr = "<span class='button add' id='addBtn_" + treeNode.tId
         + "' title='新增下级菜单' onfocus='this.blur();'></span>";
     var setStr = "<button class='btn btn-sm set-icon icon-cog' style='margin-left: 5px;margin-top: -2px;padding: 2px;font-size: 10px;border-radius: 0;background-color: #ffffff;' id='setBtn_" + treeNode.tId
         + "' title='配置资源' onfocus='this.blur();'></button>";
     aObj.append(addStr);
     aObj.append(setStr);
-    var btn = $("#addBtn_"+treeNode.tId);
-    var btn2 = $("#setBtn_"+treeNode.tId);
-    if (btn) btn.bind("click", function(e){
+    var btn = $("#addBtn_" + treeNode.tId);
+    var btn2 = $("#setBtn_" + treeNode.tId);
+    if (btn) btn.bind("click", function (e) {
         modalType = 2;
         currentNode = treeNode;
         $('#modal-title').text('新增菜单');
         $addMenuModal.modal('show');
         e.stopPropagation();
     });
-    if (btn2) btn2.bind("click", function(e){
+    if (btn2) btn2.bind("click", function (e) {
         confResourceOpen(treeNode.id);
         e.stopPropagation();
     });
 }
-function confResourceOpen(menuId){
-    var id=menuId;
+
+function confResourceOpen(menuId) {
+    var id = menuId;
     var index = layer.open({
         type: 2,
-        content: '/admin/menuButton/'+id+'/tabulation.html',
+        content: '/admin/menuButton/' + id + '/tabulation.html',
         area: ['80%', '80%'],
         maxmin: true,
-        success: function(index,layero){
+        success: function (index, layero) {
             $("#main").text("加载成功");
         },
-        error:function(index,layero){
+        error: function (index, layero) {
             console.log("请求不到页面");
         }
     });
     layer.full(index);
 }
+
 function removeHoverDom(treeId, treeNode) {
-    $("#addBtn_"+treeNode.tId).unbind().remove();
-    $("#setBtn_"+treeNode.tId).unbind().remove();
+    $("#addBtn_" + treeNode.tId).unbind().remove();
+    $("#setBtn_" + treeNode.tId).unbind().remove();
 }
 
 function selectAll() {
     var zTree = $.fn.zTree.getZTreeObj("menu-tree");
-    zTree.setting.edit.editNameSelectAll =  $("#selectAll").attr("checked");
+    zTree.setting.edit.editNameSelectAll = $("#selectAll").attr("checked");
 }
 
 // 升序排序（从小到大，用于菜单）
-function sortUp(array, property){
+function sortUp(array, property) {
     return array.sort(function (a, b) {
         return a[property] - b[property];
     })
 }
 
 // 获取
-function getAllChildrenNodes(treeNode, result){
+function getAllChildrenNodes(treeNode, result) {
     if (treeNode.isParent) {
         var childrenNodes = treeNode.children;
         if (childrenNodes) {
@@ -433,8 +440,9 @@ function getAllChildrenNodes(treeNode, result){
     }
     return result;
 }
-function StringNoEmpty(str){
-    if(str!=null&&str!=""&&str!=undefined){
+
+function StringNoEmpty(str) {
+    if (str != null && str != "" && str != undefined) {
         return true;
-    }else return false;
+    } else return false;
 }

@@ -29,12 +29,12 @@ import com.secondhand.tradingplatformcommon.base.BaseController.BaseController;
 import javax.servlet.http.HttpSession;
 
 /**
- * @description : Resources 控制器
  * @author : zhangjk
+ * @description : Resources 控制器
  * @since : Create in 2018-11-12
  */
 @Controller("adminResourcesController")
-@Api(value="/admin/resources", description="Resources 控制器")
+@Api(value = "/admin/resources", description = "Resources 控制器")
 @RequestMapping("/admin/resources")
 public class ResourcesController extends BaseController {
 
@@ -71,7 +71,7 @@ public class ResourcesController extends BaseController {
     @GetMapping(value = {"/{resourcesId}/update.html", "/create.html"})
     @ApiOperation(value = "/{resourcesId}/update.html、/create.html", notes = "跳转到修改或新增页面")
     public String toModifyResources(@ApiParam(name = "model", value = "Model") Model model,
-                               @ApiParam(name = "resourcesId", value = "ResourcesId") @PathVariable(value = "resourcesId", required = false) Long resourcesId) {
+                                    @ApiParam(name = "resourcesId", value = "ResourcesId") @PathVariable(value = "resourcesId", required = false) Long resourcesId) {
 
         Map<String, Object> resources = new HashMap<>();
         //判空
@@ -90,9 +90,9 @@ public class ResourcesController extends BaseController {
      * @since : Create in 2018-12-04
      */
     @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    @ApiOperation(value = "/query", notes="获取分页列表")
+    @ApiOperation(value = "/query", notes = "获取分页列表")
     @ResponseBody
-    public TableJson<Resources> getResourcesList(@ApiParam(name = "resources", value = "Resources 实体类") @RequestBody Resources resources){
+    public TableJson<Resources> getResourcesList(@ApiParam(name = "resources", value = "Resources 实体类") @RequestBody Resources resources) {
         TableJson<Resources> resJson = new TableJson<>();
         Page resPage = resources.getPage();
         Integer current = resPage.getCurrent();
@@ -116,10 +116,10 @@ public class ResourcesController extends BaseController {
      * @since : Create in 2018-12-04
      */
     @PostMapping(value = "/query_by_role/{roleId}", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    @ApiOperation(value = "/query_by_role/{roleId}", notes="获取分页列表")
+    @ApiOperation(value = "/query_by_role/{roleId}", notes = "获取分页列表")
     @ResponseBody
     public JsonResult<List<Resources>> getResourcesListWithRoleId(@ApiParam(name = "resources", value = "Resources 实体类") @RequestBody Resources resources,
-                                                 @ApiParam(name = "roleId", value = "菜单id") @PathVariable(name = "roleId", required = false) Long roleId) {
+                                                                  @ApiParam(name = "roleId", value = "菜单id") @PathVariable(name = "roleId", required = false) Long roleId) {
         JsonResult<List<Resources>> resJson = new JsonResult<>();
         List<Resources> resourcesList = resourcesService.mySelectListWithParam(resources, roleId);
         resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
@@ -136,13 +136,13 @@ public class ResourcesController extends BaseController {
     @GetMapping(value = "/get_map_by_id/{resourcesId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{resourcesId}", notes = "根据id获取resourcesMap")
     @ResponseBody
-    public JsonResult<Map<String, Object>> getResourcesByIdForMap( @ApiParam(name = "id", value = "resourcesId") @PathVariable("resourcesId") Long resourcesId){
-            JsonResult<Map<String, Object>> resJson = new JsonResult<>();
-            Map<String, Object> resources = resourcesService.mySelectMapById(resourcesId);
-            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-            resJson.setData(resources);
-            resJson.setSuccess(true);
-            return resJson;
+    public JsonResult<Map<String, Object>> getResourcesByIdForMap(@ApiParam(name = "id", value = "resourcesId") @PathVariable("resourcesId") Long resourcesId) {
+        JsonResult<Map<String, Object>> resJson = new JsonResult<>();
+        Map<String, Object> resources = resourcesService.mySelectMapById(resourcesId);
+        resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+        resJson.setData(resources);
+        resJson.setSuccess(true);
+        return resJson;
     }
 
     /**
@@ -153,21 +153,21 @@ public class ResourcesController extends BaseController {
     @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除resources")
     @ResponseBody
-    public JsonResult<Resources> fakeDeleteById(@ApiParam(name = "id", value = "resourcesId") @RequestBody Long resourcesId){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<Resources> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/resources/delete");
-                resourcesService.myFakeDeleteById(resourcesId);
-                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-                resJson.setSuccess(true);
-            }catch (UnauthorizedException e){
-                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    public JsonResult<Resources> fakeDeleteById(@ApiParam(name = "id", value = "resourcesId") @RequestBody Long resourcesId) {
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<Resources> resJson = new JsonResult<>();
+        try {
+            //检查是否具有权限
+            subject.checkPermission("/admin/resources/delete");
+            resourcesService.myFakeDeleteById(resourcesId);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+            resJson.setSuccess(true);
+        } catch (UnauthorizedException e) {
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
@@ -178,20 +178,20 @@ public class ResourcesController extends BaseController {
     @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除resources")
     @ResponseBody
-    public JsonResult<Resources> fakeBatchDelete(@ApiParam(name = "ids", value = "resourcesIds") @RequestBody List<Long> resourcesIds){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<Resources> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/resources/batch_delete");
-                resJson.setSuccess(resourcesService.myFakeBatchDelete(resourcesIds));
-                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-            }catch(UnauthorizedException e){
-                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    public JsonResult<Resources> fakeBatchDelete(@ApiParam(name = "ids", value = "resourcesIds") @RequestBody List<Long> resourcesIds) {
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<Resources> resJson = new JsonResult<>();
+        try {
+            //检查是否具有权限
+            subject.checkPermission("/admin/resources/batch_delete");
+            resJson.setSuccess(resourcesService.myFakeBatchDelete(resourcesIds));
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+        } catch (UnauthorizedException e) {
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
@@ -202,21 +202,21 @@ public class ResourcesController extends BaseController {
     @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改resources")
     @ResponseBody
-    public JsonResult<Resources> resourcesCreateUpdate(@ApiParam(name = "Resources", value = "Resources实体类") @RequestBody Resources resources){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<Resources> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/resources/create_update");
-                resources = resourcesService.myResourcesCreateUpdate(resources);
-                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-                resJson.setData(resources);
-                resJson.setSuccess(true);
-            }catch(UnauthorizedException e){
-                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    public JsonResult<Resources> resourcesCreateUpdate(@ApiParam(name = "Resources", value = "Resources实体类") @RequestBody Resources resources) {
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<Resources> resJson = new JsonResult<>();
+        try {
+            //检查是否具有权限
+            subject.checkPermission("/admin/resources/create_update");
+            resources = resourcesService.myResourcesCreateUpdate(resources);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+            resJson.setData(resources);
+            resJson.setSuccess(true);
+        } catch (UnauthorizedException e) {
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 }

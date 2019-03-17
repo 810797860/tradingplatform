@@ -65,7 +65,7 @@ $(function () {
      * author: GloryAce
      */
     // 提取展厅数据
-    function extractHallDetail () {
+    function extractHallDetail() {
         var stSave = null;
         console.log(hallDetail);
         detailData.title_cn = hallDetail.title || '暂无数据';
@@ -82,6 +82,7 @@ $(function () {
             })
         }
     }
+
     // 写入展厅数据
     function writeHallDetail() {
         // 获取中文标题
@@ -96,14 +97,15 @@ $(function () {
         // 轮播图
         setSliderList(detailData.image, handleEvent);
     }
-    function setSliderList (list, callback) {
+
+    function setSliderList(list, callback) {
         var fragmentOfBig = document.createDocumentFragment();
         var fragmentOfSmall = document.createDocumentFragment();
         for (var i = 0; i < list.length; i++) {
             var liItemOfBig = null;
             var liItemOfSmall = null;
             if (i === 0) {
-                liItemOfBig = $('<li style="z-index: 1;"><img src="' + list[i].src + '" alt="'+ list[i].title +'"/><p class="img-title">' + list[i].title +'</p></li>');
+                liItemOfBig = $('<li style="z-index: 1;"><img src="' + list[i].src + '" alt="' + list[i].title + '"/><p class="img-title">' + list[i].title + '</p></li>');
                 liItemOfSmall = $('<li style="filter: alpha(opacity: 100); opacity: 1;"><img src="' + list[i].src + '" alt="' + list[i].title + '"/><p class="img-title">' + list[i].title + '</p></li>');
             } else {
                 liItemOfBig = $('<li><img src="' + list[i].src + '" alt="' + list[i].title + '"/><p class="img-title">' + list[i].title + '</p></li>');
@@ -120,8 +122,9 @@ $(function () {
             callback();
         }
     }
+
     // 事件监听函数
-    function handleEvent () {
+    function handleEvent() {
         var aLiSmall = $(oUlSmall).find("li");
         /**** 左右按钮点击 ****/
         oBtnPrev.onclick = function () {
@@ -168,8 +171,9 @@ $(function () {
             timer = setInterval(oBtnNext.onclick, interval);
         };
     }
+
     // 动画执行函数
-    function sliderMove () {
+    function sliderMove() {
         var aLiSmall = $(oUlSmall).find("li");
         var aLiBig = $(oUlBig).find("li");
         aLiBig[now].style.zIndex = nowZIndex++;
@@ -184,11 +188,11 @@ $(function () {
             if (now === 0) {
                 startMove(oUlSmall, {left: 0});
             } else if (now === aLiSmall.length - 2) {
-                startMove(oUlSmall, {left: -(now-2)*aLiSmall[0].offsetWidth});
-            } else if  (now === aLiSmall.length - 1) {
+                startMove(oUlSmall, {left: -(now - 2) * aLiSmall[0].offsetWidth});
+            } else if (now === aLiSmall.length - 1) {
                 startMove(oUlSmall, {left: -(now - 3) * aLiSmall[0].offsetWidth});
             } else {
-                startMove(oUlSmall, {left: -(now-1)*aLiSmall[0].offsetWidth});
+                startMove(oUlSmall, {left: -(now - 1) * aLiSmall[0].offsetWidth});
             }
         }
     }
@@ -204,10 +208,11 @@ $(function () {
             }
         })
     }
+
     function hallProductContactChange(typeName) {
         aModelNodes.each(function (index, modelNode) {
             var oNowModelNode = $(modelNode);
-            if (oNowModelNode.attr('name') === typeName){
+            if (oNowModelNode.attr('name') === typeName) {
                 oNowModelNode.show();
             } else {
                 oNowModelNode.hide();
@@ -246,20 +251,20 @@ $(function () {
         })
     }*/
 
-    function getProductList () {
+    function getProductList() {
         var size = 8,
             oProductArea = $('.product-content').eq(0),
-            json  = {
-            applicationIndustry: iProductIndustryId,
-            sortPointer:{
-                filed:"recommended_index",
-                order:"DESC"
-            },
-            pager: {
-                current: 1,
-                size: size
-            }
-        };
+            json = {
+                applicationIndustry: iProductIndustryId,
+                sortPointer: {
+                    filed: "recommended_index",
+                    order: "DESC"
+                },
+                pager: {
+                    current: 1,
+                    size: size
+                }
+            };
         $.ajax({
             url: '/f/matureCase/query?pc=true',
             contentType: "application/json;charset=UTF-8",
@@ -284,7 +289,7 @@ $(function () {
 
 
     // 设置精选产品数据
-    function setProductList (list) {
+    function setProductList(list) {
         var aProductItem = $(".number-hall-detail .product-content .product-item"),
             oNowItemNode = null;
         aProductItem.each(function (index, itemNode) {
@@ -292,7 +297,7 @@ $(function () {
             if (index > list.length - 1) {
                 oNowItemNode.remove();
             } else {
-                oNowItemNode.find(".product-card").attr("href", '/f/' + list[index].id +'/case_detail.html?pc=true');
+                oNowItemNode.find(".product-card").attr("href", '/f/' + list[index].id + '/case_detail.html?pc=true');
                 oNowItemNode.find(".title").text(list[index].title);
                 oNowItemNode.find(".type").text('行业：' + (list[index].application_industry ? JSON.parse(list[index].application_industry).title : '暂无数据'))
                 oNowItemNode.find(".address").text('所属地区：' + (list[index].address ? list[index].address : '暂无数据'));
@@ -302,6 +307,7 @@ $(function () {
             }
         });
     }
+
     // 设置title超出提示
     function setTitleOverTip() {
         // 产品列表父框区域
@@ -309,6 +315,7 @@ $(function () {
         // 绑定事件
         nProductListParent.mouseover(eventOfTextOver)
     }
+
     // 超出提示事件
     function eventOfTextOver(event) {
         // 获取当前作用节点
@@ -401,12 +408,12 @@ $(function () {
         //创建检索信息窗口对象
         var searchInfoWindow = null;
         searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
-            title  : title,           // 标题
-            width  : width,           // 宽度
-            height : height,          // 高度
-            panel  : "panel",         // 检索结果面板
-            enableAutoPan : true,     // 自动平移
-            searchTypes   :[
+            title: title,           // 标题
+            width: width,           // 宽度
+            height: height,          // 高度
+            panel: "panel",         // 检索结果面板
+            enableAutoPan: true,     // 自动平移
+            searchTypes: [
                 BMAPLIB_TAB_SEARCH,     // 周边检索
                 BMAPLIB_TAB_TO_HERE,    // 到这里去
                 BMAPLIB_TAB_FROM_HERE   // 从这里出发

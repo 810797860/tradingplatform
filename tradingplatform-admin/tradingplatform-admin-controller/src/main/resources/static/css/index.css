@@ -1,7 +1,7 @@
 body, html {
     height: 100%;
     position: relative;
-    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
     font-size: 14px;
     color: #3C4858;
     overflow-y: hidden;
@@ -11,6 +11,7 @@ a, a:hover, a:active, a:focus {
     text-decoration: none;
     -webkit-user-drag: none;
 }
+
 /**  头部样式 --- start --- **/
 #header {
     width: 100%;
@@ -20,9 +21,9 @@ a, a:hover, a:active, a:focus {
     z-index: 11;
     left: 0;
     top: 0;
-    -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.3);
-    -moz-box-shadow: 0 1px 4px rgba(0,0,0,.3);
-    box-shadow: 0 1px 4px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
 }
 
 #menu {
@@ -34,7 +35,7 @@ a, a:hover, a:active, a:focus {
     height: 50px;
 }
 
-#menu>li {
+#menu > li {
     float: left;
 }
 
@@ -45,6 +46,7 @@ a, a:hover, a:active, a:focus {
     position: relative;;
     display: none !important;
 }
+
 .toggled .line-wrap .line.top {
     width: 12px;
     -webkit-transform: translateX(8px) translateY(1px) rotate(45deg);
@@ -77,6 +79,7 @@ a, a:hover, a:active, a:focus {
     -o-transform: scale(1);
     transform: scale(1);
 }
+
 .line-trigger:before {
     content: "";
     position: absolute;
@@ -85,7 +88,7 @@ a, a:hover, a:active, a:focus {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background: rgba(255,255,255,.22);
+    background: rgba(255, 255, 255, .22);
     -webkit-transition: all;
     -o-transition: all;
     transition: all;
@@ -129,14 +132,14 @@ a, a:hover, a:active, a:focus {
     line-height: 33px;
 }
 
-.tool-menu>li {
+.tool-menu > li {
     display: inline-block;
     margin: 0 1px;
     vertical-align: top;
     min-width: 50px;
 }
 
-.tool-menu>li>a{
+.tool-menu > li > a {
     color: #fff;
     display: block;
     text-align: center;
@@ -150,14 +153,14 @@ a, a:hover, a:active, a:focus {
     border-radius: 2px;
 }
 
-.dropdown-menu>li>a {
+.dropdown-menu > li > a {
     display: block;
     clear: both;
     font-weight: 500;
     padding: 10px 20px;
 }
 
-.dropdown-menu>li>a>i {
+.dropdown-menu > li > a > i {
     line-height: 100%;
     vertical-align: middle;
     width: 28px;
@@ -167,7 +170,6 @@ a, a:hover, a:active, a:focus {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
 
 /** 头部样式 --- end --- **/
 
@@ -228,8 +230,9 @@ a, a:hover, a:active, a:focus {
     overflow: auto;
     z-index: 4;
 }
+
 /* 用户头像区域 */
-.s-profile>a {
+.s-profile > a {
     background: url('../assets/user-bg.png') left top no-repeat;
     display: block;
     height: 129px;
@@ -238,24 +241,28 @@ a, a:hover, a:active, a:focus {
     background-size: 100%;
     text-decoration: none;
 }
-.s-profile>a .sp-pic {
+
+.s-profile > a .sp-pic {
     padding: 12px;
 }
-.s-profile>a .sp-pic>img {
+
+.s-profile > a .sp-pic > img {
     width: 47px;
     height: 47px;
     border-radius: 50%;
-    border: 3px solid rgba(0,0,0,.14);
+    border: 3px solid rgba(0, 0, 0, .14);
     box-sizing: content-box;
 }
-.s-profile>a .sp-info {
-    background: rgba(0,0,0,.37);
+
+.s-profile > a .sp-info {
+    background: rgba(0, 0, 0, .37);
     padding: 7px 14px;
     color: #fff;
     margin-top: 20px;
     position: relative;
 }
-.s-profile>a .sp-info>i {
+
+.s-profile > a .sp-info > i {
     font-size: 14px;
     line-height: 100%;
     position: absolute;
@@ -267,15 +274,18 @@ a, a:hover, a:active, a:focus {
     -webkit-transition-duration: .3s;
     transition-duration: .3s;
 }
-.s-profile.toggled .sp-info>i {
+
+.s-profile.toggled .sp-info > i {
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     -o-transform: rotate(180deg);
     transform: rotate(180deg);
 }
+
 .s-profile-list {
     border-bottom: 1px solid #eee;
 }
+
 .menu-list {
     list-style: none;
     padding: 0;
@@ -289,14 +299,15 @@ a, a:hover, a:active, a:focus {
     transition: color 0.3s;
 }
 
-.menu-list>li>a {
+.menu-list > li > a {
     padding: 14px 0 14px 50px;
     display: block;
     font-weight: 500;
     position: relative;
     color: #3C4858;
 }
-.menu-list>li>a>i {
+
+.menu-list > li > a > i {
     position: absolute;
     left: 15px;
     top: 4px;
@@ -306,7 +317,7 @@ a, a:hover, a:active, a:focus {
     padding: 13px 0;
 }
 
-.menu-list>li>a>i:before {
+.menu-list > li > a > i:before {
     vertical-align: middle;
 }
 
@@ -317,7 +328,7 @@ a, a:hover, a:active, a:focus {
     padding-left: 15px;
 }
 
-.sub-menu>a:after, .sub-menu>a:before {
+.sub-menu > a:after, .sub-menu > a:before {
     position: absolute;
     top: 50%;
     margin-top: -6px;
@@ -330,14 +341,15 @@ a, a:hover, a:active, a:focus {
     -o-transition: all 0.25s;
     transition: all 0.25s;
 }
-.sub-menu>a:before {
+
+.sub-menu > a:before {
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
     -o-transform: scale(1);
     transform: scale(1);
 }
 
-.sub-menu ul>li>a {
+.sub-menu ul > li > a {
     padding: 14px 20px 8px 50px;
     font-weight: 500;
     display: block;
@@ -353,6 +365,7 @@ a, a:hover, a:active, a:focus {
     text-align: center;
     position: relative;
 }
+
 .copyright:before {
     content: '';
     position: absolute;
@@ -362,6 +375,7 @@ a, a:hover, a:active, a:focus {
     width: 80%;
     background-color: rgba(180, 180, 180, 0.3);
 }
+
 /** 左边栏样式 --- end --- **/
 
 /** 主显示区样式 --- start --- **/
@@ -371,6 +385,7 @@ a, a:hover, a:active, a:focus {
     height: 40px;
     overflow: hidden;
 }
+
 .tab_left, .tab_right {
     width: 40px;
     height: 40px;
@@ -380,7 +395,7 @@ a, a:hover, a:active, a:focus {
     display: none;
 }
 
-.tab_left>a, .tab_right>a {
+.tab_left > a, .tab_right > a {
     display: block;
     width: 100%;
     color: #fff;
@@ -397,11 +412,11 @@ a, a:hover, a:active, a:focus {
     margin-left: -40px;
 }
 
-.scroll>.tab_left, .scroll>.tab_right {
+.scroll > .tab_left, .scroll > .tab_right {
     display: block;
 }
 
-.content_tab>ul {
+.content_tab > ul {
     padding: 0;
     margin: 0;
     border-top: 1px solid #999;
@@ -412,56 +427,59 @@ a, a:hover, a:active, a:focus {
     overflow-x: scroll;
 }
 
-.content_tab.scroll>ul {
+.content_tab.scroll > ul {
     margin: 0 40px;
 }
 
-.content_tab>ul>li {
+.content_tab > ul > li {
     display: inline-block;
     height: 40px;
     line-height: 40px;
     margin: 0;
     position: relative;
 }
-.content_tab>ul>li>i {
+
+.content_tab > ul > li > i {
     font-size: 10px;
     position: absolute;
     right: 3px;
-    top:3px;
+    top: 3px;
     color: white;
     cursor: pointer;
     transition: all .2s ease-in-out;
 }
 
-.content_tab>ul>li:hover>i {
+.content_tab > ul > li:hover > i {
     color: red;
     font-size: 20px;
     top: 0;
     right: 0;
 }
 
-.content_tab>ul>li>a {
+.content_tab > ul > li > a {
     display: block;
     height: 40px;
     line-height: 40px;
     color: #fff;
     padding: 0 28px;
-    -webkit-transition:  background-color .35s cubic-bezier(.35,0,.25,1);;
-    -moz-transition:  background-color .35s cubic-bezier(.35,0,.25,1);;
-    -ms-transition:  background-color .35s cubic-bezier(.35,0,.25,1);;
-    -o-transition:  background-color .35s cubic-bezier(.35,0,.25,1);;
-    transition:  background-color .35s cubic-bezier(.35,0,.25,1);;
+    -webkit-transition: background-color .35s cubic-bezier(.35, 0, .25, 1);;
+    -moz-transition: background-color .35s cubic-bezier(.35, 0, .25, 1);;
+    -ms-transition: background-color .35s cubic-bezier(.35, 0, .25, 1);;
+    -o-transition: background-color .35s cubic-bezier(.35, 0, .25, 1);;
+    transition: background-color .35s cubic-bezier(.35, 0, .25, 1);;
     border-bottom: none;
     position: relative;
 }
-.content_tab>ul>.active>a:after {
+
+.content_tab > ul > .active > a:after {
     left: 10%;
     bottom: 3px;
     width: 80%;
     opacity: 1;
     transition: all linear .2s;
 }
-.content_tab>ul>li>a:after {
+
+.content_tab > ul > li > a:after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -482,26 +500,31 @@ a, a:hover, a:active, a:focus {
     padding: 15px 30px;
     overflow: auto;
 }
-.content_main>.active {
+
+.content_main > .active {
     display: block;
 }
+
 .iframe {
     height: 100%;
     display: none;
 }
-.disabled{
+
+.disabled {
     pointer-events: none;
     cursor: default;
     opacity: 0.6;
 }
+
 /** 主显示区样式 --- end --- **/
 
 /** 媒体查询 --- start --- **/
-@media (max-width: 1280px){
+@media (max-width: 1280px) {
     #header .line-trigger {
-        display: inline-block!important;
+        display: inline-block !important;
     }
 }
+
 @media (max-width: 1280px) {
     #sidebar.toggled {
         -webkit-transform: translate3d(0, 0, 0);
@@ -511,15 +534,16 @@ a, a:hover, a:active, a:focus {
         transform: translate3d(0, 0, 0);;
     }
 }
+
 @media (max-width: 1280px) {
     #sidebar {
         -webkit-transform: translate3d(-288px, 0, 0);
         -moz-transform: translate3d(-288px, 0, 0);
         -ms-transform: translate3d(-288px, 0, 0);
         -o-transform: translate3d(-288px, 0, 0);
-        -webkit-box-shadow:  0 0 20px rgba(14, 18, 21, .38);
-        -moz-box-shadow:  0 0 20px rgba(14, 18, 21, .38);
-        box-shadow:  0 0 20px rgba(14, 18, 21, .38);
+        -webkit-box-shadow: 0 0 20px rgba(14, 18, 21, .38);
+        -moz-box-shadow: 0 0 20px rgba(14, 18, 21, .38);
+        box-shadow: 0 0 20px rgba(14, 18, 21, .38);
     }
 }
 
@@ -533,4 +557,5 @@ a, a:hover, a:active, a:focus {
         padding-left: 0;
     }
 }
+
 /** 媒体查询 --- end --- **/

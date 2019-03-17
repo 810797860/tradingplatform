@@ -25,7 +25,7 @@ public class SelectSqlGenerator {
     }
 
     @Test
-    public void testSelectSqlGenerator(){
+    public void testSelectSqlGenerator() {
 
         Select select = new Select("s_base_select_item");
 
@@ -54,24 +54,24 @@ public class SelectSqlGenerator {
          * 剔除公共的不常用字段
          */
         String tempParameter = null;
-        for (Map<String, Object> tempMap : resultList){
+        for (Map<String, Object> tempMap : resultList) {
 
             //分别获取字段名
             tempParameter = (String) tempMap.get("COLUMN_NAME");
 
             //把公共字段剔除
-            if (tempParameter.equals("uuid")){
+            if (tempParameter.equals("uuid")) {
                 continue;
             }
 
-            if (tempParameter.equals("created_at")){
+            if (tempParameter.equals("created_at")) {
                 continue;
             }
 
 
 //====================================================================================================================
             //特殊关联字段的拼接
-            if (tempParameter.equals("pid")){
+            if (tempParameter.equals("pid")) {
                 select.setSelectSql(selectSql);
                 selectSql = concatSql(select, tempParameter, SelectEnum.S_BASE_SELECT_ITEM);
                 continue;
@@ -107,7 +107,7 @@ public class SelectSqlGenerator {
         System.out.println("-----------------------------------------------");
     }
 
-    public StringBuilder concatSql(Select select, String parameter, SelectEnum selectEnum){
+    public StringBuilder concatSql(Select select, String parameter, SelectEnum selectEnum) {
 
         //获取模板的字段名
         String fieldName = selectEnum.getFieldName();
@@ -122,7 +122,7 @@ public class SelectSqlGenerator {
         StringBuilder tableAlias = select.getTableAlias();
 
         //原字段与默认字段相同时，直接替换别名
-        if (fieldName.equals(parameter)){
+        if (fieldName.equals(parameter)) {
             selectSql.append(enumSql.replaceAll("tableAlias", tableAlias.toString()));
             //原字段与默认字段不相同时，把倒数两个字段名也要替换掉
         } else {

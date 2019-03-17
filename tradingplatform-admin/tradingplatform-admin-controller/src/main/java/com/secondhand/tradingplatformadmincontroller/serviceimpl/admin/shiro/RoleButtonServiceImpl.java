@@ -25,10 +25,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *   @description : RoleButton 服务实现类
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2018-12-04
+ * @author zhangjk
+ * @description : RoleButton 服务实现类
+ * ---------------------------------
+ * @since 2018-12-04
  */
 
 @Service
@@ -37,7 +37,7 @@ public class RoleButtonServiceImpl extends BaseServiceImpl<RoleButtonMapper, Rol
 
     @Autowired
     private RoleButtonMapper roleButtonMapper;
-    
+
     @Autowired
     private ButtonService buttonService;
 
@@ -98,7 +98,7 @@ public class RoleButtonServiceImpl extends BaseServiceImpl<RoleButtonMapper, Rol
     @CacheEvict(allEntries = true)
     public RoleButton myRoleButtonCreateUpdate(RoleButton roleButton) {
         Long roleButtonId = roleButton.getId();
-        if (roleButtonId == null){
+        if (roleButtonId == null) {
             roleButton.setUuid(ToolUtil.getUUID());
             roleButtonMapper.insert(roleButton);
         } else {
@@ -111,7 +111,7 @@ public class RoleButtonServiceImpl extends BaseServiceImpl<RoleButtonMapper, Rol
     @Transactional(rollbackFor = Exception.class)
     @CacheEvict(allEntries = true)
     public boolean myRoleButtonBatchCreate(Long roleId, List<Integer> buttonIds) {
-        buttonIds.forEach(buttonId->{
+        buttonIds.forEach(buttonId -> {
             //这里就自己写了，为了快一点(因为都是新增)
             RoleButton roleButton = new RoleButton();
             roleButton.setUuid(ToolUtil.getUUID());
@@ -123,7 +123,7 @@ public class RoleButtonServiceImpl extends BaseServiceImpl<RoleButtonMapper, Rol
     }
 
     //以下是继承BaseServiceImpl
-    
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     @Cacheable(key = "'MyButton' + #p0 + ',' + #p1 + ',' + #p1.sorts")
@@ -136,7 +136,7 @@ public class RoleButtonServiceImpl extends BaseServiceImpl<RoleButtonMapper, Rol
         wrapper.where("deleted = {0}", false);
         List<Object> buttonIds = this.selectObjs(wrapper);
         //如果buttonIds为空，返回空的对象
-        if (buttonIds.size() == 0){
+        if (buttonIds.size() == 0) {
             return new Page<>();
         }
         //再根据id找buttonPage
@@ -146,12 +146,12 @@ public class RoleButtonServiceImpl extends BaseServiceImpl<RoleButtonMapper, Rol
         buttonWrapper.where("deleted = {0}", false);
         //遍历排序
         List<Sort> sorts = roleButton.getSorts();
-        if (sorts == null){
+        if (sorts == null) {
             //为null时，默认按created_at倒序
             buttonWrapper.orderBy("id", false);
         } else {
             //遍历排序
-            sorts.forEach( sort -> {
+            sorts.forEach(sort -> {
                 buttonWrapper.orderBy(sort.getField(), sort.getAsc());
             });
         }
@@ -175,12 +175,12 @@ public class RoleButtonServiceImpl extends BaseServiceImpl<RoleButtonMapper, Rol
         buttonWrapper.where("deleted = {0}", false);
         //遍历排序
         List<Sort> sorts = roleButton.getSorts();
-        if (sorts == null){
+        if (sorts == null) {
             //为null时，默认按created_at倒序
             buttonWrapper.orderBy("id", false);
         } else {
             //遍历排序
-            sorts.forEach( sort -> {
+            sorts.forEach(sort -> {
                 buttonWrapper.orderBy(sort.getField(), sort.getAsc());
             });
         }
@@ -193,28 +193,28 @@ public class RoleButtonServiceImpl extends BaseServiceImpl<RoleButtonMapper, Rol
     public List<RoleButton> mySelectListWithMap(Map<String, Object> map) {
         return roleButtonMapper.selectByMap(map);
     }
-    
+
     //以下是继承BaseMapper
-    
+
     @Override
     @Cacheable(key = "#p0")
     public Map<String, Object> mySelectMap(Wrapper<RoleButton> wrapper) {
         return this.selectMap(wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public List<RoleButton> mySelectList(Wrapper<RoleButton> wrapper) {
         return roleButtonMapper.selectList(wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsert(RoleButton roleButton) {
         roleButton.setUuid(ToolUtil.getUUID());
         return this.insert(roleButton);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertBatch(List<RoleButton> roleButtonList) {
@@ -223,47 +223,47 @@ public class RoleButtonServiceImpl extends BaseServiceImpl<RoleButtonMapper, Rol
         });
         return this.insertBatch(roleButtonList);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdate(RoleButton roleButton) {
         //没有uuid的话要加上去
-        if (roleButton.getUuid().equals(null)){
+        if (roleButton.getUuid().equals(null)) {
             roleButton.setUuid(ToolUtil.getUUID());
         }
         return this.insertOrUpdate(roleButton);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdateBatch(List<RoleButton> roleButtonList) {
         roleButtonList.forEach(roleButton -> {
             //没有uuid的话要加上去
-            if (roleButton.getUuid().equals(null)){
+            if (roleButton.getUuid().equals(null)) {
                 roleButton.setUuid(ToolUtil.getUUID());
             }
         });
         return this.insertOrUpdateBatch(roleButtonList);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public List<RoleButton> mySelectBatchIds(Collection<? extends Serializable> roleButtonIds) {
         return roleButtonMapper.selectBatchIds(roleButtonIds);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public RoleButton mySelectById(Serializable roleButtonId) {
         return roleButtonMapper.selectById(roleButtonId);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public int mySelectCount(Wrapper<RoleButton> wrapper) {
         return roleButtonMapper.selectCount(wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public RoleButton mySelectOne(Wrapper<RoleButton> wrapper) {
@@ -281,13 +281,13 @@ public class RoleButtonServiceImpl extends BaseServiceImpl<RoleButtonMapper, Rol
     public boolean myUpdate(RoleButton roleButton, Wrapper<RoleButton> wrapper) {
         return this.update(roleButton, wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdateBatchById(List<RoleButton> roleButtonList) {
         return this.updateBatchById(roleButtonList);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdateById(RoleButton roleButton) {
@@ -304,7 +304,7 @@ public class RoleButtonServiceImpl extends BaseServiceImpl<RoleButtonMapper, Rol
         wrapper.where("deleted = {0}", false);
         List<Object> buttonIds = this.selectObjs(wrapper);
         //判空
-        if (buttonIds.size() == 0){
+        if (buttonIds.size() == 0) {
             return new ArrayList<>();
         }
         //再根据buttonIds来找

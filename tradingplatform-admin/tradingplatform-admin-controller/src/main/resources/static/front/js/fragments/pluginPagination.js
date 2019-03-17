@@ -300,7 +300,7 @@ function PluginPagination(id) {
         }
     };
     // 设置开启升降通道
-    _this.openLift = function(boolean) {
+    _this.openLift = function (boolean) {
         if (boolean === undefined) {
             boolean = true;
         }
@@ -347,7 +347,7 @@ function PluginPagination(id) {
         try {
             if (typeof number !== "number") {
                 throw new Error('参数number类型错误，需为number！');
-            } else if (number < 1){
+            } else if (number < 1) {
                 throw new Error('参数 number 需大于 1');
             } else if (maxPageNumber !== null && number > maxPageNumber) {
                 throw new Error('参数 number 不能大于 最大页码');
@@ -388,6 +388,7 @@ function PluginPagination(id) {
     };
 
     /*=== 功能函数 ===*/
+
     // 写入左功能区内容
     function setLeftRightFunc(isLeft) {
         var result = '';
@@ -398,11 +399,11 @@ function PluginPagination(id) {
                 var stSave = '';
                 data.forEach(function (item) {
                     if (item.mark !== nowPageNumber) {
-                        stSave += liHtml.replace(/class="[^"]+"/,function (classStr) {
+                        stSave += liHtml.replace(/class="[^"]+"/, function (classStr) {
                             // 当前页码
                             if (nowPageNumber === 1 && isLeft) {
                                 return classStr.slice(0, -1) + ' plugin-pagination-content-item__disabled' + classStr.slice(-1);
-                            } else if (nowPageNumber === maxPageNumber && !isLeft){
+                            } else if (nowPageNumber === maxPageNumber && !isLeft) {
                                 return classStr.slice(0, -1) + ' plugin-pagination-content-item__disabled' + classStr.slice(-1);
                             } else {
                                 return classStr;
@@ -412,7 +413,7 @@ function PluginPagination(id) {
                         }).replace(/<li((?!<\/li>)[^>])+>/, function (liHeadStr) {
                             if (nowPageNumber === 1 && isLeft) {
                                 return liHeadStr.slice(0, -1) + ' disabled="disabled"' + liHeadStr.slice(-1);
-                            } else if (nowPageNumber === maxPageNumber && !isLeft){
+                            } else if (nowPageNumber === maxPageNumber && !isLeft) {
                                 return liHeadStr.slice(0, -1) + ' disabled="disabled"' + liHeadStr.slice(-1);
                             } else {
                                 return liHeadStr;
@@ -425,13 +426,13 @@ function PluginPagination(id) {
                 return stSave + substring;
             })
         } else {
-            result += ulHtml.replace(/<\/ul>/,function (substring) {
+            result += ulHtml.replace(/<\/ul>/, function (substring) {
                 var stSave = '';
-                stSave += liHtml.replace(/class="[^"]+"/,function (classStr) {
+                stSave += liHtml.replace(/class="[^"]+"/, function (classStr) {
                     // 当前页码
                     if (nowPageNumber === 1 && isLeft) {
                         return classStr.slice(0, -1) + ' plugin-pagination-content-item__disabled' + classStr.slice(-1);
-                    } else if (nowPageNumber === maxPageNumber && !isLeft){
+                    } else if (nowPageNumber === maxPageNumber && !isLeft) {
                         return classStr.slice(0, -1) + ' plugin-pagination-content-item__disabled' + classStr.slice(-1);
                     } else {
                         return classStr;
@@ -441,7 +442,7 @@ function PluginPagination(id) {
                 }).replace(/<li((?!<\/li>)[^>])+>/, function (liHeadStr) {
                     if (nowPageNumber === 1 && isLeft) {
                         return liHeadStr.slice(0, -1) + ' disabled="disabled"' + liHeadStr.slice(-1);
-                    } else if (nowPageNumber === maxPageNumber && !isLeft){
+                    } else if (nowPageNumber === maxPageNumber && !isLeft) {
                         return liHeadStr.slice(0, -1) + ' disabled="disabled"' + liHeadStr.slice(-1);
                     } else {
                         return liHeadStr;
@@ -454,6 +455,7 @@ function PluginPagination(id) {
         }
         return result;
     }
+
     // 写入升降功能区内容
     function setLiftFunc() {
         var result = '';
@@ -483,6 +485,7 @@ function PluginPagination(id) {
         });
         return result;
     }
+
     // 写入中间功能区内容
     function setPageNumberFunc() {
         // 页码str
@@ -496,13 +499,13 @@ function PluginPagination(id) {
             var str = '';
             // 模式1 没有省略号
             if (changeModel === 1) {
-                stSave = (nowPageNumber % pageNumberShowSize !== 0) ? Math.floor(nowPageNumber/pageNumberShowSize) * pageNumberShowSize + 1 : nowPageNumber - pageNumberShowSize + 1;
+                stSave = (nowPageNumber % pageNumberShowSize !== 0) ? Math.floor(nowPageNumber / pageNumberShowSize) * pageNumberShowSize + 1 : nowPageNumber - pageNumberShowSize + 1;
                 minMaxArr.push(stSave);
                 stSave = (stSave + pageNumberShowSize - 1 < maxPageNumber) ? stSave + pageNumberShowSize - 1 : maxPageNumber;
                 minMaxArr.push(stSave);
                 stSave = minMaxArr[0];
                 while (stSave < minMaxArr[1] + 1) {
-                    str += liHtml.replace(/class="[^"]+"/,function (classStr) {
+                    str += liHtml.replace(/class="[^"]+"/, function (classStr) {
                         // 当前页码
                         if (stSave === nowPageNumber) {
                             return classStr.slice(0, -1) + ' plugin-pagination-content-item__activity' + classStr.slice(-1);
@@ -523,7 +526,7 @@ function PluginPagination(id) {
                     stSave += 1;
                 }
                 // console.log(str);
-            } else if (changeModel === 2){// 模式2 省略号
+            } else if (changeModel === 2) {// 模式2 省略号
                 stSave = 1;
                 while (stSave < maxPageNumber + 1) {
                     if ((stSave === 2 && nowPageNumber - stSave + 1 > 3) || (stSave === nowPageNumber + 2 && maxPageNumber - nowPageNumber + 1 > 3)) {
@@ -534,7 +537,7 @@ function PluginPagination(id) {
                             stSave = maxPageNumber;
                         }
                     } else {
-                        str += liHtml.replace(/class="[^"]+"/,function (classStr) {
+                        str += liHtml.replace(/class="[^"]+"/, function (classStr) {
                             // 当前页码
                             if (stSave === nowPageNumber) {
                                 return classStr.slice(0, -1) + ' plugin-pagination-content-item__activity' + classStr.slice(-1);
@@ -560,7 +563,7 @@ function PluginPagination(id) {
         });
         return pageNumberStr;
     }
-    
+
     /*=== 监听函数 ===*/
     function eventOfPageClick() {
         var nowNode = null;

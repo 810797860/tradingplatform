@@ -47,7 +47,7 @@ $(function () {
     // 表单提交
     function formSubmit(e) {
         var isPass = true
-        if(registerWay == 1) {// 手机
+        if (registerWay == 1) {// 手机
             registerStatus.email = true
             $.each(Object.keys(registerStatus), function (index, key) {
                 if (!registerStatus[key]) {
@@ -89,28 +89,28 @@ $(function () {
         var username = $userName.val()
         var password = $password.val()
         var passNum = 1
-        if(phoneNum.length === 0) {
+        if (phoneNum.length === 0) {
             // showMessage('手机号不能为空！', '#account-input', 1);
             $phone.addClass('input-error')
             $phone.next().text('手机号不能为空！').show()
-        }  else {
+        } else {
             passNum += 1;
         }
-        if(captcha.length === 0) {
+        if (captcha.length === 0) {
             // showMessage('验证短信不能为空！', '#captcha-input', 1);
             $captcha.addClass('input-error')
             $captcha.next().text('二维码不能为空！').show()
         } else {
             passNum += 1;
         }
-        if(username.length === 0) {
+        if (username.length === 0) {
             // showMessage('用户名不能为空！', '#captcha-input', 1);
             $userName.addClass('input-error')
             $userName.next().text('用户不能为空！').show()
-        }  else {
+        } else {
             passNum += 1;
         }
-        if (password.length === 0){
+        if (password.length === 0) {
             // showMessage('用户名不能为空！', '#captcha-input', 1);
             $password.addClass('input-error')
             $password.next().text('密码不能为空！').show()
@@ -118,7 +118,7 @@ $(function () {
             passNum += 1;
         }
         if (passNum !== Object.keys(registerStatus).length - 1) {
-            console.error('我不通过',passNum, Object.keys(registerStatus).length)
+            console.error('我不通过', passNum, Object.keys(registerStatus).length)
             return 0
         }
         var postData = {
@@ -128,13 +128,13 @@ $(function () {
             password: encrypt(password)
         }
         $.ajax({
-            type:'post',
-            url:'/f/user/pc/phone_register',
-            contentType:'application/json;charset=utf-8',
-            dataType:'json',
+            type: 'post',
+            url: '/f/user/pc/phone_register',
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'json',
             data: JSON.stringify(postData),
-            success:function(res){
-                switch(res.status){
+            success: function (res) {
+                switch (res.status) {
                     case 200:
                         new PNotify({
                             title: '注册',
@@ -198,7 +198,7 @@ $(function () {
                          });
                          break;*/
                 }
-            },error:function(XMLHttpRequest, textStatus, errorThrown){
+            }, error: function (XMLHttpRequest, textStatus, errorThrown) {
                 new PNotify({
                     title: '登录失败',
                     text: '服务器内部出错，或网络出错！',
@@ -210,6 +210,7 @@ $(function () {
             }
         });
     }
+
     // 邮箱注册
     function formSubmitEmail(e) {
         e.stopPropagation()
@@ -219,28 +220,28 @@ $(function () {
         var username = $userName.val()
         var password = $password.val()
         var passNum = 1
-        if(email.length === 0) {
+        if (email.length === 0) {
             // showMessage('手机号不能为空！', '#account-input', 1);
             $phone.addClass('input-error')
             $phone.next().text('手机号不能为空！').show()
         } else {
             passNum += 1;
         }
-        if(captcha.length === 0) {
+        if (captcha.length === 0) {
             // showMessage('验证短信不能为空！', '#captcha-input', 1);
             $captcha.addClass('input-error')
             $captcha.next().text('二维码不能为空！').show()
         } else {
             passNum += 1;
         }
-        if(username.length === 0) {
+        if (username.length === 0) {
             // showMessage('用户名不能为空！', '#captcha-input', 1);
             $userName.addClass('input-error')
             $userName.next().text('用户不能为空！').show()
         } else {
             passNum += 1;
         }
-        if (password.length === 0){
+        if (password.length === 0) {
             // showMessage('用户名不能为空！', '#captcha-input', 1);
             $password.addClass('input-error')
             $password.next().text('密码不能为空！').show()
@@ -248,7 +249,7 @@ $(function () {
             passNum += 1;
         }
         if (passNum !== Object.keys(registerStatus).length - 1) {
-            console.error('我不通过',passNum, Object.keys(registerStatus).length)
+            console.error('我不通过', passNum, Object.keys(registerStatus).length)
             return 0
         }
         var postData = {
@@ -258,13 +259,13 @@ $(function () {
             password: encrypt(password)
         }
         $.ajax({
-            type:'post',
-            url:'/f/user/pc/email_register',
-            contentType:'application/json;charset=utf-8',
-            dataType:'json',
+            type: 'post',
+            url: '/f/user/pc/email_register',
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'json',
             data: JSON.stringify(postData),
-            success:function(res){
-                switch(res.status){
+            success: function (res) {
+                switch (res.status) {
                     case 200:
                         new PNotify({
                             title: '注册',
@@ -288,7 +289,7 @@ $(function () {
                         });
                         break;
                 }
-            },error:function(XMLHttpRequest, textStatus, errorThrown){
+            }, error: function (XMLHttpRequest, textStatus, errorThrown) {
                 new PNotify({
                     title: '登录失败',
                     text: '服务器内部出错，或网络出错！',
@@ -300,28 +301,29 @@ $(function () {
             }
         });
     }
+
     // 发送验证码
     function sendVerificationCode(e) {
         // let display = $phone.css("display");
-        if(!registerWay) {
+        if (!registerWay) {
             var reg = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
             var emailVal = $email.val();
             var flag = emailVal.match(reg)
             var sendMessageBtn = $captcha.next()
             if (emailVal === '') {
                 showMessage('邮箱不能为空！', '#email', 1);
-                return ;
+                return;
             } else if (!flag) {
                 showMessage('邮箱格式不正确！', '#email', 1);
-                return ;
+                return;
             }
-            if(sendCodeTime === 60) {
+            if (sendCodeTime === 60) {
                 $.ajax({
                     type: 'post',
-                    url:'/message/pc/'+ emailVal +'/send_mail',
-                    contentType:'application/json;charset=utf-8',
-                    dataType:'json',
-                    success:function(data){
+                    url: '/message/pc/' + emailVal + '/send_mail',
+                    contentType: 'application/json;charset=utf-8',
+                    dataType: 'json',
+                    success: function (data) {
                         new PNotify({
                             title: '发送成功',
                             text: '发送成功',
@@ -347,7 +349,7 @@ $(function () {
                             }
                         }, 1000)
                     },
-                    error:function (XMLHttpRequest, textStatus, errorThrown) {
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
                         new PNotify({
                             title: '登录失败',
                             text: '服务器内部出错，或网络出错！',
@@ -361,18 +363,18 @@ $(function () {
             }
         } else {
             var phoneNum = $phone.val();
-            if(phoneNum === '') {
+            if (phoneNum === '') {
                 //手机号码判空
                 showMessage('手机号不能为空！', '#phone', 1);
-                return ;
+                return;
             }
-            if(sendCodeTime === 60) {
+            if (sendCodeTime === 60) {
                 $.ajax({
                     type: 'post',
-                    url:'/message/pc/'+ phoneNum +'/send_sms',
-                    contentType:'application/json;charset=utf-8',
-                    dataType:'json',
-                    success:function(data){
+                    url: '/message/pc/' + phoneNum + '/send_sms',
+                    contentType: 'application/json;charset=utf-8',
+                    dataType: 'json',
+                    success: function (data) {
                         new PNotify({
                             title: '发送成功',
                             text: '发送成功',
@@ -397,7 +399,7 @@ $(function () {
                             }
                         }, 1000)
                     },
-                    error:function (XMLHttpRequest, textStatus, errorThrown) {
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
                         new PNotify({
                             title: '登录失败',
                             text: '服务器内部出错，或网络出错！',
@@ -411,15 +413,17 @@ $(function () {
             }
         }
     }
+
     // 消息弹框
     function showMessage(msg, selector, type) {
         layer.tips(msg, selector, {
             tips: type
         });
     }
+
     // 修改注册模式
     function changeRegisterWay() {
-        if(!registerWay) { // 手机
+        if (!registerWay) { // 手机
             $('.user-email').hide();
             $('.user-phone').show();
             $userName.val('')
@@ -427,7 +431,7 @@ $(function () {
             $password.val('')
             $passwordCopy.val('')
             $chooseWay.html('邮箱注册 >');
-            if(sendCodeTime > 0 && sendCodeTime < 60) {
+            if (sendCodeTime > 0 && sendCodeTime < 60) {
                 sendCodeTime = -1
             }
             registerWay = 1;
@@ -439,7 +443,7 @@ $(function () {
             $password.val('')
             $passwordCopy.val('')
             $chooseWay.html('手机注册 >');
-            if(sendCodeTime > 0 && sendCodeTime < 60) {
+            if (sendCodeTime > 0 && sendCodeTime < 60) {
                 sendCodeTime = -1
             }
             registerWay = 0;
@@ -459,44 +463,52 @@ $(function () {
     function getBackHome() {
         window.location.href = '/f/wu.html?pc=true'
     }
+
     // 返回登录页面
     function getBackLogin() {
         window.location.href = '/f/login.html?pc=true'
     }
+
     /*=== 点击事件监听 ===*/
+
     // 手机号
     function eventOfPhoneBlur() {
-        $phone.blur(function (){
+        $phone.blur(function () {
             phoneBlur()
         })
     }
+
     // 邮箱
     function eventOfEmailBlur() {
-        $email.blur(function (){
+        $email.blur(function () {
             emailBlur()
         })
     }
+
     // 密码
     function eventOfPasswordBlur() {
-        $password.blur(function (){
+        $password.blur(function () {
             passwordBlur()
         })
     }
+
     // 重复密码
     function eventOfPasswordCopyBlur() {
-        $passwordCopy.blur(function (){
+        $passwordCopy.blur(function () {
             passwordCopyBlur()
         })
     }
+
     // 用户名
     function eventOfUserNameBlur() {
-        $userName.blur(function (){
+        $userName.blur(function () {
             userNameBlur()
         })
     }
+
     // 验证码
     function eventOfCodeBlur() {
-        $captcha.blur(function (){
+        $captcha.blur(function () {
             captchaBlur()
         })
     }
@@ -508,6 +520,7 @@ $(function () {
             $phone.next().text('').hide()
         })
     }
+
     // 邮箱
     function eventOfEmailFocus() {
         $email.focus(function () {
@@ -515,6 +528,7 @@ $(function () {
             $email.next().text('').hide()
         })
     }
+
     // 密码
     function eventOfPasswordFocus() {
         $password.focus(function () {
@@ -522,6 +536,7 @@ $(function () {
             $password.next().text('').hide()
         })
     }
+
     // 重复密码
     function eventOfPasswordCopyFocus() {
         $passwordCopy.focus(function () {
@@ -529,6 +544,7 @@ $(function () {
             $passwordCopy.next().text('').hide()
         })
     }
+
     // 用户名
     function eventOfUserNameFocus() {
         $userName.focus(function () {
@@ -536,6 +552,7 @@ $(function () {
             $userName.next().text('').hide()
         })
     }
+
     // 验证码
     function eventOfCodeFocus() {
         $captcha.focus(function () {
@@ -545,6 +562,7 @@ $(function () {
     }
 
     /*=== 功能函数 ===*/
+
     // 初始化验证状态
     function initStatus() {
         registerStatus.phone = false;
@@ -554,7 +572,7 @@ $(function () {
         registerStatus.name = false;
         registerStatus.code = false;
     }
-    
+
     // 验证手机/邮箱是否已被注册
     function testAccount(account, callback) {
         new NewAjax({
@@ -572,15 +590,15 @@ $(function () {
             }
         })
     }
-    
+
     // 验证码按钮禁用
     function captchaBtnAble(enable) {
-        console.log('禁用验证码',$sendBtn)
+        console.log('禁用验证码', $sendBtn)
         // 激活
         if (enable) {
             $sendBtn.removeAttr('disabled')
         } else {// 禁用
-            $sendBtn.attr('disabled','disabled')
+            $sendBtn.attr('disabled', 'disabled')
 
         }
     }
@@ -595,7 +613,7 @@ $(function () {
                 testAccount({
                     type: 202081,
                     account: value
-                },function (status) {
+                }, function (status) {
                     // 已被注册
                     if (status) {
                         phoneTip.text('该手机已注册').show()
@@ -616,7 +634,7 @@ $(function () {
                 registerStatus.phone = false;
                 captchaBtnAble(false)
             }
-        }else {
+        } else {
             registerStatus.phone = false;
             captchaBtnAble(false)
         }
@@ -632,7 +650,7 @@ $(function () {
                 testAccount({
                     type: 202082,
                     account: value
-                },function (status) {
+                }, function (status) {
                     // 已被注册
                     if (status) {
                         emailTip.text('该邮箱已注册').show()
@@ -653,7 +671,7 @@ $(function () {
                 registerStatus.email = false;
                 captchaBtnAble(false)
             }
-        }else {
+        } else {
             registerStatus.email = false;
             captchaBtnAble(false)
         }
@@ -679,7 +697,7 @@ $(function () {
                 // 调用重复面的验证
                 passwordCopyBlur()
             }
-        }else {
+        } else {
             registerStatus.password = false;
         }
     }
@@ -699,7 +717,7 @@ $(function () {
                 $passwordCopy.addClass('input-error')
                 passwordCopyTip.text('您出现<...>等非法输入，请重新输入').show()
                 registerStatus.passwordCopy = false;
-            } else if ($password.val().length > 0){
+            } else if ($password.val().length > 0) {
                 password = $password.val()
                 if (value === password) {
                     $passwordCopy.removeClass('input-error')
@@ -715,7 +733,7 @@ $(function () {
                 passwordCopyTip.text('').hide()
                 registerStatus.passwordCopy = false;
             }
-        }else {
+        } else {
             registerStatus.passwordCopy = false;
         }
     }
@@ -761,7 +779,7 @@ $(function () {
                 captchaTip.text('').hide()
                 registerStatus.code = true;
             }
-        }else {
+        } else {
             registerStatus.code = false;
         }
     }

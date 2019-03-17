@@ -15,6 +15,7 @@ public interface BaseService<T> extends IService<T> {
 
     /**
      * 分页获取列表数据（实体类）
+     *
      * @param page
      * @param param
      * @return
@@ -23,6 +24,7 @@ public interface BaseService<T> extends IService<T> {
 
     /**
      * 获取列表数据 （Map）
+     *
      * @param map
      * @return
      */

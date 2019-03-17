@@ -1,20 +1,22 @@
-.industry-card{
+.industry-card {
     float: left;
     width: 290px;
     height: 360px;
     text-align: center;
     position: relative;
 }
-.industry-card-img{
+
+.industry-card-img {
     width: 270px;
     height: 270px;
     border: solid 10px rgba(220, 220, 220, 0.6);
     box-sizing: border-box;
-    filter: alpha(opacity: 60);
+    filter: alpha(opacity:60);
     opacity: 0.6;
     margin-top: 10px;
 }
-.industry-card-text{
+
+.industry-card-text {
     min-height: 30px;
     max-height: 60px;
     overflow: hidden;
@@ -26,11 +28,12 @@
     padding: 0 10px;
     box-sizing: border-box;
 }
+
 .industry-card:hover .industry-card-text {
     color: #e11a1a;
 }
 
-.industry-card-inline-block{
+.industry-card-inline-block {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -40,12 +43,13 @@
     height: 0px;
     background-color: rgba(0, 102, 204, 0.4);
     border-radius: 10px;
-    filter: alpha(opacity: 0);
+    filter: alpha(opacity:0);
     opacity: 0;
     color: #fff;
     font-size: 0;
     text-align: center;
 }
+
 .industry-card-inline-block p.industry-item {
     height: 32px;
     line-height: 32px;

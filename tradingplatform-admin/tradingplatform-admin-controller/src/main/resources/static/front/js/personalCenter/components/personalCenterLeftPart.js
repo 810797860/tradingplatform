@@ -1,4 +1,3 @@
-
 // 函数调用
 setUserInfo();
 

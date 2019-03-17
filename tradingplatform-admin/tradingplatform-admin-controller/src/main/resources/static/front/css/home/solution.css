@@ -1,11 +1,12 @@
-.home-solution-div{
+.home-solution-div {
     box-sizing: border-box;
     width: 100%;
     height: 555px;
     padding: 30px 0;
     background-color: #f7f7f7;
 }
-.home-solution-inside-div{
+
+.home-solution-inside-div {
     position: relative;
     top: 0;
     left: 50%;
@@ -13,17 +14,20 @@
     width: 1170px;
     height: 100%;
 }
-.home-solution-left-part{
+
+.home-solution-left-part {
     float: left;
     width: 234px;
     height: 100%;
 }
-.home-solution-title-div{
+
+.home-solution-title-div {
     margin-top: 30px;
     width: 100%;
     height: auto;
 }
-.home-solution-title-div p{
+
+.home-solution-title-div p {
     display: block;
     font-family: "PingFang SC";
     line-height: 32px;
@@ -31,7 +35,8 @@
     color: #303030;
     font-weight: bold;
 }
-.home-solution-description{
+
+.home-solution-description {
     display: block;
     margin-top: 50px;
     width: 234px;
@@ -42,12 +47,14 @@
     line-height: 25px;
     word-break: break-all;
 }
-.home-solution-number{
+
+.home-solution-number {
     font-family: "PingFang SC";
     font-size: 20px;
     color: #e30000;
 }
-.home-solution-more-btn{
+
+.home-solution-more-btn {
     margin-top: 97px;
     width: 130px;
     height: 36px;
@@ -59,14 +66,16 @@
     cursor: pointer;
     font-size: 16px;
 }
-.home-solution-right-part{
+
+.home-solution-right-part {
     float: right;
     width: 870px;
     height: 100%;
     /*background-color: #ffffff;*/
     font-size: 0;
 }
-.home-solution-item{
+
+.home-solution-item {
     float: left;
     box-sizing: border-box;
     width: 290px;

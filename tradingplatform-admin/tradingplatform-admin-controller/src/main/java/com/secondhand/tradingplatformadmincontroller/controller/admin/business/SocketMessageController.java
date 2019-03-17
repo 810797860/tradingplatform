@@ -25,12 +25,12 @@ import com.secondhand.tradingplatformadminentity.entity.admin.business.SocketMes
 import com.secondhand.tradingplatformadminservice.service.admin.business.SocketMessageService;
 
 /**
- * @description : SocketMessage 控制器
  * @author : zhangjk
+ * @description : SocketMessage 控制器
  * @since : Create in 2018-12-25
  */
 @RestController("adminSocketMessageController")
-@Api(value="/admin/socketMessage", description="SocketMessage 控制器")
+@Api(value = "/admin/socketMessage", description = "SocketMessage 控制器")
 @RequestMapping("/admin/socketMessage")
 public class SocketMessageController extends BaseController {
 
@@ -72,30 +72,30 @@ public class SocketMessageController extends BaseController {
     public String toCreateSocketMessage(@ApiParam(name = "model", value = "Model") Model model) {
         return "socketMessage/newSocketMessage";
     }
-    
+
     /**
      * @description : 获取分页列表
      * @author : zhangjk
      * @since : Create in 2018-12-25
      */
     @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    @ApiOperation(value = "/query", notes="获取分页列表")
+    @ApiOperation(value = "/query", notes = "获取分页列表")
     public TableJson<SocketMessage> getSocketMessageList(@ApiParam(name = "SocketMessage", value = "SocketMessage 实体类") @RequestBody SocketMessage socketMessage) {
-            TableJson<SocketMessage> resJson = new TableJson<>();
-            Page resPage = socketMessage.getPage();
-            Integer current = resPage.getCurrent();
-            Integer size = resPage.getSize();
-            if (current == null && size == null) {
-                resJson.setSuccess(false);
-                resJson.setMessage("异常信息：页数和页的大小不能为空");
-                return resJson;
-            }
-            Page<SocketMessage> socketMessagePage = new Page<SocketMessage>(current, size);
-            socketMessagePage = socketMessageService.mySelectPageWithParam(socketMessagePage, socketMessage);
-            resJson.setRecordsTotal(socketMessagePage.getTotal());
-            resJson.setData(socketMessagePage.getRecords());
-            resJson.setSuccess(true);
+        TableJson<SocketMessage> resJson = new TableJson<>();
+        Page resPage = socketMessage.getPage();
+        Integer current = resPage.getCurrent();
+        Integer size = resPage.getSize();
+        if (current == null && size == null) {
+            resJson.setSuccess(false);
+            resJson.setMessage("异常信息：页数和页的大小不能为空");
             return resJson;
+        }
+        Page<SocketMessage> socketMessagePage = new Page<SocketMessage>(current, size);
+        socketMessagePage = socketMessageService.mySelectPageWithParam(socketMessagePage, socketMessage);
+        resJson.setRecordsTotal(socketMessagePage.getTotal());
+        resJson.setData(socketMessagePage.getRecords());
+        resJson.setSuccess(true);
+        return resJson;
     }
 
     /**
@@ -105,13 +105,13 @@ public class SocketMessageController extends BaseController {
      */
     @GetMapping(value = "/get_map_by_id/{socketMessageId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{socketMessageId}", notes = "根据id获取socketMessageMap")
-    public JsonResult<Map<String, Object>> getSocketMessageByIdForMap( @ApiParam(name = "id", value = "socketMessageId") @PathVariable("socketMessageId") Long socketMessageId){
-            JsonResult<Map<String, Object>> resJson = new JsonResult<>();
-            Map<String, Object> socketMessage = socketMessageService.mySelectMapById(socketMessageId);
-            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-            resJson.setData(socketMessage);
-            resJson.setSuccess(true);
-            return resJson;
+    public JsonResult<Map<String, Object>> getSocketMessageByIdForMap(@ApiParam(name = "id", value = "socketMessageId") @PathVariable("socketMessageId") Long socketMessageId) {
+        JsonResult<Map<String, Object>> resJson = new JsonResult<>();
+        Map<String, Object> socketMessage = socketMessageService.mySelectMapById(socketMessageId);
+        resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+        resJson.setData(socketMessage);
+        resJson.setSuccess(true);
+        return resJson;
     }
 
     /**
@@ -121,21 +121,21 @@ public class SocketMessageController extends BaseController {
      */
     @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除socketMessage")
-    public JsonResult<SocketMessage> fakeDeleteById(@ApiParam(name = "id", value = "socketMessageId") @RequestBody Long socketMessageId){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<SocketMessage> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/socketMessage/delete");
-                socketMessageService.myFakeDeleteById(socketMessageId);
-                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-                resJson.setSuccess(true);
-            }catch (UnauthorizedException e){
-                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    public JsonResult<SocketMessage> fakeDeleteById(@ApiParam(name = "id", value = "socketMessageId") @RequestBody Long socketMessageId) {
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<SocketMessage> resJson = new JsonResult<>();
+        try {
+            //检查是否具有权限
+            subject.checkPermission("/admin/socketMessage/delete");
+            socketMessageService.myFakeDeleteById(socketMessageId);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+            resJson.setSuccess(true);
+        } catch (UnauthorizedException e) {
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
@@ -145,20 +145,20 @@ public class SocketMessageController extends BaseController {
      */
     @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除socketMessage")
-    public JsonResult<SocketMessage> fakeBatchDelete(@ApiParam(name = "ids", value = "socketMessageIds") @RequestBody List<Long> socketMessageIds){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<SocketMessage> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/socketMessage/batch_delete");
-                resJson.setSuccess(socketMessageService.myFakeBatchDelete(socketMessageIds));
-                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-            }catch(UnauthorizedException e){
-                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    public JsonResult<SocketMessage> fakeBatchDelete(@ApiParam(name = "ids", value = "socketMessageIds") @RequestBody List<Long> socketMessageIds) {
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<SocketMessage> resJson = new JsonResult<>();
+        try {
+            //检查是否具有权限
+            subject.checkPermission("/admin/socketMessage/batch_delete");
+            resJson.setSuccess(socketMessageService.myFakeBatchDelete(socketMessageIds));
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+        } catch (UnauthorizedException e) {
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
@@ -168,22 +168,22 @@ public class SocketMessageController extends BaseController {
      */
     @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改socketMessage")
-    public JsonResult<SocketMessage> socketMessageCreateUpdate(@ApiParam(name = "SocketMessage", value = "SocketMessage实体类") @RequestBody SocketMessage socketMessage){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<SocketMessage> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/socketMessage/create_update");
-                socketMessage = socketMessageService.mySocketMessageCreateUpdate(socketMessage);
-                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-                resJson.setData(socketMessage);
-                resJson.setSuccess(true);
-            }catch(UnauthorizedException e){
-                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    public JsonResult<SocketMessage> socketMessageCreateUpdate(@ApiParam(name = "SocketMessage", value = "SocketMessage实体类") @RequestBody SocketMessage socketMessage) {
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<SocketMessage> resJson = new JsonResult<>();
+        try {
+            //检查是否具有权限
+            subject.checkPermission("/admin/socketMessage/create_update");
+            socketMessage = socketMessageService.mySocketMessageCreateUpdate(socketMessage);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+            resJson.setData(socketMessage);
+            resJson.setSuccess(true);
+        } catch (UnauthorizedException e) {
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
@@ -193,7 +193,7 @@ public class SocketMessageController extends BaseController {
      */
     @MessageMapping("/sendMessage")
     @SendTo("/topic/public")
-    public JsonResult<SocketMessage> sendWebSocketMessage(@ApiParam(name = "SocketMessage", value = "SocketMessage实体类") @RequestBody SocketMessage socketMessage){
+    public JsonResult<SocketMessage> sendWebSocketMessage(@ApiParam(name = "SocketMessage", value = "SocketMessage实体类") @RequestBody SocketMessage socketMessage) {
         // 放值到sockSession： headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
         // 获取sockSession值： String username = (String) headerAccessor.getSessionAttributes().get("username");
         // 后台发送信息： messagingTemplate.convertAndSend("/topic/public", chatMessage); (chatMessage是pojo)

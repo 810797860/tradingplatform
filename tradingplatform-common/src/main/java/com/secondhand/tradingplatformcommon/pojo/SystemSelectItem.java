@@ -2,6 +2,7 @@ package com.secondhand.tradingplatformcommon.pojo;
 
 /**
  * 系统枚举值
+ *
  * @author 81079
  */
 

@@ -4,18 +4,20 @@
 
     <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
 
-		<!-- 通用查询映射结果 -->
-			<resultMap id="roleResourcesMap" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.RoleResources" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
-													<result column="role_id" property="roleId" jdbcType="INTEGER" />
-													<result column="resources_id" property="resourcesId" jdbcType="INTEGER" />
+    <!-- 通用查询映射结果 -->
+    <resultMap id="roleResourcesMap" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.RoleResources"
+               extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
+        <result column="role_id" property="roleId" jdbcType="INTEGER"/>
+        <result column="resources_id" property="resourcesId" jdbcType="INTEGER"/>
 
-		</resultMap>
+    </resultMap>
 
-        <!-- 通用查询映射结果 -->
-		<resultMap id="roleResourcesMapSimple" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.RoleResources">
-																			                        <result column="role_id" property="roleId" jdbcType="INTEGER" />
-																			                        <result column="resources_id" property="resourcesId" jdbcType="INTEGER" />
-        </resultMap>
+    <!-- 通用查询映射结果 -->
+    <resultMap id="roleResourcesMapSimple"
+               type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.RoleResources">
+        <result column="role_id" property="roleId" jdbcType="INTEGER"/>
+        <result column="resources_id" property="resourcesId" jdbcType="INTEGER"/>
+    </resultMap>
 
     <select id="selectMapById" resultType="java.util.Map">
         select * from s_base_role_resources where id = #{roleResourcesId} and deleted = false

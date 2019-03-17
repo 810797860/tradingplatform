@@ -1,36 +1,45 @@
-a{
+a {
     text-decoration: none;
 }
-a:link{
+
+a:link {
     text-decoration: none;
 }
-a:visited{
+
+a:visited {
     text-decoration: none;
 }
-a:hover{
+
+a:hover {
     text-decoration: none;
 }
-a:active{
+
+a:active {
     text-decoration: none;
 }
+
 ul {
     list-style: none;
 }
+
 .text-overflow {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
 .personal-center {
     width: 100%;
     overflow: hidden;
     padding-bottom: 30px;
 }
+
 .personal-center .personal-center-container {
     width: 1170px;
     margin: 0 auto;
     font-size: 0;
 }
+
 /****** 当前位置 开始 ******/
 .personal-center .personal-center-container .address-title {
     height: 40px;
@@ -38,12 +47,15 @@ ul {
     color: #646464;
     font-size: 14px;
 }
+
 .personal-center .personal-center-container .address-title .to-link {
     color: #646464;
 }
+
 .personal-center .personal-center-container .address-title .to-link:hover {
     color: #114b2b;
 }
+
 /** 当前位置 结束 **/
 
 .personal-center .personal-center-container .personal-center-left {
@@ -52,7 +64,7 @@ ul {
     width: 210px;
 }
 
-.personal-center-content-div{
+.personal-center-content-div {
     position: relative;
     width: 100%;
     min-height: 780px;
@@ -68,11 +80,13 @@ ul {
     padding: 17px 30px 0 30px;
     box-sizing: border-box;
 }
+
 .personal-center .personal-center-container .personal-center-left .user-info .user-avatar {
     display: block;
     width: 150px;
     height: 150px;
 }
+
 .personal-center .personal-center-container .personal-center-left .user-info .user-name {
     height: 48px;
     line-height: 48px;
@@ -83,6 +97,7 @@ ul {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
 /** 左栏用户信息 结束 **/
 
 /****** 左栏资料完善度和发布按钮 开始 ******/
@@ -91,6 +106,7 @@ ul {
     box-sizing: border-box;
     background-color: #f0f0f0;
 }
+
 .personal-center .personal-center-container .personal-center-left .perfection-publish-area .perfection-area {
     position: relative;
     width: 100%;
@@ -100,6 +116,7 @@ ul {
     border-radius: 9px;
     overflow: hidden;
 }
+
 .personal-center .personal-center-container .personal-center-left .perfection-publish-area .perfection-area .perfection-down {
     display: block;
     width: 0%;
@@ -120,11 +137,13 @@ ul {
     color: #333;
     background-color: transparent;
 }
+
 .personal-center .personal-center-container .personal-center-left .perfection-publish-area .publish-button-area {
     height: 37px;
     line-height: 37px;
     margin-top: 25px;
 }
+
 .personal-center .personal-center-container .personal-center-left .perfection-publish-area .publish-button-area .publish-button {
     display: inline-block;
     vertical-align: top;
@@ -136,17 +155,21 @@ ul {
     text-align: center;
     cursor: pointer;
 }
+
 .personal-center .personal-center-container .personal-center-left .perfection-publish-area .publish-button-area .publish-button i:before {
     color: #ffffff;
     margin-right: 5px;
 }
+
 .personal-center .personal-center-container .personal-center-left .perfection-publish-area .publish-button-area .publish-demand-button {
     background-color: #337ab7;
 }
+
 .personal-center .personal-center-container .personal-center-left .perfection-publish-area .publish-button-area .publish-case-button {
     background-color: #ff9047;
     margin-left: 10px;
 }
+
 /** 左栏资料完善度和发布按钮 结束 **/
 
 /****** 左栏菜单栏 开始 ******/
@@ -154,6 +177,7 @@ ul {
     width: 100%;
     background-color: #fff;
 }
+
 .personal-center .personal-center-container .personal-center-left .menu-area ul.menu-area-ul {
     display: block;
     width: 100%;
@@ -161,9 +185,11 @@ ul {
     padding: 15px 5px;
     box-sizing: border-box;
 }
+
 .personal-center .personal-center-container .personal-center-left .menu-area ul.menu-area-ul li.menu-item {
     width: 100%;
 }
+
 .personal-center .personal-center-container .personal-center-left .menu-area ul.menu-area-ul li.menu-item .menu-title {
     height: 35px;
     line-height: 35px;
@@ -172,18 +198,21 @@ ul {
     cursor: pointer;
     margin-bottom: 0;
 }
+
 .personal-center .personal-center-container .personal-center-left .menu-area ul.menu-area-ul li.menu-item .menu-title i:before {
     vertical-align: middle;
     color: #bcbcbc;
     font-size: 26px;
     margin-right: 6px;
 }
+
 .personal-center .personal-center-container .personal-center-left .menu-area ul.menu-area-ul li.menu-item .menu-children {
     display: block;
     width: 100%;
     padding-left: 52px;
     box-sizing: border-box;
 }
+
 .personal-center .personal-center-container .personal-center-left .menu-area ul.menu-area-ul li.menu-item .menu-children .menu-children-item {
     width: 100%;
     height: 30px;
@@ -192,13 +221,16 @@ ul {
     color: #333333;
     cursor: pointer;
 }
+
 .personal-center .personal-center-container .personal-center-left .menu-area ul.menu-area-ul li.menu-item .menu-children .menu-children-item:hover {
     color: #337ab7;
 }
+
 .personal-center .personal-center-container .personal-center-left .menu-area ul.menu-area-ul li.menu-item .menu-children .menu-active {
     color: #337ab7;
 }
-.personal-center-left .menu-expand-div{
+
+.personal-center-left .menu-expand-div {
     position: absolute;
     top: 50%;
     right: 0;
@@ -216,114 +248,129 @@ ul {
     text-align: center;
     cursor: pointer;
 }
+
 /** 左栏菜单栏 结束 **/
 
-.personal-center .personal-center-container .personal-center-right  {
+.personal-center .personal-center-container .personal-center-right {
     float: right;
     width: 935px;
     background-color: #fff;
 }
-.personal-center .personal-center-container .personal-center-right  .right-page {
+
+.personal-center .personal-center-container .personal-center-right .right-page {
     display: none;
 }
-.personal-center .personal-center-container .personal-center-right  .page-active {
+
+.personal-center .personal-center-container .personal-center-right .page-active {
     display: block;
 }
 
 /* 动画 */
-.animate-left-collapse, .animate-left-expand{
+.animate-left-collapse, .animate-left-expand {
     position: absolute;
     top: 0;
 }
-.animate-left-collapse{
+
+.animate-left-collapse {
     animation: left-move 1s;
     -webkit-animation: left-move 1s;
     -o-animation: left-move 1s;
     -moz-animation: left-move 1s;
 }
-@keyframes left-move{
-    from{
+
+@keyframes left-move {
+    from {
         transform: translateX(0);
     }
-    to{
+    to {
         transform: translateX(-100%);
     }
 }
+
 @-webkit-keyframes left-move {
-    from{
+    from {
         transform: translateX(0);
     }
-    to{
+    to {
         transform: translateX(-100%);
     }
 }
+
 @-moz-keyframes left-move {
-    from{
+    from {
         transform: translateX(0);
     }
-    to{
+    to {
         transform: translateX(-100%);
     }
 }
+
 @-ms-keyframes left-move {
-    from{
+    from {
         transform: translateX(0);
     }
-    to{
+    to {
         transform: translateX(-100%);
     }
 }
+
 @-o-keyframes left-move {
-    from{
+    from {
         transform: translateX(0);
     }
-    to{
+    to {
         transform: translateX(-100%);
     }
 }
+
 .animate-left-expand {
     animation: right-move 1s;
     -webkit-animation: right-move 1s;
     -o-animation: right-move 1s;
     -moz-animation: right-move 1s;
 }
-@keyframes right-move{
-    from{
+
+@keyframes right-move {
+    from {
         transform: translateX(0);
     }
-    to{
+    to {
         transform: translateX(100%);
     }
 }
+
 @-webkit-keyframes right-move {
-    from{
+    from {
         transform: translateX(0);
     }
-    to{
+    to {
         transform: translateX(100%);
     }
 }
+
 @-moz-keyframes right-move {
-    from{
+    from {
         transform: translateX(0);
     }
-    to{
+    to {
         transform: translateX(100%);
     }
 }
+
 @-ms-keyframes right-move {
-    from{
+    from {
         transform: translateX(0);
     }
-    to{
+    to {
         transform: translateX(100%);
     }
 }
+
 @-o-keyframes right-move {
-    from{
+    from {
         transform: translateX(0);
     }
-    to{
+    to {
         transform: translateX(100%);
     }
 }

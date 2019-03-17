@@ -1,18 +1,16 @@
-$(function() {
-  // start the icon carousel
-  $('#iconCarousel').carousel({
-    interval: 5000
-  });
+$(function () {
+    // start the icon carousel
+    $('#iconCarousel').carousel({
+        interval: 5000
+    });
 
 
-
-
-  // make code pretty
+    // make code pretty
 //  $('pre').addClass('prettyprint');
 //  window.prettyPrint && prettyPrint();
 
-  // Disable links with href="#" inside <section>, so users can click on them
-  // to preview :active state without being scrolled up to the top of the page.
+    // Disable links with href="#" inside <section>, so users can click on them
+    // to preview :active state without being scrolled up to the top of the page.
 //  $('section a[href="#"]').click(function(e) {
 //    e.preventDefault();
 //    e.stopPropagation();

@@ -7,14 +7,14 @@ var isUnderReview1 = false; // 判断是否处于审核状态
 
 /*** 监听分页跳转 ***/
 function listenToPage() {
-    $(".dock-demand-splitpage >div").on("click", function(){
+    $(".dock-demand-splitpage >div").on("click", function () {
         console.log($('.dock-demand-splitpage .focus')[0].innerText);
-        if($('.dock-demand-splitpage .focus')[0].innerText != currentPageOfDockDemandList) {
+        if ($('.dock-demand-splitpage .focus')[0].innerText != currentPageOfDockDemandList) {
             currentPageOfDockDemandList = $('.dock-demand-splitpage .focus')[0].innerText;
             pageInOrTabDockDemand = 0;
             getDockDemandList();
         }
-    }).keydown(function(e) {
+    }).keydown(function (e) {
         if (e.keyCode == 13) {
             currentPageOfDockDemandList = $('.dock-demand-splitpage .focus')[0].innerText;
             pageInOrTabDockDemand = 0;
@@ -22,8 +22,9 @@ function listenToPage() {
         }
     });
 }
+
 /*** 复原currentPage ***/
-function resetCurrentPageDockDemand () {
+function resetCurrentPageDockDemand() {
     $('.dock-demand-splitpage >div').data('currentpage', 1);
     currentPageOfDockDemandList = 1;
     $('.dock-demand-splitpage >div').find('li[data-page="' + currentPageOfDockDemandList + '"]').addClass('focus').siblings().removeClass('focus');
@@ -91,19 +92,19 @@ function publishDemandListSearch() {
 
 
 // 获取报名的需求列表
-function getDockDemandList () {
+function getDockDemandList() {
     var json = {
-        "pager":{
+        "pager": {
             "current": currentPageOfDockDemandList,
             "size": searchSizeOfDockDemandList
         },
-        "sortPointer":{
+        "sortPointer": {
             "filed": "created_at",
             "order": "DESC"
         }
     };
     if (!!dockDemandListTypeId) {
-        json.isWinning   = dockDemandListTypeId;
+        json.isWinning = dockDemandListTypeId;
     } else {
         json.isWinning = null;
     }
@@ -130,12 +131,20 @@ function getDockDemandList () {
         success: function (res) {
             var totalRecord = res.data.total;
             var list = res.data.data_list;
-            if (pageInOrTabDockDemand === 0){
-                $('.dock-demand-splitpage >div').Paging({pagesize:searchSizeOfDockDemandList,count:totalRecord,toolbar:true});
+            if (pageInOrTabDockDemand === 0) {
+                $('.dock-demand-splitpage >div').Paging({
+                    pagesize: searchSizeOfDockDemandList,
+                    count: totalRecord,
+                    toolbar: true
+                });
                 $('.dock-demand-splitpage >div').find("div:eq(1)").remove();
             }
-            if (pageInOrTabDockDemand === 1){
-                $('.dock-demand-splitpage >div').Paging({pagesize:searchSizeOfDockDemandList,count:totalRecord,toolbar:true});
+            if (pageInOrTabDockDemand === 1) {
+                $('.dock-demand-splitpage >div').Paging({
+                    pagesize: searchSizeOfDockDemandList,
+                    count: totalRecord,
+                    toolbar: true
+                });
                 $('.dock-demand-splitpage >div').find("div:eq(0)").remove();
             }
             $('.dock-demand-total').html("共" + totalRecord + "条");
@@ -166,7 +175,7 @@ function setfileInfo() {
     var isJoin = false;
     if (dockDemandListData != undefined && dockDemandListData.length != 0) {
         console.log(dockDemandListData);
-        dockDemandListData.forEach(function(item) {
+        dockDemandListData.forEach(function (item) {
             var obj = {};
             // if (baseStyleArr.length === 0) {
             //     Object.keys(item).forEach(function(key) {
@@ -239,12 +248,12 @@ function setfileInfo() {
                 //判is_winning空
                 if (!!item.is_winning && JSON.parse(item.is_winning).id == 202078) {
                     obj.publisher = JSON.parse(item.publisher).phone;
-                }else if (!!item.status && JSON.parse(item.status).id >= 202071 && JSON.parse(item.status).id <= 202074){
+                } else if (!!item.status && JSON.parse(item.status).id >= 202071 && JSON.parse(item.status).id <= 202074) {
                     obj.publisher = JSON.parse(item.publisher).phone;
-                }else {
+                } else {
                     obj.publisher = " ";
                 }
-            }else {
+            } else {
                 obj.publisher = " ";
             }
             obj.created_at = fmtDate(item.created_at);
@@ -252,16 +261,16 @@ function setfileInfo() {
                 if (!!item.status) {
                     obj.id = [item.id, JSON.parse(item.is_winning).id, item.project_id, JSON.parse(item.status).id];
                 } else {
-                    obj.id = [item.id, JSON.parse(item.is_winning).id, item.project_id, ];
+                    obj.id = [item.id, JSON.parse(item.is_winning).id, item.project_id,];
                 }
                 if (!!item.status) {
                     if (JSON.parse(item.is_winning).id == 202078 && JSON.parse(item.status).id == 202074) {
                         obj.is_winning = '已完成';
-                    } else if (JSON.parse(item.status).id == 202072 && JSON.parse(item.is_winning).id == 202078){
+                    } else if (JSON.parse(item.status).id == 202072 && JSON.parse(item.is_winning).id == 202078) {
                         obj.is_winning = '验收中';
-                    } else if (JSON.parse(item.status).id == 202073 && JSON.parse(item.is_winning).id == 202078){
+                    } else if (JSON.parse(item.status).id == 202073 && JSON.parse(item.is_winning).id == 202078) {
                         obj.is_winning = '待评价';
-                    }else {
+                    } else {
                         obj.is_winning = JSON.parse(item.is_winning).title;
                     }
                 } else {
@@ -271,14 +280,14 @@ function setfileInfo() {
                 if (!!item.status) {
                     obj.id = [item.id, , item.project_id, JSON.parse(item.status).id];
                 } else {
-                    obj.id = [item.id, , item.project_id, ];
+                    obj.id = [item.id, , item.project_id,];
                 }
                 obj.is_winning = '';
             }
             data.push(obj);
         })
     }
-    var orderArr = ['name','is_winning','created_at','publisher','id'];
+    var orderArr = ['name', 'is_winning', 'created_at', 'publisher', 'id'];
     table.setTableData(data);
     table.setBaseStyle(baseStyleArr);
     table.setColOrder(orderArr);
@@ -300,7 +309,7 @@ function setfileInfo() {
                     span = '<span class="dockingInfo" data-id="' + content + '" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>对接信息</span>' +
                         '<span class="lookInfo" data-id="' + content + '" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>查看</span>' +
                         '<span class="submitResult" data-id="' + content + '" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer" onclick="dockDemandListSubmitResult(' + content[2] + ')"></i>提交验收资料</span>';
-                }else if (isJoin && parseInt(content[3]) === 202073) {
+                } else if (isJoin && parseInt(content[3]) === 202073) {
                     span = '<span class="dockingInfo" data-id="' + content + '" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>对接信息</span>' +
                         '<span class="lookInfo" data-id="' + content + '" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>查看</span>' +
                         '<span class="submitResult" data-id="' + content + '" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer" onclick="dockDemandListSubmitResult(' + content[2] + ')"></i>查看验收资料</span>';
@@ -309,10 +318,10 @@ function setfileInfo() {
                         '<span class="lookInfo" data-id="' + content + '" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>查看</span>' +
                         '<span class="deleteDock" data-id="' + content + '" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>取消</span>' +
                         '<span class="viewComments" data-id="' + content + '" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>查看评价</span>';
-                } else if (!status && isPendingEmployment){
+                } else if (!status && isPendingEmployment) {
                     span = '<span class="dockingInfo" data-id="' + content + '" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>对接信息</span>' +
-                    '<span class="lookInfo" data-id="' + content + '" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>查看</span>' +
-                    '<span class="deleteDock" data-id="' + content + '" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>取消</span>';
+                        '<span class="lookInfo" data-id="' + content + '" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>查看</span>' +
+                        '<span class="deleteDock" data-id="' + content + '" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>取消</span>';
                 }
                 else {
                     span = '<span class="dockingInfo" data-id="' + content + '" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>对接信息</span>' +
@@ -322,8 +331,8 @@ function setfileInfo() {
             } else {
                 return content;
             }
-        } else if (type=== 'name') {
-            var span = '<span title="'+content[0]+'" class="dockDemandListToDetail" data-proId="'+content[1]+'" style="cursor: pointer;color: #0066cc">'+ content[0] +'</span>'
+        } else if (type === 'name') {
+            var span = '<span title="' + content[0] + '" class="dockDemandListToDetail" data-proId="' + content[1] + '" style="cursor: pointer;color: #0066cc">' + content[0] + '</span>'
             return (label === 'td') ? span : content
         }
     });
@@ -331,9 +340,9 @@ function setfileInfo() {
 }
 
 function dockDemandListHandleClick() {
-    $(document).on('click','.dockDemandListToDetail',function () {
+    $(document).on('click', '.dockDemandListToDetail', function () {
         var id = $(this).attr('data-proId')
-        window.open('/f/'+ id +'/demand_detail.html?pc=true')
+        window.open('/f/' + id + '/demand_detail.html?pc=true')
     })
 
     $('.dock-demand-list').find('.dockingInfo').click(function () {
@@ -344,10 +353,10 @@ function dockDemandListHandleClick() {
     });
     $('.dock-demand-list').find('.deleteDock').click(function () {
         var proId = $(this).attr('data-id').split(',')[2];
-        var url = '/f/projectDemandSignUp/pc/'+ proId +'/cancel_sign_up?pc=true';
+        var url = '/f/projectDemandSignUp/pc/' + proId + '/cancel_sign_up?pc=true';
         layer.confirm('你确定要删除此需求？', {
-            btn: ['确定','取消'] //按钮
-        }, function(){
+            btn: ['确定', '取消'] //按钮
+        }, function () {
 
             pageInOrTabDockDemand = 1;
             currentPageOfDockDemandList = 1;
@@ -356,13 +365,13 @@ function dockDemandListHandleClick() {
                 url: url,
                 type: 'POST',
                 contentType: "application/json;charset=UTF-8",
-                dataType:"json",
+                dataType: "json",
                 success: function (res) {
                     console.log(res);
                     if (res.status === 200) {
                         getDockDemandList()
                         layer.closeAll()
-                    }else {
+                    } else {
                         layer.open({
                             title: '温馨提示',
                             content: '内部信息出错'
@@ -370,7 +379,7 @@ function dockDemandListHandleClick() {
                     }
                 }
             });
-        }, function(){
+        }, function () {
             layer.msg('取消了这次删除', {
                 time: 1000, //20s后自动关闭
             });
@@ -380,12 +389,12 @@ function dockDemandListHandleClick() {
         $('.dock-demand-list>div').removeClass('dockDemandListShow');
         $('.dock-demand-list>div').eq(1).addClass('dockDemandListShow');
         var proId = $(this).attr('data-id').split(',')[2]
-        var url = '/f/serviceProvidersEvaluation/'+ proId +'/get_by_id?pc=true'
+        var url = '/f/serviceProvidersEvaluation/' + proId + '/get_by_id?pc=true'
         new NewAjax({
             url: url,
             type: 'GET',
             contentType: "application/json;charset=UTF-8",
-            dataType:"json",
+            dataType: "json",
             success: function (res) {
                 console.log(res);
                 if (!!res.data.data_object) {
@@ -394,7 +403,7 @@ function dockDemandListHandleClick() {
                     } else {
                         $('.dock-demand-list .feedback-content-textarea').text('');
                     }
-                    $('.dock-demand-list .feedback-content-textarea').attr('disabled','true');
+                    $('.dock-demand-list .feedback-content-textarea').attr('disabled', 'true');
                     var workSpeed = 195.6 * res.data.data_object.work_speed_star;
                     $('.dock-demand-list .workSpeed .stars-list').eq(0).css('width', workSpeed + 'px');
 
@@ -408,10 +417,10 @@ function dockDemandListHandleClick() {
                         if (typeId == 202103) {
                             $('.dock-demand-list .evaluationStar .evaluationSapn').removeClass('spanActive')
                             $('.dock-demand-list .evaluationStar .evaluationSapn').eq(0).addClass('spanActive')
-                        }else  if (typeId == 202104) {
+                        } else if (typeId == 202104) {
                             $('.dock-demand-list .evaluationStar .evaluationSapn').removeClass('spanActive')
                             $('.dock-demand-list .evaluationStar .evaluationSapn').eq(1).addClass('spanActive')
-                        }else {
+                        } else {
                             $('.dock-demand-list .evaluationStar .evaluationSapn').removeClass('spanActive')
                             $('.dock-demand-list .evaluationStar .evaluationSapn').eq(2).addClass('spanActive')
                         }
@@ -431,7 +440,7 @@ function dockDemandListSubmitResult(projectId) {
     // 获取成果对象
     var demandResult = new SubmitDemandResult();
     // 调用请求数据
-    demandResult.getDemandResult(projectId,function () {
+    demandResult.getDemandResult(projectId, function () {
         $(".right-page").removeClass("page-active").siblings(".submit-demand-result-area").addClass("page-active");
     })
 }

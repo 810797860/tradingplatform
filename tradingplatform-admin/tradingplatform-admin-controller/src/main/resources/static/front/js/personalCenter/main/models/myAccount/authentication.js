@@ -77,7 +77,7 @@ function CompanyAuthentication() {
     };
 
     // 获取企业初始化页面的数据
-    function initPageCompanyData () {
+    function initPageCompanyData() {
         new NewAjax({
             url: '/f/companyVerification/get_by_user_id',
             type: 'get',
@@ -127,7 +127,7 @@ function CompanyAuthentication() {
     };
 
     // 获取个人初始化页面的数据
-    function initPagePersonalData () {
+    function initPagePersonalData() {
         new NewAjax({
             url: '/f/personalVerification/get_by_user_id?pc=true',
             type: 'get',
@@ -192,13 +192,14 @@ function CompanyAuthentication() {
         })
     }
 
-    function eventOfGoBack () {
+    function eventOfGoBack() {
         $(".authentication-certification .back-button").off().on("click", function () {
             _this.initDom();
         });
     }
+
     // 初始化页面
-    function initPage () {
+    function initPage() {
         var user = window.localStorage.getItem('user');
         if (!!user) {
             var userInfo = JSON.parse(user);
@@ -230,8 +231,9 @@ function CompanyAuthentication() {
             $('.prersonal-certification-area .prersonal-certification-area-img-content1').hide();
         }
     }
+
     // 点击跳转验证页面
-    function certificationClick () {
+    function certificationClick() {
         // 个人认证
         $_selectVerifyWayArea.eq(0).find(".verify-button").click(function () {
             $('.authentication-div').hide();
@@ -251,7 +253,7 @@ function CompanyAuthentication() {
         })
     }
 
-    function onblurCheck () {
+    function onblurCheck() {
         // 真实姓名失去焦点
         $('#trueName').on('blur', function () {
             if (!$('#trueName').val()) {
@@ -340,7 +342,7 @@ function CompanyAuthentication() {
         });
     }
 
-    function uploadImg () {
+    function uploadImg() {
         oIDCardFaceInputNode_1.off().on("change", function () {
             /*var files = $(this).get(0).files;
             var formData = new FormData();
@@ -802,7 +804,7 @@ function CompanyAuthentication() {
         });
     }
 
-    function submitPersonalData () {
+    function submitPersonalData() {
         $('.prersonal-certification-area-submit-btn').off().click(function () {
             layer.closeAll();
             if (!controlNumPerson) {
@@ -867,7 +869,7 @@ function CompanyAuthentication() {
         })
     }
 
-    function submitEnterpriseData () {
+    function submitEnterpriseData() {
         $('.enterprise-certification-area-submit-btn').off().click(function () {
             layer.closeAll();
             if (!controlNumCompany) {
@@ -928,7 +930,7 @@ function CompanyAuthentication() {
         })
     }
 
-    function certificationUploadPicture (files, type, callback) {
+    function certificationUploadPicture(files, type, callback) {
         files.append('waterMarkContent', '仅用于待定平台实名认证');
         new NewAjax({
             type: "POST",

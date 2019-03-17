@@ -8,10 +8,12 @@
     padding: 5px;
     background-color: #f5f5f5;
 }
+
 .sidebar {
     left: 0;
     border-right: 1px solid #cfcfcf;
 }
+
 .property {
     right: 0;
     border-left: 1px solid #cfcfcf;
@@ -32,13 +34,13 @@
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 4px;
-    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
-    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
     height: 100%;
     position: relative;
 }
 
-.x-panel>.panel-heading {
+.x-panel > .panel-heading {
     color: #333;
     background-color: #f5f5f5;
     border-color: #ddd;
@@ -47,25 +49,28 @@
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
 }
-.x-panel>.panel-heading>.panel-title {
+
+.x-panel > .panel-heading > .panel-title {
     height: 40px;
     line-height: 40px;
     margin: 0;
     font-size: 16px;
     color: inherit;
 }
-.x-panel>.panel-body {
+
+.x-panel > .panel-body {
     padding: 0;
 }
 
-.property .x-panel>.panel-body {
+.property .x-panel > .panel-body {
     position: absolute;
     top: 40px;
     left: 0;
     right: 0;
     bottom: 0;
 }
-.property .x-panel>.panel-body>#panel-body-scroll {
+
+.property .x-panel > .panel-body > #panel-body-scroll {
     height: 100%;
     width: 100%;
     padding: 10px;
@@ -76,6 +81,7 @@
     padding: 15px;
     border-bottom: 1px solid #f0f0f0;
 }
+
 .panel-body-content {
     position: absolute;
     top: 106px;
@@ -83,10 +89,12 @@
     width: 100%;
     bottom: 0;
 }
+
 .panel-scroll {
     padding: 10px;
     width: 100%;
 }
+
 .data-source-part {
     height: 100%;
     width: 100%;
@@ -100,6 +108,7 @@
     height: auto;
     border: 1px solid #ccc;
 }
+
 .formula-editor {
     min-height: 134px;
     display: block;
@@ -115,18 +124,19 @@
     border-top: transparent;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    outline:none;
-    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    outline: none;
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     font-weight: 700;
 }
 
 .indicator-label {
     position: relative;
 }
+
 .indicator-label.required:after {
     content: '*';
     color: #ff3300;
@@ -193,22 +203,27 @@
 .data-source-label {
     color: #337ab7;
 }
+
 /* 运算符 */
 .data-operational {
     color: #0a001f;
 }
+
 /* 括号 */
 .data-bracket {
     color: #0a001f;
 }
+
 /* 条件判断*/
 .data-condition-judge {
     color: #00B83F;
 }
+
 /* 关系运算符 */
 .data-relational-operator {
     color: #0a001f;
 }
+
 /* 函数 */
 .data-functions {
     color: #FF9900;
@@ -216,11 +231,11 @@
 
 #log {
     cursor: pointer;
-    padding:1px 2px;
+    padding: 1px 2px;
 }
 
 #log:active {
-    background-color: rgba(0,0,255, 0.1);
+    background-color: rgba(0, 0, 255, 0.1);
 }
 
 blockquote {

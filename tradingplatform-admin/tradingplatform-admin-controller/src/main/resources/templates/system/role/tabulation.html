@@ -17,7 +17,13 @@
     <!--[if IE 7]>
     <link rel="stylesheet" th:href="@{/plugin/font/css/font-awesome-ie7.min.css}">
     <style type="text/css">
-        .ztree li span.button.add {margin-left:2px; margin-right: -1px; background-position:-144px 0; vertical-align:top; *vertical-align:middle}
+        .ztree li span.button.add {
+            margin-left: 2px;
+            margin-right: -1px;
+            background-position: -144px 0;
+            vertical-align: top;
+            *vertical-align: middle
+        }
     </style>
     <![endif]-->
     <!--[if lt IE 9]>
@@ -26,15 +32,15 @@
     <![endif]-->
 </head>
 <body>
-    <div style="padding: 15px;">
-        <!--<div>
-            <button id="permission-setting" class="btn btn-primary btn-sm" th:if="${userId} == 0">应用权限设置</button>
-            <button id="confirm" class="btn btn-primary btn-sm" onclick="confirmPost(event)" th:if="${userId} != 0">确定</button>
-        </div>-->
-        <div>
-            <ul id="role-tree" class="ztree"></ul>
-        </div>
+<div style="padding: 15px;">
+    <!--<div>
+        <button id="permission-setting" class="btn btn-primary btn-sm" th:if="${userId} == 0">应用权限设置</button>
+        <button id="confirm" class="btn btn-primary btn-sm" onclick="confirmPost(event)" th:if="${userId} != 0">确定</button>
+    </div>-->
+    <div>
+        <ul id="role-tree" class="ztree"></ul>
     </div>
+</div>
 <script th:src="@{/plugin/jquery-1.10.2.min.js}"></script>
 <script th:src="@{/plugin/bootstrap-3.3.7/js/bootstrap.min.js}"></script>
 <script th:src="@{/plugin/jquery.slimscroll.min.js}"></script>

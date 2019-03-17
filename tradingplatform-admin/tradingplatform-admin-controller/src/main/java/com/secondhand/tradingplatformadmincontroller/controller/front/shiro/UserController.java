@@ -27,12 +27,12 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @description : User 控制器
  * @author : zhangjk
+ * @description : User 控制器
  * @since : Create in 2018-11-13
  */
 @Controller("frontUserController")
-@Api(value="/front/user", description="User 控制器")
+@Api(value = "/front/user", description = "User 控制器")
 @RequestMapping("/front/user")
 public class UserController extends BaseController {
 
@@ -66,28 +66,28 @@ public class UserController extends BaseController {
      * @since : Create in 2018-11-13
      */
     @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    @ApiOperation(value = "/query", notes="获取分页列表")
+    @ApiOperation(value = "/query", notes = "获取分页列表")
     @ResponseBody
     public TableJson<User> getUserList(@ApiParam(name = "User", value = "User 实体类") @RequestBody User user) {
 
-            //查后台用户，加上type
-            user.setType(SystemSelectItem.USER_TYPE_BACK_DESK);
-            TableJson<User> resJson = new TableJson<>();
-            Page resPage = user.getPage();
-            user.setDeleted(false);
-            Integer current = resPage.getCurrent();
-            Integer size = resPage.getSize();
-            if (current == null && size == null) {
-                resJson.setSuccess(false);
-                resJson.setMessage("异常信息：页数和页的大小不能为空");
-                return resJson;
-            }
-            Page<User> userPage = new Page<User>(current, size);
-            userPage = userService.mySelectPageWithParam(userPage, user);
-            resJson.setRecordsTotal(userPage.getTotal());
-            resJson.setData(userPage.getRecords());
-            resJson.setSuccess(true);
+        //查后台用户，加上type
+        user.setType(SystemSelectItem.USER_TYPE_BACK_DESK);
+        TableJson<User> resJson = new TableJson<>();
+        Page resPage = user.getPage();
+        user.setDeleted(false);
+        Integer current = resPage.getCurrent();
+        Integer size = resPage.getSize();
+        if (current == null && size == null) {
+            resJson.setSuccess(false);
+            resJson.setMessage("异常信息：页数和页的大小不能为空");
             return resJson;
+        }
+        Page<User> userPage = new Page<User>(current, size);
+        userPage = userService.mySelectPageWithParam(userPage, user);
+        resJson.setRecordsTotal(userPage.getTotal());
+        resJson.setData(userPage.getRecords());
+        resJson.setSuccess(true);
+        return resJson;
     }
 
     /**
@@ -98,13 +98,13 @@ public class UserController extends BaseController {
     @GetMapping(value = "/get_map_by_id/{userId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{userId}", notes = "根据id获取userMap")
     @ResponseBody
-    public JsonResult<Map<String, Object>> getUserByIdForMap( @ApiParam(name = "id", value = "userId") @PathVariable("userId") Long userId){
-            JsonResult<Map<String, Object>> resJson = new JsonResult<>();
-            Map<String, Object> user = userService.mySelectMapById(userId);
-            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-            resJson.setData(user);
-            resJson.setSuccess(true);
-            return resJson;
+    public JsonResult<Map<String, Object>> getUserByIdForMap(@ApiParam(name = "id", value = "userId") @PathVariable("userId") Long userId) {
+        JsonResult<Map<String, Object>> resJson = new JsonResult<>();
+        Map<String, Object> user = userService.mySelectMapById(userId);
+        resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+        resJson.setData(user);
+        resJson.setSuccess(true);
+        return resJson;
     }
 
     /**
@@ -115,21 +115,21 @@ public class UserController extends BaseController {
     @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除user")
     @ResponseBody
-    public JsonResult<User> fakeDeleteById(@ApiParam(name = "id", value = "userId") @RequestBody Long userId){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<User> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/front/user/delete");
-                userService.myFakeDeleteById(userId);
-                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-                resJson.setSuccess(true);
-            }catch (UnauthorizedException e){
-                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    public JsonResult<User> fakeDeleteById(@ApiParam(name = "id", value = "userId") @RequestBody Long userId) {
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<User> resJson = new JsonResult<>();
+        try {
+            //检查是否具有权限
+            subject.checkPermission("/front/user/delete");
+            userService.myFakeDeleteById(userId);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+            resJson.setSuccess(true);
+        } catch (UnauthorizedException e) {
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
@@ -140,20 +140,20 @@ public class UserController extends BaseController {
     @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除user")
     @ResponseBody
-    public JsonResult<User> fakeBatchDelete(@ApiParam(name = "ids", value = "userIds") @RequestBody List<Long> userIds){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<User> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/front/user/batch_delete");
-                resJson.setSuccess(userService.myFakeBatchDelete(userIds));
-                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-            }catch(UnauthorizedException e){
-                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    public JsonResult<User> fakeBatchDelete(@ApiParam(name = "ids", value = "userIds") @RequestBody List<Long> userIds) {
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<User> resJson = new JsonResult<>();
+        try {
+            //检查是否具有权限
+            subject.checkPermission("/front/user/batch_delete");
+            resJson.setSuccess(userService.myFakeBatchDelete(userIds));
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+        } catch (UnauthorizedException e) {
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
@@ -164,28 +164,28 @@ public class UserController extends BaseController {
     @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改user")
     @ResponseBody
-    public JsonResult<User> userCreateUpdate(@ApiParam(name = "User", value = "User实体类") @RequestBody User user){
-            JsonResult<User> resJson = new JsonResult<>();
-            try{
-                //只允许注册，不允许修改
-                if (user.getId() != null){
-                    throw new CustomizeException(CustomizeStatus.LOGIN_CAN_ONLY_REGISTER, this.getClass());
-                }
-                user = userService.myUserCreateUpdate(user, SystemSelectItem.USER_TYPE_FRONT_DESK);
-                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-                resJson.setData(user);
-                resJson.setSuccess(true);
-            }catch(UnauthorizedException e){
-                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-                e.printStackTrace();
-            } catch (CustomizeException e) {
-                resJson.setCode(MagicalValue.CODE_OF_CUSTOMIZE_EXCEPTION);
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-                e.printStackTrace();
+    public JsonResult<User> userCreateUpdate(@ApiParam(name = "User", value = "User实体类") @RequestBody User user) {
+        JsonResult<User> resJson = new JsonResult<>();
+        try {
+            //只允许注册，不允许修改
+            if (user.getId() != null) {
+                throw new CustomizeException(CustomizeStatus.LOGIN_CAN_ONLY_REGISTER, this.getClass());
             }
+            user = userService.myUserCreateUpdate(user, SystemSelectItem.USER_TYPE_FRONT_DESK);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+            resJson.setData(user);
+            resJson.setSuccess(true);
+        } catch (UnauthorizedException e) {
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+            e.printStackTrace();
+        } catch (CustomizeException e) {
+            resJson.setCode(MagicalValue.CODE_OF_CUSTOMIZE_EXCEPTION);
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+            e.printStackTrace();
+        }
         return resJson;
     }
 }

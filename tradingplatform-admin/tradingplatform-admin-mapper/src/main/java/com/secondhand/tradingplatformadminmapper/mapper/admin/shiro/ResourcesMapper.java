@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *   @description : ResourcesMapper 接口
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2018-11-12
+ * @author zhangjk
+ * @description : ResourcesMapper 接口
+ * ---------------------------------
+ * @since 2018-11-12
  */
 @Repository
 public interface ResourcesMapper extends BaseDao<Resources> {
@@ -20,6 +20,7 @@ public interface ResourcesMapper extends BaseDao<Resources> {
     /**
      * 获取Map数据（Obj）
      * 自定化MapSql到MysqlGenerator生成
+     *
      * @param resourcesId
      * @return
      */
@@ -27,6 +28,7 @@ public interface ResourcesMapper extends BaseDao<Resources> {
 
     /**
      * 加载所有的user_resources(MyShiroRealm)
+     *
      * @param userId
      * @return
      */

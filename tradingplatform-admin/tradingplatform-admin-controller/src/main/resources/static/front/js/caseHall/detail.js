@@ -13,16 +13,16 @@ $(function () {
     var oCompanyHotCaseArea = $(".company-hot-case-area");
     // 相关产品、企业热卖item
     var sCaseItemHtml = '<a href="javascript:;" class="case-item">' +
-                            '<div class="relate-case-img-area">' +
-                                '<img class="relate-case-img" src="" alt="">' +
-                            '</div>' +
-                            '<p class="relate-case-title text-overflow"></p>' +
-                        '</a>';
+        '<div class="relate-case-img-area">' +
+        '<img class="relate-case-img" src="" alt="">' +
+        '</div>' +
+        '<p class="relate-case-title text-overflow"></p>' +
+        '</a>';
     // 产品参数item
     var sCaseInfoItemHtml = '<div class="case-info-item float-l clearfix">' +
-                                '<span class="case-info-item-label float-l"></span>' +
-                                '<span class="case-info-item-data float-l"></span>' +
-                            '</div>';
+        '<span class="case-info-item-label float-l"></span>' +
+        '<span class="case-info-item-data float-l"></span>' +
+        '</div>';
 
     var aInfusedDataNode = $(".infused-data");  // 注入json数据节点
     var oCaseActiveBtn = $(".share-collect-btn");  // 收藏或分享按钮
@@ -81,7 +81,6 @@ $(function () {
     var urlPrefixRule = /^(http(s)?|ftp)\:\/\/([a-zA-Z0-9\.\-]+)(:[0-9]+)?/;
 
 
-
     initResultPicture();
     initDataOfInfusedData();
     getRecommendCaseList(setRecommendCaseList);
@@ -90,7 +89,7 @@ $(function () {
     getVideoData();
 
     // 初始化注入的数据
-    function initDataOfInfusedData () {
+    function initDataOfInfusedData() {
         var aInfuseDataName = ["type", "industry", "company", "favorableRate", "serviceAttitude", "workQuality", "caseInfo"];
         aInfusedDataNode.each(function (index, item) {
             var nowNode = $(item);
@@ -116,8 +115,8 @@ $(function () {
                     var oProvider = JSON.parse(detailDataSource.provider_id);
                     nowNode.text(oProvider.name ? oProvider.name : '').attr("title", oProvider.name ? oProvider.name : '')
                         .siblings("img").attr("src", oProvider.logo ? $(this).getAvatar(oProvider.logo) : null).attr("alt", oProvider.name ? oProvider.name : '')
-                        .parent().attr("href", oProvider.id ? "/f/" + oProvider.id +"/provider_detail.html" : 'javascript:;')
-                        .parent().find(".to-service-provider").attr("href", oProvider.id ? "/f/" + oProvider.id +"/provider_detail.html" : 'javascript:;');
+                        .parent().attr("href", oProvider.id ? "/f/" + oProvider.id + "/provider_detail.html" : 'javascript:;')
+                        .parent().find(".to-service-provider").attr("href", oProvider.id ? "/f/" + oProvider.id + "/provider_detail.html" : 'javascript:;');
                     break;
                 case 'favorableRate':
                     nowNode.text(evaluationDataSource && evaluationDataSource.favorable_rate ? evaluationDataSource.favorable_rate + '%' : '暂无评价');
@@ -166,8 +165,9 @@ $(function () {
             }
         });
     }
+
     // 处理事件
-    function handleEvent () {
+    function handleEvent() {
         eventOfChangeNum();
         eventOfActivityBtnClick();
         eventOfOnlineConsult();
@@ -180,8 +180,9 @@ $(function () {
         eventOfMouseLeaveShareBtn();
         eventOfShareListClick();
     }
+
     // 改变数量
-    function eventOfChangeNum () {
+    function eventOfChangeNum() {
         var reg = /^[0-9]+.?[0-9]*$/;
         var oReduceBtn = $(".reduce-btn");
         oNumChangeBtn.off("click").on("click", function (event) {
@@ -222,8 +223,9 @@ $(function () {
             }
         });
     }
+
     // 在线咨询
-    function eventOfOnlineConsult () {
+    function eventOfOnlineConsult() {
         oOnlineConsultBtn.off().on('click', function () {
             var user = window.localStorage.getItem('user');
             if (!!user) {
@@ -242,6 +244,7 @@ $(function () {
             }
         })
     }
+
     // 在线咨询提交按钮点击事件
     function eventOfAskSubmitBtnClick() {
         $(document).on('click', '.askBtnSubmit', function () {
@@ -272,6 +275,7 @@ $(function () {
             }
         })
     }
+
     // 互动图标点击事件
     function eventOfActivityBtnClick() {
         oCaseActiveBtn.off('click').on('click', function (event) {
@@ -288,20 +292,23 @@ $(function () {
             }
         });
     }
+
     // tab点击事件
-    function eventOfTabClick () {
+    function eventOfTabClick() {
         $(".case-tab-item").off().on("click", function () {
-           if ($(this).index() > 0) {
-               layer.msg("此功能正在开发中...")
-           }
+            if ($(this).index() > 0) {
+                layer.msg("此功能正在开发中...")
+            }
         });
     }
+
     // 加入购物车、立即购买点击事件
-    function eventOfOperateBtnClick () {
+    function eventOfOperateBtnClick() {
         $(".operate-btn").off().on("click", function () {
             layer.msg("此功能正在开发中...")
         });
     }
+
     // 用户收藏/ 取消收藏
     function toCollectTheCase(dom, id, isCollect) {
         var json = {
@@ -334,8 +341,9 @@ $(function () {
             }
         })
     }
+
     // 获取相关产品列表
-    function getRecommendCaseList (callback) {
+    function getRecommendCaseList(callback) {
         var json = {
             pager: {
                 current: currentPage,
@@ -360,7 +368,8 @@ $(function () {
             }
         })
     }
-    function setRecommendCaseList (list) {
+
+    function setRecommendCaseList(list) {
         var oFrag = document.createDocumentFragment();
         for (var i = 0, len = list.length; i < len; i++) {
             var oRecommendCaseItem = $(sCaseItemHtml);
@@ -371,8 +380,9 @@ $(function () {
         }
         oRelateCaseArea.append(oFrag);
     }
+
     // 获取企业热卖
-    function getCompanyHotCaseList (callback) {
+    function getCompanyHotCaseList(callback) {
         // 如果不存在服务商
         if (!detailDataSource.provider_id) {
             return;
@@ -405,7 +415,8 @@ $(function () {
             }
         });
     }
-    function setCompanyHotCaseList (list) {
+
+    function setCompanyHotCaseList(list) {
         var oFrag = document.createDocumentFragment();
         for (var i = 0, len = list.length; i < len; i++) {
             var oRecommendCaseItem = $(sCaseItemHtml);
@@ -418,6 +429,7 @@ $(function () {
     }
 
     /!*=== 展示图 ===*!/
+
     // 判断是否需要兼容模式。 ps:1.true => ie9+; 2. false => ie9以下
     function isVersionOverNine() {
         var browser = window.BROWSERTYPE;
@@ -433,6 +445,7 @@ $(function () {
             }
         }
     }
+
     // 是否为ie/Edge
     function isVersionIE() {
         var browser = window.BROWSERTYPE;
@@ -442,6 +455,7 @@ $(function () {
             return Boolean(browser.indexOf('IE') > -1 || browser.indexOf('Edge') > -1);
         }
     }
+
     // 初始化图片
     function initResultPicture() {
         extractResultPicture();
@@ -451,6 +465,7 @@ $(function () {
         eventOfPreview();
         eventOfShowImageMask();
     }
+
     // 提取图片数据
     function extractResultPicture() {
         // 获取视频数据
@@ -532,6 +547,7 @@ $(function () {
             resultPicData = null;
         }
     }
+
     // 写入图片
     function setResultPicture() {
         // 暂时存储
@@ -697,10 +713,12 @@ $(function () {
             }*/
         }
     }
+
     // 左右箭头事件
     function eventOfArrow() {
         eventOfArrowClick();
     }
+
     // 左右箭头点击事件
     function eventOfArrowClick() {
         // 获取当前箭头节点
@@ -730,10 +748,12 @@ $(function () {
             }
         })
     }
+
     // 预览列表事件
     function eventOfPreviewList() {
         eventOfPreviewListInOut();
     }
+
     // 预览列表进出事件
     function eventOfPreviewListInOut() {
         previewListNode.parents('.result-picture-preview-div').eq(0).mouseenter(function () {
@@ -752,10 +772,12 @@ $(function () {
             }, 'normal')
         })
     }
+
     // 预览图事件
     function eventOfPreview() {
         eventOfPreviewListClick();
     }
+
     // 预览图点击事件委托
     function eventOfPreviewListClick() {
         // 获取当前节点
@@ -817,11 +839,13 @@ $(function () {
             }
         })
     }
+
     // 展示图蒙板事件
     function eventOfShowImageMask() {
         eventOfPlayVideo();
         eventOfZoomImage();
     }
+
     // 播放视频点击事件
     function eventOfPlayVideo() {
         // 存储视频类型
@@ -895,6 +919,7 @@ $(function () {
             });
         });
     }
+
     // 放大缩小点击事件
     function eventOfZoomImage() {
         // 获取图片链接
@@ -920,6 +945,7 @@ $(function () {
     }
 
     /!*=== 视频图片截取 ===*!/
+
     // 提取视频数据
     function getVideoData() {
         // 判定是否有视频
@@ -943,6 +969,7 @@ $(function () {
         setVideoUrl(videoArr[0].url, videoArr[0].type);
         // setVideoUrl('/static/front/video/Screenrecording_20181028_122245.mp4', 'mp4');
     }
+
     // 写入视频连接
     function setVideoUrl(url, type) {
         type = type.toLowerCase();
@@ -966,6 +993,7 @@ $(function () {
             });
         }
     }
+
     // 屏外视频加载事件
     function eventOfVideoLoadData() {
         // 资源失效监听
@@ -987,6 +1015,7 @@ $(function () {
             });
         }
     }
+
     // 视频获取失败
     function getAssetsFalse() {
         // 记录当前视频对应的下标
@@ -1009,6 +1038,7 @@ $(function () {
             }
         }
     }
+
     // 提取帧画面
     function getFramePicture() {
         // 定义倍数
@@ -1064,6 +1094,7 @@ $(function () {
     }
 
     /* 分享 */
+
     // 分享按钮的移入事件
     function eventOfMouseEnterShareBtn() {
         oShareBtnNode.mouseenter(function () {
@@ -1074,6 +1105,7 @@ $(function () {
             }
         })
     }
+
     // 分享按钮移出事件
     function eventOfMouseLeaveShareBtn() {
         oShareBtnNode.mouseleave(function () {
@@ -1082,6 +1114,7 @@ $(function () {
             }
         })
     }
+
     // 事件委托：分享按钮的点击事件
     function eventOfShareListClick() {
         // 获取当前节点
@@ -1105,6 +1138,7 @@ $(function () {
             }
         })
     }
+
     // 提取关键数据
     function extractShareData() {
         // 获取标题节点
@@ -1128,6 +1162,7 @@ $(function () {
             console.log(oShareData);
         }
     }
+
     // 根据分享类型返回分享链接
     function getShareUrl(type) {
         if (type === 'weibo') {
@@ -1140,21 +1175,23 @@ $(function () {
             return createPostBarShareUrl(oShareData);
         }
     }
+
     // 创建微博的分享链接
     function createWeiboShareUrl(data) {
         var _shareUrl = 'http://v.t.sina.com.cn/share/share.php?';
         // 真实的appkey，必选参数
         _shareUrl += 'appkey=3789222353';
         // 参数url设置分享的内容链接|默认当前页location，可选参数
-        _shareUrl += '&url='+ encodeURIComponent(data.url ||document.location);
+        _shareUrl += '&url=' + encodeURIComponent(data.url || document.location);
         // 参数title设置分享的标题|默认当前页标题，可选参数
-        _shareUrl += '&title=' + encodeURIComponent(data.title ||document.title);
+        _shareUrl += '&title=' + encodeURIComponent(data.title || document.title);
         // 参数content设置页面编码gb2312|utf-8，可选参数
         _shareUrl += '&content=' + 'utf-8';
         // 参数pic设置图片链接|默认为空，可选参数
         _shareUrl += '&pic=' + encodeURIComponent(data.pic || '');
         return _shareUrl;
     }
+
     // 创建百度贴吧分享链接
     function createPostBarShareUrl(data) {
         var _shareUrl = 'http://tieba.baidu.com/f/commit/share/openShareApi?';
@@ -1166,6 +1203,7 @@ $(function () {
         _shareUrl += '&pic=' + encodeURIComponent(data.pic || '');
         return _shareUrl;
     }
+
     // 创建qq分享链接
     function createQQShareUrl(data) {
         var _shareUrl = 'https://connect.qq.com/widget/shareqq/wu.html?';
@@ -1179,6 +1217,7 @@ $(function () {
         _shareUrl += '&summary=' + encodeURIComponent(data.desc || '');
         return _shareUrl;
     }
+
     // 创建qq空间分享链接
     function createQQSpaceShareUrl(data) {
         var _shareUrl = 'https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?';

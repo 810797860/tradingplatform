@@ -3,23 +3,27 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
 ul {
     list-style: none;
 }
-.homeContentDiv{
+
+.homeContentDiv {
     min-width: 1320px;
     width: 100%;
     height: auto;
-    -webkit-box-shadow:  0 1px 2px #888888;
-    -moz-box-shadow:  0 1px 2px #888888;
-    box-shadow:  0 1px 2px #888888;
+    -webkit-box-shadow: 0 1px 2px #888888;
+    -moz-box-shadow: 0 1px 2px #888888;
+    box-shadow: 0 1px 2px #888888;
 }
-.homeSliderCoverDiv{
+
+.homeSliderCoverDiv {
     width: 100%;
     height: 380px;
     overflow: hidden;
 }
-.homeSliderDiv{
+
+.homeSliderDiv {
     position: relative;
     top: 0;
     left: 0;
@@ -28,6 +32,7 @@ ul {
     height: 100%;
     overflow: hidden;
 }
+
 .homeSliderLeftPartDiv, .homeSliderRightPartDiv {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -39,18 +44,20 @@ ul {
     width: 50%;
     height: 100%;
     padding-right: 585px;
-    background-position:0 center;
+    background-position: 0 center;
     background-repeat: repeat-x;
     background-size: contain;
     overflow: hidden;
 }
-.homeSliderRightPartDiv{
+
+.homeSliderRightPartDiv {
     -moz-transform: scaleX(-1);
     -webkit-transform: scaleX(-1);
     -o-transform: scaleX(-1);
     transform: scaleX(-1);
 }
-.homeSliderLeftImg, .homeSliderRightImg{
+
+.homeSliderLeftImg, .homeSliderRightImg {
     position: absolute;
     top: 0;
     left: 50%;
@@ -58,45 +65,52 @@ ul {
     width: auto;
     height: 380px;
 }
-.homeSliderRightImg{
+
+.homeSliderRightImg {
     -moz-transform: scaleX(-1);
     -webkit-transform: scaleX(-1);
     -o-transform: scaleX(-1);
     transform: scaleX(-1);
     filter: fliph; /*IE*/
 }
-.homeSliderLeftPartMask, .homeSliderRightPartMask{
+
+.homeSliderLeftPartMask, .homeSliderRightPartMask {
     position: relative;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(161,213,255,0.8);
+    background-color: rgba(161, 213, 255, 0.8);
     z-index: 10;
 }
-.homeSliderLeftPartButton, .homeSliderRightPartButton{
+
+.homeSliderLeftPartButton, .homeSliderRightPartButton {
     position: absolute;
     top: 0;
     bottom: 0;
     margin: auto;
     width: 60px;
     height: 60px;
-    line-height: 64px\9;
+    line-height: 64px \9;
     border-radius: 8px;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
-.homeSliderLeftPartButton:before, .homeSliderRightPartButton:before{
+
+.homeSliderLeftPartButton:before, .homeSliderRightPartButton:before {
     font-size: 55px;
     color: white;
     text-align: center;
 }
-.homeSliderLeftPartButton{
+
+.homeSliderLeftPartButton {
     left: -75px;
 }
-.homeSliderRightPartButton{
+
+.homeSliderRightPartButton {
     right: -75px;
 }
+
 .homeSliderMiddlePartDiv {
     position: absolute;
     left: 0;
@@ -108,30 +122,36 @@ ul {
     background-color: #ffffff;
     z-index: 10;
 }
-.homeExpresswayDiv, .homeSliderImgLinkDiv, .homeUserInfoDiv{
+
+.homeExpresswayDiv, .homeSliderImgLinkDiv, .homeUserInfoDiv {
     float: left;
     border-right: 1px solid #dcdcdc;
     box-sizing: border-box;
 }
-.homeUserInfoDiv{
+
+.homeUserInfoDiv {
     border-right-width: 0;
 }
-.homeExpresswayDiv{
+
+.homeExpresswayDiv {
     box-sizing: border-box;
     width: 180px;
     height: 100%;
     padding: 0 15px;
 }
-.homeExpresswayItem{
+
+.homeExpresswayItem {
     position: relative;
     box-sizing: border-box;
     width: 150px;
     border-bottom: 1px solid #f0f0f0;
 }
-.homeExpresswayItem:last-child{
+
+.homeExpresswayItem:last-child {
     border-bottom-width: 0;
 }
-.homeExpresswayItemLink{
+
+.homeExpresswayItemLink {
     display: inline-block;
     position: absolute;
     top: 50%;
@@ -139,6 +159,7 @@ ul {
     width: 100%;
     height: 21px;
 }
+
 .homeExpresswayItem .homeExpresswayItemIcon {
     position: relative;
     top: 3px;
@@ -148,23 +169,28 @@ ul {
     fill: currentColor;
     overflow: hidden;
 }
-.homeExpresswayItem .homeExpresswayItemTitle{
+
+.homeExpresswayItem .homeExpresswayItemTitle {
     font-size: 16px;
     color: #323232;
     margin-left: 10px;
 }
+
 .homeExpresswayItem_select .homeExpresswayItemIcon:before {
     color: #0066cc;
 }
+
 .homeExpresswayItem_select .homeExpresswayItemTitle {
     color: #0066cc;
 }
-.homeExpresswayItemTip{
+
+.homeExpresswayItemTip {
     font-size: 14px;
     color: #646464;
     word-break: break-all;
 }
-.homeSliderImgLinkDiv{
+
+.homeSliderImgLinkDiv {
     position: relative;
     top: 0;
     left: 0;
@@ -172,6 +198,7 @@ ul {
     height: 100%;
     overflow: hidden;
 }
+
 .homeSliderImgLinkDiv .slider-point-area {
     position: absolute;
     bottom: 30px;
@@ -182,6 +209,7 @@ ul {
     z-index: 1;
     box-sizing: border-box;
 }
+
 .homeSliderImgLinkDiv .slider-point-area .slider-point {
     display: inline-block;
     vertical-align: middle;
@@ -192,22 +220,27 @@ ul {
     background-color: #dcdcdc;
     cursor: pointer;
 }
+
 .homeSliderImgLinkDiv .slider-point-area .slider-point:last-child {
     margin-right: 0;
 }
+
 .homeSliderImgLinkDiv .slider-point-area .slider-point-select {
     background-color: #c81414;
 }
-.homeSliderImgLinkDiv .homeSliderList{
+
+.homeSliderImgLinkDiv .homeSliderList {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
 }
-.homeSliderImgLinkDiv a.homeSliderImgLink{
+
+.homeSliderImgLinkDiv a.homeSliderImgLink {
     float: left;
 }
-.homeSliderImgLink{
+
+.homeSliderImgLink {
     display: block;
     position: relative;
     top: 50%;
@@ -217,7 +250,8 @@ ul {
     height: 380px;
     overflow: hidden;
 }
-.homeSliderImg{
+
+.homeSliderImg {
     position: absolute;
     top: 0;
     left: 50%;
@@ -225,20 +259,23 @@ ul {
     width: auto;
     height: 380px;
 }
-.homeUserInfoDiv{
+
+.homeUserInfoDiv {
     box-sizing: border-box;
     width: 240px;
     height: 450px;
     overflow: hidden;
 }
-.userInfoDiv{
+
+.userInfoDiv {
     display: none;
     box-sizing: border-box;
     width: 240px;
     height: 150px;
     padding: 18px 0;
 }
-.userBaseInfoDiv{
+
+.userBaseInfoDiv {
     box-sizing: border-box;
     position: relative;
     top: 0;
@@ -248,7 +285,8 @@ ul {
     padding-left: 88px;
     border-top: 1px solid transparent;
 }
-.userImgDiv{
+
+.userImgDiv {
     position: absolute;
     top: 0;
     left: 20px;
@@ -259,7 +297,8 @@ ul {
     overflow: hidden;
     box-sizing: border-box;
 }
-.userImg{
+
+.userImg {
     position: absolute;
     top: 0;
     left: 50%;
@@ -268,18 +307,20 @@ ul {
     height: 100%;
     border-radius: 50%;
 }
-.userLoginInfo{
+
+.userLoginInfo {
     position: absolute;
-    top:50%;
-    left:50%;
-    width:100%;
-    transform:translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
     padding-left: 88px;
     box-sizing: border-box;
     line-height: 24px;
     color: #646464;
     font-size: 14px;
 }
+
 .username-area {
     max-height: 50px;
     display: -webkit-box;
@@ -287,19 +328,23 @@ ul {
     -webkit-line-clamp: 2;
     overflow: hidden;
 }
-.userName{
+
+.userName {
     font-weight: bold;
     color: #229160;
 }
+
 .userWelcomeTip {
     margin-top: 5px;
 }
-.loginBtnDiv{
+
+.loginBtnDiv {
     width: 100%;
     height: 30px;
     margin-top: 15px;
 }
-.loginBtnDiv button{
+
+.loginBtnDiv button {
     float: left;
     margin-left: 20px;
     width: 90px;
@@ -310,14 +355,17 @@ ul {
     outline: none;
     box-sizing: border-box;
 }
-.userCenter{
+
+.userCenter {
     background-color: #c81414;
     color: #ffffff;
 }
-.userLoginOut{
+
+.userLoginOut {
     background-color: #ffffff;
     color: #c81414;
 }
+
 .homeUserInfoDiv .loginDiv {
     box-sizing: border-box;
     width: 240px;
@@ -325,6 +373,7 @@ ul {
     padding: 18px 0;
     display: none;
 }
+
 .homeUserInfoDiv .login-reg-button {
     display: inline-block;
     vertical-align: top;
@@ -339,26 +388,30 @@ ul {
     box-sizing: border-box;
     cursor: pointer;
 }
+
 .homeUserInfoDiv .login-btn {
     background-color: #229160;
     border: 1px solid #229160;
     color: #ffffff;
 }
+
 .homeUserInfoDiv .reg-btn {
     background-color: #ffffff;
     border: 1px solid #c81414;
     color: #c81414;
 }
 
-.homeNoticeInfoDiv{
+.homeNoticeInfoDiv {
     width: 100%;
     height: 100%;
 }
-.homeNoticeListTitleDiv{
+
+.homeNoticeListTitleDiv {
     width: 100%;
     height: 40px;
 }
-.homeNoticeListTitle{
+
+.homeNoticeListTitle {
     box-sizing: border-box;
     float: left;
     width: 120px;
@@ -374,16 +427,19 @@ ul {
     cursor: pointer;
     box-sizing: border-box;
 }
-.homeNoticeListTitle:first-child{
+
+.homeNoticeListTitle:first-child {
     /*border-left-width: 0;*/
     border-right: 1px solid #0066cc;
 }
-.homeNoticeListTitle__select{
+
+.homeNoticeListTitle__select {
     color: #4093d8;
     background: #ffffff;
     border-color: transparent;
 }
-.homeNoticeListCoverDiv{
+
+.homeNoticeListCoverDiv {
     width: 240px;
     height: 410px;
     overflow: hidden;
@@ -398,27 +454,31 @@ ul {
     height: 100%;
     overflow: hidden;
 }
+
 .homeNoticeListUl .homeNoticeListLi {
     float: left;
     display: block;
     width: 240px;
     height: 100%;
 }
-.homeNoticeListMiddleLayer{
+
+.homeNoticeListMiddleLayer {
     display: block;
     width: 260px;
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
 }
-.homeNoticeList{
+
+.homeNoticeList {
     box-sizing: border-box;
     padding: 0 15px;
     width: 240px;
     height: auto;
     list-style: square inside;
 }
-.homeNoticeItem{
+
+.homeNoticeItem {
     width: 210px;
     /*height: 40px;*/
     padding: 10px 5px 10px 0;
@@ -428,9 +488,11 @@ ul {
     /*white-space: nowrap;*/
     /*overflow: hidden;*/
 }
-.homeNoticeItem:last-child{
+
+.homeNoticeItem:last-child {
     border-bottom-width: 0;
 }
+
 /* 原样式 */
 /*.homeNoticeItemLink{
     float: left;
@@ -460,6 +522,7 @@ ul {
     cursor: pointer;
     /*margin-left: -10px;*/
 }
+
 /*.homeNoticeItemLink:before {
     float: left;
     position: relative;

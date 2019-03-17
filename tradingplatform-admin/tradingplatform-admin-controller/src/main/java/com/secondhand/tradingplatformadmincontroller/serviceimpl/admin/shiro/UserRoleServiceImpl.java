@@ -26,10 +26,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *   @description : UserRole 服务实现类
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2018-11-22
+ * @author zhangjk
+ * @description : UserRole 服务实现类
+ * ---------------------------------
+ * @since 2018-11-22
  */
 
 @Service
@@ -98,7 +98,7 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
     @CacheEvict(allEntries = true)
     public UserRole myUserRoleCreateUpdate(UserRole userRole) {
         Long userRoleId = userRole.getId();
-        if (userRoleId == null){
+        if (userRoleId == null) {
             userRole.setUuid(ToolUtil.getUUID());
             userRoleMapper.insert(userRole);
         } else {
@@ -123,12 +123,12 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
         roleWrapper.where("deleted = {0}", false);
         //遍历排序
         List<Sort> sorts = userRole.getSorts();
-        if (sorts == null){
+        if (sorts == null) {
             //为null时，默认按created_at倒序
             roleWrapper.orderBy("id", false);
         } else {
             //遍历排序
-            sorts.forEach( sort -> {
+            sorts.forEach(sort -> {
                 roleWrapper.orderBy(sort.getField(), sort.getAsc());
             });
         }
@@ -175,7 +175,7 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
         if (userRoleList.size() != 0) {
             UserRole userRole = userRoleList.get(0);
             return userRole.getRoleId();
-        }else {
+        } else {
             return null;
         }
     }
@@ -192,7 +192,7 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
         wrapper.setSqlSelect("role_id");
         List<Object> roleIds = this.selectObjs(wrapper);
         //如果roleIds为空，返回空的对象
-        if (roleIds.size() == 0){
+        if (roleIds.size() == 0) {
             return new Page<>();
         }
         //再根据id找rolePage
@@ -202,12 +202,12 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
         roleWrapper.where("deleted = {0}", false);
         //遍历排序
         List<Sort> sorts = userRole.getSorts();
-        if (sorts == null){
+        if (sorts == null) {
             //为null时，默认按created_at倒序
             roleWrapper.orderBy("id", false);
         } else {
             //遍历排序
-            sorts.forEach( sort -> {
+            sorts.forEach(sort -> {
                 roleWrapper.orderBy(sort.getField(), sort.getAsc());
             });
         }
@@ -254,7 +254,7 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdate(UserRole userRole) {
         //没有uuid的话要加上去
-        if (userRole.getUuid().equals(null)){
+        if (userRole.getUuid().equals(null)) {
             userRole.setUuid(ToolUtil.getUUID());
         }
         return this.insertOrUpdate(userRole);
@@ -265,7 +265,7 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
     public boolean myInsertOrUpdateBatch(List<UserRole> userRoleList) {
         userRoleList.forEach(userRole -> {
             //没有uuid的话要加上去
-            if (userRole.getUuid().equals(null)){
+            if (userRole.getUuid().equals(null)) {
                 userRole.setUuid(ToolUtil.getUUID());
             }
         });

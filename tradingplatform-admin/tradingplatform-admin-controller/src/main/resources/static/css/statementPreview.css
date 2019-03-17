@@ -1,4 +1,4 @@
-.headIndicators-container{
+.headIndicators-container {
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -21,29 +21,31 @@ input.my-input-caption {
     outline: none;
     /*border-bottom: 1px solid #ccc;*/
     font-size: 30px;
-    font-weight:bold;
+    font-weight: bold;
 }
 
 input.my-input-sm {
-    border:none;
+    border: none;
     width: 100%;
     padding: 8px 0px;
     outline: none;
     padding-left: 20px;
 }
-table th{
+
+table th {
     text-align: center;
 }
 
-table td{
+table td {
     text-align: center;
     position: relative;
 }
 
-table th input{
+table th input {
     text-align: center;
 }
-table td input{
+
+table td input {
     text-align: center;
 }
 
@@ -52,7 +54,7 @@ input[disabled='disabled'] {
     border: none;
 }
 
-select.my-select-el{
+select.my-select-el {
     background-color: #337ab7;
     color: white;
     padding: 7px;
@@ -70,6 +72,6 @@ select.my-select-el option {
 i.glyphicon.glyphicon-new-window {
     color: blue;
     position: absolute;
-    top:20px;
+    top: 20px;
     cursor: pointer;
 }

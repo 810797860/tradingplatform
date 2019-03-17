@@ -1,21 +1,27 @@
 .xs-fontSize {
     font-size: 10px;
 }
+
 .sm-fontSize {
     font-size: 12px;
 }
+
 .md-fontSize {
     font-size: 14px;
 }
+
 .lg-fontSize {
     font-size: 16px;
 }
+
 .logo-fontSize {
     font-size: 16px;
 }
+
 .bg-color {
     background: #0088ff;
 }
+
 .bg-color-tab {
     background: #0099ff;
 }
@@ -24,15 +30,19 @@
     .xs-fontSize {
         font-size: 14px;
     }
+
     .sm-fontSize {
         font-size: 14px;
     }
+
     .md-fontSize {
         font-size: 16px;
     }
+
     .lg-fontSize {
         font-size: 18px;
     }
+
     .logo-fontSize {
         font-size: 18px;
     }
@@ -42,15 +52,19 @@
     .xs-fontSize {
         font-size: 8px;
     }
+
     .sm-fontSize {
         font-size: 10px;
     }
+
     .md-fontSize {
         font-size: 12px;
     }
+
     .lg-fontSize {
         font-size: 14px;
     }
+
     .logo-fontSize {
         font-size: 14px;
     }

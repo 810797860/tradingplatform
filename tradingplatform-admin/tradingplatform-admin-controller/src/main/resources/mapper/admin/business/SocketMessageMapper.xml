@@ -4,33 +4,34 @@
 
     <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
 
-		<!-- 通用查询映射结果 -->
-			<resultMap id="socketMessageMap" type="com.secondhand.tradingplatformadminentity.entity.admin.business.SocketMessage" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
-									
-				<result column="title" property="title" jdbcType="VARCHAR" />
-				<result column="content" property="content" jdbcType="VARCHAR" />
-				<result column="sender" property="sender" jdbcType="INTEGER" />
-				<result column="recipient" property="recipient" jdbcType="INTEGER" />
-				<result column="details" property="details" jdbcType="VARCHAR" />
+    <!-- 通用查询映射结果 -->
+    <resultMap id="socketMessageMap"
+               type="com.secondhand.tradingplatformadminentity.entity.admin.business.SocketMessage"
+               extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
 
-		</resultMap>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="content" property="content" jdbcType="VARCHAR"/>
+        <result column="sender" property="sender" jdbcType="INTEGER"/>
+        <result column="recipient" property="recipient" jdbcType="INTEGER"/>
+        <result column="details" property="details" jdbcType="VARCHAR"/>
 
-        <!-- 通用查询映射结果 -->
-		<resultMap id="socketMessageMapSimple" type="com.secondhand.tradingplatformadminentity.entity.admin.business.SocketMessage">
-																			
-                        <result column="title" property="title" jdbcType="VARCHAR" />
-                        <result column="content" property="content" jdbcType="VARCHAR" />
-                        <result column="sender" property="sender" jdbcType="INTEGER" />
-                        <result column="recipient" property="recipient" jdbcType="INTEGER" />
-                        <result column="details" property="details" jdbcType="VARCHAR" />
+    </resultMap>
 
-        </resultMap>
+    <!-- 通用查询映射结果 -->
+    <resultMap id="socketMessageMapSimple"
+               type="com.secondhand.tradingplatformadminentity.entity.admin.business.SocketMessage">
+
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="content" property="content" jdbcType="VARCHAR"/>
+        <result column="sender" property="sender" jdbcType="INTEGER"/>
+        <result column="recipient" property="recipient" jdbcType="INTEGER"/>
+        <result column="details" property="details" jdbcType="VARCHAR"/>
+
+    </resultMap>
 
     <select id="selectMapById" resultType="java.util.Map">
         select * from c_business_socket_message where id = #{socketMessageId} and deleted = false
     </select>
-
-
 
 
 </mapper>

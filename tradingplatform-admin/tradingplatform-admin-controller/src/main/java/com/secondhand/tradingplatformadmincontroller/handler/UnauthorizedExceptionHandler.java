@@ -14,15 +14,16 @@ import java.io.PrintWriter;
 
 /**
  * 拦截无权访问接口异常
+ *
  * @author 81079
  */
 
 @ControllerAdvice
 public class UnauthorizedExceptionHandler {
-    @ExceptionHandler( { UnauthorizedException.class })
+    @ExceptionHandler({UnauthorizedException.class})
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public void processUnauthorizedException(NativeWebRequest request, HttpServletResponse response, UnauthorizedException e) {
-        ServletWebRequest req = (ServletWebRequest)request;
+        ServletWebRequest req = (ServletWebRequest) request;
         String url = req.getRequest().getRequestURI();
         // return "您无权访问接口："+url;
         try {
@@ -31,7 +32,7 @@ public class UnauthorizedExceptionHandler {
             //这句话的意思，是告诉servlet用UTF-8转码，而不是用默认的ISO8859
             response.setCharacterEncoding("UTF-8");
             PrintWriter writer = response.getWriter();
-            writer.println("You are not allow to invoke "+url+" method.方法");
+            writer.println("You are not allow to invoke " + url + " method.方法");
             writer.println(exception);
         } catch (IOException e1) {
             e1.printStackTrace();

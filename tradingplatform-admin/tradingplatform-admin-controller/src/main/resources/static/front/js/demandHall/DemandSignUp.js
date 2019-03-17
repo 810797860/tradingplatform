@@ -56,7 +56,7 @@ $(function () {
     // })
 
     // 文件上传函数
-    function uploadFile (files) {
+    function uploadFile(files) {
         if (files.length == 0) return; //如果文件为空
         var formData = new FormData();
         for (var i = 0; i < files.length; i++) {
@@ -113,7 +113,7 @@ $(function () {
                     $_fileData.push(obj);
                 })
                 // 决定数据顺序
-                var orderArr = ['title','size','id'];
+                var orderArr = ['title', 'size', 'id'];
                 table.setTableData($_fileData);
                 table.setBaseStyle(baseStyleArr);
                 table.setColOrder(orderArr);
@@ -121,10 +121,10 @@ $(function () {
                     if (type === 'title') {
                         return (label === 'td') ? '<span class="file-title">' + content + '</span>' : content;
                     } else if (type === 'size') {
-                        return (label === 'td') ? content+'KB' : content;
+                        return (label === 'td') ? content + 'KB' : content;
                     } else if (type === 'id') {
                         var span = '<span class="see-file" data-id="' + content[0] + '" data-prefix="' + content[1] + '"><i class="icon-search"></i>查看</span>' +
-                            '<span class="delete-file" data-id="'+content[0]+'" data-prefix="'+content[1]+'"><i class="icon-false"></i>删除</span>';
+                            '<span class="delete-file" data-id="' + content[0] + '" data-prefix="' + content[1] + '"><i class="icon-false"></i>删除</span>';
                         return (label === 'td') ? span : content;
                     }
                 }).setClickCallback(function (node) {
@@ -140,7 +140,7 @@ $(function () {
                         if (index > -1) {
                             attachments.splice(index, 1);
                             $_attachmentsId = "";
-                            for (var i = 0 ; i< attachments.length; i++) {
+                            for (var i = 0; i < attachments.length; i++) {
                                 if (!$_attachmentsId) {
                                     $_attachmentsId = "" + attachments[i];
                                 } else {
@@ -163,7 +163,7 @@ $(function () {
                         }
                         if (prefix === "png" || prefix === "jpg" || prefix === "jpeg" || prefix === "gif") {
                             var src = $(this).getAvatar(id);
-                            var img = '<img src="'+src+'" style="width: 500px; height: auto;"/>';
+                            var img = '<img src="' + src + '" style="width: 500px; height: auto;"/>';
                             layer.open({
                                 title: false,
                                 type: 1,
@@ -183,37 +183,37 @@ $(function () {
         });
     }
 
-        $(".demand-sign-up-submit .sign-up-submit").off().click(function () {
-            var textContent = $(".demand-sign-up .demand-sign-up-quote input").val();
-            var advantage = $(".demand-sign-up .demand-sign-up-advantage textarea").val();
-            var json = {
-                projectId: projectId,
-                offerPrice: textContent,
-                technicalSolutionIntroduction: advantage,
-                technicalSolutionAttachment: $_attachmentsId
-            };
-            if ( $('.demand-sign-up-quote input').val() != '' && $('.demand-sign-up-advantage textarea').val() != '') {
-                var url = '/f/projectDemandSignUp/pc/create_update?pc=true'
-                new NewAjax({
-                    type: "POST",
-                    url: url,
-                    contentType: "application/json;charset=UTF-8",
-                    dataType: "json",
-                    data: JSON.stringify(json),
-                    success: function (res) {
-                        if(res.status === 200) {
-                            $(".demand-sign-up-submit .sign-up-submit").hide();
-                            layer.msg('报名成功,即将返回需求大厅');
-                            setTimeout(function () {
-                                window.open('/f/demand_hall.html?pc=true','_self');
-                            },1500)
-                        }
+    $(".demand-sign-up-submit .sign-up-submit").off().click(function () {
+        var textContent = $(".demand-sign-up .demand-sign-up-quote input").val();
+        var advantage = $(".demand-sign-up .demand-sign-up-advantage textarea").val();
+        var json = {
+            projectId: projectId,
+            offerPrice: textContent,
+            technicalSolutionIntroduction: advantage,
+            technicalSolutionAttachment: $_attachmentsId
+        };
+        if ($('.demand-sign-up-quote input').val() != '' && $('.demand-sign-up-advantage textarea').val() != '') {
+            var url = '/f/projectDemandSignUp/pc/create_update?pc=true'
+            new NewAjax({
+                type: "POST",
+                url: url,
+                contentType: "application/json;charset=UTF-8",
+                dataType: "json",
+                data: JSON.stringify(json),
+                success: function (res) {
+                    if (res.status === 200) {
+                        $(".demand-sign-up-submit .sign-up-submit").hide();
+                        layer.msg('报名成功,即将返回需求大厅');
+                        setTimeout(function () {
+                            window.open('/f/demand_hall.html?pc=true', '_self');
+                        }, 1500)
                     }
-                })
-            } else {
-                layer.msg('报价与我的优势为必填项')
-            }
-        })
+                }
+            })
+        } else {
+            layer.msg('报价与我的优势为必填项')
+        }
+    })
 
 })
 

@@ -6,9 +6,11 @@ div.main {
     min-width: 800px;
     margin: 0 auto;
 }
+
 div.btn-container {
     margin-bottom: 15px;
 }
+
 div.panel-body {
     padding: 20px 40px;
     text-align: right;
@@ -21,7 +23,6 @@ div.row {
 div.row:last-child {
     margin-bottom: 0;
 }
-
 
 span.required::before {
     content: '*';

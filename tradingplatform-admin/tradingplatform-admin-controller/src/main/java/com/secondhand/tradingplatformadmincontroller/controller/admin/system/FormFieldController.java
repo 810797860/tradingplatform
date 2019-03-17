@@ -32,12 +32,12 @@ import com.secondhand.tradingplatformadminservice.service.admin.system.FormField
 import javax.servlet.http.HttpSession;
 
 /**
- * @description : FormField 控制器
  * @author : zhangjk
+ * @description : FormField 控制器
  * @since : Create in 2018-11-09
  */
 @Controller("adminFormFieldController")
-@Api(value="/admin/formField", description="FormField 控制器")
+@Api(value = "/admin/formField", description = "FormField 控制器")
 @RequestMapping("/admin/formField")
 public class FormFieldController extends BaseController {
 
@@ -102,32 +102,32 @@ public class FormFieldController extends BaseController {
         model.addAttribute("fieldTypes", fieldTypes);
         return "system/formField/modify";
     }
-    
+
     /**
      * @description : 获取分页列表
      * @author : zhangjk
      * @since : Create in 2018-11-09
      */
     @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    @ApiOperation(value = "/query", notes="获取分页列表")
+    @ApiOperation(value = "/query", notes = "获取分页列表")
     @ResponseBody
     public TableJson<Map<String, Object>> getFormFieldList(@ApiParam(name = "FormField", value = "FormField 实体类") @RequestBody FormField formField) {
-            TableJson<Map<String, Object>> resJson = new TableJson<>();
-            Page resPage = formField.getPage();
-            formField.setDeleted(false);
-            Integer current = resPage.getCurrent();
-            Integer size = resPage.getSize();
-            if (current == null && size == null) {
-                resJson.setSuccess(false);
-                resJson.setMessage("异常信息：页数和页的大小不能为空");
-                return resJson;
-            }
-            Page<Map<String, Object>> formFieldPage = new Page(current, size);
-            formFieldPage = formFieldService.mySelectPageWithParam(formFieldPage, formField);
-            resJson.setRecordsTotal(formFieldPage.getTotal());
-            resJson.setData(formFieldPage.getRecords());
-            resJson.setSuccess(true);
+        TableJson<Map<String, Object>> resJson = new TableJson<>();
+        Page resPage = formField.getPage();
+        formField.setDeleted(false);
+        Integer current = resPage.getCurrent();
+        Integer size = resPage.getSize();
+        if (current == null && size == null) {
+            resJson.setSuccess(false);
+            resJson.setMessage("异常信息：页数和页的大小不能为空");
             return resJson;
+        }
+        Page<Map<String, Object>> formFieldPage = new Page(current, size);
+        formFieldPage = formFieldService.mySelectPageWithParam(formFieldPage, formField);
+        resJson.setRecordsTotal(formFieldPage.getTotal());
+        resJson.setData(formFieldPage.getRecords());
+        resJson.setSuccess(true);
+        return resJson;
     }
 
     /**
@@ -138,13 +138,13 @@ public class FormFieldController extends BaseController {
     @GetMapping(value = "/get_map_by_id/{formFieldId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{formFieldId}", notes = "根据id获取formFieldMap")
     @ResponseBody
-    public JsonResult<Map<String, Object>> getFormFieldByIdForMap( @ApiParam(name = "id", value = "formFieldId") @PathVariable("formFieldId") Long formFieldId){
-            JsonResult<Map<String, Object>> resJson = new JsonResult<>();
-            Map<String, Object> formField = formFieldService.mySelectMapById(formFieldId);
-            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-            resJson.setData(formField);
-            resJson.setSuccess(true);
-            return resJson;
+    public JsonResult<Map<String, Object>> getFormFieldByIdForMap(@ApiParam(name = "id", value = "formFieldId") @PathVariable("formFieldId") Long formFieldId) {
+        JsonResult<Map<String, Object>> resJson = new JsonResult<>();
+        Map<String, Object> formField = formFieldService.mySelectMapById(formFieldId);
+        resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+        resJson.setData(formField);
+        resJson.setSuccess(true);
+        return resJson;
     }
 
     /**
@@ -155,21 +155,21 @@ public class FormFieldController extends BaseController {
     @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除formField")
     @ResponseBody
-    public JsonResult<FormField> fakeDeleteById(@ApiParam(name = "id", value = "formFieldId") @RequestBody Long formFieldId){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<FormField> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/formField/delete");
-                formFieldService.myFakeDeleteById(formFieldId);
-                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-                resJson.setSuccess(true);
-            }catch (UnauthorizedException e){
-                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    public JsonResult<FormField> fakeDeleteById(@ApiParam(name = "id", value = "formFieldId") @RequestBody Long formFieldId) {
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<FormField> resJson = new JsonResult<>();
+        try {
+            //检查是否具有权限
+            subject.checkPermission("/admin/formField/delete");
+            formFieldService.myFakeDeleteById(formFieldId);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+            resJson.setSuccess(true);
+        } catch (UnauthorizedException e) {
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
@@ -180,20 +180,20 @@ public class FormFieldController extends BaseController {
     @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除formField")
     @ResponseBody
-    public JsonResult<FormField> fakeBatchDelete(@ApiParam(name = "ids", value = "formFieldIds") @RequestBody List<Long> formFieldIds){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<FormField> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/formField/batch_delete");
-                resJson.setSuccess(formFieldService.myFakeBatchDelete(formFieldIds));
-                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-            }catch(UnauthorizedException e){
-                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    public JsonResult<FormField> fakeBatchDelete(@ApiParam(name = "ids", value = "formFieldIds") @RequestBody List<Long> formFieldIds) {
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<FormField> resJson = new JsonResult<>();
+        try {
+            //检查是否具有权限
+            subject.checkPermission("/admin/formField/batch_delete");
+            resJson.setSuccess(formFieldService.myFakeBatchDelete(formFieldIds));
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+        } catch (UnauthorizedException e) {
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
@@ -204,22 +204,22 @@ public class FormFieldController extends BaseController {
     @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改formField")
     @ResponseBody
-    public JsonResult<FormField> formFieldCreateUpdate(@ApiParam(name = "FormField", value = "FormField实体类") @RequestBody FormField formField){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<FormField> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/formField/create_update");
-                formField = formFieldService.myFormFieldCreateUpdate(formField);
-                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-                resJson.setData(formField);
-                resJson.setSuccess(true);
-            }catch(UnauthorizedException e){
-                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    public JsonResult<FormField> formFieldCreateUpdate(@ApiParam(name = "FormField", value = "FormField实体类") @RequestBody FormField formField) {
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<FormField> resJson = new JsonResult<>();
+        try {
+            //检查是否具有权限
+            subject.checkPermission("/admin/formField/create_update");
+            formField = formFieldService.myFormFieldCreateUpdate(formField);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+            resJson.setData(formField);
+            resJson.setSuccess(true);
+        } catch (UnauthorizedException e) {
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
@@ -230,7 +230,7 @@ public class FormFieldController extends BaseController {
     @PostMapping(value = "/update_by_form_id", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/update_by_form_id", notes = "根据表单id更新FormField")
     @ResponseBody
-    public JsonResult<FormField> formFieldUpdateByFormId(@ApiParam(name = "formId", value = "表单id") @RequestBody Long formId){
+    public JsonResult<FormField> formFieldUpdateByFormId(@ApiParam(name = "formId", value = "表单id") @RequestBody Long formId) {
         //因为是开发后台时方便自己用的，所以就不检测是否有权限了
         JsonResult<FormField> resJson = new JsonResult<>();
         resJson.setSuccess(formFieldService.formFieldUpdateByFormId(formId));

@@ -29,10 +29,10 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- *   @description : Annex 服务实现类
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2018-12-14
+ * @author zhangjk
+ * @description : Annex 服务实现类
+ * ---------------------------------
+ * @since 2018-12-14
  */
 
 @Service
@@ -60,7 +60,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
     @Transactional(rollbackFor = Exception.class)
     @CacheEvict(allEntries = true)
     public boolean myFakeBatchDelete(List<Long> annexIds) {
-        annexIds.forEach(annexId->{
+        annexIds.forEach(annexId -> {
             myFakeDeleteById(annexId);
         });
         return true;
@@ -76,7 +76,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
     @CacheEvict(allEntries = true)
     public Annex myAnnexCreateUpdate(Annex annex) {
         Long annexId = annex.getId();
-        if (annexId == null){
+        if (annexId == null) {
             annex.setUuid(ToolUtil.getUUID());
             annexMapper.insert(annex);
         } else {
@@ -95,7 +95,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
         //判断该路径的文件夹是否存在
         //暂时先每次判断，应该要定时业务更新
         File uploadFolderPathFile = new File(uploadFolderPath);
-        if (uploadFolderPathFile.exists()){
+        if (uploadFolderPathFile.exists()) {
             uploadFolderPathFile.mkdir();
         }
         //存进去
@@ -104,10 +104,10 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
         annex.setName(name);
         annex.setType(resourceType);
 
-        if (file == null){
+        if (file == null) {
 
             //之前已经提交过
-            if (md5value == null){
+            if (md5value == null) {
                 throw new CustomizeException(CustomizeStatus.MD5_VALUE_IS_EMPTY, this.getClass());
             }
 
@@ -127,7 +127,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
             annexMapper.insert(annex);
         } else {
             annex = fileUpload(name, md5value, chunks, chunk, name, file, uploadFolderPath);
-            if (annex != null){
+            if (annex != null) {
                 annex.setType("resource");
                 annex.setUuid(ToolUtil.getUUID());
                 annexMapper.insert(annex);
@@ -148,14 +148,14 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
     public void myGetImageByAnnexId(Long annexId, HttpServletResponse response) throws IOException, CustomizeException {
         ///static/default.png默认图片
         InputStream is = this.getClass().getResourceAsStream("/static/default.png");
-        if (annexId != null){
+        if (annexId != null) {
             Annex annex = annexMapper.selectById(annexId);
-            if (annex != null){
+            if (annex != null) {
                 responseImage(response, annex, is);
             } else {
                 responseImage(response, null, is);
             }
-        }else {
+        } else {
             responseImage(response, null, is);
         }
     }
@@ -165,7 +165,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
 
         //先根据id寻找附件
         Annex annex = annexMapper.selectById(annexId);
-        if (annex == null){
+        if (annex == null) {
             throw new CustomizeException(CustomizeStatus.IMAGE_IS_EMPTY, this.getClass());
         }
         downloadFile(request, response, annex);
@@ -176,7 +176,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
 
         //先根据id寻找附件
         Annex annex = annexMapper.selectById(annexId);
-        if (annex == null){
+        if (annex == null) {
             throw new CustomizeException(CustomizeStatus.IMAGE_IS_EMPTY, this.getClass());
         }
         downloadLargeFile(request, response, annex);
@@ -184,6 +184,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
 
     /**
      * 文件上传
+     *
      * @param temporaryName
      * @param md5value
      * @param chunks
@@ -200,29 +201,29 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
         String fileName = "";
         int temporaryNameIndex = temporaryName.indexOf(MagicalValue.DECIMAL_POINT);
         //获取简单temporaryName
-        if (temporaryNameIndex != -1){
+        if (temporaryNameIndex != -1) {
             temporaryName = temporaryName.substring(0, temporaryNameIndex) + MagicalValue.DIVIDING_LINE + ToolUtil.getMinutesAndSeconds();
         }
 
-        try{
+        try {
 
             //合并路径
             String combinePath = uploadFolderPath + File.separator + temporaryName + MagicalValue.FILE_SEPARATOR;
             //文件后缀名
             String suffix = "";
-            if (name.lastIndexOf(MagicalValue.DECIMAL_POINT) != -1){
+            if (name.lastIndexOf(MagicalValue.DECIMAL_POINT) != -1) {
                 suffix = name.substring(name.lastIndexOf(MagicalValue.DECIMAL_POINT));
             }
 
             //判断文件是否分块
-            if (chunks != null && chunk != null && !(MagicalValue.STRING_OF_ONE).equals(chunk)){
+            if (chunks != null && chunk != null && !(MagicalValue.STRING_OF_ONE).equals(chunk)) {
                 fileName = chunk + suffix;
                 saveFile(combinePath, fileName, file);
 
                 //验证是否上传成功 + 合并
                 Annex annex = uploaded(md5value, temporaryName, chunk, chunks, uploadFolderPath, fileName, suffix);
                 return annex;
-            }else {
+            } else {
                 //不是分块上传，直接保存
                 fileName = temporaryName + suffix;
                 saveFile(uploadFolderPath + File.separator, fileName, file);
@@ -235,7 +236,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
                 annex.setMd5(md5value);
                 return annex;
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             throw new CustomizeException(CustomizeStatus.UPLOADING_IMAGE_FAILED, this.getClass());
         }
@@ -243,6 +244,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
 
     /**
      * 保存文件
+     *
      * @param savePath
      * @param fileFullName
      * @param file
@@ -255,15 +257,15 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
         File uploadFile = new File(savePath + fileFullName);
         //判断文件夹是否存在，不存在就创建一个
         File uploadFileDirectory = new File(savePath);
-        if ( !uploadFileDirectory.exists() ){
+        if (!uploadFileDirectory.exists()) {
             uploadFileDirectory.mkdir();
         }
 
         //创建文件输出流
-        try (FileOutputStream outputStream = new FileOutputStream(uploadFile)){
+        try (FileOutputStream outputStream = new FileOutputStream(uploadFile)) {
             outputStream.write(data);
             outputStream.flush();
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             throw e;
         }
@@ -273,6 +275,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
 
     /**
      * 读取输入流
+     *
      * @param inputStream
      * @return
      * @throws IOException
@@ -285,8 +288,8 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
         //用buffer读取inputStream
         //字符串长度为1，时，则全部读取完毕
         int length = 0;
-        while ((length = inputStream.read(buffer)) != -1){
-            outputStream.write(buffer, 0 , length);
+        while ((length = inputStream.read(buffer)) != -1) {
+            outputStream.write(buffer, 0, length);
         }
         inputStream.close();
         return outputStream.toByteArray();
@@ -294,6 +297,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
 
     /**
      * 底层上传代码
+     *
      * @param temporaryName
      * @param md5value
      * @param chunks
@@ -306,7 +310,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
      */
     public Annex uploaded(String temporaryName, String md5value, String chunks, String chunk, String uploadFolderPath, String name, String suffix) throws IOException {
         Annex annex = new Annex();
-        synchronized (uploadInfoList){
+        synchronized (uploadInfoList) {
             annex.setMd5(md5value);
             annex.setName(name);
             annex.setExtension(suffix);
@@ -316,25 +320,26 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
         boolean uploadedFlag = isAllUploaded(md5value, chunks);
         int chunksNum = Integer.valueOf(chunks);
 
-        if (uploadedFlag){
+        if (uploadedFlag) {
             String totalPath = mergeFile(chunksNum, suffix, temporaryName, uploadFolderPath);
             File totalFile = new File(totalPath);
             annex.setName(totalFile.getName());
             annex.setSize(Float.parseFloat(Long.toString(totalFile.length())));
             annex.setPath(totalPath);
             return annex;
-        }else {
+        } else {
             return null;
         }
     }
 
     /**
      * 去重
+     *
      * @param md5
      * @param chunks
      * @return
      */
-    public boolean isAllUploaded(String md5, String chunks){
+    public boolean isAllUploaded(String md5, String chunks) {
 
         int size = uploadInfoList.stream()
                 .filter(item -> item.getMd5().equals(md5))
@@ -343,8 +348,8 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
                 .size();
 
         boolean flag = size == Integer.valueOf(chunks);
-        if (flag){
-            synchronized (uploadInfoList){
+        if (flag) {
+            synchronized (uploadInfoList) {
                 uploadInfoList.removeIf(item -> item.getMd5().equals(md5));
             }
         }
@@ -353,6 +358,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
 
     /**
      * 合并文件
+     *
      * @param chunksNum
      * @param suffix
      * @param temporaryName
@@ -367,7 +373,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
         InputStream inputStream2 = new FileInputStream(mergePath + 2 + suffix);
         //输入流逻辑串联
         SequenceInputStream sequenceInputStream = new SequenceInputStream(inputStream1, inputStream2);
-        for (int i = 3; i <= chunksNum; i++){
+        for (int i = 3; i <= chunksNum; i++) {
             InputStream inputStream3 = new FileInputStream(mergePath + 3 + suffix);
             sequenceInputStream = new SequenceInputStream(sequenceInputStream, inputStream3);
         }
@@ -382,6 +388,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
 
     /**
      * 从inputStream保存文件
+     *
      * @param inputStream
      * @param filePath
      * @throws IOException
@@ -392,8 +399,8 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
         OutputStream outputStream = new FileOutputStream(filePath);
         byte[] data = new byte[1024];
         int length = 0;
-        try{
-            while ((length = inputStream.read(data)) != -1){
+        try {
+            while ((length = inputStream.read(data)) != -1) {
                 outputStream.write(data, 0, length);
                 outputStream.flush();
             }
@@ -407,20 +414,21 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
 
     /**
      * 删除指定文件夹
+     *
      * @param filePath
      * @return
      */
     @Transactional(rollbackFor = Exception.class)
-    public boolean deleteFolder(String filePath){
+    public boolean deleteFolder(String filePath) {
 
         File directory = new File(filePath);
         //先删掉文件夹里面的文件
         File[] files = directory.listFiles();
-        if (files != null){
-            for (File file : files){
+        if (files != null) {
+            for (File file : files) {
                 try {
                     file.delete();
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -431,6 +439,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
 
     /**
      * 显示图片
+     *
      * @param response
      * @param annex
      * @param stream
@@ -446,7 +455,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
         String filename = null;
         String extension = null;
         //区别显示默认图片的情况
-        if (annex != null){
+        if (annex != null) {
             path = annex.getPath();
             filename = annex.getName();
             extension = annex.getExtension();
@@ -455,12 +464,12 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
         InputStream inputStream;
         OutputStream outputStream = null;
 
-        if (path == null || path.trim().equals("")){
+        if (path == null || path.trim().equals("")) {
             inputStream = stream;
             response.setContentType(contentType);
         } else {
             File file = new File(path);
-            if (file.exists()){
+            if (file.exists()) {
                 response.setContentType(contentType);
                 //拼接名字- XXX.jpg
                 response.addHeader("Content-Disposition", "attachment;filename=" + new String(filename.getBytes("UTF-8"), "ISO8859-1") + MagicalValue.DECIMAL_POINT + extension);
@@ -477,17 +486,17 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
             }
         }
 
-        try{
+        try {
             outputStream = response.getOutputStream();
             int index;
             byte[] data = new byte[1024];
-            while ((index = inputStream.read(data)) != -1){
+            while ((index = inputStream.read(data)) != -1) {
                 outputStream.write(data, 0, index);
             }
             outputStream.flush();
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             inputStream.close();
             outputStream.close();
         }
@@ -495,6 +504,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
 
     /**
      * 全文下载文件
+     *
      * @param request
      * @param response
      * @param annex
@@ -509,7 +519,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
         try {
             File file = new File(path);
             //文件判空
-            if (file != null){
+            if (file != null) {
 
                 //已下载的文件大小
                 Long frontLength = 0L;
@@ -530,9 +540,9 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
 
                 Date date = new Date();
                 //Last-Modified:页面的最后生成时间
-                response.setDateHeader("Last-Modified",date.getTime());
+                response.setDateHeader("Last-Modified", date.getTime());
                 //Expires:过时期限值
-                response.setDateHeader("Expires",date.getTime()+1*60*60*1000);
+                response.setDateHeader("Expires", date.getTime() + 1 * 60 * 60 * 1000);
                 //Cache-Control来控制页面的缓存与否,public:浏览器和缓存服务器都可以缓存页面信息；
                 response.setHeader("Cache-Control", "public");
                 //Pragma:设置页面是否缓存，为Pragma则缓存，no-cache则不缓存
@@ -540,11 +550,11 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
 
                 //服务端下载文件请求的开始字节位置
                 String range = request.getHeader("Range");
-                if ( !ToolUtil.strIsEmpty(range) && !MagicalValue.STRING_OF_NULL.equals(range)){
+                if (!ToolUtil.strIsEmpty(range) && !MagicalValue.STRING_OF_NULL.equals(range)) {
                     //局部内容
                     response.setStatus(HttpServletResponse.SC_PARTIAL_CONTENT);
                     rangeBytes = range.replaceAll("bytes=", "");
-                    if (rangeBytes.endsWith(MagicalValue.DIVIDING_LINE)){
+                    if (rangeBytes.endsWith(MagicalValue.DIVIDING_LINE)) {
                         //bytes=270000-
                         rangeSwitch = 1;
                         frontLength = Long.valueOf(rangeBytes.substring(0, rangeBytes.indexOf("-")));
@@ -569,7 +579,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
                 // 断点开始
                 // 响应的格式是:
                 // Content-Range: bytes [文件块的开始字节]-[文件的总大小 - 1]/[文件的总大小]
-                switch (rangeSwitch){
+                switch (rangeSwitch) {
                     case 1:
                         contentRange = new StringBuffer("bytes ")
                                 .append(frontLength)
@@ -597,7 +607,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
                 }
 
                 response.setContentType("application/octet-stream");
-                if (request.getHeader(MagicalValue.STRING_OF_USER_AGENT).toUpperCase().indexOf(MagicalValue.STRING_OF_MSIE) > 0){
+                if (request.getHeader(MagicalValue.STRING_OF_USER_AGENT).toUpperCase().indexOf(MagicalValue.STRING_OF_MSIE) > 0) {
                     fileName = URLEncoder.encode(fileName, "UTF-8");
                 } else {
                     fileName = new String(fileName.getBytes("UTF-8"), "ISO8859-1");
@@ -610,21 +620,21 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
                 long readLength = 0;
                 int byteSize = 1024;
                 byte[] bytes = new byte[byteSize];
-                switch (rangeSwitch){
+                switch (rangeSwitch) {
                     case 2:
                         // 针对 bytes=27000-39000 的请求，从27000开始写数据
-                        while (readLength <= contentLength - byteSize){
+                        while (readLength <= contentLength - byteSize) {
                             n = bis.read(bytes);
                             readLength += n;
                             out.write(bytes, 0, n);
                         }
-                        if (readLength <= contentLength){
+                        if (readLength <= contentLength) {
                             n = bis.read(bytes, 0, (int) (contentLength - readLength));
                             out.write(bytes, 0, n);
                         }
                         break;
                     default:
-                        while ((n = bis.read(bytes)) != -1){
+                        while ((n = bis.read(bytes)) != -1) {
                             out.write(bytes, 0, n);
                         }
                 }
@@ -632,13 +642,13 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
                 out.close();
                 bis.close();
             }
-        }catch (IOException ie){
+        } catch (IOException ie) {
             ie.printStackTrace();
             throw new CustomizeException(CustomizeStatus.FILE_READ_FAILED, this.getClass());
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             throw new CustomizeException(CustomizeStatus.FILE_DOWNLOAD_FAILED, this.getClass());
-        }finally {
+        } finally {
             try {
                 bis.close();
             } catch (IOException e) {
@@ -650,6 +660,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
 
     /**
      * 大文件下载
+     *
      * @param request
      * @param response
      * @param annex
@@ -683,10 +694,10 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
         response.addHeader("Content-Disposition", "filename=" + new String(fileName.getBytes("UTF-8"), "ISO8859-1") + MagicalValue.DECIMAL_POINT + extension);
 
         //客户端请求的下载的文件块的开始字节
-        if (request.getHeader(MagicalValue.STRING_OF_RANGE) != null){
+        if (request.getHeader(MagicalValue.STRING_OF_RANGE) != null) {
             response.setStatus(HttpServletResponse.SC_PARTIAL_CONTENT);
             rangeBytes = request.getHeader("Range").replaceAll("bytes=", "");
-            if (rangeBytes.indexOf(MagicalValue.DIVIDING_LINE) == rangeBytes.length() - 1){
+            if (rangeBytes.indexOf(MagicalValue.DIVIDING_LINE) == rangeBytes.length() - 1) {
                 // bytes=969998336-
                 rangeBytes = rangeBytes.substring(0, rangeBytes.indexOf("-"));
                 downloadLength = Long.valueOf(rangeBytes);
@@ -697,7 +708,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
                 // bytes=1275856879-1275877358，从第 1275856879个字节开始下载
                 downloadLength = Long.valueOf(rangeBytes.substring(0, dividingIndex));
                 // bytes=1275856879-1275877358，到第 1275877358 个字节结束
-                offsetLength = Long.valueOf( rangeBytes.substring(dividingIndex + 1, rangeBytes.length()));
+                offsetLength = Long.valueOf(rangeBytes.substring(dividingIndex + 1, rangeBytes.length()));
             }
         } else {
             // 从开始进行下载
@@ -707,7 +718,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
         // 客户端请求的是1275856879-1275877358 之间的字节
         contentLength = offsetLength - downloadLength + 1;
         response.setContentLengthLong(contentLength);
-        if ( !ToolUtil.strIsEmpty(contentType)){
+        if (!ToolUtil.strIsEmpty(contentType)) {
             response.setContentType(contentType);
         }
 
@@ -730,7 +741,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
             is = new BufferedInputStream(new FileInputStream(file), 2048);
             try {
                 downloadRange(is, os, downloadLength, offsetLength);
-            } catch (IOException ie){
+            } catch (IOException ie) {
                 ie.printStackTrace();
                 throw new CustomizeException(CustomizeStatus.FILE_READ_FAILED, this.getClass());
             }
@@ -738,10 +749,10 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
             ie.printStackTrace();
             throw new CustomizeException(CustomizeStatus.FILE_READ_FAILED, this.getClass());
         } finally {
-            if (is != null){
+            if (is != null) {
                 try {
                     is.close();
-                } catch (IOException ie){
+                } catch (IOException ie) {
                     ie.printStackTrace();
                     throw new CustomizeException(CustomizeStatus.FILE_READ_FAILED, this.getClass());
                 }
@@ -752,24 +763,24 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
     protected void downloadRange(InputStream is, OutputStream os, long start, long end) throws IOException, CustomizeException {
 
         long skip = is.skip(start);
-        if (skip < start){
+        if (skip < start) {
             System.out.println("文件继续下载失败: skip=" + Long.valueOf(skip) + ", start=" + Long.valueOf(start));
             throw new CustomizeException(CustomizeStatus.FILE_CONTINUES_TO_DOWNLOAD_FAILED, this.getClass());
         }
         long contentBytes = end - start + 1;
         byte[] bytes = new byte[2048];
         int length = bytes.length;
-        while ((contentBytes > 0) && (length >= bytes.length)){
-            try{
+        while ((contentBytes > 0) && (length >= bytes.length)) {
+            try {
                 length = is.read(bytes);
-                if (contentBytes >= length){
+                if (contentBytes >= length) {
                     os.write(bytes, 0, length);
                     contentBytes -= length;
                 } else {
                     os.write(bytes, 0, (int) contentBytes);
                     contentBytes = 0;
                 }
-            } catch (IOException ie){
+            } catch (IOException ie) {
                 ie.printStackTrace();
                 throw new CustomizeException(CustomizeStatus.FILE_READ_FAILED, this.getClass());
             }
@@ -778,7 +789,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
     }
 
     //以下是继承BaseServiceImpl
-    
+
     @Override
     @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p1.sorts")
     public Page<Annex> mySelectPageWithParam(Page<Annex> page, Annex annex) {
@@ -788,45 +799,45 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
         Wrapper<Annex> wrapper = new EntityWrapper<>(annex);
         //遍历排序
         List<Sort> sorts = annex.getSorts();
-        if (sorts == null){
+        if (sorts == null) {
             //为null时，默认按created_at倒序
             wrapper.orderBy("id", false);
         } else {
             //遍历排序
-            sorts.forEach( sort -> {
+            sorts.forEach(sort -> {
                 wrapper.orderBy(sort.getField(), sort.getAsc());
             });
         }
         return this.selectPage(page, wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public List<Annex> mySelectListWithMap(Map<String, Object> map) {
         return annexMapper.selectByMap(map);
     }
-    
+
     //以下是继承BaseMapper
-    
+
     @Override
     @Cacheable(key = "#p0")
     public Map<String, Object> mySelectMap(Wrapper<Annex> wrapper) {
         return this.selectMap(wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public List<Annex> mySelectList(Wrapper<Annex> wrapper) {
         return annexMapper.selectList(wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsert(Annex annex) {
         annex.setUuid(ToolUtil.getUUID());
         return this.insert(annex);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertBatch(List<Annex> annexList) {
@@ -835,65 +846,65 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
         });
         return this.insertBatch(annexList);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdate(Annex annex) {
         //没有uuid的话要加上去
-        if (annex.getUuid().equals(null)){
+        if (annex.getUuid().equals(null)) {
             annex.setUuid(ToolUtil.getUUID());
         }
         return this.insertOrUpdate(annex);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdateBatch(List<Annex> annexList) {
         annexList.forEach(annex -> {
             //没有uuid的话要加上去
-            if (annex.getUuid().equals(null)){
+            if (annex.getUuid().equals(null)) {
                 annex.setUuid(ToolUtil.getUUID());
             }
         });
         return this.insertOrUpdateBatch(annexList);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public List<Annex> mySelectBatchIds(Collection<? extends Serializable> annexIds) {
         return annexMapper.selectBatchIds(annexIds);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public Annex mySelectById(Serializable annexId) {
         return annexMapper.selectById(annexId);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public int mySelectCount(Wrapper<Annex> wrapper) {
         return annexMapper.selectCount(wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public Annex mySelectOne(Wrapper<Annex> wrapper) {
         return this.selectOne(wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdate(Annex annex, Wrapper<Annex> wrapper) {
         return this.update(annex, wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdateBatchById(List<Annex> annexList) {
         return this.updateBatchById(annexList);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdateById(Annex annex) {

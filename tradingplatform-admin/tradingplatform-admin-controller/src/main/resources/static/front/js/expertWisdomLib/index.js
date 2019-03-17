@@ -11,7 +11,7 @@ var clickPage = 0;  //判断是否点击页数,0为是
 //专家类型
 industryFieldTypes.unshift({
     title: "不限",
-    id:"202035"
+    id: "202035"
 });
 applicationIndustryTypes.unshift({
     title: "不限",
@@ -31,12 +31,13 @@ var searchType = [
 
 $(function () {
     init_dom();
-    init_data();  /** 初始化数据 **/
+    init_data();
+    /** 初始化数据 **/
     handleEvent();
     toPeopelCenterExprets();
 })
 
-function init_dom () {
+function init_dom() {
     for (var i = 0; i < searchType.length; i++) {
         var li = document.createElement("li");
         $(li).addClass("type-item");
@@ -46,15 +47,15 @@ function init_dom () {
         for (var j = 0; j < searchType[i].types.length; j++) {
             if (j === 0) {
                 if (i === 0) {
-                    $(div).append('<span class="option active" data-id="' + searchType[i].types[j].id+'">'+searchType[i].types[j].title+'</span>');
+                    $(div).append('<span class="option active" data-id="' + searchType[i].types[j].id + '">' + searchType[i].types[j].title + '</span>');
                 } else if (i === 1) {
-                    $(div).append('<span class="option active" data-typeid="'+searchType[i].types[j].id+'">'+searchType[i].types[j].title+'</span>');
+                    $(div).append('<span class="option active" data-typeid="' + searchType[i].types[j].id + '">' + searchType[i].types[j].title + '</span>');
                 }
             } else {
                 if (i === 0) {
-                    $(div).append('<span class="option" data-id="'+searchType[i].types[j].id+'">'+searchType[i].types[j].title+'</span>');
+                    $(div).append('<span class="option" data-id="' + searchType[i].types[j].id + '">' + searchType[i].types[j].title + '</span>');
                 } else if (i === 1) {
-                    $(div).append('<span class="option" data-typeid="'+searchType[i].types[j].id+'">'+searchType[i].types[j].title+'</span>');
+                    $(div).append('<span class="option" data-typeid="' + searchType[i].types[j].id + '">' + searchType[i].types[j].title + '</span>');
                 }
             }
             if (j === 7) {
@@ -82,7 +83,7 @@ function init_data() {
 }
 
 /*** 复原currentPage ***/
-function resetCurrentPage () {
+function resetCurrentPage() {
     clickPage = 1;
     $('#pageToolbar').data('currentpage', 1);
     currentPage = 1;
@@ -90,7 +91,7 @@ function resetCurrentPage () {
 }
 
 /*** 处理事件 ***/
-function handleEvent () {
+function handleEvent() {
     // 关闭筛选
     $('#close-select').off().click(function () {
         $('.select-area').toggle();
@@ -99,7 +100,7 @@ function handleEvent () {
     //跳转到详情页
     $(".expert-intro-card").click(function () {
         var id = $(this).data('id');
-        window.location.href = '/f/'+id+'/expert_detail.html?pc=true';
+        window.location.href = '/f/' + id + '/expert_detail.html?pc=true';
     });
     $(".global-experts-card,.global-experts-card-even").click(function () {
         var id = $(this).data('id');
@@ -119,7 +120,7 @@ function handleEvent () {
     });
     // 处理收起、展开筛选操作
     $("#close-select").click(function () {
-        if($(this).children("i").hasClass("icon-close-arrow")) {
+        if ($(this).children("i").hasClass("icon-close-arrow")) {
             $(this).html('展开筛选<i class="icon-open-arrow"></i>');
             $("#select-area").css("display", 'none');
         } else {
@@ -136,7 +137,7 @@ function handleEvent () {
         $(this).addClass("active");
         if ($(this)[0].dataset.id) {
             $_typeId = $(this)[0].dataset.id;
-        } else if($(this)[0].dataset.typeid) {
+        } else if ($(this)[0].dataset.typeid) {
             $_field = $(this)[0].dataset.typeid;
         }
         getExpertList($_field, $_typeId, $("#search-input").val());
@@ -148,8 +149,8 @@ function handleEvent () {
         // 处理请求操作
         getExpertList($_field, $_typeId, $("#search-input").val());
     });
-    $('#search-input').on('keypress',function(event){
-        if(event.keyCode == 13) {
+    $('#search-input').on('keypress', function (event) {
+        if (event.keyCode == 13) {
             // 复原currentPage
             resetCurrentPage();
             // 处理请求操作
@@ -170,13 +171,13 @@ function handleEvent () {
         getExpertList($_field, $_typeId, $("#search-input").val());
     });
     // 监听分页跳转
-    $("#pageToolbar").on("click", function(){
-        if($(this).data('currentpage') != currentPage) {
+    $("#pageToolbar").on("click", function () {
+        if ($(this).data('currentpage') != currentPage) {
             clickPage = 0;
             currentPage = $('#pageToolbar').data('currentpage');
             getExpertList($_field, $_typeId, $("#search-input").val());
         }
-    }).keydown(function(e) {
+    }).keydown(function (e) {
         if (e.keyCode == 13) {
             clickPage = 0;
             currentPage = $('#pageToolbar').data('currentpage');
@@ -184,6 +185,7 @@ function handleEvent () {
         }
     });
 }
+
 /** 获取专家列表**/
 function getExpertList(fieldId, typeId, searchVal) {
     var json = {
@@ -222,7 +224,7 @@ function getExpertList(fieldId, typeId, searchVal) {
         case 0:
             delete json.sortFields;
             delete json.sort;
-            json.sortObjects=[
+            json.sortObjects = [
                 {field: "_score", direction: "DESC"},
                 {
                     field: "recommended",
@@ -283,7 +285,7 @@ function getExpertList(fieldId, typeId, searchVal) {
                 "industry_id_id"
             ],
             "values": [
-                "/.*"+fieldId+".*/"   //搜索引擎正则查询
+                "/.*" + fieldId + ".*/"   //搜索引擎正则查询
             ],
             "searchType": "stringQuery"     //正则查询是使用模糊匹配
         });
@@ -294,15 +296,15 @@ function getExpertList(fieldId, typeId, searchVal) {
         contentType: "application/json;charset=UTF-8",
         dataType: "json",
         data: JSON.stringify(json),
-        success: function(res) {
+        success: function (res) {
             var totalRecord = res.data.data_object.totalRecord;
             var data = res.data.data_object.data;
             /* 传的数据总量 开始 */
-            if(clickPage === 0){
-                $('#pageToolbar').Paging({pagesize: pageSize,count:totalRecord,toolbar:true});
+            if (clickPage === 0) {
+                $('#pageToolbar').Paging({pagesize: pageSize, count: totalRecord, toolbar: true});
                 $('#pageToolbar').find("div:eq(1)").remove();
-            }else {
-                $('#pageToolbar').Paging({pagesize: pageSize,count:totalRecord,toolbar:true});
+            } else {
+                $('#pageToolbar').Paging({pagesize: pageSize, count: totalRecord, toolbar: true});
                 $('#pageToolbar').find("div:eq(0)").remove();
                 clickPage = 0;
             }
@@ -316,7 +318,7 @@ function setExpertListToPage(list) {
     var expertCards = $("#search-result-list").children(".expert-intro-card");
 //    隐藏多余的模板
     for (var k = 0; k < expertCards.length; k++) {
-        if(list.length < pageSize && k >= list.length) {
+        if (list.length < pageSize && k >= list.length) {
             $(expertCards[k]).css("display", "none");
         } else {
             $(expertCards[k]).css("display", "inline-block");
@@ -324,7 +326,7 @@ function setExpertListToPage(list) {
     }
     for (var i = 0; i < list.length; i++) {
         $(expertCards[i]).attr("data-id", list[i].data_id);
-        if(!!list[i].personal_image) {
+        if (!!list[i].personal_image) {
             var image = JSON.parse(list[i].personal_image);
             $(expertCards[i]).find(".avatar").attr("src", $(this).getAvatar(image[0].id));
         } else {
@@ -348,9 +350,9 @@ function setExpertListToPage(list) {
 //获取推荐列
 function getRecommendList() {
     var json = {
-        "pager":{//分页信息
-            "current":1,   //当前页数0
-            "size":5        //每页条数
+        "pager": {//分页信息
+            "current": 1,   //当前页数0
+            "size": 5        //每页条数
         }
     };
     $.ajax({
@@ -381,15 +383,15 @@ function setRecommendList(list) {
         console.log(list[i]);
         $(expertsCards[i]).attr("data-id", list[i].id);
         $(expertsCards[i]).find('.title').html(list[i].name);
-        $(expertsCards[i]).find('.title').attr('title',list[i].name);
+        $(expertsCards[i]).find('.title').attr('title', list[i].name);
         $(expertsCards[i]).find('.desc').html(list[i].personal_profile);
         $(expertsCards[i]).find('.experts-type-area').html(list[i].technical_title);
-        var field = eval('('+list[i].profession_field+')');
+        var field = eval('(' + list[i].profession_field + ')');
         var str = ''
         if (!!field) {
-            for (var j = 0;j < field.length; j++) {
+            for (var j = 0; j < field.length; j++) {
                 str += field[j].title;
-                if(j != field.length-1){
+                if (j != field.length - 1) {
                     str += ",";
                 }
             }

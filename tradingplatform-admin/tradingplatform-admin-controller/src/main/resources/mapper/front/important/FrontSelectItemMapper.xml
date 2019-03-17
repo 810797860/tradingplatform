@@ -4,25 +4,28 @@
 
     <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
 
-		<!-- 通用查询映射结果 -->
-			<resultMap id="frontSelectItemMap" type="com.secondhand.tradingplatformadminentity.entity.front.important.FrontSelectItem" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="frontSelectItemMap"
+               type="com.secondhand.tradingplatformadminentity.entity.front.important.FrontSelectItem"
+               extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
 
-				<result column="sort" property="sort" jdbcType="INTEGER" />
-				<result column="item_value" property="itemValue" jdbcType="VARCHAR" />
-				<result column="pid" property="pid" jdbcType="INTEGER" />
-				<result column="title" property="title" jdbcType="VARCHAR" />
+        <result column="sort" property="sort" jdbcType="INTEGER"/>
+        <result column="item_value" property="itemValue" jdbcType="VARCHAR"/>
+        <result column="pid" property="pid" jdbcType="INTEGER"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
 
-		</resultMap>
+    </resultMap>
 
-        <!-- 通用查询映射结果 -->
-		<resultMap id="frontSelectItemMapSimple" type="com.secondhand.tradingplatformadminentity.entity.front.important.FrontSelectItem">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="frontSelectItemMapSimple"
+               type="com.secondhand.tradingplatformadminentity.entity.front.important.FrontSelectItem">
 
-                        <result column="sort" property="sort" jdbcType="INTEGER" />
-                        <result column="item_value" property="itemValue" jdbcType="VARCHAR" />
-                        <result column="pid" property="pid" jdbcType="INTEGER" />
-                        <result column="title" property="title" jdbcType="VARCHAR" />
+        <result column="sort" property="sort" jdbcType="INTEGER"/>
+        <result column="item_value" property="itemValue" jdbcType="VARCHAR"/>
+        <result column="pid" property="pid" jdbcType="INTEGER"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
 
-        </resultMap>
+    </resultMap>
 
     <select id="selectMapById" resultType="java.util.Map">
         select * from c_business_front_select_item where id = #{frontSelectItemId} and deleted = false

@@ -15,31 +15,31 @@ var isLoadImage = false;
 var table = new Table('upload-table');
 var baseStyleArr = [];
 // 决定数据顺序
-var orderArr = ['title','size','id'];
+var orderArr = ['title', 'size', 'id'];
 var desc = null;
 var apply = null;
 var flow = null;
 var successCase = null;
-var editorOption  = {
-    resize_enabled : false,
-    autoUpdateElement : true,
+var editorOption = {
+    resize_enabled: false,
+    autoUpdateElement: true,
     height: 250,
     toolbarGroups: [
-        { name: 'document', groups: [] },
-        { name: 'clipboard', groups: [] },
-        { name: 'editing', groups: [] },
-        { name: 'forms', groups: [ 'forms' ] },
+        {name: 'document', groups: []},
+        {name: 'clipboard', groups: []},
+        {name: 'editing', groups: []},
+        {name: 'forms', groups: ['forms']},
         '/',
-        { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-        { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
-        { name: 'links', groups: [ 'links' ] },
-        { name: 'insert', groups: [ 'insert' ] },
+        {name: 'basicstyles', groups: ['basicstyles', 'cleanup']},
+        {name: 'paragraph', groups: ['list', 'indent', 'blocks', 'align', 'bidi', 'paragraph']},
+        {name: 'links', groups: ['links']},
+        {name: 'insert', groups: ['insert']},
         '/',
-        { name: 'styles', groups: [ 'styles' ] },
-        { name: 'colors', groups: [ 'colors' ] },
-        { name: 'tools', groups: [ 'tools' ] },
-        { name: 'others', groups: [ 'others' ] },
-        { name: 'about', groups: [ 'about' ] }
+        {name: 'styles', groups: ['styles']},
+        {name: 'colors', groups: ['colors']},
+        {name: 'tools', groups: ['tools']},
+        {name: 'others', groups: ['others']},
+        {name: 'about', groups: ['about']}
     ]
 };
 var serviceId = undefined;
@@ -52,7 +52,7 @@ $(function () {
 });
 
 // 初始化dom结构
-function initDomInPublishService () {
+function initDomInPublishService() {
     /**** 初始化时间控件 ****/
     $('.service-validity').datetimepicker({
         format: 'YYYY-MM-DD',//显示格式
@@ -85,12 +85,13 @@ function initDomInPublishService () {
             $(selectRow).append('<span class="inline-block open-more">更多<i class="icon-open-arrow"></i></span>');
         }
         $(".publish-service .select-area").append(selectRow);
-    };
+    }
+    ;
     //初始化富文本插件
-    desc = CKEDITOR.replace('desc',editorOption);
-    apply = CKEDITOR.replace('apply',editorOption);
-    flow = CKEDITOR.replace('flow',editorOption);
-    successCase = CKEDITOR.replace('case',editorOption);
+    desc = CKEDITOR.replace('desc', editorOption);
+    apply = CKEDITOR.replace('apply', editorOption);
+    flow = CKEDITOR.replace('flow', editorOption);
+    successCase = CKEDITOR.replace('case', editorOption);
     if (!!service) {
         initPageData(service)
     }
@@ -101,23 +102,23 @@ function initPageData(data) {
     if (!!data.category) {
         var skills = $('.select-area .select-row').eq(0).find(".option");
         skills.removeClass("option-active");
-        for (var k=0 ;k<skills.length; k++) {
-            if(JSON.parse(data.category).title == skills.eq(k).text()){
+        for (var k = 0; k < skills.length; k++) {
+            if (JSON.parse(data.category).title == skills.eq(k).text()) {
                 $_categoryId = skills.eq(k).data('id');
                 skills.eq(k).addClass('option-active')
             }
         }
     }
-    if(!!data.detail) {
+    if (!!data.detail) {
         desc.setData(data.detail);
     }
-    if(!!data.conditions) {
+    if (!!data.conditions) {
         apply.setData(data.conditions);
     }
-    if(!!data.workflow) {
+    if (!!data.workflow) {
         flow.setData(data.workflow);
     }
-    if(!!data.successcase) {
+    if (!!data.successcase) {
         successCase.setData(data.successcase);
     }
     serviceId = data.id
@@ -142,7 +143,7 @@ function initPageData(data) {
 }
 
 // 处理事件
-function handleEventInPublishService () {
+function handleEventInPublishService() {
     // 处理更多、收起操作
     $(".select-row .open-more").click(function () {
         var optionArea = $(this).siblings(".option-area");
@@ -236,45 +237,45 @@ function handleEventInPublishService () {
         $(".start-money").val(0);
         $(".zero").addClass("blue");
     });
-    $('.insert-module').on("click",function (e) {
+    $('.insert-module').on("click", function (e) {
         e.stopPropagation();
     });
     //富文本失去焦点和获得焦点
-    desc.on( 'blur', function() {
+    desc.on('blur', function () {
         if (!desc.getData()) {
             $(".service-desc-area .error-info").children(".error-info-content").css("display", 'block');
         }
     });
-    desc.on( 'focus', function() {
+    desc.on('focus', function () {
         $(".service-desc-area .error-info").children(".error-info-content").css("display", 'none');
     });
-    flow.on( 'blur', function() {
+    flow.on('blur', function () {
         if (!flow.getData()) {
             $(".service-flow-area .error-info").children(".error-info-content").css("display", 'block');
         }
     });
-    flow.on( 'focus', function() {
+    flow.on('focus', function () {
         $(".service-flow-area .error-info").children(".error-info-content").css("display", 'none');
     });
-    apply.on( 'blur', function() {
+    apply.on('blur', function () {
         if (!apply.getData()) {
             $(".service-apply-area .error-info").children(".error-info-content").css("display", 'block');
         }
     });
-    apply.on( 'focus', function() {
+    apply.on('focus', function () {
         $(".service-apply-area .error-info").children(".error-info-content").css("display", 'none');
     });
-    successCase.on( 'blur', function() {
+    successCase.on('blur', function () {
         if (!successCase.getData()) {
             $(".service-case-area .error-info").children(".error-info-content").css("display", 'block');
         }
     });
-    successCase.on( 'focus', function() {
+    successCase.on('focus', function () {
         $(".service-case-area .error-info").children(".error-info-content").css("display", 'none');
     });
 }
 
-function beforePublishService () {
+function beforePublishService() {
     var res = true;
     $(".service-name").focus().blur();
     // $(".service-provider").focus().blur();
@@ -309,8 +310,8 @@ function beforePublishService () {
         }
     }
     console.log($_picturesId);
-    if(!$_picturesId) {
-        res= false;
+    if (!$_picturesId) {
+        res = false;
         $(".upload-file-info").addClass("upload-file-info-error");
     }
     if (!res) {
@@ -322,7 +323,7 @@ function beforePublishService () {
     return res;
 }
 
-function publishService () {
+function publishService() {
     if (beforePublishService()) {
         var json = {
             category: $_categoryId,
@@ -349,7 +350,7 @@ function publishService () {
             dataType: "json",
             data: JSON.stringify(json),
             success: function (res) {
-                if(res.status === 200) {
+                if (res.status === 200) {
                     /*parent.layer.open({
                      title: '发布成功',
                      content: "恭喜你发布服务成功"
@@ -375,7 +376,7 @@ function publishService () {
 }
 
 // 上传图片
-function uploadPicture (files) {
+function uploadPicture(files) {
     new NewAjax({
         type: "POST",
         url: "/adjuncts/file_upload?pc=true",
@@ -395,8 +396,9 @@ function uploadPicture (files) {
         }
     });
 }
+
 // 设置附件表格数据
-function setPictureData (table, fileData, list) {
+function setPictureData(table, fileData, list) {
     var arr = []
     if (!Array.isArray(list)) {
         list = arr.push(list);

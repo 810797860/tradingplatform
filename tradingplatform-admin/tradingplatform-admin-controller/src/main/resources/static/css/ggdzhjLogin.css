@@ -1,13 +1,15 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-.login-body{
+
+.login-body {
     box-sizing: border-box;
     padding-top: 140px;
     background-color: #f5f5f5;
 }
-.login-body .login-main{
+
+.login-body .login-main {
     width: 1170px;
     height: 632px;
     margin: 0 auto;
@@ -19,7 +21,8 @@
     padding-left: 320px;
     box-shadow: 0px 0px 13px 0px rgba(100, 100, 100, 0.25);
 }
-.login-body .login-main .back-index{
+
+.login-body .login-main .back-index {
     width: 70px;
     height: 113px;
     background-color: #0db5fb;
@@ -34,18 +37,21 @@
     color: #ffffff;
     cursor: pointer;
 }
-.login-body .login-main .login-logo{
+
+.login-body .login-main .login-logo {
     width: 100px;
     height: 100px;
     margin-left: 230px;
     margin-bottom: 10px;
 }
-.login-body .login-main .login-tab{
+
+.login-body .login-main .login-tab {
     height: 46px;
     line-height: 46px;
     margin-bottom: 44px;
 }
-.login-body .login-main .login-tab .tab-style{
+
+.login-body .login-main .login-tab .tab-style {
     font-size: 20px;
     color: #4c4c4c;
     display: inline-block;
@@ -55,10 +61,12 @@
     border-bottom: 1px solid #dcdcdc;
     cursor: pointer;
 }
-.login-body .login-main .login-tab .tab-style-active{
+
+.login-body .login-main .login-tab .tab-style-active {
     border-bottom: 1px solid #0db5fb;
 }
-.login-body .login-main .username-input,.password-input,.verification-input{
+
+.login-body .login-main .username-input, .password-input, .verification-input {
     width: 370px;
     position: relative;
     margin-bottom: 20px;
@@ -66,14 +74,16 @@
     height: 50px;
     margin-left: 100px;
 }
-.login-body .login-main .username-input .username-logo:before,.password-input .password-logo:before{
+
+.login-body .login-main .username-input .username-logo:before, .password-input .password-logo:before {
     position: absolute;
     top: 8px;
     left: 12px;
     font-size: 28px;
     color: #dcdcdc;
 }
-.login-body .login-main .username-input .username,.password-input .password{
+
+.login-body .login-main .username-input .username, .password-input .password {
     width: 370px;
     height: 50px;
     box-sizing: border-box;
@@ -82,7 +92,8 @@
     font-size: 14px;
 
 }
-.login-body .login-main .verification-input .verification{
+
+.login-body .login-main .verification-input .verification {
     width: 100px;
     height: 34px;
     box-sizing: border-box;
@@ -93,7 +104,8 @@
     padding-left: 12px;
     border-radius: 5px;
 }
-.login-body .login-main .verification-input .send-message{
+
+.login-body .login-main .verification-input .send-message {
     /*padding: 5.5px;*/
     border: 1px solid #dcdcdc;
     border-radius: 5px;
@@ -108,11 +120,12 @@
     display: none;
 }
 
-.login-body .login-main .remember-forget{
+.login-body .login-main .remember-forget {
     margin-bottom: 30px;
     margin-left: 100px;
 }
-.login-body .login-main .remember-forget .remember-password-button{
+
+.login-body .login-main .remember-forget .remember-password-button {
     display: inline-block;
     vertical-align: middle;
     width: 22px;
@@ -124,18 +137,21 @@
     cursor: pointer;
     margin: -2px 0 0;
 }
-.login-body .login-main .remember-forget .remember-password{
+
+.login-body .login-main .remember-forget .remember-password {
     margin-left: 15px;
     margin-right: 212px;
     font-size: 14px;
     color: #a2a2a2;
 }
-.login-body .login-main .remember-forget .forget-password{
+
+.login-body .login-main .remember-forget .forget-password {
     font-size: 14px;
     color: #0db5fb;
     cursor: pointer;
 }
-.login-body .login-main .login-button{
+
+.login-body .login-main .login-button {
     width: 370px;
     height: 50px;
     line-height: 50px;
@@ -148,19 +164,21 @@
     margin-bottom: 22px;
     margin-left: 100px;
 }
-.login-body .login-main .click-register{
+
+.login-body .login-main .click-register {
     font-size: 14px;
     color: #0db5fb;
     cursor: pointer;
     margin-left: 100px;
 }
 
-.login-body .login-bottom{
+.login-body .login-bottom {
     width: 1170px;
     height: 150px;
     margin: 0 auto;
     background-color: #f2f2f2;
 }
+
 .login-body .login-bottom .footer-list {
     width: 1050px;
     margin: 0 auto;
@@ -170,19 +188,24 @@
     font-size: 18px;
     color: #636363;
 }
+
 .login-body .login-bottom .footer-list li {
     display: inline-block;
 }
+
 .login-body .login-bottom .footer-list li a {
     color: #636363;
     cursor: pointer;
 }
+
 .login-body .login-bottom .footer-list li a:hover {
     text-decoration: none;
 }
+
 .login-body .login-bottom .footer-list li i:before {
     font-size: 24px;
 }
+
 .login-body .login-bottom .copyright {
     text-align: center;
     font-size: 14px;

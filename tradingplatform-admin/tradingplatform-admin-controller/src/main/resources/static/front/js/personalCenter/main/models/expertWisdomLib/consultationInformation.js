@@ -21,20 +21,20 @@ var selectConditionOfConsultationInformationList = {
 
 /*** 监听分页跳转 ***/
 function listenToPage() {
-    $(".consultation-information-splitpage >div").on("click", function(){
+    $(".consultation-information-splitpage >div").on("click", function () {
         console.log($('.consultation-information-splitpage .focus')[0].innerText);
-        if($('.consultation-information-splitpage .focus')[0].innerText != currentPageOfConsultationInformationList) {
+        if ($('.consultation-information-splitpage .focus')[0].innerText != currentPageOfConsultationInformationList) {
             currentPageOfConsultationInformationList = $('.consultation-information-splitpage .focus')[0].innerText;
 
             // getServiceList($_typeId, $("#search-input").val());
             pageInOrTabConsultationInformation = 0;
             getConsultationInformationList();
         }
-    }).keydown(function(e) {
+    }).keydown(function (e) {
         if (e.keyCode == 13) {
             currentPageOfConsultationInformationList = $('.consultation-information-splitpage .focus')[0].innerText;
 
-                // getServiceList($_typeId, $("#search-input").val());
+            // getServiceList($_typeId, $("#search-input").val());
             pageInOrTabConsultationInformation = 0;
             getConsultationInformationList();
         }
@@ -42,9 +42,9 @@ function listenToPage() {
 
     /** 回复的分页 **/
     // hrz
-    $(".consultation-information-reply-splitpage >div").on("click", function(){
+    $(".consultation-information-reply-splitpage >div").on("click", function () {
         console.log($('.consultation-information-reply-splitpage .focus')[0].innerText);
-        if($('.consultation-information-reply-splitpage .focus')[0].innerText != currentPageConsultationInformationReply) {
+        if ($('.consultation-information-reply-splitpage .focus')[0].innerText != currentPageConsultationInformationReply) {
             currentPageConsultationInformationReply = $('.consultation-information-reply-splitpage .focus')[0].innerText;
 
             // getServiceList($_typeId, $("#search-input").val());
@@ -53,7 +53,7 @@ function listenToPage() {
             $('.consultation-information-list .replyContentHistory>div').not('.replyContentHistory-head, .oneMessage').remove();
             getConsultationInformation();
         }
-    }).keydown(function(e) {
+    }).keydown(function (e) {
         if (e.keyCode == 13) {
             currentPageConsultationInformationReply = $('.consultation-information-reply-splitpage .focus')[0].innerText;
 
@@ -65,8 +65,9 @@ function listenToPage() {
         }
     });
 }
+
 /*** 复原currentPage ***/
-function resetCurrentPageConsultationInformation () {
+function resetCurrentPageConsultationInformation() {
     $('.consultation-information-splitpage >div').data('currentpage', 1);
     currentPageOfConsultationInformationList = 1;
     $('.consultation-information-splitpage >div').find('li[data-page="' + currentPageOfConsultationInformationList + '"]').addClass('focus').siblings().removeClass('focus');
@@ -122,7 +123,7 @@ function consultationInformationListSearch() {
 }
 
 // 获取发布的需求列表
-function getConsultationInformationList () {
+function getConsultationInformationList() {
     var json = {
         "pager": {
             "current": currentPageOfConsultationInformationList,
@@ -156,12 +157,20 @@ function getConsultationInformationList () {
             var list = res.data.data_list;
             console.log(list);
 
-            if (pageInOrTabConsultationInformation === 0){
-                $('.consultation-information-splitpage >div').Paging({pagesize:searchSizeOfConsultationInformationList,count:totalRecord,toolbar:true});
+            if (pageInOrTabConsultationInformation === 0) {
+                $('.consultation-information-splitpage >div').Paging({
+                    pagesize: searchSizeOfConsultationInformationList,
+                    count: totalRecord,
+                    toolbar: true
+                });
                 $('.consultation-information-splitpage >div').find("div:eq(1)").remove();
             }
-            if (pageInOrTabConsultationInformation === 1){
-                $('.consultation-information-splitpage >div').Paging({pagesize:searchSizeOfConsultationInformationList,count:totalRecord,toolbar:true});
+            if (pageInOrTabConsultationInformation === 1) {
+                $('.consultation-information-splitpage >div').Paging({
+                    pagesize: searchSizeOfConsultationInformationList,
+                    count: totalRecord,
+                    toolbar: true
+                });
                 $('.consultation-information-splitpage >div').find("div:eq(0)").remove();
             }
             $('.consultation-information-total').html("共" + totalRecord + "条");
@@ -186,7 +195,7 @@ function getConsultationInformationList () {
 }
 
 // 设置发布的需求列表
-function setConsultationInformationList (list) {
+function setConsultationInformationList(list) {
     for (var i = 0; i < list.length; i++) {
         list[i].id;
         list[i].name;   // 需求名称
@@ -210,10 +219,10 @@ function setConsultationInformationListData() {
     var baseStyleArr = [];
     var arr = [];
     if (consultationInformationListData != undefined && consultationInformationListData.length != 0) {
-        consultationInformationListData.forEach(function(item) {
+        consultationInformationListData.forEach(function (item) {
             var obj = {};
             if (baseStyleArr.length === 0) {
-                Object.keys(item).forEach(function(key){
+                Object.keys(item).forEach(function (key) {
                     var styleItem = {};
                     styleItem.type = key;
                     switch (key) {
@@ -247,7 +256,7 @@ function setConsultationInformationListData() {
             obj.user_id = JSON.parse(item.user_id).user_name;
             obj.contents = item.contents;
             obj.created_at = $(this).formatTime(new Date(item.created_at)).split(' ')[0];
-            obj.reply =item.reply;
+            obj.reply = item.reply;
             // if (item.reply === true) {
             //     for (var i=0; i<baseStyleArr.length; i++) {
             //         if(baseStyleArr[i].type === 'id') {
@@ -257,11 +266,11 @@ function setConsultationInformationListData() {
             //     arr = ['consultor_name','contents','created_at','reply']
             // } else {
             if (!!item['respondent']) {
-                obj.experts_id = [item.experts_id, item.pid, item.id,JSON.parse(item['respondent']).id];
+                obj.experts_id = [item.experts_id, item.pid, item.id, JSON.parse(item['respondent']).id];
             } else {
                 obj.experts_id = [item.experts_id, item.pid, item.id];
             }
-            arr =  ['user_id','contents','created_at','reply', 'experts_id'];
+            arr = ['user_id', 'contents', 'created_at', 'reply', 'experts_id'];
             // }
             data.push(obj);
         })
@@ -270,7 +279,7 @@ function setConsultationInformationListData() {
     table.setTableData(data);
     table.setBaseStyle(baseStyleArr);
     table.setColOrder(orderArr);
-    table.setOpenCheckBox(true, 2).setTableLineHeight(40).resetHtmlCallBack(function(type, content, label) {
+    table.setOpenCheckBox(true, 2).setTableLineHeight(40).resetHtmlCallBack(function (type, content, label) {
         if (type === 'reply') {
             var span;
             if (content === true) {
@@ -280,7 +289,7 @@ function setConsultationInformationListData() {
             }
             return (label === 'td') ? span : content;
         } else if (type === 'experts_id') {
-            span = '<span class="reply-message" data-id="'+content+'" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>回复信息</span>';
+            span = '<span class="reply-message" data-id="' + content + '" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>回复信息</span>';
             return (label === 'td') ? span : content;
         }
     })
@@ -344,11 +353,8 @@ function consulationInfomationHandleClick() {
             }
         })
     })
-    
-    
-    
-    
-    
+
+
     // $('.consultation-information-list').find('.reply-message').click(function () {
     //     $('.consultation-information-list div').removeClass('my-consultatio-show')
     //     $('.consultation-information-list').children().eq(1).addClass('my-consultatio-show')
@@ -452,9 +458,13 @@ function getConsultationInformation() {
 
             if (res.data.total == 0) {
                 $('.consultation-information-reply-splitpage >div').empty()
-            }else {
+            } else {
                 var totalRecord = res.data.total;
-                $('.consultation-information-reply-splitpage >div').Paging({pagesize:searchSizeConsultationInformationReply,count:totalRecord,toolbar:true});
+                $('.consultation-information-reply-splitpage >div').Paging({
+                    pagesize: searchSizeConsultationInformationReply,
+                    count: totalRecord,
+                    toolbar: true
+                });
                 $('.consultation-information-reply-splitpage >div').find("div:eq(1)").remove();
             }
 
@@ -497,8 +507,8 @@ function getConsultationInformation() {
                 console.log(obj.contents);
                 if (obj.contents == '') {
                     layer.msg("回复内容不能为空")
-                }else {
-                    $('.consultation-information-list .replyContent-submit').attr('disabled',true);
+                } else {
+                    $('.consultation-information-list .replyContent-submit').attr('disabled', true);
                     new NewAjax({
                         type: "POST",
                         url: "/f/expertsConsulting/pc/create_update?pc=true",
@@ -513,7 +523,7 @@ function getConsultationInformation() {
                                     $('.consultation-information-list div').removeClass('my-consultatio-show');
                                     $('.consultation-information-list').children().eq(0).addClass('my-consultatio-show');
                                     getConsultationInformationList();
-                                },500)
+                                }, 500)
                             }
                         }
                     })

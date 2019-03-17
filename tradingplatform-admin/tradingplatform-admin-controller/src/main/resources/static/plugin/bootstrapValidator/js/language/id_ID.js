@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     /**
      * Indonesian language package
      * Translated by @egig
@@ -42,7 +42,7 @@
             'default': 'Silahkan isi nilai yang berbeda'
         },
         digits: {
-             'default': 'Silahkan isi dengan hanya digit'
+            'default': 'Silahkan isi dengan hanya digit'
         },
         ean: {
             'default': 'Silahkan isi nomor EAN yang valid'

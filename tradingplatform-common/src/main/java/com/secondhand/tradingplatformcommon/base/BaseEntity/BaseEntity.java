@@ -26,7 +26,7 @@ public class BaseEntity extends BaseDTO {
      */
 
     @ApiModelProperty("主键id")
-    @TableId(value="id", type= IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     /**

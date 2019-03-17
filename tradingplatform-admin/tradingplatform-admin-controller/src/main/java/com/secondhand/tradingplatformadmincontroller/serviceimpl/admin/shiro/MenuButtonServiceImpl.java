@@ -27,10 +27,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *   @description : MenuButton 服务实现类
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2018-12-06
+ * @author zhangjk
+ * @description : MenuButton 服务实现类
+ * ---------------------------------
+ * @since 2018-12-06
  */
 
 @Service
@@ -89,7 +89,7 @@ public class MenuButtonServiceImpl extends BaseServiceImpl<MenuButtonMapper, Men
         menuButtonMapper.delete(wrapper);
 
         //然后再加进去
-        buttonIds.forEach(buttonId->{
+        buttonIds.forEach(buttonId -> {
             //这里就自己写了，为了快一点(因为都是新增)
             MenuButton menuButton = new MenuButton();
             menuButton.setUuid(ToolUtil.getUUID());
@@ -104,7 +104,7 @@ public class MenuButtonServiceImpl extends BaseServiceImpl<MenuButtonMapper, Men
     @Transactional(rollbackFor = Exception.class)
     @CacheEvict(allEntries = true)
     public boolean myMenuButtonBatchCreate(Long menuId, List<Integer> buttonIds) {
-        buttonIds.forEach(buttonId->{
+        buttonIds.forEach(buttonId -> {
             //这里就自己写了，为了快一点(因为都是新增)
             MenuButton menuButton = new MenuButton();
             menuButton.setUuid(ToolUtil.getUUID());
@@ -131,12 +131,12 @@ public class MenuButtonServiceImpl extends BaseServiceImpl<MenuButtonMapper, Men
         buttonWrapper.where("deleted = {0}", false);
         //遍历排序
         List<Sort> sorts = menuButton.getSorts();
-        if (sorts == null){
+        if (sorts == null) {
             //为null时，默认按created_at倒序
             buttonWrapper.orderBy("id", false);
         } else {
             //遍历排序
-            sorts.forEach( sort -> {
+            sorts.forEach(sort -> {
                 buttonWrapper.orderBy(sort.getField(), sort.getAsc());
             });
         }
@@ -156,7 +156,7 @@ public class MenuButtonServiceImpl extends BaseServiceImpl<MenuButtonMapper, Men
         wrapper.where("deleted = {0}", false);
         List<Object> buttonIds = this.selectObjs(wrapper);
         //如果buttonIds为空，返回空的对象
-        if (buttonIds.size() == 0){
+        if (buttonIds.size() == 0) {
             return new ArrayList<>();
         }
 
@@ -188,7 +188,7 @@ public class MenuButtonServiceImpl extends BaseServiceImpl<MenuButtonMapper, Men
         wrapper.setSqlSelect("button_id");
         List<Object> buttonIds = this.selectObjs(wrapper);
         //如果buttonIds为空，返回空的对象
-        if (buttonIds.size() == 0){
+        if (buttonIds.size() == 0) {
             return new Page<>();
         }
         //再根据id找buttonPage
@@ -198,12 +198,12 @@ public class MenuButtonServiceImpl extends BaseServiceImpl<MenuButtonMapper, Men
         buttonWrapper.where("deleted = {0}", false);
         //遍历排序
         List<Sort> sorts = menuButton.getSorts();
-        if (sorts == null){
+        if (sorts == null) {
             //为null时，默认按created_at倒序
             buttonWrapper.orderBy("id", false);
         } else {
             //遍历排序
-            sorts.forEach( sort -> {
+            sorts.forEach(sort -> {
                 buttonWrapper.orderBy(sort.getField(), sort.getAsc());
             });
         }
@@ -216,28 +216,28 @@ public class MenuButtonServiceImpl extends BaseServiceImpl<MenuButtonMapper, Men
     public List<MenuButton> mySelectListWithMap(Map<String, Object> map) {
         return menuButtonMapper.selectByMap(map);
     }
-    
+
     //以下是继承BaseMapper
-    
+
     @Override
     @Cacheable(key = "#p0.paramNameValuePairs")
     public Map<String, Object> mySelectMap(Wrapper<MenuButton> wrapper) {
         return this.selectMap(wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0.paramNameValuePairs")
     public List<MenuButton> mySelectList(Wrapper<MenuButton> wrapper) {
         return menuButtonMapper.selectList(wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsert(MenuButton menuButton) {
         menuButton.setUuid(ToolUtil.getUUID());
         return this.insert(menuButton);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertBatch(List<MenuButton> menuButtonList) {
@@ -246,47 +246,47 @@ public class MenuButtonServiceImpl extends BaseServiceImpl<MenuButtonMapper, Men
         });
         return this.insertBatch(menuButtonList);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdate(MenuButton menuButton) {
         //没有uuid的话要加上去
-        if (menuButton.getUuid().equals(null)){
+        if (menuButton.getUuid().equals(null)) {
             menuButton.setUuid(ToolUtil.getUUID());
         }
         return this.insertOrUpdate(menuButton);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdateBatch(List<MenuButton> menuButtonList) {
         menuButtonList.forEach(menuButton -> {
             //没有uuid的话要加上去
-            if (menuButton.getUuid().equals(null)){
+            if (menuButton.getUuid().equals(null)) {
                 menuButton.setUuid(ToolUtil.getUUID());
             }
         });
         return this.insertOrUpdateBatch(menuButtonList);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public List<MenuButton> mySelectBatchIds(Collection<? extends Serializable> menuButtonIds) {
         return menuButtonMapper.selectBatchIds(menuButtonIds);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public MenuButton mySelectById(Serializable menuButtonId) {
         return menuButtonMapper.selectById(menuButtonId);
     }
-    
+
     @Override
     @Cacheable(key = "#p0.paramNameValuePairs")
     public int mySelectCount(Wrapper<MenuButton> wrapper) {
         return menuButtonMapper.selectCount(wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0.paramNameValuePairs")
     public MenuButton mySelectOne(Wrapper<MenuButton> wrapper) {
@@ -304,13 +304,13 @@ public class MenuButtonServiceImpl extends BaseServiceImpl<MenuButtonMapper, Men
     public boolean myUpdate(MenuButton menuButton, Wrapper<MenuButton> wrapper) {
         return this.update(menuButton, wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdateBatchById(List<MenuButton> menuButtonList) {
         return this.updateBatchById(menuButtonList);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdateById(MenuButton menuButton) {

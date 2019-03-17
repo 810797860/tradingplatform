@@ -185,12 +185,12 @@ $(function () {
 
         // 提取广东省城市数据
         _this._getCityArr = function () {
-             var data = addressData['440000'];
+            var data = addressData['440000'];
             // 初始化省数组
             if (cityArr.length > 1) {
                 cityArr.splice(1, cityArr.length - 1);
             }
-            Object.keys(data).forEach(function(key) {
+            Object.keys(data).forEach(function (key) {
                 var obj = {};
                 obj.id = Number(key);
                 obj.title = data[key];
@@ -475,6 +475,7 @@ $(function () {
                 }
             }
         };
+
         // 复原currentPage
         function resetCurrentPage() {
             $('#pageToolbar').data('currentpage', 1);
@@ -482,6 +483,7 @@ $(function () {
             clickPage = 1;
             $('#pageToolbar').find('li[data-page="' + currentPage + '"]').addClass('focus').siblings().removeClass('focus');
         }
+
         // 获取url参数进行条件查询
         function getSearchValue() {
             var url = window.location.href;

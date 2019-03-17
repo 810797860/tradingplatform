@@ -6,49 +6,50 @@ var click = device.mobile() ? 'touchstart' : 'click';
 var stack_bottomright = {"dir1": "up", "dir2": "left", "firstpos1": 25, "firstpos2": 25};
 // 获取表单
 var $form = $("#modifyPasswordForm");
+
 // 菜单栏解析
 function analysisMenu(menus) {
     var menuDom = $('<ul class="menu-list sm-fontSize"></ul>');
     var TEMPS = menus;  // 存储树状中无其父节点的菜单项
     var count = 0; // 防止找不到父节点的菜单陷入死循环, 最大容错层数为20层
-    while(TEMPS.length !== 0 && count < 20) {
+    while (TEMPS.length !== 0 && count < 20) {
         var tempMenus = [];
-        for(var i = 0, len = TEMPS.length; i < len; i++ ){
-            if(TEMPS[i].pid === 'undefined' || TEMPS[i].pid === null) { // 无父节点
-                if(TEMPS[i].url === 'undefined' || TEMPS[i].url === '' || TEMPS[i].url === null) {
+        for (var i = 0, len = TEMPS.length; i < len; i++) {
+            if (TEMPS[i].pid === 'undefined' || TEMPS[i].pid === null) { // 无父节点
+                if (TEMPS[i].url === 'undefined' || TEMPS[i].url === '' || TEMPS[i].url === null) {
                     //如果节点无url
-                    menuDom.append('<li class="sub-menu" data-id="'+TEMPS[i].id+'"><a class="icon-plus waves-effect" href="javascript:void(0)"><i class="' + TEMPS[i].icon + '"></i>'+TEMPS[i].name+'</a> <ul> </ul> </li>');
+                    menuDom.append('<li class="sub-menu" data-id="' + TEMPS[i].id + '"><a class="icon-plus waves-effect" href="javascript:void(0)"><i class="' + TEMPS[i].icon + '"></i>' + TEMPS[i].name + '</a> <ul> </ul> </li>');
                 } else {
-                    var mark = TEMPS[i].url.indexOf('?') > - 1 ? '&' : '?';
+                    var mark = TEMPS[i].url.indexOf('?') > -1 ? '&' : '?';
                     var menuInfo = mark + 'menuId=' + TEMPS[i].id;
-                    menuDom.append('<li data-id="'+TEMPS[i].id+'"><a class="waves-effect" href="javascript:Tab.addTab(\''+TEMPS[i].name+'\', \'tab_iframe_'+TEMPS[i].id+'\', \''+TEMPS[i].url + menuInfo +'\')">'+TEMPS[i].name+'</a></li>');
+                    menuDom.append('<li data-id="' + TEMPS[i].id + '"><a class="waves-effect" href="javascript:Tab.addTab(\'' + TEMPS[i].name + '\', \'tab_iframe_' + TEMPS[i].id + '\', \'' + TEMPS[i].url + menuInfo + '\')">' + TEMPS[i].name + '</a></li>');
                 }
             } else { // 有父节点  --- 层次遍历
                 var queue = [], rear = -1, front = -1, temp;
                 var found = false;
                 queue[++rear] = menuDom;
-                while(rear !== front) {
+                while (rear !== front) {
                     front = front + 1;
                     temp = queue[front];
                     var tempId = parseInt(temp.attr('data-id'));
-                    if(tempId !== 'undefined' && parseInt(tempId) === parseInt(TEMPS[i].pid)) {
-                        if(TEMPS[i].url === 'undefined' || TEMPS[i].url === null) {
-                            temp.children('ul').first().append('<li class="sub-menu" data-id="'+TEMPS[i].id+'"><a class="waves-effect" href="javascript:void(0)"><i></i>'+TEMPS[i].name+'</a> <ul> </ul> </li>');
+                    if (tempId !== 'undefined' && parseInt(tempId) === parseInt(TEMPS[i].pid)) {
+                        if (TEMPS[i].url === 'undefined' || TEMPS[i].url === null) {
+                            temp.children('ul').first().append('<li class="sub-menu" data-id="' + TEMPS[i].id + '"><a class="waves-effect" href="javascript:void(0)"><i></i>' + TEMPS[i].name + '</a> <ul> </ul> </li>');
                         } else {
-                            var mark = TEMPS[i].url.indexOf('?') > - 1 ? '&' : '?';
+                            var mark = TEMPS[i].url.indexOf('?') > -1 ? '&' : '?';
                             var menuInfo = mark + 'menuId=' + TEMPS[i].id;
-                            temp.children('ul').first().append('<li data-id="'+TEMPS[i].id+'"><a class="waves-effect" href="javascript:Tab.addTab(\''+TEMPS[i].name+'\', \'tab_iframe_'+TEMPS[i].id+'\', \''+TEMPS[i].url + menuInfo + '\')">'+TEMPS[i].name+'</a></li>');
+                            temp.children('ul').first().append('<li data-id="' + TEMPS[i].id + '"><a class="waves-effect" href="javascript:Tab.addTab(\'' + TEMPS[i].name + '\', \'tab_iframe_' + TEMPS[i].id + '\', \'' + TEMPS[i].url + menuInfo + '\')">' + TEMPS[i].name + '</a></li>');
                         }
-                        found =true;
+                        found = true;
                         break;
                     }
-                    var tempLen = temp.children('li').length || temp.find('ul li').length ;
-                    for(var k = 0; k < tempLen; k++) {
+                    var tempLen = temp.children('li').length || temp.find('ul li').length;
+                    for (var k = 0; k < tempLen; k++) {
                         rear = rear + 1;
                         queue[rear] = temp.children('li').eq(k) || temp.find('ul li').eq(k);
                     }
                 }
-                if(!found) {
+                if (!found) {
                     tempMenus.push(TEMPS[i]);
                 }
             }
@@ -61,38 +62,38 @@ function analysisMenu(menus) {
     $(".main-menu").append(menuDom);
 }
 
-$(function() {
+$(function () {
     var menuList = sortUp(roleMenus, 'sort');
     analysisMenu(menuList);
     // 侧边栏操作按钮
-    $(document).on(click, '#guide', function() {
+    $(document).on(click, '#guide', function () {
         $(this).toggleClass('toggled');
         $('#sidebar').toggleClass('toggled');
     });
     // 侧边栏二级菜单
-    $(document).on(click, '.sub-menu>a', function() {
+    $(document).on(click, '.sub-menu>a', function () {
         $(this).next().slideToggle(200);
         $(this).parent().toggleClass('toggled');
-        if($(this).hasClass('icon-plus')){
+        if ($(this).hasClass('icon-plus')) {
             $(this).removeClass('icon-plus');
             $(this).addClass('icon-minus');
-        }else {
+        } else {
             $(this).removeClass('icon-minus');
             $(this).addClass('icon-plus');
         }
-    }).on(click, '.s-profile>a', function(e){
+    }).on(click, '.s-profile>a', function (e) {
         e.stopPropagation();
-        if($(this).parent().hasClass('toggled')) {
+        if ($(this).parent().hasClass('toggled')) {
             $(this).parent().removeClass('toggled');
             $(".s-profile-list").slideUp();
-        }else {
+        } else {
             $(this).parent().addClass('toggled');
             $(".s-profile-list").slideDown();
         }
     });
 
     // 关闭tab页（为tab页上的关闭图标注册关闭事件）
-    $(document).on('click', '.content_tab>ul>li>i', function(e) {
+    $(document).on('click', '.content_tab>ul>li>i', function (e) {
         e.stopPropagation();
         Tab.closeTab($(e.currentTarget).parent());
     });
@@ -125,16 +126,19 @@ $(function() {
     });
     formValidator();
 });
+
 // iframe高度自适应
 function changeFrameHeight(ifm) {
     ifm.height = document.documentElement.clientHeight - 92;
 }
+
 function resizeFrameHeight() {
     $('.tab_iframe').css('height', document.documentElement.clientHeight - 92);
     $('md-tab-content').css('left', '0');
 }
+
 // 窗体尺寸改变时
-window.onresize = function() {
+window.onresize = function () {
     resizeFrameHeight();
     initScrollShow();
     initScrollState();
@@ -145,23 +149,27 @@ function formValidator() {
     // 表单验证
     $("#modifyPasswordForm").bootstrapValidator({
         message: '这个值无效',
-        feedbackIcons: {/*输入框不同状态，显示图片的样式*/
+        feedbackIcons: {
+            /*输入框不同状态，显示图片的样式*/
             valid: 'glyphicon glyphicon-ok',
             invalid: 'glyphicon glyphicon-remove',
             validating: 'glyphicon glyphicon-refresh'
         },
         excluded: [':disabled', ':hidden', 'select'],
-        fields: {/*验证*/
-            oldPassword: {/*键名username和input name值对应*/
+        fields: {
+            /*验证*/
+            oldPassword: {
+                /*键名username和input name值对应*/
                 message: '旧密码无效',
                 validators: {
-                    notEmpty: {/*非空提示*/
+                    notEmpty: {
+                        /*非空提示*/
                         message: '就密码不能为空'
                     }
                 }
             },
             newPassword: {
-                message:'新密码无效',
+                message: '新密码无效',
                 validators: {
                     notEmpty: {
                         message: '新密码不能为空'
@@ -174,7 +182,7 @@ function formValidator() {
                 }
             },
             confirmPassword: {
-                message:'确认新密码无效',
+                message: '确认新密码无效',
                 validators: {
                     notEmpty: {
                         message: '确认新密码不能为空'
@@ -195,21 +203,23 @@ function formValidator() {
 }
 
 // 弹出修改密码的框
-function passwordModal (e) {
+function passwordModal(e) {
     e.stopPropagation();
     $('#modify-password-modal').modal('show');
 }
+
 // 模态框关闭后调用
-$('#modify-password-modal').on('hidden.bs.modal', function() {
+$('#modify-password-modal').on('hidden.bs.modal', function () {
     $form.data('bootstrapValidator').destroy();
     $form.data('bootstrapValidator', null);
     $form[0].reset();
     formValidator();
 });
+
 function modifyPassword() {
     $form.data('bootstrapValidator').validate();
     var isValid = $form.data('bootstrapValidator').isValid();
-    if(!isValid) {
+    if (!isValid) {
         return;
     }
     var postData = {
@@ -259,9 +269,9 @@ function modifyPassword() {
 }
 
 // ========== 选项卡操作 ==========
-$(function() {
+$(function () {
     // 选项卡点击
-    $(document).on(click, '.content_tab li', function() {
+    $(document).on(click, '.content_tab li', function () {
         // 切换选项卡
         $('.content_tab li').removeClass('active');
         $(this).addClass('active');
@@ -272,27 +282,27 @@ $(function() {
         // 滚动到可视区域:在左侧
         if ($(this).position().left < marginLeft) {
             var left = $('.content_tab>ul').scrollLeft() + $(this).position().left - marginLeft;
-            $('.content_tab>ul').animate({scrollLeft: left}, 200, function() {
+            $('.content_tab>ul').animate({scrollLeft: left}, 200, function () {
                 initScrollState();
             });
         }
         // 滚动到可视区域:在右侧
-        if(($(this).position().left + $(this).width() - marginLeft) > document.getElementById('tabs').clientWidth) {
+        if (($(this).position().left + $(this).width() - marginLeft) > document.getElementById('tabs').clientWidth) {
             var left = $('.content_tab>ul').scrollLeft() + (($(this).position().left + $(this).width() - marginLeft) - document.getElementById('tabs').clientWidth);
-            $('.content_tab>ul').animate({scrollLeft: left}, 200, function() {
+            $('.content_tab>ul').animate({scrollLeft: left}, 200, function () {
                 initScrollState();
             });
         }
     });
     // 控制选项卡滚动位置
-    $(document).on(click, '.tab_left>a', function() {
-        $('.content_tab>ul').animate({scrollLeft: $('.content_tab>ul').scrollLeft() - 300}, 200, function() {
+    $(document).on(click, '.tab_left>a', function () {
+        $('.content_tab>ul').animate({scrollLeft: $('.content_tab>ul').scrollLeft() - 300}, 200, function () {
             initScrollState();
         });
     });
     // 向右箭头
-    $(document).on(click, '.tab_right>a', function() {
-        $('.content_tab>ul').animate({scrollLeft: $('.content_tab>ul').scrollLeft() + 300}, 200, function() {
+    $(document).on(click, '.tab_right>a', function () {
+        $('.content_tab>ul').animate({scrollLeft: $('.content_tab>ul').scrollLeft() + 300}, 200, function () {
             initScrollState();
         });
     });
@@ -300,7 +310,7 @@ $(function() {
 
     // 选项卡右键菜单
     var menu = new BootstrapMenu('.tabs li', {
-        fetchElementData: function(item) {
+        fetchElementData: function (item) {
             return item;
         },
         actionsGroups: [
@@ -312,10 +322,10 @@ $(function() {
             close: {
                 name: '关闭',
                 iconClass: 'icon-remove',
-                onClick: function(item) {
+                onClick: function (item) {
                     Tab.closeTab($(item));
                 },
-                isEnabled: function(item) {
+                isEnabled: function (item) {
                     if ($(item).data('index') === 'home') {
                         $(".dropdown-menu li[data-action='close']").addClass('disabled')
                     } else {
@@ -326,15 +336,15 @@ $(function() {
             closeOther: {
                 name: '关闭其他',
                 iconClass: 'icon-remove-circle',
-                onClick: function(item) {
+                onClick: function (item) {
                     var index = $(item).data('index');
-                    $('.content_tab li').each(function() {
+                    $('.content_tab li').each(function () {
                         if ($(this).data('index') != index) {
                             Tab.closeTab($(this));
                         }
                     });
                 },
-                isEnabled: function(item) {
+                isEnabled: function (item) {
                     if ($('.content_tab li').length <= 1) {
                         $(".dropdown-menu li[data-action='closeOther']").addClass('disabled')
                     } else if ($('.content_tab li').length <= 2 && $(item).data('index') != 'home') {
@@ -347,12 +357,12 @@ $(function() {
             closeAll: {
                 name: '关闭全部',
                 iconClass: 'icon-remove-sign',
-                onClick: function() {
-                    $('.content_tab li').each(function() {
+                onClick: function () {
+                    $('.content_tab li').each(function () {
                         Tab.closeTab($(this));
                     });
                 },
-                isEnabled: function(item) {
+                isEnabled: function (item) {
                     if ($('.content_tab li').length <= 1) {
                         $(".dropdown-menu li[data-action='closeAll']").addClass('disabled')
                     } else {
@@ -363,9 +373,9 @@ $(function() {
             closeRight: {
                 name: '关闭右侧所有',
                 iconClass: 'icon-arrow-right',
-                onClick: function(item) {
+                onClick: function (item) {
                     var index = $(item).data('index');
-                    $($('.content_tab li').toArray().reverse()).each(function() {
+                    $($('.content_tab li').toArray().reverse()).each(function () {
                         if ($(this).data('index') != index) {
                             Tab.closeTab($(this));
                         } else {
@@ -373,11 +383,11 @@ $(function() {
                         }
                     });
                 },
-                isEnabled: function(item) {
+                isEnabled: function (item) {
                     var index = $(item).data('index');
                     if ($($('.content_tab li').toArray().reverse()[0]).data("index") === index) {
                         $(".dropdown-menu li[data-action='closeRight']").addClass('disabled')
-                    }else {
+                    } else {
                         $(".dropdown-menu li[data-action='closeRight']").removeClass('disabled')
                     }
                 }
@@ -385,9 +395,9 @@ $(function() {
             closeLeft: {
                 name: '关闭左侧所有',
                 iconClass: 'icon-arrow-left',
-                onClick: function(item) {
+                onClick: function (item) {
                     var index = $(item).data('index');
-                    $('.content_tab li').each(function() {
+                    $('.content_tab li').each(function () {
                         if ($(this).data('index') != index) {
                             Tab.closeTab($(this));
                         } else {
@@ -395,7 +405,7 @@ $(function() {
                         }
                     });
                 },
-                isEnabled: function(item) {
+                isEnabled: function (item) {
                     var index = $(item).data('index');
                     if (index === 'home') {
                         $(".dropdown-menu li[data-action='closeLeft']").addClass('disabled')
@@ -409,7 +419,7 @@ $(function() {
             refresh: {
                 name: '刷新',
                 iconClass: 'icon-refresh',
-                onClick: function(item) {
+                onClick: function (item) {
                     var index = $(item).data('index');
                     var $iframe = $('#iframe_' + index).find('iframe');
                     $iframe.attr('src', $iframe.attr('src'));
@@ -420,19 +430,19 @@ $(function() {
 });
 // 选项卡对象
 var Tab = {
-    addTab: function(title, id, url) {
+    addTab: function (title, id, url) {
         // 如果存在选项卡，则激活，否则创建新选项卡
         if ($('#tab_' + id).length == 0) {
             // 添加选项卡
             $('.content_tab li').removeClass('active');
-            var tab = '<li id="tab_' + id +'" data-index="' + id + '" class="sm-fontSize active"><a class="waves-effect waves-light">' + title + '</a><i class="glyphicon glyphicon-remove"></i></li>';
+            var tab = '<li id="tab_' + id + '" data-index="' + id + '" class="sm-fontSize active"><a class="waves-effect waves-light">' + title + '</a><i class="glyphicon glyphicon-remove"></i></li>';
             $('.content_tab>ul').append(tab);
             // 添加iframe
             $('.iframe').removeClass('active');
             var iframe = '<div id="iframe_' + id + '" class="iframe active"><iframe class="tab_iframe" src="' + url + '" width="100%" frameborder="0" scrolling="auto" onload="changeFrameHeight(this)"></iframe></div>';
             $('.content_main').append(iframe);
             initScrollShow();
-            $('.content_tab>ul').animate({scrollLeft: document.getElementById('tabs').scrollWidth - document.getElementById('tabs').clientWidth}, 200, function() {
+            $('.content_tab>ul').animate({scrollLeft: document.getElementById('tabs').scrollWidth - document.getElementById('tabs').clientWidth}, 200, function () {
                 initScrollState();
             });
         } else {
@@ -441,11 +451,11 @@ var Tab = {
         // 关闭侧边栏
         $('#guide').trigger(click);
     },
-    closeTab: function($item) {
+    closeTab: function ($item) {
         var closeable = $item.data('closeable');
         if (closeable != false) {
             // 如果当前时激活状态则关闭后激活左边选项卡
-            if($item.hasClass('active')) {
+            if ($item.hasClass('active')) {
                 $item.prev().trigger('click');
             }
             // 关闭当前选项卡
@@ -464,6 +474,7 @@ function initScrollShow() {
         $('.content_tab').removeClass('scroll');
     }
 }
+
 function initScrollState() {
     if ($('.content_tab>ul').scrollLeft() == 0) {
         $('.tab_left>a').removeClass('active');
@@ -492,7 +503,7 @@ function fullPage(e) {
 }
 
 // 升序排序（从小到大，用于菜单）
-function sortUp(array, property){
+function sortUp(array, property) {
     return array.sort(function (a, b) {
         return a[property] - b[property];
     })

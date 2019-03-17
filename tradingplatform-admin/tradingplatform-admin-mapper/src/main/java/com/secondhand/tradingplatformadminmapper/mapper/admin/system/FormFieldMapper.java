@@ -10,10 +10,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *   @description : FormFieldMapper 接口
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2018-11-09
+ * @author zhangjk
+ * @description : FormFieldMapper 接口
+ * ---------------------------------
+ * @since 2018-11-09
  */
 @Repository
 public interface FormFieldMapper extends BaseDao<FormField> {
@@ -21,6 +21,7 @@ public interface FormFieldMapper extends BaseDao<FormField> {
     /**
      * 获取Map数据（Obj）
      * 自定化MapSql到MysqlGenerator生成
+     *
      * @param formFieldId
      * @return
      */
@@ -28,6 +29,7 @@ public interface FormFieldMapper extends BaseDao<FormField> {
 
     /**
      * 在数据库表中创建字段
+     *
      * @param tableName
      * @param columnType
      * @param formField
@@ -52,6 +54,7 @@ public interface FormFieldMapper extends BaseDao<FormField> {
 
     /**
      * 在数据库表中修改字段
+     *
      * @param tableName
      * @param oldFieldName
      * @param columnType
@@ -77,6 +80,7 @@ public interface FormFieldMapper extends BaseDao<FormField> {
 
     /**
      * 在数据库表中删除字段
+     *
      * @param tableName
      * @param fieldName
      * @return
@@ -86,6 +90,7 @@ public interface FormFieldMapper extends BaseDao<FormField> {
 
     /**
      * 假删除掉该表的字段
+     *
      * @param formId
      * @return
      */
@@ -94,6 +99,7 @@ public interface FormFieldMapper extends BaseDao<FormField> {
 
     /**
      * 查询字典表，获取该表物理字段
+     *
      * @param formName
      * @return
      */

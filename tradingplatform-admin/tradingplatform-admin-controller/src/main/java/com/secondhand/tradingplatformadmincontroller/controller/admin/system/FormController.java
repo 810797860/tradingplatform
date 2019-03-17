@@ -29,12 +29,12 @@ import com.secondhand.tradingplatformadminservice.service.admin.system.FormServi
 import javax.servlet.http.HttpSession;
 
 /**
- * @description : Form 控制器
  * @author : zhangjk
+ * @description : Form 控制器
  * @since : Create in 2018-11-11
  */
 @Controller("adminFormController")
-@Api(value="/admin/form", description="Form 控制器")
+@Api(value = "/admin/form", description = "Form 控制器")
 @RequestMapping("/admin/form")
 public class FormController extends BaseController {
 
@@ -90,25 +90,25 @@ public class FormController extends BaseController {
      * @since : Create in 2018-11-11
      */
     @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    @ApiOperation(value = "/query", notes="获取分页列表")
+    @ApiOperation(value = "/query", notes = "获取分页列表")
     @ResponseBody
     public TableJson<Form> getFormList(@ApiParam(name = "form", value = "Form 实体类") @RequestBody Form form) {
-            TableJson<Form> resJson = new TableJson<>();
-            Page resPage = form.getPage();
-            form.setDeleted(false);
-            Integer current = resPage.getCurrent();
-            Integer size = resPage.getSize();
-            if (current == null && size == null) {
-                resJson.setSuccess(false);
-                resJson.setMessage("异常信息：页数和页的大小不能为空");
-                return resJson;
-            }
-            Page<Form> formPage = new Page<Form>(current, size);
-            formPage = formService.mySelectPageWithParam(formPage, form);
-            resJson.setRecordsTotal(formPage.getTotal());
-            resJson.setData(formPage.getRecords());
-            resJson.setSuccess(true);
+        TableJson<Form> resJson = new TableJson<>();
+        Page resPage = form.getPage();
+        form.setDeleted(false);
+        Integer current = resPage.getCurrent();
+        Integer size = resPage.getSize();
+        if (current == null && size == null) {
+            resJson.setSuccess(false);
+            resJson.setMessage("异常信息：页数和页的大小不能为空");
             return resJson;
+        }
+        Page<Form> formPage = new Page<Form>(current, size);
+        formPage = formService.mySelectPageWithParam(formPage, form);
+        resJson.setRecordsTotal(formPage.getTotal());
+        resJson.setData(formPage.getRecords());
+        resJson.setSuccess(true);
+        return resJson;
     }
 
     /**
@@ -119,12 +119,12 @@ public class FormController extends BaseController {
     @GetMapping(value = "/get_map_by_id/{formId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{formId}", notes = "根据id获取formMap")
     @ResponseBody
-    public JsonResult<Map<String, Object>> getFormByIdForMap( @ApiParam(name = "id", value = "formId") @PathVariable("formId") Long formId){
-            JsonResult<Map<String, Object>> resJson = new JsonResult<>();
-            Map<String, Object> form = formService.mySelectMapById(formId);
-            resJson.setData(form);
-            resJson.setSuccess(true);
-            return resJson;
+    public JsonResult<Map<String, Object>> getFormByIdForMap(@ApiParam(name = "id", value = "formId") @PathVariable("formId") Long formId) {
+        JsonResult<Map<String, Object>> resJson = new JsonResult<>();
+        Map<String, Object> form = formService.mySelectMapById(formId);
+        resJson.setData(form);
+        resJson.setSuccess(true);
+        return resJson;
     }
 
     /**
@@ -135,19 +135,19 @@ public class FormController extends BaseController {
     @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除form")
     @ResponseBody
-    public JsonResult<Form> fakeDeleteById(@ApiParam(name = "id", value = "formId") @RequestBody Long formId){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<Form> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/form/delete");
-                formService.myFakeDeleteById(formId);
-                resJson.setSuccess(true);
-            }catch (UnauthorizedException e){
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    public JsonResult<Form> fakeDeleteById(@ApiParam(name = "id", value = "formId") @RequestBody Long formId) {
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<Form> resJson = new JsonResult<>();
+        try {
+            //检查是否具有权限
+            subject.checkPermission("/admin/form/delete");
+            formService.myFakeDeleteById(formId);
+            resJson.setSuccess(true);
+        } catch (UnauthorizedException e) {
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
@@ -158,18 +158,18 @@ public class FormController extends BaseController {
     @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除form")
     @ResponseBody
-    public JsonResult<Form> fakeBatchDelete(@ApiParam(name = "ids", value = "formIds") @RequestBody List<Long> formIds){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<Form> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/form/batch_delete");
-                resJson.setSuccess(formService.myFakeBatchDelete(formIds));
-            }catch(UnauthorizedException e){
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    public JsonResult<Form> fakeBatchDelete(@ApiParam(name = "ids", value = "formIds") @RequestBody List<Long> formIds) {
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<Form> resJson = new JsonResult<>();
+        try {
+            //检查是否具有权限
+            subject.checkPermission("/admin/form/batch_delete");
+            resJson.setSuccess(formService.myFakeBatchDelete(formIds));
+        } catch (UnauthorizedException e) {
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
@@ -180,22 +180,22 @@ public class FormController extends BaseController {
     @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改form")
     @ResponseBody
-    public JsonResult<Form> formCreateUpdate(@ApiParam(name = "Form", value = "Form实体类") @RequestBody Form form){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<Form> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/form/create_update");
-                form = formService.myFormCreateUpdate(form);
-                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-                resJson.setData(form);
-                resJson.setSuccess(true);
-            }catch(UnauthorizedException e){
-                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    public JsonResult<Form> formCreateUpdate(@ApiParam(name = "Form", value = "Form实体类") @RequestBody Form form) {
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<Form> resJson = new JsonResult<>();
+        try {
+            //检查是否具有权限
+            subject.checkPermission("/admin/form/create_update");
+            form = formService.myFormCreateUpdate(form);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+            resJson.setData(form);
+            resJson.setSuccess(true);
+        } catch (UnauthorizedException e) {
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
@@ -205,7 +205,7 @@ public class FormController extends BaseController {
      */
     @PostMapping(value = "/create_update_with_resources", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update_with_resources", notes = "新增或修改form同是加权限（后台列表开发用）")
-    public JsonResult<Form> formCreateUpdateWithResources(@ApiParam(name = "Form", value = "Form实体类") @RequestBody Form form){
+    public JsonResult<Form> formCreateUpdateWithResources(@ApiParam(name = "Form", value = "Form实体类") @RequestBody Form form) {
         JsonResult<Form> resJson = new JsonResult<>();
         form = formService.myFormCreateUpdateWithResources(form);
         resJson.setCode(MagicalValue.CODE_OF_SUCCESS);

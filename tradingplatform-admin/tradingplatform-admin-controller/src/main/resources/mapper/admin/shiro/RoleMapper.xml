@@ -4,21 +4,22 @@
 
     <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
 
-		<!-- 通用查询映射结果 -->
-			<resultMap id="roleMap" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.Role" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
-									
-				<result column="role_desc" property="roleDesc" jdbcType="VARCHAR" />
-				<result column="pid" property="pid" jdbcType="INTEGER" />
+    <!-- 通用查询映射结果 -->
+    <resultMap id="roleMap" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.Role"
+               extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
 
-		</resultMap>
+        <result column="role_desc" property="roleDesc" jdbcType="VARCHAR"/>
+        <result column="pid" property="pid" jdbcType="INTEGER"/>
 
-        <!-- 通用查询映射结果 -->
-		<resultMap id="roleMapSimple" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.Role">
-																			
-                        <result column="role_desc" property="roleDesc" jdbcType="VARCHAR" />
-                        <result column="pid" property="pid" jdbcType="INTEGER" />
+    </resultMap>
 
-        </resultMap>
+    <!-- 通用查询映射结果 -->
+    <resultMap id="roleMapSimple" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.Role">
+
+        <result column="role_desc" property="roleDesc" jdbcType="VARCHAR"/>
+        <result column="pid" property="pid" jdbcType="INTEGER"/>
+
+    </resultMap>
 
     <select id="selectMapById" resultType="java.util.Map">
         select * from s_base_role where id = #{roleId} and deleted = false

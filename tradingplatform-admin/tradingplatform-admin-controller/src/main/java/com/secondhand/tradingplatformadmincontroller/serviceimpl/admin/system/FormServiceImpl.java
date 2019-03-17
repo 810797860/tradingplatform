@@ -28,10 +28,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *   @description : Form 服务实现类
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2018-11-11
+ * @author zhangjk
+ * @description : Form 服务实现类
+ * ---------------------------------
+ * @since 2018-11-11
  */
 
 @Service
@@ -81,7 +81,7 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
     @Transactional(rollbackFor = Exception.class)
     @CacheEvict(allEntries = true)
     public boolean myFakeBatchDelete(List<Long> formIds) {
-        for (Long formId : formIds){
+        for (Long formId : formIds) {
             myFakeDeleteById(formId);
         }
         return true;
@@ -98,7 +98,7 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
     @CacheEvict(allEntries = true)
     public Form myFormCreateUpdate(Form form) {
         Long formId = form.getId();
-        if (formId == null){
+        if (formId == null) {
             form.setUuid(ToolUtil.getUUID());
             formMapper.createTable(form);
             formMapper.insert(form);
@@ -147,7 +147,7 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
         //更新表单表
         //主要只用于新增方面
         Long formId = form.getId();
-        if (formId == null){
+        if (formId == null) {
             form.setUuid(ToolUtil.getUUID());
             formMapper.insert(form);
 
@@ -204,12 +204,12 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
         form.setCollection(null);
         //遍历排序
         List<Sort> sorts = form.getSorts();
-        if (sorts == null){
+        if (sorts == null) {
             //为null时，默认按created_at倒序
             wrapper.orderBy("id", false);
         } else {
             //遍历排序
-            sorts.forEach( sort -> {
+            sorts.forEach(sort -> {
                 wrapper.orderBy(sort.getField(), sort.getAsc());
             });
         }
@@ -246,7 +246,7 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertBatch(List<Form> formList) {
-        for (Form form : formList){
+        for (Form form : formList) {
             form.setUuid(ToolUtil.getUUID());
         }
         return this.insertBatch(formList);
@@ -256,7 +256,7 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdate(Form form) {
         //没有uuid的话要加上去
-        if (form.getUuid().equals(null)){
+        if (form.getUuid().equals(null)) {
             form.setUuid(ToolUtil.getUUID());
         }
         return this.insertOrUpdate(form);
@@ -265,9 +265,9 @@ public class FormServiceImpl extends BaseServiceImpl<FormMapper, Form> implement
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdateBatch(List<Form> formList) {
-        for (Form form : formList){
+        for (Form form : formList) {
             //没有uuid的话要加上去
-            if (form.getUuid().equals(null)){
+            if (form.getUuid().equals(null)) {
                 form.setUuid(ToolUtil.getUUID());
             }
         }

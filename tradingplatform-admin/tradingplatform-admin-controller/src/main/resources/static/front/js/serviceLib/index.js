@@ -7,7 +7,7 @@ var clickPage = 0;  //判断是否点击页数,0为是
 // var $_tabActive = 0;
 
 // 0代表全部，202035代表区分类型
-var selectAllIdArr = [0,202035];
+var selectAllIdArr = [0, 202035];
 // 存储类型搜索框传参
 var typeSearchJson = {
     "types": [
@@ -109,10 +109,11 @@ $(function () {
     // 设置超出提示
     setTextOverTip();
 });
+
 // 提取行业数据
 function extractIndustryData(data) {
     data.forEach(function (item) {
-        if(item.pid === 202052) {
+        if (item.pid === 202052) {
             aIndustry.push(item);
         } else {
             aSubIndustry.push(item);
@@ -121,7 +122,7 @@ function extractIndustryData(data) {
 }
 
 /*** 初始化数据 ***/
-function init_data () {
+function init_data() {
     // 获取查询字段
     getSearchValue();
     // 重新请求数据
@@ -151,7 +152,7 @@ function initSearchData() {
 }
 
 /*** 复原currentPage ***/
-function resetCurrentPage () {
+function resetCurrentPage() {
     $('#pageToolbar').data('currentpage', 1);
     currentPage = 1;
     clickPage = 1;
@@ -159,7 +160,7 @@ function resetCurrentPage () {
 }
 
 // 处理点击事件
-function handleClickEvent () {
+function handleClickEvent() {
     //跳转到详情页
     $(".service-lib-card .information .company-name").click(function () {
         // 记录搜索关键词
@@ -204,15 +205,15 @@ function handleClickEvent () {
         getServiceList();
     });
     // 监听分页跳转
-    $("#pageToolbar").on("click", function(){
-        if($(this).data('currentpage') != currentPage) {
+    $("#pageToolbar").on("click", function () {
+        if ($(this).data('currentpage') != currentPage) {
 
             clickPage = 0;
             currentPage = $('#pageToolbar').data('currentpage');
             // getServiceList($_typeId, $("#search-input").val());
             getServiceList();
         }
-    }).keydown(function(e) {
+    }).keydown(function (e) {
         if (e.keyCode == 13) {
             clickPage = 0;
             currentPage = $('#pageToolbar').data('currentpage');
@@ -223,19 +224,20 @@ function handleClickEvent () {
     });
 }
 
-function _getCityArr () {
+function _getCityArr() {
     var data = addressData['440000'];
     // 初始化省数组
     if (cityArr.length > 1) {
         cityArr.splice(1, cityArr.length - 1);
     }
-    Object.keys(data).forEach(function(key) {
+    Object.keys(data).forEach(function (key) {
         var obj = {};
         obj.id = Number(key);
         obj.title = data[key];
         cityArr.push(obj);
     })
 }
+
 /***
  * 处理类型多选框
  */
@@ -245,7 +247,7 @@ function initTypeSearch() {
     // 初始化头部类型多选框
     typeSearch.setData(searchType, false);
     // 设置点击回调
-    typeSearch.setClickCallback(function(node, parentNode){
+    typeSearch.setClickCallback(function (node, parentNode) {
         var optionId = node.data('id');
         var typeName = parentNode.attr('type');
         if (searchData[typeName] instanceof Array) {
@@ -269,7 +271,7 @@ function initTypeSearch() {
             if (typeName === 'province') {
                 searchData.city = 0;
                 searchData.area = 0
-            } else if (typeName === 'city'){
+            } else if (typeName === 'city') {
                 searchData.area = 0
             }
             if (typeName === 'province' || typeName === 'city' || typeName === 'area') {
@@ -289,8 +291,8 @@ function initTypeSearch() {
         // console.log('clickCallback', optionId)
     });
     // 设置搜索按钮的click回调
-    typeSearch.setSearchBtnClickCallback(function(inputNode) {
-        if (inputNode.val() === searchData.input){
+    typeSearch.setSearchBtnClickCallback(function (inputNode) {
+        if (inputNode.val() === searchData.input) {
             return 0
         }
         // 赋值
@@ -301,7 +303,7 @@ function initTypeSearch() {
         getServiceList();
     });
     // 设置搜索input的keyDown回调
-    typeSearch.setSearchInputKeyDownCallback(function(event,inputNode) {
+    typeSearch.setSearchInputKeyDownCallback(function (event, inputNode) {
         if (event.keyCode === 13 && inputNode.val() !== searchData.input) {
             searchData.input = inputNode.val();
             // 初始化分页的记录
@@ -313,7 +315,7 @@ function initTypeSearch() {
 }
 
 /**  获取商库列表数据  **/
-function getServiceList () {
+function getServiceList() {
     // 初始化
     typeSearchJson.fields = [
         {
@@ -322,7 +324,7 @@ function getServiceList () {
             "searchType": "term"
         }
     ];
-    Object.keys(searchData).forEach(function(key) {
+    Object.keys(searchData).forEach(function (key) {
         var obj = {
             values: (searchData[key] instanceof Array) ? searchData[key] : [searchData[key]],
             searchType: 'term'
@@ -382,7 +384,7 @@ function getServiceList () {
             } else {
                 var arr = [{field: "_score", direction: "DESC"}];
                 if (searchData[key] instanceof Array) {
-                    searchData[key].forEach(function(item) {
+                    searchData[key].forEach(function (item) {
                         var obj = {};
                         obj.field = item.name;
                         obj.direction = item.value ? "DESC" : "ASC";
@@ -427,9 +429,9 @@ function getServiceList () {
             }
             */
             if ($('#pageToolbar').find("div").length === 0) {
-                $('#pageToolbar').Paging({pagesize:searchSize,count:totalRecord,toolbar:true});
+                $('#pageToolbar').Paging({pagesize: searchSize, count: totalRecord, toolbar: true});
 
-            }else if (clickPage !== 0) {
+            } else if (clickPage !== 0) {
                 $('#pageToolbar').find("div").remove();
                 $('#pageToolbar').Paging({pagesize: searchSize, count: totalRecord, toolbar: true});
             }
@@ -442,7 +444,7 @@ function getServiceList () {
 }
 
 /**  设置商库列表  **/
-function setServiceListToPage (list) {
+function setServiceListToPage(list) {
     var serviceLibCards = $("#search-result-list").children(".service-lib-card");
     // 隐藏不需要的元素
     for (var k = 0; k < serviceLibCards.length; k++) {
@@ -461,16 +463,16 @@ function setServiceListToPage (list) {
         $(serviceLibCards[i]).find(".area").html('地区：' + list[i]['address']); //地址
         $(serviceLibCards[i]).find(".power-number").html(list[i]['qualification'] ? list[i]['qualification'] : '暂无数据'); //能力值
         $(serviceLibCards[i]).find(".money-number").html(list[i]['total_transaction'] ? "￥" + list[i]['total_transaction'] + " 万元" : "面议"); //交易总额
-        if (list[i]['logo']){
+        if (list[i]['logo']) {
             $(serviceLibCards[i]).find(".company-logo").attr("src", $(this).getAvatar(JSON.parse(list[i]['logo'])[0]['id']));
         }
     }
 }
 
 /**  获取右栏推荐服务列表数据  **/
-function getRecommandServiceList () {
+function getRecommandServiceList() {
     var json = {
-        "pager":{//分页信息
+        "pager": {//分页信息
             "current": 1,   //当前页数0
             "size": 5        //每页条数
         }
@@ -498,8 +500,8 @@ function toPeopelCenterPublishCase() {
             contentType: 'application/json',
             type: 'get',
             success: function (res) {
-                if (res.data.data_object !== null && !!res.data.data_object.back_check_status){
-                    if (JSON.parse(res.data.data_object.back_check_status).id == 202050){
+                if (res.data.data_object !== null && !!res.data.data_object.back_check_status) {
+                    if (JSON.parse(res.data.data_object.back_check_status).id == 202050) {
                         window.open('/f/personal_center.html?pc=true&menu=myShopList', '_self');
                     } else {
                         pTipMessage('提示', '您未通过身份认证', 'warning', 2000, true);
@@ -522,7 +524,7 @@ function toPeopelCenterPublishCase() {
 }
 
 /**  设置右栏推荐服务列表  **/
-function setRecommendServiceList (list) {
+function setRecommendServiceList(list) {
     var companyStyleChangeCards = $(".company-style-change");
     // 隐藏不需要的元素
     for (var k = 0; k < companyStyleChangeCards.length; k++) {
@@ -535,7 +537,7 @@ function setRecommendServiceList (list) {
     for (var i = 0; i < list.length; i++) {
         $(companyStyleChangeCards[i]).attr("data-id", list[i]['id']); // id
         $(companyStyleChangeCards[i]).find(".company-name").html(list[i]['name']);  // 标题
-        $(companyStyleChangeCards[i]).find(".company-name").attr('title',list[i]['name']);  // 标题
+        $(companyStyleChangeCards[i]).find(".company-name").attr('title', list[i]['name']);  // 标题
         if (!!list[i]['industry_id']) {
             $(companyStyleChangeCards[i]).find(".company-field").html('行业：' + JSON.parse(list[i]['industry_id']).title);  // 技术领域
         } else {
@@ -546,7 +548,7 @@ function setRecommendServiceList (list) {
 }
 
 /******* 设置搜索关键词 *******/
-function setSearchHotKey (keyWords) {
+function setSearchHotKey(keyWords) {
     var json = {
         "keyWords": keyWords
     };
@@ -556,7 +558,8 @@ function setSearchHotKey (keyWords) {
         contentType: "application/json;charset=UTF-8",
         dataType: "json",
         data: JSON.stringify(json),
-        success: function (res) {}
+        success: function (res) {
+        }
     })
 }
 

@@ -1,33 +1,40 @@
-a{
+a {
     text-decoration: none;
 }
-a:link{
+
+a:link {
     text-decoration: none;
 }
-a:visited{
+
+a:visited {
     text-decoration: none;
 }
-a:hover{
+
+a:hover {
     text-decoration: none;
 }
-a:active{
+
+a:active {
     text-decoration: none;
 }
-.recommend-case-div{
+
+.recommend-case-div {
     min-width: 270px;
     width: 100%;
     height: 100%;
     /*padding-bottom: 15px;*/
     box-sizing: border-box;
 }
-.recommend-case-head-div{
+
+.recommend-case-head-div {
     box-sizing: border-box;
     width: 100%;
     height: 190px;
     padding: 20px 15px 18px 15px;
     /*border-bottom: 1px solid #dcdcdc;*/
 }
-.recommend-case-head-div a.release-demand-btn{
+
+.recommend-case-head-div a.release-demand-btn {
     display: block;
     width: 100%;
     height: 80px;
@@ -40,14 +47,17 @@ a:active{
     border-width: 0;
     cursor: pointer;
 }
+
 .release-demand-btn:hover {
     color: #fff;
 }
-.release-demand-btn i:before{
+
+.release-demand-btn i:before {
     font-size: 30px;
     color: #ffffff;
 }
-.contact-info-div{
+
+.contact-info-div {
     margin-top: 10px;
     width: 100%;
     height: 60px;
@@ -58,18 +68,22 @@ a:active{
     background-color: #f0f0f0;
     border-radius: 8px;
 }
-.contact-icon-div, .contact-info-text{
+
+.contact-icon-div, .contact-info-text {
     float: left;
     width: 31px;
 }
-.contact-icon-div{
+
+.contact-icon-div {
     margin-left: 37px;
 }
-.contact-info-div i:before{
+
+.contact-info-div i:before {
     color: #0066cc;
     font-size: 32px;
 }
-.contact-info-text{
+
+.contact-info-text {
     float: left;
     margin-left: 10px;
     margin-top: 10px;
@@ -81,33 +95,40 @@ a:active{
     line-height: 20px;
     white-space: nowrap;
 }
-.contact-info-phone{
+
+.contact-info-phone {
     color: #0066cc;
 }
-.recommend-case-list-div{
+
+.recommend-case-list-div {
     width: 100%;
     height: auto;
 }
-.recommend-case-list-title-div{
+
+.recommend-case-list-title-div {
     width: 100%;
     height: 90px;
     text-align: center;
 }
-.recommend-case-list-title-div .top-part{
+
+.recommend-case-list-title-div .top-part {
     width: 100%;
     height: 60px;
     line-height: 60px;
 }
-.recommend-case-list-title-div .top-part div{
+
+.recommend-case-list-title-div .top-part div {
     float: left;
 }
-.recommend-case-list-title-div .line{
+
+.recommend-case-list-title-div .line {
     margin-top: 29px;
     width: 30px;
     height: 0;
     border-bottom: 1px solid #dcdcdc;
 }
-.recommend-case-list-title-div .title{
+
+.recommend-case-list-title-div .title {
     box-sizing: border-box;
     width: 210px;
     height: 100%;
@@ -116,7 +137,8 @@ a:active{
     line-height: 60px;
     border-bottom: 1px solid #dcdcdc;
 }
-.recommend-case-list-title-div .bottom-part{
+
+.recommend-case-list-title-div .bottom-part {
     width: 100%;
     height: 30px;
     text-align: center;
@@ -124,7 +146,8 @@ a:active{
     color: #323232;
     line-height: 30px;
 }
-.recommend-case-list-content-div{
+
+.recommend-case-list-content-div {
     width: 100%;
     height: auto;
 }

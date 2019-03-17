@@ -1,24 +1,29 @@
-a{
+a {
     text-decoration: none;
     color: inherit;
 }
-a:link{
+
+a:link {
     text-decoration: none;
     color: inherit;
 }
-a:visited{
+
+a:visited {
     text-decoration: none;
     color: inherit;
 }
-a:hover{
+
+a:hover {
     text-decoration: none;
     color: inherit;
 }
-a:active{
+
+a:active {
     text-decoration: none;
     color: inherit;
 }
-.navDiv{
+
+.navDiv {
     position: relative;
     top: 0;
     left: 0;
@@ -26,12 +31,13 @@ a:active{
     width: 100%;
     height: 50px;
     background-color: #d3e6f6;
-    -webkit-box-shadow:  0 1px 2px #888888;
-    -moz-box-shadow:  0 1px 2px #888888;
-    box-shadow:  0 1px 2px #888888;
+    -webkit-box-shadow: 0 1px 2px #888888;
+    -moz-box-shadow: 0 1px 2px #888888;
+    box-shadow: 0 1px 2px #888888;
     border-bottom: 1px solid #ddd;
 }
-.navContentDiv{
+
+.navContentDiv {
     position: absolute;
     left: 0;
     right: 0;
@@ -39,10 +45,12 @@ a:active{
     width: 1170px;
     height: 100%;
 }
-.navContentDiv div{
+
+.navContentDiv div {
     float: left;
 }
-.fastPassage{
+
+.fastPassage {
     box-sizing: border-box;
     width: 180px;
     height: 100%;
@@ -51,15 +59,18 @@ a:active{
     padding-left: 15px;
     position: relative;
 }
-.fastPassageIcon:before, .fastPassageName{
+
+.fastPassageIcon:before, .fastPassageName {
     font-size: 18px;
     color: #ffffff;
 }
-.fastPassageName{
+
+.fastPassageName {
     display: inline;
     margin-left: 15px;
 }
-.pageItem{
+
+.pageItem {
     box-sizing: border-box;
     width: 140px;
     height: 100%;
@@ -67,12 +78,14 @@ a:active{
     cursor: pointer;
     color: #5c5c5c;
 }
-.pageItem .pageLink{
+
+.pageItem .pageLink {
     display: block;
     width: 140px;
     height: 100%;
     overflow: hidden;
 }
+
 .pageItem .pageLink .pageName {
     display: block;
     box-sizing: border-box;
@@ -88,29 +101,35 @@ a:active{
     color: inherit;
     /*border-right: 1px solid #4093d8;*/
 }
-.pageItem:hover{
+
+.pageItem:hover {
     background-color: #ffaa4f;
     color: #ffffff;
 }
-.pageItem__select{
+
+.pageItem__select {
     color: #4093d8;
 }
+
 .pageItem:hover .pageLink .pageName {
     border-right-width: 0;
 }
+
 /*.pageItem__select .pageLink .pageName {
     color: #4093d8;
 }*/
 
-.navContentDiv .homeExpresswayDiv, .homeSliderImgLinkDiv, .homeUserInfoDiv{
+.navContentDiv .homeExpresswayDiv, .homeSliderImgLinkDiv, .homeUserInfoDiv {
     float: left;
     border-right: 1px solid #dcdcdc;
     box-sizing: border-box;
 }
-.navContentDiv .homeUserInfoDiv{
+
+.navContentDiv .homeUserInfoDiv {
     border-right-width: 0;
 }
-.navContentDiv .homeExpresswayDiv{
+
+.navContentDiv .homeExpresswayDiv {
     display: none;
     box-sizing: border-box;
     border: 1px solid gainsboro;
@@ -123,15 +142,18 @@ a:active{
     z-index: 1000;
     background-color: white;
 }
-.navContentDiv .homeExpresswayItem{
+
+.navContentDiv .homeExpresswayItem {
     position: relative;
     box-sizing: border-box;
     width: 150px;
     border-bottom: 1px solid #dcdcdc;
 }
-.navContentDiv .homeExpresswayItem:last-child{
+
+.navContentDiv .homeExpresswayItem:last-child {
     border-bottom-width: 0;
 }
+
 .navContentDiv .homeExpresswayItemLink {
     display: inline-block;
     position: absolute;
@@ -140,27 +162,33 @@ a:active{
     width: 100%;
     height: 21px;
 }
-.navContentDiv .homeExpresswayItemIcon:before{
+
+.navContentDiv .homeExpresswayItemIcon:before {
     font-size: 18px;
     color: #969696;
 }
-.navContentDiv .homeExpresswayItemTitle{
+
+.navContentDiv .homeExpresswayItemTitle {
     font-size: 16px;
     color: #323232;
     margin-left: 10px;
 }
+
 .navContentDiv .homeExpresswayItem_select .homeExpresswayItemIcon:before {
     color: #0066cc;
 }
+
 .navContentDiv .homeExpresswayItem_select .homeExpresswayItemTitle {
     color: #0066cc;
 }
-.navContentDiv .homeExpresswayItemTip{
+
+.navContentDiv .homeExpresswayItemTip {
     font-size: 14px;
     color: #646464;
     word-break: break-all;
 }
-.navContentDiv .homeSliderImgLinkDiv{
+
+.navContentDiv .homeSliderImgLinkDiv {
     position: relative;
     top: 0;
     left: 0;
@@ -168,16 +196,19 @@ a:active{
     height: 450px;
     overflow: hidden;
 }
-.navContentDiv .homeSliderImgLinkDiv .homeSliderList{
+
+.navContentDiv .homeSliderImgLinkDiv .homeSliderList {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
 }
-.navContentDiv .homeSliderImgLinkDiv a{
+
+.navContentDiv .homeSliderImgLinkDiv a {
     float: left;
 }
-.navContentDiv .homeSliderImgLink{
+
+.navContentDiv .homeSliderImgLink {
     display: block;
     position: relative;
     top: 0;
@@ -186,7 +217,8 @@ a:active{
     height: 450px;
     overflow: hidden;
 }
-.navContentDiv .homeSliderImg{
+
+.navContentDiv .homeSliderImg {
     position: absolute;
     top: 0;
     left: 50%;
@@ -194,6 +226,7 @@ a:active{
     width: 100%;
     height: 450px;
 }
+
 .navContentDiv .homeUserInfoDiv {
     box-sizing: border-box;
     width: 240px;

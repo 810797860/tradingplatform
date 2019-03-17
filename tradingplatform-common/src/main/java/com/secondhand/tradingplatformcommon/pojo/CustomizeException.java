@@ -2,9 +2,10 @@ package com.secondhand.tradingplatformcommon.pojo;
 
 /**
  * 抛出自定义异常
+ *
  * @author 81079
  */
-public class CustomizeException extends Exception{
+public class CustomizeException extends Exception {
 
     private CustomizeStatus customizeStatus;
     private String clazz;

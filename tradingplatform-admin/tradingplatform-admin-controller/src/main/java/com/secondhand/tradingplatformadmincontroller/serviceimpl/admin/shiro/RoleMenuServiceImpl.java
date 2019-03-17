@@ -25,10 +25,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *   @description : RoleMenu 服务实现类
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2018-12-02
+ * @author zhangjk
+ * @description : RoleMenu 服务实现类
+ * ---------------------------------
+ * @since 2018-12-02
  */
 
 @Service
@@ -97,7 +97,7 @@ public class RoleMenuServiceImpl extends BaseServiceImpl<RoleMenuMapper, RoleMen
     @CacheEvict(allEntries = true)
     public RoleMenu myRoleMenuCreateUpdate(RoleMenu roleMenu) {
         Long roleMenuId = roleMenu.getId();
-        if (roleMenuId == null){
+        if (roleMenuId == null) {
             roleMenu.setUuid(ToolUtil.getUUID());
             roleMenuMapper.insert(roleMenu);
         } else {
@@ -110,7 +110,7 @@ public class RoleMenuServiceImpl extends BaseServiceImpl<RoleMenuMapper, RoleMen
     @Transactional(rollbackFor = Exception.class)
     @CacheEvict(allEntries = true)
     public boolean myRoleMenuBatchCreate(Long roleId, List<Integer> menuIds) {
-        menuIds.forEach(menuId->{
+        menuIds.forEach(menuId -> {
             //这里就自己写了，为了快一点(因为都是新增)
             RoleMenu roleMenu = new RoleMenu();
             roleMenu.setUuid(ToolUtil.getUUID());
@@ -137,12 +137,12 @@ public class RoleMenuServiceImpl extends BaseServiceImpl<RoleMenuMapper, RoleMen
         menuWrapper.where("deleted = {0}", false);
         //遍历排序
         List<Sort> sorts = roleMenu.getSorts();
-        if (sorts == null){
+        if (sorts == null) {
             //为null时，默认按created_at倒序
             menuWrapper.orderBy("id", false);
         } else {
             //遍历排序
-            sorts.forEach( sort -> {
+            sorts.forEach(sort -> {
                 menuWrapper.orderBy(sort.getField(), sort.getAsc());
             });
         }
@@ -162,7 +162,7 @@ public class RoleMenuServiceImpl extends BaseServiceImpl<RoleMenuMapper, RoleMen
         wrapper.where("deleted = {0}", false);
         List<Object> menuIds = this.selectObjs(wrapper);
         //判空
-        if (menuIds.size() == 0){
+        if (menuIds.size() == 0) {
             return null;
         }
         //再根据menuIds找List<Menu>
@@ -173,7 +173,7 @@ public class RoleMenuServiceImpl extends BaseServiceImpl<RoleMenuMapper, RoleMen
     }
 
     //以下是继承BaseServiceImpl
-    
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     @Cacheable(key = "'MyMenu' + #p0 + ',' + #p1 + ',' + #p1.sorts")
@@ -184,7 +184,7 @@ public class RoleMenuServiceImpl extends BaseServiceImpl<RoleMenuMapper, RoleMen
         wrapper.setSqlSelect("menu_id");
         List<Object> menuIds = this.selectObjs(wrapper);
         //如果menuIds为空，返回空的对象
-        if (menuIds.size() == 0){
+        if (menuIds.size() == 0) {
             return new Page<Menu>();
         }
         //再根据id找menuPage
@@ -194,46 +194,46 @@ public class RoleMenuServiceImpl extends BaseServiceImpl<RoleMenuMapper, RoleMen
         menuWrapper.where("deleted = {0}", false);
         //遍历排序
         List<Sort> sorts = roleMenu.getSorts();
-        if (sorts == null){
+        if (sorts == null) {
             //为null时，默认按created_at倒序
             menuWrapper.orderBy("id", false);
         } else {
             //遍历排序
-            sorts.forEach( sort -> {
+            sorts.forEach(sort -> {
                 menuWrapper.orderBy(sort.getField(), sort.getAsc());
             });
         }
         //这里用service，既能redis又只能用redis
         return menuService.selectPage(page, menuWrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public List<RoleMenu> mySelectListWithMap(Map<String, Object> map) {
         return roleMenuMapper.selectByMap(map);
     }
-    
+
     //以下是继承BaseMapper
-    
+
     @Override
     @Cacheable(key = "#p0")
     public Map<String, Object> mySelectMap(Wrapper<RoleMenu> wrapper) {
         return this.selectMap(wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public List<RoleMenu> mySelectList(Wrapper<RoleMenu> wrapper) {
         return roleMenuMapper.selectList(wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsert(RoleMenu roleMenu) {
         roleMenu.setUuid(ToolUtil.getUUID());
         return this.insert(roleMenu);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertBatch(List<RoleMenu> roleMenuList) {
@@ -242,65 +242,65 @@ public class RoleMenuServiceImpl extends BaseServiceImpl<RoleMenuMapper, RoleMen
         });
         return this.insertBatch(roleMenuList);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdate(RoleMenu roleMenu) {
         //没有uuid的话要加上去
-        if (roleMenu.getUuid().equals(null)){
+        if (roleMenu.getUuid().equals(null)) {
             roleMenu.setUuid(ToolUtil.getUUID());
         }
         return this.insertOrUpdate(roleMenu);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdateBatch(List<RoleMenu> roleMenuList) {
         roleMenuList.forEach(roleMenu -> {
             //没有uuid的话要加上去
-            if (roleMenu.getUuid().equals(null)){
+            if (roleMenu.getUuid().equals(null)) {
                 roleMenu.setUuid(ToolUtil.getUUID());
             }
         });
         return this.insertOrUpdateBatch(roleMenuList);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public List<RoleMenu> mySelectBatchIds(Collection<? extends Serializable> roleMenuIds) {
         return roleMenuMapper.selectBatchIds(roleMenuIds);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public RoleMenu mySelectById(Serializable roleMenuId) {
         return roleMenuMapper.selectById(roleMenuId);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public int mySelectCount(Wrapper<RoleMenu> wrapper) {
         return roleMenuMapper.selectCount(wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public RoleMenu mySelectOne(Wrapper<RoleMenu> wrapper) {
         return this.selectOne(wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdate(RoleMenu roleMenu, Wrapper<RoleMenu> wrapper) {
         return this.update(roleMenu, wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdateBatchById(List<RoleMenu> roleMenuList) {
         return this.updateBatchById(roleMenuList);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdateById(RoleMenu roleMenu) {
@@ -318,7 +318,7 @@ public class RoleMenuServiceImpl extends BaseServiceImpl<RoleMenuMapper, RoleMen
         wrapper.where("deleted = {0}", false);
         List<Object> menuIds = this.selectObjs(wrapper);
         //判空
-        if (menuIds.size() == 0){
+        if (menuIds.size() == 0) {
             return new ArrayList<>();
         }
         //再根据menuIds来找

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * 给shiro增加一个过滤器，过滤OPTIONS请求
+ *
  * @author 81079
  */
 public class CorsAuthenticationFilter extends FormAuthenticationFilter {

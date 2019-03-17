@@ -1,4 +1,4 @@
-function formatNumber (n) {
+function formatNumber(n) {
     var str = n.toString();
     return str[1] ? str : '0' + str;
 }
@@ -28,7 +28,7 @@ if (Array.prototype.forEach === undefined) {
                 return 0
             }
             var _self = this;
-            for(var index in _self) {
+            for (var index in _self) {
                 if (!isNaN(index)) {
                     callback(_self[index], index);
                 }
@@ -44,12 +44,12 @@ if (Object.keys === undefined) {
             enumerable: false,
             writable: false,
             configurable: false,
-            value: function(obj) {
+            value: function (obj) {
                 if (obj !== Object(obj))
                     throw new TypeError('Object.keys called on a non-object');
-                var keyArr = [],attrName;
+                var keyArr = [], attrName;
                 for (attrName in obj) {
-                    if (Object.prototype.hasOwnProperty.call(obj, attrName)){
+                    if (Object.prototype.hasOwnProperty.call(obj, attrName)) {
                         keyArr.push(attrName);
                     }
                 }
@@ -57,12 +57,12 @@ if (Object.keys === undefined) {
             }
         });
     } else {
-        Object.keys = function(obj) {
+        Object.keys = function (obj) {
             if (obj !== Object(obj))
                 throw new TypeError('Object.keys called on a non-object');
-            var keyArr = [],attrName;
+            var keyArr = [], attrName;
             for (attrName in obj) {
-                if (Object.prototype.hasOwnProperty.call(obj,attrName)){
+                if (Object.prototype.hasOwnProperty.call(obj, attrName)) {
                     keyArr.push(attrName);
                 }
             }
@@ -170,6 +170,7 @@ function NewAjax(options) {
     this.options = options;
     this.init();
 }
+
 NewAjax.prototype.init = function () {
     this.sendRequest();
 };
@@ -197,7 +198,7 @@ NewAjax.prototype.sendRequest = function () {
 };
 
 // 提示框
-function pTipMessage (title, text, type, delay, is_mouse_reset, styleClass, stack) {
+function pTipMessage(title, text, type, delay, is_mouse_reset, styleClass, stack) {
     styleClass = (styleClass !== undefined) ? styleClass : 'stack-bottomright';
     stack = (stack !== undefined) ? stack : {"dir1": "up", "dir2": "left", "firstpos1": 25, "firstpos2": 25};
     PNotify.prototype.options.styling = "bootstrap3";
@@ -311,7 +312,7 @@ function SOCKET(userId) {
     //宇昂的
     // var headURl = 'ws://10.0.20.37:9188?';
     //我的
-    var headURl ='ws://10.0.30.12:8089?';
+    var headURl = 'ws://10.0.30.12:8089?';
     //线上测试环境
     // var headURl ='ws://39.108.132.249:8089?';
     //线上生产环境
@@ -535,6 +536,7 @@ function SOCKET(userId) {
         socketReconnect();
     }
 }
+
 // new socket
 SOCKET.prototype.init = function (url) {
     // 兼容谷歌、火狐
@@ -554,7 +556,7 @@ function storageEvent(callback) {
 }
 
 // 上传文件
-function uploadFile (files, callback) {
+function uploadFile(files, callback) {
     if (files.length == 0) return; //如果文件为空
     var formData = new FormData();
     for (var i = 0; i < files.length; i++) {
@@ -568,7 +570,7 @@ function uploadFile (files, callback) {
         processData: false,
         contentType: false,
         success: function (res) {
-            if (res.status === 200 && callback){
+            if (res.status === 200 && callback) {
                 callback(res.data.data_list);
             }
         },
@@ -593,15 +595,15 @@ function BrowserType() {
         if (reIE.test(userAgent)) {
             var str = userAgent.match(reIE)[0];
             var fIEVersion = Math.floor(Number(str.split(' ')[1]));
-            if(fIEVersion === 7) {
+            if (fIEVersion === 7) {
                 return "IE7";
-            } else if(fIEVersion === 8) {
+            } else if (fIEVersion === 8) {
                 return "IE8";
-            } else if(fIEVersion === 9) {
+            } else if (fIEVersion === 9) {
                 return "IE9";
-            } else if(fIEVersion === 10) {
+            } else if (fIEVersion === 10) {
                 return "IE10";
-            } else if(fIEVersion === 11) {
+            } else if (fIEVersion === 11) {
                 return "IE11";
             } else {
                 return "0";
@@ -632,7 +634,7 @@ function BrowserType() {
 }
 
 // 获取图片
-function getAvatar (id) {
+function getAvatar(id) {
     return '/adjuncts/file_download/' + id;
 }
 
@@ -727,7 +729,8 @@ $.fn.extend({
 $.getUrlParam = function (name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
     var r = window.location.search.substr(1).match(reg);
-    if (r != null) return decodeURI(r[2]); return null;
+    if (r != null) return decodeURI(r[2]);
+    return null;
 };
 
 var windowGlobalTxt = [];
@@ -747,13 +750,13 @@ function readTextFile() {
     });
 }
 
-function filterSensitiveWord (content) {
+function filterSensitiveWord(content) {
     var reg = null;
     for (var i = 0; i < windowGlobalTxt.length; i++) {
         reg = new RegExp(windowGlobalTxt[i], 'g');
         if (content.indexOf(windowGlobalTxt[i]) !== -1) {
             return content.replace(reg, '***');
-         }
+        }
     }
     return content
 }
@@ -771,7 +774,7 @@ function filterSensitiveWordIsTrue(content) {
     return false;
 }
 
-function getStyle (obj, name) {
+function getStyle(obj, name) {
     if (obj.currentStyle) {
         return obj.currentStyle[name];
     } else {
@@ -779,7 +782,7 @@ function getStyle (obj, name) {
     }
 }
 
-function startMove (obj, json, fnEnd) {
+function startMove(obj, json, fnEnd) {
     clearInterval(obj.timer);
     obj.timer = setInterval(function () {
         var bStop = true;	// 假设：所有的值都已经到了
@@ -815,7 +818,7 @@ function startMove (obj, json, fnEnd) {
     }, 30);
 }
 
-function resetIconAndStyleOfIndustry (oListNode) {
+function resetIconAndStyleOfIndustry(oListNode) {
     var oChildrenNode = oListNode.children(),
         oNowChildNode = null,
         oNowImageNode = null,
@@ -871,7 +874,7 @@ function setMarkOfImportantOperation() {
 function historyHrefSetGetMethod(callback) {
     var obj = null;
     if (Object.defineProperty !== undefined) {
-        Object.defineProperty(window, 'historyHref',{
+        Object.defineProperty(window, 'historyHref', {
             set: function (newVal) {
                 this.__historyHref = newVal;
                 if (callback) {
@@ -904,7 +907,7 @@ function historyHrefSetGetMethod(callback) {
 }
 
 // 设置重要操作的标记
-function set_IMPORTANTOPERATION (bHasOperation) {
+function set_IMPORTANTOPERATION(bHasOperation) {
     window.bCanRecord = true;
     window.importantOperation = bHasOperation;
 }

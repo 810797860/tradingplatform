@@ -4,19 +4,20 @@
 
     <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
 
-		<!-- 通用查询映射结果 -->
-			<resultMap id="roleMenuMap" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.RoleMenu" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
-													<result column="menu_id" property="menuId" jdbcType="INTEGER" />
+    <!-- 通用查询映射结果 -->
+    <resultMap id="roleMenuMap" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.RoleMenu"
+               extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
+        <result column="menu_id" property="menuId" jdbcType="INTEGER"/>
 
 
-		</resultMap>
+    </resultMap>
 
-        <!-- 通用查询映射结果 -->
-		<resultMap id="roleMenuMapSimple" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.RoleMenu">
-																			                        <result column="menu_id" property="menuId" jdbcType="INTEGER" />
+    <!-- 通用查询映射结果 -->
+    <resultMap id="roleMenuMapSimple" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.RoleMenu">
+        <result column="menu_id" property="menuId" jdbcType="INTEGER"/>
 
 
-        </resultMap>
+    </resultMap>
 
     <select id="selectMapById" resultType="java.util.Map">
         select * from s_base_role_menu where id = #{roleMenuId} and deleted = false

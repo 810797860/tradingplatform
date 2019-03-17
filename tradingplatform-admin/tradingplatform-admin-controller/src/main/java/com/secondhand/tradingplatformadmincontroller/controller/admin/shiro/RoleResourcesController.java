@@ -26,12 +26,12 @@ import com.secondhand.tradingplatformadminentity.entity.admin.shiro.RoleResource
 import com.secondhand.tradingplatformadminservice.service.admin.shiro.RoleResourcesService;
 
 /**
- * @description : RoleResources 控制器
  * @author : zhangjk
+ * @description : RoleResources 控制器
  * @since : Create in 2018-11-12
  */
 @Controller("adminRoleResourcesController")
-@Api(value="/admin/roleResources", description="RoleResources 控制器")
+@Api(value = "/admin/roleResources", description = "RoleResources 控制器")
 @RequestMapping("/admin/roleResources")
 public class RoleResourcesController extends BaseController {
 
@@ -85,7 +85,7 @@ public class RoleResourcesController extends BaseController {
      * @since : Create in 2018-11-12
      */
     @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    @ApiOperation(value = "/query", notes="获取分页列表")
+    @ApiOperation(value = "/query", notes = "获取分页列表")
     @ResponseBody
     public TableJson<Resources> getResourcesList(@ApiParam(name = "RoleResources", value = "RoleResources 实体类") @RequestBody RoleResources roleResources) {
         TableJson<Resources> resJson = new TableJson<>();
@@ -112,7 +112,7 @@ public class RoleResourcesController extends BaseController {
      * @since : Create in 2018-11-12
      */
     @PostMapping(value = "/query_enable_create", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    @ApiOperation(value = "/query_enable_create", notes="获取可以增加的权限")
+    @ApiOperation(value = "/query_enable_create", notes = "获取可以增加的权限")
     @ResponseBody
     public TableJson<Resources> getEnableCreateList(@ApiParam(name = "RoleResources", value = "RoleResources 实体类") @RequestBody RoleResources roleResources) {
         TableJson<Resources> resJson = new TableJson<>();
@@ -141,7 +141,7 @@ public class RoleResourcesController extends BaseController {
     @GetMapping(value = "/get_map_by_id/{roleResourcesId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{roleResourcesId}", notes = "根据id获取roleResourcesMap")
     @ResponseBody
-    public JsonResult<Map<String, Object>> getRoleResourcesByIdForMap( @ApiParam(name = "id", value = "roleResourcesId") @PathVariable("roleResourcesId") Long roleResourcesId){
+    public JsonResult<Map<String, Object>> getRoleResourcesByIdForMap(@ApiParam(name = "id", value = "roleResourcesId") @PathVariable("roleResourcesId") Long roleResourcesId) {
         JsonResult<Map<String, Object>> resJson = new JsonResult<>();
         Map<String, Object> roleResources = roleResourcesService.mySelectMapById(roleResourcesId);
         resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
@@ -158,16 +158,16 @@ public class RoleResourcesController extends BaseController {
     @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据roleId和resourcesId假删除roleResources")
     @ResponseBody
-    public JsonResult<RoleResources> fakeDeleteById(@ApiParam(name = "RoleResources", value = "RoleResources实体类") @RequestBody RoleResources roleResources){
+    public JsonResult<RoleResources> fakeDeleteById(@ApiParam(name = "RoleResources", value = "RoleResources实体类") @RequestBody RoleResources roleResources) {
         Subject subject = SecurityUtils.getSubject();
         JsonResult<RoleResources> resJson = new JsonResult<>();
-        try{
+        try {
             //检查是否具有权限
             subject.checkPermission("/admin/roleResources/delete");
             roleResourcesService.myFakeDeleteByRoleResources(roleResources);
             resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setSuccess(true);
-        }catch (UnauthorizedException e){
+        } catch (UnauthorizedException e) {
             resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
             resJson.setSuccess(false);
             resJson.setMessage(e.getMessage());
@@ -183,10 +183,10 @@ public class RoleResourcesController extends BaseController {
     @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据roleId和resourcesIds批量假删除roleResources")
     @ResponseBody
-    public JsonResult<RoleResources> fakeBatchDelete(@ApiParam(name = "parameter", value = "批量假删除的参数") @RequestBody Map<String, Object> parameter){
+    public JsonResult<RoleResources> fakeBatchDelete(@ApiParam(name = "parameter", value = "批量假删除的参数") @RequestBody Map<String, Object> parameter) {
         Subject subject = SecurityUtils.getSubject();
         JsonResult<RoleResources> resJson = new JsonResult<>();
-        try{
+        try {
             //检查是否具有权限
             subject.checkPermission("/admin/roleResources/batch_delete");
             Long roleId = Long.valueOf(parameter.get("roleId").toString());
@@ -194,7 +194,7 @@ public class RoleResourcesController extends BaseController {
             //这里不判空了，让前端判
             resJson.setSuccess(roleResourcesService.myFakeBatchDelete(roleId, resourcesIds));
             resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-        }catch(UnauthorizedException e){
+        } catch (UnauthorizedException e) {
             resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
             resJson.setSuccess(false);
             resJson.setMessage(e.getMessage());
@@ -211,16 +211,16 @@ public class RoleResourcesController extends BaseController {
     @ApiOperation(value = "/create_update/{roleId}", notes = "新增或修改roleResources")
     @ResponseBody
     public JsonResult<RoleResources> roleResourcesCreateUpdate(@ApiParam(name = "roleId", value = "角色id") @PathVariable("roleId") Long roleId,
-                                                               @ApiParam(name = "resourcesIds", value = "按钮Ids") @RequestBody List<Long> resourcesIds){
+                                                               @ApiParam(name = "resourcesIds", value = "按钮Ids") @RequestBody List<Long> resourcesIds) {
         Subject subject = SecurityUtils.getSubject();
         JsonResult<RoleResources> resJson = new JsonResult<>();
-        try{
+        try {
             //检查是否具有权限
             subject.checkPermission("/admin/roleResources/create_update");
             roleResourcesService.myUpdateRoleResources(roleId, resourcesIds);
             resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
             resJson.setSuccess(true);
-        }catch(UnauthorizedException e){
+        } catch (UnauthorizedException e) {
             resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
             resJson.setSuccess(false);
             resJson.setMessage(e.getMessage());
@@ -236,10 +236,10 @@ public class RoleResourcesController extends BaseController {
     @PostMapping(value = "/batch_create", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_create", notes = "批量新增roleResources")
     @ResponseBody
-    public JsonResult<RoleResources> roleResourcesBatchCreate(@ApiParam(name = "parameter", value = "批量新增roleResources的参数") @RequestBody Map<String, Object> parameter){
+    public JsonResult<RoleResources> roleResourcesBatchCreate(@ApiParam(name = "parameter", value = "批量新增roleResources的参数") @RequestBody Map<String, Object> parameter) {
         Subject subject = SecurityUtils.getSubject();
         JsonResult<RoleResources> resJson = new JsonResult<>();
-        try{
+        try {
             //检查是否具有权限
             subject.checkPermission("/admin/roleResources/batch_create");
             Long roleId = Long.valueOf(parameter.get("roleId").toString());
@@ -247,7 +247,7 @@ public class RoleResourcesController extends BaseController {
             //这里不判空了，让前端判
             resJson.setSuccess(roleResourcesService.myRoleResourcesBatchCreate(roleId, resourcesIds));
             resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-        }catch(UnauthorizedException e){
+        } catch (UnauthorizedException e) {
             resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
             resJson.setSuccess(false);
             resJson.setMessage(e.getMessage());

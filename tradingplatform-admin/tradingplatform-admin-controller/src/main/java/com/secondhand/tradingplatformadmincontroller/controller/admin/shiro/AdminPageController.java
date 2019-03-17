@@ -22,8 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @description : 后台重要页面入口控制器
  * @author : zhangjk
+ * @description : 后台重要页面入口控制器
  * @since : Create in 2018-12-04
  */
 @Controller("adminAdminPageController")
@@ -63,7 +63,7 @@ public class AdminPageController {
         Long roleId = Long.valueOf(session.getAttribute(MagicalValue.ROLE_SESSION_ID).toString());
         List<Menu> roleMenus = roleMenuService.mySelectListWithRoleId(roleId);
         //前端没判空后台来判咯
-        if (roleMenus == null){
+        if (roleMenus == null) {
             roleMenus = new ArrayList<>();
         }
         //注入后台用户信息
@@ -79,7 +79,7 @@ public class AdminPageController {
      * @since : Create in 2018-11-13
      */
     @GetMapping(value = "/wu")
-    @ApiOperation(value = "/wu", notes="这是吴丑银测试接口")
+    @ApiOperation(value = "/wu", notes = "这是吴丑银测试接口")
     @ResponseBody
     public TableJson<User> getUserList() {
         User user = new User();

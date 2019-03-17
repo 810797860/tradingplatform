@@ -8,10 +8,10 @@ import org.springframework.stereotype.Repository;
 import java.util.Map;
 
 /**
- *   @description : RentingHouseMapper 接口
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2019-03-17
+ * @author zhangjk
+ * @description : RentingHouseMapper 接口
+ * ---------------------------------
+ * @since 2019-03-17
  */
 @Repository
 public interface RentingHouseMapper extends BaseDao<RentingHouse> {
@@ -19,6 +19,7 @@ public interface RentingHouseMapper extends BaseDao<RentingHouse> {
     /**
      * 获取Map数据（Obj）
      * 自定化MapSql到MysqlGenerator生成
+     *
      * @param rentingHouseId
      * @return
      */

@@ -20,7 +20,7 @@ $(function () {
     $modifyCancelBtn.bind("click", modifyCancel);
 })
 
-function modifyFinished(){
+function modifyFinished() {
     var checkedNode = zTreeObj.getCheckedNodes(true);
     var checkedList = [];
     // for (var i = 0; i < zNodes.length; i++) {
@@ -29,19 +29,19 @@ function modifyFinished(){
     //     }
     // }
     if (checkedNode.length > 0) {
-        for (var i = 0; i < checkedNode.length; i ++ ) {
+        for (var i = 0; i < checkedNode.length; i++) {
             checkedList.push(checkedNode[i].id)
         }
     }
     console.log(checkedList);
     var postData = checkedList;
     $.ajax({
-        type:'post',
-        url:'/admin/roleMenu/create_update/' + roleId,
-        contentType:'application/json;charset=utf-8',
-        dataType:'json',
+        type: 'post',
+        url: '/admin/roleMenu/create_update/' + roleId,
+        contentType: 'application/json;charset=utf-8',
+        dataType: 'json',
         data: JSON.stringify(postData),
-        success:function(res){
+        success: function (res) {
             console.log(res)
             new PNotify({
                 title: '菜单配置',
@@ -51,7 +51,7 @@ function modifyFinished(){
                 addclass: "stack-bottomright"
             });
             closeFrame();
-        },error:function(XMLHttpRequest, textStatus, errorThrown){
+        }, error: function (XMLHttpRequest, textStatus, errorThrown) {
             new PNotify({
                 title: '菜单配置',
                 text: '菜单设置失败',
@@ -68,7 +68,7 @@ function modifyCancel() {
 }
 
 function showMenu(parentMenu, childMenu) {
-    for (var i = 0; i < childMenu.length; i++ ) {
+    for (var i = 0; i < childMenu.length; i++) {
         for (var j = 0; j < parentMenu.length; j++) {
             if (parentMenu[j].id === childMenu[i].id) {
                 parentMenu[j].checked = true;
@@ -81,7 +81,7 @@ function showMenu(parentMenu, childMenu) {
 
 // 显示数据源的树状结构
 function showTreeTable(roleList) {
-    for(var i = 0, iLen = roleList.length; i < iLen; i++) {
+    for (var i = 0, iLen = roleList.length; i < iLen; i++) {
         var openFlag = true;
         if (roleList[i].open) {
             openFlag = roleList[i].open
@@ -124,37 +124,39 @@ function setTreeViewContent(zNodes) {
     /*if (rolePid === roleId) {
         setting.check.enable = false;
     }*/
-    if(parent.window.userObjRole) {
+    if (parent.window.userObjRole) {
         var userObjRole = parent.window.userObjRole;
-        for(var k = 0; k < userObjRole.length; k++) {
-            if(parseInt(userObjRole[k].id) === parseInt(roleId) || parseInt(userObjRole[k].pid) === parseInt(rolePid)) {
+        for (var k = 0; k < userObjRole.length; k++) {
+            if (parseInt(userObjRole[k].id) === parseInt(roleId) || parseInt(userObjRole[k].pid) === parseInt(rolePid)) {
                 setting.check.enable = false;
             }
         }
     }
     zTreeObj = $.fn.zTree.init($roleTree, setting, zNodes);
     if (rolePid !== roleId) {
-        $("#checkTrue").bind("click", {type:"checkTrue"}, checkNode);
-        $("#checkFalse").bind("click", {type:"checkFalse"}, checkNode);
-        $("#toggle").bind("click", {type:"toggle"}, checkNode);
-        $("#checkTruePS").bind("click", {type:"checkTruePS"}, checkNode);
-        $("#checkFalsePS").bind("click", {type:"checkFalsePS"}, checkNode);
-        $("#togglePS").bind("click", {type:"togglePS"}, checkNode);
-        $("#checkAllTrue").bind("click", {type:"checkAllTrue"}, checkNode);
-        $("#checkAllFalse").bind("click", {type:"checkAllFalse"}, checkNode);
+        $("#checkTrue").bind("click", {type: "checkTrue"}, checkNode);
+        $("#checkFalse").bind("click", {type: "checkFalse"}, checkNode);
+        $("#toggle").bind("click", {type: "toggle"}, checkNode);
+        $("#checkTruePS").bind("click", {type: "checkTruePS"}, checkNode);
+        $("#checkFalsePS").bind("click", {type: "checkFalsePS"}, checkNode);
+        $("#togglePS").bind("click", {type: "togglePS"}, checkNode);
+        $("#checkAllTrue").bind("click", {type: "checkAllTrue"}, checkNode);
+        $("#checkAllFalse").bind("click", {type: "checkAllFalse"}, checkNode);
 
         $("#autoCallbackTrigger").bind("change", {}, setAutoTrigger);
     }
 }
 
 var code, log, className = "dark";
+
 function beforeCheck(treeId, treeNode) {
-    className = (className === "dark" ? "":"dark");
-    showLog("[ "+getTime()+" beforeCheck ]&nbsp;&nbsp;&nbsp;&nbsp;" + treeNode.name );
+    className = (className === "dark" ? "" : "dark");
+    showLog("[ " + getTime() + " beforeCheck ]&nbsp;&nbsp;&nbsp;&nbsp;" + treeNode.name);
     return (treeNode.doCheck !== false);
 }
+
 function onCheck(e, treeId, treeNode) {
-    showLog("[ "+getTime()+" onCheck ]&nbsp;&nbsp;&nbsp;&nbsp;" + treeNode.name );
+    showLog("[ " + getTime() + " onCheck ]&nbsp;&nbsp;&nbsp;&nbsp;" + treeNode.name);
     console.log(treeNode)
     console.log(zNodes)
     for (var i = 0; i < zNodes.length; i++) {
@@ -165,27 +167,29 @@ function onCheck(e, treeId, treeNode) {
     console.log(zNodes);
 
 }
+
 function showLog(str) {
     if (!log) log = $("#log");
-    log.append("<li class='"+className+"'>"+str+"</li>");
-    if(log.children("li").length > 6) {
+    log.append("<li class='" + className + "'>" + str + "</li>");
+    if (log.children("li").length > 6) {
         log.get(0).removeChild(log.children("li")[0]);
     }
 }
+
 function getTime() {
-    var now= new Date(),
-        h=now.getHours(),
-        m=now.getMinutes(),
-        s=now.getSeconds(),
-        ms=now.getMilliseconds();
-    return (h+":"+m+":"+s+ " " +ms);
+    var now = new Date(),
+        h = now.getHours(),
+        m = now.getMinutes(),
+        s = now.getSeconds(),
+        ms = now.getMilliseconds();
+    return (h + ":" + m + ":" + s + " " + ms);
 }
 
 function checkNode(e) {
     var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
         type = e.data.type,
         nodes = zTree.getSelectedNodes();
-    if (type.indexOf("All")<0 && nodes.length == 0) {
+    if (type.indexOf("All") < 0 && nodes.length == 0) {
         alert("请先选择一个节点");
     }
 
@@ -195,14 +199,14 @@ function checkNode(e) {
         zTree.checkAllNodes(false);
     } else {
         var callbackFlag = $("#callbackTrigger").attr("checked");
-        for (var i=0, l=nodes.length; i<l; i++) {
+        for (var i = 0, l = nodes.length; i < l; i++) {
             if (type == "checkTrue") {
                 zTree.checkNode(nodes[i], true, false, callbackFlag);
             } else if (type == "checkFalse") {
                 zTree.checkNode(nodes[i], false, false, callbackFlag);
             } else if (type == "toggle") {
                 zTree.checkNode(nodes[i], null, false, callbackFlag);
-            }else if (type == "checkTruePS") {
+            } else if (type == "checkTruePS") {
                 zTree.checkNode(nodes[i], true, true, callbackFlag);
             } else if (type == "checkFalsePS") {
                 zTree.checkNode(nodes[i], false, true, callbackFlag);
@@ -221,7 +225,7 @@ function setAutoTrigger(e) {
 
 // 关闭模态窗
 function closeFrame() {
-    if(parent.layer) {
+    if (parent.layer) {
         var layerIndex = parent.layer.getFrameIndex(window.name);
         parent.layer.close(layerIndex);
     }

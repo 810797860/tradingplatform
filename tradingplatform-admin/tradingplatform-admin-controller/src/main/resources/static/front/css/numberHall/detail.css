@@ -2,50 +2,63 @@
     margin: 0;
     padding: 0;
 }
+
 a {
     text-decoration: none;
 }
+
 li {
     list-style: none;
 }
+
 img {
     border: 0;
 }
+
 button {
     border: 0;
     outline: 0;
 }
+
 .address-area {
     background-color: #efefef;
 }
+
 .address-content {
     height: 44px;
     line-height: 44px;
     font-size: 16px;
     color: #4b4b4b;
 }
+
 .address-area a {
     color: #4b4b4b;
 }
+
 .number-hall-detail {
     background-color: #fff;
 }
-.product-contact-nav-area, .detail-container{
+
+.product-contact-nav-area, .detail-container {
     width: 1170px;
     margin: 0 auto;
 }
-.product-container{
+
+.product-container {
     min-height: 690px;
 }
-.hall-product-model{
+
+.hall-product-model {
     height: 100%;
 }
+
 /* 导航栏 */
-.product-contact-nav-list{
+.product-contact-nav-list {
     width: 100%;
     height: 50px;
     border-bottom: 1px solid #aaaaaa;
 }
+
 .product-contact-nav-list .product-contact-nav-item {
     float: left;
     width: 150px;
@@ -54,14 +67,17 @@ button {
     line-height: 50px;
     cursor: pointer;
 }
-.product-contact-nav-list .active{
+
+.product-contact-nav-list .active {
     height: 49px;
     border-bottom: 2px solid #0066cc;
 }
-.product-contact-nav-list .product-contact-nav-item:hover{
+
+.product-contact-nav-list .product-contact-nav-item:hover {
     height: 49px;
     border-bottom: 2px solid #0066cc;
 }
+
 /* 产品区 */
 .number-hall-detail .head-area {
     width: 100%;
@@ -70,12 +86,14 @@ button {
     box-sizing: border-box;
     text-align: center;
 }
+
 .number-hall-detail .head-area .title-ch {
     font-size: 28px;
     line-height: 30px;
     letter-spacing: 1px;
     color: #4b4b4b;
 }
+
 .number-hall-detail .head-area .title-ch::before {
     content: "";
     display: inline-block;
@@ -84,11 +102,12 @@ button {
     height: 6px;
     border-top: 1px solid #989898;
     border-bottom: 1px solid #989898;
-    transform:skew(135deg);
+    transform: skew(135deg);
     -moz-transform: skew(135deg);
     -webkit-transform: skew(135deg);
     margin-right: 20px;
 }
+
 .number-hall-detail .head-area .title-ch::after {
     content: "";
     display: inline-block;
@@ -97,11 +116,12 @@ button {
     height: 6px;
     border-top: 1px solid #989898;
     border-bottom: 1px solid #989898;
-    transform:skew(45deg);
+    transform: skew(45deg);
     -moz-transform: skew(45deg);
     -webkit-transform: skew(45deg);
     margin-left: 20px;
 }
+
 .number-hall-detail .head-area .title-en {
     font-size: 16px;
     line-height: 30px;
@@ -109,16 +129,20 @@ button {
     color: #4b4b4b;
     margin-top: 5px;
 }
+
 .number-hall-detail-content {
     padding-bottom: 20px;
 }
+
 .number-hall-detail .content-container {
     padding-top: 10px;
 }
+
 .number-hall-detail .content-detail-top {
     height: 508px;
     overflow: hidden;
 }
+
 .number-hall-detail .big-pic {
     float: left;
     width: 804px;
@@ -126,6 +150,7 @@ button {
     overflow: hidden;
     position: relative;
 }
+
 .number-hall-detail .big-pic li {
     width: 804px;
     height: 508px;
@@ -135,10 +160,12 @@ button {
     left: 0;
     z-index: 0;
 }
+
 .number-hall-detail .big-pic li img {
     width: 100%;
     height: 100%;
 }
+
 .number-hall-detail .big-pic .img-title {
     width: 804px;
     height: 40px;
@@ -149,11 +176,12 @@ button {
     text-align: center;
     background-color: rgba(0, 0, 0, 0.41);
     opacity: 0.41;
-    filter: alpha(opacity: 41);
+    filter: alpha(opacity:41);
     position: absolute;
     bottom: 0;
     left: 0;
 }
+
 .number-hall-detail .detail-info {
     float: left;
     width: 300px;
@@ -164,11 +192,11 @@ button {
     color: #4b4b4b;
 }
 
-
 .number-hall-detail .content-detail-bottom {
     height: 150px;
     margin-top: 40px;
 }
+
 .number-hall-detail .small-pic-area {
     display: inline-block;
     vertical-align: top;
@@ -176,12 +204,14 @@ button {
     height: 150px;
     position: relative;
 }
+
 .number-hall-detail .small-pic {
     width: 804px;
     height: 150px;
     position: relative;
     overflow: hidden;
 }
+
 .number-hall-detail .orderBtn {
     width: 34px;
     height: 45px;
@@ -192,16 +222,19 @@ button {
     overflow: visible;
     cursor: pointer;
 }
+
 .number-hall-detail .prev {
     position: absolute;
     left: -52px;
     top: 50%;
 }
+
 .number-hall-detail .next {
     position: absolute;
     right: -52px;
     top: 50%;
 }
+
 .number-hall-detail .orderBtn i:before {
     font-size: 30px;
     font-weight: bold;
@@ -214,6 +247,7 @@ button {
     top: 0;
     left: 0;
 }
+
 .number-hall-detail .small-pic li {
     width: 186px;
     height: 150px;
@@ -222,13 +256,15 @@ button {
     box-sizing: content-box;
     background: transparent;
     cursor: pointer;
-    filter: alpha(opacity: 60);
+    filter: alpha(opacity:60);
     opacity: 0.6;
 }
+
 .number-hall-detail .small-pic img {
     width: 100%;
     height: 110px;
 }
+
 .number-hall-detail .small-pic .img-title {
     height: 35px;
     line-height: 35px;
@@ -244,6 +280,7 @@ button {
     line-height: 110px;
     text-align: center;
 }
+
 .button-area .vr-button {
     display: inline-block;
     width: 183px;
@@ -262,6 +299,7 @@ button {
 .number-hall-product-area {
     background-color: #f6f6f6;
 }
+
 .more-btn {
     position: absolute;
     bottom: 20px;
@@ -269,11 +307,13 @@ button {
     color: #585858;
     font-size: 15px;
 }
+
 .product-content {
     position: relative;
     height: 580px;
     overflow: hidden;
 }
+
 .product-content .content-none {
     display: block;
     position: absolute;
@@ -288,6 +328,7 @@ button {
     font-size: 30px;
     font-weight: bold;
 }
+
 .product-item {
     float: left;
     width: 260px;
@@ -295,10 +336,12 @@ button {
     margin-right: 40px;
     margin-bottom: 40px;
 }
+
 .product-item:nth-of-type(4n) {
     margin-right: 0;
 }
-.detail-contact-model{
+
+.detail-contact-model {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -306,6 +349,7 @@ button {
     height: 100%;
     padding: 20px;
 }
+
 .detail-contact-model > p[class*="hall-"] {
     display: block;
     margin-bottom: 10px;
@@ -317,7 +361,8 @@ button {
     text-overflow: ellipsis;
     overflow: hidden;
 }
-.detail-contact-model .hall-address-plugin-area{
+
+.detail-contact-model .hall-address-plugin-area {
     width: 100%;
     height: auto;
     min-height: 500px;

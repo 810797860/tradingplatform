@@ -22,17 +22,17 @@ var selectConditionOfMyShopConsultationList = {
 
 /*** 监听分页跳转 ***/
 function listenToPage() {
-    $(".my-shop-consultation-splitpage>div").on("click", function(){
+    $(".my-shop-consultation-splitpage>div").on("click", function () {
         console.log(11);
         console.log($('.my-shop-consultation-splitpage .focus')[0].innerText);
-        if($('.my-shop-consultation-splitpage .focus')[0].innerText != currentPageOfMyShopConsultationList) {
+        if ($('.my-shop-consultation-splitpage .focus')[0].innerText != currentPageOfMyShopConsultationList) {
             currentPageOfMyShopConsultationList = $('.my-shop-consultation-splitpage .focus')[0].innerText;
 
             // getServiceList($_typeId, $("#search-input").val());
             pageInOrTabMyShopConsultation = 0;
             getMyShopConsultationList();
         }
-    }).keydown(function(e) {
+    }).keydown(function (e) {
         if (e.keyCode == 13) {
             currentPageOfMyShopConsultationList = $('.my-shop-consultation-splitpage .focus')[0].innerText;
 
@@ -44,9 +44,9 @@ function listenToPage() {
 
     /** 回复的分页 **/
     // hrz
-    $(".my-shop-consultation-splitpage >div").on("click", function(){
+    $(".my-shop-consultation-splitpage >div").on("click", function () {
         console.log($('.my-shop-consultation-splitpage .focus')[1].innerText);
-        if($('.my-shop-consultation-splitpage .focus')[1].innerText != currentPageMyShopConsultationReply) {
+        if ($('.my-shop-consultation-splitpage .focus')[1].innerText != currentPageMyShopConsultationReply) {
             currentPageMyShopConsultationReply = $('.my-shop-consultation-splitpage .focus')[1].innerText;
 
             // getServiceList($_typeId, $("#search-input").val());
@@ -55,7 +55,7 @@ function listenToPage() {
             $('.my-shop-consultation .replyContentHistory>div').not('.replyContentHistory-head, .oneMessage').remove()
             getMyShopConsultationSecond();
         }
-    }).keydown(function(e) {
+    }).keydown(function (e) {
         if (e.keyCode == 13) {
             currentPageMyShopConsultationReply = $('.my-shop-consultation-splitpage .focus')[1].innerText;
 
@@ -67,8 +67,9 @@ function listenToPage() {
         }
     });
 }
+
 /*** 复原currentPage ***/
-function resetCurrentPageMyShopConsultation () {
+function resetCurrentPageMyShopConsultation() {
     $('.my-shop-consultation-splitpage >div').data('currentpage', 1);
     currentPageOfMyShopConsultationList = 1;
     $('.my-shop-consultation-splitpage >div').find('li[data-page="' + currentPageOfMyShopConsultationList + '"]').addClass('focus').siblings().removeClass('focus');
@@ -86,6 +87,7 @@ $(function () {
     initDateTimePicker('my-shop-consultation')
     publishDemandListSearch();
 });
+
 function init_dom() {
     $('.my-shop-consultation .personal-center-search-list ul').html(' <li class="active"><span>全部</span><span></span></li> <li data-typeId="0"><span>未回复</span><span>1</span></li> <li data-typeId="1"><span>已回复</span><span>2</span></li>');
     $('.my-shop-consultation .personal-center-search-time').children().eq(0).html('咨询时间：');
@@ -123,13 +125,13 @@ function publishDemandListSearch() {
 }
 
 // 获取报名的需求列表
-function getMyShopConsultationList () {
+function getMyShopConsultationList() {
     var json = {
-        "pager":{
+        "pager": {
             "current": currentPageOfMyShopConsultationList,
             "size": searchSizeOfMyShopConsultationList
         },
-        "sortPointer":{
+        "sortPointer": {
             "filed": "created_at",
             "order": "DESC"
         }
@@ -157,12 +159,20 @@ function getMyShopConsultationList () {
             var list = res.data.data_list;
             console.log(list);
 
-            if (pageInOrTabMyShopConsultation === 0){
-                $('.my-shop-consultation-splitpage >div').Paging({pagesize:searchSizeOfMyShopConsultationList,count:totalRecord,toolbar:true});
+            if (pageInOrTabMyShopConsultation === 0) {
+                $('.my-shop-consultation-splitpage >div').Paging({
+                    pagesize: searchSizeOfMyShopConsultationList,
+                    count: totalRecord,
+                    toolbar: true
+                });
                 $('.my-shop-consultation-splitpage >div').find("div:eq(1)").remove();
             }
-            if (pageInOrTabMyShopConsultation === 1){
-                $('.my-shop-consultation-splitpage >div').Paging({pagesize:searchSizeOfMyShopConsultationList,count:totalRecord,toolbar:true});
+            if (pageInOrTabMyShopConsultation === 1) {
+                $('.my-shop-consultation-splitpage >div').Paging({
+                    pagesize: searchSizeOfMyShopConsultationList,
+                    count: totalRecord,
+                    toolbar: true
+                });
                 $('.my-shop-consultation-splitpage >div').find("div:eq(0)").remove();
             }
             $('.my-shop-consultation-total').html("共" + totalRecord + "条");
@@ -191,10 +201,10 @@ function getMyShopConsultationListData() {
     var baseStyleArr = [];
     var arr = [];
     if (myShopConsultationListData != undefined && myShopConsultationListData.length != 0) {
-        myShopConsultationListData.forEach(function(item){
+        myShopConsultationListData.forEach(function (item) {
             var obj = {}
             if (baseStyleArr.length === 0) {
-                Object.keys(item).forEach(function(key){
+                Object.keys(item).forEach(function (key) {
                     var styleItem = {}
                     styleItem.type = key
                     switch (key) {
@@ -223,11 +233,11 @@ function getMyShopConsultationListData() {
                     baseStyleArr.push(styleItem)
                 })
             }
-            obj.provider = [item.provider,item.provider_id]
+            obj.provider = [item.provider, item.provider_id]
             obj.user_id = JSON.parse(item.user_id).user_name
             obj.contents = item.contents
             obj.created_at = $(this).formatTime(new Date(item.created_at)).split(' ')[0]
-            obj.reply =item.reply
+            obj.reply = item.reply
             // if (item.reply === true) {
             //     for (var i=0; i<baseStyleArr.length; i++) {
             //         if(baseStyleArr[i].type === 'id') {
@@ -241,7 +251,7 @@ function getMyShopConsultationListData() {
             } else {
                 obj.id = [item.id, item.pid, item.id]
             }
-            arr = ['provider','user_id','contents','created_at','reply','id']
+            arr = ['provider', 'user_id', 'contents', 'created_at', 'reply', 'id']
             // }
             data.push(obj)
         })
@@ -250,7 +260,7 @@ function getMyShopConsultationListData() {
     table.setTableData(data)
     table.setBaseStyle(baseStyleArr)
     table.setColOrder(orderArr)
-    table.setOpenCheckBox(true, 2).setTableLineHeight(40).resetHtmlCallBack(function(type, content, label){
+    table.setOpenCheckBox(true, 2).setTableLineHeight(40).resetHtmlCallBack(function (type, content, label) {
         if (type === 'reply') {
             var span
             if (content === true) {
@@ -260,10 +270,10 @@ function getMyShopConsultationListData() {
             }
             return (label === 'td') ? span : content
         } else if (type === 'id') {
-            span = '<span class="reply-message" data-id="'+ content +'" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>查看信息</span>'
+            span = '<span class="reply-message" data-id="' + content + '" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>查看信息</span>'
             return (label === 'td') ? span : content
-        } else if (type=== 'provider') {
-            var span = '<span title="'+content[0]+'" class="myShopConsultationListToDetail" data-proId="'+content[1]+'" style="cursor: pointer;color: #0066cc">'+ content[0] +'</span>'
+        } else if (type === 'provider') {
+            var span = '<span title="' + content[0] + '" class="myShopConsultationListToDetail" data-proId="' + content[1] + '" style="cursor: pointer;color: #0066cc">' + content[0] + '</span>'
             return (label === 'td') ? span : content
         }
     })
@@ -271,9 +281,9 @@ function getMyShopConsultationListData() {
 }
 
 function myShopConsultationhandleClick() {
-    $(document).on('click','.myShopConsultationListToDetail',function () {
+    $(document).on('click', '.myShopConsultationListToDetail', function () {
         var id = $(this).attr('data-proId')
-        window.open('/f/'+ id +'/provider_detail.html?pc=true', '_self')
+        window.open('/f/' + id + '/provider_detail.html?pc=true', '_self')
     })
 
     $('.my-shop-consultation').find('.reply-message').click(function () {
@@ -286,15 +296,15 @@ function myShopConsultationhandleClick() {
         $('.my-shop-consultation div').removeClass('my-consultatio-show')
         $('.my-shop-consultation').children().eq(1).addClass('my-consultatio-show')
         $('.my-shop-consultation .replyContent').hide();
-        var json ={
+        var json = {
             "id": idArr[0],
-            "pager":{
-                "current":1,
-                "size":5,
+            "pager": {
+                "current": 1,
+                "size": 5,
             },    //每页条数
-            "sortPointer":{
-                "filed":"created_at",
-                "order":"DESC"
+            "sortPointer": {
+                "filed": "created_at",
+                "order": "DESC"
             }
         }
 
@@ -339,17 +349,17 @@ function myShopConsultationhandleClick() {
     })
 }
 
-function getMyShopConsultationSecond () {
-    var obj ={
+function getMyShopConsultationSecond() {
+    var obj = {
         'patentsId': myShopConsultationListCaseId,
         "pid": myShopConsultationArr[0],
-        "pager":{
-            "current":currentPageMyShopConsultationReply,
-            "size":searchSizeMyShopConsultationReply,
+        "pager": {
+            "current": currentPageMyShopConsultationReply,
+            "size": searchSizeMyShopConsultationReply,
         },    //每页条数
-        "sortPointer":{
-            "filed":"created_at",
-            "order":"DESC"
+        "sortPointer": {
+            "filed": "created_at",
+            "order": "DESC"
         }
     }
     new NewAjax({
@@ -372,9 +382,13 @@ function getMyShopConsultationSecond () {
             // }
             if (res.data.total == 0) {
                 $('.my-shop-consultation-splitpage >div').empty()
-            }else {
+            } else {
                 var totalRecord = res.data.total;
-                $('.my-shop-consultation-splitpage >div').Paging({pagesize:searchSizeMyShopConsultationReply,count:totalRecord,toolbar:true});
+                $('.my-shop-consultation-splitpage >div').Paging({
+                    pagesize: searchSizeMyShopConsultationReply,
+                    count: totalRecord,
+                    toolbar: true
+                });
                 $('.my-shop-consultation-splitpage >div').find("div:eq(1)").remove();
             }
 
@@ -382,7 +396,7 @@ function getMyShopConsultationSecond () {
             var userInfo = window.localStorage.getItem("user")
             // console.log(userInfo);
             // console.log(JSON.parse(userInfo).id);
-            for (var i=0; i<messages.length; i++){
+            for (var i = 0; i < messages.length; i++) {
                 var div = $('<div style="min-height: 40px;line-height: 40px"></div>')
                 var div1 = $('<div style="min-height: 40px;line-height: 40px; background-color: #f4f4f4;padding-left: 60px" ></div>')
                 if (JSON.parse(messages[i].user_id).id == JSON.parse(userInfo).id) {
@@ -400,7 +414,7 @@ function getMyShopConsultationSecond () {
                 div.append(span1)
                 div.append(span2)
                 div.append(span3)
-                var p = $('<p style="font-size: 14px;word-break: break-all">'+ messages[i].contents + '</p>')
+                var p = $('<p style="font-size: 14px;word-break: break-all">' + messages[i].contents + '</p>')
                 div1.append(p)
                 $('.my-shop-consultation .replyContentHistory').append(div)
                 $(".my-shop-consultation .replyContentHistory").append(div1)
@@ -418,8 +432,8 @@ function getMyShopConsultationSecond () {
                 obj.contents = filterSensitiveWord(content)
                 if (obj.contents == '') {
                     layer.msg("回复内容不能为空")
-                }else {
-                    $('.my-shop-consultation .replyContent-submit').attr('disabled',true);
+                } else {
+                    $('.my-shop-consultation .replyContent-submit').attr('disabled', true);
                     new NewAjax({
                         type: "POST",
                         url: "/f/patentsConsulting/pc/create_update?pc=true",
@@ -427,15 +441,15 @@ function getMyShopConsultationSecond () {
                         dataType: "json",
                         data: JSON.stringify(obj),
                         success: function (res) {
-                            if(res.status === 200){
+                            if (res.status === 200) {
                                 layer.msg("回复成功，即将返回页面")
                                 $('.my-shop-consultation').find('.replyContent-textarea').val('');
                                 setTimeout(function () {
-                                    $('.my-shop-consultation .replyContent-submit').attr('disabled',false);
+                                    $('.my-shop-consultation .replyContent-submit').attr('disabled', false);
                                     $('.my-shop-consultation div').removeClass('my-consultatio-show')
                                     $('.my-shop-consultation').children().eq(0).addClass('my-consultatio-show')
                                     getMyShopConsultationList();
-                                },500)
+                                }, 500)
                             }
                         }
                     })

@@ -1,4 +1,4 @@
-.detail-data .big-title{
+.detail-data .big-title {
     text-align: center;
     font-size: 24px;
     line-height: 67px;
@@ -6,80 +6,95 @@
     color: #0088c0;
     margin-top: 8px;
 }
-.detail-data .company-information{
+
+.detail-data .company-information {
     /*margin-bottom: 43px;*/
     font-size: 0;
     box-sizing: border-box;
     border-top: 1px solid #e2e2e2;
 }
-.detail-data .company-information .information-left,.information-right{
+
+.detail-data .company-information .information-left, .information-right {
     display: inline-block;
     vertical-align: middle;
     height: 264px;
 }
-.detail-data .company-information .information-left{
+
+.detail-data .company-information .information-left {
     background-color: #fff;
     width: 387px;
 }
-.detail-data .company-information .information-right{
+
+.detail-data .company-information .information-right {
     background-color: #f5f5f5;
     width: 783px;
     color: #565656;
 }
-.detail-data .company-information .information-left .information-ability{
+
+.detail-data .company-information .information-left .information-ability {
     text-align: center;
     font-size: 20px;
     line-height: 60px;
     color: #565656;
 }
-.detail-data .company-information .information-left .transaction-package,.evaluate-capacity{
+
+.detail-data .company-information .information-left .transaction-package, .evaluate-capacity {
     font-size: 0;
     margin-bottom: 5px;
 }
-.detail-data .company-information .information-left .transaction-package .information-transaction,.information-package,.evaluate-capacity .information-evaluate,.evaluate-capacity .information-capacity{
+
+.detail-data .company-information .information-left .transaction-package .information-transaction, .information-package, .evaluate-capacity .information-evaluate, .evaluate-capacity .information-capacity {
     display: inline-block;
     vertical-align: middle;
     height: 25px;
     line-height: 25px;
     overflow: hidden;
-    text-overflow:ellipsis;
+    text-overflow: ellipsis;
     white-space: nowrap;
     font-size: 16px;
     box-sizing: border-box;
     word-break: break-all;
 }
-.detail-data .company-information .information-left .transaction-package .information-transaction{
+
+.detail-data .company-information .information-left .transaction-package .information-transaction {
     width: 230px;
     padding-left: 36px;
 }
-.detail-data .company-information .information-left .evaluate-capacity .information-evaluate{
+
+.detail-data .company-information .information-left .evaluate-capacity .information-evaluate {
     width: 230px;
     padding-left: 20px;
 }
-.detail-data .company-information .information-left .transaction-package .information-package,.evaluate-capacity .information-capacity{
+
+.detail-data .company-information .information-left .transaction-package .information-package, .evaluate-capacity .information-capacity {
     width: 147px;
 }
-.detail-data .company-information .information-left .transaction-package .information-transaction .transaction-num,.information-package .package-num{
-    color: #ff4e00;
-}
-.detail-data .company-information .information-left .evaluate-capacity .information-evaluate .evaluate-num,.information-capacity .capacity-num{
+
+.detail-data .company-information .information-left .transaction-package .information-transaction .transaction-num, .information-package .package-num {
     color: #ff4e00;
 }
 
-.detail-data .company-information .information-left .information-sincerity{
+.detail-data .company-information .information-left .evaluate-capacity .information-evaluate .evaluate-num, .information-capacity .capacity-num {
+    color: #ff4e00;
+}
+
+.detail-data .company-information .information-left .information-sincerity {
     text-align: center;
     font-size: 20px;
     line-height: 60px;
     color: #565656;
 }
-.detail-data .company-information .information-left .sincerity-main{
+
+.detail-data .company-information .information-left .sincerity-main {
     font-size: 0;
     padding: 0 41px 0 36px;
 }
-.detail-data .company-information .information-left .sincerity-main .true-identity{
+
+.detail-data .company-information .information-left .sincerity-main .true-identity {
     margin-bottom: 10px;
 }
-.detail-data .company-information .information-left .sincerity-main .true-identity div,.contact-available div{
+
+.detail-data .company-information .information-left .sincerity-main .true-identity div, .contact-available div {
     display: inline-block;
     vertical-align: middle;
     text-align: center;
@@ -87,13 +102,16 @@
     height: 29px;
     line-height: 29px;
 }
-.detail-data .company-information .information-left .sincerity-main .true-identity .true-identity-title,.contact-available .contact-available-title{
+
+.detail-data .company-information .information-left .sincerity-main .true-identity .true-identity-title, .contact-available .contact-available-title {
     color: #565656;
 }
-.detail-data .company-information .information-left .sincerity-main .true-identity .company-authentication,.contact-available .phone-authentication{
+
+.detail-data .company-information .information-left .sincerity-main .true-identity .company-authentication, .contact-available .phone-authentication {
     margin-right: 10px;
 }
-.detail-data .company-information .information-left .sincerity-main .authentication{
+
+.detail-data .company-information .information-left .sincerity-main .authentication {
     width: 108px;
     background-color: #49c9c3;
     color: #fff;
@@ -101,19 +119,21 @@
     opacity: 0.8;
 }
 
-.detail-data .company-information .information-right .contact-way{
+.detail-data .company-information .information-right .contact-way {
     font-size: 20px;
     line-height: 60px;
     text-align: center;
 }
-.detail-data .company-information .information-right .contact-way-main{
+
+.detail-data .company-information .information-right .contact-way-main {
     font-size: 0;
 }
-.detail-data .company-information .information-right .contact-way-main .contact-way-area,.contact-way-telephone,.contact-way-address,.contact-way-phone,.contact-way-contacts,.contact-way-email,.contact-way-weixin,.contact-way-qq{
+
+.detail-data .company-information .information-right .contact-way-main .contact-way-area, .contact-way-telephone, .contact-way-address, .contact-way-phone, .contact-way-contacts, .contact-way-email, .contact-way-weixin, .contact-way-qq {
     vertical-align: top;
     display: inline-block;
     overflow: hidden;
-    text-overflow:ellipsis;
+    text-overflow: ellipsis;
     white-space: nowrap;
     font-size: 16px;
     color: #565656;
@@ -122,128 +142,144 @@
     box-sizing: border-box;
     word-break: break-all;
 }
-.service-lib-detail .company-information .information-right .contact-way-main .contact-way-qq{
+
+.service-lib-detail .company-information .information-right .contact-way-main .contact-way-qq {
     padding-left: 6px;
 }
-.detail-data .company-information .information-right .contact-way-main .contact-way-area,.contact-way-address,.contact-way-contacts,.contact-way-weixin{
+
+.detail-data .company-information .information-right .contact-way-main .contact-way-area, .contact-way-address, .contact-way-contacts, .contact-way-weixin {
     width: 438px;
 }
-.detail-data .company-information .information-right .contact-way-main .contact-way-area,.contact-way-address{
+
+.detail-data .company-information .information-right .contact-way-main .contact-way-area, .contact-way-address {
     padding-left: 16px;
 }
-.detail-data .company-information .information-right .contact-way-main .contact-way-contacts{
+
+.detail-data .company-information .information-right .contact-way-main .contact-way-contacts {
     padding-left: 32px;
 }
-.detail-data .company-information .information-right .contact-way-main .contact-way-weixin{
+
+.detail-data .company-information .information-right .contact-way-main .contact-way-weixin {
     padding-left: 48px;
 }
-.detail-data .company-information .information-right .contact-way-main .contact-way-telephone,.contact-way-phone,.contact-way-email,.contact-way-qq{
+
+.detail-data .company-information .information-right .contact-way-main .contact-way-telephone, .contact-way-phone, .contact-way-email, .contact-way-qq {
     width: 345px;
 }
 
-.detail-data .service-lib-introduction{
+.detail-data .service-lib-introduction {
     /*height: 334px;*/
     background-color: #fff;
     padding: 0 22px 22px 22px;
     box-sizing: border-box;
     border-top: 1px solid #e2e2e2;
 }
-.detail-data .service-lib-introduction .title{
+
+.detail-data .service-lib-introduction .title {
     margin-top: 12px;
     line-height: 36px;
     font-size: 20px;
     text-align: center;
     color: #565656;
 }
-.detail-data .service-lib-introduction .introduction-title{
+
+.detail-data .service-lib-introduction .introduction-title {
     line-height: 30px;
     font-size: 14px;
     color: #323232;
 }
-.detail-data .service-lib-introduction .service-lib-introduction-content{
+
+.detail-data .service-lib-introduction .service-lib-introduction-content {
     font-size: 14px;
     line-height: 30px;
     /*display: -webkit-box;*/
     word-break: break-all;
 }
-.detail-data .main-business{
+
+.detail-data .main-business {
     /*height: 246px;*/
     background-color: #fff;
     padding: 0 22px 22px 22px;
     box-sizing: border-box;
     border-top: 1px solid #e2e2e2;
 }
-.detail-data .main-business .title{
+
+.detail-data .main-business .title {
     margin-top: 8px;
     line-height: 44px;
     font-size: 20px;
     text-align: center;
     color: #565656;
 }
-.detail-data .main-business .main-business-content{
+
+.detail-data .main-business .main-business-content {
     font-size: 14px;
     line-height: 30px;
     /*display: -webkit-box;*/
 }
-.service-lib-detail .glory-qualifications{
+
+.service-lib-detail .glory-qualifications {
     /*height: 470px;*/
     background-color: #fff;
     padding: 0 22px 22px 22px;
     box-sizing: border-box;
     border-top: 1px solid #e2e2e2;
 }
-.service-lib-detail .glory-qualifications .title{
+
+.service-lib-detail .glory-qualifications .title {
     margin-top: 8px;
     line-height: 44px;
     font-size: 20px;
     text-align: center;
     color: #565656;
 }
-.service-lib-detail .glory-qualifications .glory-qualifications-content{
+
+.service-lib-detail .glory-qualifications .glory-qualifications-content {
     font-size: 14px;
     line-height: 30px;
     /*display: -webkit-box;*/
 }
-.service-lib-detail .team-glory{
+
+.service-lib-detail .team-glory {
     /*height: 260px;*/
     background-color: #fff;
     padding: 0 22px 22px 22px;
     box-sizing: border-box;
     border-top: 1px solid #e2e2e2;
 }
-.service-lib-detail .team-glory .title{
+
+.service-lib-detail .team-glory .title {
     margin-top: 8px;
     line-height: 44px;
     font-size: 20px;
     text-align: center;
     color: #565656;
 }
-.service-lib-detail .team-glory .team-glory-content{
+
+.service-lib-detail .team-glory .team-glory-content {
     font-size: 14px;
     line-height: 30px;
     /*display: -webkit-box;*/
 }
+
 /*认证图标*/
-.authentication-icon{
+.authentication-icon {
     margin-left: 5px;
 }
-.tab-index .big-title{
+
+.tab-index .big-title {
     text-align: center;
     font-size: 35px;
     /*height: 113px;*/
     line-height: 113px;
     margin-bottom: 14px;
 }
-.tab-index .content-main{
+
+.tab-index .content-main {
     width: 1126px;
     margin: 0 auto;
     margin-bottom: 43px;
 }
-
-
-
-
-
 
 /*最新产品、热门产品*/
 .detail-data .head-title {
@@ -253,15 +289,18 @@
     color: #565656;
     text-align: center;
 }
+
 .detail-data > div[class*="-area"] {
     padding-bottom: 50px;
     border-bottom: 1px solid #e2e2e2;
     box-sizing: border-box;
     overflow: hidden;
 }
+
 .detail-data > div[class*="-area"]:last-child {
     border-bottom: none;
 }
+
 /*.detail-data .newest-produce-area,
 .detail-data .popular-produce-area {
     padding-bottom: 50px;
@@ -274,6 +313,7 @@
     padding: 0 30px 10px;
     overflow: hidden;
 }
+
 .detail-data .newest-produce-area .product-item,
 .detail-data .popular-produce-area .product-item {
     float: left;
@@ -281,8 +321,9 @@
     height: 250px;
     margin-right: 50px;
 }
+
 .detail-data .newest-produce-area .product-item:nth-of-type(4n),
-.detail-data .popular-produce-area .product-item:nth-of-type(4n){
+.detail-data .popular-produce-area .product-item:nth-of-type(4n) {
     margin-right: 0px;
 }
 
@@ -292,9 +333,11 @@
     box-sizing: border-box;
     border-top: 1px solid #e2e2e2;
 }
+
 .honor-content {
     word-break: break-all;
 }
+
 .honor-content img {
     max-width: 100%;
 }
@@ -304,9 +347,11 @@
     padding: 0 30px 50px;
     box-sizing: border-box;
 }
+
 .team-content {
     word-break: break-all;
 }
+
 .team-content img {
     max-width: 100%;
 }

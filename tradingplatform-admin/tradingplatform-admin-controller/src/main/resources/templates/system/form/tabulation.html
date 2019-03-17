@@ -42,11 +42,14 @@
     </div>
     <div id="data-part" class="clearfix">
         <div id="toolbar" class="btn-toolbar">
-            <button type="button" th:each="button:${buttons}" th:onClick="${button['script']}" th:class="${button['className']}">
+            <button type="button" th:each="button:${buttons}" th:onClick="${button['script']}"
+                    th:class="${button['className']}">
                 <i th:class="${button['icon']}"></i> <span th:text="${button['title']}"></span>
             </button>
-            <button id="search" type="button" class="btn btn-success btn-sm" style="display: none"><i class="icon-search"></i> <span>搜索</span></button>
-            <button id="toggle-search" type="button" class="btn"><i class="icon-angle-down"></i> <span>展开搜索</span></button>
+            <button id="search" type="button" class="btn btn-success btn-sm" style="display: none"><i
+                    class="icon-search"></i> <span>搜索</span></button>
+            <button id="toggle-search" type="button" class="btn"><i class="icon-angle-down"></i> <span>展开搜索</span>
+            </button>
         </div>
         <table id="table" data-classes="table table-hover table-responsive table-sm">
             <thead>

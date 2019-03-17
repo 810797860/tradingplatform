@@ -5,11 +5,12 @@ import java.util.Map;
 
 /**
  * 自定义shiro路由过滤器
+ *
  * @author 81079
  */
 public class FilterChainDefinitionMapBuilder {
 
-    public static LinkedHashMap<String, String> addFilterChainDefinitionMap(Map<String, String> filterChainDefinitionMap){
+    public static LinkedHashMap<String, String> addFilterChainDefinitionMap(Map<String, String> filterChainDefinitionMap) {
 
         //验证码
         filterChainDefinitionMap.put("/admin/kaptcha/default", "anon");

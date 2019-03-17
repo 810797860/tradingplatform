@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     /**
      * Traditional Chinese language package
      * Translated by @tureki
@@ -34,9 +34,9 @@
         },
         date: {
             'default': '請輸入有效的日期',
-            min  : '請輸入 %s 或之後的日期',
-            max  : '請輸入 %s 或以前的日期',
-            range : '請輸入 %s 至 %s 之間的日期'
+            min: '請輸入 %s 或之後的日期',
+            max: '請輸入 %s 或以前的日期',
+            range: '請輸入 %s 至 %s 之間的日期'
         },
         different: {
             'default': '請輸入不同的值'
@@ -54,8 +54,8 @@
             'default': '請選擇有效的檔案'
         },
         greaterThan: {
-            'default'    : '請輸入大於等於 %s 的值',
-            notInclusive : '請輸入大於 %s 的值'
+            'default': '請輸入大於等於 %s 的值',
+            notInclusive: '請輸入大於 %s 的值'
         },
         grid: {
             'default': '請輸入有效的GRId編碼'

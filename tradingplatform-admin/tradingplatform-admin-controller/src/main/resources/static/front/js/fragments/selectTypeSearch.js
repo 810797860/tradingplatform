@@ -1,4 +1,5 @@
 /*===方法函数===*/
+
 // 定义类
 function TypeSearch() {
     // 存储筛选类型的html代码
@@ -125,6 +126,7 @@ function TypeSearch() {
     }
 
     /*=== 内部功能函数 ===*/
+
     // 提取数据
     function _extractListData(data) {
         // 初始化列表数据和选中数据
@@ -159,6 +161,7 @@ function TypeSearch() {
             }
         });
     }
+
     // 查看选中数据对应的下标是否有超出界限
     function isSelectIndexOver(selectData, listData) {
         var isOver = false;
@@ -180,20 +183,22 @@ function TypeSearch() {
             return isOver;
         }
     }
+
     // 获取省份数据
-    function _getProvinceArr () {
+    function _getProvinceArr() {
         var data = addressData['86'];
         // 初始化省数组
         if (provinceArr.length > 1) {
             provinceArr.splice(1, provinceArr.length - 1);
         }
-        Object.keys(data).forEach(function(key) {
+        Object.keys(data).forEach(function (key) {
             var obj = {};
             obj.id = Number(key);
             obj.title = data[key];
             provinceArr.push(obj);
         })
     }
+
     // 初始化类型多选框
     function _createTypeSearch() {
         var selectContent = '';
@@ -227,20 +232,20 @@ function TypeSearch() {
                 itemData.data = (stSave !== undefined) ? stSave : null;
             }
         });
-        _writeData.forEach(function(typeData) {
+        _writeData.forEach(function (typeData) {
             // 提取可以多选的类型名
             if (typeData.selectMore) {
                 $.inArray(typeData.type, canSelectMoreTypeArr) < 0 && canSelectMoreTypeArr.push(typeData.type);
             }
             // 修改标题
-            selectContent += selectTypeHtml.replace(titleRule, function() {
+            selectContent += selectTypeHtml.replace(titleRule, function () {
                 if (typeData.isImportant) {
                     return '<span class="type type-important"><i class="icon-star"></i>' + typeData.name + '：</span>';
                 } else {
                     return '<span class="type">' + typeData.name + '：</span>';
                 }
-            }).replace(contentDivRule, function(divStr) {
-                if (typeData.data !== null){
+            }).replace(contentDivRule, function (divStr) {
+                if (typeData.data !== null) {
                     // 判定是否需要删除 option-area-hidden 来展开列表
                     if (isSelectIndexOver(_oListData.selectData[typeData.type], typeData.data)) {
                         divStr = divStr.replace('option-area-hidden', '');
@@ -299,7 +304,7 @@ function TypeSearch() {
                 } else {
                     return divStr;
                 }
-            }).replace(moreRule, function(moreStr) { // 控制更多按钮的展示
+            }).replace(moreRule, function (moreStr) { // 控制更多按钮的展示
                 if (typeData.data !== null) {
                     if (typeData.data.length > _overIndex) {
                         // 选中项对应下标超出一行的个数限制
@@ -317,7 +322,7 @@ function TypeSearch() {
                 } else {
                     return moreStr.replace(/style=""/, 'style="display:none"');
                 }
-            }).replace(itemRule, function() { // 控制列表显不显示
+            }).replace(itemRule, function () { // 控制列表显不显示
                 if (typeData.data === null) {
                     return '<li class="type-item" style="display: none" type="' + typeData.type + '">';
                 } else {
@@ -332,6 +337,7 @@ function TypeSearch() {
             bIsInitModel = false;
         }
     }
+
     // 类型复选框的点击事件
     function _eventOfSelectTypeSearchClick() {
         var parent, typeName, stSave;
@@ -413,14 +419,16 @@ function TypeSearch() {
             }
         });
     }
+
     // 监听多选框中input的keydown事件
     function _eventOfSearchInputKeyDown() {
-        searchInput.keydown(function(event) {
+        searchInput.keydown(function (event) {
             if (searchInputKeyDownCallBack) {
-                searchInputKeyDownCallBack(event,searchInput)
+                searchInputKeyDownCallBack(event, searchInput)
             }
         })
     }
+
     /*=== 方法 ===*/
     // 获取数据源
     _this.setData = function (dataArr, isShowDefaultAddress) {

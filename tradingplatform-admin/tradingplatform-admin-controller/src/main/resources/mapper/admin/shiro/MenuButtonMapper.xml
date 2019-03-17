@@ -4,23 +4,22 @@
 
     <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
 
-		<!-- 通用查询映射结果 -->
-			<resultMap id="menuButtonMap" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.MenuButton" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
-													<result column="button_id" property="buttonId" jdbcType="INTEGER" />
+    <!-- 通用查询映射结果 -->
+    <resultMap id="menuButtonMap" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.MenuButton"
+               extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
+        <result column="button_id" property="buttonId" jdbcType="INTEGER"/>
 
-		</resultMap>
+    </resultMap>
 
-        <!-- 通用查询映射结果 -->
-		<resultMap id="menuButtonMapSimple" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.MenuButton">
-																			                        <result column="button_id" property="buttonId" jdbcType="INTEGER" />
+    <!-- 通用查询映射结果 -->
+    <resultMap id="menuButtonMapSimple" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.MenuButton">
+        <result column="button_id" property="buttonId" jdbcType="INTEGER"/>
 
-        </resultMap>
+    </resultMap>
 
     <select id="selectMapById" resultType="java.util.Map">
         select * from s_base_menu_button where id = #{menuButtonId} and deleted = false
     </select>
-
-
 
 
 </mapper>

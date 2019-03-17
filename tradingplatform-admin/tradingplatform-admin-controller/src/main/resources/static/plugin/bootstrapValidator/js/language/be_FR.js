@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     /**
      * Belgium (French) language package
      * Translated by @neilime

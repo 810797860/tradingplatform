@@ -1,9 +1,10 @@
-.my-shop-area .service-lib-detail{
+.my-shop-area .service-lib-detail {
     width: 100%;
     font-size: 14px;
     background-color: #fff;
 }
-.my-shop-area .service-lib-detail .detail-header{
+
+.my-shop-area .service-lib-detail .detail-header {
     height: 300px;
     box-sizing: border-box;
     padding: 40px 40px;
@@ -18,11 +19,13 @@
     padding: 50px 0;
     box-sizing: content-box;
 }
-.my-shop-area .service-lib-detail .detail-header .detail-header-left .detail-header-left-logo{
+
+.my-shop-area .service-lib-detail .detail-header .detail-header-left .detail-header-left-logo {
     display: block;
     width: 100%;
     height: 100%;
 }
+
 .my-shop-area .service-lib-detail .detail-header .detail-header-right {
     display: inline-block;
     vertical-align: top;
@@ -33,7 +36,8 @@
     margin-left: 30px;
     position: relative;
 }
-.my-shop-area .detail-header-right-category{
+
+.my-shop-area .detail-header-right-category {
     margin-left: 10px;
     display: inline-block;
     vertical-align: bottom;
@@ -45,23 +49,26 @@
     height: 24px;
     line-height: 22px;
     font-size: 12px;
-    border: 1px solid  rgba(0, 100, 255, 1);
+    border: 1px solid rgba(0, 100, 255, 1);
     box-sizing: border-box;
     /* border-radius: 10px; */
     color: rgba(0, 100, 255, 1);
     text-align: center;
     margin-bottom: 5px;
 }
-.my-shop-area .certification-icon{
+
+.my-shop-area .certification-icon {
     display: inline-block;
     width: 20px;
     height: 100%;
     background-color: rgba(0, 100, 255, 1);
 }
-.my-shop-area .certification-icon:before{
+
+.my-shop-area .certification-icon:before {
     color: white;
 }
-.my-shop-area .detail-header-right-name p{
+
+.my-shop-area .detail-header-right-name p {
     display: inline-block;
     vertical-align: middle;
     max-width: 70%;
@@ -76,9 +83,11 @@
     white-space: normal;
     margin-bottom: 0px !important;
 }
-.my-shop-area .detail-header-right-content{
+
+.my-shop-area .detail-header-right-content {
     margin-top: 20px;
 }
+
 .my-shop-area .detail-header-right-content-area {
     margin-left: 40px;
     display: inline-block;
@@ -87,22 +96,26 @@
     line-height: 24px;
     font-size: 16px;
 }
-.my-shop-area .detail-header-right-content-area span{
+
+.my-shop-area .detail-header-right-content-area span {
     display: inline-block;
     vertical-align: top;
     color: #656565;
 }
-.my-shop-area .detail-header-right-content-area span:first-child{
+
+.my-shop-area .detail-header-right-content-area span:first-child {
     width: 80px;
     text-align: left;
 }
-.my-shop-area .detail-header-right-content-area span:last-child{
+
+.my-shop-area .detail-header-right-content-area span:last-child {
     width: 180px;
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
 .my-shop-area .detail-header-right-content-call {
     margin-left: 40px;
     display: inline-block;
@@ -111,28 +124,33 @@
     line-height: 24px;
     font-size: 16px;
 }
+
 .my-shop-area .detail-header-right-content-call span {
     display: inline-block;
     vertical-align: top;
     color: #656565;
 }
-.my-shop-area .detail-header-right-content-call span:first-child{
+
+.my-shop-area .detail-header-right-content-call span:first-child {
     width: 60px;
     text-align: left;
 }
-.my-shop-area .detail-header-right-content-call span:last-child{
+
+.my-shop-area .detail-header-right-content-call span:last-child {
     width: 180px;
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
 .my-shop-area .detail-header-right-area {
     margin-top: 30px;
     padding: 0 40px;
     color: #656565;
 }
-.my-shop-area .detail-header-right-area span{
+
+.my-shop-area .detail-header-right-area span {
     display: inline-block;
     vertical-align: top;
     overflow: hidden;
@@ -140,10 +158,11 @@
     line-height: 24px;
 }
 
-.my-shop-area .detail-header-right-area span:first-child{
+.my-shop-area .detail-header-right-area span:first-child {
     width: 80px;
 }
-.my-shop-area .detail-header-right-area .expertise-item{
+
+.my-shop-area .detail-header-right-area .expertise-item {
     width: 100px;
     height: 30px;
     line-height: 30px;
@@ -153,7 +172,8 @@
     margin-left: 10px;
     color: white;
 }
-.my-shop-area .collection-shop{
+
+.my-shop-area .collection-shop {
     position: absolute;
     top: 175px;
     right: 130px;
@@ -168,7 +188,8 @@
     outline: none;
     cursor: pointer;
 }
-.my-shop-area .online-contact{
+
+.my-shop-area .online-contact {
     position: absolute;
     top: 175px;
     right: 0;
@@ -183,32 +204,37 @@
     outline: none;
     cursor: pointer;
 }
-.my-shop-area .service-lib-detail{
+
+.my-shop-area .service-lib-detail {
     display: none;
 }
 
-.my-shop-area .service-lib-detail .detail-header .form-group{
+.my-shop-area .service-lib-detail .detail-header .form-group {
     width: 100%;
 }
-.my-shop-area .service-lib-detail .detail-header .form-group:last-child{
+
+.my-shop-area .service-lib-detail .detail-header .form-group:last-child {
     line-height: 40px;
 }
-.my-shop-area .service-lib-detail .detail-header .title{
+
+.my-shop-area .service-lib-detail .detail-header .title {
     height: 60px;
     width: 1140px;
     font-size: 24px;
     line-height: 60px;
     color: #0088c0;
     overflow: hidden;
-    text-overflow:ellipsis;
+    text-overflow: ellipsis;
     white-space: nowrap;
     box-shadow: inset 0px -1px 0px 0px #f0f0f0;
 }
-.my-shop-area .service-lib-detail .detail-header .detail-all{
+
+.my-shop-area .service-lib-detail .detail-header .detail-all {
     font-size: 0;
 
 }
-.my-shop-area .service-lib-detail .detail-header .detail-all .ability-title,.connect-title{
+
+.my-shop-area .service-lib-detail .detail-header .detail-all .ability-title, .connect-title {
     display: inline-block;
     vertical-align: middle;
     font-size: 14px;
@@ -217,28 +243,32 @@
     line-height: 40px;
     width: 180px;
     overflow: hidden;
-    text-overflow:ellipsis;
+    text-overflow: ellipsis;
     white-space: nowrap;
 }
-.my-shop-area .service-lib-detail .detail-header .detail-all .ability-title .ability-num,.connect-title .connect-num{
+
+.my-shop-area .service-lib-detail .detail-header .detail-all .ability-title .ability-num, .connect-title .connect-num {
     color: #c81414;
 }
-.my-shop-area .service-lib-detail .detail-header .detail-all .triple-logo{
+
+.my-shop-area .service-lib-detail .detail-header .detail-all .triple-logo {
     display: inline-block;
     vertical-align: middle;
     font-size: 0;
     margin-left: 460px;
 }
-.my-shop-area .service-lib-detail .detail-header .detail-all .triple-logo .eye,.star,.edit{
+
+.my-shop-area .service-lib-detail .detail-header .detail-all .triple-logo .eye, .star, .edit {
     display: inline-block;
     vertical-align: middle;
     width: 100px;
     font-size: 14px;
     overflow: hidden;
-    text-overflow:ellipsis;
+    text-overflow: ellipsis;
     white-space: nowrap;
 }
-.my-shop-area .service-lib-detail .detail-header .detail-all .triple-logo .star,.edit{
+
+.my-shop-area .service-lib-detail .detail-header .detail-all .triple-logo .star, .edit {
     box-sizing: border-box;
     height: 27px;
     box-shadow: 0px 2px 6px 0px rgba(46, 46, 46, 0.12);
@@ -247,46 +277,54 @@
     text-align: center;
     cursor: pointer;
 }
-.my-shop-area .service-lib-detail .detail-header .detail-all .triple-logo .star{
+
+.my-shop-area .service-lib-detail .detail-header .detail-all .triple-logo .star {
     margin-right: 20px;
 }
-.my-shop-area .service-lib-detail .detail-header .detail-all .triple-logo .eye .eye-icon{
+
+.my-shop-area .service-lib-detail .detail-header .detail-all .triple-logo .eye .eye-icon {
     font-size: 16px;
     color: #0066cc;
     margin-right: 5px;
 }
-.my-shop-area .service-lib-detail .detail-header .detail-all .triple-logo .star .star-icon{
+
+.my-shop-area .service-lib-detail .detail-header .detail-all .triple-logo .star .star-icon {
     display: inline-block;
     vertical-align: middle;
     font-size: 16px;
     color: #0066cc;
     margin-right: 5px;
 }
-.my-shop-area .service-lib-detail .detail-header .detail-all .triple-logo .edit .edit-icon{
+
+.my-shop-area .service-lib-detail .detail-header .detail-all .triple-logo .edit .edit-icon {
     display: inline-block;
     vertical-align: middle;
     font-size: 16px;
     color: #ffb91d;
     margin-right: 5px;
 }
-.my-shop-area .service-lib-detail .detail-header .detail-all .triple-logo .star .share,.edit .collect{
+
+.my-shop-area .service-lib-detail .detail-header .detail-all .triple-logo .star .share, .edit .collect {
     margin-right: 10px;
     display: inline-block;
     vertical-align: middle;
 }
-.my-shop-area .service-lib-detail .detail-header .detail-all .triple-logo .star .share-num,.edit .collect-num{
+
+.my-shop-area .service-lib-detail .detail-header .detail-all .triple-logo .star .share-num, .edit .collect-num {
     display: inline-block;
     vertical-align: middle;
     width: 33px;
     overflow: hidden;
-    text-overflow:ellipsis;
+    text-overflow: ellipsis;
     white-space: nowrap;
 }
-.my-shop-area .service-lib-detail .detail-header .detail-all .triple-logo span{
+
+.my-shop-area .service-lib-detail .detail-header .detail-all .triple-logo span {
     /*font-size: 14px;*/
     color: #7f7f7f;
 }
-.my-shop-area .service-lib-detail .detail-header .area{
+
+.my-shop-area .service-lib-detail .detail-header .area {
     width: 1140px;
     height: 200px;
 }
@@ -301,6 +339,7 @@
     box-sizing: border-box;
     font-size: 0;
 }
+
 .my-shop-area .service-lib-detail .tab .tab-item {
     display: inline-block;
     width: 120px;
@@ -314,6 +353,7 @@
     vertical-align: top;
     cursor: pointer;
 }
+
 /*.service-lib-detail .tab .tab-item:hover {
     color: #0066cc;
     border-top: 2px solid #0066cc;
@@ -324,35 +364,40 @@
     border-top: 2px solid #0066cc;
     border-bottom: 1px solid #fff;
 }
-.my-shop-area .service-lib-detail .tab-content-div{
+
+.my-shop-area .service-lib-detail .tab-content-div {
     box-sizing: border-box;
     width: 100%;
     padding-bottom: 20px;
 }
-.my-shop-area .service-lib-detail div[name="shop-home-edit-area"]{
+
+.my-shop-area .service-lib-detail div[name="shop-home-edit-area"] {
     margin: 0;
     box-sizing: border-box;
     width: 100%;
     padding: 20px 20px 0 20px;
 }
-.my-shop-area .service-lib-detail div[name="shop-home-edit-area"] label{
+
+.my-shop-area .service-lib-detail div[name="shop-home-edit-area"] label {
     font-size: 20px;
 }
 
-
-.my-shop-area .service-lib-detail .myShopBgImgModel{
+.my-shop-area .service-lib-detail .myShopBgImgModel {
     position: relative;
     box-sizing: border-box;
     padding-right: 20px;
 }
-.my-shop-area #shopBgImageSelect{
+
+.my-shop-area #shopBgImageSelect {
     margin-top: 4px;
     margin-right: 10px;
 }
-.my-shop-area .service-lib-detail .shopBgImageSelectTitle{
+
+.my-shop-area .service-lib-detail .shopBgImageSelectTitle {
     display: inline;
 }
-.my-shop-area .service-lib-detail .shopHomeDefaultBgImage, .service-lib-detail .shopBgImageDiv{
+
+.my-shop-area .service-lib-detail .shopHomeDefaultBgImage, .service-lib-detail .shopBgImageDiv {
     width: 100%;
     height: 200px;
     line-height: 200px;
@@ -360,7 +405,8 @@
     border: 1px solid #aaaaaa;
     overflow: hidden;
 }
-.my-shop-area .service-lib-detail .defaultShopBgImage{
+
+.my-shop-area .service-lib-detail .defaultShopBgImage {
     position: relative;
     top: 0;
     left: 50%;
@@ -368,12 +414,14 @@
     width: auto;
     height: 200px;
 }
-.my-shop-area .service-lib-detail .shopBgImageTip{
+
+.my-shop-area .service-lib-detail .shopBgImageTip {
     font-size: 80px;
     color: #000000;
     pointer-events: none;
 }
-.my-shop-area .service-lib-detail .shopBgImage{
+
+.my-shop-area .service-lib-detail .shopBgImage {
     position: relative;
     top: 50%;
     left: 50%;
@@ -382,11 +430,13 @@
     height: auto;
     pointer-events: none;
 }
-.my-shop-area .service-lib-detail label{
+
+.my-shop-area .service-lib-detail label {
     font-weight: normal;
     text-align: right;
 }
-.my-shop-area .service-lib-detail .detail-header .typeLabel{
+
+.my-shop-area .service-lib-detail .detail-header .typeLabel {
     position: relative;
     float: left;
     width: 74px;
@@ -395,24 +445,27 @@
     padding: 0;
     white-space: nowrap;
 }
-.my-shop-area .service-lib-detail .detail-header .serviceShopName{
+
+.my-shop-area .service-lib-detail .detail-header .serviceShopName {
     display: block;
     width: 100%;
     height: 100%;
     font-size: 25px;
     line-height: 47px;
 }
+
 .my-shop-area .service-lib-detail .case-hall-list {
     overflow: hidden;
 }
 
-.my-shop-area  .edit-myshop-form-div{
-     /*width: 1170px;*/
-     margin: 20px auto;
-     padding: 10px 60px 40px 60px;
-     background-color: white;
-     position: relative;
- }
+.my-shop-area .edit-myshop-form-div {
+    /*width: 1170px;*/
+    margin: 20px auto;
+    padding: 10px 60px 40px 60px;
+    background-color: white;
+    position: relative;
+}
+
 .my-shop-area .edit-myshop-status {
     position: absolute;
     /*top: 20px;*/
@@ -437,21 +490,24 @@
     pointer-events: none;
 }
 
-.my-shop-area .edit-myshop-form-div-head{
+.my-shop-area .edit-myshop-form-div-head {
     width: 100%;
     height: 100px;
     line-height: 100px;
     text-align: center;
     position: relative;
 }
-.my-shop-area .edit-show .container{
+
+.my-shop-area .edit-show .container {
     width: 100%;
     position: relative;
 }
+
 .my-shop-area .edit-myshop-form-div-head p {
     font-size: 36px;
 }
-.my-shop-area .edit-myshop-form-div-head-back{
+
+.my-shop-area .edit-myshop-form-div-head-back {
     position: absolute;
     top: 0;
     left: 0;
@@ -464,7 +520,8 @@
     color: white;
     border-radius: 10px;
 }
-.my-shop-area .edit-myshop-form-div .typeLabel{
+
+.my-shop-area .edit-myshop-form-div .typeLabel {
     /*position: relative;*/
     float: left;
     width: 74px;
@@ -473,6 +530,7 @@
     padding: 0;
     white-space: nowrap;
 }
+
 .my-shop-area .edit-myshop-form-div .typeLabel .typeLabelTitle {
     display: inline-block;
     vertical-align: top;
@@ -481,15 +539,18 @@
     line-height: 34px;
     font-size: 16px;
 }
+
 .my-shop-area .inline-block {
     display: inline-block;
     vertical-align: top;
 }
+
 .my-shop-area .input-row {
     width: 100%;
     margin-top: 15px;
     font-size: 0;
 }
+
 .my-shop-area .shop-address-area {
     width: 600px;
     margin-left: -28px;
@@ -497,6 +558,7 @@
     height: 43px;
     margin-bottom: 15px;
 }
+
 .my-shop-area .shop-address-area .address-select-area .address-select {
     width: 132px;
     height: 30px;
@@ -510,6 +572,7 @@
     text-align: center;
     text-align-last: center;
 }
+
 .my-shop-area .row-label {
     width: 100px;
     height: 30px;
@@ -518,7 +581,8 @@
     box-sizing: border-box;
     overflow: hidden;
 }
-.my-shop-area .edit-myshop-form-div .icon-red{
+
+.my-shop-area .edit-myshop-form-div .icon-red {
     /*position: absolute;*/
     /*top: 11px;*/
     /*left: 0;*/
@@ -527,25 +591,29 @@
     transform: translateX(-100%);
     color: #ff0000
 }
-.my-shop-area .edit-myshop-form-div .icon-red:before{
+
+.my-shop-area .edit-myshop-form-div .icon-red:before {
     font-size: 32px;
     font-weight: bold;
 }
-.my-shop-area .inline-block{
+
+.my-shop-area .inline-block {
     display: inline-block;
 }
-.my-shop-area .label-title{
+
+.my-shop-area .label-title {
     display: inline-block;
     vertical-align: top;
     width: 74px;
     height: 34px;
     line-height: 34px;
     font-size: 16px;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
     font-weight: 700;
 }
-.my-shop-area i.icon-star:before{
+
+.my-shop-area i.icon-star:before {
     font-size: 9px;
     color: red;
     margin-right: 12px;
@@ -557,9 +625,11 @@
     height: 450px;
     font-size: 0;
 }
+
 .my-shop-area .case-desc-area .prompt-desc-area {
     width: 785px;
 }
+
 .my-shop-area .case-desc-area .prompt-desc-area .prompt {
     height: 30px;
     line-height: 30px;
@@ -568,11 +638,12 @@
     font-size: 14px;
     color: #acacac;
 }
+
 .my-shop-area .case-desc-area .prompt-desc-area .case-desc {
     width: 785px;
     height: 300px;
     line-height: 25px;
-    resize:none;
+    resize: none;
     padding: 10px 20px;
     background-color: #ffffff;
     border: solid 1px #dcdcdc;
@@ -587,9 +658,11 @@
     height: 350px;
     font-size: 0;
 }
+
 .my-shop-area .shop-introduction-area .prompt-desc-area {
     width: 785px;
 }
+
 .my-shop-area .shop-introduction-area .prompt-desc-area .prompt {
     height: 30px;
     line-height: 30px;
@@ -598,11 +671,12 @@
     font-size: 14px;
     color: #acacac;
 }
+
 .my-shop-area .shop-introduction-area .prompt-desc-area .case-desc {
     width: 785px;
     height: 300px;
     line-height: 25px;
-    resize:none;
+    resize: none;
     padding: 10px 20px;
     background-color: #ffffff;
     border: solid 1px #dcdcdc;
@@ -617,9 +691,11 @@
     height: 450px;
     font-size: 0;
 }
+
 .my-shop-area .shop-glory-area .prompt-desc-area {
     width: 785px;
 }
+
 .my-shop-area .shop-glory-area .prompt-desc-area .prompt {
     height: 30px;
     line-height: 30px;
@@ -628,11 +704,12 @@
     font-size: 14px;
     color: #acacac;
 }
+
 .my-shop-area .shop-glory-area .prompt-desc-area .case-desc {
     width: 785px;
     height: 300px;
     line-height: 25px;
-    resize:none;
+    resize: none;
     padding: 10px 20px;
     background-color: #ffffff;
     border: solid 1px #dcdcdc;
@@ -641,13 +718,15 @@
     color: #333333;
     border-radius: 4px;
 }
-.my-shop-area .edit-myshop-form-div-footer{
+
+.my-shop-area .edit-myshop-form-div-footer {
     text-align: center;
     height: 50px;
     line-height: 50px;
     padding-bottom: 30px;
 }
-.my-shop-area .edit-myshop-form-div-submit{
+
+.my-shop-area .edit-myshop-form-div-submit {
     font-size: 20px;
     width: 150px;
     height: 40px;
@@ -659,10 +738,12 @@
     background-color: #0066cc;
     color: white;
 }
-.my-shop-area .edit-show{
+
+.my-shop-area .edit-show {
     display: block;
 }
-.my-shop-area .shop-logo{
+
+.my-shop-area .shop-logo {
     display: block;
     width: 270px;
     height: 120px;
@@ -678,7 +759,8 @@
     cursor: pointer;
     margin-left: 90px;
 }
-.my-shop-area .shop-logo-tips{
+
+.my-shop-area .shop-logo-tips {
     width: 330px;
     /* position: absolute; */
     top: 275px;
@@ -688,10 +770,11 @@
     margin-left: 90px;
     margin-bottom: 5px;
 }
-.my-shop-area .shop-logo-upload{
+
+.my-shop-area .shop-logo-upload {
     /*display: block;*/
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
@@ -700,28 +783,32 @@
     z-index: 1000;
 }
 
-.my-shop-area .shop-logo-download-img{
+.my-shop-area .shop-logo-download-img {
     display: none;
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     cursor: pointer;
 }
+
 .my-shop-area .edit-show .error-info {
     margin: 0 0 10px 100px;
 }
+
 .my-shop-area .edit-show .error-info .error-info-content {
     display: none;
     font-size: 12px;
     color: red;
 }
-.my-shop-area .about-us{
+
+.my-shop-area .about-us {
     cursor: pointer;
     color: #0066cc;
 }
-.my-shop-area .expert-info-item-tip-div{
+
+.my-shop-area .expert-info-item-tip-div {
     position: absolute;
     left: 15px;
     bottom: -16px;
@@ -729,32 +816,35 @@
     height: 15px;
     line-height: 15px;
 }
-.my-shop-area .expert-info-error-tip{
+
+.my-shop-area .expert-info-error-tip {
     display: none;
     color: #FF0000;
     font-size: 12px;
 }
 
-.my-shop-area .form-group{
+.my-shop-area .form-group {
     position: relative;
     margin-bottom: 20px;
 }
 
-.my-shop-area .about-us{
+.my-shop-area .about-us {
     cursor: pointer;
     color: #0066cc;
 }
-.my-shop-area .about-us:before{
+
+.my-shop-area .about-us:before {
     font-size: 20px;
     color: #0066cc;
 }
 
 /* 行业多选框 */
-.my-shop-area .select-type-search{
+.my-shop-area .select-type-search {
     width: 870px;
     background: #ffffff;
 }
-.my-shop-area .select-type-search .select-area{
+
+.my-shop-area .select-type-search .select-area {
     margin-left: -28px;
     margin-bottom: 30px;
     width: 100%;
@@ -762,10 +852,12 @@
     box-sizing: border-box;
     overflow: hidden;
 }
+
 .my-shop-area .select-type-search .select-area ul.type-ul {
     margin: 0;
 }
-.my-shop-area .select-type-search .select-area ul.type-ul li{
+
+.my-shop-area .select-type-search .select-area ul.type-ul li {
     width: 100%;
     height: 100%;
     line-height: 30px;
@@ -774,10 +866,12 @@
     font-size: 0;
     position: relative;
 }
+
 .my-shop-area .select-type-search .select-area ul.type-ul li:first-child {
     margin-top: 0;
 }
-.my-shop-area .select-type-search .select-area ul.type-ul li .type{
+
+.my-shop-area .select-type-search .select-area ul.type-ul li .type {
     display: inline-block;
     width: 70px;
     height: 40px;
@@ -785,11 +879,13 @@
     font-size: 14px;
     vertical-align: top;
 }
-.my-shop-area .select-type-search .select-area ul.type-ul li .type-important{
+
+.my-shop-area .select-type-search .select-area ul.type-ul li .type-important {
     width: 100px;
     font-size: 16px;
     font-weight: bold;
 }
+
 .my-shop-area .select-type-search .select-area ul.type-ul li.type-item .option-area {
     display: inline-block;
     vertical-align: top;
@@ -800,11 +896,13 @@
     padding-right: 60px;
     box-sizing: border-box;
 }
+
 .my-shop-area .select-type-search .select-area ul.type-ul li.type-item .option-area-hidden {
     height: 40px;
     overflow: hidden;
 }
-.my-shop-area .select-type-search .select-area ul.type-ul li.type-item .option-area .option{
+
+.my-shop-area .select-type-search .select-area ul.type-ul li.type-item .option-area .option {
     display: inline-block;
     vertical-align: top;
     margin: 0 5px;
@@ -815,6 +913,7 @@
     cursor: pointer;
     /*margin-right: 10px;*/
 }
+
 .my-shop-area .select-type-search .select-area .option-area .option .type-item-text {
     position: relative;
     top: 50%;
@@ -829,15 +928,18 @@
     word-break: break-all;
     overflow: hidden;
 }
-.my-shop-area .select-type-search .select-area ul.type-ul li.type-item .option-area .option:nth-of-type(n + 7){
+
+.my-shop-area .select-type-search .select-area ul.type-ul li.type-item .option-area .option:nth-of-type(n + 7) {
     /*margin-top: 10px;*/
 }
-.my-shop-area .select-type-search .select-area ul.type-ul li.type-item .option-area .option:hover{
+
+.my-shop-area .select-type-search .select-area ul.type-ul li.type-item .option-area .option:hover {
     background-color: #0066cc;
     color: #ffffff;
     border-radius: 5px;
 }
-.my-shop-area .select-type-search .select-area ul.type-ul li.type-item .open-all{
+
+.my-shop-area .select-type-search .select-area ul.type-ul li.type-item .open-all {
     position: absolute;
     right: 5px;
     top: 0;
@@ -848,6 +950,7 @@
     cursor: pointer;
     overflow: visible;
 }
+
 .my-shop-area .select-type-search .select-area ul.type-ul li.type-item .open-all i {
     display: inline-block;
     pointer-events: none;
@@ -855,16 +958,19 @@
     line-height: 35px;
     height: 20px;
 }
+
 .my-shop-area .select-type-search .select-area ul.type-ul li.type-item .open-all i:before {
     font-size: 20px;
     vertical-align: middle;
 }
+
 .my-shop-area .select-type-search .select-area .active {
     background-color: #0066cc;
     color: #ffffff;
     border-radius: 5px;
 }
-.my-shop-area .select-type-search .search-area{
+
+.my-shop-area .select-type-search .search-area {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -880,7 +986,8 @@
     box-shadow: 0 0 5px 0 #dcdcdc;
 
 }
-.my-shop-area .select-type-search .search-area .result-number{
+
+.my-shop-area .select-type-search .search-area .result-number {
     /*display: inline-block;*/
     vertical-align: middle;
     font-size: 14px;
@@ -891,11 +998,13 @@
     /*目前优质企业用到*/
     display: none;
 }
+
 .my-shop-area .select-type-search .search-area .search-both {
     width: 100%;
     height: 100%;
 }
-.my-shop-area .select-type-search .search-area .search-input{
+
+.my-shop-area .select-type-search .search-area .search-input {
     display: inline-block;
     width: 465px;
     height: 30px;
@@ -906,7 +1015,8 @@
     box-sizing: border-box;
     vertical-align: middle;
 }
-.my-shop-area .select-type-search .search-area .search-text{
+
+.my-shop-area .select-type-search .search-area .search-text {
     display: inline-block;
     width: 60px;
     height: 30px;
@@ -918,7 +1028,8 @@
     vertical-align: middle;
     cursor: pointer;
 }
-.my-shop-area .select-type-search .search-area .close-button{
+
+.my-shop-area .select-type-search .search-area .close-button {
     position: absolute;
     top: 0;
     right: 15px;
@@ -927,17 +1038,19 @@
     line-height: 50px;
     cursor: pointer;
 }
-.my-shop-area .select-type-search .search-area .close-button  i {
+
+.my-shop-area .select-type-search .search-area .close-button i {
     display: inline-block;
     pointer-events: none;
     vertical-align: top;
     line-height: 50px;
     height: 50px;
 }
-.my-shop-area .select-type-search .search-area .close-button  i:before {
+
+.my-shop-area .select-type-search .search-area .close-button i:before {
     font-size: 20px;
 }
 
-.margin-l-10{
+.margin-l-10 {
     margin-left: 14px;
 }

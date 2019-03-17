@@ -3,10 +3,12 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
 a {
     text-decoration: none;
 }
-.service-card{
+
+.service-card {
     /*display: inline-block;*/
     /*vertical-align: top;*/
     float: left;
@@ -17,28 +19,33 @@ a {
     margin-top: 15px;
     cursor: pointer;
 }
-.service-card .title{
+
+.service-card .title {
     font-size: 18px;
     line-height: 30px;
     color: #333;
 }
-.service-card .type-area{
+
+.service-card .type-area {
     font-size: 14px;
     line-height: 30px;
     color: #656565;
 }
-.service-card .service-card-content{
+
+.service-card .service-card-content {
     position: relative;
     /*border: solid 1px #dcdcdc;*/
 }
-.service-card .service-card-content img{
+
+.service-card .service-card-content img {
     display: block;
     width: 240px;
     height: 150px;
     border: 1px solid #dcdcdc;
     box-sizing: border-box;
 }
-.service-card .service-card-content .detail{
+
+.service-card .service-card-content .detail {
     width: 240px;
     height: 30px;
     position: absolute;
@@ -49,6 +56,7 @@ a {
     box-shadow: inset 1px 0px 0px 0px rgba(255, 255, 255, 0.8), inset -1px 0px 0px 0px rgba(255, 255, 255, 0.8), inset 0px -1px 0px 0px rgba(255, 255, 255, 0.8);
     font-size: 0;
 }
+
 .service-card .service-card-content .detail .detail-item {
     display: inline-block;
     vertical-align: top;
@@ -57,27 +65,33 @@ a {
     line-height: 20px;
     margin-top: 5px;
 }
+
 .service-card .service-card-content .detail .money-area {
     border-right: 1px solid #ccc;
     box-sizing: border-box;
 }
-.service-card .service-card-content .detail .money-area .money{
+
+.service-card .service-card-content .detail .money-area .money {
     display: block;
     font-size: 18px;
     color: #c81414;
     text-align: center;
 }
+
 .service-card .service-card-content .detail .dock-num-area {
     font-size: 14px;
     text-align: center;
 }
-.service-card .service-card-content .detail .dock-num-area .dock-num-label{
+
+.service-card .service-card-content .detail .dock-num-area .dock-num-label {
     color: #646464;
 }
-.service-card .service-card-content .detail .dock-num-area .dock-num{
+
+.service-card .service-card-content .detail .dock-num-area .dock-num {
     color: #c81414;
 }
+
 /*高亮*/
-.high-light{
+.high-light {
     color: #c81414;
 }

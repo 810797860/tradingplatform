@@ -36,10 +36,10 @@ $(function () {
             imgArr = JSON.parse(imgSrc);
             for (var i = 0; i < imgArr.length; i++) {
                 if (i == 0) {
-                    var img = $('<img class="outcome-mall-detail-info-logo-list-item active" src="/adjuncts/file_download/'+ imgArr[i].id +'" style="display:inline-block;width: 50px;height: 50px;vertical-align: top;position: relative;margin-left: 20px;background-color: white;box-sizing: border-box;cursor: pointer"/>')
+                    var img = $('<img class="outcome-mall-detail-info-logo-list-item active" src="/adjuncts/file_download/' + imgArr[i].id + '" style="display:inline-block;width: 50px;height: 50px;vertical-align: top;position: relative;margin-left: 20px;background-color: white;box-sizing: border-box;cursor: pointer"/>')
                     $('.outcome-mall-detail-info-logo-list').append(img);
                 } else {
-                    var img = $('<img class="outcome-mall-detail-info-logo-list-item" src="/adjuncts/file_download/'+ imgArr[i].id +'" style="display:inline-block;width: 50px;height: 50px;vertical-align: top;position: relative;margin-left: 20px;background-color: white;box-sizing: border-box;cursor: pointer"/>')
+                    var img = $('<img class="outcome-mall-detail-info-logo-list-item" src="/adjuncts/file_download/' + imgArr[i].id + '" style="display:inline-block;width: 50px;height: 50px;vertical-align: top;position: relative;margin-left: 20px;background-color: white;box-sizing: border-box;cursor: pointer"/>')
                     $('.outcome-mall-detail-info-logo-list').append(img);
                 }
             }
@@ -89,8 +89,8 @@ $(function () {
     // 拿到右侧栏信息
     function getRightNewData() {
         var json = {
-            pager:{//分页信息
-                "current":1,   //当前页数0
+            pager: {//分页信息
+                "current": 1,   //当前页数0
                 "size": 5       //每页条数
             }
         }
@@ -104,7 +104,7 @@ $(function () {
                 for (var i = 0; i < list.length; i++) {
                     $('.recommand-experts .global-experts-card').eq(i).attr('data-toDetailId', list[i].id);
                     $('.recommand-experts .global-experts-card').eq(i).find('.title').text(list[i].title);
-                    $('.recommand-experts .global-experts-card').eq(i).find('.title').attr('title',list[i].title);
+                    $('.recommand-experts .global-experts-card').eq(i).find('.title').attr('title', list[i].title);
                     $('.recommand-experts .global-experts-card').eq(i).find('.desc').text(list[i].summary);
                     if (!!list[i].type) {
                         $('.recommand-experts .global-experts-card').eq(i).find('.experts-type').text(JSON.parse(list[i].type).title);
@@ -118,8 +118,8 @@ $(function () {
 
     // 右侧栏进入详情
     function rightToDetail(id) {
-        var url = '/f/'+ id +'/patents_detail.html?pc=true';
-        window.open(url,'_self');
+        var url = '/f/' + id + '/patents_detail.html?pc=true';
+        window.open(url, '_self');
     }
 
     // 右侧栏进入详情
@@ -154,10 +154,10 @@ $(function () {
                 var baseStyleArr = [];
                 var arr = [];
                 if (dockResultListData != undefined && dockResultListData.length != 0) {
-                    dockResultListData.forEach(function(item){
+                    dockResultListData.forEach(function (item) {
                         var obj = {}
                         if (baseStyleArr.length === 0) {
-                            Object.keys(item).forEach(function(key){
+                            Object.keys(item).forEach(function (key) {
                                 var styleItem = {}
                                 styleItem.type = key
                                 switch (key) {
@@ -198,7 +198,7 @@ $(function () {
                         //     obj.id = [item.id, item.pid, item.id]
                         // }
                         obj.id = item.id;
-                        arr = ['title','size','prefix','id'];
+                        arr = ['title', 'size', 'prefix', 'id'];
                         // }
                         data.push(obj);
                     })
@@ -207,7 +207,7 @@ $(function () {
                 table.setTableData(data)
                 table.setBaseStyle(baseStyleArr)
                 table.setColOrder(orderArr)
-                table.setOpenCheckBox(true, 2).setTableLineHeight(40).resetHtmlCallBack(function(type, content, label){
+                table.setOpenCheckBox(true, 2).setTableLineHeight(40).resetHtmlCallBack(function (type, content, label) {
                     if (type === 'reply') {
                         var span;
                         if (content === true) {
@@ -217,7 +217,7 @@ $(function () {
                         }
                         return (label === 'td') ? span : content;
                     } else if (type === 'id') {
-                        span = '<a class="download" data-id="'+ content +'" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>下载</a>'
+                        span = '<a class="download" data-id="' + content + '" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>下载</a>'
                         return (label === 'td') ? span : content;
                     }
                 })
@@ -248,8 +248,8 @@ $(function () {
                 contentType: 'application/json',
                 type: 'get',
                 success: function (res) {
-                    if (res.data.data_object !== null && !!res.data.data_object.back_check_status){
-                        if (JSON.parse(res.data.data_object.back_check_status).id == 202050){
+                    if (res.data.data_object !== null && !!res.data.data_object.back_check_status) {
+                        if (JSON.parse(res.data.data_object.back_check_status).id == 202050) {
                             window.open('/f/matureCaseCheckRecords/pc/to_create_update.html?pc=true', '_self');
                         } else {
                             pTipMessage('提示', '您未通过身份认证', 'warning', 2000, true);

@@ -1,16 +1,95 @@
-*{margin: 0;padding: 0;}
-.ui-paging-container{color:#474949;font-size: 14px;}
-.ui-paging-container ul{overflow: hidden;text-align: center;margin: 0 auto;padding: 0;}
-.ui-paging-container ul,.ui-paging-container li{list-style: none;}
-.ui-paging-container li{display: inline-block;padding:4.5px 10px;margin-left: 10px;color:#474949;vertical-align: middle;}
-.ui-paging-container li.ui-pager{cursor: pointer; border:1px solid #dcdcdc;background-color: #fafafa;}
-.ui-paging-container li.ui-pager:hover,.ui-paging-container li.focus{background-color: #288df0;color:#FFFFFF;}
-.ui-paging-container li.ui-paging-ellipse{border:none;}
-.ui-paging-container li.ui-paging-toolbar{padding:0;}
-.ui-paging-container li.ui-paging-toolbar select{height:22px;border:1px solid #dcdcdc;color: #474949;display: none;}
-.ui-paging-container li.ui-paging-toolbar input{text-align: center;line-height: 30px;margin-right: 10px; height:30px;box-sizing: border-box;padding:0;border:1px solid #dcdcdc;width: 30px;margin:0 0 0 5px;vertical-align: middle;}
-.ui-paging-container li.ui-paging-toolbar a{text-decoration: none;display: inline-block;height:30px;box-sizing: border-box;border:1px solid #dcdcdc;vertical-align: middle;line-height: 30px;padding:0 8px;cursor: pointer;margin-left: 8px;color: #474949;}
-.ui-paging-container li.ui-pager-disabled,.ui-paging-container li.ui-pager-disabled:hover{background-color: #fafafa;;cursor: not-allowed;color:#dcdcdc;}
+* {
+    margin: 0;
+    padding: 0;
+}
 
-.ui-paging-container li.page-up,.page-down{padding:4px 18px;}
-.ui-paging-container li.page-down{margin-right: 21px;}
+.ui-paging-container {
+    color: #474949;
+    font-size: 14px;
+}
+
+.ui-paging-container ul {
+    overflow: hidden;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.ui-paging-container ul, .ui-paging-container li {
+    list-style: none;
+}
+
+.ui-paging-container li {
+    display: inline-block;
+    padding: 4.5px 10px;
+    margin-left: 10px;
+    color: #474949;
+    vertical-align: middle;
+}
+
+.ui-paging-container li.ui-pager {
+    cursor: pointer;
+    border: 1px solid #dcdcdc;
+    background-color: #fafafa;
+}
+
+.ui-paging-container li.ui-pager:hover, .ui-paging-container li.focus {
+    background-color: #288df0;
+    color: #FFFFFF;
+}
+
+.ui-paging-container li.ui-paging-ellipse {
+    border: none;
+}
+
+.ui-paging-container li.ui-paging-toolbar {
+    padding: 0;
+}
+
+.ui-paging-container li.ui-paging-toolbar select {
+    height: 22px;
+    border: 1px solid #dcdcdc;
+    color: #474949;
+    display: none;
+}
+
+.ui-paging-container li.ui-paging-toolbar input {
+    text-align: center;
+    line-height: 30px;
+    margin-right: 10px;
+    height: 30px;
+    box-sizing: border-box;
+    padding: 0;
+    border: 1px solid #dcdcdc;
+    width: 30px;
+    margin: 0 0 0 5px;
+    vertical-align: middle;
+}
+
+.ui-paging-container li.ui-paging-toolbar a {
+    text-decoration: none;
+    display: inline-block;
+    height: 30px;
+    box-sizing: border-box;
+    border: 1px solid #dcdcdc;
+    vertical-align: middle;
+    line-height: 30px;
+    padding: 0 8px;
+    cursor: pointer;
+    margin-left: 8px;
+    color: #474949;
+}
+
+.ui-paging-container li.ui-pager-disabled, .ui-paging-container li.ui-pager-disabled:hover {
+    background-color: #fafafa;;
+    cursor: not-allowed;
+    color: #dcdcdc;
+}
+
+.ui-paging-container li.page-up, .page-down {
+    padding: 4px 18px;
+}
+
+.ui-paging-container li.page-down {
+    margin-right: 21px;
+}

@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * 便捷数据库操作类
+ *
  * @author 81079
  */
 
@@ -33,6 +34,7 @@ public class DataBase<T> {
 
     /**
      * 创建包含指定mapper的DataBase工具类,使用本类的第一种用法
+     *
      * @param clazz mapper的类类型
      */
     public static <T> DataBase<T> create(Class<T> clazz) {
@@ -48,6 +50,7 @@ public class DataBase<T> {
 
     /**
      * 获取一个mapper的快捷方法
+     *
      * @param clazz mapper类的类对象
      */
     public static <T> T getMapper(Class<T> clazz) {

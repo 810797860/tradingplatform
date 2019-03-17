@@ -1,10 +1,11 @@
-.total-Ranking-div{
+.total-Ranking-div {
     width: 100%;
     height: auto;
     /* 浮动撑开高度 */
     overflow: hidden;
 }
-.total-Ranking-item{
+
+.total-Ranking-item {
     float: left;
     display: block;
     box-sizing: border-box;

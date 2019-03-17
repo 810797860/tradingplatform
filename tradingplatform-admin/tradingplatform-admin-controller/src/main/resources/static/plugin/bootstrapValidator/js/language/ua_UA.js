@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     /**
      * Ukrainian language package
      * Translated by @oleg-voloshyn
@@ -42,7 +42,7 @@
             'default': 'Будь ласка, введіть інше значення'
         },
         digits: {
-             'default': 'Будь ласка, введіть тільки цифри'
+            'default': 'Будь ласка, введіть тільки цифри'
         },
         ean: {
             'default': 'Будь ласка, введіть правильний номер EAN'

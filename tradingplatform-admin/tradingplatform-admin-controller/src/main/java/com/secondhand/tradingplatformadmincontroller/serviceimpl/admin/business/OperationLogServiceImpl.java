@@ -11,10 +11,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *   @description : OperationLog 服务实现类
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2018-10-28
+ * @author zhangjk
+ * @description : OperationLog 服务实现类
+ * ---------------------------------
+ * @since 2018-10-28
  */
 
 @Service
@@ -41,7 +41,7 @@ public class OperationLogServiceImpl extends BaseServiceImpl<OperationLogMapper,
     @Override
     public OperationLog operationLogCreateUpdate(OperationLog operationLog) {
         Long operationLogId = operationLog.getId();
-        if (operationLogId == null){
+        if (operationLogId == null) {
             operationLogMapper.insert(operationLog);
         } else {
             operationLogMapper.updateById(operationLog);

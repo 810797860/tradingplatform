@@ -8,7 +8,7 @@ $(function () {
     var clickPage = 0;  //判断是否点击页数,0为是
     outcomeMallTypes.unshift({
         title: "不限",
-        id:"202094"
+        id: "202094"
     });
     var searchType = [
         {
@@ -47,15 +47,15 @@ $(function () {
             for (var j = 0; j < searchType[i].types.length; j++) {
                 if (j === 0) {
                     if (i === 0) {
-                        $(div).append('<span class="option active" data-id="' + searchType[i].types[j].id+'">'+searchType[i].types[j].title+'</span>');
+                        $(div).append('<span class="option active" data-id="' + searchType[i].types[j].id + '">' + searchType[i].types[j].title + '</span>');
                     } else if (i === 1) {
-                        $(div).append('<span class="option active" data-typeid="'+searchType[i].types[j].id+'">'+searchType[i].types[j].title+'</span>');
+                        $(div).append('<span class="option active" data-typeid="' + searchType[i].types[j].id + '">' + searchType[i].types[j].title + '</span>');
                     }
                 } else {
                     if (i === 0) {
-                        $(div).append('<span class="option" data-id="'+searchType[i].types[j].id+'">'+searchType[i].types[j].title+'</span>');
+                        $(div).append('<span class="option" data-id="' + searchType[i].types[j].id + '">' + searchType[i].types[j].title + '</span>');
                     } else if (i === 1) {
-                        $(div).append('<span class="option" data-typeid="'+searchType[i].types[j].id+'">'+searchType[i].types[j].title+'</span>');
+                        $(div).append('<span class="option" data-typeid="' + searchType[i].types[j].id + '">' + searchType[i].types[j].title + '</span>');
                     }
                 }
                 if (j === 7) {
@@ -81,7 +81,7 @@ $(function () {
 
         // 处理收起、展开筛选操作
         $("#close-select").click(function () {
-            if($(this).children("i").hasClass("icon-close-arrow")) {
+            if ($(this).children("i").hasClass("icon-close-arrow")) {
                 $(this).html('展开筛选<i class="icon-open-arrow"></i>');
                 $("#select-area").css("display", 'none');
             } else {
@@ -98,7 +98,7 @@ $(function () {
             $(this).addClass("active");
             if ($(this)[0].dataset.id) {
                 $_typeId = $(this)[0].dataset.id;
-            } else if($(this)[0].dataset.typeid) {
+            } else if ($(this)[0].dataset.typeid) {
                 $_field = $(this)[0].dataset.typeid;
             }
             // getExpertList($_field, $_typeId, $("#search-input").val());
@@ -114,8 +114,8 @@ $(function () {
             getNewDataOfOutcome($("#search-input").val());
         });
 
-        $('#search-input').on('keypress',function(event){
-            if(event.keyCode == 13) {
+        $('#search-input').on('keypress', function (event) {
+            if (event.keyCode == 13) {
                 // 复原currentPage
                 resetCurrentPage();
                 // 处理请求操作
@@ -124,16 +124,16 @@ $(function () {
         });
 
         // 监听分页跳转
-        $("#pageToolbar").on("click", function(){
+        $("#pageToolbar").on("click", function () {
             console.log('a');
-            if($(this).data('currentpage') != currentPage) {
+            if ($(this).data('currentpage') != currentPage) {
                 clickPage = 0;
                 // currentPage = $('#pageToolbar').attr('data-currentpage');
                 currentPage = $('#pageToolbar').data('currentpage');
                 // getExpertList($_field, $_typeId, $("#search-input").val());.
                 getNewDataOfOutcome($("#search-input").val());
             }
-        }).keydown(function(e) {
+        }).keydown(function (e) {
             console.log('b');
             if (e.keyCode == 13) {
                 clickPage = 0;
@@ -147,7 +147,7 @@ $(function () {
         });
     }
 
-    function resetCurrentPage () {
+    function resetCurrentPage() {
         clickPage = 1;
         $('#pageToolbar').data('currentpage', 1);
         currentPage = 1;
@@ -157,8 +157,8 @@ $(function () {
 
     function getRightNewData() {
         var json = {
-            pager:{//分页信息
-                "current":1,   //当前页数0
+            pager: {//分页信息
+                "current": 1,   //当前页数0
                 "size": 5       //每页条数
             }
         }
@@ -174,7 +174,7 @@ $(function () {
                 for (var i = 0; i < list.length; i++) {
                     $('.recommand-experts .global-experts-card').eq(i).attr('data-toDetailId', list[i].id);
                     $('.recommand-experts .global-experts-card').eq(i).find('.title').text(list[i].title);
-                    $('.recommand-experts .global-experts-card').eq(i).find('.title').attr('title',list[i].title);
+                    $('.recommand-experts .global-experts-card').eq(i).find('.title').attr('title', list[i].title);
                     $('.recommand-experts .global-experts-card').eq(i).find('.desc').text(list[i].summary);
                     if (!!list[i].type) {
                         $('.recommand-experts .global-experts-card').eq(i).find('.experts-type').text(JSON.parse(list[i].type).title);
@@ -231,7 +231,7 @@ $(function () {
                 fields: [
                     "type_id"
                 ],
-                values: ["202091","202092","202093"],
+                values: ["202091", "202092", "202093"],
                 searchType: "term"
             });
         } else {
@@ -265,11 +265,11 @@ $(function () {
                 var totalRecord = res.data.data_object.totalRecord;
                 // console.log(totalRecord);
                 // console.log($('#pageToolbar'));
-                if(clickPage === 0){
-                    $('#pageToolbar').Paging({pagesize: 6,count:totalRecord,toolbar:true});
+                if (clickPage === 0) {
+                    $('#pageToolbar').Paging({pagesize: 6, count: totalRecord, toolbar: true});
                     $('#pageToolbar').find("div:eq(1)").remove();
-                }else {
-                    $('#pageToolbar').Paging({pagesize: 6,count:totalRecord,toolbar:true});
+                } else {
+                    $('#pageToolbar').Paging({pagesize: 6, count: totalRecord, toolbar: true});
                     $('#pageToolbar').find("div:eq(0)").remove();
                     clickPage = 0;
                 }
@@ -285,17 +285,17 @@ $(function () {
                             $('.outcome-mall-item-img').eq(i).find('img').attr('src', '/static/front/assets/image/empty3.jpg');
                         }
                         $('.outcome-mall-item-title-p').eq(i).text(list[i].title);
-                        $('.outcome-mall-item-title-p').eq(i).attr('title',list[i].title);
+                        $('.outcome-mall-item-title-p').eq(i).attr('title', list[i].title);
                         $('.outcome-mall-item-all-peopel-second').eq(i).text(list[i].patent_number);
                         $('.outcome-mall-item-time-check-time').eq(i).text('发布于' + ' ' + $(this).formatTime(new Date(list[i].created_at)));
-                        $('.outcome-mall-item-time-check-check').eq(i).text('浏览量' + ' ' +  list[i].click_rate);
+                        $('.outcome-mall-item-time-check-check').eq(i).text('浏览量' + ' ' + list[i].click_rate);
                         $('.outcome-mall-item-introduction').eq(i).text(list[i].summary);
                     }
                 }
                 if (list.length < $('.outcome-mall-item').length) {
                     var num = $('.outcome-mall-item').length - list.length
                     console.log(num);
-                    for (var i = 5; i > (5-num); i--) {
+                    for (var i = 5; i > (5 - num); i--) {
                         $('.outcome-mall-item').eq(i).hide();
                     }
                 }
@@ -304,8 +304,8 @@ $(function () {
     }
 
     function rightToDetail(id) {
-        var url = '/f/'+ id +'/patents_detail.html?pc=true';
-        window.open(url,'_self');
+        var url = '/f/' + id + '/patents_detail.html?pc=true';
+        window.open(url, '_self');
         // new NewAjax({
         //     url: url,
         //     contentType: 'application/json',
@@ -338,8 +338,8 @@ $(function () {
                 contentType: 'application/json',
                 type: 'get',
                 success: function (res) {
-                    if (res.data.data_object !== null && !!res.data.data_object.back_check_status){
-                        if (JSON.parse(res.data.data_object.back_check_status).id == 202050){
+                    if (res.data.data_object !== null && !!res.data.data_object.back_check_status) {
+                        if (JSON.parse(res.data.data_object.back_check_status).id == 202050) {
                             window.open('/f/matureCaseCheckRecords/pc/to_create_update.html?pc=true', '_self');
                         } else {
                             pTipMessage('提示', '您未通过身份认证', 'warning', 2000, true);

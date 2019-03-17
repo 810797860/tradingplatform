@@ -5,8 +5,8 @@ $(function () {
         AREA_MAX_WIDTH: 1920,
         AREA_MIN_WIDTH: 1350,
         AREA_MAX_HEIGHT: 1080,
-        BUTTON_HTML:'<div class="panoramic-hall-content-module-item-btn-div"><span class="panoramic-hall-content-module-item-btn-tip"></span><button class="panoramic-hall-content-module-item-btn" name=""></button></div>',
-        CIRCLE_HTML:'<div class=""></div>'
+        BUTTON_HTML: '<div class="panoramic-hall-content-module-item-btn-div"><span class="panoramic-hall-content-module-item-btn-tip"></span><button class="panoramic-hall-content-module-item-btn" name=""></button></div>',
+        CIRCLE_HTML: '<div class=""></div>'
     };
     // 常量对象
     var constObj = null;
@@ -39,39 +39,39 @@ $(function () {
     var btnConfigData = {
         vr: [
             {
-                tip:'新鹏3C机器人展区',
+                tip: '新鹏3C机器人展区',
                 type: 'guide',
                 top: Math.ceil(642 / constObj.AREA_MAX_HEIGHT * 100) + '%',
                 left: Math.ceil(1342 / constObj.AREA_MAX_WIDTH * 100) + '%'
             },
             {
-                tip:'产品视频',
+                tip: '产品视频',
                 type: 'video',
                 top: Math.ceil(280 / constObj.AREA_MAX_HEIGHT * 100) + '%',
                 left: Math.ceil(356 / constObj.AREA_MAX_WIDTH * 100) + '%'
             },
             {
-                tip:'产品全景图',
+                tip: '产品全景图',
                 type: 'view',
                 top: Math.ceil(734 / constObj.AREA_MAX_HEIGHT * 100) + '%',
                 left: Math.ceil(416 / constObj.AREA_MAX_WIDTH * 100) + '%'
             },
             {
-                tip:'产品视频',
+                tip: '产品视频',
                 type: 'video',
                 top: Math.ceil(353 / constObj.AREA_MAX_HEIGHT * 100) + '%',
                 left: Math.ceil(772 / constObj.AREA_MAX_WIDTH * 100) + '%'
             },
             {
-                tip:'产品全景图',
+                tip: '产品全景图',
                 type: 'view',
                 top: Math.ceil(616 / constObj.AREA_MAX_HEIGHT * 100) + '%',
                 left: Math.ceil(791 / constObj.AREA_MAX_WIDTH * 100) + '%'
             }
         ],
-        robot:[
+        robot: [
             {
-                tip:'车间正门',
+                tip: '车间正门',
                 type: 'guide',
                 top: Math.ceil(582 / constObj.AREA_MAX_HEIGHT * 100) + '%',
                 left: Math.ceil(902 / constObj.AREA_MAX_WIDTH * 100) + '%'
@@ -85,16 +85,16 @@ $(function () {
     };
     // id关联函数配置数据
     var idFucConfig = {
-        zoomBig:globalTip,
-        eye:globalTip,
-        chat:globalTip,
-        VR:globalTip,
-        sceneSelect:globalTip,
-        sceneShare:globalTip,
-        mapNavigation:globalTip,
-        music:globalTip,
-        map:globalTip,
-        rotate:globalTip
+        zoomBig: globalTip,
+        eye: globalTip,
+        chat: globalTip,
+        VR: globalTip,
+        sceneSelect: globalTip,
+        sceneShare: globalTip,
+        mapNavigation: globalTip,
+        music: globalTip,
+        map: globalTip,
+        rotate: globalTip
     };
     // 记录类型
     var hallType = getHallTypeFromUrl(url);
@@ -113,6 +113,7 @@ $(function () {
 
 
     /*=== 函数定义 ===*/
+
     // 动态定义所有的常量
     function configConst(configData) {
         (function (configData) {
@@ -133,10 +134,12 @@ $(function () {
             });
         }(configData));
     }
+
     // 页面宽度监听
     function listenWindowWidthChange() {
         window.onresize = eventOfChangeAreaHeight;
     }
+
     // 计算高度并修改高度
     function eventOfChangeAreaHeight() {
         // 获取当前可见宽度
@@ -155,15 +158,17 @@ $(function () {
             height: areaHeight + 'px'
         });
     }
+
     // 写入图片+按钮
     function addImageAndButton() {
         var nowNodeName = '';
         n_hallListItem.each(function (index, itemNode) {
             nowNodeName = itemNode.getAttribute('name');
-            writeBgImage(itemNode,nowNodeName);
-            writeFucButton(itemNode,nowNodeName)
+            writeBgImage(itemNode, nowNodeName);
+            writeFucButton(itemNode, nowNodeName)
         });
     }
+
     // 写入背景图片
     function writeBgImage(node, nodeName) {
         var n_img = document.createElement('img');
@@ -174,6 +179,7 @@ $(function () {
         };
         n_img.src = bgImageConfigData[nodeName];
     }
+
     // 写入功能按钮
     function writeFucButton(node, nodeName) {
         var s_result = '';
@@ -187,7 +193,7 @@ $(function () {
             }).replace(r_btn, function (btnStr) {
                 return btnStr.replace('name=""', 'name="' + btnItem.type + '"');
             }).replace(r_btn, function (btnStr) {
-                var stSave = constObj.CIRCLE_HTML.replace('class=""',function (str) {
+                var stSave = constObj.CIRCLE_HTML.replace('class=""', function (str) {
                     if (btnItem.type !== 'guide') {
                         return str.slice(0, -1) + iconConfig[btnItem.type] + str.slice(-1);
                     } else {
@@ -204,10 +210,12 @@ $(function () {
         node.innerHTML = node.innerHTML + s_result;
         // console.log(s_result);
     }
+
     // 点击事件委托
     function bindGlobalButtonEvent() {
         n_panoramicHallArea.off('click', 'eventOfButtonClick').click(eventOfButtonClick);
     }
+
     // 按钮事件
     function eventOfButtonClick(event) {
         // 获取当前点击节点
@@ -245,6 +253,7 @@ $(function () {
             }
         }
     }
+
     // 获取url参数
     function getHallTypeFromUrl(url) {
         if (url.indexOf('#') < 0) {
@@ -253,19 +262,21 @@ $(function () {
         var stSave = url.split('#')[1];
         return stSave.split('%22')[1];
     }
+
     // 提示函数
     function globalTip(tip) {
         tip = tip || '当前功能暂未开放';
         layer.closeAll();
         layer.msg(tip);
     }
+
     // 切换展厅
     function changeHall(type) {
         var n_nowLi = null;
-        n_hallListItem.each(function (index,item) {
+        n_hallListItem.each(function (index, item) {
             n_nowLi = $(item);
             n_nowLi.hide();
-            if (n_nowLi.attr('name').toLowerCase() === type){
+            if (n_nowLi.attr('name').toLowerCase() === type) {
                 n_nowLi.show();
             }
         })

@@ -5,60 +5,51 @@ import com.baomidou.mybatisplus.annotations.TableName;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.BaseEntity;
 
 /**
- *   @description : UserRole 实体类
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2018-11-22
+ * @author zhangjk
+ * @description : UserRole 实体类
+ * ---------------------------------
+ * @since 2018-11-22
  */
 @TableName("s_base_user_role")
 public class UserRole extends BaseEntity {
 
-	/**
-	 * 序列化标志
-	 */
+    /**
+     * 序列化标志
+     */
     private static final long serialVersionUID = 1L;
 
 
+    @TableField("user_id")
 
-            @TableField("user_id")
-												
-			private Long userId;
+    private Long userId;
 
-            @TableField("role_id")
-												
-			private Long roleId;
+    @TableField("role_id")
 
-				
-				
-				
-				
-				
-				
-				
-
-        	public Long getUserId() {
-                return userId;
-                }
-
-            public void setUserId(Long userId) {
-                this.userId = userId;
-                }
-
-        	public Long getRoleId() {
-                return roleId;
-                }
-
-            public void setRoleId(Long roleId) {
-                this.roleId = roleId;
-                }
+    private Long roleId;
 
 
+    public Long getUserId() {
+        return userId;
+    }
 
-	@Override
-	public String toString() {
-		return "UserRole{" +
-			", userId=" + userId +
-			", roleId=" + roleId +
-			"}";
-	}
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Long getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
+    }
+
+
+    @Override
+    public String toString() {
+        return "UserRole{" +
+                ", userId=" + userId +
+                ", roleId=" + roleId +
+                "}";
+    }
 }

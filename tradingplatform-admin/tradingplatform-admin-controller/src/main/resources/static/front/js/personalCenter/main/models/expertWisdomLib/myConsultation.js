@@ -19,18 +19,18 @@ var selectConditionOfMyConsultationList = {
 
 /*** 监听分页跳转 ***/
 function listenToPage() {
-    $(".my-consultation-splitpage >div").on("click", function(){
+    $(".my-consultation-splitpage >div").on("click", function () {
         console.log($('.my-consultation-splitpage .focus')[0].innerText);
-        if($('.my-consultation-splitpage .focus')[0].innerText != currentPageOfMyConsultationList) {
+        if ($('.my-consultation-splitpage .focus')[0].innerText != currentPageOfMyConsultationList) {
             currentPageOfMyConsultationList = $('.my-consultation-splitpage .focus')[0].innerText;
 
             // getServiceList($_typeId, $("#search-input").val());
             pageInOrTabMyConsultation = 0;
             getMyConsultationList();
         }
-    }).keydown(function(e) {
+    }).keydown(function (e) {
         if (e.keyCode == 13) {
-            if($('.my-consultation-splitpage .focus')[0].innerText != currentPageOfMyConsultationList) {
+            if ($('.my-consultation-splitpage .focus')[0].innerText != currentPageOfMyConsultationList) {
                 currentPageOfMyConsultationList = $('.my-consultation-splitpage .focus')[0].innerText;
 
                 // getServiceList($_typeId, $("#search-input").val());
@@ -42,9 +42,9 @@ function listenToPage() {
 
     /** 回复的分页 **/
     // hrz
-    $(".my-consultation-reply-splitpage >div").on("click", function(){
+    $(".my-consultation-reply-splitpage >div").on("click", function () {
         console.log($('.my-consultation-reply-splitpage .focus')[0].innerText);
-        if($('.my-consultation-reply-splitpage .focus')[0].innerText != currentPageMyConsultationReply) {
+        if ($('.my-consultation-reply-splitpage .focus')[0].innerText != currentPageMyConsultationReply) {
             currentPageMyConsultationReply = $('.my-consultation-reply-splitpage .focus')[0].innerText;
 
             // getServiceList($_typeId, $("#search-input").val());
@@ -53,7 +53,7 @@ function listenToPage() {
             $('.my-consultation-list .replyContentHistory>div').not('.replyContentHistory-head, .oneMessage').remove()
             getMyConsultationSecond();
         }
-    }).keydown(function(e) {
+    }).keydown(function (e) {
         if (e.keyCode == 13) {
             currentPageMyConsultationReply = $('.my-consultation-reply-splitpage .focus')[0].innerText;
 
@@ -65,8 +65,9 @@ function listenToPage() {
         }
     });
 }
+
 /*** 复原currentPage ***/
-function resetCurrentPageMyConsultation () {
+function resetCurrentPageMyConsultation() {
     $('.my-consultation-splitpage >div').data('currentpage', 1);
     currentPageOfMyConsultationList = 1;
     $('.my-consultation-splitpage >div').find('li[data-page="' + currentPageOfMyConsultationList + '"]').addClass('focus').siblings().removeClass('focus');
@@ -84,7 +85,8 @@ $(function () {
     initDateTimePicker('my-consultation-list')
     consultationInformationListSearch();
 });
-function init_dom () {
+
+function init_dom() {
     $('.my-consultation-list .personal-center-search-list ul').html(' <li class="active"><span>全部</span><span></span></li> <li data-typeId="0"><span>未回复</span><span>1</span></li> <li data-typeId="1"><span>已回复</span><span>2</span></li>');
     $('.my-consultation-list .personal-center-search-time').children().eq(0).html('咨询时间：');
     $('.my-consultation-list .personal-center-search-list ul li').click(function () {
@@ -121,7 +123,7 @@ function consultationInformationListSearch() {
 }
 
 // 获取发布的需求列表
-function getMyConsultationList () {
+function getMyConsultationList() {
     var json = {
         "pager": {
             "current": currentPageOfMyConsultationList,
@@ -153,12 +155,20 @@ function getMyConsultationList () {
         success: function (res) {
             var totalRecord = res.data.total;
             var list = res.data.data_list;
-            if (pageInOrTabMyConsultation === 0){
-                $('.my-consultation-splitpage >div').Paging({pagesize:searchSizeOfMyConsultationList,count:totalRecord,toolbar:true});
+            if (pageInOrTabMyConsultation === 0) {
+                $('.my-consultation-splitpage >div').Paging({
+                    pagesize: searchSizeOfMyConsultationList,
+                    count: totalRecord,
+                    toolbar: true
+                });
                 $('.my-consultation-splitpage >div').find("div:eq(1)").remove();
             }
-            if (pageInOrTabMyConsultation === 1){
-                $('.my-consultation-splitpage >div').Paging({pagesize:searchSizeOfMyConsultationList,count:totalRecord,toolbar:true});
+            if (pageInOrTabMyConsultation === 1) {
+                $('.my-consultation-splitpage >div').Paging({
+                    pagesize: searchSizeOfMyConsultationList,
+                    count: totalRecord,
+                    toolbar: true
+                });
                 $('.my-consultation-splitpage >div').find("div:eq(0)").remove();
             }
             $('.my-consultation-total').html("共" + totalRecord + "条");
@@ -187,10 +197,10 @@ function setMyConsultationListData() {
     var baseStyleArr = []
     var arr = []
     if (myConsultationListData != undefined && myConsultationListData.length != 0) {
-        myConsultationListData.forEach(function(item) {
+        myConsultationListData.forEach(function (item) {
             var obj = {}
             if (baseStyleArr.length === 0) {
-                Object.keys(item).forEach(function(key) {
+                Object.keys(item).forEach(function (key) {
                     var styleItem = {}
                     styleItem.type = key
                     switch (key) {
@@ -219,10 +229,10 @@ function setMyConsultationListData() {
                     baseStyleArr.push(styleItem)
                 })
             }
-            obj.name = [item.name,item.experts_id]
+            obj.name = [item.name, item.experts_id]
             obj.contents = item.contents
             obj.created_at = $(this).formatTime(new Date(item.created_at)).split(' ')[0]
-            obj.reply =item.reply
+            obj.reply = item.reply
             // if (item.reply === true) {
             //     for (var i=0; i<baseStyleArr.length; i++) {
             //         if(baseStyleArr[i].type === 'experts_id') {
@@ -231,12 +241,12 @@ function setMyConsultationListData() {
             //     }
             //     arr = ['expert_name','contents','created_at','reply']
             // } else {
-            if (!!item['respondent']){
-                obj.experts_id = [item.experts_id,item['pid'],item.id,JSON.parse(item['respondent']).id]
+            if (!!item['respondent']) {
+                obj.experts_id = [item.experts_id, item['pid'], item.id, JSON.parse(item['respondent']).id]
             } else {
-                obj.experts_id = [item.experts_id,item['pid'],item.id]
+                obj.experts_id = [item.experts_id, item['pid'], item.id]
             }
-            arr = ['name','contents','created_at','reply','experts_id']
+            arr = ['name', 'contents', 'created_at', 'reply', 'experts_id']
             // }
             data.push(obj)
         })
@@ -245,7 +255,7 @@ function setMyConsultationListData() {
     table.setTableData(data)
     table.setBaseStyle(baseStyleArr)
     table.setColOrder(orderArr)
-    table.setOpenCheckBox(true, 2).setTableLineHeight(40).resetHtmlCallBack(function(type, content, label) {
+    table.setOpenCheckBox(true, 2).setTableLineHeight(40).resetHtmlCallBack(function (type, content, label) {
         if (type === 'reply') {
             var span
             if (content === true) {
@@ -255,10 +265,10 @@ function setMyConsultationListData() {
             }
             return (label === 'td') ? span : content
         } else if (type === 'experts_id') {
-            span = '<span class="reply-message" data-id="'+content+'" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>查看信息</span>'
+            span = '<span class="reply-message" data-id="' + content + '" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>查看信息</span>'
             return (label === 'td') ? span : content
-        }else if (type=== 'name') {
-            var span = '<span title="'+content[0]+'" class="myConsultationToDetail" data-proId="'+content[1]+'" style="cursor: pointer;color: #0066cc">'+ content[0] +'</span>'
+        } else if (type === 'name') {
+            var span = '<span title="' + content[0] + '" class="myConsultationToDetail" data-proId="' + content[1] + '" style="cursor: pointer;color: #0066cc">' + content[0] + '</span>'
             return (label === 'td') ? span : content
         }
     })
@@ -266,9 +276,9 @@ function setMyConsultationListData() {
 }
 
 function myConsulationHandleClick() {
-    $(document).on('click','.myConsultationToDetail',function () {
+    $(document).on('click', '.myConsultationToDetail', function () {
         var id = $(this).attr('data-proId')
-        window.open('/f/'+ id +'/expert_detail.html?pc=true')
+        window.open('/f/' + id + '/expert_detail.html?pc=true')
     })
     $('.my-consultation-list').find('.reply-message').click(function () {
         console.log($(this).attr('data-id'));
@@ -326,11 +336,8 @@ function myConsulationHandleClick() {
             }
         })
     })
-    
-    
-    
-    
-    
+
+
     // $('.my-consultation-list').find('.reply-message').click(function () {
     //     var idArr = $(this).attr('data-id').split(',');
     //     $('.my-consultation-list div').removeClass('my-consultatio-show')
@@ -432,9 +439,13 @@ function getMyConsultationSecond() {
 
             if (res.data.total == 0) {
                 $('.my-consultation-reply-splitpage >div').empty()
-            }else {
+            } else {
                 var totalRecord = res.data.total;
-                $('.my-consultation-reply-splitpage >div').Paging({pagesize:searchSizeMyConsultationReply,count:totalRecord,toolbar:true});
+                $('.my-consultation-reply-splitpage >div').Paging({
+                    pagesize: searchSizeMyConsultationReply,
+                    count: totalRecord,
+                    toolbar: true
+                });
                 $('.my-consultation-reply-splitpage >div').find("div:eq(1)").remove();
             }
 

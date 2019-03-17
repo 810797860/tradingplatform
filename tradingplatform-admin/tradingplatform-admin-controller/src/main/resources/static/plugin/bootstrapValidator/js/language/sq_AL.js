@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     /**
      * Albanian language package
      * Translated by @desaretiuss
@@ -23,7 +23,7 @@
         color: {
             'default': 'Ju lutem vendosni një ngjyrë të vlefshme'
         },
-        creditCard: {   
+        creditCard: {
             'default': 'Ju lutem vendosni një numër karte krediti të vlefshëm'
         },
         cusip: {
@@ -42,7 +42,7 @@
             'default': 'Ju lutem vendosni një vlerë tjetër'
         },
         digits: {
-             'default': 'Ju lutem vendosni vetëm numra'
+            'default': 'Ju lutem vendosni vetëm numra'
         },
         ean: {
             'default': 'Ju lutem vendosni një numër EAN të vlefshëm'
@@ -290,7 +290,7 @@
         },
         uuid: {
             'default': 'Ju lutem vendosni një numër UUID të vlefshëm',
-            version:   'Ju lutem vendosni një numër UUID version %s të vlefshëm'
+            version: 'Ju lutem vendosni një numër UUID version %s të vlefshëm'
         },
         vat: {
             'default': 'Ju lutem vendosni një numër VAT të vlefshëm',

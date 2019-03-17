@@ -21,16 +21,16 @@ var selectConditionOfServiceConsultationList = {
 
 /*** 监听分页跳转 ***/
 function listenToPage() {
-    $(".service-consultation-splitpage >div").on("click", function(){
+    $(".service-consultation-splitpage >div").on("click", function () {
         console.log($('.service-consultation-splitpage .focus')[0].innerText);
-        if($('.service-consultation-splitpage .focus')[0].innerText != currentPageOfServiceConsultationList) {
+        if ($('.service-consultation-splitpage .focus')[0].innerText != currentPageOfServiceConsultationList) {
             currentPageOfServiceConsultationList = $('.service-consultation-splitpage .focus')[0].innerText;
 
             // getServiceList($_typeId, $("#search-input").val());
             pageInOrTabConsultationService = 0;
             getConsultationServiceList();
         }
-    }).keydown(function(e) {
+    }).keydown(function (e) {
         if (e.keyCode == 13) {
             currentPageOfServiceConsultationList = $('.service-consultation-splitpage .focus')[0].innerText;
 
@@ -42,9 +42,9 @@ function listenToPage() {
 
     /** 回复的分页 **/
     // hrz
-    $(".service-consultation-reply-splitpage >div").on("click", function(){
+    $(".service-consultation-reply-splitpage >div").on("click", function () {
         console.log($('.service-consultation-reply-splitpage .focus')[0].innerText);
-        if($('.service-consultation-reply-splitpage .focus')[0].innerText != currentPageConsultationServiceReply) {
+        if ($('.service-consultation-reply-splitpage .focus')[0].innerText != currentPageConsultationServiceReply) {
             currentPageConsultationServiceReply = $('.service-consultation-reply-splitpage .focus')[0].innerText;
 
             // getServiceList($_typeId, $("#search-input").val());
@@ -53,7 +53,7 @@ function listenToPage() {
             $('.service-consultation-list .replyContentHistory>div').not('.replyContentHistory-head, .oneMessage').remove()
             getConsultationServiceListSecond();
         }
-    }).keydown(function(e) {
+    }).keydown(function (e) {
         if (e.keyCode == 13) {
             currentPageConsultationServiceReply = $('.service-consultation-reply-splitpage .focus')[0].innerText;
 
@@ -65,8 +65,9 @@ function listenToPage() {
         }
     });
 }
+
 /*** 复原currentPage ***/
-function resetCurrentPageConsultationService () {
+function resetCurrentPageConsultationService() {
     $('.service-consultation-splitpage >div').data('currentpage, 1');
     currentPageOfServiceConsultationList = 1;
     $('.service-consultation-splitpage >div').find('li[data-page="' + currentPageOfServiceConsultationList + '"]').addClass('focus').siblings().removeClass('focus');
@@ -84,6 +85,7 @@ $(function () {
     initDateTimePicker('service-consultation-list');
     consultationServiceListSearch();
 });
+
 function init_dom() {
     $('.service-consultation-list .personal-center-search-list ul').html(' <li class="active"><span>全部</span><span></span></li> <li data-typeId="0"><span>未回复</span><span>1</span></li> <li data-typeId="1"><span>已回复</span><span>2</span></li>');
     $('.service-consultation-list .personal-center-search-time').children().eq(0).html('咨询时间：');
@@ -121,13 +123,13 @@ function consultationServiceListSearch() {
 }
 
 // 获取报名的需求列表
-function getConsultationServiceList () {
+function getConsultationServiceList() {
     var json = {
-        "pager":{
+        "pager": {
             "current": currentPageOfServiceConsultationList,
             "size": searchSizeOfServiceConsultationList
         },
-        "sortPointer":{
+        "sortPointer": {
             "filed": "created_at",
             "order": "DESC"
         }
@@ -154,12 +156,20 @@ function getConsultationServiceList () {
             var totalRecord = res.data.total;
             var list = res.data.data_list;
 
-            if (pageInOrTabConsultationService === 0){
-                $('.service-consultation-splitpage >div').Paging({pagesize:searchSizeOfServiceConsultationList,count:totalRecord,toolbar:true});
+            if (pageInOrTabConsultationService === 0) {
+                $('.service-consultation-splitpage >div').Paging({
+                    pagesize: searchSizeOfServiceConsultationList,
+                    count: totalRecord,
+                    toolbar: true
+                });
                 $('.service-consultation-splitpage >div').find("div:eq(1)").remove();
             }
-            if (pageInOrTabConsultationService === 1){
-                $('.service-consultation-splitpage >div').Paging({pagesize:searchSizeOfServiceConsultationList,count:totalRecord,toolbar:true});
+            if (pageInOrTabConsultationService === 1) {
+                $('.service-consultation-splitpage >div').Paging({
+                    pagesize: searchSizeOfServiceConsultationList,
+                    count: totalRecord,
+                    toolbar: true
+                });
                 $('.service-consultation-splitpage >div').find("div:eq(0)").remove();
             }
             $('.service-consultation-list-total').html("共" + totalRecord + "条");
@@ -182,7 +192,7 @@ function getConsultationServiceList () {
     });
 }
 
-function setConsultationConsultationList (list) {
+function setConsultationConsultationList(list) {
     for (var i = 0; i < list.length; i++) {
         list[i].id;
         list[i].name;   // 需求名称
@@ -209,10 +219,10 @@ function getConsultationServiceListData() {
     var baseStyleArr = []
     var arr = []
     if (consultationServiceListData != undefined && consultationServiceListData.length != 0) {
-        consultationServiceListData.forEach(function (item){
+        consultationServiceListData.forEach(function (item) {
             var obj = {}
             if (baseStyleArr.length === 0) {
-                Object.keys(item).forEach(function(key) {
+                Object.keys(item).forEach(function (key) {
                     var styleItem = {}
                     styleItem.type = key
                     switch (key) {
@@ -245,7 +255,7 @@ function getConsultationServiceListData() {
             obj.provider = item.provider;
             obj.contents = item.contents;
             obj.created_at = $(this).formatTime(new Date(item.created_at)).split(' ')[0];
-            obj.reply =item.reply;
+            obj.reply = item.reply;
             // if (item.reply === true) {
             //     for (var i=0; i<baseStyleArr.length; i++) {
             //         if(baseStyleArr[i].type === 'id') {
@@ -255,12 +265,12 @@ function getConsultationServiceListData() {
             //     arr = ['title','results_unit_provider','contents','created_at','reply']
             // } else {
             if (!!item['respondent']) {
-                obj.id = [item.id, item.pid,item.id,JSON.parse(item['respondent']).id]
+                obj.id = [item.id, item.pid, item.id, JSON.parse(item['respondent']).id]
             } else {
-                obj.id = [item.id, item.pid,item.id]
+                obj.id = [item.id, item.pid, item.id]
             }
             // }
-            arr = ['service_title','provider','contents','created_at','reply','id']
+            arr = ['service_title', 'provider', 'contents', 'created_at', 'reply', 'id']
             data.push(obj)
         })
     }
@@ -279,8 +289,8 @@ function getConsultationServiceListData() {
                 }
                 return (label === 'td') ? span : content
             } else if (type === 'id') {
-                if (!!content){
-                    span = '<span class="reply-message" data-id="'+ content +'" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>查看信息</span>'
+                if (!!content) {
+                    span = '<span class="reply-message" data-id="' + content + '" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>查看信息</span>'
                 } else {
                     // span = '<button type="button" class="btn btn-default btn-sm" style="font-size: 14px;padding: 0 10px;height: 30px;line-height: 30px;border: none;background-color: #f4f4f4" disabled="disabled">回复信息</button>'
                     // span = '<span class="reply-message-none" data-id="'+ content +'" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #f4f4f4;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: #333333;cursor: pointer" disabled="disabled"></i>回复信息</span>'
@@ -289,8 +299,8 @@ function getConsultationServiceListData() {
                 // console.log(typeof (content));
                 // span = '<span class="reply-message" data-id="'+ content +'" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>回复信息</span>'
                 return (label === 'td') ? span : content
-            } else if (type=== 'service_title') {
-                var span = '<span title="'+content[0]+'" class="consultationServiceListToDetail" data-proId="'+content[1]+'" style="cursor: pointer;color: #0066cc">'+ content[0] +'</span>'
+            } else if (type === 'service_title') {
+                var span = '<span title="' + content[0] + '" class="consultationServiceListToDetail" data-proId="' + content[1] + '" style="cursor: pointer;color: #0066cc">' + content[0] + '</span>'
                 return (label === 'td') ? span : content
             }
         })
@@ -298,9 +308,9 @@ function getConsultationServiceListData() {
 }
 
 function consulationServiceListHandleClick() {
-    $(document).on('click','.consultationServiceListToDetail',function () {
+    $(document).on('click', '.consultationServiceListToDetail', function () {
         var id = $(this).attr('data-proId')
-        window.open('/f/'+ id +'/general_service_detail.html?pc=true')
+        window.open('/f/' + id + '/general_service_detail.html?pc=true')
     })
 
     $('.service-consultation-list').find('.reply-message').click(function () {
@@ -466,9 +476,13 @@ function getConsultationServiceListSecond() {
 
             if (res.data.total == 0) {
                 $('.service-consultation-reply-splitpage >div').empty()
-            }else {
+            } else {
                 var totalRecord = res.data.total;
-                $('.service-consultation-reply-splitpage >div').Paging({pagesize:searchSizeConsultationServiceReply,count:totalRecord,toolbar:true});
+                $('.service-consultation-reply-splitpage >div').Paging({
+                    pagesize: searchSizeConsultationServiceReply,
+                    count: totalRecord,
+                    toolbar: true
+                });
                 $('.service-consultation-reply-splitpage >div').find("div:eq(1)").remove();
             }
 
@@ -478,14 +492,14 @@ function getConsultationServiceListSecond() {
                 var div = $('<div style="min-height: 40px;line-height: 40px"></div>')
                 var div1 = $('<div style="min-height: 40px;line-height: 40px; background-color: #f4f4f4;padding-left: 60px" ></div>')
                 if (JSON.parse(messages[i].respondent).id == JSON.parse(userInfo).id) {
-                    var span = $('<span style="color: #0088c0; font-size: 16px;display: inline-block;background-color: white;margin-left: 20px;">'+JSON.parse(messages[i].user_id).user_name+'</span>')
+                    var span = $('<span style="color: #0088c0; font-size: 16px;display: inline-block;background-color: white;margin-left: 20px;">' + JSON.parse(messages[i].user_id).user_name + '</span>')
                     var span1 = $('<span style="font-size: 16px;display: inline-block;background-color: white;margin-left: 20px;">回复</span>')
                     var span2 = $('<span style="color: #0088c0; font-size: 16px;display: inline-block;background-color: white;margin-left: 20px;">我</span>')
                     var span3 = $('<span style="font-size: 16px;display: inline-block;background-color: white;margin-left: 20px;">' + $(this).formatTime(new Date(messages[i].created_at)) + '</span>')
                 } else {
                     var span = $('<span style="color: #0088c0; font-size: 16px;display: inline-block;background-color: white;margin-left: 20px;">我</span>')
                     var span1 = $('<span style="font-size: 16px;display: inline-block;background-color: white;margin-left: 20px;">咨询</span>')
-                    var span2 = $('<span style="color: #0088c0; font-size: 16px;display: inline-block;background-color: white;margin-left: 20px;">'+JSON.parse(messages[i].respondent).user_name+'</span>')
+                    var span2 = $('<span style="color: #0088c0; font-size: 16px;display: inline-block;background-color: white;margin-left: 20px;">' + JSON.parse(messages[i].respondent).user_name + '</span>')
                     var span3 = $('<span style="font-size: 16px;display: inline-block;background-color: white;margin-left: 20px;">' + $(this).formatTime(new Date(messages[i].created_at)) + '</span>')
                 }
                 div.append(span)

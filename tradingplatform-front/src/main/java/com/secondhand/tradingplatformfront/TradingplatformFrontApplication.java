@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class TradingplatformFrontApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(TradingplatformFrontApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(TradingplatformFrontApplication.class, args);
+    }
 }

@@ -22,10 +22,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *   @description : Role 服务实现类
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2018-11-13
+ * @author zhangjk
+ * @description : Role 服务实现类
+ * ---------------------------------
+ * @since 2018-11-13
  */
 
 @Service
@@ -48,7 +48,7 @@ public class RoleServiceImpl extends BaseServiceImpl<RoleMapper, Role> implement
     @Transactional(rollbackFor = Exception.class)
     @CacheEvict(allEntries = true)
     public boolean myFakeBatchDelete(List<Long> roleIds) {
-        roleIds.forEach(roleId->{
+        roleIds.forEach(roleId -> {
             myFakeDeleteById(roleId);
         });
         return true;
@@ -64,7 +64,7 @@ public class RoleServiceImpl extends BaseServiceImpl<RoleMapper, Role> implement
     @CacheEvict(allEntries = true)
     public Role myRoleCreateUpdate(Role role) {
         Long roleId = role.getId();
-        if (roleId == null){
+        if (roleId == null) {
             role.setUuid(ToolUtil.getUUID());
             roleMapper.insert(role);
         } else {
@@ -74,52 +74,52 @@ public class RoleServiceImpl extends BaseServiceImpl<RoleMapper, Role> implement
     }
 
     //以下是继承BaseServiceImpl
-    
+
     @Override
     @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p1.sorts")
     public Page<Role> mySelectPageWithParam(Page<Role> page, Role role) {
         Wrapper<Role> wrapper = new EntityWrapper<>(role);
         //遍历排序
         List<Sort> sorts = role.getSorts();
-        if (sorts == null){
+        if (sorts == null) {
             //为null时，默认按created_at倒序
             wrapper.orderBy("id", false);
         } else {
             //遍历排序
-            sorts.forEach( sort -> {
+            sorts.forEach(sort -> {
                 wrapper.orderBy(sort.getField(), sort.getAsc());
             });
         }
         return this.selectPage(page, wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public List<Role> mySelectListWithMap(Map<String, Object> map) {
         return roleMapper.selectByMap(map);
     }
-    
+
     //以下是继承BaseMapper
-    
+
     @Override
     @Cacheable(key = "#p0")
     public Map<String, Object> mySelectMap(Wrapper<Role> wrapper) {
         return this.selectMap(wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public List<Role> mySelectList(Wrapper<Role> wrapper) {
         return roleMapper.selectList(wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsert(Role role) {
         role.setUuid(ToolUtil.getUUID());
         return this.insert(role);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertBatch(List<Role> roleList) {
@@ -128,65 +128,65 @@ public class RoleServiceImpl extends BaseServiceImpl<RoleMapper, Role> implement
         });
         return this.insertBatch(roleList);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdate(Role role) {
         //没有uuid的话要加上去
-        if (role.getUuid().equals(null)){
+        if (role.getUuid().equals(null)) {
             role.setUuid(ToolUtil.getUUID());
         }
         return this.insertOrUpdate(role);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdateBatch(List<Role> roleList) {
         roleList.forEach(role -> {
             //没有uuid的话要加上去
-            if (role.getUuid().equals(null)){
+            if (role.getUuid().equals(null)) {
                 role.setUuid(ToolUtil.getUUID());
             }
         });
         return this.insertOrUpdateBatch(roleList);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public List<Role> mySelectBatchIds(Collection<? extends Serializable> roleIds) {
         return roleMapper.selectBatchIds(roleIds);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public Role mySelectById(Serializable roleId) {
         return roleMapper.selectById(roleId);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public int mySelectCount(Wrapper<Role> wrapper) {
         return roleMapper.selectCount(wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public Role mySelectOne(Wrapper<Role> wrapper) {
         return this.selectOne(wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdate(Role role, Wrapper<Role> wrapper) {
         return this.update(role, wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdateBatchById(List<Role> roleList) {
         return this.updateBatchById(roleList);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdateById(Role role) {

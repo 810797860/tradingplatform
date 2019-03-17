@@ -56,11 +56,11 @@ function SubmitDemandResult() {
     _this.getDemandResult = function (projectId, callback) {
         project_id = projectId;
         new NewAjax({
-            url:'/f/projectDemandCheck/'+ projectId +'/get_detail?pc=true',
+            url: '/f/projectDemandCheck/' + projectId + '/get_detail?pc=true',
             type: "GET",
             contentType: 'application/json',
             success: function (res) {
-                if (res.status === 200){
+                if (res.status === 200) {
                     _this.isUnderReview = true;
                     showData = (!!res.data.data_object) ? res.data.data_object : {};
                     copyData = JSON.parse(JSON.stringify(showData));
@@ -70,7 +70,7 @@ function SubmitDemandResult() {
                     setData();
                     if (showData.check_status !== undefined && showData.check_status !== null) {
                         // 根据审核状态展示数据
-                        reviewStatus (showData.check_status)
+                        reviewStatus(showData.check_status)
                     } else {
                         // 改为编辑模式
                         changeShowStatus(false);
@@ -112,6 +112,7 @@ function SubmitDemandResult() {
     };
 
     /*=== 功能函数 ===*/
+
     // 写入回显数据
     function setData() {
         // 当没有数据的时候跳过
@@ -121,20 +122,23 @@ function SubmitDemandResult() {
         setShowData();
         setEditData();
     }
+
     // 写入展示数据
     function setShowData() {
-        var content = (!!showData) ? (!!showData.illustration) ? showData.illustration.replace(/\n/g, '<br/>'): '暂无数据' : '暂无数据';
+        var content = (!!showData) ? (!!showData.illustration) ? showData.illustration.replace(/\n/g, '<br/>') : '暂无数据' : '暂无数据';
         showDetailNode.html(content);
         setTable(false);
     }
+
     // 写入编辑数据
     function setEditData() {
         editDetailNode.val(showData.illustration);
         setTable(true)
     }
+
     // 初始化表格
     function initTable() {
-        var orderArr = ['title','size','id'];
+        var orderArr = ['title', 'size', 'id'];
         var baseStyleArr = [
             {
                 type: 'title',
@@ -160,8 +164,8 @@ function SubmitDemandResult() {
             .setTableLineHeight(40)
             .setOpenIndex(true)
             .setBaseStyle(baseStyleArr)
-            .resetHtmlCallBack(function (type, content, label){
-                if(label === 'td') {
+            .resetHtmlCallBack(function (type, content, label) {
+                if (label === 'td') {
                     if (type === 'id') {
                         return '<button class="btn btn-info" name="download" style="background-color: #0db5fb" data-id="' + content + '">查看</button>';
                     }
@@ -228,6 +232,7 @@ function SubmitDemandResult() {
         });
         //
     }
+
     // 清空表格数据
     function cleanTable() {
         // 展示表格清空
@@ -235,11 +240,12 @@ function SubmitDemandResult() {
         // 编辑表格清空
         editTable.setTableData([]).createTable();
     }
+
     // 写入表格
     function setTable(isEdit) {
         // 没有数据
         if (showData.attachment === undefined || showData.attachment === null) {
-            if(showTableDiv.css('display') !== 'none') {
+            if (showTableDiv.css('display') !== 'none') {
                 // 展示表格隐藏
                 showTableDiv.hide().parent().append('<p class="submitDemandResultShowFilesTip">暂无数据</p>');
             }
@@ -250,7 +256,7 @@ function SubmitDemandResult() {
         } else {
             var data = JSON.parse(showData.attachment);
             // 写入编辑表格
-            if (isEdit){
+            if (isEdit) {
                 // 写入数据
                 editTable.setTableData(data).createTable();
                 // 展示表格
@@ -263,6 +269,7 @@ function SubmitDemandResult() {
             }
         }
     }
+
     // 审核状态
     function reviewStatus(data) {
         var nowStatus = JSON.parse(data).id;
@@ -332,6 +339,7 @@ function SubmitDemandResult() {
                 break;
         }
     }
+
     // 修改展示状态
     function changeShowStatus(isShow) {
         // 展示框
@@ -347,6 +355,7 @@ function SubmitDemandResult() {
             editDiv.show();
         }
     }
+
     // 提取提交数据
     function getSubmitData() {
         var str = '';
@@ -371,6 +380,7 @@ function SubmitDemandResult() {
         // 写入id
         submitData.projectId = project_id;
     }
+
     // 判断提交内容
     function examineSubmitResult(data) {
         var pass = true;
@@ -382,12 +392,14 @@ function SubmitDemandResult() {
             pass = false;
             textTip.text('说明不能为空').show();
             editDetailNode.css({
-                borderColor:'#ff0000'
+                borderColor: '#ff0000'
             })
         }
         return pass;
     }
+
     /*=== 监听函数 ===*/
+
     // 所有事件监听
     function allEvent() {
         eventOfEditDetailFocus();
@@ -399,15 +411,17 @@ function SubmitDemandResult() {
         eventOfGoBackClick();
         eventOfCancelBtnClick();
     }
+
     // 输入框的focus监听事件
     function eventOfEditDetailFocus() {
         editDetailNode.focus(function () {
             textTip.text('').hide();
             editDetailNode.css({
-                borderColor:''
+                borderColor: ''
             })
         })
     }
+
     // 输入框的blur监听事件
     function eventOfEditDetailBlur() {
         editDetailNode.blur(function () {
@@ -417,6 +431,7 @@ function SubmitDemandResult() {
             showData.illustration = filterSensitiveWord(editDetailNode.val());
         })
     }
+
     // 修改按钮点击事件
     function eventOfResetBtnClick() {
         resetBtn.off().click(function () {
@@ -426,6 +441,7 @@ function SubmitDemandResult() {
             changeShowStatus(false);
         })
     }
+
     // 上传文件点击事件
     function eventOfUploadBtnClick() {
         upLoadBtn.off().click(function () {
@@ -436,6 +452,7 @@ function SubmitDemandResult() {
             upLoadNode.click();
         })
     }
+
     // 上传事件
     function eventOfUploadInputChange() {
         upLoadNode.change(function () {
@@ -464,6 +481,7 @@ function SubmitDemandResult() {
             })
         })
     }
+
     // 提交按钮点击事件
     function eventOfSubmitBtnClick() {
         submitBtn.off().click(function () {
@@ -486,6 +504,7 @@ function SubmitDemandResult() {
             })
         })
     }
+
     // 返回列表点击事件
     function eventOfGoBackClick() {
         goBackNode.off().click(function () {
@@ -493,6 +512,7 @@ function SubmitDemandResult() {
             $(".right-page").removeClass("page-active").siblings(".dock-demand-list-area").addClass("page-active");
         })
     }
+
     // 取消按钮点击事件
     function eventOfCancelBtnClick() {
         // 点击直接返回需求列表

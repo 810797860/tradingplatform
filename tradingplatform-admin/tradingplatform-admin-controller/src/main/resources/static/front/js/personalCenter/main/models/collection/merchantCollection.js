@@ -12,16 +12,16 @@ var selectConditionOfMerchantCollectionList = {
 
 /*** 监听分页跳转 ***/
 function listenToPage() {
-    $(".merchant-collection-splitpage >div").on("click", function(){
+    $(".merchant-collection-splitpage >div").on("click", function () {
         console.log($('.merchant-collection-splitpage .focus')[0].innerText);
-        if($('.merchant-collection-splitpage .focus')[0].innerText != currentPageOfMerchantCollectionList) {
+        if ($('.merchant-collection-splitpage .focus')[0].innerText != currentPageOfMerchantCollectionList) {
             currentPageOfMerchantCollectionList = $('.merchant-collection-splitpage .focus')[0].innerText;
 
             // getServiceList($_typeId, $("#search-input").val());
             pageInOrTabMerchantCollection = 0;
             getMerchantCollectionList();
         }
-    }).keydown(function(e) {
+    }).keydown(function (e) {
         if (e.keyCode == 13) {
             currentPageOfMerchantCollectionList = $('.merchant-collection-splitpage .focus')[0].innerText;
 
@@ -31,8 +31,9 @@ function listenToPage() {
         }
     });
 }
+
 /*** 复原currentPage ***/
-function resetCurrentPageMerchantCollection () {
+function resetCurrentPageMerchantCollection() {
     $('.merchant-collection-splitpage >div').data('currentpage', 1);
     currentPageOfMerchantCollectionList = 1;
     $('.merchant-collection-splitpage >div').find('li[data-page="' + currentPageOfMerchantCollectionList + '"]').addClass('focus').siblings().removeClass('focus');
@@ -74,7 +75,7 @@ function merchantCollectionSearch() {
 }
 
 
-function init_dom () {
+function init_dom() {
     $('.merchant-collection-list .personal-center-search-list').remove();
     $('.merchant-collection-list .personal-center-search-time').children().eq(0).html('收藏时间：');
 
@@ -82,8 +83,9 @@ function init_dom () {
     currentPageOfMerchantCollectionList = 1
 
 }
+
 // 获取发布的需求列表
-function getMerchantCollectionList () {
+function getMerchantCollectionList() {
     var json = {
         "pager": {
             "current": currentPageOfMerchantCollectionList,
@@ -115,12 +117,20 @@ function getMerchantCollectionList () {
             var list = res.data.data_list;
             console.log(list);
 
-            if (pageInOrTabMerchantCollection === 0){
-                $('.merchant-collection-splitpage >div').Paging({pagesize:searchSizeOfMerchantCollectionList,count:totalRecord,toolbar:true});
+            if (pageInOrTabMerchantCollection === 0) {
+                $('.merchant-collection-splitpage >div').Paging({
+                    pagesize: searchSizeOfMerchantCollectionList,
+                    count: totalRecord,
+                    toolbar: true
+                });
                 $('.merchant-collection-splitpage >div').find("div:eq(1)").remove();
             }
-            if (pageInOrTabMerchantCollection === 1){
-                $('.merchant-collection-splitpage >div').Paging({pagesize:searchSizeOfMerchantCollectionList,count:totalRecord,toolbar:true});
+            if (pageInOrTabMerchantCollection === 1) {
+                $('.merchant-collection-splitpage >div').Paging({
+                    pagesize: searchSizeOfMerchantCollectionList,
+                    count: totalRecord,
+                    toolbar: true
+                });
                 $('.merchant-collection-splitpage >div').find("div:eq(0)").remove();
             }
             $('.merchant-collection-total').html("共" + totalRecord + "条");
@@ -145,7 +155,7 @@ function getMerchantCollectionList () {
 }
 
 // 设置发布的需求列表
-function setMerchantCollectionList (list) {
+function setMerchantCollectionList(list) {
     for (var i = 0; i < list.length; i++) {
         list[i].id;
         list[i].name;   // 需求名称
@@ -167,10 +177,10 @@ function setMerchantCollectionListData() {
     var table = new Table('merchant-collection-list-table')
     var baseStyleArr = []
     if (merchantCollectionListData != undefined && merchantCollectionListData.length != 0) {
-        merchantCollectionListData.forEach(function(item) {
+        merchantCollectionListData.forEach(function (item) {
             var obj = {}
             if (baseStyleArr.length === 0) {
-                Object.keys(item).forEach(function(key){
+                Object.keys(item).forEach(function (key) {
                     var styleItem = {}
                     styleItem.type = key
                     switch (key) {
@@ -200,7 +210,7 @@ function setMerchantCollectionListData() {
                     baseStyleArr.push(styleItem)
                 })
             }
-            obj.provider_name = [item.provider_name,item.providers_id]
+            obj.provider_name = [item.provider_name, item.providers_id]
             obj.address = item.address
             obj.phone = item.phone
             obj.created_at = $(this).formatTime(new Date(item.created_at)).split(' ')[0]
@@ -208,16 +218,16 @@ function setMerchantCollectionListData() {
             data.push(obj)
         })
     }
-    var orderArr = ['provider_name','address','phone','created_at','providers_id']
+    var orderArr = ['provider_name', 'address', 'phone', 'created_at', 'providers_id']
     table.setTableData(data)
     table.setBaseStyle(baseStyleArr)
     table.setColOrder(orderArr)
-    table.setOpenCheckBox(true, 2).setTableLineHeight(40).resetHtmlCallBack(function(type, content, label) {
+    table.setOpenCheckBox(true, 2).setTableLineHeight(40).resetHtmlCallBack(function (type, content, label) {
         if (type === 'providers_id') {
-            var span = '<span class="cancelCollection" data-id="'+content+'" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer">取消收藏</span>'
+            var span = '<span class="cancelCollection" data-id="' + content + '" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer">取消收藏</span>'
             return (label === 'td') ? span : content
-        } else if (type=== 'provider_name') {
-            var span = '<span title="'+content[0]+'" class="merchantCollectionToDetail" data-proId="'+content[1]+'" style="cursor: pointer;color: #0066cc">'+ content[0] +'</span>'
+        } else if (type === 'provider_name') {
+            var span = '<span title="' + content[0] + '" class="merchantCollectionToDetail" data-proId="' + content[1] + '" style="cursor: pointer;color: #0066cc">' + content[0] + '</span>'
             return (label === 'td') ? span : content
         }
     })
@@ -225,15 +235,15 @@ function setMerchantCollectionListData() {
 }
 
 function mercharCollectionHandleClick() {
-    $(document).on('click','.merchantCollectionToDetail',function () {
+    $(document).on('click', '.merchantCollectionToDetail', function () {
         var id = $(this).attr('data-proId')
-        window.open('/f/'+ id +'/provider_detail.html?pc=true')
+        window.open('/f/' + id + '/provider_detail.html?pc=true')
     })
     $('.merchant-collection-list').find('.cancelCollection').click(function () {
-        var serviceProviders_id =  $(this).attr('data-id')
+        var serviceProviders_id = $(this).attr('data-id')
         layer.confirm('你确定要删除此需求？', {
-            btn: ['确定','取消'] //按钮
-        }, function(){
+            btn: ['确定', '取消'] //按钮
+        }, function () {
             var json = {
                 isCollection: false,
                 serviceProvidersId: serviceProviders_id
@@ -245,7 +255,7 @@ function mercharCollectionHandleClick() {
                 dataType: "json",
                 data: JSON.stringify(json),
                 success: function (res) {
-                    if(res.status === 200) {
+                    if (res.status === 200) {
 
                         pageInOrTabMerchantCollection = 1
                         currentPageOfMerchantCollectionList = 1
@@ -260,7 +270,7 @@ function mercharCollectionHandleClick() {
                     }
                 }
             });
-        }, function(){
+        }, function () {
             layer.msg('取消了这次删除', {
                 time: 1000, //20s后自动关闭
             });

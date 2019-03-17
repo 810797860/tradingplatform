@@ -7,39 +7,43 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *   @description : LoginLog 服务接口
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2018-10-28
+ * @author zhangjk
+ * @description : LoginLog 服务接口
+ * ---------------------------------
+ * @since 2018-10-28
  */
 public interface LoginLogService extends BaseService<LoginLog> {
 
-        /**
-         * 根据id进行假删除
-         * @param loginLogId
-         * @return
-         */
-        boolean fakeDeleteById(Long loginLogId);
+    /**
+     * 根据id进行假删除
+     *
+     * @param loginLogId
+     * @return
+     */
+    boolean fakeDeleteById(Long loginLogId);
 
-        /**
-         * 根据ids进行批量假删除
-         * @param loginLogIds
-         * @return
-         */
-        boolean fakeBatchDelete(List<Long> loginLogIds);
+    /**
+     * 根据ids进行批量假删除
+     *
+     * @param loginLogIds
+     * @return
+     */
+    boolean fakeBatchDelete(List<Long> loginLogIds);
 
-        /**
-         * 获取Map数据（Obj）
-         * @param loginLogId
-         * @return
-         */
-        Map<String, Object> selectMapById(Long loginLogId);
+    /**
+     * 获取Map数据（Obj）
+     *
+     * @param loginLogId
+     * @return
+     */
+    Map<String, Object> selectMapById(Long loginLogId);
 
-        /**
-         * 新增或修改loginLog
-         * @param loginLog
-         * @return
-         */
-        LoginLog loginLogCreateUpdate(LoginLog loginLog);
+    /**
+     * 新增或修改loginLog
+     *
+     * @param loginLog
+     * @return
+     */
+    LoginLog loginLogCreateUpdate(LoginLog loginLog);
 
 }

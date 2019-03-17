@@ -29,10 +29,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *   @description : Resources 服务实现类
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2018-11-12
+ * @author zhangjk
+ * @description : Resources 服务实现类
+ * ---------------------------------
+ * @since 2018-11-12
  */
 
 @Service
@@ -66,7 +66,7 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
     @Transactional(rollbackFor = Exception.class)
     @CacheEvict(allEntries = true)
     public boolean myFakeBatchDelete(List<Long> resourcesIds) {
-        for (Long resourcesId : resourcesIds){
+        for (Long resourcesId : resourcesIds) {
             myFakeDeleteById(resourcesId);
         }
         return true;
@@ -84,7 +84,7 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
     @CacheEvict(allEntries = true)
     public Resources myResourcesCreateUpdate(Resources resources) {
         Long resourcesId = resources.getId();
-        if (resourcesId == null){
+        if (resourcesId == null) {
             resources.setUuid(ToolUtil.getUUID());
             resourcesMapper.insert(resources);
 
@@ -119,12 +119,12 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
         resources.setDescription(null);
         //遍历排序
         List<Sort> sorts = resources.getSorts();
-        if (sorts == null){
+        if (sorts == null) {
             //为null时，默认按created_at倒序
             wrapper.orderBy("id", false);
         } else {
             //遍历排序
-            sorts.forEach( sort -> {
+            sorts.forEach(sort -> {
                 wrapper.orderBy(sort.getField(), sort.getAsc());
             });
         }
@@ -138,7 +138,7 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
         Wrapper<Resources> wrapper = new EntityWrapper<>(resources);
 
         //判断“找自己菜单对应的按钮的情况”
-        if (roleId != null){
+        if (roleId != null) {
             //找出resources的ids
             Wrapper<RoleResources> roleResourcesWrapper = new EntityWrapper<>();
             roleResourcesWrapper.setSqlSelect("resources_id");
@@ -146,7 +146,7 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
             roleResourcesWrapper.where("deleted = {0}", false);
             List<Object> resourcesIds = roleResourcesService.mySelectObjs(roleResourcesWrapper);
             //如果resourcesIds为空，返回空的对象
-            if (resourcesIds.size() == 0){
+            if (resourcesIds.size() == 0) {
                 return new ArrayList<>();
             }
             //放进去搜索按钮的条件里
@@ -192,7 +192,7 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertBatch(List<Resources> resourcesList) {
-        for (Resources resources : resourcesList){
+        for (Resources resources : resourcesList) {
             resources.setUuid(ToolUtil.getUUID());
         }
         return this.insertBatch(resourcesList);
@@ -202,7 +202,7 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdate(Resources resources) {
         //没有uuid的话要加上去
-        if (resources.getUuid().equals(null)){
+        if (resources.getUuid().equals(null)) {
             resources.setUuid(ToolUtil.getUUID());
         }
         return this.insertOrUpdate(resources);
@@ -211,9 +211,9 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdateBatch(List<Resources> resourcesList) {
-        for (Resources resources : resourcesList){
+        for (Resources resources : resourcesList) {
             //没有uuid的话要加上去
-            if (resources.getUuid().equals(null)){
+            if (resources.getUuid().equals(null)) {
                 resources.setUuid(ToolUtil.getUUID());
             }
         }

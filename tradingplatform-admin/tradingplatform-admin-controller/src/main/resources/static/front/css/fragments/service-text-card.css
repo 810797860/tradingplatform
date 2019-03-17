@@ -1,6 +1,7 @@
-p{
+p {
     margin: 0;
 }
+
 .service-text-card {
     display: block;
     width: 270px;
@@ -11,6 +12,7 @@ p{
     box-sizing: border-box;
     cursor: pointer;
 }
+
 .service-text-card .title {
     height: 50px;
     line-height: 50px;
@@ -21,12 +23,14 @@ p{
     white-space: nowrap;
     box-shadow: inset 0px -1px 0px 0px #dcdcdc;
 }
+
 .service-text-card .result-area {
     height: 30px;
     line-height: 30px;
     font-size: 14px;
     color: #646464;
 }
+
 .service-text-card .desc {
     height: 60px;
     line-height: 30px;
@@ -38,6 +42,7 @@ p{
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
 }
+
 .service-text-card .bottom {
     line-height: 40px;
     font-size: 14px;
@@ -45,27 +50,33 @@ p{
     overflow: hidden;
     text-align: center;
 }
+
 .service-text-card .bottom .time {
     float: left;
     color: #c81414;
     font-size: 18px;
 }
+
 .service-text-card .bottom .click-count-area {
     float: right;
 }
+
 .service-text-card .bottom .click-count-area .click-count {
     color: #c81414;
 }
+
 .service-text-card label {
     font-weight: normal;
 }
+
 .service-text-card .provider-area {
     height: 30px;
     line-height: 30px;
     font-size: 14px;
     color: #666666;
 }
-.service-text-card .provider-area .provider-data{
+
+.service-text-card .provider-area .provider-data {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -73,6 +84,7 @@ p{
     width: 175px;
     vertical-align: top;
 }
+
 .service-text-card .time-area {
     height: 30px;
     line-height: 30px;
@@ -80,8 +92,7 @@ p{
     color: #333333;
 }
 
-
 /*复用*/
-.service-text-card:nth-of-type(2n){
+.service-text-card:nth-of-type(2n) {
     background-color: #fafafa;
 }

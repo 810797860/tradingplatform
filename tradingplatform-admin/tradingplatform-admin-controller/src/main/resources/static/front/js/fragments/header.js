@@ -125,7 +125,8 @@ windowOpenStatus(function (isOpen) {
                         pTipMessage(title, message, 'warning', 5000, true);
                     }, 'data');
                     // 监听 message
-                    global_ws.setSocketCloseCallback(function (status) {});
+                    global_ws.setSocketCloseCallback(function (status) {
+                    });
                 }
             }
         } else if (key === 'check') {
@@ -282,9 +283,9 @@ $(function () {
     if (window.BROWSERTYPE === undefined) {
         Object.defineProperty(window, 'BROWSERTYPE', {
             // 不可删除
-            configurable:false,
+            configurable: false,
             // 不可枚举
-            enumerable:false,
+            enumerable: false,
             // 可以修改
             writable: true,
             // 默认值null
@@ -293,12 +294,12 @@ $(function () {
     }
     window.BROWSERTYPE = (browser !== null) ? (browser !== undefined) ? browser : true : false;
 
-    if($userName){
+    if ($userName) {
         loginOk = 1
     }
 
     // 设置用户名
-    if(loginOk) {
+    if (loginOk) {
         $(".avatar-login").css("display", "inline-block");
         $(".avatar-img").bind('click', goTocenter);
         $(".login-register").css("display", "none");
@@ -316,7 +317,7 @@ $(function () {
 
 
     /*=== 监听事件 ===*/
-    function handleEvent () {
+    function handleEvent() {
         // 监听免费发布点击事件
         $('.right .freePublishCase').click(function () {
             var user = window.localStorage.getItem('user');
@@ -328,15 +329,15 @@ $(function () {
                 setTimeout(function () {
                     window.location.href = '/f/login.html?pc=true';
                     // window.open('/f/login.html?pc=true', '_self');
-                },500);
+                }, 500);
             }
         })
 
         // 监听搜索的点击事件
         $(".header .bottom-container .right .search-btn").off().on("click", eventOfSelectChange);
         // 监听搜索框的回车事件
-        $('.header .bottom-container .right .search-input').on('keypress',function(event){
-            if(event.keyCode == 13) {
+        $('.header .bottom-container .right .search-input').on('keypress', function (event) {
+            if (event.keyCode == 13) {
                 eventOfSelectChange();
             }
         });
@@ -359,8 +360,9 @@ $(function () {
         eventOfVideoCloseIconClick();
         eventOfVideoHiddenClick();
     }
+
     // select的change
-    function eventOfSelectChange () {
+    function eventOfSelectChange() {
         // var storage = window.localStorage;
         var searchValue = $(".header .bottom-container .right .search-input").val();
         var selectOption = $(".header .bottom-container .right .select").find("option:selected").data("value");
@@ -378,16 +380,16 @@ $(function () {
                 success: function (res) {
                     if (res.status === 200) {
                         if (selectOption === "demand") {
-                            window.location.href = "/f/demand_hall.html?pc=true&search="+ searchValue;
+                            window.location.href = "/f/demand_hall.html?pc=true&search=" + searchValue;
                             // window.open("/f/demand_hall.html?pc=true&search="+ searchValue);
                         } else if (selectOption === "product") {
-                            window.location.href = "/f/case_hall.html?pc=true&search="+ searchValue;
+                            window.location.href = "/f/case_hall.html?pc=true&search=" + searchValue;
                             // window.open("/f/case_hall.html?pc=true&search="+ searchValue);
                         } else if (selectOption === "company") {
                             window.location.href = "/f/service_provider_lib.html?pc=true&search=" + searchValue;
                             // window.open("/f/service_provider_lib.html?pc=true&search=" + searchValue);
                         } else if (selectOption === "service") {
-                            window.location.href = "/f/general_service.html?pc=true&search="+ searchValue;
+                            window.location.href = "/f/general_service.html?pc=true&search=" + searchValue;
                             // window.open("/f/general_service.html?pc=true&search="+ searchValue);
                         }
                     }
@@ -398,20 +400,21 @@ $(function () {
             });
         } else {
             if (selectOption === "demand") {
-                window.location.href = "/f/demand_hall.html?pc=true&search="+ searchValue;
+                window.location.href = "/f/demand_hall.html?pc=true&search=" + searchValue;
                 // window.open('/f/demand_hall.html?pc=true&search='+ searchValue);
             } else if (selectOption === "product") {
-                window.location.href = "/f/case_hall.html?pc=true&search="+ searchValue;
+                window.location.href = "/f/case_hall.html?pc=true&search=" + searchValue;
                 // window.open('/f/case_hall.html?pc=true&search=' + searchValue);
             } else if (selectOption === "company") {
                 window.location.href = "/f/service_provider_lib.html?pc=true&search=" + searchValue;
                 // window.open('/f/service_provider_lib.html?pc=true&search=' + searchValue);
             } else if (selectOption === "service") {
-                window.location.href = "/f/general_service.html?pc=true&search="+ searchValue;
+                window.location.href = "/f/general_service.html?pc=true&search=" + searchValue;
                 // window.open('/f/general_service.html?pc=true&search=' + searchValue);
             }
         }
     }
+
     // 消息点击
     function eventOfMessageLinkClick() {
         var messageLink = $('#head-personal');
@@ -424,7 +427,9 @@ $(function () {
             return false;
         })
     }
+
     /* 直播 */
+
     // 直播通知窗口的关闭按钮的点击事件
     function eventOfVideoCloseIconClick() {
         var oCloseIconNode = oVideoLiveShowNode.find('.global-video-live-close-div').eq(0);
@@ -433,6 +438,7 @@ $(function () {
             oVideoLiveHiddenNode.show();
         })
     }
+
     // 直播通知窗口关闭模式
     function eventOfVideoHiddenClick() {
         oVideoLiveHiddenNode.off().click(function () {
@@ -446,17 +452,19 @@ $(function () {
         window.location.href = "/f/personal_center.html?pc=true";
         // window.open('/f/personal_center.html?pc=true');
     }
+
     // 禁用flvjs提示
     function closeFlvJsLog() {
         // 禁止flv.js调用log
-        if (flvjs){
+        if (flvjs) {
             flvjs.LoggingControl.enableAll = false;
         }
     }
+
     // 获取hot-key
-    function getHotKey () {
+    function getHotKey() {
         var configData = {
-            pager:{
+            pager: {
                 current: 1,
                 size: 5
             }
@@ -476,8 +484,9 @@ $(function () {
             setHotKey([]);
         }
     }
+
     // 设置hot-key
-    function setHotKey (list) {
+    function setHotKey(list) {
         // 清空Hot-key
         $(".header .bottom .right .right-bottom").html("<label>热门搜索：</label>");
         for (var i = 0; i < list.length; i++) {

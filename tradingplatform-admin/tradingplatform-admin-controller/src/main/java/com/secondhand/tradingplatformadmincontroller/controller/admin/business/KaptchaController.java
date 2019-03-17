@@ -20,6 +20,7 @@ import java.io.IOException;
 
 /**
  * 生成验证码
+ *
  * @author 81079
  */
 @Controller("adminKaptchaController")
@@ -35,6 +36,7 @@ public class KaptchaController {
 
     /**
      * 获取验证码
+     *
      * @param request
      * @param response
      * @throws IOException
@@ -60,9 +62,9 @@ public class KaptchaController {
         ImageIO.write(bufferedImage, "jpg", out);
         try {
             out.flush();
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             out.close();
         }
     }

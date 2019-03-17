@@ -3,7 +3,7 @@
  * 新增表单字段脚本
  */
 
-$(function(){
+$(function () {
     var $save = $("#save"),
         $reset = $('#reset'),
         $form = $("#newField");
@@ -22,18 +22,18 @@ $(function(){
     // 获取表单字段下拉框
     var fields = [];
     // 如果存在父窗口，获取窗口索引
-    if(typeof parent.layer !== 'undefined' && formFieldId !== null) {
+    if (typeof parent.layer !== 'undefined' && formFieldId !== null) {
         var index = parent.layer.getFrameIndex(window.name);
     }
 
-    if (formFieldId !== ""){
+    if (formFieldId !== "") {
         initPage();
     }
 
     // 初始化选择类型
     for (var i = 0; i < fieldTypesArr.length; i++) {
         if (fieldTypesArr[i].pid == 100101) {
-            var option = $('<option value="'+fieldTypesArr[i].id+'" label="'+fieldTypesArr[i].title+'">'+fieldTypesArr[i].title+'</option>');
+            var option = $('<option value="' + fieldTypesArr[i].id + '" label="' + fieldTypesArr[i].title + '">' + fieldTypesArr[i].title + '</option>');
             $('#showType').append(option);
         }
     }
@@ -42,23 +42,23 @@ $(function(){
     for (var i = 0; i < fieldTypesArr.length; i++) {
         if (!!formFieldId) {
             if (fieldTypesArr[i].pid == showTypeSelect) {
-                var option = $('<option value="'+fieldTypesArr[i].id+'" label="'+fieldTypesArr[i].title+'">' + fieldTypesArr[i].title + '</option>');
+                var option = $('<option value="' + fieldTypesArr[i].id + '" label="' + fieldTypesArr[i].title + '">' + fieldTypesArr[i].title + '</option>');
                 $('#fieldType').append(option);
             }
         } else {
             if (fieldTypesArr[i].pid == 100101) {
-                var option = $('<option value="'+fieldTypesArr[i].id+'" label="'+fieldTypesArr[i].title+'">' + fieldTypesArr[i].title + '</option>');
+                var option = $('<option value="' + fieldTypesArr[i].id + '" label="' + fieldTypesArr[i].title + '">' + fieldTypesArr[i].title + '</option>');
                 $('#fieldType').append(option);
             }
         }
     }
 
-    $(document).on('change','#showType',function () {
+    $(document).on('change', '#showType', function () {
         var showTypeSelectData = $('#showType').select()[0].value;
         $('#fieldType option').remove();
         for (var i = 0; i < fieldTypesArr.length; i++) {
             if (fieldTypesArr[i].pid == showTypeSelectData) {
-                var option = $('<option value="'+fieldTypesArr[i].id+'" label="'+fieldTypesArr[i].title+'">' + fieldTypesArr[i].title + '</option>');
+                var option = $('<option value="' + fieldTypesArr[i].id + '" label="' + fieldTypesArr[i].title + '">' + fieldTypesArr[i].title + '</option>');
                 $('#fieldType').append(option);
             }
         }
@@ -67,10 +67,10 @@ $(function(){
     // checkbox 选中
     $(".checkbox-input").click(function (e) {
         e.stopPropagation();
-        if($(this).hasClass("selected")) {
+        if ($(this).hasClass("selected")) {
             $(this).removeClass("selected");
             $(this).children('input[type="checkbox"]').first().attr('checked', false).prop('checked', false);
-        }else {
+        } else {
             $(this).addClass("selected");
             $(this).children('input[type="checkbox"]').first().attr('checked', true).prop('checked', true);
         }
@@ -115,17 +115,17 @@ $(function(){
     //     }
     // });
     // 重置
-    $reset.on('click', function  (e) {
+    $reset.on('click', function (e) {
         e.stopPropagation();
         $form.bootstrapValidator('resetForm', true);
         $form[0].reset();
     });
     // 点击保存
-    $save.on('click', function(e){
+    $save.on('click', function (e) {
         e.stopPropagation();
         $form.data('bootstrapValidator').validate();
         var isValid = $form.data('bootstrapValidator').isValid();
-        if(!isValid) {
+        if (!isValid) {
             return;
         }
         layer.msg('表单字段提交中...', { // 提交加载动画
@@ -134,7 +134,7 @@ $(function(){
             time: 8000
         });
         var postData = {};
-        if(typeof formFieldId !== 'undefined' && formFieldId !== '' && formFieldId !== null) {
+        if (typeof formFieldId !== 'undefined' && formFieldId !== '' && formFieldId !== null) {
             postData['id'] = formFieldId;
         }
         postData['formId'] = $("#formId").val();
@@ -158,15 +158,15 @@ $(function(){
         postData['description'] = $("#description").val() || null;
         // postData['id'] = $(id).val() || null;
 
-        if(typeof formFieldId !== 'undefined' && formFieldId !== '' && formFieldId !== null) {
+        if (typeof formFieldId !== 'undefined' && formFieldId !== '' && formFieldId !== null) {
             $.ajax({
                 url: '/admin/formField/create_update',
                 data: JSON.stringify(postData),
                 type: 'post',
-                contentType:'application/json;charset=utf-8',
-                success: function(res) {
+                contentType: 'application/json;charset=utf-8',
+                success: function (res) {
                     layer.closeAll();
-                    if(res.success === true) {
+                    if (res.success === true) {
                         new PNotify({
                             title: '修改表单字段成功！',
                             text: '请在表单设计列表中查看',
@@ -186,7 +186,7 @@ $(function(){
                         });
                     }
                 },
-                error: function(error) {
+                error: function (error) {
                     layer.closeAll();
                     new PNotify({
                         title: '修改表单字段失败！',
@@ -203,10 +203,10 @@ $(function(){
                 url: '/admin/formField/create_update',
                 data: JSON.stringify(postData),
                 type: 'post',
-                contentType:'application/json;charset=utf-8',
-                success: function(res) {
+                contentType: 'application/json;charset=utf-8',
+                success: function (res) {
                     layer.closeAll();
-                    if(res.success === true) {
+                    if (res.success === true) {
                         parent.window.refreshAndShowMessage({
                             title: '新建表单字段成功！',
                             text: '请在表单字段列表中查看',
@@ -227,7 +227,7 @@ $(function(){
                         });
                     }
                 },
-                error: function(error) {
+                error: function (error) {
                     layer.closeAll();
                     new PNotify({
                         title: '新建表单字段失败！',
@@ -246,23 +246,27 @@ $(function(){
     function formValidator() {
         $form.bootstrapValidator({
             message: '这个值无效',
-            feedbackIcons: {/*输入框不同状态，显示图片的样式*/
+            feedbackIcons: {
+                /*输入框不同状态，显示图片的样式*/
                 valid: 'glyphicon glyphicon-ok',
                 invalid: 'glyphicon glyphicon-remove',
                 validating: 'glyphicon glyphicon-refresh'
             },
             excluded: [':disabled', ':hidden', 'select'],
-            fields: {/*验证*/
-                title: {/*键名username和input name值对应*/
+            fields: {
+                /*验证*/
+                title: {
+                    /*键名username和input name值对应*/
                     message: '字段标题无效',
                     validators: {
-                        notEmpty: {/*非空提示*/
+                        notEmpty: {
+                            /*非空提示*/
                             message: '字段标题不能为空'
                         }
                     }
                 },
                 fieldName: {
-                    message:'字段名称无效',
+                    message: '字段名称无效',
                     validators: {
                         notEmpty: {
                             message: '字段名称不能为空'
@@ -276,22 +280,22 @@ $(function(){
     // 显示字段类型
     function showFieldType(arr) {
         var hasVal = false;
-        $("#fieldType").children("option").each(function(){
+        $("#fieldType").children("option").each(function () {
             var len = arr.length;
-            for(var i = 0; i < len; i++ ) {
-                if($(this).val() === arr[i]) {
+            for (var i = 0; i < len; i++) {
+                if ($(this).val() === arr[i]) {
                     $(this).show();
-                    if($(this).val() === $('#fieldType').val()) {
+                    if ($(this).val() === $('#fieldType').val()) {
                         hasVal = true;
                     }
                     break;
                 }
             }
-            if(i === len) {
+            if (i === len) {
                 $(this).hide();
             }
         });
-        if(!hasVal) {
+        if (!hasVal) {
             $('#fieldType').val(arr[0]);
         }
     }
@@ -370,11 +374,11 @@ $(function(){
 
     // 初始化checkbox
     function initCheckbox() {
-        $('.checkbox-input').each(function(){
+        $('.checkbox-input').each(function () {
             var checked = $(this).children('input[type="checkbox"]').first().attr('checked');
-            if(typeof checked === 'undefined') {
+            if (typeof checked === 'undefined') {
                 return true;
-            }else {
+            } else {
                 $(this).addClass("selected");
             }
         });
@@ -394,7 +398,7 @@ $(function(){
     // initEditor();
 });
 
-function initPage(){
+function initPage() {
     if (!!$('#formFieldId').val()) {
         // var showType =$('#showType').data('showtype');
         // $('#showType').attr("data-showtype", showType.id)
@@ -409,7 +413,7 @@ function initPage(){
             $('#showType').append(new Option(showType.title, showType.id, false, true))
         }
         var fieldType = $('#fieldType').data('fieldtype');
-        if (!!fieldType){
+        if (!!fieldType) {
             $('#fieldType').append(new Option(fieldType.title, fieldType.id, false, true))
         }
     }

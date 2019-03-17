@@ -2,28 +2,35 @@
     display: inline-block;
     vertical-align: top;
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
-input[type="number"]{
+
+input[type="number"] {
     -moz-appearance: textfield;
 }
+
 .publish-service {
     padding: 30px 0px 64px;
     box-sizing: border-box;
 }
+
 .publish-service .select-area {
     width: 100%;
 }
+
 .publish-service .select-area .select-row {
     width: 100%;
     font-size: 0;
     margin-top: 15px;
 }
+
 .publish-service .select-area .select-row:first-child {
     margin-top: 0;
 }
+
 /** label 开始 **/
 .publish-service .row-label {
     width: 100px;
@@ -33,6 +40,7 @@ input[type="number"]{
     box-sizing: border-box;
     overflow: hidden;
 }
+
 .publish-service .row-label i:before {
     color: red;
     font-size: 10px;
@@ -41,6 +49,7 @@ input[type="number"]{
     width: 11px;
     display: inline-block;
 }
+
 .publish-service .row-label .label-title {
     width: 70px;
     text-align: right;
@@ -48,20 +57,24 @@ input[type="number"]{
     font-size: 14px;
     color: #323232;
 }
+
 /** label 结束 **/
 .publish-service .select-area .row-label {
     height: 40px;
     line-height: 40px;
 }
+
 .publish-service .select-area .select-row .option-area {
     width: 740px;
     height: auto;
     font-size: 0;
     overflow: hidden;
 }
+
 .publish-service .select-area .select-row .option-area-hidden {
     height: 40px;
 }
+
 .publish-service .select-area .select-row .option-area .option {
     width: 96px;
     height: 40px;
@@ -75,6 +88,7 @@ input[type="number"]{
     box-sizing: border-box;
     cursor: pointer;
 }
+
 .publish-service .select-area .select-row .option-area .option .type-item-text {
     position: relative;
     top: 50%;
@@ -92,14 +106,17 @@ input[type="number"]{
 .publish-service .select-area .select-row .option-area .option:nth-of-type(n + 7) {
     margin-top: 10px;
 }
+
 .publish-service .select-area .select-row .option-area .option:hover {
     background-color: #0066cc;
     color: #fff;
 }
+
 .publish-service .select-area .select-row .option-area .option-active {
     background-color: #0066cc;
     color: #fff;
 }
+
 .publish-service .select-area .select-row .open-more {
     width: 70px;
     height: 40px;
@@ -114,14 +131,17 @@ input[type="number"]{
     margin-top: 15px;
     font-size: 0;
 }
+
 .publish-service .service-name-area,
 .publish-service .service-provider-area {
     height: 50px;
     font-size: 0;
 }
+
 .publish-service .service-provider-area {
     margin-top: 0;
 }
+
 .publish-service .service-name-area .service-name,
 .publish-service .service-provider-area .service-provider {
     width: 805px;
@@ -135,6 +155,7 @@ input[type="number"]{
     color: #333333;
     border-radius: 4px;
 }
+
 .publish-service .service-desc-area,
 .publish-service .service-apply-area,
 .publish-service .service-flow-area,
@@ -142,13 +163,15 @@ input[type="number"]{
     height: 400px;
     font-size: 0;
 }
+
 .publish-service .service-desc-area .prompt-desc-area,
 .publish-service .service-apply-area .prompt-apply-area,
 .publish-service .service-flow-area .prompt-flow-area,
 .publish-service .service-case-area .prompt-case-area {
     width: 805px;
 }
-.publish-service .service-desc-area .prompt-desc-area .prompt,.publish-service .service-apply-area .prompt-apply-area .prompt,.publish-service .service-flow-area .prompt-flow-area .prompt,.publish-service .service-case-area .prompt-case-area .prompt {
+
+.publish-service .service-desc-area .prompt-desc-area .prompt, .publish-service .service-apply-area .prompt-apply-area .prompt, .publish-service .service-flow-area .prompt-flow-area .prompt, .publish-service .service-case-area .prompt-case-area .prompt {
     display: block;
     height: 30px;
     line-height: 30px;
@@ -161,11 +184,12 @@ input[type="number"]{
     border-radius: 4px;
     cursor: pointer;
 }
-.publish-service .service-desc-area .prompt-desc-area .service-desc,.publish-service .service-apply-area .prompt-apply-area .service-apply,.publish-service .service-flow-area .prompt-flow-area .service-flow,.publish-service .service-case-area .prompt-case-area .service-case {
+
+.publish-service .service-desc-area .prompt-desc-area .service-desc, .publish-service .service-apply-area .prompt-apply-area .service-apply, .publish-service .service-flow-area .prompt-flow-area .service-flow, .publish-service .service-case-area .prompt-case-area .service-case {
     width: 805px;
     height: 240px;
     line-height: 25px;
-    resize:none;
+    resize: none;
     padding: 10px 20px;
     background-color: #ffffff;
     border: solid 1px #dcdcdc;
@@ -174,17 +198,21 @@ input[type="number"]{
     color: #333333;
     border-radius: 4px;
 }
+
 .publish-service .service-attachment-area {
     font-size: 0;
 }
+
 .publish-service .service-attachment-area .service-attachment-list {
     width: 805px;
 }
+
 .publish-service .service-attachment-area .service-attachment-list .upload-file-area {
     height: 30px;
     line-height: 30px;
     position: relative;
 }
+
 .publish-service .service-attachment-area .service-attachment-list .upload-file-area .upload-file {
     display: block;
     width: 80px;
@@ -195,6 +223,7 @@ input[type="number"]{
     background-color: #0066cc;
     color: #fff;
 }
+
 .publish-service .service-attachment-area .service-attachment-list .upload-file-area .input-file {
     position: absolute;
     top: 0;
@@ -208,37 +237,45 @@ input[type="number"]{
     opacity: 0;
     cursor: pointer;
 }
+
 .publish-service .service-attachment-area .service-attachment-list .file-table-content {
     font-size: 14px;
 }
+
 .publish-service .service-attachment-area .service-attachment-list .file-table-content .file-title {
     font-size: 14px;
     color: #0066cc;
 }
+
 .publish-service .service-attachment-area .service-attachment-list .file-table-content .see-file {
     font-size: 14px;
     color: #0066cc;
     cursor: pointer;
 }
+
 .publish-service .service-attachment-area .service-attachment-list .file-table-content .see-file i:before {
     font-weight: 600;
     color: #0066cc;
     margin-right: 5px;
 }
+
 .publish-service .service-attachment-area .service-attachment-list .file-table-content .delete-file {
     margin-left: 25px;
     font-size: 14px;
     color: #0066cc;
     cursor: pointer;
 }
+
 .publish-service .service-attachment-area .service-attachment-list .file-table-content .delete-file i:before {
     color: #0066cc;
     margin-right: 5px;
 }
+
 .publish-service .service-address-area {
     height: 30px;
     margin-bottom: 30px;
 }
+
 .publish-service .service-address-area .address-select-area .address-select {
     width: 132px;
     height: 30px;
@@ -252,12 +289,15 @@ input[type="number"]{
     text-align: center;
     text-align-last: center;
 }
+
 .publish-service .service-money-area {
     height: 40px;
 }
+
 .publish-service .service-money-area .service-money {
     height: 30px;
 }
+
 .publish-service .service-money-area .service-money .input-money {
     width: 132px;
     height: 30px;
@@ -269,16 +309,19 @@ input[type="number"]{
     color: #333333;
     border-radius: 4px;
 }
+
 .publish-service .service-money-area .service-money .mark-less {
     font-size: 14px;
     color: #333333;
     margin: 0 4px;
 }
+
 .publish-service .service-money-area .service-money .unit {
     font-size: 14px;
     color: #333333;
     margin-left: 20px;
 }
+
 .publish-service .service-money-area .service-money .zero {
     display: inline-block;
     width: 70px;
@@ -292,13 +335,16 @@ input[type="number"]{
     border-radius: 4px;
     cursor: pointer;
 }
+
 .publish-service .service-money-area .service-money .blue {
     background-color: #0066cc;
 }
+
 .publish-service .service-validity-area {
     height: 30px;
     font-size: 0;
 }
+
 /*.publish-service .service-validity-area .row-label .label-title {*/
 /*width: 90px;*/
 /*}*/
@@ -308,7 +354,8 @@ input[type="number"]{
     position: relative;
     border-radius: 4px;
 }
-.publish-service .service-validity-area .input-validity-area .input-validity-area-span{
+
+.publish-service .service-validity-area .input-validity-area .input-validity-area-span {
     font-size: 14px;
     height: 30px;
     line-height: 30px;
@@ -316,7 +363,8 @@ input[type="number"]{
     text-align: center;
     cursor: pointer;
 }
-.publish-service .service-validity-area .input-validity-area .input-validity-area-input{
+
+.publish-service .service-validity-area .input-validity-area .input-validity-area-input {
     position: relative;
     font-size: 14px;
     text-align: center;
@@ -328,6 +376,7 @@ input[type="number"]{
     width: 100px;
     margin-left: 20px;
 }
+
 .publish-service .service-validity-area .input-validity-area .service-validity {
     width: 132px;
     height: 30px;
@@ -339,6 +388,7 @@ input[type="number"]{
     border: solid 1px #dcdcdc;
     border-radius: 4px;
 }
+
 .publish-service .service-validity-area .input-validity-area .select-button {
     position: absolute;
     right: 0;
@@ -348,29 +398,34 @@ input[type="number"]{
     line-height: 30px;
     border-radius: 4px;
 }
-.publish-service .service-validity-area .input-validity-area .default-selection{
+
+.publish-service .service-validity-area .input-validity-area .default-selection {
     background-color: #0066cc;
     border-radius: 5px;
     color: white;
 }
+
 .publish-service .service-validity-area .input-validity-area .select-button i {
     display: block;
     width: 100%;
     height: 100%;
-    -webkit-transform: scale(0.7,1.1);
-    -moz-transform: scale(0.7,1.1);
-    -o-transform: scale(0.7,1.1);
-    transform: scale(0.7,1.1);
+    -webkit-transform: scale(0.7, 1.1);
+    -moz-transform: scale(0.7, 1.1);
+    -o-transform: scale(0.7, 1.1);
+    transform: scale(0.7, 1.1);
 }
+
 .publish-service .service-validity-area .input-validity-area .select-button i:before {
     margin-left: 4px;
 }
+
 .publish-service .submit-area {
     width: 100%;
     height: 40px;
     margin-top: 40px;
     text-align: center;
 }
+
 .publish-service .submit-area .submit {
     display: inline-block;
     width: 127px;
@@ -386,6 +441,7 @@ input[type="number"]{
 .publish-service .error-border {
     border: solid 1px red !important;
 }
+
 .publish-service .error-info {
     height: 20px;
     line-height: 20px;
@@ -393,6 +449,7 @@ input[type="number"]{
     padding-left: 100px;
     box-sizing: border-box;
 }
+
 .publish-service .error-info .error-info-content {
     display: none;
     font-size: 12px;
@@ -402,14 +459,17 @@ input[type="number"]{
 .publish-service .service-picture-area {
     font-size: 0;
 }
+
 .publish-service .service-picture-area .service-attachment-list {
     width: 785px;
 }
+
 .publish-service .service-picture-area .service-attachment-list .upload-file-area {
     height: 30px;
     line-height: 30px;
     position: relative;
 }
+
 .publish-service .service-picture-area .service-attachment-list .upload-file-area .upload-file {
     width: 80px;
     height: 100%;
@@ -419,6 +479,7 @@ input[type="number"]{
     background-color: #0066cc;
     color: #fff;
 }
+
 .publish-service .service-picture-area .service-attachment-list .upload-file-area .input-file {
     position: absolute;
     top: 0;
@@ -432,6 +493,7 @@ input[type="number"]{
     opacity: 0;
     cursor: pointer;
 }
+
 .publish-service .service-picture-area .service-attachment-list .upload-file-area .upload-file-info {
     height: 30px;
     line-height: 30px;
@@ -439,32 +501,39 @@ input[type="number"]{
     color: #999;
     margin-left: 10px;
 }
+
 .publish-service .service-picture-area .service-attachment-list .upload-file-area .upload-file-info-error {
     color: red;
 }
+
 .publish-service .service-picture-area .service-attachment-list .file-table-content {
     font-size: 14px;
 }
+
 .publish-service .service-picture-area .service-attachment-list .file-table-content .file-title {
     font-size: 14px;
     color: #0066cc;
 }
+
 .publish-service .service-picture-area .service-attachment-list .file-table-content .see-file {
     font-size: 14px;
     color: #0066cc;
     cursor: pointer;
 }
+
 .publish-service .service-picture-area .service-attachment-list .file-table-content .see-file i:before {
     font-weight: 600;
     color: #0066cc;
     margin-right: 5px;
 }
+
 .publish-service .service-picture-area .service-attachment-list .file-table-content .delete-file {
     margin-left: 25px;
     font-size: 14px;
     color: #0066cc;
     cursor: pointer;
 }
+
 .publish-service .service-picture-area .service-attachment-list .file-table-content .delete-file i:before {
     color: #0066cc;
     margin-right: 5px;

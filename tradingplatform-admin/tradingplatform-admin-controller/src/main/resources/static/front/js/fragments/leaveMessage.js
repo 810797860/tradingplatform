@@ -9,7 +9,7 @@ function LeaveMessage(mainAreaId) {
         '                <div class="leave-message-content-div">\n' +
         '                    <div class="leave-message-content"><i class="icon-message"></i></div>\n' +
         '                </div>\n' +
-        '                <div class="leave-message-reply-div" data-mark=""></div>\n'+
+        '                <div class="leave-message-reply-div" data-mark=""></div>\n' +
         '                <div class="leave-message-reply-input-div" style="display: none">\n' +
         '                    <div class="leave-message-reply-input-ask-div">\n' +
         '                        <p class="leave-message-reply-input-ask-name">xxx：</p>\n' +
@@ -24,7 +24,7 @@ function LeaveMessage(mainAreaId) {
         '                        <button class="leave-message-reply-input-button-false">取消</button>\n' +
         '                    </div>\n' +
         '                </div>\n' +
-        '                <div class="leave-message-reply-page-div" id="" style="display:none;"></div>\n'+
+        '                <div class="leave-message-reply-page-div" id="" style="display:none;"></div>\n' +
         '            </div>\n' +
         '        </div>';
     var replyHtml = '<div class="leave-message-reply-item-div">\n' +
@@ -92,6 +92,7 @@ function LeaveMessage(mainAreaId) {
     // 存储最大页码
 
     /*=== 功能函数 ===*/
+
     // 写入数据
     function createLeaveMessage() {
         // 留言被修改了
@@ -115,6 +116,7 @@ function LeaveMessage(mainAreaId) {
         // 写入二级分页
         setPage();
     }
+
     // 提取留言信息
     function extractLeaveMessage(messageData) {
         // 遍历数据
@@ -127,6 +129,7 @@ function LeaveMessage(mainAreaId) {
             allLeaveMessageArr.push(obj);
         });
     }
+
     // 提取分页实例信息（ps:只在更新留言才调用；结合分页配置数据 + 留言节点数据）
     function extractPageInstance() {
         // 存储对应数据项
@@ -162,6 +165,7 @@ function LeaveMessage(mainAreaId) {
             pageInstanceArr.push(obj);
         });
     }
+
     // 写入留言数据
     function setLeaveMessageData() {
         // 存储留言字符串
@@ -184,7 +188,7 @@ function LeaveMessage(mainAreaId) {
                     idIndex += 1;
                     return idStr.slice(0, -1) + extractDataItem.id + idStr.slice(-1);
                 } else {
-                    return idStr.slice(0, -1) + 'page' + extractDataItem.id +  idStr.slice(-1);
+                    return idStr.slice(0, -1) + 'page' + extractDataItem.id + idStr.slice(-1);
                 }
             }).replace(/<a class="leave-message-item-user-link((?!<\/a>).)+<\/a>/, function (userStr) {
                 // 写入留言者
@@ -196,13 +200,13 @@ function LeaveMessage(mainAreaId) {
                 // 写入留言内容
                 return contentStr.replace(/><i/, 'data-id="' + leaveMessageData.message.id + '">' + leaveMessageData.message.content.replace(/\n/g, '<br>') + '<i')
             }).replace(/data-mark=""/, function (markStr) {
-                return markStr.slice(0,-1) + nowMark + markStr.slice(-1);
-            //    <div id="" class="leave-message-reply-page-div"></div>
-            }).replace(/<div class="leave-message-reply-page-div"((?!<\/div>)[^>])+><\/div>/, function(pageDivStr) {
+                return markStr.slice(0, -1) + nowMark + markStr.slice(-1);
+                //    <div id="" class="leave-message-reply-page-div"></div>
+            }).replace(/<div class="leave-message-reply-page-div"((?!<\/div>)[^>])+><\/div>/, function (pageDivStr) {
                 return pageDivStr.slice(0, -6) + pageHTMl + pageDivStr.slice(-6);
             }).replace(/<i class="icon-message"><\/i><\/div>/g, function (pStr) {
                 if (parseInt(leaveMessageData.message.user.id) === nowUserId) {
-                    return pStr.slice(0,-6) + deleteHtml + pStr.slice(-6);
+                    return pStr.slice(0, -6) + deleteHtml + pStr.slice(-6);
                 } else {
                     return pStr;
                 }
@@ -213,6 +217,7 @@ function LeaveMessage(mainAreaId) {
         });
         return result;
     }
+
     // 写入回复数据
     function setReplyData(leaveMessageStr) {
         // 获取当前回复区域节点
@@ -258,13 +263,13 @@ function LeaveMessage(mainAreaId) {
                         }).replace(/<div class="leave-message-reply-content((?!<\/div>).)+<\/div>/, function (contentStr) {
                             // 写入回答内容 (这里的pid是留言id)
                             if (replyItem.pid !== undefined && replyItem.pid !== null) {
-                                return contentStr.replace(/><i/, 'data-id="' + replyItem.id + '" data-pid="'+ replyItem.pid +'">' + replyItem.content.replace(/\n/g, '<br>') + '<i');
+                                return contentStr.replace(/><i/, 'data-id="' + replyItem.id + '" data-pid="' + replyItem.pid + '">' + replyItem.content.replace(/\n/g, '<br>') + '<i');
                             } else {
                                 return contentStr.replace(/><i/, 'data-id="' + replyItem.id + '">' + replyItem.content.replace(/\n/g, '<br>') + '<i');
                             }
                         }).replace(/<i class="icon-message"><\/i><\/div>/g, function (pStr) {
                             if (parseInt(replyItem.answer.id) === nowUserId) {
-                                return pStr.slice(0,-6) + deleteHtml + pStr.slice(-6);
+                                return pStr.slice(0, -6) + deleteHtml + pStr.slice(-6);
                             } else {
                                 return pStr;
                             }
@@ -274,7 +279,7 @@ function LeaveMessage(mainAreaId) {
                         });
                     });
                 }
-                return areaStr.slice(0,-6) + stSave + areaStr.slice(-6);
+                return areaStr.slice(0, -6) + stSave + areaStr.slice(-6);
             });
             return leaveMessageStr;
         } else { // 表示留言没有重写，只需修改回复区域
@@ -336,6 +341,7 @@ function LeaveMessage(mainAreaId) {
             })
         }
     }
+
     // 点击事件
     function eventOfLeaveMessageMouseUp() {
         messageDiv.mouseup(function (event) {
@@ -379,8 +385,8 @@ function LeaveMessage(mainAreaId) {
                         layer.msg('请先登录');
                     }
                     setTimeout(function () {
-                        window.open('/f/login.html?pc=true','_self');
-                    },500);
+                        window.open('/f/login.html?pc=true', '_self');
+                    }, 500);
                 }
             } else if (nowNode.get(0).tagName.toLowerCase() === 'textarea' && nowNode.hasClass('leave-message-reply-input-answer')) {
                 nowNode.css({
@@ -432,8 +438,9 @@ function LeaveMessage(mainAreaId) {
             }
         })
     }
+
     // 注入初始化回答区域
-    function initReplyInput(node,data) {
+    function initReplyInput(node, data) {
         // 获取提问者节点
         var askUserNode = node.find('.leave-message-reply-input-ask-name').eq(0);
         // 获取提问者内容节点
@@ -451,10 +458,12 @@ function LeaveMessage(mainAreaId) {
         // 展示回答区域
         node.show();
     }
+
     // 关闭回答区域
     function closeReply(node) {
-        node.css({display:'none'})
+        node.css({display: 'none'})
     }
+
     // 写入二级分页插件
     function setPage() {
         // 遍历实例节点
@@ -485,7 +494,7 @@ function LeaveMessage(mainAreaId) {
                     if (nowPageConfig.data.isOpenPage) {
                         // 写入判定
                         replyArea.data('openPage', true).parent().prev().find('button').eq(0).show();
-                        if (replyArea.height() > 0){
+                        if (replyArea.height() > 0) {
                             // 展示分页
                             nowPage.showPage(true);
                         } else {
@@ -622,7 +631,7 @@ function LeaveMessage(mainAreaId) {
             changeInfo.leaveMessage.isChange = true;
             return _this;
         } catch (err) {
-            console.error('LeaveMessage 插件 (id = '+ mainAreaId +') 的setData方法错误:' + err)
+            console.error('LeaveMessage 插件 (id = ' + mainAreaId + ') 的setData方法错误:' + err)
         }
     };
     // 设置回复数据
@@ -695,7 +704,9 @@ function LeaveMessage(mainAreaId) {
                         // 若对应项存在修改对应项
                         if (getDataItem !== -1) {
                             getDataItem.data = JSON.parse(JSON.stringify(item.data));
-                            getDataItem.data.clickCallback = (!!item.data.clickCallback) ? item.data.clickCallback : function () {return 0;};
+                            getDataItem.data.clickCallback = (!!item.data.clickCallback) ? item.data.clickCallback : function () {
+                                return 0;
+                            };
                             if (getChangeItem !== -1) {
                                 getChangeItem.isChange = true;
                             }
@@ -704,7 +715,9 @@ function LeaveMessage(mainAreaId) {
                             obj = {};
                             obj.mark = messageItem.mark;
                             obj.data = JSON.parse(JSON.stringify(item.data));
-                            obj.data.clickCallback = (!!item.data.clickCallback) ? item.data.clickCallback : function () {return 0;};
+                            obj.data.clickCallback = (!!item.data.clickCallback) ? item.data.clickCallback : function () {
+                                return 0;
+                            };
                             pageConfigArr.push(obj);
                             // 获取变化记录
                             obj = {};
@@ -719,7 +732,9 @@ function LeaveMessage(mainAreaId) {
                     // 若有对应项
                     if (getDataItem !== -1) {
                         getDataItem.data = JSON.parse(JSON.stringify(item.data));
-                        getDataItem.data.clickCallback = (!!item.data.clickCallback) ? item.data.clickCallback : function () {return 0;};
+                        getDataItem.data.clickCallback = (!!item.data.clickCallback) ? item.data.clickCallback : function () {
+                            return 0;
+                        };
                         if (getChangeItem !== -1) {
                             getChangeItem.isChange = true;
                         }
@@ -728,7 +743,9 @@ function LeaveMessage(mainAreaId) {
                         obj = {};
                         obj.mark = item.mark;
                         obj.data = JSON.parse(JSON.stringify(item.data));
-                        obj.data.clickCallback = (!!item.data.clickCallback) ? item.data.clickCallback : function () {return 0;};
+                        obj.data.clickCallback = (!!item.data.clickCallback) ? item.data.clickCallback : function () {
+                            return 0;
+                        };
                         pageConfigArr.push(obj);
                         // 用于记录是否变化
                         obj = {};
@@ -740,7 +757,7 @@ function LeaveMessage(mainAreaId) {
             });
             return _this;
         } catch (err) {
-            console.error('LeaveMessage 插件 (id = '+ mainAreaId +') 的setPageConfig方法错误:' + err)
+            console.error('LeaveMessage 插件 (id = ' + mainAreaId + ') 的setPageConfig方法错误:' + err)
         }
     };
     // 设置确定按钮点击的回调函数
@@ -764,14 +781,14 @@ function LeaveMessage(mainAreaId) {
     // 设置当前用户id
     _this.setNowUserId = function (userId) {
         try {
-            if (typeof userId !== "number" && typeof userId !== 'string'){
+            if (typeof userId !== "number" && typeof userId !== 'string') {
                 throw new Error('参数userId错误！类型需为"number"或"string"');
             }
             // 存储当前用户id
             nowUserId = userId;
             return _this;
         } catch (err) {
-            console.error('LeaveMessage 插件 (id = '+ mainAreaId +') 的setNowUserId方法错误:' + err)
+            console.error('LeaveMessage 插件 (id = ' + mainAreaId + ') 的setNowUserId方法错误:' + err)
         }
     };
     // 设置删除回调函数

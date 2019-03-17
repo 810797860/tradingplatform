@@ -4,27 +4,28 @@
 
     <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
 
-		<!-- 通用查询映射结果 -->
-			<resultMap id="buttonMap" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.Button" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
-									
-				<result column="title" property="title" jdbcType="VARCHAR" />
-				<result column="icon" property="icon" jdbcType="VARCHAR" />
-				<result column="class_name" property="className" jdbcType="VARCHAR" />
-				<result column="script" property="script" jdbcType="VARCHAR" />
-				<result column="num" property="num" jdbcType="INTEGER" />
+    <!-- 通用查询映射结果 -->
+    <resultMap id="buttonMap" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.Button"
+               extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
 
-		</resultMap>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="icon" property="icon" jdbcType="VARCHAR"/>
+        <result column="class_name" property="className" jdbcType="VARCHAR"/>
+        <result column="script" property="script" jdbcType="VARCHAR"/>
+        <result column="num" property="num" jdbcType="INTEGER"/>
 
-        <!-- 通用查询映射结果 -->
-		<resultMap id="buttonMapSimple" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.Button">
-																			
-                        <result column="title" property="title" jdbcType="VARCHAR" />
-                        <result column="icon" property="icon" jdbcType="VARCHAR" />
-                        <result column="class_name" property="className" jdbcType="VARCHAR" />
-                        <result column="script" property="script" jdbcType="VARCHAR" />
-                        <result column="num" property="num" jdbcType="INTEGER" />
+    </resultMap>
 
-        </resultMap>
+    <!-- 通用查询映射结果 -->
+    <resultMap id="buttonMapSimple" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.Button">
+
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="icon" property="icon" jdbcType="VARCHAR"/>
+        <result column="class_name" property="className" jdbcType="VARCHAR"/>
+        <result column="script" property="script" jdbcType="VARCHAR"/>
+        <result column="num" property="num" jdbcType="INTEGER"/>
+
+    </resultMap>
 
     <select id="selectMapById" resultType="java.util.Map">
         select * from s_base_button where id = #{buttonId} and deleted = false

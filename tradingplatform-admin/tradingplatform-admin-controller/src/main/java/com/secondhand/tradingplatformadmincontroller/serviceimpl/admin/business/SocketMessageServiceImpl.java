@@ -22,10 +22,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *   @description : SocketMessage 服务实现类
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2018-12-25
+ * @author zhangjk
+ * @description : SocketMessage 服务实现类
+ * ---------------------------------
+ * @since 2018-12-25
  */
 
 @Service
@@ -48,7 +48,7 @@ public class SocketMessageServiceImpl extends BaseServiceImpl<SocketMessageMappe
     @Transactional(rollbackFor = Exception.class)
     @CacheEvict(allEntries = true)
     public boolean myFakeBatchDelete(List<Long> socketMessageIds) {
-        socketMessageIds.forEach(socketMessageId->{
+        socketMessageIds.forEach(socketMessageId -> {
             myFakeDeleteById(socketMessageId);
         });
         return true;
@@ -64,7 +64,7 @@ public class SocketMessageServiceImpl extends BaseServiceImpl<SocketMessageMappe
     @CacheEvict(allEntries = true)
     public SocketMessage mySocketMessageCreateUpdate(SocketMessage socketMessage) {
         Long socketMessageId = socketMessage.getId();
-        if (socketMessageId == null){
+        if (socketMessageId == null) {
             socketMessage.setUuid(ToolUtil.getUUID());
             socketMessageMapper.insert(socketMessage);
         } else {
@@ -74,7 +74,7 @@ public class SocketMessageServiceImpl extends BaseServiceImpl<SocketMessageMappe
     }
 
     //以下是继承BaseServiceImpl
-    
+
     @Override
     @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p1.sorts")
     public Page<SocketMessage> mySelectPageWithParam(Page<SocketMessage> page, SocketMessage socketMessage) {
@@ -84,45 +84,45 @@ public class SocketMessageServiceImpl extends BaseServiceImpl<SocketMessageMappe
         Wrapper<SocketMessage> wrapper = new EntityWrapper<>(socketMessage);
         //遍历排序
         List<Sort> sorts = socketMessage.getSorts();
-        if (sorts == null){
+        if (sorts == null) {
             //为null时，默认按created_at倒序
             wrapper.orderBy("id", false);
         } else {
             //遍历排序
-            sorts.forEach( sort -> {
+            sorts.forEach(sort -> {
                 wrapper.orderBy(sort.getField(), sort.getAsc());
             });
         }
         return this.selectPage(page, wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public List<SocketMessage> mySelectListWithMap(Map<String, Object> map) {
         return socketMessageMapper.selectByMap(map);
     }
-    
+
     //以下是继承BaseMapper
-    
+
     @Override
     @Cacheable(key = "#p0")
     public Map<String, Object> mySelectMap(Wrapper<SocketMessage> wrapper) {
         return this.selectMap(wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public List<SocketMessage> mySelectList(Wrapper<SocketMessage> wrapper) {
         return socketMessageMapper.selectList(wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsert(SocketMessage socketMessage) {
         socketMessage.setUuid(ToolUtil.getUUID());
         return this.insert(socketMessage);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertBatch(List<SocketMessage> socketMessageList) {
@@ -131,65 +131,65 @@ public class SocketMessageServiceImpl extends BaseServiceImpl<SocketMessageMappe
         });
         return this.insertBatch(socketMessageList);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdate(SocketMessage socketMessage) {
         //没有uuid的话要加上去
-        if (socketMessage.getUuid().equals(null)){
+        if (socketMessage.getUuid().equals(null)) {
             socketMessage.setUuid(ToolUtil.getUUID());
         }
         return this.insertOrUpdate(socketMessage);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdateBatch(List<SocketMessage> socketMessageList) {
         socketMessageList.forEach(socketMessage -> {
             //没有uuid的话要加上去
-            if (socketMessage.getUuid().equals(null)){
+            if (socketMessage.getUuid().equals(null)) {
                 socketMessage.setUuid(ToolUtil.getUUID());
             }
         });
         return this.insertOrUpdateBatch(socketMessageList);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public List<SocketMessage> mySelectBatchIds(Collection<? extends Serializable> socketMessageIds) {
         return socketMessageMapper.selectBatchIds(socketMessageIds);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public SocketMessage mySelectById(Serializable socketMessageId) {
         return socketMessageMapper.selectById(socketMessageId);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public int mySelectCount(Wrapper<SocketMessage> wrapper) {
         return socketMessageMapper.selectCount(wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public SocketMessage mySelectOne(Wrapper<SocketMessage> wrapper) {
         return this.selectOne(wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdate(SocketMessage socketMessage, Wrapper<SocketMessage> wrapper) {
         return this.update(socketMessage, wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdateBatchById(List<SocketMessage> socketMessageList) {
         return this.updateBatchById(socketMessageList);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdateById(SocketMessage socketMessage) {

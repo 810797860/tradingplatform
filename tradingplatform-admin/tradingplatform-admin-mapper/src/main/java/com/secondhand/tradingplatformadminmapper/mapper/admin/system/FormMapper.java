@@ -10,10 +10,10 @@ import org.springframework.stereotype.Repository;
 import java.util.Map;
 
 /**
- *   @description : FormMapper 接口
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2018-11-11
+ * @author zhangjk
+ * @description : FormMapper 接口
+ * ---------------------------------
+ * @since 2018-11-11
  */
 @Repository
 public interface FormMapper extends BaseDao<Form> {
@@ -21,6 +21,7 @@ public interface FormMapper extends BaseDao<Form> {
     /**
      * 获取Map数据（Obj）
      * 自定化MapSql到MysqlGenerator生成
+     *
      * @param formId
      * @return
      */
@@ -28,6 +29,7 @@ public interface FormMapper extends BaseDao<Form> {
 
     /**
      * 在数据库中创建表
+     *
      * @param form
      * @return
      */
@@ -50,6 +52,7 @@ public interface FormMapper extends BaseDao<Form> {
 
     /**
      * 在数据库中修改数据库表名(备用)
+     *
      * @param oldCollection
      * @param newCollection
      * @return

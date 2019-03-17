@@ -9,7 +9,6 @@
 // ];
 
 
-
 $(function () {
     // 存储全选的id数组
     var selectAllIdArr = [0, 202035, 202066];
@@ -60,7 +59,7 @@ $(function () {
     var table = new Table('upload-table');
     var baseStyleArr = [];
     // 决定数据顺序
-    var orderArr = ['title','size','id'];
+    var orderArr = ['title', 'size', 'id'];
     var publishDemandDeline;
 
     set_IMPORTANTOPERATION(true);
@@ -68,7 +67,7 @@ $(function () {
     handleEventInPublishDemand();
 
     // 初始化dom结构
-    function initDomInPublishDemand () {
+    function initDomInPublishDemand() {
 
         extractIndustryData(industry);
         /**** 初始化时间控件 ****/
@@ -126,16 +125,16 @@ $(function () {
         // 初始化回填截止报名日期
         if (!!projectDemandDatas[0].data.deadline) {
             $(".demand-validity").val($(this).formatTime(new Date(projectDemandDatas[0].data.deadline)).split(" ")[0]);
-        } else{
+        } else {
             $(".demand-validity").val($(this).formatTime(new Date(new Date().getTime() + 1000 * 60 * 60 * 24)).split(" ")[0]);
         }
         // 初始化回填地区
         if (!!projectDemandDatas[0].data.address) {
-            var provinceName =  $('#provinceName').attr('data-province');
+            var provinceName = $('#provinceName').attr('data-province');
             $("#provinceName").val(provinceName);
-            var cityName =  $('#cityName').attr('data-city');
+            var cityName = $('#cityName').attr('data-city');
             $("#cityName").val(cityName);
-            var districtName =  $('#districtName').attr('data-districName');
+            var districtName = $('#districtName').attr('data-districName');
             $("#districtName").val(districtName);
         }
 
@@ -153,7 +152,7 @@ $(function () {
             setTableData(attachment);
         }
         console.log(projectDemandDatas[0])
-        if(!!projectDemandDatas[0].data.validdate) {
+        if (!!projectDemandDatas[0].data.validdate) {
             if (projectDemandDatas[0].data.validdate != 7 && projectDemandDatas[0].data.validdate != 30 && projectDemandDatas[0].data.validdate != 90) {
                 $('.input-validity-area-input').val(projectDemandDatas[0].data.validdate);
                 $('.input-validity-area-span').removeClass('default-selection');
@@ -287,9 +286,9 @@ $(function () {
     }
 
 // 处理事件
-    function handleEventInPublishDemand () {
+    function handleEventInPublishDemand() {
         // 点击有效期
-        $('.input-validity-area-span').off().on('click',function () {
+        $('.input-validity-area-span').off().on('click', function () {
             $('.input-validity-area-span').removeClass('default-selection');
             $(this).addClass('default-selection');
             $('.input-validity-area-input').val(null);
@@ -434,7 +433,7 @@ $(function () {
         });
     }
 
-    function setTableData (list) {
+    function setTableData(list) {
         // 提取数据
         list.forEach(function (item) {
             var obj = {};
@@ -493,7 +492,7 @@ $(function () {
                 if (index > -1) {
                     attachments.splice(index, 1);
                     $_attachmentsId = "";
-                    for (var i = 0 ; i< attachments.length; i++) {
+                    for (var i = 0; i < attachments.length; i++) {
                         if (!$_attachmentsId) {
                             $_attachmentsId = "" + attachments[i];
                         } else {
@@ -534,7 +533,7 @@ $(function () {
         table.createTable();
     }
 
-    function uploadFile (files) {
+    function uploadFile(files) {
         if (files.length == 0) return; //如果文件为空
         var formData = new FormData();
         for (var i = 0; i < files.length; i++) {
@@ -562,7 +561,7 @@ $(function () {
         });
     }
 
-    function beforePublishDemand () {
+    function beforePublishDemand() {
         var res = true;
         if (!$(".demand-name").val()) {
             res = false;
@@ -601,7 +600,7 @@ $(function () {
         return res;
     }
 
-    function publishDemand () {
+    function publishDemand() {
         if (beforePublishDemand()) {
             var json = {
                 name: $(".demand-name").val(),
@@ -632,10 +631,10 @@ $(function () {
                 dataType: "json",
                 data: JSON.stringify(json),
                 success: function (res) {
-                    if(res.status === 200) {
+                    if (res.status === 200) {
                         // 已经发布成功，消除离开判定
                         set_IMPORTANTOPERATION(false);
-                        window.location.href="/f/personal_center.html?pc=true#menu=publishDemandList";
+                        window.location.href = "/f/personal_center.html?pc=true#menu=publishDemandList";
                     } else {
                         layer.open({
                             title: '温馨提示',

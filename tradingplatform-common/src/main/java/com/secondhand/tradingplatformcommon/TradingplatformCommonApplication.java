@@ -7,7 +7,7 @@ import org.springframework.cache.annotation.EnableCaching;
 @SpringBootApplication
 public class TradingplatformCommonApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(TradingplatformCommonApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(TradingplatformCommonApplication.class, args);
+    }
 }

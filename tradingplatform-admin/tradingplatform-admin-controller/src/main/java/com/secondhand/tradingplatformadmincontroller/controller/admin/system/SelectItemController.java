@@ -29,12 +29,12 @@ import com.secondhand.tradingplatformadminservice.service.admin.system.SelectIte
 import javax.servlet.http.HttpSession;
 
 /**
- * @description : SelectItem 控制器
  * @author : zhangjk
+ * @description : SelectItem 控制器
  * @since : Create in 2019-02-05
  */
 @Controller("adminSelectItemController")
-@Api(value="/admin/selectItem", description="SelectItem 控制器")
+@Api(value = "/admin/selectItem", description = "SelectItem 控制器")
 @RequestMapping("/admin/selectItem")
 public class SelectItemController extends BaseController {
 
@@ -71,7 +71,7 @@ public class SelectItemController extends BaseController {
     @GetMapping(value = {"/{selectItemId}/update.html", "/create.html"})
     @ApiOperation(value = "/{selectItemId}/update.html、/create.html", notes = "跳转到修改或新增selectItem的页面")
     public String toModifySelectItem(@ApiParam(name = "model", value = "Model") Model model,
-    @ApiParam(name = "selectItemId", value = "SelectItemId") @PathVariable(value = "selectItemId", required = false) Long selectItemId) {
+                                     @ApiParam(name = "selectItemId", value = "SelectItemId") @PathVariable(value = "selectItemId", required = false) Long selectItemId) {
         Map<String, Object> selectItem = new HashMap<>();
         //判空
         if (selectItemId != null) {
@@ -85,31 +85,31 @@ public class SelectItemController extends BaseController {
         model.addAttribute("pid", pid);
         return "system/selectItem/modify";
     }
-    
+
     /**
      * @description : 获取分页列表
      * @author : zhangjk
      * @since : Create in 2019-02-05
      */
     @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    @ApiOperation(value = "/query", notes="获取分页列表")
+    @ApiOperation(value = "/query", notes = "获取分页列表")
     @ResponseBody
     public TableJson<Map<String, Object>> getSelectItemList(@ApiParam(name = "selectItem", value = "SelectItem 实体类") @RequestBody SelectItem selectItem) {
-            TableJson<Map<String, Object>> resJson = new TableJson<>();
-            Page resPage = selectItem.getPage();
-            Integer current = resPage.getCurrent();
-            Integer size = resPage.getSize();
-            if (current == null && size == null) {
-                resJson.setSuccess(false);
-                resJson.setMessage("异常信息：页数和页的大小不能为空");
-                return resJson;
-            }
-            Page<Map<String, Object>> selectItemPage = new Page(current, size);
-            selectItemPage = selectItemService.mySelectPageWithParam(selectItemPage, selectItem);
-            resJson.setRecordsTotal(selectItemPage.getTotal());
-            resJson.setData(selectItemPage.getRecords());
-            resJson.setSuccess(true);
+        TableJson<Map<String, Object>> resJson = new TableJson<>();
+        Page resPage = selectItem.getPage();
+        Integer current = resPage.getCurrent();
+        Integer size = resPage.getSize();
+        if (current == null && size == null) {
+            resJson.setSuccess(false);
+            resJson.setMessage("异常信息：页数和页的大小不能为空");
             return resJson;
+        }
+        Page<Map<String, Object>> selectItemPage = new Page(current, size);
+        selectItemPage = selectItemService.mySelectPageWithParam(selectItemPage, selectItem);
+        resJson.setRecordsTotal(selectItemPage.getTotal());
+        resJson.setData(selectItemPage.getRecords());
+        resJson.setSuccess(true);
+        return resJson;
     }
 
     /**
@@ -120,13 +120,13 @@ public class SelectItemController extends BaseController {
     @GetMapping(value = "/get_map_by_id/{selectItemId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/get_map_by_id/{selectItemId}", notes = "根据id获取selectItemMap")
     @ResponseBody
-    public JsonResult<Map<String, Object>> getSelectItemByIdForMap( @ApiParam(name = "id", value = "selectItemId") @PathVariable("selectItemId") Long selectItemId){
-            JsonResult<Map<String, Object>> resJson = new JsonResult<>();
-            Map<String, Object> selectItem = selectItemService.mySelectMapById(selectItemId);
-            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-            resJson.setData(selectItem);
-            resJson.setSuccess(true);
-            return resJson;
+    public JsonResult<Map<String, Object>> getSelectItemByIdForMap(@ApiParam(name = "id", value = "selectItemId") @PathVariable("selectItemId") Long selectItemId) {
+        JsonResult<Map<String, Object>> resJson = new JsonResult<>();
+        Map<String, Object> selectItem = selectItemService.mySelectMapById(selectItemId);
+        resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+        resJson.setData(selectItem);
+        resJson.setSuccess(true);
+        return resJson;
     }
 
     /**
@@ -137,21 +137,21 @@ public class SelectItemController extends BaseController {
     @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除selectItem")
     @ResponseBody
-    public JsonResult<SelectItem> fakeDeleteById(@ApiParam(name = "id", value = "selectItemId") @RequestBody Long selectItemId){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<SelectItem> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/selectItem/delete");
-                selectItemService.myFakeDeleteById(selectItemId);
-                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-                resJson.setSuccess(true);
-            }catch (UnauthorizedException e){
-                resJson.setCode(MagicalValue.CODE_OF_CUSTOMIZE_EXCEPTION);
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    public JsonResult<SelectItem> fakeDeleteById(@ApiParam(name = "id", value = "selectItemId") @RequestBody Long selectItemId) {
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<SelectItem> resJson = new JsonResult<>();
+        try {
+            //检查是否具有权限
+            subject.checkPermission("/admin/selectItem/delete");
+            selectItemService.myFakeDeleteById(selectItemId);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+            resJson.setSuccess(true);
+        } catch (UnauthorizedException e) {
+            resJson.setCode(MagicalValue.CODE_OF_CUSTOMIZE_EXCEPTION);
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
@@ -162,20 +162,20 @@ public class SelectItemController extends BaseController {
     @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除selectItem")
     @ResponseBody
-    public JsonResult<SelectItem> fakeBatchDelete(@ApiParam(name = "ids", value = "selectItemIds") @RequestBody List<Long> selectItemIds){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<SelectItem> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/selectItem/batch_delete");
-                resJson.setSuccess(selectItemService.myFakeBatchDelete(selectItemIds));
-                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-            }catch(UnauthorizedException e){
-                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    public JsonResult<SelectItem> fakeBatchDelete(@ApiParam(name = "ids", value = "selectItemIds") @RequestBody List<Long> selectItemIds) {
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<SelectItem> resJson = new JsonResult<>();
+        try {
+            //检查是否具有权限
+            subject.checkPermission("/admin/selectItem/batch_delete");
+            resJson.setSuccess(selectItemService.myFakeBatchDelete(selectItemIds));
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+        } catch (UnauthorizedException e) {
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
@@ -186,22 +186,22 @@ public class SelectItemController extends BaseController {
     @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/create_update", notes = "新增或修改selectItem")
     @ResponseBody
-    public JsonResult<SelectItem> selectItemCreateUpdate(@ApiParam(name = "selectItem", value = "SelectItem实体类") @RequestBody SelectItem selectItem){
-            Subject subject = SecurityUtils.getSubject();
-            JsonResult<SelectItem> resJson = new JsonResult<>();
-            try{
-                //检查是否具有权限
-                subject.checkPermission("/admin/selectItem/create_update");
-                selectItem = selectItemService.mySelectItemCreateUpdate(selectItem);
-                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-                resJson.setData(selectItem);
-                resJson.setSuccess(true);
-            }catch(UnauthorizedException e){
-                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
-                resJson.setSuccess(false);
-                resJson.setMessage(e.getMessage());
-            }
-            return resJson;
+    public JsonResult<SelectItem> selectItemCreateUpdate(@ApiParam(name = "selectItem", value = "SelectItem实体类") @RequestBody SelectItem selectItem) {
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<SelectItem> resJson = new JsonResult<>();
+        try {
+            //检查是否具有权限
+            subject.checkPermission("/admin/selectItem/create_update");
+            selectItem = selectItemService.mySelectItemCreateUpdate(selectItem);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+            resJson.setData(selectItem);
+            resJson.setSuccess(true);
+        } catch (UnauthorizedException e) {
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
     }
 
     /**
@@ -212,7 +212,7 @@ public class SelectItemController extends BaseController {
     @GetMapping(value = "/get_list_by_pid/{pid}")
     @ApiOperation(value = "/get_list_by_pid/{pid}", notes = "通过pid获取List<selectItem>")
     @ResponseBody
-    public JsonResult<List<SelectItem>> getSelectItemByPidForList( @ApiParam(name = "pid", value = "selectItem的父级id") @PathVariable("pid") Long pid){
+    public JsonResult<List<SelectItem>> getSelectItemByPidForList(@ApiParam(name = "pid", value = "selectItem的父级id") @PathVariable("pid") Long pid) {
         JsonResult<List<SelectItem>> resJson = new JsonResult<>();
         List<SelectItem> selectItemList = selectItemService.myGetItemsByPid(pid);
         resJson.setCode(MagicalValue.CODE_OF_SUCCESS);

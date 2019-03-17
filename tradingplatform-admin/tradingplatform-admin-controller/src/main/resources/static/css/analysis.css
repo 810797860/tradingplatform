@@ -4,7 +4,7 @@ div.select-container {
     max-width: 1200px;
 }
 
-select.my-select-el{
+select.my-select-el {
     background-color: #337ab7;
     color: white;
     padding: 7px;
@@ -21,11 +21,11 @@ select.my-select-el option {
 }
 
 table th,
-table td{
+table td {
     text-align: left;
 }
 
-.btn-group-sm>.btn, .btn-sm{
+.btn-group-sm > .btn, .btn-sm {
     padding: 6px 10px;
 }
 

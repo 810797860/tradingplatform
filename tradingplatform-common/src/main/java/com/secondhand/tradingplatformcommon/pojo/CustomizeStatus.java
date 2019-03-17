@@ -2,6 +2,7 @@ package com.secondhand.tradingplatformcommon.pojo;
 
 /**
  * 自定义异常的状态码&信息
+ *
  * @author 81079
  */
 
@@ -25,8 +26,7 @@ public enum CustomizeStatus {
     FILE_DOWNLOAD_FAILED(703, "文件下载失败"),
     FILE_CONTINUES_TO_DOWNLOAD_FAILED(704, "文件继续下载失败"),
 
-    ADMIN_USER_ACCOUNT_ALREADY_EXISTS(801, "后台用户该账号已存在")
-    ;
+    ADMIN_USER_ACCOUNT_ALREADY_EXISTS(801, "后台用户该账号已存在");
     private int code;
     private String information;
 

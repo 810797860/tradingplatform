@@ -1,55 +1,64 @@
-.transaction-evaluate{
+.transaction-evaluate {
     width: 1170px;
 }
-.transaction-evaluate .transaction-evaluate-head{
+
+.transaction-evaluate .transaction-evaluate-head {
     height: 120px;
     background-color: #fff;
     box-sizing: border-box;
     padding: 20px 36px;
     font-size: 0;
 }
-.transaction-evaluate .transaction-evaluate-head .head-num-data{
+
+.transaction-evaluate .transaction-evaluate-head .head-num-data {
     display: inline-block;
     vertical-align: middle;
     width: 274px;
 }
-.transaction-evaluate .transaction-evaluate-head .head-num-data .praise-rate{
+
+.transaction-evaluate .transaction-evaluate-head .head-num-data .praise-rate {
     font-size: 20px;
     line-height: 40px;
     color: #565656;
     overflow: hidden;
-    text-overflow:ellipsis;
+    text-overflow: ellipsis;
     white-space: nowrap;
 }
-.transaction-evaluate .transaction-evaluate-head .head-num-data .praise-rate .praise-rate-num{
+
+.transaction-evaluate .transaction-evaluate-head .head-num-data .praise-rate .praise-rate-num {
     font-size: 22px;
     color: #ff4e00;
 }
-.transaction-evaluate .transaction-evaluate-head .head-num-data .evaluate-total{
+
+.transaction-evaluate .transaction-evaluate-head .head-num-data .evaluate-total {
     font-size: 16px;
     line-height: 35px;
     color: #565656;
     overflow: hidden;
-    text-overflow:ellipsis;
+    text-overflow: ellipsis;
     white-space: nowrap;
 }
-.transaction-evaluate .transaction-evaluate-head .head-num-data .evaluate-total .evaluate-total-num{
+
+.transaction-evaluate .transaction-evaluate-head .head-num-data .evaluate-total .evaluate-total-num {
     font-size: 16px;
     color: #ff4e00;
 }
-.transaction-evaluate .transaction-evaluate-head .average-speed-star,.average-quality-star,.average-attitude-star{
+
+.transaction-evaluate .transaction-evaluate-head .average-speed-star, .average-quality-star, .average-attitude-star {
     display: inline-block;
     vertical-align: middle;
     width: 146px;
     margin-right: 128px;
 }
-.transaction-evaluate .transaction-evaluate-head .average-speed-star .average-star-title,.average-quality-star .average-star-title,.average-attitude-star .average-star-title{
+
+.transaction-evaluate .transaction-evaluate-head .average-speed-star .average-star-title, .average-quality-star .average-star-title, .average-attitude-star .average-star-title {
     font-size: 20px;
     line-height: 40px;
     color: #565656;
     text-align: center;
 }
-.transaction-evaluate .transaction-evaluate-head .average-speed-star .star,.average-quality-star .star,.average-attitude-star .star{
+
+.transaction-evaluate .transaction-evaluate-head .average-speed-star .star, .average-quality-star .star, .average-attitude-star .star {
     height: 40px;
     line-height: 40px;
     /*text-align: center;*/
@@ -59,21 +68,26 @@
 
     position: relative;
 }
-.normal-star:before{
+
+.normal-star:before {
     color: #d8d8d8;
 }
-.active-star:before{
+
+.active-star:before {
     color: #ffbf25;
 }
-.transaction-evaluate .transaction-evaluate-middle{
+
+.transaction-evaluate .transaction-evaluate-middle {
     height: 80px;
     background-color: #f5f5f5;
 }
-.transaction-evaluate .transaction-evaluate-middle .middle-evaluate{
+
+.transaction-evaluate .transaction-evaluate-middle .middle-evaluate {
     margin: 0 auto;
     width: 544px;
 }
-.transaction-evaluate .transaction-evaluate-middle .middle-evaluate .evaluate-button,.evaluate-button-active{
+
+.transaction-evaluate .transaction-evaluate-middle .middle-evaluate .evaluate-button, .evaluate-button-active {
     display: inline-block;
     vertical-align: middle;
     width: 108px;
@@ -86,91 +100,106 @@
     font-size: 14px;
     cursor: pointer;
 }
-.transaction-evaluate .transaction-evaluate-middle .middle-evaluate .evaluate-button-active{
+
+.transaction-evaluate .transaction-evaluate-middle .middle-evaluate .evaluate-button-active {
     background-color: rgba(13, 181, 251, 0.8);
     color: #fff;
 }
-.transaction-evaluate .transaction-evaluate-middle .middle-evaluate .evaluate-button{
+
+.transaction-evaluate .transaction-evaluate-middle .middle-evaluate .evaluate-button {
     background-color: rgba(216, 216, 216, 0.8);
     opacity: 0.8;
 }
-.transaction-evaluate .transaction-evaluate-bottom{
+
+.transaction-evaluate .transaction-evaluate-bottom {
     height: 120px;
     background-color: #fff;
     box-sizing: border-box;
     padding: 16px 36px;
     font-size: 0;
 }
-.transaction-evaluate .transaction-evaluate-bottom:nth-of-type(2n){
+
+.transaction-evaluate .transaction-evaluate-bottom:nth-of-type(2n) {
     background-color: #f8f8f8;
 }
-.transaction-evaluate .transaction-evaluate-bottom .technology-name{
+
+.transaction-evaluate .transaction-evaluate-bottom .technology-name {
     display: inline-block;
     vertical-align: middle;
     height: 88px;
     line-height: 88px;
     width: 348px;
     overflow: hidden;
-    text-overflow:ellipsis;
+    text-overflow: ellipsis;
     white-space: nowrap;
     font-size: 20px;
     color: #0088c0;
     border-right: 1px solid #e2e2e2;
 }
-.transaction-evaluate .transaction-evaluate-bottom .technology-detail{
+
+.transaction-evaluate .transaction-evaluate-bottom .technology-detail {
     display: inline-block;
     vertical-align: middle;
     font-size: 0;
 }
-.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-information{
+
+.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-information {
     display: inline-block;
     vertical-align: middle;
     box-sizing: border-box;
     padding: 19px 35px;
     font-size: 0;
 }
-.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-information .avatar-information-left{
+
+.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-information .avatar-information-left {
     width: 50px;
     height: 50px;
     margin-right: 25px;
     vertical-align: middle;
 }
-.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-information .avatar-information-right{
+
+.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-information .avatar-information-right {
     display: inline-block;
     vertical-align: middle;
 }
-.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-information .avatar-information-right .avatar-detail{
+
+.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-information .avatar-information-right .avatar-detail {
     font-size: 16px;
     line-height: 25px;
     color: #565656;
     width: 180px;
     overflow: hidden;
-    text-overflow:ellipsis;
+    text-overflow: ellipsis;
     white-space: nowrap;
 }
-.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-evaluate{
+
+.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-evaluate {
     display: inline-block;
     vertical-align: middle;
     box-sizing: border-box;
     /*	padding: 15px 0;*/
 }
-.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-evaluate .good-evaluation{
+
+.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-evaluate .good-evaluation {
     height: 40px;
     line-height: 34px;
 }
-.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-evaluate .good-evaluation .good-evaluation-star{
+
+.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-evaluate .good-evaluation .good-evaluation-star {
     display: inline-block;
     height: 40px;
     line-height: 40px;
     width: 146px;
     letter-spacing: 5px;
 }
-.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-evaluate .good-evaluation .good-evaluation-text{
+
+.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-evaluate .good-evaluation .good-evaluation-text {
     margin-right: 32px;
     font-size: 16px;
     color: #565656;
 }
-.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-evaluate .evaluation{
+
+.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-evaluate .evaluation {
     height: 26px;
     line-height: 16px;
     font-size: 16px;
@@ -178,24 +207,27 @@
 
     width: 420px;
     overflow: hidden;
-    text-overflow:ellipsis;
+    text-overflow: ellipsis;
     white-space: nowrap;
 }
-.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-evaluate .evaluation .evaluation-describe{
+
+.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-evaluate .evaluation .evaluation-describe {
 
 }
-.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-evaluate .evaluation .evaluation-text{
+
+.transaction-evaluate .transaction-evaluate-bottom .technology-detail .avatar-evaluate .evaluation .evaluation-text {
     margin-right: 12px;
 }
 
-.no-comment{
+.no-comment {
     display: none;
     font-size: 18px;
     line-height: 40px;
     color: #565656;
     text-align: center;
 }
-.transaction-evaluate .noData{
+
+.transaction-evaluate .noData {
     height: 60px;
     width: 130px;
     line-height: 60px;

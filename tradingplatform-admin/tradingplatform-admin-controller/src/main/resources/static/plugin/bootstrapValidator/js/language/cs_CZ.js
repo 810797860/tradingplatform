@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     /**
      * Czech language package
      * Translated by @AdwinTrave. Improved by @cuchac
@@ -42,7 +42,7 @@
             'default': 'Prosím zadejte jinou hodnotu'
         },
         digits: {
-             'default': 'Toto pole může obsahovat pouze čísla'
+            'default': 'Toto pole může obsahovat pouze čísla'
         },
         ean: {
             'default': 'Prosím zadejte správné EAN číslo'

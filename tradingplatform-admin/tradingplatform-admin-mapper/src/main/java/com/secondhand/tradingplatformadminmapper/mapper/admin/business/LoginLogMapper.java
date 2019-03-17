@@ -11,16 +11,17 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *   @description : LoginLogMapper 接口
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2018-10-28
+ * @author zhangjk
+ * @description : LoginLogMapper 接口
+ * ---------------------------------
+ * @since 2018-10-28
  */
 @Repository
 public interface LoginLogMapper extends BaseDao<LoginLog> {
 
     /**
      * 根据id进行假删除
+     *
      * @param loginLogId
      * @return
      */
@@ -28,6 +29,7 @@ public interface LoginLogMapper extends BaseDao<LoginLog> {
 
     /**
      * 批量假删除
+     *
      * @param loginLogIds
      * @return
      */
@@ -36,6 +38,7 @@ public interface LoginLogMapper extends BaseDao<LoginLog> {
     /**
      * 获取Map数据（Obj）
      * 自定化MapSql到MysqlGenerator生成
+     *
      * @param loginLogId
      * @return
      */

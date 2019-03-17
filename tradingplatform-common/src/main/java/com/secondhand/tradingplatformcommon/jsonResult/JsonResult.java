@@ -28,6 +28,7 @@ public class JsonResult<T> extends Result {
 
     /**
      * 返回数据，消息和结果
+     *
      * @param data
      * @param message
      * @param success
@@ -40,6 +41,7 @@ public class JsonResult<T> extends Result {
 
     /**
      * 返回数据和消息
+     *
      * @param data
      * @param message
      */
@@ -50,9 +52,10 @@ public class JsonResult<T> extends Result {
 
     /**
      * 返回数据
+     *
      * @param data
      */
-    public JsonResult(T data){
+    public JsonResult(T data) {
         this.data = data;
     }
 

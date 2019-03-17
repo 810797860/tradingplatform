@@ -137,13 +137,13 @@ $(function () {
     }
 
     // 提取广东省城市数据
-    function _getCityArr () {
+    function _getCityArr() {
         var data = addressData['440000'];
         // 初始化省数组
         if (cityArr.length > 1) {
             cityArr.splice(1, cityArr.length - 1);
         }
-        Object.keys(data).forEach(function(key) {
+        Object.keys(data).forEach(function (key) {
             var obj = {};
             obj.id = Number(key);
             obj.title = data[key];
@@ -759,6 +759,7 @@ $(function () {
         setTextOverTipOfDemandList();
         setTextOverTipOfRecommandDemandList();
     }
+
     // 绑定需求父框事件
     function setTextOverTipOfDemandList() {
         // 获取列表父框
@@ -766,6 +767,7 @@ $(function () {
         // 绑定事件
         nListParent.mouseover(eventOfDemandTextOver);
     }
+
     // 需求文本超出事件
     function eventOfDemandTextOver(event) {
         // 获取当前作用节点
@@ -780,6 +782,7 @@ $(function () {
             });
         }
     }
+
     // 绑定推荐需求父框事件
     function setTextOverTipOfRecommandDemandList() {
         // 获取列表父框

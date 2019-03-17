@@ -1,57 +1,68 @@
-.leave-message-div a[class$="-link"]{
+.leave-message-div a[class$="-link"] {
     font-size: 14px;
     color: #0066cc;
     text-decoration: none;
 }
-.leave-message-div a[class$="-link"]:link{
+
+.leave-message-div a[class$="-link"]:link {
     color: #0066cc;
     text-decoration: none;
 }
-.leave-message-div a[class$="-link"]:visited{
+
+.leave-message-div a[class$="-link"]:visited {
     color: #0066cc;
     text-decoration: none;
 }
-.leave-message-div a[class$="-link"]:hover{
+
+.leave-message-div a[class$="-link"]:hover {
     color: #0066cc;
     text-decoration: none;
 }
-.leave-message-div a[class$="-link"]:active{
+
+.leave-message-div a[class$="-link"]:active {
     color: #0066cc;
     text-decoration: none;
 }
-.leave-message-div p{
+
+.leave-message-div p {
     display: inline;
 }
-.leave-message-div{
+
+.leave-message-div {
     width: 100%;
     height: auto;
     font-size: 14px;
 }
-.leave-message-item-div{
+
+.leave-message-item-div {
     width: 100%;
     height: auto;
     min-height: 88px;
 }
-.leave-message-item-div .leave-message-item-head-div{
+
+.leave-message-item-div .leave-message-item-head-div {
     width: 100%;
     height: 46px;
     line-height: 46px;
 }
-.leave-message-item-div .leave-message-item-time{
+
+.leave-message-item-div .leave-message-item-time {
     margin-left: 30px;
     font-size: 14px;
     color: #323232;
 }
-.leave-message-item-div .leave-message-item-reply-show-btn{
+
+.leave-message-item-div .leave-message-item-reply-show-btn {
     float: right;
     height: 100%;
     border: 0;
     outline: none;
     color: #0066cc;
-    background:transparent;
+    background: transparent;
     cursor: pointer;
 }
-.leave-message-item-content-div{
+
+.leave-message-item-content-div {
     box-sizing: border-box;
     width: 100%;
     height: auto;
@@ -59,23 +70,27 @@
     padding: 15px 58px;
     background-color: #f4f4f4;
 }
-.leave-message-item-content-div .leave-message-content-div{
+
+.leave-message-item-content-div .leave-message-content-div {
     width: 100%;
     height: auto;
     font-size: 14px;
     color: #323232;
 }
+
 /* p都为相对定位 */
-.leave-message-item-content-div p{
+.leave-message-item-content-div p {
     position: relative;
 }
-.leave-message-item-content-div .leave-message-content,.leave-message-item-content-div .leave-message-reply-content{
+
+.leave-message-item-content-div .leave-message-content, .leave-message-item-content-div .leave-message-reply-content {
     position: relative;
     display: inline-block;
     box-sizing: border-box;
     padding-right: 70px;
     word-break: break-all;
 }
+
 /* 点击编辑的icon */
 .leave-message-item-content-div .icon-message {
     position: absolute;
@@ -84,71 +99,85 @@
     margin-top: -8px;
     cursor: pointer;
 }
+
 .leave-message-item-content-div .icon-message:before {
     color: #0066cc;
 }
-.leave-message-item-content-div .leave-message-reply-div{
+
+.leave-message-item-content-div .leave-message-reply-div {
     width: 100%;
     height: 0;
     overflow: hidden;
 }
-.leave-message-reply-div .leave-message-reply-item-div{
+
+.leave-message-reply-div .leave-message-reply-item-div {
     margin-top: 15px;
     width: 100%;
     height: auto;
 }
-.leave-message-reply-item-div .leave-message-reply-item-head-div{
+
+.leave-message-reply-item-div .leave-message-reply-item-head-div {
     width: 100%;
     height: 20px;
     line-height: 20px;
 }
-.leave-message-reply-item-div .leave-message-reply-item-user-info{
+
+.leave-message-reply-item-div .leave-message-reply-item-user-info {
     font-size: 14px;
     color: #323232;
 }
-.leave-message-reply-item-div .leave-message-reply-item-time{
+
+.leave-message-reply-item-div .leave-message-reply-item-time {
     margin-left: 43px;
     font-size: 14px;
     color: #323232;
 }
-.leave-message-reply-item-div .leave-message-reply-item-content-div{
+
+.leave-message-reply-item-div .leave-message-reply-item-content-div {
     margin-top: 20px;
     width: 100%;
     height: auto;
 }
-.leave-message-reply-item-div .leave-message-reply-content{
+
+.leave-message-reply-item-div .leave-message-reply-content {
     display: inline-block;
     min-height: 19px;
     font-size: 14px;
     color: #323232;
 }
-.leave-message-item-content-div .leave-message-reply-input-div{
+
+.leave-message-item-content-div .leave-message-reply-input-div {
     margin-top: 20px;
     width: 100%;
     height: auto;
     border-top: 1px solid #dcdcdc;
 }
-.leave-message-reply-input-div .leave-message-reply-input-ask-div{
+
+.leave-message-reply-input-div .leave-message-reply-input-ask-div {
     width: 100%;
     height: auto;
     min-height: 50px;
     line-height: 30px;
 }
-.leave-message-reply-input-div p{
+
+.leave-message-reply-input-div p {
     display: block;
     font-size: 14px;
     color: #323232;
 }
-.leave-message-reply-input-div .leave-message-reply-input-ask-name{
+
+.leave-message-reply-input-div .leave-message-reply-input-ask-name {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.leave-message-reply-input-div .leave-message-reply-input-ask-content{
+
+.leave-message-reply-input-div .leave-message-reply-input-ask-content {
     text-indent: 80px;
     word-break: break-all;
 }
-.leave-message-reply-input-div .leave-message-reply-input-answer-div{
+
+.leave-message-reply-input-div .leave-message-reply-input-answer-div {
     position: relative;
     box-sizing: border-box;
     margin-top: 10px;
@@ -156,7 +185,8 @@
     height: auto;
     padding-left: 80px;
 }
-.leave-message-reply-input-div .leave-message-reply-input-answer-title{
+
+.leave-message-reply-input-div .leave-message-reply-input-answer-title {
     display: block;
     position: absolute;
     top: 0;
@@ -168,20 +198,23 @@
     font-size: 14px;
     color: #323232;
 }
-.leave-message-reply-input-div .leave-message-reply-input-answer{
+
+.leave-message-reply-input-div .leave-message-reply-input-answer {
     width: 100%;
     height: 100px;
     resize: none;
     font-size: 14px;
     color: #323232;
 }
-.leave-message-reply-input-div .leave-message-reply-input-button-div{
+
+.leave-message-reply-input-div .leave-message-reply-input-button-div {
     width: 100%;
     height: 50px;
     text-align: right;
     line-height: 50px;
 }
-.leave-message-reply-input-div .leave-message-reply-input-button-div button{
+
+.leave-message-reply-input-div .leave-message-reply-input-button-div button {
     margin-left: 15px;
     width: 80px;
     height: 30px;
@@ -194,14 +227,17 @@
     cursor: pointer;
     outline: none;
 }
-.leave-message-reply-input-button-true{
+
+.leave-message-reply-input-button-true {
     background-color: #0066cc;
 }
-.leave-message-reply-input-button-false{
+
+.leave-message-reply-input-button-false {
     background-color: #FF0000;
 }
+
 /*删除项*/
-.leave-message-delete{
+.leave-message-delete {
     position: absolute;
     top: 50%;
     right: 0;

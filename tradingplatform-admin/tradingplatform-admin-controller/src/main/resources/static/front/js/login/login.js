@@ -106,28 +106,31 @@ $(function () {
         //将获取的值填充入输入框中
         $accountInput.val(username);
         $passwordInput.val(password);
-        if(username != null && username != '' && password != null && password != '') {
+        if (username != null && username != '' && password != null && password != '') {
             //选中保存秘密的复选框
             $rememberPasswordButton.attr('checked', true);
         }
 
     }
+
     // 记住密码
     function rememberPassword() {
         if ($rememberPasswordButton[0].checked) {
             //存储一个带7天期限的cookie
-            $.cookie("@kgbasd&%", $accountInput.val(), { expires: 7 });
-            $.cookie("$7asd*%", $passwordInput.val(), { expires: 7 });
+            $.cookie("@kgbasd&%", $accountInput.val(), {expires: 7});
+            $.cookie("$7asd*%", $passwordInput.val(), {expires: 7});
         }
         else {
-            $.cookie("@kgbasd&%", "", { expires: -1 });
-            $.cookie("$7asd*%", "", { expires: -1 });
+            $.cookie("@kgbasd&%", "", {expires: -1});
+            $.cookie("$7asd*%", "", {expires: -1});
         }
     }
+
     // 返回首页
     function backToIndex() {
         window.location.href = '/f/wu.html?pc=true';
     }
+
     // 点击事件
     function handelClick() {
         $(".tab-style").on("click", function () {
@@ -135,19 +138,19 @@ $(function () {
             // 初始化输入框
             init_dom();
             if ($(this)[0].innerText === "手机快速登录") {
-                $(".username").attr("placeholder","请输入手机号码");
-                $(".username").attr("typeId",1);
-                $(".password-input").css("display","none");
-                $("#captcha-img").css("display","none").attr("placeholder","短信验证码");
-                $(".send-message").css("display","inline-block");
+                $(".username").attr("placeholder", "请输入手机号码");
+                $(".username").attr("typeId", 1);
+                $(".password-input").css("display", "none");
+                $("#captcha-img").css("display", "none").attr("placeholder", "短信验证码");
+                $(".send-message").css("display", "inline-block");
                 $tabActive = 1;
                 // console.log(11);
             } else {
-                $(".username").attr("placeholder","请输入账号/手机号/邮箱");
-                $(".username").attr("typeId",0);
-                $(".password-input").css("display","inline-block");
-                $("#captcha-img").css("display","inline").attr("placeholder","请输验证码");
-                $(".send-message").css("display","none");
+                $(".username").attr("placeholder", "请输入账号/手机号/邮箱");
+                $(".username").attr("typeId", 0);
+                $(".password-input").css("display", "inline-block");
+                $("#captcha-img").css("display", "inline").attr("placeholder", "请输验证码");
+                $(".send-message").css("display", "none");
                 $tabActive = 0;
             }
             // eventOfCodeImageClick();
@@ -174,6 +177,7 @@ $(function () {
             window.open('/f/wu.html?pc=true', '_self');
         })
     }
+
     // 发送验证码
     function sendVerificationCode(e) {
         e.stopPropagation();
@@ -181,24 +185,24 @@ $(function () {
         var selfArguments = arguments;
         var account = $accountInput.val();
         // 判空
-        if(account === '') {
+        if (account === '') {
             showMessage('手机号不能为空！', '#account-input', 1);
             return;
         }
         // var loginPhoneRegExp = /^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/;
         var str = account.match(loginPhoneRegExp);
-        if(str === null) {
+        if (str === null) {
             showMessage('请输入正确手机号！', '#account-input', 1);
             return;
         }
-        if(sendCodeTime === 60) {
+        if (sendCodeTime === 60) {
             $.ajax({
-                type:'post',
-                url:'/message/pc/'+ account + '/send_sms',
-                contentType:'application/json;charset=utf-8',
-                dataType:'json',
+                type: 'post',
+                url: '/message/pc/' + account + '/send_sms',
+                contentType: 'application/json;charset=utf-8',
+                dataType: 'json',
                 // data: JSON.stringify(postData),
-                success:function(data){
+                success: function (data) {
                     new PNotify({
                         title: '发送成功',
                         text: '发送成功',
@@ -207,7 +211,7 @@ $(function () {
                         addclass: "stack-bottomright",
                         stack: stack_bottomright
                     });
-                    sendCodeTimer = setInterval(function(){
+                    sendCodeTimer = setInterval(function () {
                         sendCodeTime--;
                         if (sendCodeTime < 0) {
                             clearInterval(sendCodeTimer);
@@ -217,16 +221,16 @@ $(function () {
                             $(".send-message").css("background-color", "#0066cc");
                             $(".send-message").css("color", "#fff");
                             $(".send-message").css("cursor", "pointer");
-                            $(".send-message").attr('disabled',false);
+                            $(".send-message").attr('disabled', false);
                         } else {
                             $(".send-message").html(sendCodeTime);
                             $(".send-message").css("background-color", "#fff");
                             $(".send-message").css("color", "#dcdcdc");
                             $(".send-message").css("cursor", "no-allowed");
-                            $(".send-message").attr('disabled','disabled');
+                            $(".send-message").attr('disabled', 'disabled');
                         }
                     }, 1000)
-                },error:function(XMLHttpRequest, textStatus, errorThrown){
+                }, error: function (XMLHttpRequest, textStatus, errorThrown) {
                     new PNotify({
                         title: '登录失败',
                         text: '服务器内部出错，或网络出错！',
@@ -239,12 +243,14 @@ $(function () {
             })
         }
     }
+
     // 按键监听执行函数
     function enterSubmit(ev) {
-        if(ev.keyCode == 13){
+        if (ev.keyCode == 13) {
             formSubmit(ev);
         }
     }
+
     // 验证码回调函数
     function captchaClick() {
         var img = $('#captcha-img');
@@ -256,14 +262,16 @@ $(function () {
         }
         img.attr('src', url);
     }
+
     // 提交函数
     function formSubmit(e) {
-        if($tabActive == 1){
+        if ($tabActive == 1) {
             formSubmitPhone(e);
         } else {
             formSubmitAccount(e);
         }
     }
+
     // 账户登陆
     function formSubmitAccount(e) {
         if (!isSubmitLogin) {
@@ -277,15 +285,15 @@ $(function () {
         var password = $passwordInput.val();
         var captcha = $captchaInput.val();
         // 判空
-        if(account === '') {
+        if (account === '') {
             showMessage('手机号/邮箱不能为空！', '#account-input', 1);
             isSubmitLogin = true;
             return;
-        } else if(password === '') {
+        } else if (password === '') {
             showMessage('密码不能为空！', '#password-input', 1);
             isSubmitLogin = true;
             return;
-        } else if(captcha === '') {
+        } else if (captcha === '') {
             showMessage('验证码不能为空！', '#captcha-input', 1);
             isSubmitLogin = true;
             return;
@@ -298,7 +306,7 @@ $(function () {
         };
         if (loginPhoneRegExp.test(account)) {
             postData.type = 202081
-        } else if(loginEmailRegExp.test(account)){
+        } else if (loginEmailRegExp.test(account)) {
             postData.type = 202082
         } else {
             postData.type = 202083
@@ -307,14 +315,14 @@ $(function () {
             oLoadingNode.show();
         }
         $.ajax({
-            type:'post',
-            url:'/pc/account_login',
-            contentType:'application/json;charset=utf-8',
-            dataType:'json',
+            type: 'post',
+            url: '/pc/account_login',
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'json',
             data: JSON.stringify(postData),
-            success:function(res){
+            success: function (res) {
                 isSubmitLogin = true;
-                switch(res.status){
+                switch (res.status) {
                     case 200:
                         oLoadingNode.hide();
                         new PNotify({
@@ -376,7 +384,7 @@ $(function () {
                         });*/
                         break;
                 }
-            },error:function(XMLHttpRequest, textStatus, errorThrown){
+            }, error: function (XMLHttpRequest, textStatus, errorThrown) {
                 isSubmitLogin = true;
                 oLoadingNode.hide();
                 new PNotify({
@@ -390,6 +398,7 @@ $(function () {
             }
         });
     }
+
     // 手机登陆
     function formSubmitPhone(e) {
         if (!isSubmitLogin) {
@@ -402,11 +411,11 @@ $(function () {
         var account = $accountInput.val();
         var captcha = $captchaInput.val();
         // 判空
-        if(account === '') {
+        if (account === '') {
             showMessage('手机号不能为空！', '#account-input', 1);
             isSubmitLogin = true;
             return;
-        } else if(captcha === '') {
+        } else if (captcha === '') {
             showMessage('验证短信不能为空！', '#captcha-input', 1);
             isSubmitLogin = true;
             return;
@@ -419,14 +428,14 @@ $(function () {
             oLoadingNode.show();
         }
         $.ajax({
-            type:'post',
-            url:'/pc/phone_login',
-            contentType:'application/json;charset=utf-8',
-            dataType:'json',
+            type: 'post',
+            url: '/pc/phone_login',
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'json',
             data: JSON.stringify(postData),
-            success:function(res){
+            success: function (res) {
                 isSubmitLogin = true;
-                switch(res.status){
+                switch (res.status) {
                     case 200:
                         oLoadingNode.hide();
                         new PNotify({
@@ -496,19 +505,23 @@ $(function () {
             }
         });
     }
+
     // 密码加密
     function passwordEncrypt(password) {
         return hex_md5(encrypt(password));
     }
+
     function passwordEncryptDes(password) {
         return encrypt(password);
     }
+
     // 不能为空的提示
     function showMessage(msg, selector, type) {
         layer.tips(msg, selector, {
             tips: type
         });
     }
+
     // 存储localStorage
     function saveUserInfo(data) {
         var storage = window.localStorage;
@@ -534,6 +547,7 @@ $(function () {
         storage.setItem('check', (data.notReadCount !== null) ? String(data.notReadCount) : '0');
     }
 });
+
 // 更新登录凭证
 function updateEncrypt(callback) {
     var encrypt = document.getElementById('encrypt');

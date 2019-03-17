@@ -30,12 +30,14 @@
             position: relative;
             padding-left: 50px;
         }
+
         .shuttle-tool-btn {
             position: absolute;
-            top:250px;
+            top: 250px;
             left: 0;
             width: 50px;
         }
+
         .shuttle-btn {
             margin-bottom: 10px;
         }
@@ -63,7 +65,8 @@
                     </div>
                     <div id="toolbar" class="btn-toolbar">
                         <button class="btn btn-primary" id="saveSelection">确定</button>
-                        <button id="search" type="button" class="btn btn-success"><i class="icon-search"></i> <span>搜索</span></button>
+                        <button id="search" type="button" class="btn btn-success"><i class="icon-search"></i>
+                            <span>搜索</span></button>
                     </div>
                     <table id="table" data-classes="table table-hover table-responsive table-sm">
                         <thead>
@@ -97,11 +100,13 @@
                     </div>
                     <div id="toolbar1" class="btn-toolbar">
                         <!--<button class="btn btn-primary" id="saveSelection1">确定</button>-->
-                        <button id="search1" type="button" class="btn btn-success"><i class="icon-search"></i> <span>搜索</span></button>
+                        <button id="search1" type="button" class="btn btn-success"><i class="icon-search"></i>
+                            <span>搜索</span></button>
                     </div>
                     <div class="panel-heading" style="border: 1px solid #e0e0e0;">选中按钮</div>
                     <div class="panel-body" style="padding: 0;">
-                        <table id="authorityTable" data-classes="table table-hover table-responsive table-sm custom-table">
+                        <table id="authorityTable"
+                               data-classes="table table-hover table-responsive table-sm custom-table">
                             <thead>
                             <tr>
                                 <th data-checkbox="true" data-field="state"></th>
@@ -130,9 +135,9 @@
 <script th:src="@{/plugin/pnotify/pnotify.buttons.js}"></script>
 <script th:src="@{/plugin/layer/layer.js}"></script>
 <script th:inline="javascript">
-    var roleId=[[${roleId}]];
+    var roleId = [[${roleId}]];
     var data = [[${roleButtons}]];
-    var rolebtns=data;
+    var rolebtns = data;
 </script>
 <script th:src="@{/js/system/role/roleButton.js}"></script>
 </body>

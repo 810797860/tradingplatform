@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *   @description : SelectItemMapper 接口
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2019-02-05
+ * @author zhangjk
+ * @description : SelectItemMapper 接口
+ * ---------------------------------
+ * @since 2019-02-05
  */
 @Repository
 public interface SelectItemMapper extends BaseDao<SelectItem> {
@@ -20,6 +20,7 @@ public interface SelectItemMapper extends BaseDao<SelectItem> {
     /**
      * 获取Map数据（Obj）
      * 自定化MapSql到MysqlGenerator生成
+     *
      * @param selectItemId
      * @return
      */
@@ -27,6 +28,7 @@ public interface SelectItemMapper extends BaseDao<SelectItem> {
 
     /**
      * 根据pid获取子级枚举列表
+     *
      * @param pid
      * @return
      */
@@ -34,6 +36,7 @@ public interface SelectItemMapper extends BaseDao<SelectItem> {
 
     /**
      * 根据pid递归获取所有子级枚举列表
+     *
      * @param pid
      * @return
      */

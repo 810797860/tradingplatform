@@ -1,7 +1,7 @@
 var oBroseRecord = new BrowseRecord();
 oBroseRecord.browseRecordMain();
 
-function BrowseRecord () {
+function BrowseRecord() {
     var self = this;
     var CONTENT_WIDTH = 920;    // 内容区域的宽度
     var COMPANY_RESULT_WIDTH = 180; // 企业的案例内容区域
@@ -85,8 +85,8 @@ function BrowseRecord () {
 
     // 存储服务商页的更多按钮
     var sLookMore = '<li class="company-result-li float-l">\n' +
-                        '<a class="look-more" href="javascript:;">查看更多</a>\n' +
-                    '</li>';
+        '<a class="look-more" href="javascript:;">查看更多</a>\n' +
+        '</li>';
 
     var oFootprintContentUl = $(".footprint-content-ul").eq(0);     // 内容UL
     var aFootprintTabItem = $(".footprint-tab-item");   // tab项
@@ -224,7 +224,7 @@ function BrowseRecord () {
         eventOfPageClick();
     }
 
-    function getResultList () {
+    function getResultList() {
         oFootprintContentResult.empty();
         getMyFootprintByType('result', function (list) {
             if (!list.length) {
@@ -247,7 +247,7 @@ function BrowseRecord () {
         });
     }
 
-    function getDemandList () {
+    function getDemandList() {
         oFootprintContentDemand.empty();
         getMyFootprintByType('demand', function (list) {
             if (!list.length) {
@@ -288,7 +288,7 @@ function BrowseRecord () {
         });
     }
 
-    function getCompanyList () {
+    function getCompanyList() {
         oFootprintContentCompany.empty();
         getMyFootprintByType('company', function (list) {
             if (!list.length) {
@@ -360,7 +360,7 @@ function BrowseRecord () {
     }
 
     // 根据type值请求数据（成果、需求、服务商）
-    function getMyFootprintByType (type, callback) {
+    function getMyFootprintByType(type, callback) {
         //202236-成果 202237-需求
         var json = {
             "footprintType": type === 'result' ? 202236 : type === 'demand' ? 202237 : 202238,
@@ -376,7 +376,7 @@ function BrowseRecord () {
             dataType: "json",
             data: JSON.stringify(json),
             success: function (res) {
-                if(res.status === 200) {
+                if (res.status === 200) {
                     var list = res.data.data_list;
                     var total = res.data.total;
                     if (type === 'result') {
@@ -395,8 +395,8 @@ function BrowseRecord () {
                         count: total,
                         toolbar: true
                     });
-                    if (clickPageWay === 0){
-                         clickPageWay = 1;
+                    if (clickPageWay === 0) {
+                        clickPageWay = 1;
                         $('.browse-record-splitpage >div').find("div:eq(0)").remove();
                     } else {
                         $('.browse-record-splitpage >div').find("div:eq(1)").remove();
@@ -413,7 +413,7 @@ function BrowseRecord () {
     }
 
     // 删除记录
-    function deleteMyFootprint (arr, callback) {
+    function deleteMyFootprint(arr, callback) {
         new NewAjax({
             type: "POST",
             url: "/f/myFootprint/pc/batch_delete?pc=true",
@@ -421,7 +421,7 @@ function BrowseRecord () {
             dataType: "json",
             data: JSON.stringify(arr),
             success: function (res) {
-                if(res.status === 200) {
+                if (res.status === 200) {
                     // layer.alert('删除成功！')
                     callback && callback();
                 } else {
@@ -435,7 +435,7 @@ function BrowseRecord () {
     }
 
     // 删除按钮显示和隐藏
-    function eventOfDeleteShowAndHide () {
+    function eventOfDeleteShowAndHide() {
         // 删除按钮显示和隐藏
         $(document).on("mouseover", '.my-footprint .result-item', eventOfShowDelMouseOver)
             .on("mouseleave", '.my-footprint .result-item', eventOfHideDelMouseLeave)
@@ -449,6 +449,7 @@ function BrowseRecord () {
     function eventOfShowDelMouseOver() {
         $(this).find('.delete-btn').show();
     }
+
     // 处理鼠标移出隐藏删除按钮
     function eventOfHideDelMouseLeave() {
         $(this).find('.delete-btn').hide();
@@ -456,10 +457,10 @@ function BrowseRecord () {
 
     /*** 监听分页跳转 ***/
     function eventOfPageClick() {
-        $(".browse-record-splitpage >div").on("click", function(){
+        $(".browse-record-splitpage >div").on("click", function () {
             clickPageWay = 1;
             var focusPage = $('.browse-record-splitpage .focus')[0].innerText;
-            if(focusPage != currentPage) {
+            if (focusPage != currentPage) {
                 currentPage = focusPage;
                 if (currentTab === 'result') {
                     getResultList();
@@ -469,7 +470,7 @@ function BrowseRecord () {
                     getCompanyList();
                 }
             }
-        }).keydown(function(e) {
+        }).keydown(function (e) {
             if (e.keyCode == 13) {
                 clickPageWay = 1;
                 currentPage = $('.browse-record-splitpage .focus')[0].innerText;

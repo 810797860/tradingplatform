@@ -112,19 +112,19 @@ function getMessage() {
         method: "POST",
         data: postdata,
         contentType: "application/json;charset=utf-8",
-        success: function(data){
+        success: function (data) {
             $('.commons-count').text(data.data.total);
             if (data.data['data_list'] == null) {
                 $('#illustration').text('该模块没有数据')
             }
-            else{
-                if(data.data['total'] == 0){
+            else {
+                if (data.data['total'] == 0) {
                     $(".main-evaluate").css("display", "none")
                 } else {
                     $(".main-evaluate").css("display", "block")
                 }
                 $('.commons-container-center').empty();
-                for(var i=0; i<data.data['data_list'].length; i++){
+                for (var i = 0; i < data.data['data_list'].length; i++) {
                     var respondent
                     if (!!data.data['data_list'][i].respondent) {
                         respondent = JSON.parse(data.data['data_list'][i].respondent).id
@@ -134,22 +134,22 @@ function getMessage() {
                     var date = new Date(created_at);
                     var time = timestampToTime(date);
                     var div = $('<div class="commons-span"></div>');
-                    var span  = $('<span>'+ user_name +'</span>');
-                    var span1  = $('<span>'+ time +'</span>');
-                    var span4 = $('<span style="margin-left: 20px;font-size: 12px;color: #0066cc;cursor: pointer" class="demand-hall-detail-delete-message" data-messageId="'+data.data['data_list'][i].id+'">删除</span>');
+                    var span = $('<span>' + user_name + '</span>');
+                    var span1 = $('<span>' + time + '</span>');
+                    var span4 = $('<span style="margin-left: 20px;font-size: 12px;color: #0066cc;cursor: pointer" class="demand-hall-detail-delete-message" data-messageId="' + data.data['data_list'][i].id + '">删除</span>');
                     var div1 = $('<div class="commons-p"></div>');
-                    var p = $('<p style="word-break: break-all">'+ data.data['data_list'][i].contents +'</p>');
+                    var p = $('<p style="word-break: break-all">' + data.data['data_list'][i].contents + '</p>');
                     var pid = JSON.parse(data.data['data_list'][i].project_id).id;
                     var user_name = JSON.parse(data.data['data_list'][i].user_id).user_name;
                     var projectId = JSON.parse(data.data['data_list'][i].project_id).id;
-                    var span2 = $('<span class="commons-span-r" data-id="'+ data.data['data_list'][i].id +'" data-pid="'+pid+'" data-user="'+user_name+'" data-num="' + i + '" data-extend="no">查看评论</span>')
-                    var span3 = $('<i data-id="'+ data.data['data_list'][i].id +'" data-pid="'+ data.data['data_list'][i].id +'" data-user="'+user_name+'" data-contents="'+ data.data['data_list'][i].contents +'" data-num="' + i + '" data-projectId="'+ projectId +'" data-respondent="'+ respondent +'"  data-respondent-name="'+ JSON.parse(data.data['data_list'][i].user_id).user_name +'" style="display: inline-block;width: 16px;height: 16px;color:#0088c0;cursor: pointer" class="icon-message"></i>')
+                    var span2 = $('<span class="commons-span-r" data-id="' + data.data['data_list'][i].id + '" data-pid="' + pid + '" data-user="' + user_name + '" data-num="' + i + '" data-extend="no">查看评论</span>')
+                    var span3 = $('<i data-id="' + data.data['data_list'][i].id + '" data-pid="' + data.data['data_list'][i].id + '" data-user="' + user_name + '" data-contents="' + data.data['data_list'][i].contents + '" data-num="' + i + '" data-projectId="' + projectId + '" data-respondent="' + respondent + '"  data-respondent-name="' + JSON.parse(data.data['data_list'][i].user_id).user_name + '" style="display: inline-block;width: 16px;height: 16px;color:#0088c0;cursor: pointer" class="icon-message"></i>')
                     div.append(span);
                     div.append(span1);
                     if (!!userInfo) {
                         var userData = JSON.parse(userInfo);
-                        if (!!projectResultData &&　userData) {
-                            if (!!projectResultData.publisher){
+                        if (!!projectResultData && userData) {
+                            if (!!projectResultData.publisher) {
                                 if (userData.id == JSON.parse(projectResultData.publisher).id) {
                                     div.append(span4);
                                 }
@@ -159,7 +159,7 @@ function getMessage() {
                     if (!!userInfo) {
                         if (!!data.data['data_list'][i].user_id) {
                             var userData = JSON.parse(userInfo);
-                            if(userData.id == JSON.parse(data.data['data_list'][i].user_id).id) {
+                            if (userData.id == JSON.parse(data.data['data_list'][i].user_id).id) {
                                 div.append(span4);
                             }
                         }
@@ -189,15 +189,31 @@ function getMessage() {
                 //hrz
                 var totalRecord = data.data.total;
                 if (!!isFirst) {
-                    $('.main-evaluate >div').Paging({pagesize: evaluationSearchSize, count: totalRecord, toolbar: true});
-                } else if(isAddconments === 'true') {
-                    $('.main-evaluate >div').Paging({pagesize: evaluationSearchSize, count: totalRecord, toolbar: true});
+                    $('.main-evaluate >div').Paging({
+                        pagesize: evaluationSearchSize,
+                        count: totalRecord,
+                        toolbar: true
+                    });
+                } else if (isAddconments === 'true') {
+                    $('.main-evaluate >div').Paging({
+                        pagesize: evaluationSearchSize,
+                        count: totalRecord,
+                        toolbar: true
+                    });
                     $('.main-evaluate >div').find("div:eq(0)").remove();
                 } else if (!!isTiao) {
-                    $('.main-evaluate >div').Paging({pagesize: evaluationSearchSize, count: totalRecord, toolbar: true});
+                    $('.main-evaluate >div').Paging({
+                        pagesize: evaluationSearchSize,
+                        count: totalRecord,
+                        toolbar: true
+                    });
                     $('.main-evaluate >div').find("div:eq(1)").remove();
                 } else {
-                    $('.main-evaluate >div').Paging({pagesize: evaluationSearchSize, count: totalRecord, toolbar: true});
+                    $('.main-evaluate >div').Paging({
+                        pagesize: evaluationSearchSize,
+                        count: totalRecord,
+                        toolbar: true
+                    });
                     $('.main-evaluate >div').find("div:eq(0)").remove();
                 }
                 isFirst = false;
@@ -235,7 +251,7 @@ function applicantClick() {
             data: postdata,
             dataType: "json",
             contentType: "application/json;charset=utf-8",
-            success: function(data){
+            success: function (data) {
                 // var inList = false;
                 // var userInfo = window.localStorage.getItem('user');
                 $('.publish-count').text(data.data.total);
@@ -246,7 +262,7 @@ function applicantClick() {
                     var div = $('<div style="display: block;font-size: 12px;color: #999;height: 30px;line-height: 0px;text-align: left;font-weight: 600">tips:仅报名者与发布人可查看报名者信息</div>')
                     $('.container-center').append(div);
                 }
-                else{
+                else {
                     $('.container-center').empty();
                     var div = $('<div style="display: block;font-size: 12px;color: #999;height: 30px;line-height: 0px;text-align: left;font-weight: 600">tips:仅报名者与发布人可查看报名者信息</div>')
                     $('.container-center').append(div);
@@ -261,11 +277,11 @@ function applicantClick() {
                     // if (inList == false) {
                     //     return;
                     // }
-                    for(var i=0; i<data.data['data_list'].length; i++) {
+                    for (var i = 0; i < data.data['data_list'].length; i++) {
                         var imgid = JSON.parse(data.data['data_list'][i].user_id).avatar
                         var imgBank = $('.container-center');
-                        if (!!data.data['data_list'][i].user_id){
-                            var div = $('<div class="img" data-id="'+data.data['data_list'][i].id+'" data-user_id="'+ JSON.parse(data.data['data_list'][i].user_id).id +'"></div>')
+                        if (!!data.data['data_list'][i].user_id) {
+                            var div = $('<div class="img" data-id="' + data.data['data_list'][i].id + '" data-user_id="' + JSON.parse(data.data['data_list'][i].user_id).id + '"></div>')
                         }
                         var img
                         if (!!imgid) {
@@ -273,12 +289,12 @@ function applicantClick() {
                         } else {
                             img = $('<img style="background-color: white" src="/static/assets/defalutexpretTitle.png" />')
                         }
-                        var span = $('<span>'+ JSON.parse(data.data['data_list'][i].user_id).user_name +'</span>')
+                        var span = $('<span>' + JSON.parse(data.data['data_list'][i].user_id).user_name + '</span>')
                         div.append(img)
                         div.append(span)
                         imgBank.append(div)
-                        var height = (data.data['data_list'].length/4) > 0 ? (data.data['data_list'].length/4) + 1 : (data.data['data_list'].length/4)
-                        $('.container-center').height(height*153)
+                        var height = (data.data['data_list'].length / 4) > 0 ? (data.data['data_list'].length / 4) + 1 : (data.data['data_list'].length / 4)
+                        $('.container-center').height(height * 153)
                     }
                     // var id = $(this).attr('data-id');
                     // var user_id = $(this).attr('data-user_id');
@@ -303,8 +319,8 @@ function applicantClick() {
     });
 }
 
-function handleClick () {
-    $(document).on('click','.commons-container-center-bottom-reply',function () {
+function handleClick() {
+    $(document).on('click', '.commons-container-center-bottom-reply', function () {
         var user = window.localStorage.getItem('user');
         if (!!user) {
             $('.commons-container-center-bottom').hide()
@@ -312,17 +328,17 @@ function handleClick () {
         } else {
             layer.msg('请先登录');
             setTimeout(function () {
-                window.open('/f/login.html?pc=true','_self');
-            },500);
+                window.open('/f/login.html?pc=true', '_self');
+            }, 500);
         }
     })
-    $(document).on('click','.commons-container-center-reply-cancel',function () {
+    $(document).on('click', '.commons-container-center-reply-cancel', function () {
         $('.commons-container-center-bottom').show()
         $('.commons-container-center-reply-contentsDiv').hide()
     })
-    $(document).on('click','.commons-container-center-reply-submit',function () {
+    $(document).on('click', '.commons-container-center-reply-submit', function () {
         var content = $('.commons-container-center-reply-contents').val()
-        if (!!content){
+        if (!!content) {
             var json = {
                 projectId: caseid,
                 contents: filterSensitiveWord(content)
@@ -339,7 +355,7 @@ function handleClick () {
                         isAddconments = 'true';
                         setTimeout(function () {
                             getMessage();
-                        },500)
+                        }, 500)
                     }
                 }
             })
@@ -369,10 +385,10 @@ function handleClick () {
         $('.commons-container-center').removeClass('div-avtive')
         extend = false
         new NewAjax({
-            url: "/f/projectDemand/"+caseid+"/get_detail_by_id",
+            url: "/f/projectDemand/" + caseid + "/get_detail_by_id",
             method: "GET",
             contentType: "application/json;charset=utf-8",
-            success: function(data){
+            success: function (data) {
                 if (!!data.data['data_object']) {
                     $('#illustration').text(data.data['data_object']['illustration'])
                 }
@@ -382,7 +398,7 @@ function handleClick () {
     $('.file-activity-search').click(function (e) {
         var id = $(this).attr('data-fileid')
         if (!!id) {
-            var img = $('<img src="/adjuncts/file_download/'+ id +'"/>')
+            var img = $('<img src="/adjuncts/file_download/' + id + '"/>')
         } else {
             var img = $('<img src="/static/assets/defalutexpretTitle.png" />')
         }
@@ -390,7 +406,7 @@ function handleClick () {
     $('.file-activity-download').click(function () {
         $(this).attr('data-fileid')
     });
-    $(document).on('click','.commons-span-r',function (e) {
+    $(document).on('click', '.commons-span-r', function (e) {
         var id = $(this).data('id');
         var pid = $(this).data('pid');
         var username = $(this).data('user')
@@ -411,7 +427,7 @@ function handleClick () {
             $(this).attr('data-extend', 'no');
 
             // hrz
-            $(".main-reply").css("display","none");
+            $(".main-reply").css("display", "none");
         }
         else if (extend == false) {
             $('.commons-span-r').text('查看评论');
@@ -421,7 +437,7 @@ function handleClick () {
 
             // hrz
             currentPageSmall = 1;
-            $(this).parent().next().find(".main-reply").css("display","block");
+            $(this).parent().next().find(".main-reply").css("display", "block");
 
             $('.commons-span-r').attr('data-extend', 'no');
             getDeandHallDetailSecond();
@@ -429,7 +445,7 @@ function handleClick () {
             // extend = !extend;
         }
     })
-    $(document).on('click','.commons-span .demand-hall-detail-delete-message',function () {
+    $(document).on('click', '.commons-span .demand-hall-detail-delete-message', function () {
         var id = [$(this).attr('data-messageId')];
         new NewAjax({
             url: '/f/projectDemandComments/batch_delete?pc=true',
@@ -450,7 +466,7 @@ function handleClick () {
             }
         })
     })
-    $(document).on('click','.chaldren-comment-head .demand-hall-detail-delete-message',function () {
+    $(document).on('click', '.chaldren-comment-head .demand-hall-detail-delete-message', function () {
         var id = [$(this).attr('data-messageId')];
         new NewAjax({
             url: '/f/projectDemandComments/batch_delete?pc=true',
@@ -469,16 +485,16 @@ function handleClick () {
             }
         })
     })
-    $(document).on('click','.img',function (e){
+    $(document).on('click', '.img', function (e) {
         var id = $(this).attr('data-id');
         var user_id = $(this).attr('data-user_id');
         var userInfo = window.localStorage.getItem('user');
-        if (!!projectResultData &&　userInfo) {
+        if (!!projectResultData && userInfo) {
             if (!!projectResultData.publisher) {
                 if (JSON.parse(userInfo).id == JSON.parse(projectResultData.publisher).id) {
-                    window.open('/f/projectDemandSignUp/'+id+'/toDetail.html?pc=true', "_self");
-                } else if (JSON.parse(userInfo).id == user_id){
-                    window.open('/f/projectDemandSignUp/'+id+'/toDetail.html?pc=true', "_self");
+                    window.open('/f/projectDemandSignUp/' + id + '/toDetail.html?pc=true', "_self");
+                } else if (JSON.parse(userInfo).id == user_id) {
+                    window.open('/f/projectDemandSignUp/' + id + '/toDetail.html?pc=true', "_self");
                 } else {
                     layer.msg("只有发包人与报名者自己才能进入");
                 }
@@ -488,7 +504,7 @@ function handleClick () {
         }
     })
 
-    $(document).on('click','.commons-container-center .icon-message',function (e) {
+    $(document).on('click', '.commons-container-center .icon-message', function (e) {
         var user = window.localStorage.getItem('user');
         if (!!user) {
             $('.commons-p .extendMessageDiv').remove();
@@ -505,10 +521,10 @@ function handleClick () {
             if (!!$(this).attr('data-num')) {
                 var num = $(this).attr('data-num');
             } else {
-                var num = ($(this).parent().parent('.commons-p').index()+1)/2 - 1;
+                var num = ($(this).parent().parent('.commons-p').index() + 1) / 2 - 1;
             }
-            var span = $('<span style="display: inline-block;font-size: 14px">'+ respondentName +'</span>')
-            var p = $('<p style="display: inline-block;font-size: 14px;word-break: break-all">'+ getContents +'</p>')
+            var span = $('<span style="display: inline-block;font-size: 14px">' + respondentName + '</span>')
+            var p = $('<p style="display: inline-block;font-size: 14px;word-break: break-all">' + getContents + '</p>')
             var head = $('<div style="margin-top: 10px;border-top: 1px solid gainsboro;padding: 0 60px"></div>')
             head.append(span)
             head.append(p)
@@ -530,16 +546,16 @@ function handleClick () {
         } else {
             layer.msg('请先登录');
             setTimeout(function () {
-                window.open('/f/login.html?pc=true','_self');
-            },500);
+                window.open('/f/login.html?pc=true', '_self');
+            }, 500);
         }
     })
-    $(document).on('click','.commons-p .extendMessageDiv .extendMessageCancel',function (e) {
+    $(document).on('click', '.commons-p .extendMessageDiv .extendMessageCancel', function (e) {
         $('.commons-p .extendMessageDiv').remove()
     })
-    $(document).on('click','.commons-p .extendMessageDiv .extendMessageSubmit',function (e) {
+    $(document).on('click', '.commons-p .extendMessageDiv .extendMessageSubmit', function (e) {
         if (!!$('.commons-p .getContents').val()) {
-            var json ={
+            var json = {
                 projectId: caseid,
                 contents: $('.commons-p .getContents').val(),
                 pid: casePid
@@ -549,7 +565,7 @@ function handleClick () {
                 type: 'POST',
                 contentType: "application/json",
                 data: JSON.stringify(json),
-                success:function (res) {
+                success: function (res) {
                     if (res.status === 200) {
                         layer.msg("评论成功")
                         $('.commons-p .extendMessageDiv').remove();
@@ -597,17 +613,17 @@ function handleClick () {
 
     /*** 监听分页跳转 ***/
     // 评论大分页
-    $(".main-evaluate >div").off().on("click", function(){
-        if($('.main-evaluate .focus')[0].innerText != currentPageBig) {
+    $(".main-evaluate >div").off().on("click", function () {
+        if ($('.main-evaluate .focus')[0].innerText != currentPageBig) {
             currentPageBig = $('.main-evaluate .focus')[0].innerText;
             isTiao = true;
 
             // hrz
-            $(".main-reply").css("display","none");
+            $(".main-reply").css("display", "none");
             $(".main-evaluate").append($(".main-reply"))
             getMessage();
         }
-    }).keydown(function(e) {
+    }).keydown(function (e) {
         if (e.keyCode == 13) {
             currentPageBig = $('.main-evaluate .focus')[0].innerText;
             isTiao = true;
@@ -620,15 +636,15 @@ function handleClick () {
         }
     });
     // 评论小分页
-    $(".main-reply >div").off().on("click", function(){
-        if($('.main-reply .focus')[0].innerText != currentPageSmall) {
+    $(".main-reply >div").off().on("click", function () {
+        if ($('.main-reply .focus')[0].innerText != currentPageSmall) {
             currentPageSmall = $('.main-reply .focus')[0].innerText;
             $(".main-evaluate").append($(".main-reply"));
             $('.commons-p>div').remove();
             removePageItem = 1;
             getDeandHallDetailSecond();
         }
-    }).keydown(function(e) {
+    }).keydown(function (e) {
         if (e.keyCode == 13) {
             currentPageSmall = $('.main-reply .focus')[0].innerText;
             $(".main-evaluate").append($(".main-reply"));
@@ -642,90 +658,90 @@ function handleClick () {
 };
 
 function getDeandHallDetailSecond() {
-        var userInfo = window.localStorage.getItem('user');
-        var data = {
-            "pid": thisId,
-            "projectId": caseid,
-            "pager":{
-                "current":currentPageSmall,
-                "size":replySearchSize
-            },
-            "sortPointer": {
-                "filed": "created_at",
-                "order": "DESC"
-            },
-            "backCheckStatus": 202050,
-        }
-        var postdata = JSON.stringify(data)
-        new NewAjax({
-            url: "/f/projectDemandComments/pc/query?pc=true",
-            method: "POST",
-            data: postdata,
-            contentType: "application/json;charset=utf-8",
-            success: function(data){
-                var totalRecord = data.data.total;
-                if($('.main-reply >div >div').length == 0 || removePageItem == 1){
-                    $('.main-reply>div').Paging({pagesize: replySearchSize, count: totalRecord, toolbar: true});
-                    // $('.main-reply >div').find("div:eq(1)").remove();
-                    $('.main-reply>div>div:eq(1)').remove();
-                    removePageItem = 0;
-                } else {
-                    $('.main-reply >div').Paging({pagesize: replySearchSize, count: totalRecord, toolbar: true});
-                    $('.main-reply>div>div:eq(0)').remove();
-                    $('.main-reply').show();
-                }
+    var userInfo = window.localStorage.getItem('user');
+    var data = {
+        "pid": thisId,
+        "projectId": caseid,
+        "pager": {
+            "current": currentPageSmall,
+            "size": replySearchSize
+        },
+        "sortPointer": {
+            "filed": "created_at",
+            "order": "DESC"
+        },
+        "backCheckStatus": 202050,
+    }
+    var postdata = JSON.stringify(data)
+    new NewAjax({
+        url: "/f/projectDemandComments/pc/query?pc=true",
+        method: "POST",
+        data: postdata,
+        contentType: "application/json;charset=utf-8",
+        success: function (data) {
+            var totalRecord = data.data.total;
+            if ($('.main-reply >div >div').length == 0 || removePageItem == 1) {
+                $('.main-reply>div').Paging({pagesize: replySearchSize, count: totalRecord, toolbar: true});
+                // $('.main-reply >div').find("div:eq(1)").remove();
+                $('.main-reply>div>div:eq(1)').remove();
+                removePageItem = 0;
+            } else {
+                $('.main-reply >div').Paging({pagesize: replySearchSize, count: totalRecord, toolbar: true});
+                $('.main-reply>div>div:eq(0)').remove();
+                $('.main-reply').show();
+            }
 
-                // if(removePageItem == 1){
+            // if(removePageItem == 1){
 
 
-                // 切换大分页后清除
-                // $('.main-reply >div:eq(1)').remove();
+            // 切换大分页后清除
+            // $('.main-reply >div:eq(1)').remove();
 
-                // clickEvaluation = 1; // 评论展开已经点击
-                for(var i=0; i<data.data['data_list'].length; i++){
-                    var projectId = caseid
-                    var time = timestampToTime(data.data['data_list'][i].created_at)
-                    var div = $('<div class="chaldren-comment-head"></div>')
-                    var div1 = $('<div class="chaldren-comment-content"></div>')
-                    var name = JSON.parse(data.data['data_list'][i].user_id).user_name
-                    var span = $('<span class="com-name">'+ JSON.parse(data.data['data_list'][i].respondent).user_name +'</span>')
-                    var span1 = $('<span class="call">回复</span>')
-                    var span2= $('<span class="user-name">'+ name +'</span>')
-                    var span3 = $('<span class="time">'+ time + '</span>')
-                    var span5 = $('<span style="margin-left: 20px;font-size: 12px;color: #0066cc;cursor: pointer" data-messageId="'+ data.data['data_list'][i].id +'" class="demand-hall-detail-delete-message">删除</span>');
-                    var p = $('<p style="word-break: break-all">'+ data.data['data_list'][i].contents +'</p>')
-                    var span4 = $('<i data-id="'+ data.data['data_list'][i].id +'" data-pid="'+data.data['data_list'][i].id+'" data-user="'+JSON.parse(data.data['data_list'][i].respondent).user_name+'" data-user-id="'+JSON.parse(data.data['data_list'][i].user_id).id+'" data-contents="'+ data.data['data_list'][i].contents +'" data-projectId="'+ projectId +'" data-respondent="'+ JSON.parse(data.data['data_list'][i].user_id).id +'" data-respondent-name="'+ JSON.parse(data.data['data_list'][i].user_id).user_name +'" style="display: inline-block;width: 16px;height: 16px;color:#0088c0;cursor: pointer" class="icon-message"></i>')
-                    // var span4 = $('<i class="icon-message"></i>')
-                    div.append(span2);
-                    div.append(span1)
-                    div.append(span)
-                    div.append(span3)
-                    if (!!userInfo) {
-                        var userData = JSON.parse(userInfo);
-                        if (!!projectResultData &&　userData) {
-                            if (!!projectResultData.publisher){
-                                if (userData.id == JSON.parse(projectResultData.publisher).id) {
-                                    div.append(span5);
-                                }
-                            }
-                        }
-                    }
-                    if (!!userInfo) {
-                        if (!!data.data['data_list'][i].user_id) {
-                            var userData = JSON.parse(userInfo);
-                            if(userData.id == JSON.parse(data.data['data_list'][i].user_id).id) {
+            // clickEvaluation = 1; // 评论展开已经点击
+            for (var i = 0; i < data.data['data_list'].length; i++) {
+                var projectId = caseid
+                var time = timestampToTime(data.data['data_list'][i].created_at)
+                var div = $('<div class="chaldren-comment-head"></div>')
+                var div1 = $('<div class="chaldren-comment-content"></div>')
+                var name = JSON.parse(data.data['data_list'][i].user_id).user_name
+                var span = $('<span class="com-name">' + JSON.parse(data.data['data_list'][i].respondent).user_name + '</span>')
+                var span1 = $('<span class="call">回复</span>')
+                var span2 = $('<span class="user-name">' + name + '</span>')
+                var span3 = $('<span class="time">' + time + '</span>')
+                var span5 = $('<span style="margin-left: 20px;font-size: 12px;color: #0066cc;cursor: pointer" data-messageId="' + data.data['data_list'][i].id + '" class="demand-hall-detail-delete-message">删除</span>');
+                var p = $('<p style="word-break: break-all">' + data.data['data_list'][i].contents + '</p>')
+                var span4 = $('<i data-id="' + data.data['data_list'][i].id + '" data-pid="' + data.data['data_list'][i].id + '" data-user="' + JSON.parse(data.data['data_list'][i].respondent).user_name + '" data-user-id="' + JSON.parse(data.data['data_list'][i].user_id).id + '" data-contents="' + data.data['data_list'][i].contents + '" data-projectId="' + projectId + '" data-respondent="' + JSON.parse(data.data['data_list'][i].user_id).id + '" data-respondent-name="' + JSON.parse(data.data['data_list'][i].user_id).user_name + '" style="display: inline-block;width: 16px;height: 16px;color:#0088c0;cursor: pointer" class="icon-message"></i>')
+                // var span4 = $('<i class="icon-message"></i>')
+                div.append(span2);
+                div.append(span1)
+                div.append(span)
+                div.append(span3)
+                if (!!userInfo) {
+                    var userData = JSON.parse(userInfo);
+                    if (!!projectResultData && userData) {
+                        if (!!projectResultData.publisher) {
+                            if (userData.id == JSON.parse(projectResultData.publisher).id) {
                                 div.append(span5);
                             }
                         }
                     }
-                    div1.append(p);
-                    div1.append(span4);
-                    $('.commons-p').eq(pNum).append(div);
-                    $('.commons-p').eq(pNum).append(div1);
-                    $('.commons-p').eq(pNum).append($(".main-reply"));
                 }
+                if (!!userInfo) {
+                    if (!!data.data['data_list'][i].user_id) {
+                        var userData = JSON.parse(userInfo);
+                        if (userData.id == JSON.parse(data.data['data_list'][i].user_id).id) {
+                            div.append(span5);
+                        }
+                    }
+                }
+                div1.append(p);
+                div1.append(span4);
+                $('.commons-p').eq(pNum).append(div);
+                $('.commons-p').eq(pNum).append(div1);
+                $('.commons-p').eq(pNum).append($(".main-reply"));
             }
-        })
+        }
+    })
 }
 
 function initPage() {
@@ -795,7 +811,7 @@ function initPage() {
             data: postdata,
             dataType: "json",
             contentType: "application/json;charset=utf-8",
-            success: function(data){
+            success: function (data) {
                 // var inList = false;
                 // var userInfo = window.localStorage.getItem('user');
                 $('.publish-count').text(data.data.total);
@@ -806,7 +822,7 @@ function initPage() {
                     var div = $('<div style="display: block;font-size: 12px;color: #999;height: 30px;line-height: 0px;text-align: left;font-weight: 600">tips:仅报名者与发布人可查看报名者信息</div>')
                     $('.container-center').append(div);
                 }
-                else{
+                else {
                     $('.container-center').empty();
                     var div = $('<div style="display: block;font-size: 12px;color: #999;height: 30px;line-height: 0px;text-align: left;font-weight: 600">tips:仅报名者与发布人可查看报名者信息</div>')
                     $('.container-center').append(div);
@@ -821,11 +837,11 @@ function initPage() {
                     // if (inList == false) {
                     //     return;
                     // }
-                    for(var i=0; i<data.data['data_list'].length; i++) {
+                    for (var i = 0; i < data.data['data_list'].length; i++) {
                         var imgid = JSON.parse(data.data['data_list'][i].user_id).avatar
                         var imgBank = $('.container-center');
-                        if (!!data.data['data_list'][i].user_id){
-                            var div = $('<div class="img" data-id="'+data.data['data_list'][i].id+'" data-user_id="'+ JSON.parse(data.data['data_list'][i].user_id).id +'"></div>')
+                        if (!!data.data['data_list'][i].user_id) {
+                            var div = $('<div class="img" data-id="' + data.data['data_list'][i].id + '" data-user_id="' + JSON.parse(data.data['data_list'][i].user_id).id + '"></div>')
                         }
                         var img
                         if (!!imgid) {
@@ -833,12 +849,12 @@ function initPage() {
                         } else {
                             img = $('<img style="background-color: white" src="/static/assets/defalutexpretTitle.png" />')
                         }
-                        var span = $('<span>'+ JSON.parse(data.data['data_list'][i].user_id).user_name +'</span>')
+                        var span = $('<span>' + JSON.parse(data.data['data_list'][i].user_id).user_name + '</span>')
                         div.append(img)
                         div.append(span)
                         imgBank.append(div)
-                        var height = (data.data['data_list'].length/4) > 0 ? (data.data['data_list'].length/4) + 1 : (data.data['data_list'].length/4)
-                        $('.container-center').height(height*153)
+                        var height = (data.data['data_list'].length / 4) > 0 ? (data.data['data_list'].length / 4) + 1 : (data.data['data_list'].length / 4)
+                        $('.container-center').height(height * 153)
                     }
                     // var id = $(this).attr('data-id');
                     // var user_id = $(this).attr('data-user_id');
@@ -871,21 +887,21 @@ function initData() {
     var statusNode = $('#status');
     var status = null;
     $('.demand-hall .content-left .sign-up button').click(function () {
-        window.open('/f/projectDemandSignUp/'+ dataSource.id +'/demand_sign_up.html?pc=true', '_self')
+        window.open('/f/projectDemandSignUp/' + dataSource.id + '/demand_sign_up.html?pc=true', '_self')
     })
     if (!!userInfo) {
         var url = "/f/projectDemand/pc/" + dataSource.id + "/judgeHasSignUp?pc=true"
-            new NewAjax({
+        new NewAjax({
             url: url,
             method: "GET",
             contentType: "application/json;charset=utf-8",
             success: function (res) {
-                if (!!res.data){
-                    if (!!res.data.data_object){
+                if (!!res.data) {
+                    if (!!res.data.data_object) {
                         if (res.data.data_object === true) {
                             isSignUp = true
-                            $('.demand-hall .content-left .sign-up button').css('backgroundColor','#b9b9b9');
-                            $('.demand-hall .content-left .sign-up button').attr('disabled',true);
+                            $('.demand-hall .content-left .sign-up button').css('backgroundColor', '#b9b9b9');
+                            $('.demand-hall .content-left .sign-up button').attr('disabled', true);
                             $('.demand-hall .content-left .sign-up button').text("已报名");
                             demandHallDetailTable();
                         }
@@ -910,76 +926,76 @@ function initData() {
     }
     var budget_amount_start = $('#budget_amount_start').attr('data-budget_amount_start')
     var budget_amount = $('#budget_amount').attr('data-budget_amount')
-    if (budget_amount > 0 && budget_amount_start == budget_amount){
+    if (budget_amount > 0 && budget_amount_start == budget_amount) {
         $('#budget_amount').text(budget_amount);
-        $('.money-line').css("display","none");
-        $('#budget_amount_start').css("display","none");
-    }else if(budget_amount > 0 && budget_amount_start != budget_amount){
+        $('.money-line').css("display", "none");
+        $('#budget_amount_start').css("display", "none");
+    } else if (budget_amount > 0 && budget_amount_start != budget_amount) {
         $('#budget_amount_start').text(budget_amount_start);
         $('#budget_amount').text(budget_amount);
-    } else{
+    } else {
         $('#budget_amount').text("面议");
-        $('.money-unit').css("display","none");
-        $('.money-line').css("display","none");
-        $('#budget_amount_start').css("display","none");
+        $('.money-unit').css("display", "none");
+        $('.money-line').css("display", "none");
+        $('#budget_amount_start').css("display", "none");
     }
 
     if (!!userInfo) {
-        if(!!projectResultData.publisher && (userInfo.id == JSON.parse(projectResultData.publisher).id)) {
-            $('.demand-hall .content-left .sign-up button').css('backgroundColor','#b9b9b9');
-            $('.demand-hall .content-left .sign-up button').css('cursor','not-allowed');
-            $('.demand-hall .content-left .sign-up button').attr('disabled',true);
+        if (!!projectResultData.publisher && (userInfo.id == JSON.parse(projectResultData.publisher).id)) {
+            $('.demand-hall .content-left .sign-up button').css('backgroundColor', '#b9b9b9');
+            $('.demand-hall .content-left .sign-up button').css('cursor', 'not-allowed');
+            $('.demand-hall .content-left .sign-up button').attr('disabled', true);
             $('.demand-hall .content-left .sign-up button').text("马上报名");
         }
     }
 
     var illustration = $('#illustration').attr("data-illustration");
-    if (!!illustration){
+    if (!!illustration) {
         $('#illustration').html(illustration);
     }
     if (status.id == '202074') {
         $(".ui-step li").removeClass("step-done");
-        for(var i=0; i<5; i++) {
+        for (var i = 0; i < 5; i++) {
             $(".ui-step li").eq(i).addClass("step-done");
         }
         $('.ui-step li').eq(4).addClass("step-active").siblings().removeClass('step-active');
-        $('.demand-hall .content-left .sign-up button').css('backgroundColor','#b9b9b9')
-        $('.demand-hall .content-left .sign-up button').css('cursor','not-allowed')
-        $('.demand-hall .content-left .sign-up button').attr('disabled',true)
+        $('.demand-hall .content-left .sign-up button').css('backgroundColor', '#b9b9b9')
+        $('.demand-hall .content-left .sign-up button').css('cursor', 'not-allowed')
+        $('.demand-hall .content-left .sign-up button').attr('disabled', true)
         $('.demand-hall .content-left .sign-up button').text("报名已截止")
     } else if (status.id == '202073') {
         $(".ui-step li").removeClass("step-done");
-        for(var i=0; i<4; i++) {
+        for (var i = 0; i < 4; i++) {
             $(".ui-step li").eq(i).addClass("step-done");
         }
         $('.ui-step li').eq(3).addClass("step-active").siblings().removeClass('step-active');
-        $('.demand-hall .content-left .sign-up button').css('backgroundColor','#b9b9b9')
-        $('.demand-hall .content-left .sign-up button').css('cursor','not-allowed')
-        $('.demand-hall .content-left .sign-up button').attr('disabled',true)
+        $('.demand-hall .content-left .sign-up button').css('backgroundColor', '#b9b9b9')
+        $('.demand-hall .content-left .sign-up button').css('cursor', 'not-allowed')
+        $('.demand-hall .content-left .sign-up button').attr('disabled', true)
         $('.demand-hall .content-left .sign-up button').text("报名已截止")
     } else if (status.id == '202072') {
         $(".ui-step li").removeClass("step-done");
-        for(var i=0; i<3; i++) {
+        for (var i = 0; i < 3; i++) {
             $(".ui-step li").eq(i).addClass("step-done");
         }
         $('.ui-step li').eq(2).addClass("step-active").siblings().removeClass('step-active');
-        $('.demand-hall .content-left .sign-up button').css('backgroundColor','#b9b9b9')
-        $('.demand-hall .content-left .sign-up button').css('cursor','not-allowed')
-        $('.demand-hall .content-left .sign-up button').attr('disabled',true)
+        $('.demand-hall .content-left .sign-up button').css('backgroundColor', '#b9b9b9')
+        $('.demand-hall .content-left .sign-up button').css('cursor', 'not-allowed')
+        $('.demand-hall .content-left .sign-up button').attr('disabled', true)
         $('.demand-hall .content-left .sign-up button').text("报名已截止")
     } else if (status.id == '202071') {
         $(".ui-step li").removeClass("step-done");
-        for(var i=0; i<2; i++) {
+        for (var i = 0; i < 2; i++) {
             $(".ui-step li").eq(i).addClass("step-done");
         }
         $('.ui-step li').eq(1).addClass("step-active").siblings().removeClass('step-active');
-        $('.demand-hall .content-left .sign-up button').css('backgroundColor','#b9b9b9')
-        $('.demand-hall .content-left .sign-up button').css('cursor','not-allowed')
-        $('.demand-hall .content-left .sign-up button').attr('disabled',true)
+        $('.demand-hall .content-left .sign-up button').css('backgroundColor', '#b9b9b9')
+        $('.demand-hall .content-left .sign-up button').css('cursor', 'not-allowed')
+        $('.demand-hall .content-left .sign-up button').attr('disabled', true)
         $('.demand-hall .content-left .sign-up button').text("报名已截止")
     } else if (status.id == '202069') {
         $(".ui-step li").removeClass("step-done");
-        for(var i=0; i<1; i++) {
+        for (var i = 0; i < 1; i++) {
             $(".ui-step li").eq(i).addClass("step-done");
         }
         $('.ui-step li').eq(0).addClass("step-active").siblings().removeClass('step-active');
@@ -987,16 +1003,16 @@ function initData() {
     else if (status.id == '202075') {
         $(".ui-step li").removeClass("step-done");
         $(".ui-step li").removeClass("step-active");
-        $('.demand-hall .content-left .sign-up button').css('backgroundColor','#b9b9b9')
-        $('.demand-hall .content-left .sign-up button').css('cursor','not-allowed')
-        $('.demand-hall .content-left .sign-up button').attr('disabled',true)
+        $('.demand-hall .content-left .sign-up button').css('backgroundColor', '#b9b9b9')
+        $('.demand-hall .content-left .sign-up button').css('cursor', 'not-allowed')
+        $('.demand-hall .content-left .sign-up button').attr('disabled', true)
         $('.demand-hall .content-left .sign-up button').text("报名已截止")
     } else {
         $(".ui-step li").removeClass("step-done");
         $(".ui-step li").removeClass("step-active");
-        $('.demand-hall .content-left .sign-up button').css('backgroundColor','#b9b9b9')
-        $('.demand-hall .content-left .sign-up button').css('cursor','not-allowed')
-        $('.demand-hall .content-left .sign-up button').attr('disabled',true)
+        $('.demand-hall .content-left .sign-up button').css('backgroundColor', '#b9b9b9')
+        $('.demand-hall .content-left .sign-up button').css('cursor', 'not-allowed')
+        $('.demand-hall .content-left .sign-up button').attr('disabled', true)
         $('.demand-hall .content-left .sign-up button').text("马上报名")
     }
 
@@ -1005,19 +1021,19 @@ function initData() {
 
     var attachment = $("#attachment").data("attachment")
     var table = $('.file-table');
-    if (!!attachment){
-        for(var i=0; i<attachment.length; i++) {
-            var td = $('<td class="file-index">'+attachment[i].title+'.'+attachment[i].prefix+'</td>');
-            var td1 = $('<td class="file-name">'+attachment[i].size+'k</td>');
+    if (!!attachment) {
+        for (var i = 0; i < attachment.length; i++) {
+            var td = $('<td class="file-index">' + attachment[i].title + '.' + attachment[i].prefix + '</td>');
+            var td1 = $('<td class="file-name">' + attachment[i].size + 'k</td>');
             var td2 = $(' <td class="file-activity">' +
-                '<a class="file-activity-search" data-fileid="'+attachment[i].id+'">' +
+                '<a class="file-activity-search" data-fileid="' + attachment[i].id + '">' +
                 '<i class="icon-search"></i>&nbsp;&nbsp;查看' +
                 '</a>' +
-                '<a class="file-activity-download" data-fileid="'+attachment[i].id+'">' +
+                '<a class="file-activity-download" data-fileid="' + attachment[i].id + '">' +
                 '<i class="icon-download"></i>&nbsp;&nbsp;下载' +
                 '</a>' +
                 '</td>');
-            var tr = $('<tr><td class="file-index">'+(i+1)+'</td></tr>')
+            var tr = $('<tr><td class="file-index">' + (i + 1) + '</td></tr>')
             tr.append(td)
             tr.append(td1)
             tr.append(td2)
@@ -1036,19 +1052,19 @@ function initData() {
     // })
 }
 
-function timestampToTime (times) {
+function timestampToTime(times) {
     var date = new Date(times)
     var Y = date.getFullYear() + '-';
-    var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+    var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
     var D = date.getDate() + ' ';
     var h = date.getHours() + ':';
     var m = date.getMinutes()
-    return Y+M+D+h+m;
+    return Y + M + D + h + m;
 }
 
-function getRecommendDemandList () {
+function getRecommendDemandList() {
     var json = {
-        "pager":{//分页信息
+        "pager": {//分页信息
             "current": 1,   //当前页数0
             "size": 9        //每页条数
         }
@@ -1067,7 +1083,7 @@ function getRecommendDemandList () {
 }
 
 /**  设置右栏推荐需求列表  **/
-function setRecommendDemandList (list) {
+function setRecommendDemandList(list) {
     var recommendDemandCards = $(".recommend-demand-card")
     // 隐藏不需要的元素
     for (var k = 0; k < recommendDemandCards.length; k++) {
@@ -1080,7 +1096,7 @@ function setRecommendDemandList (list) {
     for (var i = 0; i < list.length; i++) {
         $(recommendDemandCards[i]).attr("data-id", list[i].id); // id
         $(recommendDemandCards[i]).find(".recommend-demand-title").html(list[i].name);  // 标题
-        $(recommendDemandCards[i]).find(".recommend-demand-title").attr('title',list[i].name);  // 标题
+        $(recommendDemandCards[i]).find(".recommend-demand-title").attr('title', list[i].name);  // 标题
         if (parseInt(list[i].budget_amount_start) === parseInt(list[i].budget_amount) && (list[i].budget_amount >= 0 && list[i].budget_amount <= 0)) {
             $(recommendDemandCards[i]).find(".recommend-demand-money").html("面议");     // 金额
         } else if (parseInt(list[i].budget_amount_start) === parseInt(list[i].budget_amount) || !list[i].budget_amount_start) {
@@ -1092,9 +1108,9 @@ function setRecommendDemandList (list) {
     }
 }
 
-function getNewRecommendDemandList () {
+function getNewRecommendDemandList() {
     var json = {
-        "pager":{//分页信息
+        "pager": {//分页信息
             "current": 1,   //当前页数0
             "size": 4        //每页条数
         }
@@ -1112,7 +1128,7 @@ function getNewRecommendDemandList () {
     })
 }
 
-function setNewRecommendDemandList (list) {
+function setNewRecommendDemandList(list) {
     var recommendDemandCards = $(".recommend-demand-card")
     // 隐藏不需要的元素
     for (var k = 4; k < recommendDemandCards.length; k++) {
@@ -1123,17 +1139,17 @@ function setNewRecommendDemandList (list) {
         }
     }
     for (var i = 0; i < list.length; i++) {
-        $(recommendDemandCards[i+4]).attr("data-id", list[i].id); // id
-        $(recommendDemandCards[i+4]).find(".recommend-demand-title").html(list[i].name);  // 标题
-        $(recommendDemandCards[i+4]).find(".recommend-demand-title").attr('title',list[i].name);  // 标题
+        $(recommendDemandCards[i + 4]).attr("data-id", list[i].id); // id
+        $(recommendDemandCards[i + 4]).find(".recommend-demand-title").html(list[i].name);  // 标题
+        $(recommendDemandCards[i + 4]).find(".recommend-demand-title").attr('title', list[i].name);  // 标题
         if (parseInt(list[i].budget_amount_start) === parseInt(list[i].budget_amount) && (list[i].budget_amount >= 0 && list[i].budget_amount <= 0)) {
-            $(recommendDemandCards[i+4]).find(".recommend-demand-money").html("面议");     // 金额
+            $(recommendDemandCards[i + 4]).find(".recommend-demand-money").html("面议");     // 金额
         } else if (parseInt(list[i].budget_amount_start) === parseInt(list[i].budget_amount) || !list[i].budget_amount_start) {
-            $(recommendDemandCards[i+4]).find(".recommend-demand-money").html(list[i].budget_amount + "万");     // 金额
+            $(recommendDemandCards[i + 4]).find(".recommend-demand-money").html(list[i].budget_amount + "万");     // 金额
         } else {
-            $(recommendDemandCards[i+4]).find(".recommend-demand-money").html(list[i].budget_amount_start + "万" + '-' + list[i].budget_amount + '万');     // 金额
+            $(recommendDemandCards[i + 4]).find(".recommend-demand-money").html(list[i].budget_amount_start + "万" + '-' + list[i].budget_amount + '万');     // 金额
         }
-        $(recommendDemandCards[i+4]).find(".recommend-demand-deadline").html(list[i].validdate);  // 截止时间
+        $(recommendDemandCards[i + 4]).find(".recommend-demand-deadline").html(list[i].validdate);  // 截止时间
     }
 }
 
@@ -1146,7 +1162,7 @@ function demandHallDetailTable() {
     }
     var isPublishUser = false;
     if (!!dataSource.publisher) {
-        if (userId == JSON.parse(dataSource.publisher).id){
+        if (userId == JSON.parse(dataSource.publisher).id) {
             isPublishUser = true;
         }
     }
@@ -1155,10 +1171,10 @@ function demandHallDetailTable() {
     var baseStyleArr = [];
     var arr = [];
     if (demandHallDetailTableData != undefined && demandHallDetailTableData.length != 0) {
-        demandHallDetailTableData.forEach(function(item) {
+        demandHallDetailTableData.forEach(function (item) {
             var obj = {};
             if (baseStyleArr.length === 0) {
-                Object.keys(item).forEach(function(key){
+                Object.keys(item).forEach(function (key) {
                     var styleItem = {};
                     styleItem.type = key;
                     switch (key) {
@@ -1185,7 +1201,7 @@ function demandHallDetailTable() {
             obj.title = item.title;
             obj.prefix = item.prefix;
             obj.size = item.size;
-            obj.id =item.id;
+            obj.id = item.id;
             // if (item.reply === true) {
             //     for (var i=0; i<baseStyleArr.length; i++) {
             //         if(baseStyleArr[i].type === 'id') {
@@ -1194,7 +1210,7 @@ function demandHallDetailTable() {
             //     }
             //     arr = ['consultor_name','contents','created_at','reply']
             // } else {
-            arr =  ['title','size','prefix','id'];
+            arr = ['title', 'size', 'prefix', 'id'];
             // }
             data.push(obj);
         })
@@ -1225,17 +1241,17 @@ function demandHallDetailTable() {
             // }
         }
     });
-    if (isSignUp || isPublishUser){
-        spanArr = ['title','size','prefix','id'];
+    if (isSignUp || isPublishUser) {
+        spanArr = ['title', 'size', 'prefix', 'id'];
     } else {
-        spanArr = ['title','size','prefix'];
+        spanArr = ['title', 'size', 'prefix'];
     }
     table.setShowColArr(spanArr);
     table.createTable();
 }
 
 /*** 用户收藏/ 取消收藏 ***/
-function toCollectTheDemand (dom, id, isCollect) {
+function toCollectTheDemand(dom, id, isCollect) {
     var json = {
         "projectId": id,
         "isCollection": isCollect
@@ -1270,6 +1286,7 @@ function setTextOverTip() {
     setTextOverTipOfRecommandResultList();
     setTextOverTipOfRecommandCompanyList();
 }
+
 // 绑定推荐需求父框事件
 function setTextOverTipOfRecommandDemandList() {
     // 获取列表父框
@@ -1277,6 +1294,7 @@ function setTextOverTipOfRecommandDemandList() {
     // 绑定事件
     nListParent.mouseover(eventOfRecommandDemandTextOver);
 }
+
 // 绑定推荐产品父框事件
 function setTextOverTipOfRecommandResultList() {
     // 获取列表父框
@@ -1284,6 +1302,7 @@ function setTextOverTipOfRecommandResultList() {
     // 绑定事件
     nListParent.mouseover(eventOfRecommandDemandTextOver);
 }
+
 // 绑定推荐企业父框事件
 function setTextOverTipOfRecommandCompanyList() {
     // 获取列表父框
@@ -1310,10 +1329,8 @@ function eventOfRecommandDemandTextOver(event) {
 }
 
 
-
-
 // 底部相关推荐事件
-function eventOfBottomRecommend () {
+function eventOfBottomRecommend() {
     var aBottomRecommendNavItem = $(".footer-recommend-content-div .footer-recommend-nav-div .footer-recommend-nav-item");
     var oRecommendResultArea = $(".footer-recommend-content-div .recommend-result-area");
     var oRecommendCompanyArea = $(".footer-recommend-content-div .recommend-company-area");
@@ -1330,9 +1347,9 @@ function eventOfBottomRecommend () {
 }
 
 // 获取推荐产品数据
-function getFooterRecommendResult () {
+function getFooterRecommendResult() {
     var json = {
-        "pager":{//分页信息
+        "pager": {//分页信息
             "current": 1,   //当前页数0
             "size": 4       //每页条数
         }
@@ -1349,7 +1366,8 @@ function getFooterRecommendResult () {
         }
     })
 }
-function setFooterRecommendResult (list) {
+
+function setFooterRecommendResult(list) {
     var newFrag = document.createDocumentFragment();
     var oRecommendResultArea = $(".footer-recommend-content-div .recommend-result-area");
 
@@ -1366,9 +1384,9 @@ function setFooterRecommendResult (list) {
 }
 
 // 获取推荐企业数据
-function getFooterRecommendCompany () {
+function getFooterRecommendCompany() {
     var json = {
-        "pager":{//分页信息
+        "pager": {//分页信息
             "current": 1,   //当前页数0
             "size": 4        //每页条数
         }
@@ -1385,7 +1403,8 @@ function getFooterRecommendCompany () {
         }
     })
 }
-function setFooterRecommendCompany (list) {
+
+function setFooterRecommendCompany(list) {
     var newFrag = document.createDocumentFragment();
     var oRecommendCompanyArea = $(".footer-recommend-content-div .recommend-company-area");
 
@@ -1411,7 +1430,7 @@ function initPlusLeaveMessage() {
     leaveMessage.setTrueBtnCallBack(function (askInfo, node) {
         // 获取输入框
         var inputNode = node.parent().prev().find('textarea').eq(0);
-        if (inputNode.val().length === 0){
+        if (inputNode.val().length === 0) {
             layer.msg('填写内容不能为空!');
             inputNode.css({
                 borderColor: '#ff0000'
@@ -1478,6 +1497,7 @@ function initPlusLeaveMessage() {
         })
     });
 }
+
 // 留言请求
 function getLeaveMessage(callback) {
     // 请求的传参
@@ -1488,9 +1508,9 @@ function getLeaveMessage(callback) {
             current: nowPageNumber,
             size: leaveMessageSearchSize
         },
-        sortPointer:{
-            order:"ASC",
-            field:"updated_at"
+        sortPointer: {
+            order: "ASC",
+            field: "updated_at"
         }
     };
     // 请求回复的次数
@@ -1551,17 +1571,18 @@ function getLeaveMessage(callback) {
         }
     })
 }
+
 // 获取回复
 function getReply(message, callback) {
     var dataJson = {
         payAttentionId: message.id,
         pager: {
-            "current": (!!message.nowPageNumber) ? message.nowPageNumber: 1,
+            "current": (!!message.nowPageNumber) ? message.nowPageNumber : 1,
             "size": replySearchSize
         },
-        sortPointer:{
-            order:"ASC",
-            field:"updated_at"
+        sortPointer: {
+            order: "ASC",
+            field: "updated_at"
         }
     };
     new NewAjax({
@@ -1581,6 +1602,7 @@ function getReply(message, callback) {
         }
     })
 }
+
 // 处理留言数据
 function dealWithMessageData(messageArr, callback) {
     // 暂时存储
@@ -1670,6 +1692,7 @@ function dealWithMessageData(messageArr, callback) {
         }
     })
 }
+
 // 提取replyPageConfig
 function getReplyPageConfigData(mark, total) {
     // 配置项是否存在
@@ -1684,8 +1707,8 @@ function getReplyPageConfigData(mark, total) {
     };
     // 提取分页配置数据
     pageConfigItem.isOpenPage = (total > defaultPageSize);
-    pageConfigItem.maxPageNumber = (total > defaultPageSize) ? (total % defaultPageSize === 0) ? Math.floor(total/defaultPageSize) : Math.floor(total/defaultPageSize) + 1 : undefined;
-    pageConfigItem.nowPageNumber = (total > defaultPageSize) ? pageNumberData.searchArrayObj(mark, 'mark', true).number: 1;
+    pageConfigItem.maxPageNumber = (total > defaultPageSize) ? (total % defaultPageSize === 0) ? Math.floor(total / defaultPageSize) : Math.floor(total / defaultPageSize) + 1 : undefined;
+    pageConfigItem.nowPageNumber = (total > defaultPageSize) ? pageNumberData.searchArrayObj(mark, 'mark', true).number : 1;
     if (pageConfigItem.clickCallback === undefined) {
         pageConfigItem.clickCallback = function (mark, newNumber) {
             var askInfo, answerInfo;
@@ -1743,6 +1766,7 @@ function getReplyPageConfigData(mark, total) {
         });
     }
 }
+
 // 留言按钮点击事件
 function eventOfLeaveMessageBtnClick() {
     leaveMessageBtn.off().click(function () {
@@ -1750,6 +1774,7 @@ function eventOfLeaveMessageBtnClick() {
         firstLeaveMessageInput.show().find('textarea').eq(0).val('');
     })
 }
+
 // 留言确定按钮点击事件
 function eventOfLeaveMessageTrueBtnClick() {
     $('.case-hall-detail-other-message-reply-submit').off().click(function () {
@@ -1782,6 +1807,7 @@ function eventOfLeaveMessageTrueBtnClick() {
         })
     })
 }
+
 // 初始留言框的取消按钮事件
 function eventOfLeaveMessageCancelBtnClick() {
     var cancelBtn = $('.case-hall-detail-other-message-reply-cancel').eq(0);

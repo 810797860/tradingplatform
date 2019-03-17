@@ -31,7 +31,7 @@ var SEARCHING = false
 
 var $addUserModal = $('#add-user-modal');
 
-$(function(){
+$(function () {
     // 消息弹出框弹出位置设置
     var stack_bottomright = {"dir1": "up", "dir2": "left", "firstpos1": 25, "firstpos2": 25};
 
@@ -66,9 +66,10 @@ $(function(){
 });
 
 // 新增用户
-function addUser(){
-    if(!StringNoEmpty($('#user-name').val())||!StringNoEmpty($('#user-account').val())||!StringNoEmpty($('#user-password').val())){
-        layer.msg("请检查是否完整填写用户名、账号、密码", function () {});
+function addUser() {
+    if (!StringNoEmpty($('#user-name').val()) || !StringNoEmpty($('#user-account').val()) || !StringNoEmpty($('#user-password').val())) {
+        layer.msg("请检查是否完整填写用户名、账号、密码", function () {
+        });
         return;
     }
     var postData = {
@@ -79,13 +80,13 @@ function addUser(){
         email: $('#user-email').val() || null
     };
     $.ajax({
-        type:'post',
+        type: 'post',
         url: '/admin/user/create_update',
-        contentType:'application/json;charset=utf-8',
-        dataType:'json',
+        contentType: 'application/json;charset=utf-8',
+        dataType: 'json',
         data: JSON.stringify(postData),
-        success:function(res){
-            if(res.success === true) {
+        success: function (res) {
+            if (res.success === true) {
                 refreshTable();
                 $addUserModal.modal('hide');
                 new PNotify({
@@ -106,22 +107,23 @@ function addUser(){
                     stack: stack_bottomright
                 });
             }
-        },error:function(XMLHttpRequest, textStatus, errorThrown){
+        }, error: function (XMLHttpRequest, textStatus, errorThrown) {
             alert('添加用户失败，服务器内部错误');
         }
     });
 }
 
 // 删除用户
-function deleteUser(){
+function deleteUser() {
     var selectIds = getSelection('id');
-    if(selectIds.length === 0) {
-        layer.msg("至少选择一项！", function(){});
-        return ;
+    if (selectIds.length === 0) {
+        layer.msg("至少选择一项！", function () {
+        });
+        return;
     }
-    if(confirm('你确定要删除这些吗？')){
+    if (confirm('你确定要删除这些吗？')) {
         var postData = [];
-        for(var i = 0; i < selectIds.length; i++) {
+        for (var i = 0; i < selectIds.length; i++) {
             postData.push(selectIds[i].id);
         }
         console.log(selectIds);
@@ -129,8 +131,8 @@ function deleteUser(){
             url: '/systemUser/batch_delete',
             data: JSON.stringify(postData),
             type: 'post',
-            contentType:'application/json;charset=utf-8',
-            success: function(res) {
+            contentType: 'application/json;charset=utf-8',
+            success: function (res) {
                 new PNotify({
                     title: '删除用户',
                     text: '删除用户成功',
@@ -140,12 +142,12 @@ function deleteUser(){
                     stack: stack_bottomright
                 });
                 layer.closeAll();
-                if(res.success === true) {
+                if (res.success === true) {
                     refreshTable();
                 } else {
                 }
             },
-            error: function(error) {
+            error: function (error) {
                 console.log("error");
             }
         });
@@ -195,14 +197,14 @@ function initTable() {
             height: getHeight()
         });
     });
-    $toggleSearch.on('click', function(e){
+    $toggleSearch.on('click', function (e) {
         e.stopPropagation();
-        if($searchPart.css('display') === 'none') {
+        if ($searchPart.css('display') === 'none') {
             $toggleSearch.html('<i class="icon-angle-up"></i> 收起搜索');
         } else {
             $toggleSearch.html('<i class="icon-angle-down"></i> 展开搜索');
         }
-        $searchPart.slideToggle(function(){
+        $searchPart.slideToggle(function () {
             $table.bootstrapTable('resetView', {
                 height: getHeight()
             });
@@ -212,24 +214,24 @@ function initTable() {
     // checkbox 选中
     $(".checkbox-input").click(function (e) {
         e.stopPropagation();
-        if($(this).hasClass("selected")) {
+        if ($(this).hasClass("selected")) {
             $(this).removeClass("selected");
             $(this).children('input[type="checkbox"]').first().prop('checked', false);
-        }else {
+        } else {
             $(this).addClass("selected");
             $(this).children('input[type="checkbox"]').first().prop('checked', true);
         }
         searchInfo(true);
     });
     // 搜索
-    $search.on('click', function(e) {
+    $search.on('click', function (e) {
         e.stopPropagation();
         searchInfo(true);
     });
     // 搜索表单域中绑定的事件
-    $("input.search-control").on('keydown',function(e){
+    $("input.search-control").on('keydown', function (e) {
         e.stopPropagation();
-        if(e.keyCode == "13") {
+        if (e.keyCode == "13") {
             searchInfo(true);
         }
     });
@@ -255,14 +257,14 @@ function responseHandler(res) {
 // 搜索功能
 function searchInfo(flag) {
     SEARCHING = !!flag
-    if (SEARCHING) $('#table').bootstrapTable('refresh', {pageNumber:1}); // 重置页码
+    if (SEARCHING) $('#table').bootstrapTable('refresh', {pageNumber: 1}); // 重置页码
     else $table.bootstrapTable(('refresh'));
 }
 
 //表格数据获取的参数
 function queryParams(params) {
     var page = {};
-    page.current = params.offset/params.limit + 1;
+    page.current = params.offset / params.limit + 1;
     page.size = params.limit;
     var sorts = [];
     var defaultSort = {};
@@ -271,34 +273,39 @@ function queryParams(params) {
     sorts.push(defaultSort);
     var postData = {
         page: page,
-        sorts:sorts
+        sorts: sorts
     };
     return postData;
 }
+
 // 获取bootstrap table高度
 function getHeight() {
     var searchHeight = 0;
-    if($("#search-part").css('display') !== 'none') {
+    if ($("#search-part").css('display') !== 'none') {
         searchHeight = $('#search-part').height();
     }
     return $(window).height() - 20 - searchHeight;
 }
+
 // 刷新列表并且弹出提示信息
-function refreshAndShowMessage(options){
+function refreshAndShowMessage(options) {
     new PNotify(options);
     $('#table').bootstrapTable('refresh');
 }
+
 // 确定按钮控制
 function confirmHandle() {
     var selectionsLen = selections.length;
-    if(selectionsLen === 0) {
-        layer.msg("未选择任何项！", function(){});
+    if (selectionsLen === 0) {
+        layer.msg("未选择任何项！", function () {
+        });
         return;
     }
-    switch(parseInt(relevanceObj['fieldType'])) { // 转换为数字
+    switch (parseInt(relevanceObj['fieldType'])) { // 转换为数字
         case SINGLE_CHOICE:
-            if(selectionsLen > 1) {
-                layer.msg("只能选择一项！", function(){});
+            if (selectionsLen > 1) {
+                layer.msg("只能选择一项！", function () {
+                });
                 return;
             }
             break;
@@ -306,20 +313,22 @@ function confirmHandle() {
         case MULTIPLE_TREE_CHOICE:
             break;
     }
-    if(parent.window.handleRelevance) {
+    if (parent.window.handleRelevance) {
         parent.window.handleRelevance(selections, relevanceObj.selector);
         layerIndex = parent.layer.getFrameIndex(window.name);
         parent.layer.close(layerIndex);
     }
 }
+
 // 撤销控制操作
 function repealHandle() {
-    if(parent.layer) {
+    if (parent.layer) {
         parent.window.handleRelevance([], relevanceObj.selector);
         layerIndex = parent.layer.getFrameIndex(window.name);
         parent.layer.close(layerIndex);
     }
 }
+
 // 关联获取的值
 function setRelevanceObj(id, name, fieldType, selector) {
     relevanceObj['id'] = id;
@@ -338,12 +347,12 @@ function openRelativeDialog(event) {
     var name = target.attr('data-title');
     var selector = target.attr('data-name');
     // 处理url问题
-    if(url === 'undefined') {
-        var tempVal = $('[name="'+bindField+'"]').val();
-        url = formFieldsData[selector]['reference_link_'+tempVal];
+    if (url === 'undefined') {
+        var tempVal = $('[name="' + bindField + '"]').val();
+        url = formFieldsData[selector]['reference_link_' + tempVal];
     }
-    var title =  '';
-    switch(parseInt(fieldType)) {
+    var title = '';
+    switch (parseInt(fieldType)) {
         case SINGLE_CHOICE:
             title = '关联单项选择';
             break;
@@ -363,7 +372,7 @@ function openRelativeDialog(event) {
         maxmin: true,
         shadeClose: true,
         title: title,
-        success: function(layero, index){
+        success: function (layero, index) {
             //得到iframe页的窗口对象
             var iframeWin = window[layero.find('iframe')[0]['name']];
             // 执行iframe页的方法：
@@ -377,8 +386,8 @@ function openRelativeDialog(event) {
 function handleRelevance(data, selector) {
     var tempName = '';
     var tempId = '';
-    for(var i = 0, len = data.length; i < len; i++) {
-        if( i > 0 ) { // 如果不是第一个
+    for (var i = 0, len = data.length; i < len; i++) {
+        if (i > 0) { // 如果不是第一个
             tempName += ',';
             tempId += ',';
         }
@@ -392,7 +401,7 @@ function handleRelevance(data, selector) {
 
 // 触发关联选择的打开
 function triggerOpenRelativeDialog(event) {
-    if(document.all) {
+    if (document.all) {
         $(event.currentTarget).next().get(0).click();
     } else {
         var e = document.createEvent("MouseEvents");
@@ -403,13 +412,13 @@ function triggerOpenRelativeDialog(event) {
 
 // 报表勾选获取信息通用接口  -- 接收参数类型，空值、字符串、字符串数组
 function getSelectionMessage(option) {
-    if(typeof option === 'undefined') {
+    if (typeof option === 'undefined') {
         return [];
-    } else if(typeof option === 'string') {
+    } else if (typeof option === 'string') {
         return $.map($table.bootstrapTable('getSelections'), function (row) {
             var obj = {};
             var tempName = row[option] + '';
-            if(tempName.indexOf('<a') !== -1) {
+            if (tempName.indexOf('<a') !== -1) {
                 tempName = $(tempName).text();
             }
             obj[option] = tempName;
@@ -418,9 +427,9 @@ function getSelectionMessage(option) {
     } else {
         return $.map($table.bootstrapTable('getSelections'), function (row) {
             var obj = {};
-            for(var i = 0, len = option.length; i < len; i++) {
+            for (var i = 0, len = option.length; i < len; i++) {
                 var tempName = row[option[i]] + '';
-                if(tempName.indexOf('<a') !== -1) {
+                if (tempName.indexOf('<a') !== -1) {
                     tempName = $(tempName).text();
                 }
                 obj[option[i]] = tempName;
@@ -429,6 +438,7 @@ function getSelectionMessage(option) {
         });
     }
 }
+
 // 消息框位置控制
 var stack_bottomright = {"dir1": "up", "dir2": "left", "firstpos1": 25, "firstpos2": 25};
 
@@ -437,13 +447,13 @@ var stack_bottomright = {"dir1": "up", "dir2": "left", "firstpos1": 25, "firstpo
  * @param  可以是：空值、字符串、字符串数组
  */
 function getSelection(option) {
-    if(typeof option === 'undefined') {
+    if (typeof option === 'undefined') {
         return [];
-    } else if(typeof option === 'string') {
+    } else if (typeof option === 'string') {
         return $.map($table.bootstrapTable('getSelections'), function (row) {
             var obj = {};
             var tempName = row[option] + '';
-            if(tempName.indexOf('<a') !== -1) {
+            if (tempName.indexOf('<a') !== -1) {
                 tempName = $(tempName).text();
             }
             obj[option] = tempName;
@@ -452,9 +462,9 @@ function getSelection(option) {
     } else {
         return $.map($table.bootstrapTable('getSelections'), function (row) {
             var obj = {};
-            for(var i = 0, len = option.length; i < len; i++) {
+            for (var i = 0, len = option.length; i < len; i++) {
                 var tempName = row[option[i]] + '';
-                if(tempName.indexOf('<a') !== -1) {
+                if (tempName.indexOf('<a') !== -1) {
                     tempName = $(tempName).text();
                 }
                 obj[option[i]] = tempName;
@@ -467,8 +477,9 @@ function getSelection(option) {
 //分配角色
 function setUserRole() {
     var selectedIds = getSelection('id');
-    if(selectedIds.length === 0) {
-        layer.msg("请选择一项！", function(){});
+    if (selectedIds.length === 0) {
+        layer.msg("请选择一项！", function () {
+        });
     } else if (selectedIds.length === 1) {
         var url = '/admin/userRole/' + selectedIds[0].id + '/create.html';
         var title = '分配角色';
@@ -481,19 +492,21 @@ function setUserRole() {
             title: title
         });
     } else if (selectedIds.length > 1) {
-        layer.msg("只能选择一项！", function(){});
+        layer.msg("只能选择一项！", function () {
+        });
     }
 }
 
 // 关闭模态窗
 function closeFrame() {
-    if(parent.layer) {
+    if (parent.layer) {
         var layerIndex = parent.layer.getFrameIndex(window.name);
         parent.layer.close(layerIndex);
     }
 }
-function StringNoEmpty(str){
-    if(str!=null&&str!=""&&str!=undefined){
+
+function StringNoEmpty(str) {
+    if (str != null && str != "" && str != undefined) {
         return true;
-    }else return false;
+    } else return false;
 }

@@ -45,6 +45,7 @@ function Table(parentId) {
     eventOfTableClick();
 
     /*=== 功能函数 ===*/
+
     // 初始化表格
     function createdTable() {
         var table = tableNode;
@@ -244,10 +245,11 @@ function Table(parentId) {
         });
         table.html(result);
     }
+
     // 点击回调
-    function eventOfTableClick () {
+    function eventOfTableClick() {
         var table = tableNode;
-        table.off('click').on('click', function(event) {
+        table.off('click').on('click', function (event) {
             var nowNode = $(event.target);
             if (nowNode.get(0).tagName.toLowerCase() === 'input' && nowNode.attr('type') === 'checkbox') {
                 clickCheckBox(nowNode);
@@ -257,15 +259,16 @@ function Table(parentId) {
             }
         })
     }
+
     // 复选框点击处理函数
-    function clickCheckBox (node) {
+    function clickCheckBox(node) {
         var checkAll = tableNode.find('input[name="selectAll"]').eq(0);
         var checkItem = tableNode.find('input[name="selectItem"]');
         var name = node.attr('name');
         if (name === 'selectAll') {
             if (node.prop('checked')) {
                 checkItem.prop('checked', true);
-                tableData.forEach(function(item,index) {
+                tableData.forEach(function (item, index) {
                     selectIndexArr.push(index);
                 })
             } else {
@@ -287,7 +290,7 @@ function Table(parentId) {
             }
         }
     }
-    
+
     /*=== 调用方法 ===*/
     // 设置基础样式
     _this.setBaseStyle = function (styleArr) {

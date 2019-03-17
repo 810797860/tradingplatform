@@ -1,10 +1,11 @@
-.home-partner-div{
+.home-partner-div {
     box-sizing: border-box;
     width: 100%;
     height: 257px;
     padding: 20px 0;
 }
-.home-partner-inside-div{
+
+.home-partner-inside-div {
     position: relative;
     top: 0;
     left: 50%;
@@ -12,7 +13,8 @@
     width: 1170px;
     height: 100%;
 }
-.home-partner-title-div{
+
+.home-partner-title-div {
     position: relative;
     top: 0;
     left: 50%;
@@ -20,16 +22,19 @@
     width: 571px;
     height: 48px;
 }
-.home-partner-title-div div{
+
+.home-partner-title-div div {
     float: left;
 }
-.home-partner-title-line{
+
+.home-partner-title-line {
     width: 150px;
     height: 0;
     border-bottom: 1px solid #d8d8d8;
     margin-top: 19px;
 }
-.home-partner-title{
+
+.home-partner-title {
     box-sizing: border-box;
     margin: 0 15px;
     width: 240px;
@@ -41,30 +46,35 @@
     line-height: 40px;
     font-size: 20px;
 }
-.home-partner-content-div{
+
+.home-partner-content-div {
     margin-top: 25px;
     width: 100%;
     height: 136px;
 }
-.home-partner-left-btn, .home-partner-right-btn{
+
+.home-partner-left-btn, .home-partner-right-btn {
     float: left;
     margin-top: 45px;
     width: 40px;
     height: 40px;
-    background-color: rgba(0,0,0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 8px;
     text-align: center;
     line-height: 40px;
     cursor: pointer;
 }
-.icon-left-arrow, .icon-arrow-right{
+
+.icon-left-arrow, .icon-arrow-right {
     pointer-events: none;
 }
-.home-partner-left-btn i:before, .home-partner-right-btn i:before{
+
+.home-partner-left-btn i:before, .home-partner-right-btn i:before {
     color: #ffffff;
     font-size: 26px;
 }
-.home-partner-list-div{
+
+.home-partner-list-div {
     float: left;
     position: relative;
     top: 0;
@@ -74,7 +84,8 @@
     height: 100%;
     overflow-x: hidden;
 }
-.home-partner-list{
+
+.home-partner-list {
     position: absolute;
     top: 0;
     left: 0;
@@ -83,17 +94,19 @@
     white-space: nowrap;
     overflow: hidden;
 }
-.home-partner-item{
+
+.home-partner-item {
     display: inline-block;
     vertical-align: top;
     width: 130px;
     height: 130px;
     overflow: hidden;
     border-radius: 8px;
-    margin:0 10px;
+    margin: 0 10px;
     background-color: #ffffff;
 }
-.home-partner-logo{
+
+.home-partner-logo {
     position: relative;
     top: 50%;
     left: 50%;
@@ -104,199 +117,219 @@
 }
 
 /* 动画 */
-.animate-partner-left-move{
+.animate-partner-left-move {
     -webkit-animation: left-move 2s;
     -moz-animation: left-move 2s;
     -o-animation: left-move 2s;
     animation: left-move 2s;
 }
+
 @keyframes left-move {
-    from{
+    from {
         transform: translateX(0);
     }
-    to{
-        transform: translateX(-1050px);
-    }
-}
-@-webkit-keyframes left-move {
-    from{
-        transform: translateX(0);
-    }
-    to{
-        transform: translateX(-1050px);
-    }
-}
-@-moz-keyframes left-move {
-    from{
-        transform: translateX(0);
-    }
-    to{
-        transform: translateX(-1050px);
-    }
-}
-@-ms-keyframes left-move {
-    from{
-        transform: translateX(0);
-    }
-    to{
-        transform: translateX(-1050px);
-    }
-}
-@-o-keyframes left-move {
-    from{
-        transform: translateX(0);
-    }
-    to{
+    to {
         transform: translateX(-1050px);
     }
 }
 
-.animate-partner-right-move{
+@-webkit-keyframes left-move {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-1050px);
+    }
+}
+
+@-moz-keyframes left-move {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-1050px);
+    }
+}
+
+@-ms-keyframes left-move {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-1050px);
+    }
+}
+
+@-o-keyframes left-move {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-1050px);
+    }
+}
+
+.animate-partner-right-move {
     -webkit-animation: right-move 2s;
     -moz-animation: right-move 2s;
     -o-animation: right-move 2s;
     animation: right-move 2s;
 }
+
 @keyframes right-move {
-    from{
+    from {
         transform: translateX(0);
     }
-    to{
-        transform: translateX(1050px);
-    }
-}
-@-webkit-keyframes right-move {
-    from{
-        transform: translateX(0);
-    }
-    to{
-        transform: translateX(1050px);
-    }
-}
-@-moz-keyframes right-move {
-    from{
-        transform: translateX(0);
-    }
-    to{
-        transform: translateX(1050px);
-    }
-}
-@-ms-keyframes right-move {
-    from{
-        transform: translateX(0);
-    }
-    to{
-        transform: translateX(1050px);
-    }
-}
-@-o-keyframes right-move {
-    from{
-        transform: translateX(0);
-    }
-    to{
+    to {
         transform: translateX(1050px);
     }
 }
 
-.animate-partner-left-move-finish{
+@-webkit-keyframes right-move {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(1050px);
+    }
+}
+
+@-moz-keyframes right-move {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(1050px);
+    }
+}
+
+@-ms-keyframes right-move {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(1050px);
+    }
+}
+
+@-o-keyframes right-move {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(1050px);
+    }
+}
+
+.animate-partner-left-move-finish {
     -webkit-animation: left-move-finish 2s;
     -moz-animation: left-move-finish 2s;
     -o-animation: left-move-finish 2s;
     animation: left-move-finish 2s;
 }
+
 @keyframes left-move-finish {
-    from{
+    from {
         transform: translateX(0);
     }
-    to{
-        left: 100%;
-        transform: translateX(-100%);
-    }
-}
-@-webkit-keyframes left-move-finish {
-    from{
-        transform: translateX(0);
-    }
-    to{
-        left: 100%;
-        transform: translateX(-100%);
-    }
-}
-@-moz-keyframes left-move-finish {
-    from{
-        transform: translateX(0);
-    }
-    to{
-        left: 100%;
-        transform: translateX(-100%);
-    }
-}
-@-ms-keyframes left-move-finish {
-    from{
-        transform: translateX(0);
-    }
-    to{
-        left: 100%;
-        transform: translateX(-100%);
-    }
-}
-@-o-keyframes left-move-finish {
-    from{
-        transform: translateX(0);
-    }
-    to{
+    to {
         left: 100%;
         transform: translateX(-100%);
     }
 }
 
-.animate-partner-right-move-finish{
+@-webkit-keyframes left-move-finish {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        left: 100%;
+        transform: translateX(-100%);
+    }
+}
+
+@-moz-keyframes left-move-finish {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        left: 100%;
+        transform: translateX(-100%);
+    }
+}
+
+@-ms-keyframes left-move-finish {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        left: 100%;
+        transform: translateX(-100%);
+    }
+}
+
+@-o-keyframes left-move-finish {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        left: 100%;
+        transform: translateX(-100%);
+    }
+}
+
+.animate-partner-right-move-finish {
     -webkit-animation: right-move-finish 2s;
     -moz-animation: right-move-finish 2s;
     -o-animation: right-move-finish 2s;
     animation: right-move-finish 2s;
 }
+
 @keyframes right-move-finish {
-    from{
+    from {
         transform: translateX(0);
     }
-    to{
+    to {
         left: 0;
         transform: translateX(0);
     }
 }
+
 @-webkit-keyframes right-move-finish {
-    from{
+    from {
         transform: translateX(0);
     }
-    to{
+    to {
         left: 0;
         transform: translateX(0);
     }
 }
+
 @-moz-keyframes right-move-finish {
-    from{
+    from {
         transform: translateX(0);
     }
-    to{
+    to {
         left: 0;
         transform: translateX(0);
     }
 }
+
 @-ms-keyframes right-move-finish {
-    from{
+    from {
         transform: translateX(0);
     }
-    to{
+    to {
         left: 0;
         transform: translateX(0);
     }
 }
+
 @-o-keyframes right-move-finish {
-    from{
+    from {
         transform: translateX(0);
     }
-    to{
+    to {
         left: 0;
         transform: translateX(0);
     }

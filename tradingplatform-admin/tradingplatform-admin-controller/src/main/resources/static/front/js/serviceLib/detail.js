@@ -69,7 +69,7 @@ $(function () {
      * author：GloryAce
      */
     // 初始数据
-    function init_data(){
+    function init_data() {
         // 轮播图区域
         // getSliderList(eventOfSlider);
         // 设置评价的头部数据
@@ -79,6 +79,7 @@ $(function () {
         // 获取热门产品列表
         getPopularProductList();
     }
+
     // 初始化dom结构
     function init_dom() {
         $("#detail-data").css("display", 'none');
@@ -89,7 +90,7 @@ $(function () {
         $("#detail-data").css("display", 'block');
         if (!!providerResult) {
             if (!!providerResult.logo) {
-                $('.detail-header-left-logo').attr('src','/adjuncts/file_download/' + JSON.parse(providerResult.logo).id)
+                $('.detail-header-left-logo').attr('src', '/adjuncts/file_download/' + JSON.parse(providerResult.logo).id)
             }
 
             $('.detail-header-right-area .expertise-item').remove();
@@ -114,9 +115,9 @@ $(function () {
             eventOfPageKeydown.call(this, e, getProductList);
         });
         // 监听交易评价分页跳转
-        $(".transaction-evaluate #pageToolbar").on("click", function(){
+        $(".transaction-evaluate #pageToolbar").on("click", function () {
             eventOfPageClick.call(this, getTransactionDataPage);
-        }).keydown(function(e) {
+        }).keydown(function (e) {
             eventOfPageKeydown.call(this, e, getTransactionDataPage);
         });
 
@@ -132,7 +133,7 @@ $(function () {
         // VR展厅按钮点击跳转
         vrBtn.click(function () {
             if (!!providerResult.digital_id) {
-                window.open('/f/'+ providerResult.digital_id +'/number_hall_detail.html?pc=true');
+                window.open('/f/' + providerResult.digital_id + '/number_hall_detail.html?pc=true');
             }
         })
 
@@ -150,8 +151,9 @@ $(function () {
         // 收藏/取消收藏服务商
         // $(".collect-area").off().on("click", eventOfCollect);
     }
+
     // 事件：改变tab
-    function eventOfChangeTab () {
+    function eventOfChangeTab() {
         $(".service-lib-detail .tab .tab-item").removeClass("active");
         $(this).addClass("active");
 
@@ -169,7 +171,7 @@ $(function () {
             $("#case-hall").siblings().css("display", 'none');
             $("#case-hall").css("display", 'block');
             getProductList();
-        }  else if ($(this).index() === 2) {
+        } else if ($(this).index() === 2) {
             $('#splitpage').hide();
             // 关于我们
             resetCurrentPage();
@@ -190,23 +192,26 @@ $(function () {
             getTransactionDataPage();
         }
     }
+
     // 事件：监听分页
-    function eventOfPageClick (func) {
-        if($(this).data('currentpage') != currentPage) {
+    function eventOfPageClick(func) {
+        if ($(this).data('currentpage') != currentPage) {
             clickPage = 0;
             currentPage = $(this).data('currentpage');
             func();
         }
     }
-    function eventOfPageKeydown (e, func) {
+
+    function eventOfPageKeydown(e, func) {
         if (e.keyCode == 13) {
             clickPage = 0;
             currentPage = $(this).data('currentpage');
             func();
         }
     }
+
     // 切换评价类型：好评、中评、差评
-    function eventOfChangeEvaluateType (func) {
+    function eventOfChangeEvaluateType(func) {
         $(this).addClass("evaluate-button-active").removeClass("evaluate-button").siblings().addClass("evaluate-button").removeClass("evaluate-button-active");
         clickPage = 1;
         currentPage = 1;
@@ -222,6 +227,7 @@ $(function () {
         }
         func();
     }
+
     // 收藏
     // function eventOfCollect () {
     //     if ($(this).children("i").hasClass("icon-star-void")) {
@@ -252,8 +258,8 @@ $(function () {
         } else {
             layer.msg('登录后才能咨询');
             setTimeout(function () {
-                window.open('/f/login.html?pc=true','_self');
-            },1000);
+                window.open('/f/login.html?pc=true', '_self');
+            }, 1000);
         }
     })
 
@@ -265,8 +271,8 @@ $(function () {
         };
         if (json.contents == '') {
             layer.msg("咨询内容不能为空")
-        }else {
-            $('.askBtnSubmit').attr('disabled',true);
+        } else {
+            $('.askBtnSubmit').attr('disabled', true);
             new NewAjax({
                 url: "/f/serviceProvidersConsulting/pc/create_update?pc=true",
                 type: "POST",
@@ -288,7 +294,7 @@ $(function () {
 
 
     // 跳转到详情页
-    function eventOfToDetailPage () {
+    function eventOfToDetailPage() {
         // 完成的任务
         $(".complete-task-card .title").on("click", function () {
             var id = $(this).parents(".complete-task-card").data('id');
@@ -305,7 +311,7 @@ $(function () {
         $('.service-lib-detail .transaction-evaluate .technology-name').click(function () {
             // console.log($(this).attr('demandId'));
             var demandId = $(this).attr('demandId');
-            window.open('/f/'+ demandId +'/demand_detail.html?pc=true')
+            window.open('/f/' + demandId + '/demand_detail.html?pc=true')
         });
     }
 
@@ -318,7 +324,8 @@ $(function () {
     function getSliderList(callback) {
         setSliderList(sliders, callback);
     }
-    function setSliderList (list, callback) {
+
+    function setSliderList(list, callback) {
         var fragmentOfSmall = document.createDocumentFragment();
         for (var i = 0; i < list.length; i++) {
             var liItemOfSmall = null;
@@ -330,14 +337,15 @@ $(function () {
             fragmentOfSmall.appendChild(liItemOfSmall[0]);
         }
         oUlSmall.appendChild(fragmentOfSmall);
-        $(oUlSmall).css('width',  list.length * iSmallPicWidth + 'px');
+        $(oUlSmall).css('width', list.length * iSmallPicWidth + 'px');
         // 事件监听
         if (callback) {
             callback();
         }
     }
+
     // 轮播图事件监听函数
-    function eventOfSlider () {
+    function eventOfSlider() {
         var aLiSmall = $(oUlSmall).find("li");
         /**** 左右按钮点击 ****/
         oBtnPrev.onclick = function () {
@@ -384,8 +392,9 @@ $(function () {
             timer = setInterval(oBtnNext.onclick, interval);
         };
     }
+
     // 动画执行函数
-    function sliderMove () {
+    function sliderMove() {
         var aLiSmall = $(oUlSmall).find("li");
         for (var j = 0; j < aLiSmall.length; j++) {
             startMove(aLiSmall[j], {opacity: 60});
@@ -394,11 +403,11 @@ $(function () {
         if (now === 0) {
             startMove(oUlSmall, {left: 0});
         } else if (now === aLiSmall.length - 2) {
-            startMove(oUlSmall, {left: -(now-2)*aLiSmall[0].offsetWidth});
-        } else if  (now === aLiSmall.length - 1) {
+            startMove(oUlSmall, {left: -(now - 2) * aLiSmall[0].offsetWidth});
+        } else if (now === aLiSmall.length - 1) {
             startMove(oUlSmall, {left: -(now - 3) * aLiSmall[0].offsetWidth});
         } else {
-            startMove(oUlSmall, {left: -(now-1)*aLiSmall[0].offsetWidth});
+            startMove(oUlSmall, {left: -(now - 1) * aLiSmall[0].offsetWidth});
         }
     }
 
@@ -408,7 +417,7 @@ $(function () {
      * author: GloryAce
      */
     // 用户收藏/ 取消收藏
-    function toCollectTheService (dom, id, isCollect) {
+    function toCollectTheService(dom, id, isCollect) {
         var json = {
             "serviceProvidersId": id,
             "isCollection": isCollect
@@ -427,11 +436,11 @@ $(function () {
                 } else if (res.status === 200) {
                     if (!isCollect) {
                         layer.msg("取消收藏成功！");
-                        $('.collection-shop').text('收藏店铺').attr('collection','false')
+                        $('.collection-shop').text('收藏店铺').attr('collection', 'false')
                         // $(dom).children("i").attr("class", "icon-star-void")
                     } else {
                         layer.msg("收藏成功！");
-                        $('.collection-shop').text('取消收藏').attr('collection','true')
+                        $('.collection-shop').text('取消收藏').attr('collection', 'true')
                     }
                     $(dom).children(".collect-num").html(res.data.total)
                 }
@@ -440,10 +449,10 @@ $(function () {
     }
 
     // 请求最新展品数据
-    function getNewestProductList () {
+    function getNewestProductList() {
         var json = {
             "providerId": $_serviceLibInfo.id,
-            "pager":{
+            "pager": {
                 "current": 1,
                 "size": 4
             }
@@ -462,8 +471,9 @@ $(function () {
             }
         })
     }
+
     // 设置最新展品数据
-    function setNewestProductList (list) {
+    function setNewestProductList(list) {
         var aNewestProduceNode = $(".newest-produce-area .product-item");
         for (var i = 0; i < aNewestProduceNode.length; i++) {
             if (i >= list.length) {
@@ -481,10 +491,10 @@ $(function () {
     }
 
     // 请求热门展品数据
-    function getPopularProductList () {
-        var json  = {
+    function getPopularProductList() {
+        var json = {
             "providerId": $_serviceLibInfo.id,
-            "pager":{
+            "pager": {
                 "current": 1,
                 "size": 4
             }
@@ -505,8 +515,9 @@ $(function () {
             }
         });
     }
+
     // 设置热门展品数据
-    function setPopularProductList (list) {
+    function setPopularProductList(list) {
         var aPopularProduceNode = $(".popular-produce-area .product-item");
         for (var i = 0; i < aPopularProduceNode.length; i++) {
             if (i >= list.length) {
@@ -527,9 +538,9 @@ $(function () {
     function getProductList() {
         var json = {
             "id": $_serviceLibInfo.id,
-            "pager":{
-                "current":currentPage,
-                "size":searchSizeProduct
+            "pager": {
+                "current": currentPage,
+                "size": searchSizeProduct
             }
         };
         new NewAjax({
@@ -541,17 +552,25 @@ $(function () {
             success: function (res) {
                 var list = res.data.data_object;
                 var totalRecord = res.data.total;
-                if(totalRecord > 0){
+                if (totalRecord > 0) {
                     if (currentPage >= totalRecord / searchSizeProduct) {
                         $('.service-lib-detail #pageToolbar').find('li.js-page-next').eq(0).addClass('ui-pager-disabled');
                     } else {
                         $('.service-lib-detail #pageToolbar').find('li.js-page-next').eq(0).removeClass('ui-pager-disabled');
                     }
-                    if(clickPage === 0){
-                        $('.service-lib-detail #pageToolbar').Paging({pagesize:searchSizeProduct,count:totalRecord,toolbar:true});
+                    if (clickPage === 0) {
+                        $('.service-lib-detail #pageToolbar').Paging({
+                            pagesize: searchSizeProduct,
+                            count: totalRecord,
+                            toolbar: true
+                        });
                         $('.service-lib-detail #pageToolbar').find("div:eq(1)").remove();
-                    }else {
-                        $('.service-lib-detail #pageToolbar').Paging({pagesize:searchSizeProduct,count:totalRecord,toolbar:true});
+                    } else {
+                        $('.service-lib-detail #pageToolbar').Paging({
+                            pagesize: searchSizeProduct,
+                            count: totalRecord,
+                            toolbar: true
+                        });
                         $('.service-lib-detail #pageToolbar').find("div:eq(0)").remove();
                         clickPage = 0;
                     }
@@ -565,6 +584,7 @@ $(function () {
             }
         })
     }
+
     // 写入产品展示数据
     function setProductList(list) {
         var productItem = $(".case-hall .product-item");
@@ -575,9 +595,9 @@ $(function () {
                 $(productItem[k]).css("display", 'inline-block')
             }
         }
-        if (list.length > 0){
+        if (list.length > 0) {
             for (var i = 0; i < list.length; i++) {
-                $(productItem[i]).find('.product-card').eq(0).attr("href", "/f/" + list[i]['id'] +"/case_detail.html"); // href
+                $(productItem[i]).find('.product-card').eq(0).attr("href", "/f/" + list[i]['id'] + "/case_detail.html"); // href
                 $(productItem[i]).find(".title").html(list[i]['title']); // 标题
                 $(productItem[i]).find(".title").attr('title', list[i]['title']); // 标题
                 // 行业
@@ -594,12 +614,12 @@ $(function () {
                 $(productItem[i]).find(".address").html('所属地区：' + (list[i]['address'] ? list[i]['address'] : '暂无数据')); // 地区
 
                 $(productItem[i]).find(".see-num").html(list[i]['click_rate']); // 点击数
-                if(list[i]['case_money'] !== 0){
+                if (list[i]['case_money'] !== 0) {
                     $(productItem[i]).find(".money").html('￥' + list[i]['case_money'] + ' 万元'); // 金额
                 } else {
                     $(productItem[i]).find(".money").html('￥' + ' 面议'); // 金额
                 }
-                if($.parseJSON(list[i]['picture_cover'])){
+                if ($.parseJSON(list[i]['picture_cover'])) {
                     $(productItem[i]).find(".product-img").attr("src", $(this).getAvatar($.parseJSON(list[i]['picture_cover'])[0]['id']));
                 }
             }
@@ -610,23 +630,23 @@ $(function () {
     }
 
     // 写入详细资料
-    function setDetailData () {
+    function setDetailData() {
         // console.log($_serviceLibInfo);
-        if($_serviceLibInfo){
+        if ($_serviceLibInfo) {
             // 公司名(大标题)
             $(".detail-data .big-title").html($_serviceLibInfo['name']); //名字
             // 能力
             if (!!$_serviceLibInfo['total_transaction'] && $_serviceLibInfo['total_transaction'] !== 0) {
-                $(".transaction-num").html($_serviceLibInfo['total_transaction']+'万元'); //交易总额
-                $(".transaction-num").attr('title',$_serviceLibInfo['total_transaction']+'万元'); //交易总额
+                $(".transaction-num").html($_serviceLibInfo['total_transaction'] + '万元'); //交易总额
+                $(".transaction-num").attr('title', $_serviceLibInfo['total_transaction'] + '万元'); //交易总额
             } else if (!!$_serviceLibInfo['total_transaction'] && $_serviceLibInfo['total_transaction'] == 0) {
                 $(".transaction-num").text('面议');
             } else {
                 $(".transaction-num").text('暂无数据');
             }
             $(".package-num").html(valueFilter($_serviceLibInfo['task_amount'] !== 0 ? $_serviceLibInfo['task_amount'] : '暂无数据', '暂无数据')); //接包数
-            if($_serviceLibInfo) {
-                if($_serviceLibInfo['favorable_rate']) {
+            if ($_serviceLibInfo) {
+                if ($_serviceLibInfo['favorable_rate']) {
                     $(".evaluate-num").html($_serviceLibInfo['favorable_rate'] + '%'); //好评率
                 } else {
                     $(".evaluate-num").html('暂无数据'); //好评率
@@ -636,16 +656,16 @@ $(function () {
             }
 
             $(".capacity-num").html($_serviceLibInfo['qualification']); //能力值
-            $(".capacity-num").attr('title',$_serviceLibInfo['qualification']); //能力值
+            $(".capacity-num").attr('title', $_serviceLibInfo['qualification']); //能力值
             // 联系方式
             $(".area-content").html($_serviceLibInfo['address']); //所属地区
-            $(".area-content").attr('title',$_serviceLibInfo['address']); //所属地区
+            $(".area-content").attr('title', $_serviceLibInfo['address']); //所属地区
             $(".telephone-content").html($_serviceLibInfo['fixed_telephone']); //电话
             $(".address-content").html($_serviceLibInfo['address_detail']); //详细地址
             $(".address-content").attr({
                 title: $_serviceLibInfo['address_detail']
             }); //详细地址
-            if ($_serviceLibInfo['phone']){
+            if ($_serviceLibInfo['phone']) {
                 $(".phone-content").html($_serviceLibInfo['phone']); //手机
                 $(".phone-authentication i").removeClass("icon-false").addClass("icon-true");
             }
@@ -673,6 +693,7 @@ $(function () {
             console.log("详细资料注入没数据")
         }
     }
+
     // 请求关于我们数据
     /*function getAboutUsData () {
         $('.service-lib-detail #splitpage').css("display", "none");
@@ -681,14 +702,14 @@ $(function () {
 
     // 获取评价数据
     function getTransactionDataPage() {
-        if($_serviceLibInfo){
+        if ($_serviceLibInfo) {
             var json = {
                 // $_serviceLibInfo.id
                 "providerId": $_serviceLibInfo.id,
                 "evaluationType": 202103,
-                "pager":{
-                    "current":currentPage,
-                    "size":searchSizeTransaction
+                "pager": {
+                    "current": currentPage,
+                    "size": searchSizeTransaction
                 }
             };
             switch (evaluationStandard) {
@@ -712,17 +733,25 @@ $(function () {
                     var list = res.data.data_object;
                     var totalRecord = res.data.total;
                     console.log(res);
-                    if(totalRecord > 0){
+                    if (totalRecord > 0) {
                         if (currentPage >= totalRecord / searchSizeTransaction) {
                             $('.service-lib-detail #pageToolbar').find('li.js-page-next').eq(0).addClass('ui-pager-disabled');
                         } else {
                             $('.service-lib-detail #pageToolbar').find('li.js-page-next').eq(0).removeClass('ui-pager-disabled');
                         }
-                        if(clickPage === 0){
-                            $('.service-lib-detail #pageToolbar').Paging({pagesize:searchSizeTransaction,count:totalRecord,toolbar:true});
+                        if (clickPage === 0) {
+                            $('.service-lib-detail #pageToolbar').Paging({
+                                pagesize: searchSizeTransaction,
+                                count: totalRecord,
+                                toolbar: true
+                            });
                             $('.service-lib-detail #pageToolbar').find("div:eq(1)").remove();
-                        }else {
-                            $('.service-lib-detail #pageToolbar').Paging({pagesize:searchSizeTransaction,count:totalRecord,toolbar:true});
+                        } else {
+                            $('.service-lib-detail #pageToolbar').Paging({
+                                pagesize: searchSizeTransaction,
+                                count: totalRecord,
+                                toolbar: true
+                            });
                             $('.service-lib-detail #pageToolbar').find("div:eq(0)").remove();
                             clickPage = 0;
                         }
@@ -737,63 +766,70 @@ $(function () {
             })
         }
     }
+
     // 写入评价数据
     function setEvaluationHeadData() {
-        if($_evaluationHead){
-            if($_evaluationHead['favorable_rate']) {
+        if ($_evaluationHead) {
+            if ($_evaluationHead['favorable_rate']) {
                 $(".praise-rate-num").html($_evaluationHead['favorable_rate'] + '%'); // 好评率
             } else {
                 $(".praise-rate-num").html('暂无数据'); // 好评率
             }
 
-            if($_evaluationHead['total_comments']){
+            if ($_evaluationHead['total_comments']) {
                 $(".evaluate-total-num").html($_evaluationHead['total_comments']); // 评价总数
             } else {
                 $(".evaluate-total-num").html('暂无数据'); // 评价总数
             }
 
-            if($_evaluationHead['work_speed_star']){
+            if ($_evaluationHead['work_speed_star']) {
                 var work_speed_star = $(".average-speed-light"); // 平均工作速度
-                $(work_speed_star).css("width",function(){return Math.floor(146 * $_evaluationHead['work_speed_star']);});
-            } else{
-                $(".average-speed-light").css("display","none");
-                $(".average-speed-normal").css("display","none");
-                $(".speed-no-comment").css("display","block");
+                $(work_speed_star).css("width", function () {
+                    return Math.floor(146 * $_evaluationHead['work_speed_star']);
+                });
+            } else {
+                $(".average-speed-light").css("display", "none");
+                $(".average-speed-normal").css("display", "none");
+                $(".speed-no-comment").css("display", "block");
             }
 
-            if($_evaluationHead['work_quality_star']){
+            if ($_evaluationHead['work_quality_star']) {
                 var work_quality_star = $(".average-quality-light");  // 平均工作质量
-                $(work_quality_star).css("width",function(){return Math.floor(146 * $_evaluationHead['work_quality_star']);});
-            } else{
-                $(".average-quality-light").css("display","none");
-                $(".average-quality-normal").css("display","none");
-                $(".quality-no-comment").css("display","block");
+                $(work_quality_star).css("width", function () {
+                    return Math.floor(146 * $_evaluationHead['work_quality_star']);
+                });
+            } else {
+                $(".average-quality-light").css("display", "none");
+                $(".average-quality-normal").css("display", "none");
+                $(".quality-no-comment").css("display", "block");
             }
 
-            if($_evaluationHead['work_attitude_star']){
+            if ($_evaluationHead['work_attitude_star']) {
                 var work_attitude_star = $(".average-attitude-light");  // 平均工作态度
-                $(work_attitude_star).css("width",function(){return Math.floor(146 * $_evaluationHead['work_attitude_star']);});
-            } else{
-                $(".average-attitude-light").css("display","none");
-                $(".average-attitude-normal").css("display","none");
-                $(".attitude-no-comment").css("display","block");
+                $(work_attitude_star).css("width", function () {
+                    return Math.floor(146 * $_evaluationHead['work_attitude_star']);
+                });
+            } else {
+                $(".average-attitude-light").css("display", "none");
+                $(".average-attitude-normal").css("display", "none");
+                $(".attitude-no-comment").css("display", "block");
             }
         } else {
             $(".praise-rate-num").html('暂无数据'); // 好评率
 
             $(".evaluate-total-num").html('暂无数据'); // 评价总数
 
-            $(".average-speed-light").css("display","none");
-            $(".average-speed-normal").css("display","none");
-            $(".speed-no-comment").css("display","block");
+            $(".average-speed-light").css("display", "none");
+            $(".average-speed-normal").css("display", "none");
+            $(".speed-no-comment").css("display", "block");
 
-            $(".average-quality-light").css("display","none");
-            $(".average-quality-normal").css("display","none");
-            $(".quality-no-comment").css("display","block");
+            $(".average-quality-light").css("display", "none");
+            $(".average-quality-normal").css("display", "none");
+            $(".quality-no-comment").css("display", "block");
 
-            $(".average-attitude-light").css("display","none");
-            $(".average-attitude-normal").css("display","none");
-            $(".attitude-no-comment").css("display","block");
+            $(".average-attitude-light").css("display", "none");
+            $(".average-attitude-normal").css("display", "none");
+            $(".attitude-no-comment").css("display", "block");
         }
     }
 
@@ -809,38 +845,40 @@ $(function () {
                 $(transactionEvaluateCard[k]).css("display", 'block')
             }
         }
-        if(list.length > 0){
+        if (list.length > 0) {
             for (var i = 0; i < list.length; i++) {
-                if(list[i]['user_info']){
+                if (list[i]['user_info']) {
                     // 头像
-                    if ($.parseJSON(list[i]['user_info'])['avatar']){
+                    if ($.parseJSON(list[i]['user_info'])['avatar']) {
                         var avatarLeft = $(transactionEvaluateCard[i]).find(".avatar-information-left");
                         avatarLeft.attr('src', avatarLeft.getAvatar($.parseJSON(list[i]['user_info'])['avatar']));
                     }
                     // 图片
-                    if ($.parseJSON(list[i]['user_info'])['user_name']){
+                    if ($.parseJSON(list[i]['user_info'])['user_name']) {
                         $(transactionEvaluateCard[i]).find(".avatar-name").html($.parseJSON(list[i]['user_info'])['user_name']);
                     }
                 }
-                $(transactionEvaluateCard[i]).find(".technology-name").attr('demandId',list[i]['project_id'])
+                $(transactionEvaluateCard[i]).find(".technology-name").attr('demandId', list[i]['project_id'])
                 $(transactionEvaluateCard[i]).find(".technology-name").html(list[i]['project_name']); // 名称
                 $(transactionEvaluateCard[i]).find(".avatar-time").html(getMyDate(list[i]['created_at'])); // 日期
                 $(transactionEvaluateCard[i]).find(".evaluation-describe").html(list[i]['comments']); // 评价
                 $(transactionEvaluateCard[i]).find(".good-evaluation-text").html(evaluationType); // 评价分类
 
-                if($_evaluationHead) {
-                    if($_evaluationHead['work_quality_star']){
+                if ($_evaluationHead) {
+                    if ($_evaluationHead['work_quality_star']) {
                         // 评分星星
-                        $(transactionEvaluateCard[i]).find(".good-evaluation-star-light").css("width",function(){return Math.floor(146 * list[i]['start_level']);});
-                    } else{
-                        $(transactionEvaluateCard[i]).find(".good-evaluation-star").css("display","none");
-                        $(transactionEvaluateCard[i]).find(".good-evaluation-star-light").css("display","none");
-                        $(transactionEvaluateCard[i]).find(".evaluation-no-comment").css("display","block");
+                        $(transactionEvaluateCard[i]).find(".good-evaluation-star-light").css("width", function () {
+                            return Math.floor(146 * list[i]['start_level']);
+                        });
+                    } else {
+                        $(transactionEvaluateCard[i]).find(".good-evaluation-star").css("display", "none");
+                        $(transactionEvaluateCard[i]).find(".good-evaluation-star-light").css("display", "none");
+                        $(transactionEvaluateCard[i]).find(".evaluation-no-comment").css("display", "block");
                     }
-                } else{
-                    $(transactionEvaluateCard[i]).find(".good-evaluation-star").css("display","none");
-                    $(transactionEvaluateCard[i]).find(".good-evaluation-star-light").css("display","none");
-                    $(transactionEvaluateCard[i]).find(".evaluation-no-comment").css("display","block");
+                } else {
+                    $(transactionEvaluateCard[i]).find(".good-evaluation-star").css("display", "none");
+                    $(transactionEvaluateCard[i]).find(".good-evaluation-star-light").css("display", "none");
+                    $(transactionEvaluateCard[i]).find(".evaluation-no-comment").css("display", "block");
                 }
             }
         }
@@ -848,7 +886,7 @@ $(function () {
     }
 
     /*** 复原currentPage ***/
-    function resetCurrentPage () {
+    function resetCurrentPage() {
         $('.service-lib-detail #pageToolbar').data('currentpage', 1);
         currentPage = 1;
         clickPage = 0;
@@ -856,12 +894,12 @@ $(function () {
     }
 
     // 时间戳转日期
-    function getMyDate(str){
+    function getMyDate(str) {
         var oDate = new Date(str),
             oYear = oDate.getFullYear(),
-            oMonth = oDate.getMonth()+1,
+            oMonth = oDate.getMonth() + 1,
             oDay = oDate.getDate(),
-            oTime = oYear +'-'+ getzf(oMonth) +'-'+ getzf(oDay);//最后拼接时间
+            oTime = oYear + '-' + getzf(oMonth) + '-' + getzf(oDay);//最后拼接时间
         return oTime;
     }
 

@@ -14,6 +14,7 @@ public interface UserService extends BaseService<User> {
 
     /**
      * 根据id进行假删除
+     *
      * @param userId
      * @return
      */
@@ -21,6 +22,7 @@ public interface UserService extends BaseService<User> {
 
     /**
      * 根据ids进行批量假删除
+     *
      * @param userIds
      * @return
      */
@@ -28,6 +30,7 @@ public interface UserService extends BaseService<User> {
 
     /**
      * 获取Map数据（Obj）
+     *
      * @param userId
      * @return
      */
@@ -35,6 +38,7 @@ public interface UserService extends BaseService<User> {
 
     /**
      * 新增或修改user
+     *
      * @param user
      * @return
      */

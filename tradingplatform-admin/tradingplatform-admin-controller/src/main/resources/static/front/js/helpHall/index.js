@@ -20,7 +20,7 @@ $(function () {
         } else {
             $('.help-hall-right').html("暂无数据")
         }
-    }else if (herf[1] == 12) {
+    } else if (herf[1] == 12) {
         $('.help-hall-left-content>ul>li').removeClass('active')
         $('.help-hall-left-content>ul>div').removeClass('in')
         $('.help-hall-left-content>ul>li').eq(1).addClass('active')
@@ -32,7 +32,7 @@ $(function () {
         } else {
             $('.help-hall-right').html("暂无数据")
         }
-    }else if (herf[1] == 13) {
+    } else if (herf[1] == 13) {
         $('.help-hall-left-content>ul>li').removeClass('active')
         $('.help-hall-left-content>ul>div').removeClass('in')
         $('.help-hall-left-content>ul>li').eq(4).addClass('active')
@@ -44,7 +44,7 @@ $(function () {
         } else {
             $('.help-hall-right').html("暂无数据")
         }
-    }else if (herf[1] == 14) {
+    } else if (herf[1] == 14) {
         $('.help-hall-left-content>ul>li').removeClass('active')
         $('.help-hall-left-content>ul>div').removeClass('in')
         $('.help-hall-left-content>ul>li').eq(6).addClass('active')
@@ -56,7 +56,7 @@ $(function () {
         } else {
             $('.help-hall-right').html("暂无数据")
         }
-    }else if (herf[1] == 21) {
+    } else if (herf[1] == 21) {
         $('.help-hall-left-content>ul>li').removeClass('active')
         $('.help-hall-left-content>ul>div').removeClass('in')
         $('.help-hall-left-content>ul>li').eq(0).addClass('active')
@@ -68,7 +68,7 @@ $(function () {
         } else {
             $('.help-hall-right').html("暂无数据")
         }
-    }else if (herf[1] == 22) {
+    } else if (herf[1] == 22) {
         $('.help-hall-left-content>ul>li').removeClass('active')
         $('.help-hall-left-content>ul>div').removeClass('in')
         $('.help-hall-left-content>ul>li').eq(0).addClass('active')
@@ -80,7 +80,8 @@ $(function () {
         } else {
             $('.help-hall-right').html("暂无数据")
         }
-    }else if (herf[1] == 23) {        $('.help-hall-left-content>ul>li').removeClass('active')
+    } else if (herf[1] == 23) {
+        $('.help-hall-left-content>ul>li').removeClass('active')
         $('.help-hall-left-content>ul>div').removeClass('in')
         $('.help-hall-left-content>ul>li').eq(0).addClass('active')
         $('.help-hall-left-content>ul>div').eq(0).addClass('in')

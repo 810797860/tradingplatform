@@ -112,15 +112,16 @@ $(function () {
         }
     ];
 
-    _getCityArr ();
+    _getCityArr();
+
     // 提取广东省城市数据
-    function _getCityArr () {
+    function _getCityArr() {
         var data = addressData['440000'];
         // 初始化省数组
         if (cityArr.length > 1) {
             cityArr.splice(1, cityArr.length - 1);
         }
-        Object.keys(data).forEach(function(key) {
+        Object.keys(data).forEach(function (key) {
             var obj = {};
             obj.id = Number(key);
             obj.title = data[key];
@@ -130,13 +131,13 @@ $(function () {
 
     // 设置historyHref
     historyHrefSetGetMethod(function (newUrl) {
-        if (newUrl === '/f/matureCaseCheckRecords/pc/to_create_update.html?pc=true'){
+        if (newUrl === '/f/matureCaseCheckRecords/pc/to_create_update.html?pc=true') {
             new NewAjax({
                 url: '/f/serviceProvidersCheckRecords/pc/latest_check_records?pc=true',
                 contentType: 'application/json',
                 type: 'get',
                 success: function (res) {
-                    if (res.data.data_object !== null && !!res.data.data_object.back_check_status && parseInt(JSON.parse(res.data.data_object.back_check_status).id) === 202050){
+                    if (res.data.data_object !== null && !!res.data.data_object.back_check_status && parseInt(JSON.parse(res.data.data_object.back_check_status).id) === 202050) {
                         window.location.href = '/f/matureCaseCheckRecords/pc/to_create_update.html?pc=true';
                     } else {
                         window.location.href = '/f/personal_center.html?pc=true#menu=authentication';
@@ -696,14 +697,14 @@ $(function () {
     // 提取行业数据
     function extractIndustryData(data) {
         data.forEach(function (item) {
-            if(item.pid === 202052) {
+            if (item.pid === 202052) {
                 aIndustry.push(item);
             } else {
                 aSubIndustry.push(item);
             }
         })
     }
-    
+
     // 切换模块tab样式
     function funcModelClassChange(modelName) {
         var tabs = $('.case-hall-select-tab-item')
@@ -782,7 +783,7 @@ $(function () {
     }
 
     // 设置搜索关键词
-    function setSearchHotKey (keyWords) {
+    function setSearchHotKey(keyWords) {
         var json = {
             "keyWords": keyWords
         };
@@ -792,7 +793,8 @@ $(function () {
             contentType: "application/json;charset=UTF-8",
             dataType: "json",
             data: JSON.stringify(json),
-            success: function (res) {}
+            success: function (res) {
+            }
         })
     }
 

@@ -17,6 +17,7 @@ public interface UserMapper extends BaseDao<User> {
 
     /**
      * 根据id进行假删除
+     *
      * @param userId
      * @return
      */
@@ -24,6 +25,7 @@ public interface UserMapper extends BaseDao<User> {
 
     /**
      * 批量假删除
+     *
      * @param userIds
      * @return
      */
@@ -31,6 +33,7 @@ public interface UserMapper extends BaseDao<User> {
 
     /**
      * 获取Map数据（Obj）
+     *
      * @param userId
      * @return
      */

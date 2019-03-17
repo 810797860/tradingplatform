@@ -22,10 +22,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *   @description : ElectricAppliance 服务实现类
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2019-03-15
+ * @author zhangjk
+ * @description : ElectricAppliance 服务实现类
+ * ---------------------------------
+ * @since 2019-03-15
  */
 
 @Service
@@ -48,7 +48,7 @@ public class ElectricApplianceServiceImpl extends BaseServiceImpl<ElectricApplia
     @Transactional(rollbackFor = Exception.class)
     @CacheEvict(allEntries = true)
     public boolean myFakeBatchDelete(List<Long> electricApplianceIds) {
-        electricApplianceIds.forEach(electricApplianceId->{
+        electricApplianceIds.forEach(electricApplianceId -> {
             myFakeDeleteById(electricApplianceId);
         });
         return true;
@@ -64,7 +64,7 @@ public class ElectricApplianceServiceImpl extends BaseServiceImpl<ElectricApplia
     @CacheEvict(allEntries = true)
     public ElectricAppliance myElectricApplianceCreateUpdate(ElectricAppliance electricAppliance) {
         Long electricApplianceId = electricAppliance.getId();
-        if (electricApplianceId == null){
+        if (electricApplianceId == null) {
             electricAppliance.setUuid(ToolUtil.getUUID());
             electricApplianceMapper.insert(electricAppliance);
         } else {
@@ -74,7 +74,7 @@ public class ElectricApplianceServiceImpl extends BaseServiceImpl<ElectricApplia
     }
 
     //以下是继承BaseServiceImpl
-    
+
     @Override
     @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p1.sorts")
     public Page<Map<String, Object>> mySelectPageWithParam(Page page, ElectricAppliance electricAppliance) {
@@ -84,45 +84,45 @@ public class ElectricApplianceServiceImpl extends BaseServiceImpl<ElectricApplia
         Wrapper<ElectricAppliance> wrapper = new EntityWrapper<>(electricAppliance);
         //遍历排序
         List<Sort> sorts = electricAppliance.getSorts();
-        if (sorts == null){
+        if (sorts == null) {
             //为null时，默认按created_at倒序
             wrapper.orderBy("id", false);
         } else {
             //遍历排序
-            sorts.forEach( sort -> {
+            sorts.forEach(sort -> {
                 wrapper.orderBy(sort.getField(), sort.getAsc());
             });
         }
         return this.selectMapsPage(page, wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public List<ElectricAppliance> mySelectListWithMap(Map<String, Object> map) {
         return electricApplianceMapper.selectByMap(map);
     }
-    
+
     //以下是继承BaseMapper
-    
+
     @Override
     @Cacheable(key = "#p0.paramNameValuePairs")
     public Map<String, Object> mySelectMap(Wrapper<ElectricAppliance> wrapper) {
         return this.selectMap(wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0.paramNameValuePairs")
     public List<ElectricAppliance> mySelectList(Wrapper<ElectricAppliance> wrapper) {
         return electricApplianceMapper.selectList(wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsert(ElectricAppliance electricAppliance) {
         electricAppliance.setUuid(ToolUtil.getUUID());
         return this.insert(electricAppliance);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertBatch(List<ElectricAppliance> electricApplianceList) {
@@ -131,47 +131,47 @@ public class ElectricApplianceServiceImpl extends BaseServiceImpl<ElectricApplia
         });
         return this.insertBatch(electricApplianceList);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdate(ElectricAppliance electricAppliance) {
         //没有uuid的话要加上去
-        if (electricAppliance.getUuid().equals(null)){
+        if (electricAppliance.getUuid().equals(null)) {
             electricAppliance.setUuid(ToolUtil.getUUID());
         }
         return this.insertOrUpdate(electricAppliance);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdateBatch(List<ElectricAppliance> electricApplianceList) {
         electricApplianceList.forEach(electricAppliance -> {
             //没有uuid的话要加上去
-            if (electricAppliance.getUuid().equals(null)){
+            if (electricAppliance.getUuid().equals(null)) {
                 electricAppliance.setUuid(ToolUtil.getUUID());
             }
         });
         return this.insertOrUpdateBatch(electricApplianceList);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public List<ElectricAppliance> mySelectBatchIds(Collection<? extends Serializable> electricApplianceIds) {
         return electricApplianceMapper.selectBatchIds(electricApplianceIds);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public ElectricAppliance mySelectById(Serializable electricApplianceId) {
         return electricApplianceMapper.selectById(electricApplianceId);
     }
-    
+
     @Override
     @Cacheable(key = "#p0.paramNameValuePairs")
     public int mySelectCount(Wrapper<ElectricAppliance> wrapper) {
         return electricApplianceMapper.selectCount(wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0.paramNameValuePairs")
     public ElectricAppliance mySelectOne(Wrapper<ElectricAppliance> wrapper) {
@@ -183,19 +183,19 @@ public class ElectricApplianceServiceImpl extends BaseServiceImpl<ElectricApplia
     public List<Object> mySelectObjs(Wrapper<ElectricAppliance> wrapper) {
         return this.selectObjs(wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdate(ElectricAppliance electricAppliance, Wrapper<ElectricAppliance> wrapper) {
         return this.update(electricAppliance, wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdateBatchById(List<ElectricAppliance> electricApplianceList) {
         return this.updateBatchById(electricApplianceList);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdateById(ElectricAppliance electricAppliance) {

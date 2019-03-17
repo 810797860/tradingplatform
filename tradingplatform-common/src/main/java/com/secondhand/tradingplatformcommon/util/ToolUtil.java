@@ -16,6 +16,7 @@ import java.util.Map;
 
 /**
  * 高频方法集合类
+ *
  * @author 81079
  */
 
@@ -23,6 +24,7 @@ public class ToolUtil {
 
     /**
      * String为空
+     *
      * @param str
      * @return
      */
@@ -32,28 +34,30 @@ public class ToolUtil {
 
     /**
      * Object为空
+     *
      * @param obj
      * @return
      */
-    public static boolean objIsEmpty(Object obj){
+    public static boolean objIsEmpty(Object obj) {
 
         if (obj == null) {
             return true;
         } else if (obj instanceof Optional) {
-            return !((Optional)obj).isPresent();
+            return !((Optional) obj).isPresent();
         } else if (obj instanceof CharSequence) {
-            return ((CharSequence)obj).length() == 0;
+            return ((CharSequence) obj).length() == 0;
         } else if (obj.getClass().isArray()) {
             return Array.getLength(obj) == 0;
         } else if (obj instanceof Collection) {
-            return ((Collection)obj).isEmpty();
+            return ((Collection) obj).isEmpty();
         } else {
-            return obj instanceof Map ? ((Map)obj).isEmpty() : false;
+            return obj instanceof Map ? ((Map) obj).isEmpty() : false;
         }
     }
 
     /**
      * 获取异常的具体信息
+     *
      * @param e
      * @return
      */
@@ -73,22 +77,23 @@ public class ToolUtil {
 
     /**
      * 实体对象转成Map
+     *
      * @param obj
      * @return
      */
-    public static Map<String, Object> objectToMap(Object obj){
+    public static Map<String, Object> objectToMap(Object obj) {
         Map<String, Object> map = new HashMap<>();
-        if (obj == null){
+        if (obj == null) {
             return map;
         }
         Class clazz = obj.getClass();
         Field[] fields = clazz.getDeclaredFields();
         try {
-            for (Field field : fields){
+            for (Field field : fields) {
                 field.setAccessible(true);
                 map.put(field.getName(), field.get(obj));
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return map;
@@ -96,27 +101,28 @@ public class ToolUtil {
 
     /**
      * Map转成实体对象
+     *
      * @param map
      * @param clazz
      * @return
      */
-    public static Object mapToObject(Map<String, Object> map, Class<?> clazz){
-        if (map == null){
+    public static Object mapToObject(Map<String, Object> map, Class<?> clazz) {
+        if (map == null) {
             return null;
         }
         Object obj = null;
         try {
             obj = clazz.newInstance();
             Field[] fields = obj.getClass().getDeclaredFields();
-            for (Field field : fields){
+            for (Field field : fields) {
                 int mod = field.getModifiers();
-                if (Modifier.isStatic(mod) || Modifier.isFinal(mod)){
+                if (Modifier.isStatic(mod) || Modifier.isFinal(mod)) {
                     continue;
                 }
                 field.setAccessible(true);
                 field.set(obj, map.get(field.getName()));
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return obj;
@@ -124,43 +130,47 @@ public class ToolUtil {
 
     /**
      * 获取uuid->给新增数据用
+     *
      * @return
      */
-    public static String getUUID(){
+    public static String getUUID() {
         return UUID.randomUUID().toString().replaceAll("-", "");
     }
 
     /**
      * 获取当天日期
+     *
      * @return
      */
-    public static String getToday(){
+    public static String getToday() {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         return df.format(new Date());
     }
 
     /**
      * 获取当天时分秒
+     *
      * @return
      */
-    public static String getMinutesAndSeconds(){
+    public static String getMinutesAndSeconds() {
         SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss");
         return df.format(new Date());
     }
 
     /**
      * 验证码校验
+     *
      * @param request
      * @param frontCaptcha
      * @return
      */
-    public static boolean checkVerifyCode(HttpServletRequest request, String frontCaptcha){
+    public static boolean checkVerifyCode(HttpServletRequest request, String frontCaptcha) {
 
         //获取生成的验证码
         HttpSession session = request.getSession();
         String captcha = session.getAttribute(MagicalValue.STRING_OF_KAPTCHA).toString();
         //判断
-        if (strIsEmpty(frontCaptcha) || !captcha.equals(frontCaptcha)){
+        if (strIsEmpty(frontCaptcha) || !captcha.equals(frontCaptcha)) {
             return false;
         }
         return true;
@@ -168,13 +178,14 @@ public class ToolUtil {
 
     /**
      * Map某参数判空
+     *
      * @param parameter
      * @param parameterName
      * @return
      */
-    public static boolean mapJudgeParameterEmpty(Map<String, Object> parameter, String parameterName){
+    public static boolean mapJudgeParameterEmpty(Map<String, Object> parameter, String parameterName) {
 
-        if (parameter.containsKey(parameterName) && !objIsEmpty(parameter.get(parameterName))){
+        if (parameter.containsKey(parameterName) && !objIsEmpty(parameter.get(parameterName))) {
             return true;
         }
         return false;

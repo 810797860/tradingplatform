@@ -65,12 +65,12 @@ $(function () {
     var $_addAttrBtn = $('.case-add-configuration-head-add').eq(0);
     // 单独一个的配置
     var attrHtmlItem = '<div class="case-add-configuration-item">' +
-                            '<label class="case-add-configuration-item-label">属性名:</label>' +
-                            '<input class="case-add-configuration-item-attr-name" type="text">' +
-                            '<label class="case-add-configuration-item-label">属性值:</label>' +
-                            '<input class="case-add-configuration-item-attr-value" type="text">' +
-                            '<span class="case-add-configuration-item-attr-delete">删除</span>' +
-                        '</div>';
+        '<label class="case-add-configuration-item-label">属性名:</label>' +
+        '<input class="case-add-configuration-item-attr-name" type="text">' +
+        '<label class="case-add-configuration-item-label">属性值:</label>' +
+        '<input class="case-add-configuration-item-attr-value" type="text">' +
+        '<span class="case-add-configuration-item-attr-delete">删除</span>' +
+        '</div>';
     // 属性配置容器
     var attrHtmlContent = $('.case-add-configuration-content').eq(0);
 
@@ -82,7 +82,7 @@ $(function () {
     handleEventInPublishCase();
 
     // 初始化dom结构
-    function initDomInPublishCase () {
+    function initDomInPublishCase() {
         extractIndustryData(industry);
         // 初始化地区
         $('#addressBox').distpicker("destroy");
@@ -93,26 +93,26 @@ $(function () {
         });
 
         //初始化富文本插件
-        editor = CKEDITOR.replace('ckedit',{
-            resize_enabled : false,
-            autoUpdateElement : true,
+        editor = CKEDITOR.replace('ckedit', {
+            resize_enabled: false,
+            autoUpdateElement: true,
             height: 300,
             toolbarGroups: [
-                { name: 'document', groups: [] },
-                { name: 'clipboard', groups: [] },
-                { name: 'editing', groups: [] },
-                { name: 'forms', groups: [ 'forms' ] },
+                {name: 'document', groups: []},
+                {name: 'clipboard', groups: []},
+                {name: 'editing', groups: []},
+                {name: 'forms', groups: ['forms']},
                 '/',
-                { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-                { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
-                { name: 'links', groups: [ 'links' ] },
-                { name: 'insert', groups: [ 'insert' ] },
+                {name: 'basicstyles', groups: ['basicstyles', 'cleanup']},
+                {name: 'paragraph', groups: ['list', 'indent', 'blocks', 'align', 'bidi', 'paragraph']},
+                {name: 'links', groups: ['links']},
+                {name: 'insert', groups: ['insert']},
                 '/',
-                { name: 'styles', groups: [ 'styles' ] },
-                { name: 'colors', groups: [ 'colors' ] },
-                { name: 'tools', groups: [ 'tools' ] },
-                { name: 'others', groups: [ 'others' ] },
-                { name: 'about', groups: [ 'about' ] }
+                {name: 'styles', groups: ['styles']},
+                {name: 'colors', groups: ['colors']},
+                {name: 'tools', groups: ['tools']},
+                {name: 'others', groups: ['others']},
+                {name: 'about', groups: ['about']}
             ]
         });
 
@@ -175,7 +175,7 @@ $(function () {
         }
 
 
-        if(matureCaseCheckRecordsData.data.pictureCover){
+        if (matureCaseCheckRecordsData.data.pictureCover) {
             // 回显图片
             var pictures = JSON.parse(matureCaseCheckRecordsData.data.pictureCover)
             for (var h = 0; h < pictures.length; h++) {
@@ -196,7 +196,7 @@ $(function () {
                 $(".upload-video").attr('src', "/adjuncts/file_range_download/" + video.id);
                 if (!!video.id) {
                     $('.upload-video-input-area').hide();
-                }else {
+                } else {
                     $('.upload-video-input-area').show();
                 }
             }
@@ -258,7 +258,7 @@ $(function () {
             $('#type-ul .type').css('text-align', 'right');
 
             // 初始化头部类型多选框
-            typeSearch.setData(searchType,false);
+            typeSearch.setData(searchType, false);
             // 设置点击回调
             // typeSearch.setClickCallback(function (node, parentNode) {
             //     var optionId = node.data('id');
@@ -331,7 +331,7 @@ $(function () {
     }
 
 // 处理事件
-    function handleEventInPublishCase () {
+    function handleEventInPublishCase() {
 
         // 点击添加属性配置
         $_addAttrBtn.click(function () {
@@ -411,13 +411,13 @@ $(function () {
         });
 
         // 成果详情失去焦点
-        editor.on( 'blur', function() {
+        editor.on('blur', function () {
             if (!editor.getData()) {
                 $(".case-desc-area .error-info").children(".error-info-content").css("display", 'block');
             }
         });
         // 成果详情获得焦点
-        editor.on( 'focus', function() {
+        editor.on('focus', function () {
             $(".case-desc-area .error-info").children(".error-info-content").css("display", 'none');
         });
         // 回报周期失去焦点
@@ -490,7 +490,7 @@ $(function () {
             var isOtherFile = false;
             var length = 0;
             var imgFile = []
-            for (var f = 0; f< files.length; f++) {
+            for (var f = 0; f < files.length; f++) {
                 if (files[f].type.split("/")[0] === "image") {
                     imgFile.push(files[f])
                 } else {
@@ -582,7 +582,7 @@ $(function () {
     }
 
 // 设置附件表格数据
-    function setTableData (table, fileData, isPicture, list) {
+    function setTableData(table, fileData, isPicture, list) {
         // 提取数据
         list.forEach(function (item) {
             var obj = {}
@@ -698,7 +698,7 @@ $(function () {
     }
 
     // 上传图片
-    function uploadPicture (files) {
+    function uploadPicture(files) {
         new NewAjax({
             type: "POST",
             url: "/adjuncts/file_upload",
@@ -724,7 +724,7 @@ $(function () {
     }
 
     // 上传视频
-    function uploadVideo (file) {
+    function uploadVideo(file) {
         var formData = new FormData();
         formData.append("files", file);
         new NewAjax({
@@ -734,13 +734,13 @@ $(function () {
             async: true,
             processData: false,
             contentType: false,
-            xhr: function(){
+            xhr: function () {
                 var myXhr = $.ajaxSettings.xhr();
-                if(myXhr.upload){ // check if upload property exists
-                    myXhr.upload.addEventListener('progress',function(e){
+                if (myXhr.upload) { // check if upload property exists
+                    myXhr.upload.addEventListener('progress', function (e) {
                         var loaded = e.loaded;                  //已经上传大小情况
                         var total = e.total;                      //附件总大小
-                        var percent = Math.floor(100*loaded/total)+"%";     //已经上传的百分比
+                        var percent = Math.floor(100 * loaded / total) + "%";     //已经上传的百分比
                         // console.log("已经上传了：" + percent);
                         if (percent !== "100%") {
                             $(".video-area .video-process-area").html("上传中...已完成" + percent);
@@ -779,7 +779,7 @@ $(function () {
     }
 
 // 上传附件
-    function uploadFile (files) {
+    function uploadFile(files) {
         if (files.length == 0) return; //如果文件为空
         var formData = new FormData();
         for (var i = 0; i < files.length; i++) {
@@ -808,7 +808,7 @@ $(function () {
     }
 
 // 发布案例前的验证
-    function beforePublishCase () {
+    function beforePublishCase() {
         var addAttrItem = $('.case-add-configuration-item');
         var res = true
         if (!$(".case-name").val()) {
@@ -895,7 +895,7 @@ $(function () {
     }
 
 // 发布案例
-    function publishCase () {
+    function publishCase() {
         var addAttrItem = $('.case-add-configuration-item');
         if (beforePublishCase()) {
             var json = {
@@ -925,7 +925,7 @@ $(function () {
                 json.productParameters.push(obj)
             }
             if ($('.select-area .type-item').eq(1).find('.active').attr('data-id') !== 0) {
-                json. subApplicationIndustry = $('.select-area .type-item').eq(1).find('.active').attr('data-id');
+                json.subApplicationIndustry = $('.select-area .type-item').eq(1).find('.active').attr('data-id');
             }
             if (!!matureCaseCheckRecordsData.data.id) {
                 json.id = matureCaseCheckRecordsData.data.id
@@ -939,10 +939,10 @@ $(function () {
                 dataType: "json",
                 data: JSON.stringify(json),
                 success: function (res) {
-                    if(res.status === 200) {
+                    if (res.status === 200) {
                         // 发布成功，消除离开判定
                         set_IMPORTANTOPERATION(false);
-                        window.location.href="/f/personal_center.html?pc=true#menu=publishCaseList"
+                        window.location.href = "/f/personal_center.html?pc=true#menu=publishCaseList"
                     } else {
                         layer.open({
                             title: '温馨提示',
@@ -953,6 +953,7 @@ $(function () {
             })
         }
     }
+
     function upperCase(obj) {//用户只能输入正数与小数
         if (isNaN(obj.value) && !/^$/.test(obj.value)) {
             obj.value = "";

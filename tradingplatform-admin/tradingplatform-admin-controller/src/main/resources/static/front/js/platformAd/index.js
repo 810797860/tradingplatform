@@ -4,8 +4,8 @@ var $_typeId = "";
 var $_subcategoryId = null;
 var $_tabActive = 0;
 var clickPage = 0;  //判断是否点击页数,0为是
-var aTypeData = [{id: 202094,title: "不限"}];
-var aChildTypeData = [{id: 0,title: "不限"}];
+var aTypeData = [{id: 202094, title: "不限"}];
+var aChildTypeData = [{id: 0, title: "不限"}];
 
 var searchType = [
     {
@@ -82,7 +82,7 @@ function initTypeSearch() {
     // 初始化头部类型多选框
     typeSearch.setData(searchType);
     // 设置点击回调
-    typeSearch.setClickCallback(function(node, parentNode){
+    typeSearch.setClickCallback(function (node, parentNode) {
         var optionId = node.data('id');
         var typeName = parentNode.attr('type');
         if (searchData[typeName] instanceof Array) {
@@ -106,7 +106,7 @@ function initTypeSearch() {
             if (typeName === 'province') {
                 searchData.city = 0;
                 searchData.area = 0
-            } else if (typeName === 'city'){
+            } else if (typeName === 'city') {
                 searchData.area = 0
             }
             if (typeName === 'province' || typeName === 'city' || typeName === 'area') {
@@ -127,8 +127,8 @@ function initTypeSearch() {
         // console.log('clickCallback', optionId)
     });
     // 设置搜索按钮的click回调
-    typeSearch.setSearchBtnClickCallback(function(inputNode) {
-        if (inputNode.val() === searchData.input){
+    typeSearch.setSearchBtnClickCallback(function (inputNode) {
+        if (inputNode.val() === searchData.input) {
             return 0
         }
         // 赋值
@@ -139,7 +139,7 @@ function initTypeSearch() {
         getAdList(searchData.type, searchData.input, searchData.childType);
     });
     // 设置搜索input的keyDown回调
-    typeSearch.setSearchInputKeyDownCallback(function(event,inputNode) {
+    typeSearch.setSearchInputKeyDownCallback(function (event, inputNode) {
         if (event.keyCode === 13 && inputNode.val() !== searchData.input) {
             searchData.input = inputNode.val();
             // 初始化分页的记录
@@ -151,8 +151,8 @@ function initTypeSearch() {
 }
 
 
-
 /*** 初始化dom结构 ***/
+
 /*function init_dom () {
     for (var i = 0; i < searchType.length; i++) {
         var li = document.createElement("li");
@@ -181,7 +181,7 @@ function initTypeSearch() {
 }*/
 
 /*** 初始化数据 ***/
-function init_data () {
+function init_data() {
     // 获取资讯列表
     getAdList();
     // 获取右栏推荐行业资讯
@@ -189,7 +189,7 @@ function init_data () {
 }
 
 /*** 复原currentPage ***/
-function resetCurrentPage () {
+function resetCurrentPage() {
     clickPage = 1;
     $('#pageToolbar').data('currentpage', 1);
     currentPage = 1;
@@ -197,7 +197,7 @@ function resetCurrentPage () {
 }
 
 /*** 处理事件 ***/
-function handleEvent () {
+function handleEvent() {
     /*** 跳转到详情页 开始 ***/
     $(".platform-ad .platform-ad-container .search-result .info-item").click(function () {
         var id = $(this).data('id');
@@ -232,24 +232,24 @@ function handleEvent () {
     });
 
     // 监听分页跳转
-    $("#pageToolbar").off().on("click", function(){
-        if($(this).data('currentpage') != currentPage) {
+    $("#pageToolbar").off().on("click", function () {
+        if ($(this).data('currentpage') != currentPage) {
             clickPage = 0;
             currentPage = $('#pageToolbar').data('currentpage');
             getAdList($_typeId, $("#search-input").val());
         }
-    }).keydown(function(e) {
+    }).keydown(function (e) {
         if (e.keyCode == 13) {
             clickPage = 0;
             currentPage = $('#pageToolbar').data('currentpage');
             // getServiceList($_typeId, $("#search-input").val());
-            getAdList($_typeId, $("#search-input").val(),$_subcategoryId);
+            getAdList($_typeId, $("#search-input").val(), $_subcategoryId);
         }
     });
 }
 
 /*** 获取行业资讯列表 ***/
-function getAdList (typeId, searchVal,subcategory_id) {
+function getAdList(typeId, searchVal, subcategory_id) {
     if (typeId === undefined) {
         typeId = "202094"
     }
@@ -351,12 +351,12 @@ function getAdList (typeId, searchVal,subcategory_id) {
             var totalRecord = res.data.data_object.totalRecord;
             var data = res.data.data_object.data;
             /* 传的数据总量 开始 */
-            if(clickPage === 0){
-                $('#pageToolbar').Paging({pagesize:searchSize,count:totalRecord,toolbar:true});
+            if (clickPage === 0) {
+                $('#pageToolbar').Paging({pagesize: searchSize, count: totalRecord, toolbar: true});
                 $('#pageToolbar').find("div:eq(1)").remove();
 
-            }else {
-                $('#pageToolbar').Paging({pagesize:searchSize,count:totalRecord,toolbar:true});
+            } else {
+                $('#pageToolbar').Paging({pagesize: searchSize, count: totalRecord, toolbar: true});
                 $('#pageToolbar').find("div:eq(0)").remove();
                 clickPage = 0;
             }
@@ -367,7 +367,7 @@ function getAdList (typeId, searchVal,subcategory_id) {
 }
 
 /*** 设置行业资讯列表 ***/
-function setAdList (list) {
+function setAdList(list) {
     var infoItems = $(".search-result").children(".info-item");
     // 隐藏不需要的元素
     for (var k = 0; k < infoItems.length; k++) {
@@ -387,9 +387,9 @@ function setAdList (list) {
 }
 
 /*** 获取右栏推荐行业资讯列表 ***/
-function getRecommendList () {
+function getRecommendList() {
     var json = {
-        "pager":{//分页信息
+        "pager": {//分页信息
             "current": 1,   //当前页数0
             "size": 3        //每页条数
         }
@@ -408,7 +408,7 @@ function getRecommendList () {
 }
 
 /*** 设置右栏推荐行业资讯列表 ***/
-function setRecommendList (list) {
+function setRecommendList(list) {
     var consultationCards = $(".consultation-card");
     for (var i = 0; i < list.length; i++) {
         $(consultationCards[i]).attr("data-id", list[i].id); // id
@@ -417,7 +417,7 @@ function setRecommendList (list) {
             $(consultationCards[i]).find(".title").html(type.title);
         }
         $(consultationCards[i]).find(".desc").html(list[i].title);  // 描述
-        $(consultationCards[i]).find(".desc").attr('title',list[i].title);  // 描述
+        $(consultationCards[i]).find(".desc").attr('title', list[i].title);  // 描述
         $(consultationCards[i]).find(".time").html($(this).formatTime(new Date(list[i].created_at)).split(" ")[0]);  // 时间
         $(consultationCards[i]).find(".look-num").html(list[i].click_rate);  // 点击量
     }

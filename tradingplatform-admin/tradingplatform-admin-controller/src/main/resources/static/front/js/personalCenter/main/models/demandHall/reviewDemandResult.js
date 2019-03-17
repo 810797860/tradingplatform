@@ -76,11 +76,11 @@ function ReviewDemandResult() {
     _this.getDemandResult = function (projectId, callback) {
         project_id = projectId;
         new NewAjax({
-            url:'/f/projectDemandCheck/'+ projectId +'/get_detail?pc=true',
+            url: '/f/projectDemandCheck/' + projectId + '/get_detail?pc=true',
             type: "GET",
             contentType: 'application/json',
             success: function (res) {
-                if (res.status === 200){
+                if (res.status === 200) {
                     if (res.data.data_object) {
                         showData = (res.data.data_object) ? res.data.data_object : {};
                         copyData = JSON.parse(JSON.stringify(showData));
@@ -110,7 +110,7 @@ function ReviewDemandResult() {
                             callback(res.data);
                         }
                     } else {
-                        layer.msg('接包方未提交成果',{time: 1000});
+                        layer.msg('接包方未提交成果', {time: 1000});
                     }
                 }
             },
@@ -123,7 +123,7 @@ function ReviewDemandResult() {
     // 提交报告
     _this.submitDemandResult = function (data, callback) {
         new NewAjax({
-            url: '/f/projectDemandCheck/'+ isPass +'/check?pc=true',
+            url: '/f/projectDemandCheck/' + isPass + '/check?pc=true',
             type: "POST",
             contentType: 'application/json',
             data: JSON.stringify(data),
@@ -139,9 +139,10 @@ function ReviewDemandResult() {
     };
 
     /*=== 功能函数 ===*/
+
     // 初始化表格
     function initTable() {
-        var orderArr = ['title','size','id'];
+        var orderArr = ['title', 'size', 'id'];
         var baseStyleArr = [
             {
                 type: 'title',
@@ -167,8 +168,8 @@ function ReviewDemandResult() {
             .setTableLineHeight(40)
             .setOpenIndex(true)
             .setBaseStyle(baseStyleArr)
-            .resetHtmlCallBack(function (type, content, label){
-                if(label === 'td') {
+            .resetHtmlCallBack(function (type, content, label) {
+                if (label === 'td') {
                     if (type === 'id') {
                         return '<button class="btn btn-info" name="download" style="background-color: #0066cc" data-id="' + content + '">查看</button>';
                     }
@@ -176,23 +177,23 @@ function ReviewDemandResult() {
                     return content;
                 }
             }).setClickCallback(function (node) {
-                if (node.get(0).tagName.toLowerCase() === 'button') {
-                    if (node.attr('name') === 'download') {
-                        // 获取文件id
-                        var fileId = parseInt(node.attr('data-id'));
-                        // 页面调整
-                        window.location.href = '/adjuncts/file_download/' + fileId;
-                    }
+            if (node.get(0).tagName.toLowerCase() === 'button') {
+                if (node.attr('name') === 'download') {
+                    // 获取文件id
+                    var fileId = parseInt(node.attr('data-id'));
+                    // 页面调整
+                    window.location.href = '/adjuncts/file_download/' + fileId;
                 }
-            });
+            }
+        });
         // 初始化结项材料展示表格
         reviewFileShowTable.setShowColArr(['title', 'size', 'id'])
             .setColOrder(orderArr)
             .setTableLineHeight(40)
             .setOpenIndex(true)
             .setBaseStyle(baseStyleArr)
-            .resetHtmlCallBack(function (type, content, label){
-                if(label === 'td') {
+            .resetHtmlCallBack(function (type, content, label) {
+                if (label === 'td') {
                     if (type === 'id') {
                         return '<button class="btn btn-info" name="download" style="background-color: #0066cc" data-id="' + content + '">查看</button>';
                     }
@@ -200,15 +201,15 @@ function ReviewDemandResult() {
                     return content;
                 }
             }).setClickCallback(function (node) {
-                if (node.get(0).tagName.toLowerCase() === 'button') {
-                    if (node.attr('name') === 'download') {
-                        // 获取文件id
-                        var fileId = parseInt(node.attr('data-id'));
-                        // 页面调整
-                        window.location.href = '/adjuncts/file_download/' + fileId;
-                    }
+            if (node.get(0).tagName.toLowerCase() === 'button') {
+                if (node.attr('name') === 'download') {
+                    // 获取文件id
+                    var fileId = parseInt(node.attr('data-id'));
+                    // 页面调整
+                    window.location.href = '/adjuncts/file_download/' + fileId;
                 }
-            });
+            }
+        });
         // 初始化结项材料编辑表格
         reviewFileEditTable.setShowColArr(['title', 'size', 'id'])
             .setColOrder(orderArr)
@@ -234,30 +235,31 @@ function ReviewDemandResult() {
                     return content;
                 }
             }).setClickCallback(function (node) {
-                var fileId = null;
-                var index = null;
-                if (node.get(0).tagName.toLowerCase() === 'button') {
-                    if (node.attr('name') === 'delete') {
-                        var data = (typeof showData.post_material === "string") ? JSON.parse(showData.post_material) : showData.post_material;
-                        // 获取id
-                        fileId = parseInt(node.attr('data-id'));
-                        // 获取id 对应的下标
-                        index = data.searchArrayObj(fileId, 'id');
-                        // 删除下标对应子项
-                        data.splice(index, 1);
-                        // 重写数据并重绘
-                        reviewFileEditTable.setTableData(data).createTable();
-                        // 重新赋值
-                        showData.post_material = JSON.stringify(data);
-                    } else if (node.attr('name') === 'download') {
-                        // 获取文件id
-                        fileId = parseInt(node.attr('data-id'));
-                        // 页面调整
-                        window.location.href = '/adjuncts/file_download/' + fileId;
-                    }
+            var fileId = null;
+            var index = null;
+            if (node.get(0).tagName.toLowerCase() === 'button') {
+                if (node.attr('name') === 'delete') {
+                    var data = (typeof showData.post_material === "string") ? JSON.parse(showData.post_material) : showData.post_material;
+                    // 获取id
+                    fileId = parseInt(node.attr('data-id'));
+                    // 获取id 对应的下标
+                    index = data.searchArrayObj(fileId, 'id');
+                    // 删除下标对应子项
+                    data.splice(index, 1);
+                    // 重写数据并重绘
+                    reviewFileEditTable.setTableData(data).createTable();
+                    // 重新赋值
+                    showData.post_material = JSON.stringify(data);
+                } else if (node.attr('name') === 'download') {
+                    // 获取文件id
+                    fileId = parseInt(node.attr('data-id'));
+                    // 页面调整
+                    window.location.href = '/adjuncts/file_download/' + fileId;
                 }
-            });
+            }
+        });
     }
+
     // 清空表格
     function cleanTable() {
         // 展示表格清空
@@ -266,6 +268,7 @@ function ReviewDemandResult() {
         // 编辑表格清空
         reviewFileEditTable.setTableData([]).createTable();
     }
+
     // 写入回显数据
     function setData() {
         // 当没有数据的时候跳过
@@ -276,28 +279,32 @@ function ReviewDemandResult() {
         setFinishFileShowData();
         setFinishFileEditData();
     }
+
     // 需求成果数据写入
     function setDemandResultData() {
         var content = (!!showData) ? (!!showData.illustration) ? showData.illustration.replace(/\n/g, '<br/>') : '暂无数据' : '暂无数据';
         submitShowDetailNode.html(content);
         setDemandResultTable();
     }
+
     // 写入展示数据
     function setFinishFileShowData() {
         var content = (!!showData) ? (!!showData.not_pass_reason) ? showData.not_pass_reason.replace(/\n/g, '<br/>') : '暂无数据' : '暂无数据';
         reviewRejectShowNode.html(content);
         setFinishFileTable(false);
     }
+
     // 写入编辑数据
     function setFinishFileEditData() {
         reviewRejectEditNode.val(showData.not_pass_reason);
         setFinishFileTable(true)
     }
+
     // 写入需求报告的表格
     function setDemandResultTable() {
         // 没有数据
         if (showData.attachment === undefined || showData.attachment === null) {
-            if(submitShowTableDiv.css('display') !== 'none') {
+            if (submitShowTableDiv.css('display') !== 'none') {
                 // 展示表格隐藏
                 submitShowTableDiv.hide().parent().append('<p class="submitDemandResultShowFilesTip">暂无数据</p>');
             }
@@ -309,11 +316,12 @@ function ReviewDemandResult() {
             submitShowTableDiv.show().next().remove();
         }
     }
+
     // 写入审核表格
     function setFinishFileTable(isEdit) {
         // 没有数据
         if (showData.post_material === undefined || showData.post_material === null) {
-            if(reviewFileShowTableDiv.css('display') !== 'none') {
+            if (reviewFileShowTableDiv.css('display') !== 'none') {
                 // 展示表格隐藏
                 reviewFileShowTableDiv.hide().parent().append('<p class="submitDemandResultShowFilesTip">暂无数据</p>');
             }
@@ -324,7 +332,7 @@ function ReviewDemandResult() {
         } else {
             var data = JSON.parse(showData.post_material);
             // 写入编辑表格
-            if (isEdit){
+            if (isEdit) {
                 // 写入数据
                 reviewFileEditTable.setTableData(data).createTable();
                 // 展示表格
@@ -337,6 +345,7 @@ function ReviewDemandResult() {
             }
         }
     }
+
     // 审核状态
     function reviewStatus(data) {
         // 获取当前的审核状态
@@ -412,6 +421,7 @@ function ReviewDemandResult() {
                 break;
         }
     }
+
     // 修改展示状态
     function changeShowStatus(isShow) {
         // 展示模式
@@ -426,6 +436,7 @@ function ReviewDemandResult() {
 
         }
     }
+
     // 提取提交数据
     function getSubmitData() {
         var str = ''
@@ -456,6 +467,7 @@ function ReviewDemandResult() {
         // 写入记录id
         submitData.id = record_id;
     }
+
     // 判断提交内容
     function examineSubmitResult(data) {
         var result = true;
@@ -465,13 +477,15 @@ function ReviewDemandResult() {
                 result = false;
                 textTip.text('说明不能为空').show();
                 reviewRejectEditNode.css({
-                    borderColor:'#ff0000'
+                    borderColor: '#ff0000'
                 })
             }
         }
         return result;
     }
+
     /*=== 监听事件 ===*/
+
     // 所有事件监听
     function allEvent() {
         eventOfTabsClick();
@@ -483,6 +497,7 @@ function ReviewDemandResult() {
         eventOfGoBackClick();
         eventOfCancelBtnClick();
     }
+
     // tabs的点击事件
     function eventOfTabsClick() {
         var nowNode = null;
@@ -506,15 +521,17 @@ function ReviewDemandResult() {
             }
         })
     }
+
     // 输入框的focus事件
     function eventOfRejectFocus() {
         reviewRejectEditNode.focus(function () {
             textTip.text('').hide();
             reviewRejectEditNode.css({
-                borderColor:''
+                borderColor: ''
             })
         })
     }
+
     // 输入框的blur事件
     function eventOfRejectBlur() {
         reviewRejectEditNode.blur(function () {
@@ -524,6 +541,7 @@ function ReviewDemandResult() {
             showData.not_pass_reason = reviewRejectEditNode.val();
         })
     }
+
     // 上传文件点击事件
     function eventOfUploadBtnClick() {
         upLoadBtn.off().click(function () {
@@ -534,6 +552,7 @@ function ReviewDemandResult() {
             reviewFinishFileUpLoadNode.click();
         })
     }
+
     // 上传事件
     function eventOfUploadInputChange() {
         reviewFinishFileUpLoadNode.change(function () {
@@ -562,6 +581,7 @@ function ReviewDemandResult() {
             })
         })
     }
+
     // 提交按钮点击事件
     function eventOfSubmitBtnClick() {
         submitBtn.off().click(function () {
@@ -569,7 +589,7 @@ function ReviewDemandResult() {
                 return 0;
             }
             getSubmitData();
-            if(!examineSubmitResult(submitData)) {
+            if (!examineSubmitResult(submitData)) {
                 layer.msg('请先解决填写错误');
                 return 0;
             }
@@ -581,6 +601,7 @@ function ReviewDemandResult() {
             })
         })
     }
+
     // 返回列表点击事件
     function eventOfGoBackClick() {
         goBackNode.off().click(function () {
@@ -591,6 +612,7 @@ function ReviewDemandResult() {
             $('.review-demand-result-tabs li').eq(0).addClass('active');
         })
     }
+
     // 取消按钮点击事件
     function eventOfCancelBtnClick() {
         // 点击直接返回需求列表

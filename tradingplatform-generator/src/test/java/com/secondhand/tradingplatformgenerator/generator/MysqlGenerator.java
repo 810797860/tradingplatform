@@ -20,12 +20,12 @@ import java.util.*;
 
 public class MysqlGenerator {
 
-    private static String packageName="";
-    private static String packageClass="tradingplatformgenerator";
-    private static String projectName="secondhand";
-    private static String authorName="zhangjk";
-    private static String[] table=new String[]{"c_business_other_categories"};
-    private static String[] prefix=new String[]{"c_business"};
+    private static String packageName = "";
+    private static String packageClass = "tradingplatformgenerator";
+    private static String projectName = "secondhand";
+    private static String authorName = "zhangjk";
+    private static String[] table = new String[]{"c_business_other_categories"};
+    private static String[] prefix = new String[]{"c_business"};
     private static File file = new File(packageName);
     private static String path = file.getAbsolutePath();
 
@@ -46,12 +46,12 @@ public class MysqlGenerator {
                         .setBaseColumnList(true)// XML columList
                         .setOpen(false)//生成后打开文件夹
                         .setAuthor(authorName)
-                // 自定义文件命名，注意 %s 会自动填充表实体属性！
-                 .setMapperName("%sMapper")
-                 .setXmlName("%sMapper")
-                 .setServiceName("%sService")
-                 .setServiceImplName("%sServiceImpl")
-                 .setControllerName("%sController")
+                        // 自定义文件命名，注意 %s 会自动填充表实体属性！
+                        .setMapperName("%sMapper")
+                        .setXmlName("%sMapper")
+                        .setServiceName("%sService")
+                        .setServiceImplName("%sServiceImpl")
+                        .setControllerName("%sController")
         ).setDataSource(
                 // 数据源配置
                 new DataSourceConfig()
@@ -87,16 +87,16 @@ public class MysqlGenerator {
                         // 自定义实体，公共字段
                         //.setSuperEntityColumns(new String[]{"test_id"})
                         .setTableFillList(tableFillList)
-                // 自定义 dao 父类
-                .setSuperMapperClass("com.secondhand.tradingplatformcommon.base.BaseDao.BaseDao")
-                // 自定义 service 父类
-                .setSuperServiceClass("com.secondhand.tradingplatformcommon.base.BaseService.BaseService")
-                // 自定义 service 实现类父类
-                .setSuperServiceImplClass("com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl")
-                // 自定义 controller 父类
-                .setSuperControllerClass("com.secondhand.tradingplatformcommon.base.BaseController.BaseController")
-                // 自定义 entity 父类
-                .setSuperEntityClass("com.secondhand.tradingplatformcommon.base.BaseEntity.BaseEntity")
+                        // 自定义 dao 父类
+                        .setSuperMapperClass("com.secondhand.tradingplatformcommon.base.BaseDao.BaseDao")
+                        // 自定义 service 父类
+                        .setSuperServiceClass("com.secondhand.tradingplatformcommon.base.BaseService.BaseService")
+                        // 自定义 service 实现类父类
+                        .setSuperServiceImplClass("com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl")
+                        // 自定义 controller 父类
+                        .setSuperControllerClass("com.secondhand.tradingplatformcommon.base.BaseController.BaseController")
+                        // 自定义 entity 父类
+                        .setSuperEntityClass("com.secondhand.tradingplatformcommon.base.BaseEntity.BaseEntity")
                 // 【实体】是否生成字段常量（默认 false）
                 // public static final String ID = "test_id";
                 // .setEntityColumnConstant(true)
@@ -113,7 +113,7 @@ public class MysqlGenerator {
                 // 包配置
                 new PackageConfig()
                         //.setModuleName("UserClient")
-                        .setParent("com."+projectName+"."+packageClass)// 自定义包路径
+                        .setParent("com." + projectName + "." + packageClass)// 自定义包路径
 /*                        .setParent("com." + projectName)*/
                         .setController("controller")// 这里是控制器包名，默认 web
                         .setEntity("entity")
@@ -140,22 +140,22 @@ public class MysqlGenerator {
         ).setTemplate(
                 // 关闭默认 xml 生成，调整生成 至 根目录
                 new TemplateConfig().setXml(null)
-                // 自定义模板配置，模板可以参考源码 /mybatis-plus/src/main/resources/template 使用 copy
-                // 至您项目 src/main/resources/template 目录下，模板名称也可自定义如下配置：
+                        // 自定义模板配置，模板可以参考源码 /mybatis-plus/src/main/resources/template 使用 copy
+                        // 至您项目 src/main/resources/template 目录下，模板名称也可自定义如下配置：
 
-                .setController("")
-                .setEntity("")
-                .setMapper("")
-                .setXml("")
-                .setService("")
-                .setServiceImpl("")
+                        .setController("")
+                        .setEntity("")
+                        .setMapper("")
+                        .setXml("")
+                        .setService("")
+                        .setServiceImpl("")
 
-                .setController("/template/controller.java.vm")
-                .setEntity("/template/entity.java.vm")
-                .setMapper("/template/mapper.java.vm")
-                .setXml("/template/mapper.xml.vm")
-                .setService("/template/service.java.vm")
-                .setServiceImpl("/template/serviceImpl.java.vm")
+                        .setController("/template/controller.java.vm")
+                        .setEntity("/template/entity.java.vm")
+                        .setMapper("/template/mapper.java.vm")
+                        .setXml("/template/mapper.xml.vm")
+                        .setService("/template/service.java.vm")
+                        .setServiceImpl("/template/serviceImpl.java.vm")
         );
 
         // 执行生成

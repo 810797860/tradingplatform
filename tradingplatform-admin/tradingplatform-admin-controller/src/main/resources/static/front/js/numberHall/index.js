@@ -208,6 +208,7 @@ $(function () {
     }
 
     /*=== 行业模块列表 ===*/
+
     // 数据初始化
     function initIndustryModel() {
         // 绑定行业模块的所有事件
@@ -217,7 +218,7 @@ $(function () {
         // 获取初始数据
         getInitialData();
     }
-    
+
     // 判定导航左右按钮的展示
     function decideNavArrowBtnShow() {
         if (!(oIndustryListNode.width() > oIndustryListNode.parent().width())) {
@@ -226,7 +227,7 @@ $(function () {
             oNumberIndustryRightBtn.show();
         }
     }
-    
+
     // 数据初始化
     function getInitialData() {
         // 行业有数据
@@ -241,7 +242,7 @@ $(function () {
                     lengthNumber = 0,
                     itemNodeLeft = 0,
                     listParentWidth = 0;
-                if (String(oNowNode.data('id')) === String(sNowHallTypeId)){
+                if (String(oNowNode.data('id')) === String(sNowHallTypeId)) {
                     oNowNode.addClass('active');
                     itemNodeLeft = oNowNode.get(0).offsetLeft;
                     listParentWidth = oIndustryListNode.parent().width();
@@ -276,7 +277,7 @@ $(function () {
                     oHallListNode.css({
                         width: 0,
                         left: 0
-                    }).html(sHallLiVoidHtml.slice(0,-5) + noDataHtml + sHallLiVoidHtml.slice(-5));
+                    }).html(sHallLiVoidHtml.slice(0, -5) + noDataHtml + sHallLiVoidHtml.slice(-5));
                 }
             })
         } else { // 无数据
@@ -285,19 +286,19 @@ $(function () {
             oHallListNode.css({
                 width: 0,
                 left: 0
-            }).html(sHallLiVoidHtml.slice(0,-5) + noDataHtml + sHallLiVoidHtml.slice(-5));
+            }).html(sHallLiVoidHtml.slice(0, -5) + noDataHtml + sHallLiVoidHtml.slice(-5));
         }
     }
-    
+
     // 行业事件
     function bindAllEventOfIndustry() {
         eventOfNumberIndustryBtn();
         eventOfNumberIndustryItem();
         hallListBtnClick();
     }
-    
+
     // 产品行业滚动动画
-    function eventOfNumberIndustryBtn () {
+    function eventOfNumberIndustryBtn() {
         // 获取列表jq节点
         var oListNode = oIndustryListNode,
             // 计算单个选项宽度
@@ -315,7 +316,7 @@ $(function () {
             if (nListParentWidth + listLeft === oListNode.width()) {
                 return;
             }
-            if (listLeft + 2 * nListParentWidth < oListNode.width()){
+            if (listLeft + 2 * nListParentWidth < oListNode.width()) {
                 startMove(oIndustryListNode.get(0), {left: -1 * (listLeft + nListParentWidth)});
             } else {
                 startMove(oIndustryListNode.get(0), {left: nListParentWidth - oListNode.width()});
@@ -333,9 +334,9 @@ $(function () {
             }
         });
     }
-    
+
     // 产品行业点击事件
-    function eventOfNumberIndustryItem () {
+    function eventOfNumberIndustryItem() {
         var target = null,
             index = null,
             isAnimating = false,

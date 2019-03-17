@@ -7,6 +7,7 @@ import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 
 /**
  * webSocket事件监听器
+ *
  * @author 81079
  */
 @Component
@@ -14,6 +15,7 @@ public class WebSocketEventListener {
 
     /**
      * 连接webSocket时调用该方法
+     *
      * @param event
      */
     @EventListener
@@ -23,6 +25,7 @@ public class WebSocketEventListener {
 
     /**
      * 断开连接时调用该方法
+     *
      * @param event
      */
     @EventListener

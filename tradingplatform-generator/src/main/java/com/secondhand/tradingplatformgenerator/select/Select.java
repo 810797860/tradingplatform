@@ -15,7 +15,7 @@ public class Select {
 
     public Select(String tableName) {
         this.tableName = tableName;
-        if (tableName != null){
+        if (tableName != null) {
 
 //            //初始化，不然的话会空指针报错
 //            tableAlias = new StringBuilder();

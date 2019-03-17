@@ -29,10 +29,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *   @description : Button 服务实现类
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2018-12-04
+ * @author zhangjk
+ * @description : Button 服务实现类
+ * ---------------------------------
+ * @since 2018-12-04
  */
 
 @Service
@@ -61,7 +61,7 @@ public class ButtonServiceImpl extends BaseServiceImpl<ButtonMapper, Button> imp
     @Transactional(rollbackFor = Exception.class)
     @CacheEvict(allEntries = true)
     public boolean myFakeBatchDelete(List<Long> buttonIds) {
-        buttonIds.forEach(buttonId->{
+        buttonIds.forEach(buttonId -> {
             myFakeDeleteById(buttonId);
         });
         return true;
@@ -78,7 +78,7 @@ public class ButtonServiceImpl extends BaseServiceImpl<ButtonMapper, Button> imp
     @CacheEvict(cacheNames = {"button", "roleButton"}, allEntries = true)
     public Button myButtonCreateUpdate(Button button) {
         Long buttonId = button.getId();
-        if (buttonId == null){
+        if (buttonId == null) {
             button.setUuid(ToolUtil.getUUID());
             Integer insertId = buttonMapper.insert(button);
 
@@ -95,7 +95,7 @@ public class ButtonServiceImpl extends BaseServiceImpl<ButtonMapper, Button> imp
     }
 
     //以下是继承BaseServiceImpl
-    
+
     @Override
     @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p1.sorts + ',' + #p1.description")
     public Page<Button> mySelectPageWithParam(Page<Button> page, Button button) {
@@ -111,12 +111,12 @@ public class ButtonServiceImpl extends BaseServiceImpl<ButtonMapper, Button> imp
         button.setDescription(null);
         //遍历排序
         List<Sort> sorts = button.getSorts();
-        if (sorts == null){
+        if (sorts == null) {
             //为null时，默认按created_at倒序
             wrapper.orderBy("id", false);
         } else {
             //遍历排序
-            sorts.forEach( sort -> {
+            sorts.forEach(sort -> {
                 wrapper.orderBy(sort.getField(), sort.getAsc());
             });
         }
@@ -131,7 +131,7 @@ public class ButtonServiceImpl extends BaseServiceImpl<ButtonMapper, Button> imp
         Wrapper<Button> wrapper = new EntityWrapper<>(button);
 
         //判断“找自己菜单对应的按钮的情况”
-        if (menuId != null){
+        if (menuId != null) {
             //找出button的ids
             Wrapper<MenuButton> menuButtonWrapper = new EntityWrapper<>();
             menuButtonWrapper.setSqlSelect("button_id");
@@ -139,7 +139,7 @@ public class ButtonServiceImpl extends BaseServiceImpl<ButtonMapper, Button> imp
             menuButtonWrapper.where("deleted = {0}", false);
             List<Object> buttonIds = menuButtonService.mySelectObjs(menuButtonWrapper);
             //如果buttonIds为空，返回空的对象
-            if (buttonIds.size() == 0){
+            if (buttonIds.size() == 0) {
                 return new ArrayList<>();
             }
             //放进去搜索按钮的条件里
@@ -163,7 +163,7 @@ public class ButtonServiceImpl extends BaseServiceImpl<ButtonMapper, Button> imp
         Wrapper<Button> wrapper = new EntityWrapper<>(button);
 
         //判断“找自己角色对应的按钮的情况”
-        if (roleId != null){
+        if (roleId != null) {
             //找出button的ids
             Wrapper<RoleButton> roleButtonWrapper = new EntityWrapper<>();
             roleButtonWrapper.setSqlSelect("button_id");
@@ -171,7 +171,7 @@ public class ButtonServiceImpl extends BaseServiceImpl<ButtonMapper, Button> imp
             roleButtonWrapper.where("deleted = {0}", false);
             List<Object> buttonIds = roleButtonService.mySelectObjs(roleButtonWrapper);
             //如果buttonIds为空，返回空的对象
-            if (buttonIds.size() == 0){
+            if (buttonIds.size() == 0) {
                 return new ArrayList<>();
             }
             //放进去搜索按钮的条件里
@@ -192,28 +192,28 @@ public class ButtonServiceImpl extends BaseServiceImpl<ButtonMapper, Button> imp
     public List<Button> mySelectListWithMap(Map<String, Object> map) {
         return buttonMapper.selectByMap(map);
     }
-    
+
     //以下是继承BaseMapper
-    
+
     @Override
     @Cacheable(key = "#p0")
     public Map<String, Object> mySelectMap(Wrapper<Button> wrapper) {
         return this.selectMap(wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0.paramNameValuePairs")
     public List<Button> mySelectList(Wrapper<Button> wrapper) {
         return buttonMapper.selectList(wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsert(Button button) {
         button.setUuid(ToolUtil.getUUID());
         return this.insert(button);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertBatch(List<Button> buttonList) {
@@ -222,65 +222,65 @@ public class ButtonServiceImpl extends BaseServiceImpl<ButtonMapper, Button> imp
         });
         return this.insertBatch(buttonList);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdate(Button button) {
         //没有uuid的话要加上去
-        if (button.getUuid().equals(null)){
+        if (button.getUuid().equals(null)) {
             button.setUuid(ToolUtil.getUUID());
         }
         return this.insertOrUpdate(button);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdateBatch(List<Button> buttonList) {
         buttonList.forEach(button -> {
             //没有uuid的话要加上去
-            if (button.getUuid().equals(null)){
+            if (button.getUuid().equals(null)) {
                 button.setUuid(ToolUtil.getUUID());
             }
         });
         return this.insertOrUpdateBatch(buttonList);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public List<Button> mySelectBatchIds(Collection<? extends Serializable> buttonIds) {
         return buttonMapper.selectBatchIds(buttonIds);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public Button mySelectById(Serializable buttonId) {
         return buttonMapper.selectById(buttonId);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public int mySelectCount(Wrapper<Button> wrapper) {
         return buttonMapper.selectCount(wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public Button mySelectOne(Wrapper<Button> wrapper) {
         return this.selectOne(wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdate(Button button, Wrapper<Button> wrapper) {
         return this.update(button, wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdateBatchById(List<Button> buttonList) {
         return this.updateBatchById(buttonList);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdateById(Button button) {

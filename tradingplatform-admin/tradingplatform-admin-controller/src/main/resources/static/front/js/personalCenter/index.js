@@ -11,7 +11,7 @@ $(function () {
     setMarkOfImportantOperation();
     // 设置historyHref
     historyHrefSetGetMethod(function (newUrl) {
-        if (newUrl === '/f/matureCaseCheckRecords/pc/to_create_update.html?pc=true'){
+        if (newUrl === '/f/matureCaseCheckRecords/pc/to_create_update.html?pc=true') {
             // 原验证
             /*new NewAjax({
                 url: '/f/serviceProvidersCheckRecords/pc/latest_check_records?pc=true',
@@ -72,16 +72,16 @@ $(function () {
         className = className || 'personal-information-div';
         aRightAreas.each(function (index, item) {
             oNowArea = $(item);
-            if (className && oNowArea.hasClass(className)){
+            if (className && oNowArea.hasClass(className)) {
                 oNowArea.addClass('page-active');
             } else {
                 oNowArea.removeClass('page-active');
             }
         });
     }
-    
+
     // 页面渲染时从url中获取参数进行匹配显示右侧区域块
-    function toMenu (menu) {
+    function toMenu(menu) {
         var rightPart = $('.personal-center-right').eq(0),
             tag_a = null;
         menu = menu || getQueryString(window.location.href, 'menu');
@@ -149,7 +149,7 @@ $(function () {
                 openMyShopInformationList();
             } else if (menu === "myShopConsultationList") {
                 openMyShopConsultationList();
-            } else if(menu === 'recommend') {
+            } else if (menu === 'recommend') {
                 // 智能推荐
                 openModelOfRecommend();
             } else if (menu === 'browseRecord') {
@@ -322,7 +322,7 @@ $(function () {
         changeRightPage('dock-result-area');
         // aRightAreas.removeClass("page-active").siblings(".dock-result-area").addClass("page-active");
     }
-    
+
     // 开启我的资讯（案例中心）模块
     function openModelOfUserAskInCaseList() {
         location.text("我的咨询");
@@ -404,7 +404,7 @@ $(function () {
             }
         })*/
     }
-    
+
     // 开启发布服务模块
     function openModelOfPublishServer() {
         window.location.href = '/f/serviceMessage/pc/to_create_update.html?pc=true';
@@ -432,7 +432,7 @@ $(function () {
     function openModelOfUserInfoInServerList() {
         location.text("我的信息");
 
-        if (typeof informationServiceListData  === "undefined") {
+        if (typeof informationServiceListData === "undefined") {
             $.getScript("/static/front/js/personalCenter/main/models/oneShopService/serviceInformation.js", function () {
                 resetCurrentPageInformationService();
                 getInformationServiceList();
@@ -450,7 +450,7 @@ $(function () {
     function openModelOfUserAskInServerList() {
         location.text("我的咨询");
 
-        if (typeof consultationServiceListData  === "undefined") {
+        if (typeof consultationServiceListData === "undefined") {
             $.getScript("/static/front/js/personalCenter/main/models/oneShopService/serviceConsultation.js", function () {
                 resetCurrentPageConsultationService();
                 getConsultationServiceList();
@@ -486,7 +486,7 @@ $(function () {
     function openModelOfUserMessageInExpertLibs() {
         location.text("我的信息");
 
-        if (typeof consultationResultListData  === "undefined") {
+        if (typeof consultationResultListData === "undefined") {
             $.getScript("/static/front/js/personalCenter/main/models/expertWisdomLib/consultationInformation.js", function () {
                 resetCurrentPageConsultationInformation();
                 getConsultationInformationList();
@@ -504,7 +504,7 @@ $(function () {
     function openModelOfUserAskInExperLibs() {
         location.text("我的咨询");
 
-        if (typeof myConsultationListData   === "undefined") {
+        if (typeof myConsultationListData === "undefined") {
             $.getScript("/static/front/js/personalCenter/main/models/expertWisdomLib/myConsultation.js", function () {
                 resetCurrentPageMyConsultation();
                 getMyConsultationList();
@@ -540,7 +540,7 @@ $(function () {
     function openModelOfCaseCollectionList() {
         location.text("案例收藏");
 
-        if (typeof caseCollectionListData    === "undefined") {
+        if (typeof caseCollectionListData === "undefined") {
             $.getScript("/static/front/js/personalCenter/main/models/collection/caseCollection.js", function () {
                 resetCurrentPageCaseCollection();
                 getCaseCollectionList();
@@ -576,7 +576,7 @@ $(function () {
     function openModelOfCompanyCollectionList() {
         location.text("服务商收藏");
 
-        if (typeof merchantCollectionListData    === "undefined") {
+        if (typeof merchantCollectionListData === "undefined") {
             $.getScript("/static/front/js/personalCenter/main/models/collection/merchantCollection.js", function () {
                 resetCurrentPageMerchantCollection();
                 getMerchantCollectionList();
@@ -591,7 +591,7 @@ $(function () {
     }
 
     // 打开我的企业店铺信息
-    function openMyShopInformationList () {
+    function openMyShopInformationList() {
         location.text("我的信息");
         if (typeof myShopInformationListData === "undefined") {
             $.getScript("/static/front/js/personalCenter/main/models/serviceLib/myShopInformation.js", function () {
@@ -607,7 +607,7 @@ $(function () {
     }
 
     // 打开我的企业店铺咨询
-    function openMyShopConsultationList () {
+    function openMyShopConsultationList() {
         location.text("我的咨询");
         if (typeof myShopConsultationListData === "undefined") {
             $.getScript("/static/front/js/personalCenter/main/models/serviceLib/myShopConsultation.js", function () {
@@ -656,7 +656,7 @@ $(function () {
 
 
     // 处理事件
-    function handleEventInIndex () {
+    function handleEventInIndex() {
         // 菜单栏模块的收起展开
         eventOfMenuShow();
         // 菜单栏子项点击事件
@@ -723,8 +723,6 @@ $(function () {
     }
 
 
-
-
     // 获取url里的menu参数值
     function getQueryString(paramString, name) {
         // 原代码
@@ -751,7 +749,7 @@ $(function () {
     }
 
     // 获取a标签里的href值含有某menu值的dom结构
-    function getDomByMenu (menu) {
+    function getDomByMenu(menu) {
         var arr = $(".menu-children-item");
         for (var i = 0; i < arr.length; i++) {
             if ($(arr[i]).data('href')) {
@@ -765,7 +763,7 @@ $(function () {
     }
 
     // 请求当前用户是否为服务商
-    function isService (callback) {
+    function isService(callback) {
         new NewAjax({
             url: '/f/serviceProviders/judge_provider?pc=true',
             contentType: 'application/json',
@@ -877,12 +875,12 @@ $(function () {
 });
 
 // 时间戳转换格式
-function fmtDate(data){
-    var date =  new Date(data);
-    var y = 1900+date.getYear();
-    var m = "0"+(date.getMonth()+1);
-    var d = "0"+date.getDate();
-    return y+"-"+m.substring(m.length-2,m.length)+"-"+d.substring(d.length-2,d.length);
+function fmtDate(data) {
+    var date = new Date(data);
+    var y = 1900 + date.getYear();
+    var m = "0" + (date.getMonth() + 1);
+    var d = "0" + date.getDate();
+    return y + "-" + m.substring(m.length - 2, m.length) + "-" + d.substring(d.length - 2, d.length);
 }
 
 // 初始化时间控件

@@ -4,21 +4,22 @@
 
     <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
 
-		<!-- 通用查询映射结果 -->
-			<resultMap id="resourcesMap" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.Resources" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
-									
-				<result column="title" property="title" jdbcType="VARCHAR" />
-				<result column="url" property="url" jdbcType="VARCHAR" />
+    <!-- 通用查询映射结果 -->
+    <resultMap id="resourcesMap" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.Resources"
+               extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
 
-		</resultMap>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="url" property="url" jdbcType="VARCHAR"/>
 
-        <!-- 通用查询映射结果 -->
-		<resultMap id="resourcesMapSimple" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.Resources">
-																			
-                        <result column="title" property="title" jdbcType="VARCHAR" />
-                        <result column="url" property="url" jdbcType="VARCHAR" />
+    </resultMap>
 
-        </resultMap>
+    <!-- 通用查询映射结果 -->
+    <resultMap id="resourcesMapSimple" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.Resources">
+
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="url" property="url" jdbcType="VARCHAR"/>
+
+    </resultMap>
 
     <select id="selectMapById" resultType="java.util.Map">
         select * from s_base_resources where id = #{resourcesId} and deleted = false
@@ -26,20 +27,20 @@
 
     <select id="loadUserResources" resultType="com.secondhand.tradingplatformadminentity.entity.admin.shiro.Resources">
         SELECT
-	      sbr.id AS id,
-	      sbr.title AS title,
-	      sbr.url AS url
+        sbr.id AS id,
+        sbr.title AS title,
+        sbr.url AS url
         FROM
-	      s_base_resources sbr
+        s_base_resources sbr
         JOIN s_base_role_resources sbrr ON sbr.id = sbrr.resources_id
         JOIN s_base_user_role sbur ON sbrr.role_id = sbur.role_id
         WHERE
-	      sbr.deleted = FALSE
+        sbr.deleted = FALSE
         AND sbrr.deleted = FALSE
         AND sbur.deleted = FALSE
         AND sbur.user_id = #{userId}
         GROUP BY
-	      sbr.id
+        sbr.id
     </select>
 
 </mapper>

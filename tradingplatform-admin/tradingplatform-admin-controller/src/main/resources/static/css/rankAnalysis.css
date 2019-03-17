@@ -1,12 +1,15 @@
 #main {
     padding: 10px 20px;
 }
+
 .searchForm {
     float: left;
 }
+
 .table-sm {
     font-size: 12px;
 }
+
 .search-group {
     width: 150px;
     display: inline-block;
@@ -20,18 +23,22 @@
     float: left;
     margin-right: 15px;
 }
-.select-inline{
-    width:200px;
+
+.select-inline {
+    width: 200px;
     display: inline-block;
 }
+
 .search-input-group {
     padding: 5px 10px;
 }
+
 .search-text {
     float: left;
     vertical-align: middle;
     margin-top: 5px;
 }
+
 .btn-top-offset {
     margin-top: 7px;
 }

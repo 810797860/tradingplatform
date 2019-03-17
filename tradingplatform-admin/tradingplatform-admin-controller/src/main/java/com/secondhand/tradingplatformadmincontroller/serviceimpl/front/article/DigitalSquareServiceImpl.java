@@ -22,10 +22,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *   @description : DigitalSquare 服务实现类
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2019-03-17
+ * @author zhangjk
+ * @description : DigitalSquare 服务实现类
+ * ---------------------------------
+ * @since 2019-03-17
  */
 
 @Service
@@ -48,7 +48,7 @@ public class DigitalSquareServiceImpl extends BaseServiceImpl<DigitalSquareMappe
     @Transactional(rollbackFor = Exception.class)
     @CacheEvict(allEntries = true)
     public boolean myFakeBatchDelete(List<Long> digitalSquareIds) {
-        digitalSquareIds.forEach(digitalSquareId->{
+        digitalSquareIds.forEach(digitalSquareId -> {
             myFakeDeleteById(digitalSquareId);
         });
         return true;
@@ -64,7 +64,7 @@ public class DigitalSquareServiceImpl extends BaseServiceImpl<DigitalSquareMappe
     @CacheEvict(allEntries = true)
     public DigitalSquare myDigitalSquareCreateUpdate(DigitalSquare digitalSquare) {
         Long digitalSquareId = digitalSquare.getId();
-        if (digitalSquareId == null){
+        if (digitalSquareId == null) {
             digitalSquare.setUuid(ToolUtil.getUUID());
             digitalSquareMapper.insert(digitalSquare);
         } else {
@@ -74,7 +74,7 @@ public class DigitalSquareServiceImpl extends BaseServiceImpl<DigitalSquareMappe
     }
 
     //以下是继承BaseServiceImpl
-    
+
     @Override
     @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p1.sorts")
     public Page<Map<String, Object>> mySelectPageWithParam(Page page, DigitalSquare digitalSquare) {
@@ -84,45 +84,45 @@ public class DigitalSquareServiceImpl extends BaseServiceImpl<DigitalSquareMappe
         Wrapper<DigitalSquare> wrapper = new EntityWrapper<>(digitalSquare);
         //遍历排序
         List<Sort> sorts = digitalSquare.getSorts();
-        if (sorts == null){
+        if (sorts == null) {
             //为null时，默认按created_at倒序
             wrapper.orderBy("id", false);
         } else {
             //遍历排序
-            sorts.forEach( sort -> {
+            sorts.forEach(sort -> {
                 wrapper.orderBy(sort.getField(), sort.getAsc());
             });
         }
         return this.selectMapsPage(page, wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public List<DigitalSquare> mySelectListWithMap(Map<String, Object> map) {
         return digitalSquareMapper.selectByMap(map);
     }
-    
+
     //以下是继承BaseMapper
-    
+
     @Override
     @Cacheable(key = "#p0.paramNameValuePairs")
     public Map<String, Object> mySelectMap(Wrapper<DigitalSquare> wrapper) {
         return this.selectMap(wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0.paramNameValuePairs")
     public List<DigitalSquare> mySelectList(Wrapper<DigitalSquare> wrapper) {
         return digitalSquareMapper.selectList(wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsert(DigitalSquare digitalSquare) {
         digitalSquare.setUuid(ToolUtil.getUUID());
         return this.insert(digitalSquare);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertBatch(List<DigitalSquare> digitalSquareList) {
@@ -131,47 +131,47 @@ public class DigitalSquareServiceImpl extends BaseServiceImpl<DigitalSquareMappe
         });
         return this.insertBatch(digitalSquareList);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdate(DigitalSquare digitalSquare) {
         //没有uuid的话要加上去
-        if (digitalSquare.getUuid().equals(null)){
+        if (digitalSquare.getUuid().equals(null)) {
             digitalSquare.setUuid(ToolUtil.getUUID());
         }
         return this.insertOrUpdate(digitalSquare);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdateBatch(List<DigitalSquare> digitalSquareList) {
         digitalSquareList.forEach(digitalSquare -> {
             //没有uuid的话要加上去
-            if (digitalSquare.getUuid().equals(null)){
+            if (digitalSquare.getUuid().equals(null)) {
                 digitalSquare.setUuid(ToolUtil.getUUID());
             }
         });
         return this.insertOrUpdateBatch(digitalSquareList);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public List<DigitalSquare> mySelectBatchIds(Collection<? extends Serializable> digitalSquareIds) {
         return digitalSquareMapper.selectBatchIds(digitalSquareIds);
     }
-    
+
     @Override
     @Cacheable(key = "#p0")
     public DigitalSquare mySelectById(Serializable digitalSquareId) {
         return digitalSquareMapper.selectById(digitalSquareId);
     }
-    
+
     @Override
     @Cacheable(key = "#p0.paramNameValuePairs")
     public int mySelectCount(Wrapper<DigitalSquare> wrapper) {
         return digitalSquareMapper.selectCount(wrapper);
     }
-    
+
     @Override
     @Cacheable(key = "#p0.paramNameValuePairs")
     public DigitalSquare mySelectOne(Wrapper<DigitalSquare> wrapper) {
@@ -183,19 +183,19 @@ public class DigitalSquareServiceImpl extends BaseServiceImpl<DigitalSquareMappe
     public List<Object> mySelectObjs(Wrapper<DigitalSquare> wrapper) {
         return this.selectObjs(wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdate(DigitalSquare digitalSquare, Wrapper<DigitalSquare> wrapper) {
         return this.update(digitalSquare, wrapper);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdateBatchById(List<DigitalSquare> digitalSquareList) {
         return this.updateBatchById(digitalSquareList);
     }
-    
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myUpdateById(DigitalSquare digitalSquare) {

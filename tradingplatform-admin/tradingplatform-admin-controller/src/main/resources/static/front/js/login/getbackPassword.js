@@ -21,7 +21,7 @@ $(function () {
 
 
     $('.login-head-left').click(function () {
-       window.open('/f/wu.html?pc=true','_self');
+        window.open('/f/wu.html?pc=true', '_self');
     });
 
     $('#account').blur(function () {
@@ -49,14 +49,14 @@ $(function () {
     })
 
     $sendVerification.click(function () {
-       var url;
+        var url;
         var str = $account.val().match(emailReg);
         var str1 = $account.val().match(phoneReg);
-       if (str) {
-            url = '/message/pc/'+ $account.val() +'/send_mail?pc=true';
-       }  else if (str1) {
-           url = '/message/pc/'+ $account.val() +'/send_sms?pc=true';
-       }
+        if (str) {
+            url = '/message/pc/' + $account.val() + '/send_mail?pc=true';
+        } else if (str1) {
+            url = '/message/pc/' + $account.val() + '/send_sms?pc=true';
+        }
         new NewAjax({
             url: url,
             contentType: 'application/json',
@@ -69,19 +69,19 @@ $(function () {
             }
         })
         var sendCodeTimer = setInterval(function () {
-           if (time > 0) {
-               time--;
-               $('.send-verification').text(time);
-               $('.send-verification').attr('disabled', true);
-               $('.send-verification').css('backgroundColor', '#dcdcdc').css('cursor','not-allowed');
-           } else {
-               clearInterval(sendCodeTimer);
-               time = 60;
-               $('.send-verification').text('发送验证码');
-               $('.send-verification').attr('disabled', false);
-               $('.send-verification').css('backgroundColor', '#0066cc').css('cursor','pointer');
-           }
-       },1000);
+            if (time > 0) {
+                time--;
+                $('.send-verification').text(time);
+                $('.send-verification').attr('disabled', true);
+                $('.send-verification').css('backgroundColor', '#dcdcdc').css('cursor', 'not-allowed');
+            } else {
+                clearInterval(sendCodeTimer);
+                time = 60;
+                $('.send-verification').text('发送验证码');
+                $('.send-verification').attr('disabled', false);
+                $('.send-verification').css('backgroundColor', '#0066cc').css('cursor', 'pointer');
+            }
+        }, 1000);
     });
 
 
@@ -94,32 +94,32 @@ $(function () {
     function submitPassword() {
         var password = $password.val();
         var again = $again.val();
-        if(password === '') {
+        if (password === '') {
             showMessage('重置密码不能为空！', '#password', 1);
             return;
         } else if (again === '') {
             showMessage('请再输入一次密码', '#password', 1);
             return;
         }
-        if(password.length < 6) {
+        if (password.length < 6) {
             showMessage('密码长度不能少于6位！', '#password', 1);
             return;
         }
-        if(password != again) {
+        if (password != again) {
             layer.msg('两次密码输入不相同');
             $again.val('');
-            return ;
+            return;
         }
         var postData = {
             password: encrypt(password)
         }
         $.ajax({
-            type:'post',
-            url:'/pc/forgot_password/reset_password',
-            contentType:'application/json;charset=utf-8',
-            dataType:'json',
+            type: 'post',
+            url: '/pc/forgot_password/reset_password',
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'json',
             data: JSON.stringify(postData),
-            success:function(res){
+            success: function (res) {
                 new PNotify({
                     title: '密码修改',
                     text: '密码修改成功',
@@ -132,7 +132,7 @@ $(function () {
                 $('.getBack-step-list li').eq(2).addClass('active');
                 $('.getBack-main-div').hide();
                 $('.getBack-success').show();
-            },error:function(XMLHttpRequest, textStatus, errorThrown){
+            }, error: function (XMLHttpRequest, textStatus, errorThrown) {
                 new PNotify({
                     title: '登录失败',
                     text: '服务器内部出错，或网络出错！',
@@ -144,6 +144,7 @@ $(function () {
             }
         });
     }
+
     //验证账号
     function validateAccount() {
         var account = $account.val();
@@ -176,12 +177,12 @@ $(function () {
         }
         $.ajax({
             type: 'post',
-            url:'/pc/forgot_password/verify_account',
-            contentType:'application/json;charset=utf-8',
+            url: '/pc/forgot_password/verify_account',
+            contentType: 'application/json;charset=utf-8',
             data: JSON.stringify(postData),
-            dataType:'json',
-            success:function(res){
-                switch(res.status){
+            dataType: 'json',
+            success: function (res) {
+                switch (res.status) {
                     case 200:
                         $('.verificationCode').hide();
                         new PNotify({
@@ -220,7 +221,7 @@ $(function () {
                         break;
                 }
             },
-            error:function (XMLHttpRequest, textStatus, errorThrown) {
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
                 new PNotify({
                     title: '验证失败',
                     text: '服务器内部出错，或网络出错！',
@@ -232,17 +233,20 @@ $(function () {
             }
         })
     }
+
     //切换验证码
     function captchaClick() {
         var img = $('#captcha-img');
         img.attr('src', img.attr('src'));
     }
+
     //消息弹框
     function showMessage(msg, selector, type) {
         layer.tips(msg, selector, {
             tips: type
         });
     }
+
     //跳转到密码重置
     function passwordRebuild() {
         $('.account').hide();
@@ -254,10 +258,12 @@ $(function () {
         $('.getBack-step-list li').removeClass('active');
         $('.getBack-step-list li').eq(1).addClass('active');
     }
+
     // 密码加密
     function passwordEncrypt(password) {
         return hex_md5(encrypt(password));
     }
+
     // 返回首页
     function getBackHome() {
         window.location.href = '/f/wu.html?pc=true'

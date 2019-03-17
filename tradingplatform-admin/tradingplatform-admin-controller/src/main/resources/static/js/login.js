@@ -16,7 +16,7 @@ $(function () {
 });
 
 function enterSubmit(ev) {
-    if(ev.keyCode == 13){
+    if (ev.keyCode == 13) {
         formSubmit(ev);
     }
 }
@@ -34,13 +34,13 @@ function formSubmit(e) {
     var password = $passwordInput.val();
     var captcha = $captchaInput.val();
     // 判空
-    if(account === '') {
+    if (account === '') {
         showMessage('账号不能为空！', '#account-input', 1);
         return;
-    } else if(password === '') {
+    } else if (password === '') {
         showMessage('密码不能为空！', '#password-input', 1);
         return;
-    } else if(captcha === '') {
+    } else if (captcha === '') {
         showMessage('验证码不能为空！', '#captcha-input', 1);
         return;
     }
@@ -50,14 +50,14 @@ function formSubmit(e) {
         captcha: captcha
     };
     $.ajax({
-        type:'post',
-        url:'/admin/login',
-        contentType:'application/json;charset=utf-8',
-        dataType:'json',
+        type: 'post',
+        url: '/admin/login',
+        contentType: 'application/json;charset=utf-8',
+        dataType: 'json',
         data: JSON.stringify(postData),
-        success:function(data){
+        success: function (data) {
             console.log(data)
-            switch(data.code){
+            switch (data.code) {
                 case 200:
                     new PNotify({
                         title: '登录',
@@ -106,12 +106,12 @@ function formSubmit(e) {
                     captchaClick();
                     break;
                 case 415:
-                    $.getScript("/encrypt/javascript",function(){  //加载encrypt.js,成功后，并执行回调函数
+                    $.getScript("/encrypt/javascript", function () {  //加载encrypt.js,成功后，并执行回调函数
                         selfArguments.callee();
                     });
                     break;
             }
-        },error:function(XMLHttpRequest, textStatus, errorThrown){
+        }, error: function (XMLHttpRequest, textStatus, errorThrown) {
             new PNotify({
                 title: '登录失败',
                 text: '服务器内部出错，或网络出错！',

@@ -7,57 +7,57 @@ import com.secondhand.tradingplatformcommon.base.BaseEntity.BaseEntity;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- *   @description : MenuButton 实体类
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2018-12-06
+ * @author zhangjk
+ * @description : MenuButton 实体类
+ * ---------------------------------
+ * @since 2018-12-06
  */
 @TableName("s_base_menu_button")
 public class MenuButton extends BaseEntity {
 
-	/**
-	 * 序列化标志
-	 */
+    /**
+     * 序列化标志
+     */
     private static final long serialVersionUID = 1L;
 
-            /**
-             * 菜单id
-             */
-            @ApiModelProperty("菜单id")
-							                @TableId("menu_id")
-																		
-			private Long menuId;
+    /**
+     * 菜单id
+     */
+    @ApiModelProperty("菜单id")
+    @TableId("menu_id")
 
-            /**
-             * 按钮id
-             */
-            @ApiModelProperty("按钮id")
-            @TableField("button_id")
-												
-			private Long buttonId;
+    private Long menuId;
 
-        	public Long getMenuId() {
-                return menuId;
-                }
+    /**
+     * 按钮id
+     */
+    @ApiModelProperty("按钮id")
+    @TableField("button_id")
 
-            public void setMenuId(Long menuId) {
-                this.menuId = menuId;
-                }
+    private Long buttonId;
 
-        	public Long getButtonId() {
-                return buttonId;
-                }
+    public Long getMenuId() {
+        return menuId;
+    }
 
-            public void setButtonId(Long buttonId) {
-                this.buttonId = buttonId;
-                }
+    public void setMenuId(Long menuId) {
+        this.menuId = menuId;
+    }
+
+    public Long getButtonId() {
+        return buttonId;
+    }
+
+    public void setButtonId(Long buttonId) {
+        this.buttonId = buttonId;
+    }
 
 
-	@Override
-	public String toString() {
-		return "MenuButton{" +
-			", menuId=" + menuId +
-			", buttonId=" + buttonId +
-			"}";
-	}
+    @Override
+    public String toString() {
+        return "MenuButton{" +
+                ", menuId=" + menuId +
+                ", buttonId=" + buttonId +
+                "}";
+    }
 }

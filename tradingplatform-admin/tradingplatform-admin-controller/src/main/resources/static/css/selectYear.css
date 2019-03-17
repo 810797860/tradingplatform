@@ -1,6 +1,7 @@
 html {
     height: 100%;
 }
+
 div.main {
     position: absolute;
     top: 0;
@@ -8,21 +9,22 @@ div.main {
     left: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.4);
-    text-align:center;
-}
-div.year-picker-box {
-    display:inline-block;
-    width:500px;
-    text-align:left;
-    margin-top:20%;
-    border:1px solid white;
-    border-radius:5px;
-    padding:20px 30px;
-    background:white;
-    box-shadow:0 0 3px white;
+    text-align: center;
 }
 
-select.my-select-el{
+div.year-picker-box {
+    display: inline-block;
+    width: 500px;
+    text-align: left;
+    margin-top: 20%;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 20px 30px;
+    background: white;
+    box-shadow: 0 0 3px white;
+}
+
+select.my-select-el {
     background-color: #337ab7;
     color: white;
     padding: 7px;
@@ -37,6 +39,6 @@ select.my-select-el option {
     color: black;
 }
 
-div.year-picker-box button{
-    float:right;
+div.year-picker-box button {
+    float: right;
 }

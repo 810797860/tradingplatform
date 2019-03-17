@@ -11,7 +11,7 @@ var stack_bottomright = {"dir1": "up", "dir2": "left", "firstpos1": 25, "firstpo
 // 角色获取子节点的formId
 var formId = 39;
 
-$(function(){
+$(function () {
     console.log(roleList);
     // $permissionSetting.bind('click', permissionSetting);
     showTreeTable(roleList)
@@ -51,7 +51,7 @@ function permissionSetting() {
 
 // 显示数据源的树状结构
 function showTreeTable(roleList) {
-    for(var i = 0, iLen = roleList.length; i < iLen; i++) {
+    for (var i = 0, iLen = roleList.length; i < iLen; i++) {
         var obj = {
             id: roleList[i].id,
             pId: roleList[i].pid || 0,
@@ -137,18 +137,18 @@ function setTreeViewContent(zNodes) {
 
 function confirmPost(event) {
     event.stopPropagation();
-    var nodes=zTreeObj.getChangeCheckedNodes(true);
+    var nodes = zTreeObj.getChangeCheckedNodes(true);
     var roleIds = [];
-    for(var i = 0, len = nodes.length; i < len; i++) {
+    for (var i = 0, len = nodes.length; i < len; i++) {
         roleIds.push(nodes[i].id);
     }
     $.ajax({
-        type:'post',
-        url:'/system/allotment_role/' + userId,
-        contentType:'application/json;charset=utf-8',
-        dataType:'json',
+        type: 'post',
+        url: '/system/allotment_role/' + userId,
+        contentType: 'application/json;charset=utf-8',
+        dataType: 'json',
         data: JSON.stringify(roleIds),
-        success:function(data){
+        success: function (data) {
             parent.window.refreshAndShowMessage({
                 title: '设置用户角色成功！',
                 text: '请在用户列表中查看',
@@ -158,7 +158,7 @@ function confirmPost(event) {
                 stack: stack_bottomright
             });
             parent.layer.closeAll();
-        },error:function(XMLHttpRequest, textStatus, errorThrown){
+        }, error: function (XMLHttpRequest, textStatus, errorThrown) {
             parent.window.refreshAndShowMessage({
                 title: '设置用户角色失败！',
                 text: '服务器内部错误！',
@@ -191,7 +191,7 @@ function filter(treeId, parentNode, childNodes) {
         parentNode.isParent = false;
         return null;
     }
-    for (var i=0, l=childNodes.length; i<l; i++) {
+    for (var i = 0, l = childNodes.length; i < l; i++) {
         childNodes[i].name = childNodes[i].name.replace(/\.n/g, '.');
         childNodes[i].isParent = true;
     }
@@ -199,8 +199,9 @@ function filter(treeId, parentNode, childNodes) {
 }
 
 var log, className = "dark";
+
 function beforeDrag(treeId, treeNodes) {
-    for (var i=0,l=treeNodes.length; i<l; i++) {
+    for (var i = 0, l = treeNodes.length; i < l; i++) {
         if (treeNodes[i].drag === false) {
             return false;
         }
@@ -214,15 +215,15 @@ function beforeDrop(treeId, treeNodes, targetNode, moveType) {
             pid: targetNode.id
         }
         $.ajax({
-            type:'put',
-            url:'/admin/role/create_update_drag/' + treeNodes[0].id,
-            contentType:'application/json;charset=utf-8',
-            dataType:'json',
+            type: 'put',
+            url: '/admin/role/create_update_drag/' + treeNodes[0].id,
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'json',
             data: JSON.stringify(postData),
-            success:function(data){
+            success: function (data) {
                 console.log(data);
                 return treeNodes.drop !== false
-            },error:function(XMLHttpRequest, textStatus, errorThrown){
+            }, error: function (XMLHttpRequest, textStatus, errorThrown) {
                 alert('修改失败，服务器内部错误');
                 return treeNodes.drop !== false
             }
@@ -235,13 +236,13 @@ function beforeDrop(treeId, treeNodes, targetNode, moveType) {
 }
 
 function beforeEditName(treeId, treeNode) {
-    className = (className === "dark" ? "":"dark");
-    showLog("[ "+getTime()+" beforeEditName ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name);
+    className = (className === "dark" ? "" : "dark");
+    showLog("[ " + getTime() + " beforeEditName ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name);
     var zTree = $.fn.zTree.getZTreeObj("role-tree");
     zTree.selectNode(treeNode);
-    setTimeout(function() {
+    setTimeout(function () {
         if (confirm("进入节点 -- " + treeNode.name + " 的编辑状态吗？")) {
-            setTimeout(function() {
+            setTimeout(function () {
                 zTree.editName(treeNode);
             }, 0);
         }
@@ -250,19 +251,19 @@ function beforeEditName(treeId, treeNode) {
 }
 
 function beforeRemove(treeId, treeNode) {
-    className = (className === "dark" ? "":"dark");
+    className = (className === "dark" ? "" : "dark");
     var zTree = $.fn.zTree.getZTreeObj("role-tree");
     zTree.selectNode(treeNode);
     if (confirm("确认删除 -- " + treeNode.name + " 吗？")) {
         $.ajax({
-            type:'put',
-            url:'/admin/role/delete/' + treeNode.id,
-            contentType:'application/json;charset=utf-8',
-            dataType:'json',
-            success:function(data){
+            type: 'put',
+            url: '/admin/role/delete/' + treeNode.id,
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'json',
+            success: function (data) {
                 console.log(data);
                 return true;
-            },error:function(XMLHttpRequest, textStatus, errorThrown){
+            }, error: function (XMLHttpRequest, textStatus, errorThrown) {
                 alert('删除失败，服务器内部错误');
                 return false;
             }
@@ -276,14 +277,14 @@ function beforeRemove(treeId, treeNode) {
 function onRemove(e, treeId, treeNode) {
     console.log('确定删除节点了')
     console.log(treeNode)
-    showLog("[ "+getTime()+" onRemove ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name);
+    showLog("[ " + getTime() + " onRemove ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name);
 }
 
 function beforeRename(treeId, treeNode, newName, isCancel) {
     oldNodeName = treeNode.name
-    className = (className === "dark" ? "":"dark");
+    className = (className === "dark" ? "" : "dark");
     if (newName.length == 0) {
-        setTimeout(function() {
+        setTimeout(function () {
             var zTree = $.fn.zTree.getZTreeObj("role-tree");
             zTree.cancelEditName();
             alert("节点名称不能为空.");
@@ -296,14 +297,14 @@ function beforeRename(treeId, treeNode, newName, isCancel) {
 function onRename(e, treeId, treeNode, isCancel) {
     console.log(treeNode)
     $.ajax({
-        type:'post',
-        url:'/admin/role/create_update',
-        contentType:'application/json;charset=utf-8',
-        dataType:'json',
+        type: 'post',
+        url: '/admin/role/create_update',
+        contentType: 'application/json;charset=utf-8',
+        dataType: 'json',
         data: JSON.stringify({roleDesc: treeNode.name, id: treeNode.id}),
-        success:function(data){
+        success: function (data) {
             console.log(data);
-        },error:function(XMLHttpRequest, textStatus, errorThrown){
+        }, error: function (XMLHttpRequest, textStatus, errorThrown) {
             treeNode.name = oldNodeName
             var zTree = $.fn.zTree.getZTreeObj("role-tree");
             zTree.cancelEditName();
@@ -324,25 +325,26 @@ function showRenameBtn(treeId, treeNode) {
 
 function showLog(str) {
     if (!log) log = $("#log");
-    log.append("<li class='"+className+"'>"+str+"</li>");
-    if(log.children("li").length > 8) {
+    log.append("<li class='" + className + "'>" + str + "</li>");
+    if (log.children("li").length > 8) {
         log.get(0).removeChild(log.children("li")[0]);
     }
 }
 
 function getTime() {
-    var now= new Date(),
-        h=now.getHours(),
-        m=now.getMinutes(),
-        s=now.getSeconds(),
-        ms=now.getMilliseconds();
-    return (h+":"+m+":"+s+ " " +ms);
+    var now = new Date(),
+        h = now.getHours(),
+        m = now.getMinutes(),
+        s = now.getSeconds(),
+        ms = now.getMilliseconds();
+    return (h + ":" + m + ":" + s + " " + ms);
 }
 
 var newCount = 1;
+
 function addHoverDom(treeId, treeNode) {
     var sObj = $("#" + treeNode.tId + "_span");
-    if (treeNode.editNameFlag || $("#addBtn_"+treeNode.tId).length>0 || $("#setBtn_"+treeNode.tId).length>0) return;
+    if (treeNode.editNameFlag || $("#addBtn_" + treeNode.tId).length > 0 || $("#setBtn_" + treeNode.tId).length > 0) return;
     var addStr = "<span class='button add' id='addBtn_" + treeNode.tId
         + "' title='新增下级' onfocus='this.blur();'></span>";
     var setStr = "<button class='btn btn-sm set-icon icon-cog' style='margin-left: 5px;margin-top: -2px;padding: 2px;font-size: 11px;border-radius: 0;background-color: #ffffff;border: 1px solid #878787;' id='setBtn_" + treeNode.tId
@@ -352,94 +354,97 @@ function addHoverDom(treeId, treeNode) {
     sObj.append(addStr);
     sObj.append(setStr);
     sObj.append(pStr);
-    var btn = $("#addBtn_"+treeNode.tId);
-    var btn2 = $("#setBtn_"+treeNode.tId);
-    var btn3 = $("#pBtn_"+treeNode.tId);
-    if (btn) btn.bind("click", function(e){
+    var btn = $("#addBtn_" + treeNode.tId);
+    var btn2 = $("#setBtn_" + treeNode.tId);
+    var btn3 = $("#pBtn_" + treeNode.tId);
+    if (btn) btn.bind("click", function (e) {
         var postData = {
             pid: treeNode.id,
             roleDesc: "新角色" + newCount
         }
         $.ajax({
-            type:'post',
-            url:'/admin/role/create_update',
-            contentType:'application/json;charset=utf-8',
-            dataType:'json',
+            type: 'post',
+            url: '/admin/role/create_update',
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'json',
             data: JSON.stringify(postData),
-            success:function(data){
+            success: function (data) {
                 console.log("------------------")
                 console.log(data)
                 var zTree = $.fn.zTree.getZTreeObj("role-tree");
-                zTree.addNodes(treeNode, {id:data.data.id, pId:treeNode.id, name:"新角色" + newCount});
+                zTree.addNodes(treeNode, {id: data.data.id, pId: treeNode.id, name: "新角色" + newCount});
                 console.log(zTree)
                 var zTree = $.fn.zTree.getZTreeObj("role-tree");
                 newCount++
                 return false;
-            },error:function(XMLHttpRequest, textStatus, errorThrown){
+            }, error: function (XMLHttpRequest, textStatus, errorThrown) {
                 alert('新建失败，服务器内部错误');
             }
         });
         e.stopPropagation();
     });
-    if (btn2) btn2.bind("click", function(  e){
+    if (btn2) btn2.bind("click", function (e) {
         console.log('btn2');
         roleConfig(treeNode.id);
         e.stopPropagation();
     });
-    if (btn3) btn3.bind("click", function(e){
+    if (btn3) btn3.bind("click", function (e) {
         console.log('btn3');
         permissionConfig(treeNode.id);
         e.stopPropagation();
     })
 }
-function roleConfig(menuId){
+
+function roleConfig(menuId) {
     console.log(menuId);
-    var id=menuId;
+    var id = menuId;
     var index = layer.open({
         type: 2,
-        content: '/admin/roleButton/'+id+'/tabulation.html',
+        content: '/admin/roleButton/' + id + '/tabulation.html',
         area: ['80%', '80%'],
         maxmin: true,
-        success: function(index,layero){
+        success: function (index, layero) {
             $("#main").text("加载成功");
         },
-        error:function(index,layero){
+        error: function (index, layero) {
             console.log("请求不到页面");
         }
     });
     layer.full(index);
 }
+
 //权限页面
-function permissionConfig(menuId){
-    var id=menuId;
+function permissionConfig(menuId) {
+    var id = menuId;
     var index = layer.open({
         type: 2,
-        content: '/admin/roleResources/'+id+'/tabulation.html',
+        content: '/admin/roleResources/' + id + '/tabulation.html',
         area: ['80%', '80%'],
         maxmin: true,
-        success: function(index,layero){
+        success: function (index, layero) {
             $("#main").text("加载成功");
         },
-        error:function(index,layero){
+        error: function (index, layero) {
             console.log("请求不到页面");
         }
     });
     layer.full(index);
 }
+
 function removeHoverDom(treeId, treeNode) {
-    $("#addBtn_"+treeNode.tId).unbind().remove();
-    $("#setBtn_"+treeNode.tId).unbind().remove();
-    $("#pBtn_"+treeNode.tId).unbind().remove();
+    $("#addBtn_" + treeNode.tId).unbind().remove();
+    $("#setBtn_" + treeNode.tId).unbind().remove();
+    $("#pBtn_" + treeNode.tId).unbind().remove();
 }
 
 function selectAll() {
     var zTree = $.fn.zTree.getZTreeObj("role-tree");
-    zTree.setting.edit.editNameSelectAll =  $("#selectAll").attr("checked");
+    zTree.setting.edit.editNameSelectAll = $("#selectAll").attr("checked");
 }
 
 // 关闭模态窗
 function closeFrame() {
-    if(parent.layer) {
+    if (parent.layer) {
         var layerIndex = parent.layer.getFrameIndex(window.name);
         parent.layer.close(layerIndex);
     }

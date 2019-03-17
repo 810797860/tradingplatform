@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     /**
      * Belgium (Dutch) language package
      * Translated by @dokterpasta
@@ -42,7 +42,7 @@
             'default': 'Geef een andere waarde '
         },
         digits: {
-             'default': 'Geef alleen cijfers in'
+            'default': 'Geef alleen cijfers in'
         },
         ean: {
             'default': 'Geef een geldig EAN nummer'

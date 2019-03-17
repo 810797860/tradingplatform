@@ -3,7 +3,7 @@ var oVerifyContact = new VerifyContact();
 oVerifyContact.initDataInVerifyContact();
 oVerifyContact.handleEventInVerifyContact();
 
-function VerifyContact () {
+function VerifyContact() {
     var self = this;
     var verifyStepInVerifyContact = 1;
     var sendCodeTime = 60;

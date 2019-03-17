@@ -42,16 +42,16 @@ public class ShiroService {
         // 权限控制map.从数据库获取
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
         filterChainDefinitionMap.put("/logout", "logout");
-        filterChainDefinitionMap.put("/css/**","anon");
-        filterChainDefinitionMap.put("/js/**","anon");
-        filterChainDefinitionMap.put("/img/**","anon");
-        filterChainDefinitionMap.put("/font-awesome/**","anon");
+        filterChainDefinitionMap.put("/css/**", "anon");
+        filterChainDefinitionMap.put("/js/**", "anon");
+        filterChainDefinitionMap.put("/img/**", "anon");
+        filterChainDefinitionMap.put("/font-awesome/**", "anon");
         List<Resources> resourcesList = resourcesService.myQueryAll();
-        for(Resources resources:resourcesList){
+        for (Resources resources : resourcesList) {
 
-            if ( !ToolUtil.strIsEmpty(resources.getUrl())) {
-                String permission = "perms[" + resources.getUrl()+ "]";
-                filterChainDefinitionMap.put(resources.getUrl(),permission);
+            if (!ToolUtil.strIsEmpty(resources.getUrl())) {
+                String permission = "perms[" + resources.getUrl() + "]";
+                filterChainDefinitionMap.put(resources.getUrl(), permission);
             }
         }
         filterChainDefinitionMap.put("/**", "authc");

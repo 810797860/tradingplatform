@@ -7,6 +7,7 @@ import java.io.IOException;
 /**
  * 全局拦截器
  * 为了设置response头解决跨域问题
+ *
  * @author 81079
  */
 public class ShiroOriginFilter implements Filter {

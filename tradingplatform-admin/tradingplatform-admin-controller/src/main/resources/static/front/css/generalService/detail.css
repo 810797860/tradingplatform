@@ -1,25 +1,32 @@
-a{
+a {
     text-decoration: none;
 }
-a:link{
+
+a:link {
     text-decoration: none;
 }
-a:visited{
+
+a:visited {
     text-decoration: none;
 }
-a:hover{
+
+a:hover {
     text-decoration: none;
 }
-a:active{
+
+a:active {
     text-decoration: none;
 }
+
 ol, ul {
     margin-left: 15px;
 }
+
 .general-service-detail {
     width: 100%;
     background-color: #f0f0f0;
 }
+
 .general-service-detail .general-service-detail-container {
     width: 1170px;
     margin: 0 auto;
@@ -28,15 +35,18 @@ ol, ul {
     box-sizing: border-box;
     font-size: 0;
 }
+
 .general-service-detail .general-service-detail-container .address-title {
     height: 40px;
     line-height: 40px;
     color: #646464;
     font-size: 14px;
 }
+
 .general-service-detail .general-service-detail-container .address-title .to-link {
     color: #646464;
 }
+
 .general-service-detail .general-service-detail-container .address-title .to-link:hover {
     color: #0066cc;
 }
@@ -47,12 +57,14 @@ ol, ul {
     vertical-align: top;
     background-color: #fff;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area {
     width: 100%;
     padding: 15px;
     font-size: 0;
     box-sizing: border-box;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-left {
     display: inline-block;
     vertical-align: top;
@@ -60,6 +72,7 @@ ol, ul {
     height: 256px;
     margin-right: 44px;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-left .show-img {
     display: block;
     width: 100%;
@@ -67,11 +80,13 @@ ol, ul {
     border: 1px solid #f0f0f0;
     box-sizing: border-box;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-left .img-select-area {
     width: 100%;
     height: 60px;
     margin-top: 15px;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-left .img-select-area .img-select-item {
     width: 60px;
     height: 60px;
@@ -79,14 +94,14 @@ ol, ul {
     border: 1px solid #f0f0f0;
     box-sizing: border-box;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-left .img-select-area .img-select-item:first-child {
     margin-left: 0;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-left .img-select-area .active {
     border: 1px solid #0066cc;
 }
-
-
 
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-right {
     display: inline-block;
@@ -94,6 +109,7 @@ ol, ul {
     height: 100%;
     vertical-align: top;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-right .info-title {
     display: block;
     width: 100%;
@@ -104,12 +120,14 @@ ol, ul {
     font-size: 24px;
     color: #0066cc;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-right .info-area {
     width: 100%;
     height: 200px;
     padding-top: 30px;
     box-sizing: border-box;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-right .info-area .row {
     width: 100%;
     height: 40px;
@@ -118,6 +136,7 @@ ol, ul {
     margin: 0;
     box-sizing: border-box;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-right .info-area .row .label {
     display: inline-block;
     padding: 0;
@@ -129,6 +148,7 @@ ol, ul {
     color: #333333;
     vertical-align: top;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-right .info-area .row .row-data {
     display: inline-block;
     width: 420px;
@@ -138,6 +158,7 @@ ol, ul {
     font-size: 14px;
     color: #333333;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-right .info-area .row .row-data .type-item-text {
     position: relative;
     top: 50%;
@@ -152,6 +173,7 @@ ol, ul {
     word-break: break-all;
     overflow: hidden;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-right .info-area .row .money-area {
     display: inline-block;
     width: 370px;
@@ -159,6 +181,7 @@ ol, ul {
     line-height: 40px;
     vertical-align: top;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-right .info-area .row .money-area .label {
     display: inline-block;
     width: 70px;
@@ -168,6 +191,7 @@ ol, ul {
     color: #333333;
     text-align: right;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-right .info-area .row .money-area .money {
     display: inline-block;
     width: 300px;
@@ -177,12 +201,14 @@ ol, ul {
     padding-left: 10px;
     box-sizing: border-box;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-right .info-area .row .dock-evaluate-area {
     display: inline-block;
     width: 120px;
     height: 40px;
     font-size: 0;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-right .info-area .row .dock-evaluate-area .col {
     display: inline-block;
     width: 50%;
@@ -190,6 +216,7 @@ ol, ul {
     line-height: 20px;
     text-align: center;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-right .info-area .row .dock-evaluate-area .col .col-data {
     display: block;
     width: 100%;
@@ -197,6 +224,7 @@ ol, ul {
     font-size: 14px;
     color: #c81414;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-right .info-area .row .dock-evaluate-area .col .col-label {
     display: block;
     width: 100%;
@@ -204,6 +232,7 @@ ol, ul {
     font-size: 14px;
     color: #323232;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-right .info-area .button-area {
     width: 100%;
     height: 40px;
@@ -211,6 +240,7 @@ ol, ul {
     text-align: right;
     position: relative;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-right .info-area .button-area .collect-area {
     position: absolute;
     top: 10px;
@@ -228,13 +258,14 @@ ol, ul {
     border-radius: 10px;
     cursor: pointer;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-right .info-area .button-area .collect-area i {
     margin-right: 5px;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-right .info-area .button-area .collect-area .collect-num {
     margin-left: 8px;
 }
-
 
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-right .info-area .button-area button {
     width: 90px;
@@ -251,14 +282,17 @@ ol, ul {
     background-color: #fff;
     cursor: pointer;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-right .info-area .button-area button:first-child {
     margin-left: 0;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-right .info-area .button-area button.button-red {
     background-color: #c81414;
     color: #fff;
     border: none;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-right .info-area .button-area button.button-grey {
     background-color: #aeaeae;
     color: #fff;
@@ -273,6 +307,7 @@ ol, ul {
     margin-top: 5px;
     font-size: 0;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-bottom .col-area {
     display: inline-block;
     width: 90px;
@@ -281,40 +316,46 @@ ol, ul {
     text-align: center;
     font-size: 0;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-bottom .col-area span {
     vertical-align: middle;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-bottom .share-area {
     font-size: 14px;
     color: #0066cc;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-bottom .share-area i:before {
     color: #0066cc;
     vertical-align: middle;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-bottom .collect-area {
     font-size: 14px;
     color: #646464;
     cursor: pointer;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-bottom .collect-area i:before {
     color: #c81414;
     vertical-align: middle;
 }
+
 .general-service-detail .general-service-detail-container .content-left .service-info-area .service-info-bottom .collect-area .collect-num {
     color: #c81414;
 }
-
-
 
 .general-service-detail .general-service-detail-container .content-left .tab-desc-area {
     width: 100%;
     background-color: #fff;
 }
+
 .general-service-detail .general-service-detail-container .content-left .tab-desc-area img {
     max-width: 100%;
     overflow: hidden;
 }
+
 .general-service-detail .general-service-detail-container .content-left .tab-desc-area .tab {
     width: 100%;
     height: 40px;
@@ -324,6 +365,7 @@ ol, ul {
     box-sizing: border-box;
     font-size: 0;
 }
+
 .general-service-detail .general-service-detail-container .content-left .tab-desc-area .tab .tab-item {
     display: inline-block;
     width: 150px;
@@ -337,18 +379,22 @@ ol, ul {
     vertical-align: top;
     cursor: pointer;
 }
+
 .general-service-detail .general-service-detail-container .content-left .tab-desc-area .tab .tab-item-desc {
     width: 120px;
 }
+
 .general-service-detail .general-service-detail-container .content-left .tab-desc-area .tab .tab-item .tab-item-data {
     color: #c81414;
 }
+
 .general-service-detail .general-service-detail-container .content-left .tab-desc-area .tab .active {
     color: #0066cc;
     background-color: #ffffff;
     border-top: 2px solid #0066cc;
     border-bottom: 1px solid #fff;
 }
+
 .general-service-detail .general-service-detail-container .content-left .tab-desc-area .show-area {
     width: 100%;
     background-color: #fff;
@@ -357,13 +403,10 @@ ol, ul {
     font-size: 16px;
     text-indent: 2em;
 }
+
 .general-service-detail .general-service-detail-container .content-left .tab-desc-area .show-area p {
     word-break: break-all;
 }
-
-
-
-
 
 .general-service-detail .general-service-detail-container .content-right {
     display: inline-block;
@@ -373,13 +416,11 @@ ol, ul {
     background-color: #fff;
 }
 
-
-
-
 /* 在线咨询弹出框 */
 .online-consultation-id-area {
 
 }
+
 .online-consultation-id-area .online-consultation-content {
     width: 90%;
     height: 190px;
@@ -388,6 +429,7 @@ ol, ul {
     margin-left: 5%;
     margin-top: 20px;
 }
+
 .online-consultation-id-area .online-consultation-submit {
     margin-left: 200px;
     width: 100px;
@@ -403,18 +445,16 @@ ol, ul {
     cursor: pointer;
 }
 
-
-
-
-
 /* 在线咨询弹出框 */
 .inline-block {
     display: inline-block;
     vertical-align: top;
 }
+
 .online-consultation-area {
     padding: 20px 20px 20px 5px;
 }
+
 .online-consultation-area .online-consultation-label {
     width: 60px;
     height: 30px;
@@ -423,7 +463,8 @@ ol, ul {
     font-size: 14px;
     text-align: right;
 }
-.online-consultation-area input{
+
+.online-consultation-area input {
     height: 30px;
     line-height: 30px;
     background-color: #ffffff;
@@ -434,25 +475,31 @@ ol, ul {
     color: #333333;
     border-radius: 4px;
 }
+
 .online-consultation-area .online-consultation-error-info-area {
     height: 15px;
     padding-left: 60px;
 }
+
 .online-consultation-area .online-consultation-error-info-area .online-consultation-error-info {
     display: none;
     font-size: 12px;
     color: red;
 }
+
 .online-consultation-area .error-border {
     border: 1px solid red;
 }
+
 .online-consultation-area .online-consultation-submit-area {
     text-align: center;
 }
+
 .online-consultation-area .online-consultation-name-area .online-consultation-name,
 .online-consultation-area .online-consultation-phone-area .online-consultation-phone {
     width: 390px;
 }
+
 .online-consultation-area .online-consultation-content-area .online-consultation-content {
     width: 390px;
     height: 190px;
@@ -465,6 +512,7 @@ ol, ul {
     border-radius: 4px;
     text-align: left;
 }
+
 .online-consultation-area .online-consultation-submit {
     width: 100px;
     height: 30px;

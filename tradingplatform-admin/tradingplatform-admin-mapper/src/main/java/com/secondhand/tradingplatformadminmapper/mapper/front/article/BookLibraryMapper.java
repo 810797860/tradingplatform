@@ -8,10 +8,10 @@ import org.springframework.stereotype.Repository;
 import java.util.Map;
 
 /**
- *   @description : BookLibraryMapper 接口
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2019-03-16
+ * @author zhangjk
+ * @description : BookLibraryMapper 接口
+ * ---------------------------------
+ * @since 2019-03-16
  */
 @Repository
 public interface BookLibraryMapper extends BaseDao<BookLibrary> {
@@ -19,6 +19,7 @@ public interface BookLibraryMapper extends BaseDao<BookLibrary> {
     /**
      * 获取Map数据（Obj）
      * 自定化MapSql到MysqlGenerator生成
+     *
      * @param bookLibraryId
      * @return
      */

@@ -29,10 +29,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *   @description : FormField 服务实现类
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2018-11-09
+ * @author zhangjk
+ * @description : FormField 服务实现类
+ * ---------------------------------
+ * @since 2018-11-09
  */
 
 @Service
@@ -89,7 +89,7 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
     @CacheEvict(allEntries = true)
     public FormField myFormFieldCreateUpdate(FormField formField) {
         Long formFieldId = formField.getId();
-        if (formFieldId == null){
+        if (formFieldId == null) {
             formField.setUuid(ToolUtil.getUUID());
             formFieldMapper.insert(formField);
 
@@ -140,58 +140,58 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
             //text默认了文本（附件？）
             //判断字段类型与展示类型
             String dataType = myFormField.get("DATA_TYPE").toString();
-            if (dataType.equals(MagicalValue.DISPLAY_TYPE_BIGINT)){
+            if (dataType.equals(MagicalValue.DISPLAY_TYPE_BIGINT)) {
                 formField.setFieldType(SystemSelectItem.FIELD_TYPE_BIGINT_ASSOCIATED);
                 formField.setShowType(SystemSelectItem.SHOW_TYPE_ASSOCIATED_CHOICE);
 
-            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_LONGTEXT)){
+            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_LONGTEXT)) {
                 formField.setFieldType(SystemSelectItem.FIELD_TYPE_LONGTEXT_EDITOR);
                 formField.setShowType(SystemSelectItem.SHOW_TYPE_HTML_EDITOR);
 
-            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_TEXT)){
+            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_TEXT)) {
                 formField.setFieldType(SystemSelectItem.FIELD_TYPE_TEXT_TEXT);
                 formField.setShowType(SystemSelectItem.SHOW_TYPE_TEXT);
 
-            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_DATETIME)){
+            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_DATETIME)) {
                 formField.setFieldType(SystemSelectItem.FIELD_TYPE_DATETIME);
                 formField.setShowType(SystemSelectItem.SHOW_TYPE_DATE);
 
-            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_VARCHAR)){
+            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_VARCHAR)) {
                 formField.setFieldType(SystemSelectItem.FIELD_TYPE_VARCHAR);
                 formField.setShowType(SystemSelectItem.SHOW_TYPE_TEXT);
 
-            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_MEDIUMTEXT)){
+            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_MEDIUMTEXT)) {
                 formField.setFieldType(SystemSelectItem.FIELD_TYPE_MEDIUMTEXT);
                 formField.setShowType(SystemSelectItem.SHOW_TYPE_TEXT);
 
-            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_BIT)){
+            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_BIT)) {
                 formField.setFieldType(SystemSelectItem.FIELD_TYPE_BIT);
                 formField.setShowType(SystemSelectItem.SHOW_TYPE_BIT);
 
-            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_FLOAT)){
+            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_FLOAT)) {
                 formField.setFieldType(SystemSelectItem.FIELD_TYPE_FLOAT);
                 formField.setShowType(SystemSelectItem.SHOW_TYPE_FLOATING_POINT);
 
-            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_DOUBLE)){
+            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_DOUBLE)) {
                 formField.setFieldType(SystemSelectItem.FIELD_TYPE_DOUBLE);
                 formField.setShowType(SystemSelectItem.SHOW_TYPE_FLOATING_POINT);
 
-            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_INT)){
+            } else if (dataType.equals(MagicalValue.DISPLAY_TYPE_INT)) {
                 formField.setFieldType(SystemSelectItem.FIELD_TYPE_INT);
                 formField.setShowType(SystemSelectItem.SHOW_TYPE_INTEGER);
             }
 
             //判断是否为必填项
             String isNullable = myFormField.get("IS_NULLABLE").toString();
-            if (isNullable.equals(MagicalValue.BOOLEAN_YES)){
+            if (isNullable.equals(MagicalValue.BOOLEAN_YES)) {
                 formField.setRequired(false);
-            } else if (isNullable.equals(MagicalValue.BOOLEAN_NO)){
+            } else if (isNullable.equals(MagicalValue.BOOLEAN_NO)) {
                 formField.setRequired(true);
             }
 
             //默认值
             //判空
-            if (myFormField.containsKey(MagicalValue.INFORMATION_SCHEMA_COLUMN_DEFAULT)){
+            if (myFormField.containsKey(MagicalValue.INFORMATION_SCHEMA_COLUMN_DEFAULT)) {
                 String columnDefault = myFormField.get("COLUMN_DEFAULT").toString();
                 formField.setDefaultValue(columnDefault);
             }
@@ -218,12 +218,12 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
         formField.setDefaultValue(null);
         //遍历排序
         List<Sort> sorts = formField.getSorts();
-        if (sorts == null){
+        if (sorts == null) {
             //为null时，默认按created_at倒序
             wrapper.orderBy("id", false);
         } else {
             //遍历排序
-            sorts.forEach( sort -> {
+            sorts.forEach(sort -> {
                 wrapper.orderBy(sort.getField(), sort.getAsc());
             });
         }
@@ -270,7 +270,7 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdate(FormField formField) {
         //没有uuid的话要加上去
-        if (formField.getUuid().equals(null)){
+        if (formField.getUuid().equals(null)) {
             formField.setUuid(ToolUtil.getUUID());
         }
         return this.insertOrUpdate(formField);
@@ -281,7 +281,7 @@ public class FormFieldServiceImpl extends BaseServiceImpl<FormFieldMapper, FormF
     public boolean myInsertOrUpdateBatch(List<FormField> formFieldList) {
         formFieldList.forEach(formField -> {
             //没有uuid的话要加上去
-            if (formField.getUuid().equals(null)){
+            if (formField.getUuid().equals(null)) {
                 formField.setUuid(ToolUtil.getUUID());
             }
         });

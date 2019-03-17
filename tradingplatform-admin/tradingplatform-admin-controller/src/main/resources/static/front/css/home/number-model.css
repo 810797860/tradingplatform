@@ -1,25 +1,31 @@
 .clearfix {
     overflow: hidden;
 }
+
 .float-l {
     float: left;
 }
+
 .float-r {
     float: right;
 }
+
 .number-model {
     width: 100%;
 }
+
 .number-model .number-container {
     width: 1170px;
     margin: 0 auto;
 }
+
 .number-model .number-container .number-top {
     height: 60px;
     line-height: 40px;
     padding: 10px 0;
     box-sizing: border-box;
 }
+
 .number-model .number-container .number-top .number-label {
     width: 250px;
     height: 100%;
@@ -28,6 +34,7 @@
     font-size: 18px;
     color: #323232;
 }
+
 /*八大分类*/
 .number-model .number-container .number-top .type-body {
     -webkit-box-sizing: border-box;
@@ -40,6 +47,7 @@
     padding: 0 50px;
     overflow: hidden;
 }
+
 .number-model .number-container .number-top .type-body .left-btn,
 .number-model .number-container .number-top .type-body .right-btn {
     position: absolute;
@@ -52,20 +60,25 @@
     background-color: #ffffff;
     z-index: 1;
 }
+
 .number-model .number-container .number-top .type-body .left-btn {
     left: 0;
 }
+
 .number-model .number-container .number-top .type-body .right-btn {
     right: 0;
 }
+
 .number-model .number-container .number-top .type-body .right-btn:before {
     font-size: 18px;
     color: #9e9e9e;
 }
+
 .number-model .number-container .number-top .type-body .left-btn:before {
     font-size: 22px;
     color: #9e9e9e;
 }
+
 /*八大分类（end）*/
 .number-model .number-container .number-top .number-more-btn {
     width: 80px;
@@ -78,12 +91,14 @@
 .number-model .number-container .number-bottom {
     padding-bottom: 30px;
 }
+
 .number-model .number-container .number-bottom .number-left-img {
     width: 290px;
     height: 500px;
     background: url("/static/front/assets/image/home-number-bg.jpg") no-repeat;
     background-size: 290px 500px;
 }
+
 .number-model .number-container .number-bottom .number-bottom-right {
     margin-left: 20px;
     width: 860px;
@@ -100,6 +115,7 @@
     height: 500px;
     list-style: none;
 }
+
 .number-model .number-content .number-content-item {
     position: absolute;
     top: 0;
@@ -108,12 +124,14 @@
     width: 100%;
     height: 100%;
 }
+
 .number-model .number-content .number-content-item-none {
     font-size: 50px;
     font-weight: bold;
     text-align: center;
     line-height: 10;
 }
+
 .number-model .number-content .number-content-item div[class*="number-picture-"] {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -122,12 +140,15 @@
     height: 50%;
     overflow: hidden;
 }
+
 .number-model .number-content .number-content-item .number-picture-big {
     width: 50%;
 }
-.number-model .number-content .number-content-item .number-picture-small{
+
+.number-model .number-content .number-content-item .number-picture-small {
     width: 25%;
 }
+
 .number-model .number-content .number-content-item div[class*="number-picture-"] .number-picture {
     position: relative;
     top: 50%;
@@ -136,6 +157,7 @@
     width: auto;
     height: 110%;
 }
+
 .number-model .number-content .number-content-item .number-hall-entrance {
     float: left;
     position: relative;
@@ -148,6 +170,7 @@
     text-align: center;
     overflow: hidden;
 }
+
 .number-model .number-content .number-hall-entrance-content {
     position: absolute;
     top: 40px;
@@ -158,6 +181,7 @@
     max-height: 170px;
     text-align: left;
 }
+
 .number-model .number-content p[class*="number-hall-entrance-"] {
     display: inline-block;
     max-width: 100%;
@@ -165,17 +189,20 @@
     color: #ffffff;
     text-align: left;
 }
+
 .number-model .number-content .number-hall-entrance-title {
     padding: 10px 0;
     font-size: 18px;
     border-bottom: 1px solid #ffffff;
 }
+
 .number-model .number-content p.number-hall-entrance-en {
     display: inherit;
     margin-top: 10px;
     font-size: 12px;
     line-height: 20px;
 }
+
 .number-model .number-content .number-hall-entrance-btn {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -196,6 +223,7 @@
     cursor: pointer;
     outline: none;
 }
+
 .number-model .number-bottom-right .number-mask {
     position: absolute;
     top: 0;
@@ -204,7 +232,7 @@
     height: 100%;
     text-align: center;
     line-height: 500px;
-    background: rgba(255,255,255, 0.8);
+    background: rgba(255, 255, 255, 0.8);
 }
 
 /*

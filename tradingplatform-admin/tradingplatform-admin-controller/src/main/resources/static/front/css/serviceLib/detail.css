@@ -1,19 +1,24 @@
-a{
+a {
     text-decoration: none;
 }
-a:link{
+
+a:link {
     text-decoration: none;
 }
-a:visited{
+
+a:visited {
     text-decoration: none;
 }
-a:hover{
+
+a:hover {
     text-decoration: none;
 }
-a:active{
+
+a:active {
     text-decoration: none;
 }
-.service-lib-detail{
+
+.service-lib-detail {
     position: relative;
     top: 0;
     left: 50%;
@@ -22,7 +27,8 @@ a:active{
     width: 1170px;
     height: auto;
 }
-.service-lib-detail .address-title{
+
+.service-lib-detail .address-title {
     width: 100%;
     height: 40px;
     line-height: 40px;
@@ -30,17 +36,21 @@ a:active{
     color: #646464;
     background-color: #f0f0f0;
 }
+
 .service-lib-detail .address-title .to-link {
     color: #646464;
 }
+
 .service-lib-detail .address-title .to-link:hover {
     color: #114b2b;
 }
-.service-lib-detail-main{
+
+.service-lib-detail-main {
     width: 100%;
     height: auto;
     overflow: hidden;
 }
+
 /* tab */
 .service-lib-detail .tab {
     width: 100%;
@@ -51,6 +61,7 @@ a:active{
     box-sizing: border-box;
     font-size: 0;
 }
+
 .service-lib-detail .tab .tab-item {
     display: inline-block;
     width: 100px;
@@ -64,16 +75,19 @@ a:active{
     vertical-align: top;
     cursor: pointer;
 }
+
 .service-lib-detail .tab .tab-item:hover {
     color: #0088c0;
     border-top: 2px solid #0088c0;
     border-bottom: 1px solid #fff;
 }
+
 .service-lib-detail .tab .active {
     color: #0088c0;
     border-top: 2px solid #0088c0;
     border-bottom: 1px solid #fff;
 }
-.case-hall{
+
+.case-hall {
     font-size: 0;
 }

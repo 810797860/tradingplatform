@@ -1,30 +1,36 @@
-a.home-merchant-item{
+a.home-merchant-item {
     color: #323232;
     text-decoration: none;
 }
-a.home-merchant-item:link{
+
+a.home-merchant-item:link {
     color: #323232;
     text-decoration: none;
 }
-a.home-merchant-item:visited{
+
+a.home-merchant-item:visited {
     color: #323232;
     text-decoration: none;
 }
-a.home-merchant-item:hover{
+
+a.home-merchant-item:hover {
     color: #323232;
     text-decoration: none;
 }
-a.home-merchant-item:active{
+
+a.home-merchant-item:active {
     color: #323232;
     text-decoration: none;
 }
-.home-merchant-div{
+
+.home-merchant-div {
     box-sizing: border-box;
     width: 100%;
     height: 426px;
     padding: 30px 0;
 }
-.home-merchant-inside-div{
+
+.home-merchant-inside-div {
     position: relative;
     top: 0;
     left: 50%;
@@ -32,13 +38,15 @@ a.home-merchant-item:active{
     width: 1170px;
     height: 100%;
 }
-.home-merchant-left-part{
+
+.home-merchant-left-part {
     float: left;
     width: 805px;
     height: 100%;
     overflow-y: hidden;
 }
-.home-merchant-item{
+
+.home-merchant-item {
     float: left;
     box-sizing: border-box;
     margin: 0 7px 14px;
@@ -47,30 +55,35 @@ a.home-merchant-item:active{
     border: 1px solid #eeeeee;
     border-radius: 10px;
     overflow: hidden;
-    -webkit-box-shadow:  0 0 10px #eeeeee;
-    -moz-box-shadow:  0 0 10px #eeeeee;
-    box-shadow:  0 0 10px #eeeeee;
+    -webkit-box-shadow: 0 0 10px #eeeeee;
+    -moz-box-shadow: 0 0 10px #eeeeee;
+    box-shadow: 0 0 10px #eeeeee;
 }
-.home-merchant-item:hover{
+
+.home-merchant-item:hover {
     border: 1px solid #0066cc;
 }
-.home-merchant-right-part{
+
+.home-merchant-right-part {
     float: right;
     width: 309px;
     height: 100%;
 }
-.home-merchant-title-div{
+
+.home-merchant-title-div {
     width: 100%;
     height: auto;
 }
-.home-merchant-title-div p{
+
+.home-merchant-title-div p {
     font-size: 30px;
     font-family: "PingFang SC";
     line-height: 32px;
     color: #303030;
     font-weight: bold;
 }
-.home-merchant-description{
+
+.home-merchant-description {
     margin-top: 50px;
     display: block;
     width: 240px;
@@ -80,12 +93,14 @@ a.home-merchant-item:active{
     color: #393939;
     word-break: break-all;
 }
-.home-merchant-number{
+
+.home-merchant-number {
     font-family: "PingFang SC";
     font-size: 20px;
     color: #e30000;
 }
-.home-merchant-more-btn, .home-merchant-join-btn{
+
+.home-merchant-more-btn, .home-merchant-join-btn {
     float: left;
     margin-top: 78px;
     width: 130px;
@@ -100,10 +115,12 @@ a.home-merchant-item:active{
     cursor: pointer;
     outline: none;
 }
-.home-merchant-more-btn{
+
+.home-merchant-more-btn {
     background-color: #0066cc;
 }
-.home-merchant-join-btn{
+
+.home-merchant-join-btn {
     margin-left: 49px;
     background-color: #ff8d24;
 }

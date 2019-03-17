@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     /**
      * Swedish language package
      * Translated by @ulsa
@@ -42,7 +42,7 @@
             'default': 'Vänligen mata in ett annat värde'
         },
         digits: {
-             'default': 'Vänligen mata in endast siffror'
+            'default': 'Vänligen mata in endast siffror'
         },
         ean: {
             'default': 'Vänligen mata in ett giltigt EAN-nummer'

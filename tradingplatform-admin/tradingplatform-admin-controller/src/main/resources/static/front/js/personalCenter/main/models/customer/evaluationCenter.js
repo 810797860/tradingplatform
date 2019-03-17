@@ -38,7 +38,7 @@ $(function () {
             // console.log($(this).classList);
             $(this).siblings().removeClass('evaluation-center-tab-item-active');
             $(this).addClass('evaluation-center-tab-item-active');
-            if ( $(this).text() === '发出的评价') {
+            if ($(this).text() === '发出的评价') {
                 $('.received-evaluation').hide();
                 $('.send-evaluation').show();
                 $('.send-evaluation-splitpage').show();
@@ -60,9 +60,9 @@ $(function () {
 
     // 标题跳转
     function titleClickToDetail() {
-        $(document).off().on('click','.send-evaluation-item-title',function () {
+        $(document).off().on('click', '.send-evaluation-item-title', function () {
             var id = $(this).data('id');
-            window.open('/f/'+ id +'/demand_detail.html?pc=true');
+            window.open('/f/' + id + '/demand_detail.html?pc=true');
             $(this).removeData('id');
         })
     }
@@ -217,7 +217,7 @@ $(function () {
         for (var i = 0; i < list.length; i++) {
             var item = '<div class="send-evaluation-item">' +
                 '<div class="send-evaluation-item-left">' +
-                '<span class="send-evaluation-item-title" title="'+ list[i].project_name +'">'+ list[i].project_name +'</span>' +
+                '<span class="send-evaluation-item-title" title="' + list[i].project_name + '">' + list[i].project_name + '</span>' +
                 '</div>' +
                 '<div class="send-evaluation-item-right">' +
                 '<div class="send-evaluation-item-right-head">' +
@@ -253,31 +253,31 @@ $(function () {
                 '<li style="cursor: pointer"><i class="icon-collect normal-star"></i></li>' +
                 '<li style="cursor: pointer"><i class="icon-collect normal-star"></i></li>' +
                 '<li style="cursor: pointer"><i class="icon-collect normal-star"></i></li>' +
-                '</ul>'+
+                '</ul>' +
                 '</div>' +
                 '<span class="send-evaluation-item-right-head-item-title">工作态度</span>' +
-                '<div class="send-evaluation-item-right-head-item">'+
-                '<ul class="evaluation-stars-list">'+
-                '<li style="cursor: pointer"><i class="icon-collect active-star"></i></li>'+
-                '<li style="cursor: pointer"><i class="icon-collect active-star"></i></li>'+
-                '<li style="cursor: pointer"><i class="icon-collect active-star"></i></li>'+
-                '<li style="cursor: pointer"><i class="icon-collect active-star"></i></li>'+
-                '<li style="cursor: pointer"><i class="icon-collect active-star"></i></li>'+
-                '</ul>'+
-                '<ul class="evaluation-stars-list-normal">'+
-                '<li style="cursor: pointer"><i class="icon-collect normal-star"></i></li>'+
-                '<li style="cursor: pointer"><i class="icon-collect normal-star"></i></li>'+
-                '<li style="cursor: pointer"><i class="icon-collect normal-star"></i></li>'+
-                '<li style="cursor: pointer"><i class="icon-collect normal-star"></i></li>'+
-                '<li style="cursor: pointer"><i class="icon-collect normal-star"></i></li>'+
-                '</ul>'+
-                '</div>'+
-                '</div>'+
-                '<div class="send-evaluation-item-right-footer">'+
-                '<span class="send-evaluation-item-right-footer-time">'+ $(this).formatTime(new Date(list[i].created_at), false, 'YYYY-MM-DD') +'</span>'+
-                '<p class="send-evaluation-item-right-footer-content">'+ list[i].comments +'</p>' +
-                '</div>'+
-                '</div>'+
+                '<div class="send-evaluation-item-right-head-item">' +
+                '<ul class="evaluation-stars-list">' +
+                '<li style="cursor: pointer"><i class="icon-collect active-star"></i></li>' +
+                '<li style="cursor: pointer"><i class="icon-collect active-star"></i></li>' +
+                '<li style="cursor: pointer"><i class="icon-collect active-star"></i></li>' +
+                '<li style="cursor: pointer"><i class="icon-collect active-star"></i></li>' +
+                '<li style="cursor: pointer"><i class="icon-collect active-star"></i></li>' +
+                '</ul>' +
+                '<ul class="evaluation-stars-list-normal">' +
+                '<li style="cursor: pointer"><i class="icon-collect normal-star"></i></li>' +
+                '<li style="cursor: pointer"><i class="icon-collect normal-star"></i></li>' +
+                '<li style="cursor: pointer"><i class="icon-collect normal-star"></i></li>' +
+                '<li style="cursor: pointer"><i class="icon-collect normal-star"></i></li>' +
+                '<li style="cursor: pointer"><i class="icon-collect normal-star"></i></li>' +
+                '</ul>' +
+                '</div>' +
+                '</div>' +
+                '<div class="send-evaluation-item-right-footer">' +
+                '<span class="send-evaluation-item-right-footer-time">' + $(this).formatTime(new Date(list[i].created_at), false, 'YYYY-MM-DD') + '</span>' +
+                '<p class="send-evaluation-item-right-footer-content">' + list[i].comments + '</p>' +
+                '</div>' +
+                '</div>' +
                 '</div>';
 
             $(fragment).append(item);
@@ -293,17 +293,17 @@ $(function () {
         // }, 0)
     }
 
-    function createListOfObtain (list) {
+    function createListOfObtain(list) {
         // var item =
         var fragment = document.createDocumentFragment();
         for (var i = 0; i < list.length; i++) {
             var item = '<div class="received-evaluation-item">' +
                 '<div class="received-evaluation-item-left">' +
-                '<span class="received-evaluation-item-title" title="'+ list[i].project_name +'">'+ list[i].project_name +'</span>' +
+                '<span class="received-evaluation-item-title" title="' + list[i].project_name + '">' + list[i].project_name + '</span>' +
                 '</div>' +
                 '<div class="received-evaluation-item-center">' +
                 '<img src="\static\front\assets\image\empty3.jpg" alt="用户头像" class="received-evaluation-item-center-image">' +
-                '<span class="received-evaluation-item-center-evaluater">评论人：'+ JSON.parse(list[i].user_id).user_name +'</span>' +
+                '<span class="received-evaluation-item-center-evaluater">评论人：' + JSON.parse(list[i].user_id).user_name + '</span>' +
                 '</div>' +
                 '<div class="received-evaluation-item-right">' +
                 '            <div class="received-evaluation-item-right-head">' +
@@ -359,8 +359,8 @@ $(function () {
                 '            </div>' +
                 '            </div>' +
                 '            <div class="received-evaluation-item-right-footer">' +
-                '            <span class="received-evaluation-item-right-footer-time">'+ $(this).formatTime(new Date(list[i].created_at), false, 'YYYY-MM-DD') +'</span>' +
-                '            <p class="received-evaluation-item-right-footer-content">'+  list[i].comments +'</p>' +
+                '            <span class="received-evaluation-item-right-footer-time">' + $(this).formatTime(new Date(list[i].created_at), false, 'YYYY-MM-DD') + '</span>' +
+                '            <p class="received-evaluation-item-right-footer-content">' + list[i].comments + '</p>' +
                 '        </div>' +
                 '        </div>'
 

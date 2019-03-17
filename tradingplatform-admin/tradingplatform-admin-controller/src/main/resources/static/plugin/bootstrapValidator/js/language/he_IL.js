@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     /**
      * Hebrew language package
      * Translated by @yakidahan
@@ -42,7 +42,7 @@
             'default': 'נא להזין ערך שונה'
         },
         digits: {
-             'default': 'נא להזין ספרות בלבד'
+            'default': 'נא להזין ספרות בלבד'
         },
         ean: {
             'default': 'נא להזין מספר EAN תקין'

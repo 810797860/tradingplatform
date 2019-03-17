@@ -6,141 +6,141 @@ import com.secondhand.tradingplatformcommon.base.BaseEntity.BaseEntity;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- *   @description : Annex 实体类
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2018-12-14
+ * @author zhangjk
+ * @description : Annex 实体类
+ * ---------------------------------
+ * @since 2018-12-14
  */
 @TableName("c_business_annex")
 public class Annex extends BaseEntity {
 
-	/**
-	 * 序列化标志
-	 */
+    /**
+     * 序列化标志
+     */
     private static final long serialVersionUID = 1L;
 
-            /**
-             * 文件名
-             */
-            @ApiModelProperty("文件名")
-            @TableField("name")
-												
-			private String name;
+    /**
+     * 文件名
+     */
+    @ApiModelProperty("文件名")
+    @TableField("name")
 
-            /**
-             * 文件类型
-             */
-            @ApiModelProperty("文件类型")
-            @TableField("type")
-												
-			private String type;
+    private String name;
 
-            /**
-             * 文件后缀
-             */
-            @ApiModelProperty("文件后缀")
-            @TableField("extension")
-												
-			private String extension;
+    /**
+     * 文件类型
+     */
+    @ApiModelProperty("文件类型")
+    @TableField("type")
 
-            /**
-             * 文件大小
-             */
-            @ApiModelProperty("文件大小")
-            @TableField("size")
-												
-			private Float size;
+    private String type;
 
-            /**
-             * 文件地址
-             */
-            @ApiModelProperty("文件地址")
-            @TableField("path")
-												
-			private String path;
+    /**
+     * 文件后缀
+     */
+    @ApiModelProperty("文件后缀")
+    @TableField("extension")
 
-            /**
-             * 文件md5
-             */
-            @ApiModelProperty("文件md5")
-            @TableField("md5")
-												
-			private String md5;
+    private String extension;
 
-            /**
-             * 消息头
-             */
-            @ApiModelProperty("消息头")
-            @TableField("content_type")
-												
-			private String contentType;
+    /**
+     * 文件大小
+     */
+    @ApiModelProperty("文件大小")
+    @TableField("size")
 
-        	public String getName() {
-                return name;
-                }
+    private Float size;
 
-            public void setName(String name) {
-                this.name = name;
-                }
+    /**
+     * 文件地址
+     */
+    @ApiModelProperty("文件地址")
+    @TableField("path")
 
-        	public String getType() {
-                return type;
-                }
+    private String path;
 
-            public void setType(String type) {
-                this.type = type;
-                }
+    /**
+     * 文件md5
+     */
+    @ApiModelProperty("文件md5")
+    @TableField("md5")
 
-        	public String getExtension() {
-                return extension;
-                }
+    private String md5;
 
-            public void setExtension(String extension) {
-                this.extension = extension;
-                }
+    /**
+     * 消息头
+     */
+    @ApiModelProperty("消息头")
+    @TableField("content_type")
 
-        	public Float getSize() {
-                return size;
-                }
+    private String contentType;
 
-            public void setSize(Float size) {
-                this.size = size;
-                }
+    public String getName() {
+        return name;
+    }
 
-        	public String getPath() {
-                return path;
-                }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-            public void setPath(String path) {
-                this.path = path;
-                }
+    public String getType() {
+        return type;
+    }
 
-        	public String getMd5() {
-                return md5;
-                }
+    public void setType(String type) {
+        this.type = type;
+    }
 
-            public void setMd5(String md5) {
-                this.md5 = md5;
-                }
+    public String getExtension() {
+        return extension;
+    }
 
-        	public String getContentType() {
-                return contentType;
-                }
+    public void setExtension(String extension) {
+        this.extension = extension;
+    }
 
-            public void setContentType(String contentType) {
-                this.contentType = contentType;
-                }
+    public Float getSize() {
+        return size;
+    }
 
-	@Override
-	public String toString() {
-		return "Annex{" +
-			", name=" + name +
-			", type=" + type +
-			", extension=" + extension +
-			", size=" + size +
-			", path=" + path +
-			", md5=" + md5 +
-			", contentType=" + contentType +
-			"}";
-	}
+    public void setSize(Float size) {
+        this.size = size;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public String getMd5() {
+        return md5;
+    }
+
+    public void setMd5(String md5) {
+        this.md5 = md5;
+    }
+
+    public String getContentType() {
+        return contentType;
+    }
+
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
+    }
+
+    @Override
+    public String toString() {
+        return "Annex{" +
+                ", name=" + name +
+                ", type=" + type +
+                ", extension=" + extension +
+                ", size=" + size +
+                ", path=" + path +
+                ", md5=" + md5 +
+                ", contentType=" + contentType +
+                "}";
+    }
 }

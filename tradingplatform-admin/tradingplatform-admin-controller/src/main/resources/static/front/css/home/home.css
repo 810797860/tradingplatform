@@ -1,22 +1,28 @@
-p{
+p {
     margin: 0;
 }
-a{
+
+a {
     text-decoration: none;
 }
-a:link{
+
+a:link {
     text-decoration: none;
 }
-a:visited{
+
+a:visited {
     text-decoration: none;
 }
-a:hover{
+
+a:hover {
     text-decoration: none;
 }
-a:active{
+
+a:active {
     text-decoration: none;
 }
-.homeProjectNumberShowDiv{
+
+.homeProjectNumberShowDiv {
     position: relative;
     top: 0;
     left: 0;
@@ -24,7 +30,8 @@ a:active{
     height: 90px;
     background-color: #ffffff;
 }
-.homeProjectNumberInsideDiv{
+
+.homeProjectNumberInsideDiv {
     box-sizing: border-box;
     position: absolute;
     left: 0;
@@ -34,52 +41,64 @@ a:active{
     height: 100%;
     padding: 15px 0;
 }
-.homeProjectNumberItem{
+
+.homeProjectNumberItem {
     float: left;
     box-sizing: border-box;
     width: 25%;
     height: 100%;
     border-right: 1px solid #f0f0f0;
 }
-.homeProjectNumberItem:last-child{
+
+.homeProjectNumberItem:last-child {
     border-right-width: 0;
 }
-.homeProjectNumberItem div{
+
+.homeProjectNumberItem div {
     float: left;
 }
-.homeProjectNumberItemLeftPart{
+
+.homeProjectNumberItemLeftPart {
     width: 48px;
     height: 100%;
     margin-left: 30px;
     line-height: 48px;
 }
+
 .homeProjectNumberItemIcon {
     line-height: 60px;
 }
-.homeProjectNumberItemIcon:before{
+
+.homeProjectNumberItemIcon:before {
     font-size: 60px;
     color: #c8c8c8;
 }
-.homeProjectNumberItemRightPart{
+
+.homeProjectNumberItemRightPart {
     margin-left: 20px;
     width: auto;
     height: 50px;
 }
-.homeProjectNumberText, .homeProjectNumberItemTip{
+
+.homeProjectNumberText, .homeProjectNumberItemTip {
     font-size: 14px;
     color: #666666;
 }
-.homeProjectNumber{
+
+.homeProjectNumber {
     font-size: 30px;
-    color:#ff7519;
+    color: #ff7519;
     font-weight: bold;
 }
-.homeProjectNumber:after{
+
+.homeProjectNumber:after {
     content: ' ';
 }
-.homeProjectNumberItemTip{
+
+.homeProjectNumberItemTip {
     text-align: center;
 }
+
 .home-model-item {
     width: 100%;
 }
@@ -92,6 +111,7 @@ a:active{
     padding-left: 40px;
     box-sizing: border-box;
 }
+
 .home-model-item .type-area .type-item {
     box-sizing: border-box;
     width: 175px;
@@ -103,6 +123,7 @@ a:active{
     cursor: pointer;
     border-bottom: 2px solid transparent;
 }
+
 .home-model-item .type-area .type-item .type-title {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -111,33 +132,41 @@ a:active{
     height: 100%;
     border-bottom: 2px solid transparent;
 }
+
 /* 奇数 */
 .home-model-item:nth-child(odd) {
     background: #ffffff;
     border-top: 1px solid #f0f0f0;
 }
+
 .home-model-item:nth-child(odd) p[class*="-label"] {
     border-left: 6px solid #ff7519;
 }
-.home-model-item:nth-child(odd) ul.type-area li.type-item p.type-title:hover{
+
+.home-model-item:nth-child(odd) ul.type-area li.type-item p.type-title:hover {
     color: #ff7519;
     border-bottom: 2px solid #ff7519;
 }
+
 .home-model-item:nth-child(odd) ul.type-area li.active > p.type-title {
     color: #ff7519;
     border-bottom: 2px solid #ff7519;
 }
+
 /* 偶数 */
 .home-model-item:nth-child(even) {
     background: #f0f0f0;
 }
+
 .home-model-item:nth-child(even) p[class*="-label"] {
     border-left: 6px solid #0066cc;
 }
-.home-model-item:nth-child(even) ul.type-area li.type-item p.type-title:hover{
+
+.home-model-item:nth-child(even) ul.type-area li.type-item p.type-title:hover {
     color: #0066cc;
     border-bottom: 2px solid #0066cc;
 }
+
 .home-model-item:nth-child(even) ul.type-area li.active > p.type-title {
     color: #0066cc;
     border-bottom: 2px solid #0066cc;

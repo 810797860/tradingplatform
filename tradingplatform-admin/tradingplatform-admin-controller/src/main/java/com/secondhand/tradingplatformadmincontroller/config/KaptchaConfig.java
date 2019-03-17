@@ -10,6 +10,7 @@ import com.google.code.kaptcha.util.Config;
 
 /**
  * Kaptcha配置文件
+ *
  * @author 81079
  */
 @Configuration

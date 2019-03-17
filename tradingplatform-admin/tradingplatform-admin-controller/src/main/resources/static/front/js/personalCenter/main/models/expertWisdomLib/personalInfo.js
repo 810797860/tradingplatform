@@ -102,7 +102,7 @@ function ExpertPersonalInfo() {
         })
     }
     // 切换模式
-    _this.changeModel = function(model) {
+    _this.changeModel = function (model) {
         // 根据模式切换
         switch (model) {
             case 'show':
@@ -138,7 +138,7 @@ function ExpertPersonalInfo() {
         }
     }
     // 写入数据
-    _this.setData = function() {
+    _this.setData = function () {
         // 写入展示数据
         setShowData()
         // 写入编辑数据
@@ -222,14 +222,14 @@ function ExpertPersonalInfo() {
         professionFieldUlList.append(span);
     };
     // 禁止表单跳转
-    _this.unableFormSubmit = function() {
+    _this.unableFormSubmit = function () {
         var forms = $('.expert-lib-personal-info-form-div form')
-        forms.submit(function() {
+        forms.submit(function () {
             return false
         })
     }
     // 调用所有监听函数
-    _this.allListen = function() {
+    _this.allListen = function () {
         expertNameEvent();
         technicalTitleEvent();
         workingUnitEvent();
@@ -282,18 +282,19 @@ function ExpertPersonalInfo() {
 
 
     /*=== 功能函数 ===*/
+
     // 点击添加类型按钮
     function clickAddType() {
-        $(document).on('click','#professionField .addType',function () {
+        $(document).on('click', '#professionField .addType', function () {
             var length = $('.expert-lib-personal-info-List-div #professionField').find('.active').length;
             if (length === 3) {
                 layer.msg("最多只能选择3个");
                 return;
             }
-            layer.prompt({title: '请输入擅长领域', formType: 2}, function(pass, index){
+            layer.prompt({title: '请输入擅长领域', formType: 2}, function (pass, index) {
                 layer.close(index);
                 $('.expert-lib-personal-info-List-div #professionField').find('.addType').remove();
-                var type = $('<li class="type-item active" style="position: relative">'+ pass +'<i style="font-size: 16px;position: absolute;top: -15px;right: 2px" class="deleteType">×</i></li>');
+                var type = $('<li class="type-item active" style="position: relative">' + pass + '<i style="font-size: 16px;position: absolute;top: -15px;right: 2px" class="deleteType">×</i></li>');
                 $('.expert-lib-personal-info-List-div #professionField').append(type);
                 var span = $(' <span class="addType" style="width: 90px;float: left;margin: 5px 15px 5px 0;height: 30px; line-height: 30px;border: 1px solid #0066cc;color: #0066cc;text-align: center;font-size: 30px;border-radius: 5px;cursor: pointer">+</span>');
                 $('.expert-lib-personal-info-List-div #professionField').append(span);
@@ -303,7 +304,7 @@ function ExpertPersonalInfo() {
 
     // 删除自定义的擅长领域
     function deleteTypeClick() {
-        $(document).on('click','.deleteType',function () {
+        $(document).on('click', '.deleteType', function () {
             console.log('a');
             $(this).parent().remove();
         })
@@ -332,6 +333,7 @@ function ExpertPersonalInfo() {
             dataCopy = JSON.parse(JSON.stringify(submitData))
         }
     }
+
     // 初始化通过情况
     function initPassStatus(data) {
         if (data !== null) {
@@ -344,6 +346,7 @@ function ExpertPersonalInfo() {
             })
         }
     }
+
     // 展示数据写入
     function setShowData() {
         var stSave = '';
@@ -365,7 +368,7 @@ function ExpertPersonalInfo() {
                         } else {
                             console.log($('.moreField').attr('model') == 'show');
                             if ($('.moreField').attr('model') == 'show') {
-                                var type = $('<li style="text-decoration: none;list-style: none;width: 100px;height: 30px;line-height: 30px;color: white;background-color: #0066cc;display: inline-block;vertical-align: top;border-radius: 5px;margin-left: 5px;text-align: center;margin-top: 10px">'+ item +'</li>');
+                                var type = $('<li style="text-decoration: none;list-style: none;width: 100px;height: 30px;line-height: 30px;color: white;background-color: #0066cc;display: inline-block;vertical-align: top;border-radius: 5px;margin-left: 5px;text-align: center;margin-top: 10px">' + item + '</li>');
                                 $('.moreField').append(type);
                                 // stSave += type;
                             }
@@ -373,7 +376,7 @@ function ExpertPersonalInfo() {
                     });
                     // nowNode.text((stSave !== '') ? stSave : '暂无内容');
                 } else if (typeof submitData[nowName] === 'object' && !!submitData[nowName]) {
-                    console.log('submitData[nowName]',submitData[nowName]);
+                    console.log('submitData[nowName]', submitData[nowName]);
                     nowNode.text((submitData[nowName].title !== undefined && submitData[nowName].title !== null) ? submitData[nowName].title : '暂无内容')
                 } else if (typeof submitData[nowName] === 'string') {
                     nowNode.html(submitData[nowName] !== '' ? getHtmlStr(submitData[nowName]) : '暂无内容')
@@ -385,6 +388,7 @@ function ExpertPersonalInfo() {
             src: personalImageInput.getAvatar(submitData.personalImage)
         }).prev().hide()
     }
+
     // 编辑数据写入
     function setEditData() {
         // 名称
@@ -410,6 +414,7 @@ function ExpertPersonalInfo() {
         // 知识产权/成果
         intellectualPropertyInput.val(valueFilter(submitData.intellectualProperty, ''));
     }
+
     // 编辑状态验证
     function isReview() {
         if (submitData.status !== undefined) {
@@ -457,7 +462,7 @@ function ExpertPersonalInfo() {
                 tipMessage.css({
                     display: '',
                     borderColor: '#00B83F',
-                    color:'#00B83F'
+                    color: '#00B83F'
                 }).text('通过')
             } else if (submitData.status === '202051') { // 不通过
                 isSubmitSuccess = false
@@ -477,7 +482,7 @@ function ExpertPersonalInfo() {
                 tipMessage.css({
                     display: '',
                     borderColor: '#ff0000',
-                    color:'#ff0000'
+                    color: '#ff0000'
                 }).text('不通过')
             }
             _this.changeModel('show')
@@ -485,6 +490,7 @@ function ExpertPersonalInfo() {
             isSubmitSuccess = false
         }
     }
+
     // 获取类型多选数值
     function getListValue() {
         var idLis = industryIdUlList.find('li');
@@ -496,7 +502,7 @@ function ExpertPersonalInfo() {
                 industryIdUlList.parent().prev().text(nowLi.text());
             }
         });
-        submitData.skilledField= [];
+        submitData.skilledField = [];
         FieldLis.each(function (index, li) {
             var nowLi = $(li);
             if (nowLi.hasClass('active')) {
@@ -506,14 +512,16 @@ function ExpertPersonalInfo() {
         });
         submitData.skilledField = JSON.stringify(submitData.skilledField);
     }
+
     // 转str为html
     function getHtmlStr(str) {
         return str.replace(/\n/g, function () {
             return '<br/>'
         })
     }
+
     // 文件上传
-    function uploadFile (files, callback) {
+    function uploadFile(files, callback) {
         if (files.length == 0) return; //如果文件为空
         var formData = new FormData();
         for (var i = 0; i < files.length; i++) {
@@ -527,7 +535,7 @@ function ExpertPersonalInfo() {
             processData: false,
             contentType: false,
             success: function (res) {
-                if (res.status === 200 && callback){
+                if (res.status === 200 && callback) {
                     callback(res.data.data_list)
                 }
             },
@@ -536,6 +544,7 @@ function ExpertPersonalInfo() {
             }
         });
     }
+
     // 判断字段是否为空
     function searchVoidAttr() {
         expertNameInput.focus().blur();
@@ -557,17 +566,20 @@ function ExpertPersonalInfo() {
     }
 
     /*=== 监听函数 ===*/
+
     // 公司名input 事件
     function expertNameEvent() {
         eventOfExpertNameInputFocus()
         eventOfExpertNameInputBlur()
     }
+
     function eventOfExpertNameInputFocus() {
-        expertNameInput.focus(function(){
+        expertNameInput.focus(function () {
             expertNameInput.removeClass('error-border');
             expertNameInput.next().find('.expert-info-error-tip').eq(0).hide();
         })
     }
+
     function eventOfExpertNameInputBlur() {
         var value = null;
         expertNameInput.blur(function () {
@@ -592,17 +604,20 @@ function ExpertPersonalInfo() {
             }
         })
     }
+
     // 职称Input 事件
     function technicalTitleEvent() {
         eventOfTechnicalTitleFocus()
         eventOfTechnicalTitleBlur()
     }
+
     function eventOfTechnicalTitleFocus() {
-        technicalTitleInput.change(function(){
+        technicalTitleInput.change(function () {
             technicalTitleInput.removeClass('error-border');
             technicalTitleInput.next().find('.expert-info-error-tip').eq(0).hide();
         })
     }
+
     function eventOfTechnicalTitleBlur() {
         var value = null;
         technicalTitleInput.blur(function () {
@@ -627,17 +642,20 @@ function ExpertPersonalInfo() {
             }
         })
     }
+
     // 工作单位input 事件
     function workingUnitEvent() {
         eventOfWorkingUnitInputFocus()
         eventOfWorkingUnitInputBlur()
     }
+
     function eventOfWorkingUnitInputFocus() {
-        workingUnitInput.focus(function(){
+        workingUnitInput.focus(function () {
             workingUnitInput.removeClass('error-border');
             workingUnitInput.next().find('.expert-info-error-tip').eq(0).hide();
         })
     }
+
     function eventOfWorkingUnitInputBlur() {
         var value = null;
         workingUnitInput.blur(function () {
@@ -662,17 +680,20 @@ function ExpertPersonalInfo() {
             }
         })
     }
+
     // 电话input 事件
     function expertPhoneEvent() {
         eventOfExpertPhoneInputFocus()
         eventOfExpertPhoneInputBlur()
     }
+
     function eventOfExpertPhoneInputFocus() {
         phoneInput.focus(function () {
             phoneInput.removeClass('error-border');
             phoneInput.next().find('.expert-info-error-tip').eq(0).hide();
         })
     }
+
     function eventOfExpertPhoneInputBlur() {
         var value = null;
         phoneInput.blur(function () {
@@ -696,22 +717,25 @@ function ExpertPersonalInfo() {
             }
         })
     }
+
     // 邮箱input 事件
     function emailInputEvent() {
         eventOfExpertEmailInputFocus()
         eventOfExpertEmailInputBlur()
     }
+
     function eventOfExpertEmailInputFocus() {
         emailInput.focus(function () {
             emailInput.removeClass('error-border');
             emailInput.next().find('.expert-info-error-tip').eq(0).hide();
         })
     }
+
     function eventOfExpertEmailInputBlur() {
         var value = null;
         emailInput.blur(function () {
             value = emailInput.val()
-            if(value.length > 0) {
+            if (value.length > 0) {
                 // 邮箱格式正确
                 if (emailRule.test(value)) {
                     emailInput.removeClass('error-border');
@@ -730,11 +754,13 @@ function ExpertPersonalInfo() {
             }
         })
     }
+
     // 头像input 事件
     function expertAvatarEvent() {
         eventOfExpertAvatarCoverClick()
         eventOfExpertAvatarInputChange()
     }
+
     function eventOfExpertAvatarCoverClick() {
         var cover = personalImageInput.prev();
         cover.off().click(function () {
@@ -744,6 +770,7 @@ function ExpertPersonalInfo() {
             personalImageInput.click();
         })
     }
+
     function eventOfExpertAvatarInputChange() {
         var imgNode = personalImageInput.prev().find('img').eq(0);
         personalImageInput.change(function () {
@@ -761,22 +788,25 @@ function ExpertPersonalInfo() {
             })
         })
     }
+
     // 个人简介input 事件
     function personalProfileEvent() {
         eventOfPersonalProfileInputFocus()
         eventOfPersonalProfileInputBlur()
     }
+
     function eventOfPersonalProfileInputFocus() {
-        personalProfileInput.change(function(){
+        personalProfileInput.change(function () {
             personalProfileInput.removeClass('error-border');
             personalProfileInput.next().find('.expert-info-error-tip').eq(0).hide();
         })
     }
+
     function eventOfPersonalProfileInputBlur() {
         var value = null;
         personalProfileInput.blur(function () {
             value = personalProfileInput.val();
-            if(value.length > 0) {
+            if (value.length > 0) {
                 // 格式正确
                 if (!errorInputRule.test(value)) {
                     personalProfileInput.removeClass('error-border');
@@ -795,22 +825,25 @@ function ExpertPersonalInfo() {
             }
         })
     }
+
     // 工作经验input 事件
     function workExperienceEvent() {
         eventOfWorkExperienceInputBlur()
         eventOfWorkExperienceInputFocus()
     }
+
     function eventOfWorkExperienceInputBlur() {
-        workExperienceInput.change(function(){
+        workExperienceInput.change(function () {
             workExperienceInput.removeClass('error-border');
             workExperienceInput.next().find('.expert-info-error-tip').eq(0).hide();
         })
     }
+
     function eventOfWorkExperienceInputFocus() {
         var value = null;
         workExperienceInput.blur(function () {
             value = workExperienceInput.val();
-            if(value.length > 0) {
+            if (value.length > 0) {
                 // 格式正确
                 if (!errorInputRule.test(value)) {
                     workExperienceInput.removeClass('error-border');
@@ -829,22 +862,25 @@ function ExpertPersonalInfo() {
             }
         })
     }
+
     // 学历情况
     function educationEvent() {
         eventOfEducationEventInputFocus()
         eventOfEducationEventInputBlur()
     }
+
     function eventOfEducationEventInputFocus() {
-        educationInput.change(function() {
+        educationInput.change(function () {
             submitData.educationBackground = educationInput.val()
             educationInput.prev().html(getHtmlStr(submitData.educationBackground))
         })
     }
+
     function eventOfEducationEventInputBlur() {
         var value = null;
         educationInput.blur(function () {
             value = educationInput.val();
-            if(value.length > 0) {
+            if (value.length > 0) {
                 // 格式正确
                 if (!errorInputRule.test(value)) {
                     educationInput.removeClass('error-border');
@@ -871,17 +907,19 @@ function ExpertPersonalInfo() {
         eventOfParticipateProjectInputFocus()
         eventOfParticipateProjectInputBlur()
     }
+
     function eventOfParticipateProjectInputFocus() {
-        participateProjectInput.change(function() {
+        participateProjectInput.change(function () {
             submitData.participateProject = participateProjectInput.val()
             participateProjectInput.prev().html(getHtmlStr(submitData.participateProject))
         })
     }
+
     function eventOfParticipateProjectInputBlur() {
         var value = null;
         participateProjectInput.blur(function () {
             value = participateProjectInput.val();
-            if(value.length > 0) {
+            if (value.length > 0) {
                 // 格式正确
                 if (!errorInputRule.test(value)) {
                     participateProjectInput.removeClass('error-border');
@@ -902,22 +940,25 @@ function ExpertPersonalInfo() {
             }
         })
     }
+
     // 主要荣誉input
     function mainHonorEvent() {
         eventOfMainHonorInputFocus()
         eventOfMainHonorInputBlur()
     }
+
     function eventOfMainHonorInputFocus() {
-        mainHonorInput.change(function(){
+        mainHonorInput.change(function () {
             mainHonorInput.removeClass('error-border');
             mainHonorInput.next().find('.expert-info-error-tip').eq(0).hide();
         })
     }
+
     function eventOfMainHonorInputBlur() {
         var value = null;
         mainHonorInput.blur(function () {
             value = mainHonorInput.val()
-            if(value.length > 0) {
+            if (value.length > 0) {
                 // 格式正确
                 if (!errorInputRule.test(value)) {
                     mainHonorInput.removeClass('error-border');
@@ -937,22 +978,25 @@ function ExpertPersonalInfo() {
             }
         })
     }
+
     // 知识产权/成果input
     function intellectualPropertyEvent() {
         eventOfIntellectualPropertyInputFocus()
         eventOfIntellectualPropertyInputBlur()
     }
+
     function eventOfIntellectualPropertyInputFocus() {
-        intellectualPropertyInput.change(function(){
+        intellectualPropertyInput.change(function () {
             intellectualPropertyInput.removeClass('error-border');
             intellectualPropertyInput.next().find('.expert-info-error-tip').eq(0).hide();
         })
     }
+
     function eventOfIntellectualPropertyInputBlur() {
         var value = null;
         intellectualPropertyInput.blur(function () {
             value = intellectualPropertyInput.val()
-            if(value.length > 0) {
+            if (value.length > 0) {
                 // 格式正确
                 if (!errorInputRule.test(value)) {
                     intellectualPropertyInput.removeClass('error-border');
@@ -972,14 +1016,16 @@ function ExpertPersonalInfo() {
             }
         })
     }
+
     // 类型事件
     function industryIdEvent() {
         eventOfIndustryIdListClick()
         eventOfIndustryIdMoreClick()
     }
+
     function eventOfIndustryIdListClick() {
         var typeId = null;
-        industryIdUlList.off().click('click',function(event) {
+        industryIdUlList.off().click('click', function (event) {
             var nowNode = $(event.target);
             if (nowNode.hasClass('type-item') && !nowNode.hasClass('active')) {
                 nowNode.siblings().removeClass('active');
@@ -991,9 +1037,10 @@ function ExpertPersonalInfo() {
             }
         })
     }
+
     function eventOfIndustryIdMoreClick() {
         var moreNode = industryIdUlList.next();
-        moreNode.off('click').on('click', function() {
+        moreNode.off('click').on('click', function () {
             if (moreNode.attr('name') === 'more') {
                 moreNode.html('收起 <i class="icon-close-arrow"></i>');
                 industryIdUlList.css({
@@ -1013,14 +1060,16 @@ function ExpertPersonalInfo() {
             }
         })
     }
+
     // 擅长领域事件
     function professionFieldEvent() {
         eventOfProfessionFieldListClick()
         // eventOfProfessionFieldMoreClick()
     }
+
     function eventOfProfessionFieldListClick() {
         var typeId = null
-        professionFieldUlList.off().click('click',function(event) {
+        professionFieldUlList.off().click('click', function (event) {
             var length = $('.expert-lib-personal-info-List-div #professionField').find('.active').length;
             var nowNode = $(event.target);
             if (nowNode.hasClass('type-item') && !nowNode.hasClass('active')) {
@@ -1043,6 +1092,7 @@ function ExpertPersonalInfo() {
             // submitData.professionField = typeId;
         })
     }
+
     // function eventOfProfessionFieldMoreClick() {
     //     var moreNode = professionFieldUlList.next();
     //     moreNode.off('click').on('click', function() {
@@ -1071,7 +1121,7 @@ function ExpertPersonalInfo() {
         // 编辑按钮
         var editBtn = $('.expert-lib-personal-info-form-div .form-edit-btn').eq(0)
         // 转换模式
-        editBtn.off().click(function() {
+        editBtn.off().click(function () {
             $('#expertAvatar').attr('disabled', false);
             // 写入编辑框数据
             setEditData()
@@ -1090,10 +1140,11 @@ function ExpertPersonalInfo() {
             })
         })
     }
+
     // 提交按钮监听
     function eventOfSubmitBtnClick() {
         var submitBtn = $('.expert-lib-personal-info-form-div .form-true-btn').eq(0)
-        submitBtn.off('click').click(function() {
+        submitBtn.off('click').click(function () {
             // 提交成功
             if (isSubmitSuccess) {
                 // 正在审核
@@ -1161,12 +1212,13 @@ function ExpertPersonalInfo() {
             })
         })
     }
+
     // 取消按钮监听
     function eventOfCancelBtnClick() {
         // 编辑按钮
         var cancelBtn = $('.expert-lib-personal-info-form-div .form-cancel-btn').eq(0)
         // 转换模式
-        cancelBtn.off().click(function() {
+        cancelBtn.off().click(function () {
             $('#expertAvatar').attr('disabled', 'disabled');
             // 重置备份数据
             submitData = JSON.parse(JSON.stringify(dataCopy))

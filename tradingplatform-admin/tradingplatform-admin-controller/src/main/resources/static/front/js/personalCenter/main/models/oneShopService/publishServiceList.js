@@ -13,16 +13,16 @@ var selectConditionOfPublishServiceList = {
 
 /*** 监听分页跳转 ***/
 function listenToPage() {
-    $(".publish-service-splitpage >div").on("click", function(){
+    $(".publish-service-splitpage >div").on("click", function () {
         // console.log($('.publish-service-splitpage .focus')[0].innerText);
-        if($('.publish-service-splitpage .focus')[0].innerText != currentPageOfPublishServiceList) {
+        if ($('.publish-service-splitpage .focus')[0].innerText != currentPageOfPublishServiceList) {
             currentPageOfPublishServiceList = $('.publish-service-splitpage .focus')[0].innerText;
 
             // getServiceList($_typeId, $("#search-input").val());
             pageInOrTabPublishService = 0;
             getPublishServiceList();
         }
-    }).keydown(function(e) {
+    }).keydown(function (e) {
         if (e.keyCode == 13) {
             currentPageOfPublishServiceList = $('.publish-service-splitpage .focus')[0].innerText;
 
@@ -32,8 +32,9 @@ function listenToPage() {
         }
     });
 }
+
 /*** 复原currentPage ***/
-function resetCurrentPagePublishService () {
+function resetCurrentPagePublishService() {
     $('.publish-service-splitpage >div').data('currentpage', 1);
     currentPageOfPublishServiceList = 1;
     $('.publish-service-splitpage >div').find('li[data-page="' + currentPageOfPublishServiceList + '"]').addClass('focus').siblings().removeClass('focus');
@@ -53,6 +54,7 @@ $(function () {
     publishServiceListSearch();
     // getSignUpCompanyInfo(2382);
 });
+
 function init_dom() {
     $('.publish-service-list .personal-center-search-list ul').html(' <li class="active"><span>全部</span><span></span></li> <li data-typeId="202049"><span>待审核</span><span>1</span></li> <li data-typeId="202051"><span>退回</span><span>2</span></li> <li data-typeId="202050"><span>通过</span><span>3</span></li> ');
     $('.publish-service-list .personal-center-search-time').children().eq(0).html('发布时间：');
@@ -93,7 +95,7 @@ function publishServiceListSearch() {
 }
 
 // 获取发布的需求列表
-function getPublishServiceList () {
+function getPublishServiceList() {
     var json = {
         "pager": {
             "current": currentPageOfPublishServiceList,
@@ -131,12 +133,20 @@ function getPublishServiceList () {
             var list = res.data.data_list;
             // console.log(list);
 
-            if (pageInOrTabPublishService === 0){
-                $('.publish-service-splitpage >div').Paging({pagesize:searchSizeOfPublishServiceList,count:totalRecord,toolbar:true});
+            if (pageInOrTabPublishService === 0) {
+                $('.publish-service-splitpage >div').Paging({
+                    pagesize: searchSizeOfPublishServiceList,
+                    count: totalRecord,
+                    toolbar: true
+                });
                 $('.publish-service-splitpage >div').find("div:eq(1)").remove();
             }
-            if (pageInOrTabPublishService === 1){
-                $('.publish-service-splitpage >div').Paging({pagesize:searchSizeOfPublishServiceList,count:totalRecord,toolbar:true});
+            if (pageInOrTabPublishService === 1) {
+                $('.publish-service-splitpage >div').Paging({
+                    pagesize: searchSizeOfPublishServiceList,
+                    count: totalRecord,
+                    toolbar: true
+                });
                 $('.publish-service-splitpage >div').find("div:eq(0)").remove();
             }
             $('.publish-service-total').html("共" + totalRecord + "条");
@@ -156,7 +166,7 @@ function getPublishServiceList () {
                 $('.publish-service-splitpage').css("display", "block")
                 $('.publish-service-total').css("display", "block")
             }
-            for (var i=0; i<publishServiceListData.length; i++) {
+            for (var i = 0; i < publishServiceListData.length; i++) {
                 if (publishServiceListData[i].deleted === true) {
                     $('.publish-service-list').find('.obtained').eq(i).html('上架')
                     $('.publish-service-list').find('.obtained').addClass('deleted')
@@ -170,7 +180,7 @@ function getPublishServiceList () {
 }
 
 // 设置发布的需求列表
-function setPublishServiceList (list) {
+function setPublishServiceList(list) {
     for (var i = 0; i < list.length; i++) {
         list[i].id;
         list[i].name;   // 需求名称
@@ -189,7 +199,7 @@ function setPublishServiceList (list) {
 
 
 // 获取报名者列表
-function getSignUpList (id) {
+function getSignUpList(id) {
     var json = {
         id: id
     }
@@ -209,14 +219,14 @@ function getSignUpList (id) {
 }
 
 // 设置报名者列表
-function setSignUpList (list) {
+function setSignUpList(list) {
 
 }
 
 // 获取报名者详情
-function getSignUpCompanyInfo (projectId) {
+function getSignUpCompanyInfo(projectId) {
     var json = {
-        projectId:projectId
+        projectId: projectId
     }
     new NewAjax({
         type: "POST",
@@ -234,7 +244,7 @@ function getSignUpCompanyInfo (projectId) {
 }
 
 // 设置报名者详情数据
-function setSignUpCompanyInfo (object) {
+function setSignUpCompanyInfo(object) {
     $(".sign-up-company-info .info-title").html(object.name);
     $(".sign-up-company-info .company-logo").attr('src', $(this).getAvatar(object.logo));
     $(".sign-up-company-info .info-phone").html(object.phone);
@@ -247,10 +257,10 @@ function setSignUpCompanyInfo (object) {
     var baseStyleArr = []
     if (object.technical_solution_attachment != undefined) {
         // 提取数据
-        JSON.parse(object.technical_solution_attachment).forEach(function(item){
+        JSON.parse(object.technical_solution_attachment).forEach(function (item) {
             var obj = {}
             if (baseStyleArr.length === 0) {
-                Object.keys(item).forEach(function(key){
+                Object.keys(item).forEach(function (key) {
                     var styleItem = {}
                     styleItem.type = key
                     switch (key) {
@@ -279,13 +289,13 @@ function setSignUpCompanyInfo (object) {
             data.push(obj)
         })
         // 决定数据顺序
-        var orderArr = ['title','size','id']
+        var orderArr = ['title', 'size', 'id']
         table.setTableData(data)
         table.setBaseStyle(baseStyleArr)
         table.setColOrder(orderArr)
-        table.setOpenCheckBox(true, 2).setTableLineHeight(40).resetHtmlCallBack(function(type, content, label){
+        table.setOpenCheckBox(true, 2).setTableLineHeight(40).resetHtmlCallBack(function (type, content, label) {
             if (type === 'title') {
-                return (label === 'td') ? '<span class="file-title">'+ content +'</span>' : content
+                return (label === 'td') ? '<span class="file-title">' + content + '</span>' : content
             } else if (type === 'size') {
                 return (label === 'td') ? content + 'KB' : content
             } else if (type === 'id') {
@@ -303,10 +313,10 @@ function setPublishServiceListData() {
     var table = new Table('publish-service-list-table')
     var baseStyleArr = []
     if (publishServiceListData != undefined && publishServiceListData.length != 0) {
-        publishServiceListData.forEach(function(item){
+        publishServiceListData.forEach(function (item) {
             var obj = {}
             if (baseStyleArr.length === 0) {
-                Object.keys(item).forEach(function(key){
+                Object.keys(item).forEach(function (key) {
                     var styleItem = {}
                     styleItem.type = key
                     switch (key) {
@@ -349,29 +359,29 @@ function setPublishServiceListData() {
             data.push(obj)
         })
     }
-    var orderArr = ['title','category','status','release_time','id'];
+    var orderArr = ['title', 'category', 'status', 'release_time', 'id'];
     table.setTableData(data)
     table.setBaseStyle(baseStyleArr)
     table.setColOrder(orderArr)
-    table.setOpenCheckBox(true, 2).setTableLineHeight(40).resetHtmlCallBack(function(type, content, label){
+    table.setOpenCheckBox(true, 2).setTableLineHeight(40).resetHtmlCallBack(function (type, content, label) {
         if (type === 'case_money') {
             if (content == 0) {
                 content = '面议'
             }
-            return (label === 'td') ? '￥'+content : content
+            return (label === 'td') ? '￥' + content : content
         } else if (type === 'id') {
             var span
             // if (content[1] === '202049' || content[1] === '202051'){
-                span = '<span class="caseHallEdit" data-id="'+ content +'" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>编辑</span>' +
-                    '<span class="obtained" data-id="'+ content +'" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>取消</span>'
+            span = '<span class="caseHallEdit" data-id="' + content + '" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>编辑</span>' +
+                '<span class="obtained" data-id="' + content + '" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>取消</span>'
             // }else {
             //     span = '<span class="caseHallEdit" data-id="'+ content +'" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>编辑</span>' +
             //         '<span class="obtained" data-id="'+ content +'" style="display: inline-block;padding: 0 10px;height: 30px;background-color: #0066cc;border: none;line-height: 30px;text-align: center;margin-left: 5px;border-radius: 5px;color: white;cursor: pointer"></i>下架</span>'
             // }
 
             return (label === 'td') ? span : content
-        } else if (type=== 'title') {
-            var span = '<span title="'+content[0]+'" class="publishServiceListToDetail" data-proId="'+content[1]+'" style="cursor: pointer;color: #0066cc">'+ content[0] +'</span>'
+        } else if (type === 'title') {
+            var span = '<span title="' + content[0] + '" class="publishServiceListToDetail" data-proId="' + content[1] + '" style="cursor: pointer;color: #0066cc">' + content[0] + '</span>'
             return (label === 'td') ? span : content
         }
     })
@@ -379,21 +389,21 @@ function setPublishServiceListData() {
 }
 
 function publishServiceListHandleClick() {
-    $(document).on('click','.publishServiceListToDetail',function () {
+    $(document).on('click', '.publishServiceListToDetail', function () {
         var id = $(this).attr('data-proId')
         console.log(id);
-        window.open('/f/'+ id +'/general_service_detail.html?pc=true')
+        window.open('/f/' + id + '/general_service_detail.html?pc=true')
     })
 
     $('.publish-service-list').find('.caseHallEdit').click(function () {
-        window.open('/f/serviceMessage/pc/'+ $(this).attr('data-id').split(',')[0] +'/to_create_update.html?pc=true')
+        window.open('/f/serviceMessage/pc/' + $(this).attr('data-id').split(',')[0] + '/to_create_update.html?pc=true')
     })
     $('.publish-service-list').find('.obtained').click(function () {
         var json = [$(this).attr('data-id').split(',')[0]]
-        if ($(this).hasClass('deleted')){
+        if ($(this).hasClass('deleted')) {
             layer.confirm('你确定要上架该成果？', {
-                btn: ['确定','取消'] //按钮
-            }, function(){
+                btn: ['确定', '取消'] //按钮
+            }, function () {
                 new NewAjax({
                     type: "POST",
                     url: "/f/matureCaseCheckRecords/batch_update?pc=true",
@@ -401,7 +411,7 @@ function publishServiceListHandleClick() {
                     dataType: "json",
                     data: JSON.stringify(json),
                     success: function (res) {
-                        if(res.status === 200) {
+                        if (res.status === 200) {
                             getPublishServiceList()
                             layer.closeAll()
                         } else {
@@ -412,15 +422,15 @@ function publishServiceListHandleClick() {
                         }
                     }
                 });
-            }, function(){
+            }, function () {
                 layer.msg('取消了上架', {
                     time: 1000, //20s后自动关闭
                 });
             });
-        }else{
+        } else {
             layer.confirm('你确定要删除该服务？', {
-                btn: ['确定','取消'] //按钮
-            }, function(){
+                btn: ['确定', '取消'] //按钮
+            }, function () {
                 new NewAjax({
                     type: "POST",
                     url: "/f/serviceMessage/batch_delete?pc=true",
@@ -428,7 +438,7 @@ function publishServiceListHandleClick() {
                     dataType: "json",
                     data: JSON.stringify(json),
                     success: function (res) {
-                        if(res.status === 200) {
+                        if (res.status === 200) {
                             getPublishServiceList()
                             layer.closeAll()
                         } else {
@@ -439,7 +449,7 @@ function publishServiceListHandleClick() {
                         }
                     }
                 });
-            }, function(){
+            }, function () {
                 layer.msg('取消了删除', {
                     time: 1000, //20s后自动关闭
                 });

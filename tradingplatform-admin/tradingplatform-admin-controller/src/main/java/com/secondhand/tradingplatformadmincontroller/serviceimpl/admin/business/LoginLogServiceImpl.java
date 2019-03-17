@@ -11,10 +11,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *   @description : LoginLog 服务实现类
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2018-10-28
+ * @author zhangjk
+ * @description : LoginLog 服务实现类
+ * ---------------------------------
+ * @since 2018-10-28
  */
 
 @Service
@@ -41,7 +41,7 @@ public class LoginLogServiceImpl extends BaseServiceImpl<LoginLogMapper, LoginLo
     @Override
     public LoginLog loginLogCreateUpdate(LoginLog loginLog) {
         Long loginLogId = loginLog.getId();
-        if (loginLogId == null){
+        if (loginLogId == null) {
             loginLogMapper.insert(loginLog);
         } else {
             loginLogMapper.updateById(loginLog);

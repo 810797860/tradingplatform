@@ -6,7 +6,7 @@ var formId = $("#formId").val();
 // 消息框位置控制
 var stack_bottomright = {"dir1": "up", "dir2": "left", "firstpos1": 25, "firstpos2": 25};
 
-$(function(){
+$(function () {
     // 获取各个操作dom
     var $save = $('#save'),
         $close = $("#close"),
@@ -14,7 +14,7 @@ $(function(){
         $form = $("#newForm");
 
     // 如果存在父窗口，获取窗口索引
-    if(typeof parent.layer !== 'undefined' && formId !== null) {
+    if (typeof parent.layer !== 'undefined' && formId !== null) {
         var index = parent.layer.getFrameIndex(window.name);
     }
 
@@ -36,8 +36,8 @@ $(function(){
         e.preventDefault()
         var url = $(this).attr('data-url');
         var target = $(this).attr('href');
-        if($(target).children("iframe").length === 0) {
-            $(target).append('<iframe class="tab_iframe" src="'+url+'" frameborder="0" width="100%" scrolling="auto" onload="changeFrameHeight(this)"></iframe>');
+        if ($(target).children("iframe").length === 0) {
+            $(target).append('<iframe class="tab_iframe" src="' + url + '" frameborder="0" width="100%" scrolling="auto" onload="changeFrameHeight(this)"></iframe>');
         }
         $(this).tab('show')
     });
@@ -46,7 +46,7 @@ $(function(){
     $save.click(function () {
         $form.data('bootstrapValidator').validate();
         var isValid = $form.data('bootstrapValidator').isValid();
-        if(!isValid) {
+        if (!isValid) {
             return;
         }
         layer.msg('表单提交中...', { // 提交加载动画
@@ -56,10 +56,10 @@ $(function(){
         });
         var postData = {};
         var array = $form.serializeArray();
-        $.each(array, function(){
+        $.each(array, function () {
             // 如果该字段存在
-            if(postData[this.name]) {
-                if(!postData[this.name].push) {
+            if (postData[this.name]) {
+                if (!postData[this.name].push) {
                     postData[this.name] = [postData[this.name]];
                 }
                 postData[this.name].push(this.value || null);
@@ -68,17 +68,17 @@ $(function(){
             }
         });
         // 如果存在id
-        if(typeof formId !== 'undefined' && formId !== null && formId !== '' ){
+        if (typeof formId !== 'undefined' && formId !== null && formId !== '') {
             postData['id'] = formId;
             $.ajax({
                 url: '/admin/form/create_update',
                 data: JSON.stringify(postData),
                 type: 'post',
-                contentType:'application/json;charset=utf-8',
-                success: function(res) {
+                contentType: 'application/json;charset=utf-8',
+                success: function (res) {
                     console.log(res)
                     layer.closeAll();
-                    if(res.success === true) {
+                    if (res.success === true) {
                         new PNotify({
                             title: '修改表单信息成功！',
                             text: '请在表单详情中查看修改后的内容',
@@ -98,7 +98,7 @@ $(function(){
                         });
                     }
                 },
-                error: function(error) {
+                error: function (error) {
                     layer.closeAll();
                     new PNotify({
                         title: '修改表单信息失败！',
@@ -115,10 +115,10 @@ $(function(){
                 url: '/admin/form/create_update',
                 data: JSON.stringify(postData),
                 type: 'post',
-                contentType:'application/json;charset=utf-8',
-                success: function(res) {
+                contentType: 'application/json;charset=utf-8',
+                success: function (res) {
                     layer.closeAll();
-                    if(res.success === true) {
+                    if (res.success === true) {
                         parent.window.refreshAndShowMessage({
                             title: '新建表单成功！',
                             text: '请在表单设计列表中查看',
@@ -129,18 +129,18 @@ $(function(){
                         });
                         parent.layer.close(index);
                     } else {
-                       new PNotify({
-                           title: '新建表单失败！',
-                           text: res.message,
-                           type: 'error',
-                           delay: 3000,
-                           addclass: "stack-bottomright",
-                           stack: stack_bottomright
+                        new PNotify({
+                            title: '新建表单失败！',
+                            text: res.message,
+                            type: 'error',
+                            delay: 3000,
+                            addclass: "stack-bottomright",
+                            stack: stack_bottomright
                         });
                     }
 
                 },
-                error: function(error) {
+                error: function (error) {
                     layer.closeAll();
                     new PNotify({
                         title: '新建表单失败！',
@@ -154,27 +154,32 @@ $(function(){
             })
         }
     });
+
     function formValidator() {
         // 表单验证
         $form.bootstrapValidator({
             message: '这个值无效',
-            feedbackIcons: {/*输入框不同状态，显示图片的样式*/
+            feedbackIcons: {
+                /*输入框不同状态，显示图片的样式*/
                 valid: 'glyphicon glyphicon-ok',
                 invalid: 'glyphicon glyphicon-remove',
                 validating: 'glyphicon glyphicon-refresh'
             },
             excluded: [':disabled', ':hidden', 'select'],
-            fields: {/*验证*/
-                title: {/*键名username和input name值对应*/
+            fields: {
+                /*验证*/
+                title: {
+                    /*键名username和input name值对应*/
                     message: '表单名称无效',
                     validators: {
-                        notEmpty: {/*非空提示*/
+                        notEmpty: {
+                            /*非空提示*/
                             message: '表单名称不能为空'
                         }
                     }
                 },
                 collection: {
-                    message:'数据库表名无效',
+                    message: '数据库表名无效',
                     validators: {
                         notEmpty: {
                             message: '数据库表名不能为空'
@@ -184,6 +189,7 @@ $(function(){
             }
         });
     }
+
     formValidator();
 });
 
@@ -192,18 +198,22 @@ function changeFrameHeight(ifm) {
     console.log('改变');
     ifm.height = document.documentElement.clientHeight - 110;
 }
+
 // 重新调整iframe高度
 function resizeFrameHeight() {
     $('.tab_iframe').css('height', document.documentElement.clientHeight - 110);
 }
+
 // 窗体尺寸改变时
-window.onresize = function() {
+window.onresize = function () {
     resizeFrameHeight();
 }
-function upLoading(selector){
+
+function upLoading(selector) {
     $(selector).click();
 }
-function getFullPath(obj){
+
+function getFullPath(obj) {
     if (obj) {
         //ie
         /**if (window.navigator.userAgent.indexOf("MSIE")>=1) {

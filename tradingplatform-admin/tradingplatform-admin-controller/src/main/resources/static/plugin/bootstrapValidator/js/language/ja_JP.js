@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     /**
      * Japanese language package
      * Translated by @tsuyoshifujii
@@ -42,7 +42,7 @@
             'default': '異なる値を入力してください'
         },
         digits: {
-             'default': '数字のみで入力してください'
+            'default': '数字のみで入力してください'
         },
         ean: {
             'default': '有効なEANコードを入力してください'

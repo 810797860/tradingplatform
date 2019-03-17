@@ -1,6 +1,7 @@
 ---
----
-{% include license-code.less %}
+--- {
+% include license-code . less %
+}
 
 .icon-large {
   font-size: 4/3em;
@@ -41,7 +42,9 @@
 .btn {
   [class^="icon-"],
   [class*=" icon-"] {
-    &.pull-left, &.pull-right { vertical-align: inherit; }
+    &.pull-left, &.pull-right {
+      vertical-align: inherit;
+    }
     &.icon-large {
       margin-top: -.5em;
     }
@@ -53,15 +56,51 @@ a [class*=" icon-"] {
   cursor: pointer;
 }
 
-.ie7icon(@inner) { *zoom: ~"expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '@{inner}')"; }
+.ie7icon(@inner) {
+  *zoom: ~"expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '@{inner}')";
+}
 
-{% for icon in icons %}
-.icon-{{ icon.id }} {
+{
+%
+for
+icon
+in
+icons
+%
+}
+.icon- { {
+  icon.id
+}
+}
+
+{
   .ie7icon('&#x{{ icon.unicode }};');
 }
-{% for alias in icon.aliases %}
-.icon-{{ alias }} {
+{
+%
+for
+alias
+in
+icon
+.
+aliases
+%
+}
+.icon- { {
+  alias
+}
+}
+
+{
   .ie7icon('&#x{{ icon.unicode }};');
 }
-{% endfor %}
-{% endfor %}
+{
+%
+endfor
+%
+}
+{
+%
+endfor
+%
+}

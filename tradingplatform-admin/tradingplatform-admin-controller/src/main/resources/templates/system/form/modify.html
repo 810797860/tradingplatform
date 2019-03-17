@@ -27,7 +27,8 @@
 <div id="main">
     <input type="hidden" id="formId" th:value="${form['id']}"/>
     <div style="display: block">
-        <button id="close" class="btn btn-sm btn-default" th:if="${form['id']}!=null"><i class="icon-arrow-left"></i> 关闭</button>
+        <button id="close" class="btn btn-sm btn-default" th:if="${form['id']}!=null"><i class="icon-arrow-left"></i> 关闭
+        </button>
         <button id="save" type="button" class="btn btn-sm btn-primary"><i class="icon-save"></i> 保存</button>
         <button id="reset" type="button" class="btn btn-sm btn-default"><i class="icon-refresh"></i> 重置</button>
     </div>
@@ -42,15 +43,19 @@
                 <form role="form" id="newForm" name="newForm" th:object="${form}">
                     <div class="form-group form-group-sm">
                         <label for="46">表单名称</label> <span style="color:#FF3333;font-size:18px">*</span>
-                        <input type="text" class="form-control" name="title" placeholder="请输入表单名称" id="46" required th:value="${form['title']}"/>
+                        <input type="text" class="form-control" name="title" placeholder="请输入表单名称" id="46" required
+                               th:value="${form['title']}"/>
                     </div>
                     <div class="form-group form-group-sm">
                         <label for="47">数据库表名</label> <span style="color:#FF3333;font-size:18px">*</span>
-                        <input type="text" class="form-control" name="collection" placeholder="请输入数据库表名" id="47" required th:value="${form['collection']}" th:disabled="${form['id']} != null ? 'true' : 'false'"/>
+                        <input type="text" class="form-control" name="collection" placeholder="请输入数据库表名" id="47"
+                               required th:value="${form['collection']}"
+                               th:disabled="${form['id']} != null ? 'true' : 'false'"/>
                     </div>
                     <div class="form-group form-group-sm">
                         <label for="38">备注</label>
-                        <textarea rows="4" class="form-control" name="description" placeholder="请输入备注" id="38" th:text="${form['description']}"></textarea>
+                        <textarea rows="4" class="form-control" name="description" placeholder="请输入备注" id="38"
+                                  th:text="${form['description']}"></textarea>
                     </div>
                 </form>
             </div>
@@ -59,11 +64,15 @@
     </div>
     <div th:if="${form['id']}!=null">
         <ul id="fieldTab" class="nav nav-tabs">
-            <li class="active"><a href="#fieldSetting" data-toggle="tab" th:data-url="'/admin/formField/tabulation.html?formId='+${form['id']}+'&menuId=170'">表单字段设置</a></li>
+            <li class="active"><a href="#fieldSetting" data-toggle="tab"
+                                  th:data-url="'/admin/formField/tabulation.html?formId='+${form['id']}+'&menuId=170'">表单字段设置</a>
+            </li>
         </ul>
         <div id="fieldTabContent" class="tab-content">
             <div class="tab-pane fade in active" id="fieldSetting">
-                <iframe class="tab_iframe" th:src="'/admin/formField/tabulation.html?formId='+${form['id']}+'&menuId=170'" frameborder="0" width="100%" onload="changeFrameHeight(this)" scrolling="auto"></iframe>
+                <iframe class="tab_iframe"
+                        th:src="'/admin/formField/tabulation.html?formId='+${form['id']}+'&menuId=170'" frameborder="0"
+                        width="100%" onload="changeFrameHeight(this)" scrolling="auto"></iframe>
             </div>
         </div>
     </div>

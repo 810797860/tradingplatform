@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     /**
      * Default English package. It's included in the pnotify, so you do NOT need to include it to your head tag
      * The only reason I put it here is that you can clone it, and translate it into your language
@@ -42,7 +42,7 @@
             'default': 'Please enter a different value'
         },
         digits: {
-             'default': 'Please enter only digits'
+            'default': 'Please enter only digits'
         },
         ean: {
             'default': 'Please enter a valid EAN number'

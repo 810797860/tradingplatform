@@ -2,46 +2,59 @@
     padding: 0;
     margin: 0;
 }
+
 ul {
     list-style: none;
     margin-bottom: 0;
 }
+
 a {
     text-decoration: none;
 }
+
 p {
     margin-bottom: 0;
 }
+
 .text-overflow {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
 .clearfix {
     overflow: hidden;
 }
+
 .float-l {
     float: left;
 }
+
 .float-r {
     float: right;
 }
+
 .bg-orange {
     background-color: #FF6000;
     color: #fff;
 }
+
 .bd-orange {
     border: 1px solid #FF6000;
 }
+
 .cl-orange {
     color: #FF6000;
 }
+
 .cl-green {
     color: #1BBBB4;
 }
+
 .cl-grey {
     color: #666;
 }
+
 .delete-btn {
     position: absolute;
     top: 0;
@@ -50,20 +63,24 @@ p {
     height: 44px;
     line-height: 44px;
     text-align: center;
-    background: rgba(0,0,0,.6);
+    background: rgba(0, 0, 0, .6);
     display: none;
 }
+
 .delete-btn i:before {
     font-size: 20px;
     color: #fff;
 }
+
 .footprint-btn:hover {
     background-color: #FF6000;
     color: #fff;
 }
+
 .content-hidden {
     display: none;
 }
+
 .look-more {
     display: block;
     line-height: 160px;
@@ -78,12 +95,14 @@ p {
     font-size: 14px;
     background-color: #fff;
 }
+
 .my-footprint .footprint-tab {
     height: 60px;
     padding: 15px;
     box-sizing: border-box;
     background-color: #ffffff;
 }
+
 .my-footprint .footprint-tab .footprint-tab-item {
     height: 30px;
     line-height: 30px;
@@ -93,10 +112,12 @@ p {
     margin-right: 15px;
     cursor: pointer;
 }
+
 .my-footprint .footprint-container {
     padding: 15px;
     background-color: #f8f8f8;
 }
+
 .my-footprint .footprint-container .footprint-notice {
     height: 60px;
     line-height: 30px;
@@ -105,28 +126,33 @@ p {
     font-size: 13px;
     background-color: #fff;
 }
+
 .my-footprint .footprint-container .footprint-notice .footprint-notice-tip i:before {
     font-size: 20px;
     color: #666;
     vertical-align: middle;
 }
+
 .my-footprint .footprint-container .footprint-notice .footprint-notice-btn {
     padding: 0 15px;
     border-radius: 3px;
     cursor: pointer;
 }
+
 .my-footprint .footprint-container .footprint-content-box {
     position: relative;
     margin-top: 15px;
     overflow: hidden;
     min-height: 770px;
 }
+
 .my-footprint .footprint-container .footprint-content-ul {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
 }
+
 .my-footprint .footprint-container .footprint-content {
     width: 905px;
     height: 100%;
@@ -141,24 +167,30 @@ p {
     background-color: #fff;
     position: relative;
 }
+
 .my-footprint .footprint-content .result-item:nth-of-type(4n) {
     margin-right: 0;
 }
+
 .my-footprint .footprint-content .result-item .img-box {
     width: 100%;
     height: 150px;
 }
+
 .my-footprint .footprint-content .result-item .img-box img.result-img {
     width: 100%;
     height: 100%;
 }
+
 .my-footprint .footprint-content .result-item .result-info {
     padding: 10px 15px;
 }
+
 .my-footprint .footprint-content .result-item .result-info .result-title {
     color: #000;
     font-size: 14px;
 }
+
 .my-footprint .footprint-content .result-item .result-info .result-browse-time {
     margin-top: 5px;
     font-size: 12px;
@@ -174,56 +206,68 @@ p {
     background-color: #fff;
     position: relative;
 }
+
 .my-footprint .footprint-content .demand-item:nth-of-type(2n) {
     background-color: #f4f4f4;
 }
+
 .my-footprint .footprint-content .demand-item .demand-item-row {
     height: 40px;
     line-height: 40px;
 }
+
 .my-footprint .footprint-content .demand-item .demand-item-col-180 {
     width: 180px;
 }
+
 .my-footprint .footprint-content .demand-item .demand-item-col-330 {
     width: 330px;
 }
+
 .my-footprint .footprint-content .demand-item .demand-item-col-510 {
     width: 510px;
 }
+
 .my-footprint .footprint-content .demand-item .demand-money {
     font-size: 16px;
     color: #ff4e00;
 }
+
 .my-footprint .footprint-content .demand-item .demand-name {
     font-size: 18px;
     color: #0088c0;
     padding-right: 30px;
     box-sizing: border-box;
 }
+
 .my-footprint .footprint-content .demand-item .demand-status {
     font-size: 16px;
     color: #ff4e00;
 }
+
 .my-footprint .footprint-content .demand-item .demand-browse-time {
     font-size: 14px;
     color: #646464;
 }
+
 .my-footprint .footprint-content .demand-item .demand-sign-click {
     font-size: 14px;
     color: #454545;
 }
+
 .my-footprint .footprint-content .demand-item .demand-sign-click i:before {
     color: #0088c0;
     margin-right: 5px;
 }
+
 .my-footprint .footprint-content .demand-item .demand-click-num {
     color: #0088c0;
 }
+
 .my-footprint .footprint-content .demand-item .demand-deadline {
     font-size: 14px;
     color: #646464;
 }
-
 
 /**** company-item ****/
 .my-footprint .footprint-content .company-item {
@@ -233,6 +277,7 @@ p {
     margin-bottom: 15px;
     position: relative;
 }
+
 .my-footprint .footprint-content .company-item .company-item-top {
     width: 100%;
     min-height: 26px;
@@ -240,45 +285,55 @@ p {
     box-sizing: border-box;
     line-height: 20px;
 }
+
 .my-footprint .footprint-content .company-item .company-item-top .company-name-box,
 .my-footprint .footprint-content .company-item .company-item-top .company-name {
     width: 200px;
     color: #000;
     word-break: break-all;
 }
+
 .my-footprint .footprint-content .company-item .company-item-left {
     width: 200px;
 }
+
 .my-footprint .footprint-content .company-item .company-item-left .certificate-icon {
     height: 36px;
     line-height: 36px;
 }
+
 .my-footprint .footprint-content .company-item .company-item-left .certificate-icon i:before {
     font-size: 18px;
     color: #999;
 }
+
 .my-footprint .footprint-content .company-item .company-item-left .certificate-icon i.active:before {
     color: #0088c0;
 }
+
 .my-footprint .footprint-content .company-item .company-item-left .company-logo-box {
     height: 100px;
     border: 1px solid #dcdcdc;
 }
+
 .my-footprint .footprint-content .company-item .company-item-left .company-logo {
     width: 100%;
     height: 100%;
     border: 0;
 }
+
 .my-footprint .footprint-content .company-item .company-item-left .company-browse-time {
     height: 36px;
     line-height: 36px;
     color: #666;
 }
+
 .my-footprint .footprint-content .company-item .company-item-right {
     width: 650px;
     height: 172px;
     margin-left: 25px;
 }
+
 .my-footprint .footprint-content .company-item .company-item-right .change-btn {
     width: 40px;
     height: 100%;
@@ -288,42 +343,51 @@ p {
     font-size: 25px;
     color: #999;
 }
+
 .my-footprint .footprint-content .company-item .company-item-right .change-btn:hover {
     background-color: rgba(0, 0, 0, 0.3);
     color: #fff;
 }
+
 .my-footprint .footprint-content .company-item .company-item-right .company-result-box {
     width: 570px;
     height: 100%;
     overflow: hidden;
     position: relative;
 }
+
 .my-footprint .footprint-content .company-item .company-item-right .company-result-ul {
     position: absolute;
     top: 0;
     left: 0;
 }
+
 .my-footprint .footprint-content .company-item .company-item-right .company-result-li {
     width: 180px;
     height: 172px;
     margin-left: 15px;
     box-sizing: border-box;
 }
+
 .my-footprint .footprint-content .company-item .company-item-right .company-result-li:first-child {
     margin-left: 0;
 }
+
 .my-footprint .footprint-content .company-item .company-item-right .company-result-item {
     display: block;
     height: 100%;
 }
+
 .my-footprint .footprint-content .company-item .company-result-item .company-result-img-box {
     width: 100%;
     height: 136px;
 }
+
 .my-footprint .footprint-content .company-item .company-result-item .company-result-img {
     width: 100%;
     height: 100%;
 }
+
 .my-footprint .footprint-content .company-item .company-result-item .company-result-name {
     height: 36px;
     line-height: 36px;

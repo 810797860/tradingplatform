@@ -4,17 +4,18 @@
 
     <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
 
-		<!-- 通用查询映射结果 -->
-			<resultMap id="roleButtonMap" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.RoleButton" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
-													<result column="button_id" property="buttonId" jdbcType="INTEGER" />
+    <!-- 通用查询映射结果 -->
+    <resultMap id="roleButtonMap" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.RoleButton"
+               extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
+        <result column="button_id" property="buttonId" jdbcType="INTEGER"/>
 
-		</resultMap>
+    </resultMap>
 
-        <!-- 通用查询映射结果 -->
-		<resultMap id="roleButtonMapSimple" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.RoleButton">
-																			                        <result column="button_id" property="buttonId" jdbcType="INTEGER" />
+    <!-- 通用查询映射结果 -->
+    <resultMap id="roleButtonMapSimple" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.RoleButton">
+        <result column="button_id" property="buttonId" jdbcType="INTEGER"/>
 
-        </resultMap>
+    </resultMap>
 
     <select id="selectMapById" resultType="java.util.Map">
         select * from s_base_role_button where id = #{roleButtonId} and deleted = false

@@ -18,6 +18,7 @@ import java.util.List;
 
 /**
  * MybatisPlus配置
+ *
  * @author 81079
  */
 
@@ -27,6 +28,7 @@ public class MybatisPlusConfig {
 
     /**
      * mybatis-plus分页插件
+     *
      * @return
      */
     @Bean
@@ -36,10 +38,11 @@ public class MybatisPlusConfig {
 
     /**
      * mybatis-plus性能优化
+     *
      * @return
      */
     @Bean
-    public PerformanceInterceptor performanceInterceptor(){
+    public PerformanceInterceptor performanceInterceptor() {
         PerformanceInterceptor performanceInterceptor = new PerformanceInterceptor();
         //sql最大执行时间
         performanceInterceptor.setMaxTime(3000);
@@ -51,22 +54,22 @@ public class MybatisPlusConfig {
     @Bean
     @ConfigurationProperties("spring.datasource.druid")
     public DataSource dataSource() {
-        List<Filter> filterList=new ArrayList<>();
+        List<Filter> filterList = new ArrayList<>();
         filterList.add(wallFilter());
-        DruidDataSource druidDataSource =  DruidDataSourceBuilder.create().build();
+        DruidDataSource druidDataSource = DruidDataSourceBuilder.create().build();
         druidDataSource.setProxyFilters(filterList);
         return druidDataSource;
     }
 
     @Bean
-    public WallFilter wallFilter(){
+    public WallFilter wallFilter() {
         WallFilter wallFilter = new WallFilter();
         wallFilter.setConfig(wallConfig());
         return wallFilter;
     }
 
     @Bean
-    public WallConfig wallConfig(){
+    public WallConfig wallConfig() {
         WallConfig config = new WallConfig();
         //允许一次执行多条语句
         config.setMultiStatementAllow(true);

@@ -10,162 +10,162 @@ import org.springframework.format.annotation.DateTimeFormat;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- *   @description : User 实体类
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2018-11-13
+ * @author zhangjk
+ * @description : User 实体类
+ * ---------------------------------
+ * @since 2018-11-13
  */
 @TableName("s_base_user")
 public class User extends BaseEntity {
 
-	/**
-	 * 序列化标志
-	 */
+    /**
+     * 序列化标志
+     */
     private static final long serialVersionUID = 1L;
 
-            /**
-             * 头像
-             */
-            @ApiModelProperty("头像")
-            @TableField("avatar")
-												
-			private Long avatar;
+    /**
+     * 头像
+     */
+    @ApiModelProperty("头像")
+    @TableField("avatar")
 
-            /**
-             * 账号
-             */
-            @ApiModelProperty("账号")
-            @TableField("account")
-												
-			private String account;
+    private Long avatar;
 
-            /**
-             * 密码
-             */
-            @ApiModelProperty("密码")
-            @TableField("password")
-												
-			private String password;
+    /**
+     * 账号
+     */
+    @ApiModelProperty("账号")
+    @TableField("account")
 
-            /**
-             * 名字
-             */
-            @ApiModelProperty("名字")
-            @TableField("user_name")
-												
-			private String userName;
+    private String account;
 
-            /**
-             * 生日
-             */
-            @ApiModelProperty("生日")
-            @TableField("birthday")
-												
-			@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-            @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    /**
+     * 密码
+     */
+    @ApiModelProperty("密码")
+    @TableField("password")
 
-			private Date birthday;
+    private String password;
 
-            /**
-             * 性别
-             */
-            @ApiModelProperty("性别")
-            @TableField("sex")
-												
-			private Long sex;
+    /**
+     * 名字
+     */
+    @ApiModelProperty("名字")
+    @TableField("user_name")
 
-            /**
-             * 电子邮件
-             */
-            @ApiModelProperty("电子邮件")
-            @TableField("email")
-												
-			private String email;
+    private String userName;
 
-            /**
-             * 电话
-             */
-            @ApiModelProperty("电话")
-            @TableField("phone")
-            private String phone;
+    /**
+     * 生日
+     */
+    @ApiModelProperty("生日")
+    @TableField("birthday")
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 
-            @ApiModelProperty("用户类型")
-            @TableField("type")
-            private Long type;
+    private Date birthday;
+
+    /**
+     * 性别
+     */
+    @ApiModelProperty("性别")
+    @TableField("sex")
+
+    private Long sex;
+
+    /**
+     * 电子邮件
+     */
+    @ApiModelProperty("电子邮件")
+    @TableField("email")
+
+    private String email;
+
+    /**
+     * 电话
+     */
+    @ApiModelProperty("电话")
+    @TableField("phone")
+    private String phone;
 
 
-        	public Long getAvatar() {
-                return avatar;
-                }
+    @ApiModelProperty("用户类型")
+    @TableField("type")
+    private Long type;
 
-            public void setAvatar(Long avatar) {
-                this.avatar = avatar;
-                }
 
-        	public String getAccount() {
-                return account;
-                }
+    public Long getAvatar() {
+        return avatar;
+    }
 
-            public void setAccount(String account) {
-                this.account = account;
-                }
+    public void setAvatar(Long avatar) {
+        this.avatar = avatar;
+    }
 
-        	public String getPassword() {
-                return password;
-                }
+    public String getAccount() {
+        return account;
+    }
 
-            public void setPassword(String password) {
-                this.password = password;
-                }
+    public void setAccount(String account) {
+        this.account = account;
+    }
 
-        	public String getUserName() {
-                return userName;
-                }
+    public String getPassword() {
+        return password;
+    }
 
-            public void setUserName(String userName) {
-                this.userName = userName;
-                }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-        	public Date getBirthday() {
-                return birthday;
-                }
+    public String getUserName() {
+        return userName;
+    }
 
-            public void setBirthday(Date birthday) {
-                this.birthday = birthday;
-                }
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
-        	public Long getSex() {
-                return sex;
-                }
+    public Date getBirthday() {
+        return birthday;
+    }
 
-            public void setSex(Long sex) {
-                this.sex = sex;
-                }
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
 
-        	public String getEmail() {
-                return email;
-                }
+    public Long getSex() {
+        return sex;
+    }
 
-            public void setEmail(String email) {
-                this.email = email;
-                }
+    public void setSex(Long sex) {
+        this.sex = sex;
+    }
 
-        	public String getPhone() {
-                return phone;
-                }
+    public String getEmail() {
+        return email;
+    }
 
-            public void setPhone(String phone) {
-                this.phone = phone;
-                }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-            public Long getType() {
-                return type;
-            }
+    public String getPhone() {
+        return phone;
+    }
 
-            public void setType(Long type) {
-                this.type = type;
-            }
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Long getType() {
+        return type;
+    }
+
+    public void setType(Long type) {
+        this.type = type;
+    }
 
     @Override
     public String toString() {

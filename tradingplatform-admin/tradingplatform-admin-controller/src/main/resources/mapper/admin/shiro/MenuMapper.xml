@@ -4,37 +4,36 @@
 
     <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
 
-		<!-- 通用查询映射结果 -->
-			<resultMap id="menuMap" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.Menu" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
-									
-				<result column="name" property="name" jdbcType="VARCHAR" />
-				<result column="style" property="style" jdbcType="VARCHAR" />
-				<result column="icon" property="icon" jdbcType="VARCHAR" />
-				<result column="url" property="url" jdbcType="VARCHAR" />
-				<result column="num" property="num" jdbcType="INTEGER" />
-				<result column="pid" property="pid" jdbcType="INTEGER" />
-				<result column="open_mode" property="openMode" jdbcType="INTEGER" />
+    <!-- 通用查询映射结果 -->
+    <resultMap id="menuMap" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.Menu"
+               extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
 
-		</resultMap>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="style" property="style" jdbcType="VARCHAR"/>
+        <result column="icon" property="icon" jdbcType="VARCHAR"/>
+        <result column="url" property="url" jdbcType="VARCHAR"/>
+        <result column="num" property="num" jdbcType="INTEGER"/>
+        <result column="pid" property="pid" jdbcType="INTEGER"/>
+        <result column="open_mode" property="openMode" jdbcType="INTEGER"/>
 
-        <!-- 通用查询映射结果 -->
-		<resultMap id="menuMapSimple" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.Menu">
-																			
-                        <result column="name" property="name" jdbcType="VARCHAR" />
-                        <result column="style" property="style" jdbcType="VARCHAR" />
-                        <result column="icon" property="icon" jdbcType="VARCHAR" />
-                        <result column="url" property="url" jdbcType="VARCHAR" />
-                        <result column="num" property="num" jdbcType="INTEGER" />
-                        <result column="pid" property="pid" jdbcType="INTEGER" />
-                        <result column="open_mode" property="openMode" jdbcType="INTEGER" />
+    </resultMap>
 
-        </resultMap>
+    <!-- 通用查询映射结果 -->
+    <resultMap id="menuMapSimple" type="com.secondhand.tradingplatformadminentity.entity.admin.shiro.Menu">
+
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="style" property="style" jdbcType="VARCHAR"/>
+        <result column="icon" property="icon" jdbcType="VARCHAR"/>
+        <result column="url" property="url" jdbcType="VARCHAR"/>
+        <result column="num" property="num" jdbcType="INTEGER"/>
+        <result column="pid" property="pid" jdbcType="INTEGER"/>
+        <result column="open_mode" property="openMode" jdbcType="INTEGER"/>
+
+    </resultMap>
 
     <select id="selectMapById" resultType="java.util.Map">
         select * from s_base_menu where id = #{menuId} and deleted = false
     </select>
-
-
 
 
 </mapper>

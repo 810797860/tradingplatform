@@ -8,9 +8,9 @@ $(function () {
     handleEventInModifyPwd();
 });
 
-function handleEventInModifyPwd () {
+function handleEventInModifyPwd() {
     $(".modify-password .code-img").off().on("click", function () {
-       $(this).attr('src', codeUrl);
+        $(this).attr('src', codeUrl);
     });
     $(".modify-password .submit").off().on("click", function () {
         if (!isPassVerify) {
@@ -50,7 +50,7 @@ function handleEventInModifyPwd () {
 }
 
 // 验证账号
-function verifyAccount (password, code) {
+function verifyAccount(password, code) {
     // if (!password) {
     //     layer.msg("密码不能为空！");
     //     return
@@ -86,7 +86,7 @@ function verifyAccount (password, code) {
 }
 
 // 重置密码
-function resetPassword (newPassword, rePassword) {
+function resetPassword(newPassword, rePassword) {
     if (!newPassword || !rePassword) {
         layer.msg("密码不能为空！");
         return
@@ -119,6 +119,7 @@ function resetPassword (newPassword, rePassword) {
 function passwordEncrypt(password) {
     return hex_md5(encrypt(password));
 }
+
 // 密码加密
 function passwordEncryptDes(password) {
     return encrypt(password);

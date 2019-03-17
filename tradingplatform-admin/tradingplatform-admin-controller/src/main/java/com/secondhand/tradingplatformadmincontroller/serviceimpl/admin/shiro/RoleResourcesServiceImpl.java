@@ -25,10 +25,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *   @description : RoleResources 服务实现类
- *   ---------------------------------
- * 	 @author zhangjk
- *   @since 2018-11-12
+ * @author zhangjk
+ * @description : RoleResources 服务实现类
+ * ---------------------------------
+ * @since 2018-11-12
  */
 
 @Service
@@ -98,7 +98,7 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
     @CacheEvict(allEntries = true)
     public RoleResources myRoleResourcesCreateUpdate(RoleResources roleResources) {
         Long roleResourcesId = roleResources.getId();
-        if (roleResourcesId == null){
+        if (roleResourcesId == null) {
             roleResources.setUuid(ToolUtil.getUUID());
             roleResourcesMapper.insert(roleResources);
         } else {
@@ -111,7 +111,7 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
     @Transactional(rollbackFor = Exception.class)
     @CacheEvict(allEntries = true)
     public boolean myRoleResourcesBatchCreate(Long roleId, List<Integer> resourcesIds) {
-        resourcesIds.forEach(resourcesId->{
+        resourcesIds.forEach(resourcesId -> {
             //这里就自己写了，为了快一点(因为都是新增)
             RoleResources roleResources = new RoleResources();
             roleResources.setUuid(ToolUtil.getUUID());
@@ -138,12 +138,12 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
         resourcesWrapper.where("deleted = {0}", false);
         //遍历排序
         List<Sort> sorts = roleResources.getSorts();
-        if (sorts == null){
+        if (sorts == null) {
             //为null时，默认按created_at倒序
             resourcesWrapper.orderBy("id", false);
         } else {
             //遍历排序
-            sorts.forEach( sort -> {
+            sorts.forEach(sort -> {
                 resourcesWrapper.orderBy(sort.getField(), sort.getAsc());
             });
         }
@@ -163,7 +163,7 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
         wrapper.setSqlSelect("resources_id");
         List<Object> resourcesIds = this.selectObjs(wrapper);
         //如果resourcesIds为空，返回空的对象
-        if (resourcesIds.size() == 0){
+        if (resourcesIds.size() == 0) {
             return new Page<Resources>();
         }
         //再根据id找resourcesPage
@@ -173,12 +173,12 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
         resourcesWrapper.where("deleted = {0}", false);
         //遍历排序
         List<Sort> sorts = roleResources.getSorts();
-        if (sorts == null){
+        if (sorts == null) {
             //为null时，默认按created_at倒序
             resourcesWrapper.orderBy("id", false);
         } else {
             //遍历排序
-            sorts.forEach( sort -> {
+            sorts.forEach(sort -> {
                 resourcesWrapper.orderBy(sort.getField(), sort.getAsc());
             });
         }
@@ -217,7 +217,7 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertBatch(List<RoleResources> roleResourcesList) {
-        for (RoleResources roleResources : roleResourcesList){
+        for (RoleResources roleResources : roleResourcesList) {
             roleResources.setUuid(ToolUtil.getUUID());
         }
         return this.insertBatch(roleResourcesList);
@@ -227,7 +227,7 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdate(RoleResources roleResources) {
         //没有uuid的话要加上去
-        if (roleResources.getUuid().equals(null)){
+        if (roleResources.getUuid().equals(null)) {
             roleResources.setUuid(ToolUtil.getUUID());
         }
         return this.insertOrUpdate(roleResources);
@@ -236,9 +236,9 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsertOrUpdateBatch(List<RoleResources> roleResourcesList) {
-        for (RoleResources roleResources : roleResourcesList){
+        for (RoleResources roleResources : roleResourcesList) {
             //没有uuid的话要加上去
-            if (roleResources.getUuid().equals(null)){
+            if (roleResources.getUuid().equals(null)) {
                 roleResources.setUuid(ToolUtil.getUUID());
             }
         }
@@ -304,7 +304,7 @@ public class RoleResourcesServiceImpl extends BaseServiceImpl<RoleResourcesMappe
         wrapper.where("deleted = {0}", false);
         List<Object> resourcesIds = this.selectObjs(wrapper);
         //判空
-        if (resourcesIds.size() == 0){
+        if (resourcesIds.size() == 0) {
             return new ArrayList<>();
         }
         //再根据resourcesIds来找

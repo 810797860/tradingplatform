@@ -4,32 +4,33 @@
 
     <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
 
-		<!-- 通用查询映射结果 -->
-			<resultMap id="annexMap" type="com.secondhand.tradingplatformadminentity.entity.admin.business.Annex" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
-									
-				<result column="name" property="name" jdbcType="VARCHAR" />
-				<result column="type" property="type" jdbcType="VARCHAR" />
-				<result column="extension" property="extension" jdbcType="VARCHAR" />
-				<result column="size" property="size" jdbcType="FLOAT" />
-				<result column="path" property="path" jdbcType="VARCHAR" />
-				<result column="md5" property="md5" jdbcType="VARCHAR" />
-				<result column="content_type" property="contentType" jdbcType="VARCHAR" />
+    <!-- 通用查询映射结果 -->
+    <resultMap id="annexMap" type="com.secondhand.tradingplatformadminentity.entity.admin.business.Annex"
+               extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
+
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="type" property="type" jdbcType="VARCHAR"/>
+        <result column="extension" property="extension" jdbcType="VARCHAR"/>
+        <result column="size" property="size" jdbcType="FLOAT"/>
+        <result column="path" property="path" jdbcType="VARCHAR"/>
+        <result column="md5" property="md5" jdbcType="VARCHAR"/>
+        <result column="content_type" property="contentType" jdbcType="VARCHAR"/>
 
 
-		</resultMap>
+    </resultMap>
 
-        <!-- 通用查询映射结果 -->
-		<resultMap id="annexMapSimple" type="com.secondhand.tradingplatformadminentity.entity.admin.business.Annex">
-																			
-                        <result column="name" property="name" jdbcType="VARCHAR" />
-                        <result column="type" property="type" jdbcType="VARCHAR" />
-                        <result column="extension" property="extension" jdbcType="VARCHAR" />
-                        <result column="size" property="size" jdbcType="FLOAT" />
-                        <result column="path" property="path" jdbcType="VARCHAR" />
-                        <result column="md5" property="md5" jdbcType="VARCHAR" />
-                        <result column="content_type" property="contentType" jdbcType="VARCHAR" />
+    <!-- 通用查询映射结果 -->
+    <resultMap id="annexMapSimple" type="com.secondhand.tradingplatformadminentity.entity.admin.business.Annex">
 
-        </resultMap>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="type" property="type" jdbcType="VARCHAR"/>
+        <result column="extension" property="extension" jdbcType="VARCHAR"/>
+        <result column="size" property="size" jdbcType="FLOAT"/>
+        <result column="path" property="path" jdbcType="VARCHAR"/>
+        <result column="md5" property="md5" jdbcType="VARCHAR"/>
+        <result column="content_type" property="contentType" jdbcType="VARCHAR"/>
+
+    </resultMap>
 
     <select id="selectMapById" resultType="java.util.Map">
         select * from c_business_annex where id = #{annexId} and deleted = false

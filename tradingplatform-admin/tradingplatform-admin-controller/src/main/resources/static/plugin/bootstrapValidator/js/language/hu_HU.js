@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     /**
      * Hungarian language package
      * Translated by @blackfyre
@@ -146,8 +146,8 @@
                 SI: 'Szlovéniában',
                 SK: 'Szlovákiában',
                 SM: 'San Marinoban',
-                SN: 'Szenegálban',/* Special case */
-                TN: 'Tunéziában',/* Special case */
+                SN: 'Szenegálban', /* Special case */
+                TN: 'Tunéziában', /* Special case */
                 TR: 'Törökországban',
                 VG: 'Britt Virgin szigeteken' /* Special case */
             }

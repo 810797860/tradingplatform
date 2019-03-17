@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * 用于注入子模块的bean
+ *
  * @author 81079
  */
 
@@ -15,12 +16,13 @@ import org.springframework.context.annotation.Configuration;
 public class WebConfig {
 
     @Bean
-    public ApplicationContextHolder applicationContextHolder(){
+    public ApplicationContextHolder applicationContextHolder() {
         return new ApplicationContextHolder();
     }
 
     /**
      * 解决跨域问题
+     *
      * @return
      */
     @Bean

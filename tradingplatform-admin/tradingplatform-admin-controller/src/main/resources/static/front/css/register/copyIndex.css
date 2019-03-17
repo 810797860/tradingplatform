@@ -1,41 +1,49 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
+
 body {
     background-color: #f5f5f5;
 }
+
 .header-div {
     width: 100%;
     background-color: #e6e6e6;
 }
+
 .register {
     box-sizing: border-box;
     padding-top: 140px;
     background-color: #f5f5f5;
 }
+
 .header-div p {
     width: 1170px;
     margin: 0 auto;
     line-height: 30px;
     color: #646464;
 }
+
 .web-logotype {
     width: 1170px;
     margin: 0 auto;
     padding: 30px;
 }
+
 .register-main-div .register-logo {
     width: 100px;
     height: 100px;
     margin-left: 230px;
     margin-bottom: 10px;
 }
+
 .register-main-div .register-tab {
     height: 46px;
     line-height: 46px;
     margin-bottom: 44px;
 }
+
 .register-main-div .register-tab .tab-style {
     font-size: 20px;
     color: #4c4c4c;
@@ -46,40 +54,44 @@ body {
     border-bottom: 1px solid #dcdcdc;
     cursor: pointer;
 }
+
 .register-main-div .register-tab .tab-style-active {
     border-bottom: 1px solid #0db5fb;
 }
+
 .trademark-copywriting {
     display: inline-block;
 }
+
 .web-name {
     font-size: 37px;
     color: #000;
     line-height: 30px;
 }
+
 .web-purpose {
     font-size: 16px;
     line-height: 24px;
     color: #323232;
 }
+
 .register-main-div {
     width: 1170px;
     margin: 0 auto;
     background-color: #ffffff;
-    box-shadow: 0px 0px 13px 0px
-    rgba(100, 100, 100, 0.25);
+    box-shadow: 0px 0px 13px 0px rgba(100, 100, 100, 0.25);
     height: 650px;
     position: relative;
     box-sizing: border-box;
     padding-top: 56px;
     padding-left: 320px;
 }
+
 .register-success {
     width: 1170px;
     margin: 0 auto;
     background-color: #ffffff;
-    box-shadow: 0px 0px 13px 0px
-    rgba(100, 100, 100, 0.25);
+    box-shadow: 0px 0px 13px 0px rgba(100, 100, 100, 0.25);
     height: 632px;
     position: relative;
     box-sizing: border-box;
@@ -87,40 +99,49 @@ body {
     padding-left: 320px;
     display: none;
 }
+
 .register-success .success-mark {
     padding-top: 210px;
     width: 530px;
     text-align: center;
 }
+
 .register-success .success-mark i:before {
     font-size: 60px;
     color: #0db5fb;
 }
+
 .register-success p {
     width: 530px;
     text-align: center;
 }
-.register-way-tab,.back-to-login {
+
+.register-way-tab, .back-to-login {
     cursor: pointer;
     width: 650px;
     margin: 10px auto;
     text-align: right;
     padding-right: 280px;
 }
-.register-way-tab .backLogin{
+
+.register-way-tab .backLogin {
     float: left;
 }
+
 .back-to-login {
     padding-right: 0;
 }
+
 .register-form {
     /*margin-top: 105px;*/
 }
+
 .register-form-div {
     width: 371px;
     padding-left: 100px;
     height: 361px;
 }
+
 .form-input {
     width: 370px;
     height: 50px;
@@ -130,10 +151,11 @@ body {
     font-size: 14px;
 
 }
+
 /*.form-input:focus {
     border: none;
 }*/
-.register-form-input,.verification-input {
+.register-form-input, .verification-input {
     box-sizing: border-box;
     position: relative;
     width: 370px;
@@ -141,6 +163,7 @@ body {
     margin-bottom: 20px;
     /*margin-left: 100px;*/
 }
+
 .verification-input .verification {
     width: 100px;
     height: 34px;
@@ -152,7 +175,8 @@ body {
     padding-left: 12px;
     border-radius: 5px;
 }
-.verification-input .send-message{
+
+.verification-input .send-message {
     /*padding: 5.5px;*/
     border: 1px solid #dcdcdc;
     border-radius: 5px;
@@ -166,9 +190,11 @@ body {
     color: #fff;
     display: inline-block;
 }
-.verification-input .send-message:disabled{
+
+.verification-input .send-message:disabled {
     background-color: #aaaaaa;
 }
+
 .icon-style:before {
     position: absolute;
     top: 8px;
@@ -176,6 +202,7 @@ body {
     font-size: 28px;
     color: #dcdcdc;
 }
+
 .register-button {
     width: 370px;
     height: 50px;
@@ -187,9 +214,11 @@ body {
     font-size: 20px;
     text-align: center;
 }
+
 .register-button:hover {
     color: #ffffff;
 }
+
 .get-validate-btn {
     display: inline-block;
     width: 94px;
@@ -198,6 +227,7 @@ body {
     line-height: 51px;
     color: #0db5fb;
 }
+
 .get-back-btn {
     width: 69px;
     height: 113px;
@@ -209,6 +239,7 @@ body {
     color: #ffffff;
     cursor: pointer;
 }
+
 .get-back-btn p {
     width: 44px;
     font-size: 18px;
@@ -217,10 +248,12 @@ body {
     letter-spacing: 4px;
     line-height: 35px;
 }
+
 .register-footer-div {
     width: 1170px;
     margin: 0 auto;
 }
+
 .footer-list {
     width: 1050px;
     margin: 0 auto;
@@ -230,31 +263,37 @@ body {
     font-size: 18px;
     color: #636363;
 }
+
 .footer-list li {
     display: inline-block;
 }
-.footer-list li i:before{
+
+.footer-list li i:before {
     font-size: 20px;
     padding: 0 5px;
 }
+
 .footer-list li a {
     cursor: pointer;
     color: #818181;
     text-decoration: none;
 }
+
 .copyright {
     text-align: center;
     font-size: 14px;
     color: #818181;
 }
-.user-email{
+
+.user-email {
     display: none;
 }
 
-.register-main-div .input-error{
+.register-main-div .input-error {
     border-color: #ff0000;
 }
-.register-main-div .registerTip{
+
+.register-main-div .registerTip {
     display: none;
     position: absolute;
     left: 0;

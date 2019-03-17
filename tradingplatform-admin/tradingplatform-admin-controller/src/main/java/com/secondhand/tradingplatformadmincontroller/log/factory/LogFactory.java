@@ -9,6 +9,7 @@ import java.util.Date;
 
 /**
  * 日志对象创建工厂
+ *
  * @author 81079
  */
 

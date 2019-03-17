@@ -1,4 +1,4 @@
-(function(root, factory) {
+(function (root, factory) {
     //amd
     if (typeof define === 'function' && define.amd) {
         define(['$', 'query'], factory);
@@ -7,10 +7,10 @@
     } else {
         root.Paging = factory(window.Zepto || window.jQuery || $, jQuery);
     }
-})(this, function($, Query) {
-    $.fn.Paging = function(settings) {
+})(this, function ($, Query) {
+    $.fn.Paging = function (settings) {
         var arr = [];
-        $(this).each(function() {
+        $(this).each(function () {
             var options = $.extend({
                 target: $(this)
             }, settings);
@@ -25,8 +25,9 @@
         var rnd = Math.random().toString().replace('.', '');
         this.id = 'Paging_' + rnd;
     }
+
     Paging.prototype = {
-        init: function(settings) {
+        init: function (settings) {
             this.settings = $.extend({
                 callback: null,
                 pagesize: 10,
@@ -37,7 +38,7 @@
                 lastTpl: "末页",
                 ellipseTpl: "...",
                 toolbar: false,
-                hash:true,
+                hash: true,
                 pageSizeList: [5, 10, 15, 20]
             }, settings);
             this.target = $(this.settings.target);
@@ -47,16 +48,16 @@
             this.format();
             this.bindEvent();
         },
-        render: function(ops) {
+        render: function (ops) {
             this.count = ops.count || this.settings.count;
             this.pagesize = ops.pagesize || this.settings.pagesize;
             this.current = ops.current || this.settings.current;
             this.pagecount = Math.ceil(this.count / this.pagesize);
             this.format();
         },
-        bindEvent: function() {
+        bindEvent: function () {
             var _this = this;
-            this.container.on('click', 'li.js-page-action,li.ui-pager', function(e) {
+            this.container.on('click', 'li.js-page-action,li.ui-pager', function (e) {
                 if ($(this).hasClass('ui-pager-disabled') || $(this).hasClass('focus')) {
                     return false;
                 }
@@ -88,7 +89,7 @@
              })
              */
         },
-        go: function(p) {
+        go: function (p) {
             var _this = this;
             this.current = p || this.current;
             console.log('这是返回给数据列表的页数');
@@ -106,12 +107,12 @@
             // }
             this.settings.callback && this.settings.callback(this.current, this.pagesize, this.pagecount);
         },
-        changePagesize: function(ps) {
+        changePagesize: function (ps) {
             this.render({
                 pagesize: ps
             });
         },
-        format: function() {
+        format: function () {
             var html = '<ul>'
             // html += '<li class="js-page-first js-page-action ui-pager" >' + this.settings.firstTpl + '</li>';
             html += '<li class="js-page-prev js-page-action ui-pager page-up">' + this.settings.prevTpl + '</li>';
@@ -121,8 +122,7 @@
                     html += '<li data-page="2" class="ui-pager">2</li>';
                     html += '<li data-page="3" class="ui-pager">3</li>';
                     html += '<li class="ui-paging-ellipse">' + this.settings.ellipseTpl + '</li>';
-                } else
-                if (this.current > 2 && this.current <= this.pagecount - 2) {
+                } else if (this.current > 2 && this.current <= this.pagecount - 2) {
                     html += '<li>' + this.settings.ellipseTpl + '</li>';
                     html += '<li data-page="' + (this.current - 1) + '" class="ui-pager">' + (this.current - 1) + '</li>';
                     html += '<li data-page="' + this.current + '" class="ui-pager">' + this.current + '</li>';
@@ -158,7 +158,7 @@
                 this.bindToolbar();
             }
         },
-        bindToolbar: function() {
+        bindToolbar: function () {
             var _this = this;
             var html = $('<li class="ui-paging-toolbar"><select class="ui-select-pagesize"></select><input type="text" class="ui-paging-count"/><span>&nbsp&nbsp页</span><a href="javascript:void(0)">GO</a></li>');
             var sel = $('.ui-select-pagesize', html);
@@ -169,20 +169,20 @@
             sel.html(str);
             sel.val(this.pagesize);
             // $('input', html).val(this.current);
-            $('input', html).click(function() {
+            $('input', html).click(function () {
                 $(this).select();
-            }).keydown(function(e) {
+            }).keydown(function (e) {
                 if (e.keyCode == 13) {
                     var current = parseInt($(this).val()) || 1;
                     // $('#pageToolbar').data().currentpage = current;
                     _this.go(current);
                 }
             });
-            $('a', html).click(function() {
+            $('a', html).click(function () {
                 var current = parseInt($(this).prev().prev().val()) || 1;
                 _this.go(current);
             });
-            sel.change(function() {
+            sel.change(function () {
                 _this.changePagesize($(this).val());
             });
             this.container.children('ul').append(html);

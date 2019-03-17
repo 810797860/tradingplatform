@@ -13,10 +13,11 @@ import javax.crypto.spec.DESKeySpec;
 
 public class DesEncryptionTool {
 
-    private static final byte[] DES_KEY = { 67, 81, 18, -48, -32, -99, 111, 88 };
+    private static final byte[] DES_KEY = {67, 81, 18, -48, -32, -99, 111, 88};
 
     /**
      * 加密
+     *
      * @param data
      * @return
      */
@@ -42,6 +43,7 @@ public class DesEncryptionTool {
 
     /**
      * 解密
+     *
      * @param cryptData
      * @return
      */

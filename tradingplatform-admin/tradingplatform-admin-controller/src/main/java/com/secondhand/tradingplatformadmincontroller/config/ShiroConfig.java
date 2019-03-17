@@ -71,21 +71,21 @@ public class ShiroConfig {
     public ShiroDialect shiroDialect() {
         return new ShiroDialect();
     }*/
+
     /**
      * ShiroFilterFactoryBean 处理拦截资源文件问题。
      * 注意：单独一个ShiroFilterFactoryBean配置是或报错的，因为在
      * 初始化ShiroFilterFactoryBean的时候需要注入：SecurityManager
-     *
-     Filter Chain定义说明
-     1、一个URL可以配置多个Filter，使用逗号分隔
-     2、当设置多个过滤器时，全部验证通过，才视为通过
-     3、部分过滤器可指定参数，如perms，roles
-     *
+     * <p>
+     * Filter Chain定义说明
+     * 1、一个URL可以配置多个Filter，使用逗号分隔
+     * 2、当设置多个过滤器时，全部验证通过，才视为通过
+     * 3、部分过滤器可指定参数，如perms，roles
      */
     @Bean
-    public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager){
+    public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager) {
         System.out.println("ShiroConfiguration.shirFilter()");
-        ShiroFilterFactoryBean shiroFilterFactoryBean  = new ShiroFilterFactoryBean();
+        ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
 
         // 必须设置 SecurityManager
         shiroFilterFactoryBean.setSecurityManager(securityManager);
@@ -96,16 +96,16 @@ public class ShiroConfig {
         //未授权界面;
         shiroFilterFactoryBean.setUnauthorizedUrl("/403");
         //拦截器.
-        Map<String,String> filterChainDefinitionMap = new LinkedHashMap<String,String>();
+        Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
 
         //配置退出 过滤器,其中的具体的退出代码Shiro已经替我们实现了
         filterChainDefinitionMap.put("/logout", "logout");
-        filterChainDefinitionMap.put("/assets/**","anon");
-        filterChainDefinitionMap.put("/compatibility/**","anon");
-        filterChainDefinitionMap.put("/css/**","anon");
-        filterChainDefinitionMap.put("/front/**","anon");
-        filterChainDefinitionMap.put("/js/**","anon");
-        filterChainDefinitionMap.put("/plugin/**","anon");
+        filterChainDefinitionMap.put("/assets/**", "anon");
+        filterChainDefinitionMap.put("/compatibility/**", "anon");
+        filterChainDefinitionMap.put("/css/**", "anon");
+        filterChainDefinitionMap.put("/front/**", "anon");
+        filterChainDefinitionMap.put("/js/**", "anon");
+        filterChainDefinitionMap.put("/plugin/**", "anon");
 
         //前端路由过滤
         filterChainDefinitionMap = FilterChainDefinitionMapBuilder.addFilterChainDefinitionMap(filterChainDefinitionMap);
@@ -114,11 +114,11 @@ public class ShiroConfig {
         //<!-- authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问-->
         //自定义加载权限资源关系
         List<Resources> resourcesList = resourcesService.myQueryAll();
-        for(Resources resources:resourcesList){
+        for (Resources resources : resourcesList) {
 
-            if ( !ToolUtil.strIsEmpty(resources.getUrl())) {
-                String permission = "perms[" + resources.getUrl()+ "]";
-                filterChainDefinitionMap.put(resources.getUrl(),permission);
+            if (!ToolUtil.strIsEmpty(resources.getUrl())) {
+                String permission = "perms[" + resources.getUrl() + "]";
+                filterChainDefinitionMap.put(resources.getUrl(), permission);
             }
         }
         filterChainDefinitionMap.put("/**", "authc");
@@ -129,8 +129,8 @@ public class ShiroConfig {
     }
 
     @Bean
-    public SecurityManager securityManager(){
-        DefaultWebSecurityManager securityManager =  new DefaultWebSecurityManager();
+    public SecurityManager securityManager() {
+        DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         //设置realm.
         securityManager.setRealm(myShiroRealm());
         // 自定义缓存实现 使用redis
@@ -141,7 +141,7 @@ public class ShiroConfig {
     }
 
     @Bean
-    public MyShiroRealm myShiroRealm(){
+    public MyShiroRealm myShiroRealm() {
         MyShiroRealm myShiroRealm = new MyShiroRealm();
 //        myShiroRealm.setCredentialsMatcher(hashedCredentialsMatcher());
         myShiroRealm.setCredentialsMatcher(desCredentialsMatcher());
@@ -167,19 +167,20 @@ public class ShiroConfig {
 
 
     @Bean
-    public CredentialsMatcher desCredentialsMatcher(){
+    public CredentialsMatcher desCredentialsMatcher() {
         return new DesCredentialsMatcher();
     }
 
 
     /**
-     *  开启shiro aop注解支持.
-     *  使用代理方式;所以需要开启代码支持;
+     * 开启shiro aop注解支持.
+     * 使用代理方式;所以需要开启代码支持;
+     *
      * @param securityManager
      * @return
      */
     @Bean
-    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager){
+    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager) {
         AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
         authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
         return authorizationAttributeSourceAdvisor;
@@ -188,6 +189,7 @@ public class ShiroConfig {
     /**
      * 配置shiro redisManager
      * 使用的是shiro-redis开源插件
+     *
      * @return
      */
     public RedisManager redisManager() {
@@ -203,6 +205,7 @@ public class ShiroConfig {
     /**
      * cacheManager 缓存 redis实现
      * 使用的是shiro-redis开源插件
+     *
      * @return
      */
     public RedisCacheManager cacheManager() {
@@ -255,7 +258,7 @@ public class ShiroConfig {
     }
 
     @Bean
-    public SimpleCookie setSessionIdCookie(){
+    public SimpleCookie setSessionIdCookie() {
         SimpleCookie simpleCookie = new SimpleCookie("shiro.sesssion");
         simpleCookie.setPath("/");
         simpleCookie.setHttpOnly(true);
@@ -282,7 +285,7 @@ public class ShiroConfig {
             int invalidCount = 0;
             Collection<?> activeSessions = getActiveSessions();
             if (activeSessions != null && !activeSessions.isEmpty()) {
-                for (Iterator<?> i$ = activeSessions.iterator(); i$.hasNext();) {
+                for (Iterator<?> i$ = activeSessions.iterator(); i$.hasNext(); ) {
                     Session session = (Session) i$.next();
                     try {
                         SessionKey key = new DefaultSessionKey(session.getId());
@@ -315,8 +318,7 @@ public class ShiroConfig {
                     msg = (new StringBuilder()).append(msg).append("  [").append(
                             invalidCount).append("] sessions were stopped.")
                             .toString();
-                }
-                else {
+                } else {
                     msg = (new StringBuilder()).append(msg).append(
                             "  No sessions were stopped.").toString();
                 }

@@ -22,8 +22,8 @@ import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 /**
- * @description : 登录控制器
  * @author : zhangjk
+ * @description : 登录控制器
  * @since : Create in 2018-12-04
  */
 @RestController("adminLogInController")
@@ -48,7 +48,7 @@ public class LogInController {
         String captcha = parameter.get("captcha").toString();
         //判断验证码
         if (!ToolUtil.checkVerifyCode(request, captcha)) {
-            throw  new CustomizeException(CustomizeStatus.LOGIN_VERIFICATION_CODE_ERROR, this.getClass());
+            throw new CustomizeException(CustomizeStatus.LOGIN_VERIFICATION_CODE_ERROR, this.getClass());
         }
         Subject subject = SecurityUtils.getSubject();
         DesUserToken token = new DesUserToken(userName, password);
@@ -60,7 +60,7 @@ public class LogInController {
             successJsonResult.setMessage("登录成功");
             successJsonResult.setSuccess(true);
             return successJsonResult;
-        }catch (LockedAccountException lae) {
+        } catch (LockedAccountException lae) {
             token.clear();
             throw new CustomizeException(CustomizeStatus.LOGIN_USER_IS_LOCKED, this.getClass());
         } catch (AuthenticationException e) {
@@ -69,7 +69,7 @@ public class LogInController {
         } finally {
             //进行判断，是否为后台用户
             Long type = Long.valueOf(session.getAttribute(MagicalValue.USER_TYPE).toString());
-            if (!type.equals(SystemSelectItem.USER_TYPE_BACK_DESK)){
+            if (!type.equals(SystemSelectItem.USER_TYPE_BACK_DESK)) {
                 //跳回登录页面
                 //前端调用/logout退出
                 throw new CustomizeException(CustomizeStatus.LOGIN_LOG_IN_ERROR, this.getClass());

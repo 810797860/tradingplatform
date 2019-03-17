@@ -7,33 +7,42 @@
     padding: 10px;
     background: #ffffff;
 }
-.subscription .float-left{
+
+.subscription .float-left {
     float: left;
 }
-.subscription .float-right{
+
+.subscription .float-right {
     float: right;
 }
-.subscription a{
+
+.subscription a {
     color: initial;
     text-decoration: none;
 }
-.subscription a:hover{
+
+.subscription a:hover {
     color: initial;
 }
+
 .subscription a:active {
     color: initial;
 }
+
 .subscription a:visited {
     color: initial;
 }
+
 .subscription a:link {
     color: initial;
 }
-.subscription .subscription-top{
+
+.subscription .subscription-top {
     width: 100%;
     height: 40px;
 }
-.subscription .subscription-top .subscription-way-list{
+
+.subscription .subscription-top .subscription-way-list {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -42,6 +51,7 @@
     padding: 0 10px;
     overflow: hidden;
 }
+
 .subscription .subscription-top .subscription-way-list .subscription-way-item {
     float: left;
     margin-right: 25px;
@@ -49,13 +59,16 @@
     height: 100%;
     line-height: 40px;
 }
-.subscription .subscription-top .subscription-way-list .subscription-way-item:last-child{
+
+.subscription .subscription-top .subscription-way-list .subscription-way-item:last-child {
     margin-right: 0;
 }
-.subscription .subscription-container-div{
+
+.subscription .subscription-container-div {
     width: 100%;
     height: auto;
 }
+
 .subscription .subscription-container-div .subscription-container-model-title {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -65,14 +78,17 @@
     padding: 0 10px;
     line-height: 30px;
 }
+
 .subscription .subscription-container-div .subscription-shop-info-list {
     width: 100%;
     height: auto;
 }
+
 .subscription .subscription-container-div .subscription-shop-info-list .subscription-shop-info-item {
     width: 100%;
     height: auto;
 }
+
 .subscription .subscription-container-div .subscription-shop-info-list .subscription-shop-info-item .subscription-shop-title-div {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -82,14 +98,17 @@
     min-height: 40px;
     padding-right: 100px;
 }
+
 .subscription .subscription-container-div .subscription-shop-info-list .subscription-shop-info-item .subscription-shop-title-div .subscription-shop-title-link {
     font-size: 18px;
     word-break: break-all;
 }
-.subscription .subscription-container-div .subscription-shop-info-list .subscription-shop-info-item .subscription-shop-title-div .subscription-shop-identity-model .subscription-shop-identity-item:before{
+
+.subscription .subscription-container-div .subscription-shop-info-list .subscription-shop-info-item .subscription-shop-title-div .subscription-shop-identity-model .subscription-shop-identity-item:before {
     color: #cdcdcd;
     font-size: 20px;
 }
+
 .subscription .subscription-container-div .subscription-shop-info-list .subscription-shop-info-item .subscription-shop-title-div .subscription-shop-unsubscribe-button {
     position: absolute;
     top: 0;
@@ -102,42 +121,50 @@
     background: #4093d8;
     color: #ffffff;
 }
+
 .subscription .subscription-container-div .subscription-shop-info-list .subscription-shop-info-item .subscription-shop-result-model {
     width: 100%;
     height: auto;
 }
-.subscription .subscription-container-div .subscription-shop-info-list .subscription-shop-info-item .subscription-shop-result-model .subscription-shop-result-top{
+
+.subscription .subscription-container-div .subscription-shop-info-list .subscription-shop-info-item .subscription-shop-result-model .subscription-shop-result-top {
     width: 100%;
     height: 40px;
     line-height: 40px;
     overflow: hidden;
 }
+
 .subscription .subscription-container-div .subscription-shop-info-list .subscription-shop-info-item .subscription-shop-result-model .subscription-shop-result-container {
     width: 100%;
     height: auto;
     overflow: hidden;
 }
+
 .subscription .subscription-container-div .subscription-shop-info-list .subscription-shop-info-item .subscription-shop-result-model .subscription-shop-result-container .subscription-shop-result-list {
     min-width: 100%;
     height: auto;
     overflow: hidden;
 }
+
 .subscription .subscription-container-div .subscription-shop-info-list .subscription-shop-info-item .subscription-shop-result-model .subscription-shop-result-container .subscription-shop-result-list .subscription-shop-result-item {
     float: left;
     margin: 5px 10px;
     width: 170px;
     height: 170px;
 }
+
 .subscription .subscription-container-div .subscription-shop-info-list .subscription-shop-info-item .subscription-shop-result-model .subscription-shop-result-container .subscription-shop-result-list .subscription-shop-result-item .subscription-shop-result-image-div {
     width: 100%;
     height: 100px;
     border-bottom: 1px solid #000000;
     overflow: hidden;
 }
+
 .subscription .subscription-container-div .subscription-shop-info-list .subscription-shop-info-item .subscription-shop-result-model .subscription-shop-result-container .subscription-shop-result-list .subscription-shop-result-item .subscription-shop-result-image-div .subscription-shop-result-image {
     width: 100%;
     height: auto;
 }
+
 .subscription .subscription-container-div .subscription-shop-info-list .subscription-shop-info-item .subscription-shop-result-model .subscription-shop-result-container .subscription-shop-result-list .subscription-shop-result-item .subscription-shop-result-title-div {
     width: 100%;
     height: 69px;
