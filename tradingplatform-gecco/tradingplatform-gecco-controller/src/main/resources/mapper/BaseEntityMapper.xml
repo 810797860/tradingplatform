@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.secondhand.tradingplatformgeccomapper.mapper.BaseEntityMapper">
+    <resultMap id="baseEntityMapper" type="com.secondhand.tradingplatformcommon.base.BaseEntity.BaseEntity">
+        <id column="id" property="id" jdbcType="INTEGER"></id>
+        <result column="uuid" property="uuid" jdbcType="VARCHAR"></result>
+        <result column="description" property="description" jdbcType="VARCHAR"></result>
+        <result column="deleted" property="deleted" jdbcType="BOOLEAN"></result>
+        <result column="created_by" property="createdBy" jdbcType="INTEGER"></result>
+        <result column="created_at" property="createdAt" jdbcType="TIMESTAMP"></result>
+        <result column="updated_by" property="updatedBy" jdbcType="INTEGER"></result>
+        <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP"></result>
+    </resultMap>
+    <sql id="base_insert_column">
+        <if test="null != uuid">uuid,</if>
+        <if test="null != description">description,</if>
+        <if test="null != deleted">deleted,</if>
+        <if test="null != createdBy">created_by,</if>
+        <if test="null != createdAt">created_at,</if>
+        <if test="null != updatedBy">updated_by,</if>
+        <if test="null != updatedAt">updated_at,</if>
+    </sql>
+
+    <sql id="base_insert_value">
+        get_uuid(),
+        <if test="null != description">#{description},</if>
+        <if test="null != deleted">#{deleted},</if>
+        <if test="null != createdBy">#{createdBy},</if>
+        <if test="null != createdAt">#{createdAt},</if>
+        <if test="null != updatedBy">#{updatedBy},</if>
+        <if test="null != updatedAt">#{updatedAt},</if>
+    </sql>
+
+    <sql id="base_set_value">
+        <if test="null != uuid">uuid = #{uuid},</if>
+        <if test="null != description">description = #{description},</if>
+        <if test="null != deleted">deleted = #{deleted},</if>
+        <if test="null != createdBy">created_by = #{createdBy},</if>
+        <if test="null != createdAt">created_at = #{createdAt},</if>
+        <if test="null != updatedBy">updated_by = #{updatedBy},</if>
+        <if test="null != updatedAt">updated_at = #{updatedAt},</if>
+    </sql>
+
+    <sql id="base_query">
+        <if test="null != example.id">id = #{example.id} and</if>
+        <if test="null != example.uuid">uuid = #{example.uuid} and</if>
+        <if test="null != example.description">description like concat( '%', #{example.description}, '%' ) and</if>
+        <if test="null != example.deleted">deleted = #{example.deleted} and</if>
+        <if test="null != example.createdBy">created_by = #{example.createdBy} and</if>
+        <if test="null != example.createdAt">created_at between #{example.createdAtStart} and #{example.createdAt} and
+        </if>
+        <if test="null != example.updatedBy">updated_by = #{example.updatedBy} and</if>
+        <if test="null != example.updatedAt">updated_at between #{example.updatedAtStart} and #{example.updatedAt} and
+        </if>
+    </sql>
+
+    <sql id="base_query_not_deleted">
+        <if test="null != example.id">id = #{example.id} and</if>
+        <if test="null != example.uuid">uuid = #{example.uuid} and</if>
+        <if test="null != example.description">description like concat( '%', #{example.description}, '%' ) and</if>
+        <if test="null != example.deleted">deleted = #{example.deleted} and</if>
+        <if test="null != example.createdBy">created_by = #{example.createdBy} and</if>
+        <if test="null != example.createdAt">created_at between #{example.createdAtStart} and #{example.createdAt} and
+        </if>
+        <if test="null != example.updatedBy">updated_by = #{example.updatedBy} and</if>
+        <if test="null != example.updatedAt">updated_at between #{example.updatedAtStart} and #{example.updatedAt} and
+        </if>
+        deleted = false
+    </sql>
+
+    <sql id="base_order_limit">
+        order by created_at DESC
+        limit #{offset}, #{size}
+    </sql>
+
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.secondhand.tradingplatformgeccomapper.mapper.TestMapper">
+
+    <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
+
+		<!-- 通用查询映射结果 -->
+			<resultMap id="testMap" type="com.secondhand.tradingplatformgeccoentity.entity.Test" extends="com.secondhand.tradingplatformgeccomapper.mapper.BaseEntityMapper.baseEntityMapper">
+				<result column="test12" property="test12" jdbcType="VARCHAR" />
+		</resultMap>
+
+        <!-- 通用查询映射结果 -->
+		<resultMap id="testMapSimple" type="com.secondhand.tradingplatformgeccoentity.entity.Test">
+                        <result column="test12" property="test12" jdbcType="VARCHAR" />
+        </resultMap>
+
+    <select id="selectMapById" resultType="java.util.Map">
+        select * from c_business_test where id = #{testId} and deleted = false
+    </select>
+    
+</mapper>

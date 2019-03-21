@@ -1,0 +1,29 @@
+##package ${package.Mapper};
+##import ${package.Entity}.${entity};
+##import ${superMapperClassPackage};
+package com.secondhand.tradingplatformadminmapper.mapper;
+
+import com.secondhand.tradingplatformadminentity.entity.${entity};
+import com.secondhand.tradingplatformcommon.base.BaseDao.BaseDao;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
+import java.util.Map;
+
+/**
+ *   @description : ${entity}Mapper 接口
+ *   ---------------------------------
+ * 	 @author ${author}
+ *   @since ${date}
+ */
+@Repository
+public interface ${table.mapperName} extends ${superMapperClass}<${entity}> {
+
+    /**
+     * 获取Map数据（Obj）
+     * 自定化MapSql到MysqlGenerator生成
+     * @param ${table.entityPath}Id
+     * @return
+     */
+    Map<String, Object> selectMapById(@Param("${table.entityPath}Id") Long ${table.entityPath}Id);
+}

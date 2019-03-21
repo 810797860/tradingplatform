@@ -1,0 +1,168 @@
+##package ${package.Controller};
+package com.secondhand.tradingplat${table.entityPath}admincontroller.controller;
+
+##import com.secondhand.tradingplatformadminentity.entity.admin.shiro.Button;
+##import com.secondhand.tradingplatformadminservice.service.admin.shiro.MenuButtonService;
+import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
+import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
+import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authz.UnauthorizedException;
+import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
+    #if(${superControllerClassPackage})
+import ${superControllerClassPackage};
+#end
+##import ${package.Service}.${table.serviceName};
+##import ${package.Entity}.${entity};
+import com.secondhand.tradingplatformadminentity.entity.${entity};
+import com.secondhand.tradingplatformadminservice.service.${entity}Service;
+
+##import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * @description : ${entity} 控制器
+ * @author : ${author}
+ * @since : Create in ${date}
+ */
+@Controller("front${entity}Controller")
+@Api(value="/front#if(${package.ModuleName})/${package.ModuleName}#end/#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end", description="${entity} 控制器")
+@RequestMapping("/front#if(${package.ModuleName})/${package.ModuleName}#end/#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end")
+#if(${superControllerClass})
+public class ${table.controllerName} extends ${superControllerClass} {
+#else
+public class ${table.controllerName} {
+#end
+
+    @Autowired
+    private ${table.serviceName} ${table.entityPath}Service;
+
+    
+    /**
+     * @description : 获取分页列表
+     * @author : ${author}
+     * @since : Create in ${date}
+     */
+    @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @ApiOperation(value = "/query", notes="获取分页列表")
+    @ResponseBody
+    public TableJson<Map<String, Object>> get${entity}List(@ApiParam(name = "${table.entityPath}", value = "${entity} 实体类") @RequestBody ${entity} ${table.entityPath}) {
+            TableJson<Map<String, Object>> resJson = new TableJson<>();
+            Page resPage = ${table.entityPath}.getPage();
+            Integer current = resPage.getCurrent();
+            Integer size = resPage.getSize();
+            if (current == null && size == null) {
+                resJson.setSuccess(false);
+                resJson.setMessage("异常信息：页数和页的大小不能为空");
+                return resJson;
+            }
+            Page<Map<String, Object>> ${table.entityPath}Page = new Page(current, size);
+            ${table.entityPath}Page = ${table.entityPath}Service.mySelectPageWithParam(${table.entityPath}Page, ${table.entityPath});
+            resJson.setRecordsTotal(${table.entityPath}Page.getTotal());
+            resJson.setData(${table.entityPath}Page.getRecords());
+            resJson.setSuccess(true);
+            return resJson;
+    }
+
+    /**
+     * @description : 通过id获取${table.entityPath}Map
+     * @author : ${author}
+     * @since : Create in ${date}
+     */
+    @GetMapping(value = "/get_map_by_id/{${table.entityPath}Id}", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @ApiOperation(value = "/get_map_by_id/{${table.entityPath}Id}", notes = "根据id获取${table.entityPath}Map")
+    @ResponseBody
+    public JsonResult<Map<String, Object>> get${entity}ByIdForMap( @ApiParam(name = "id", value = "${table.entityPath}Id") @PathVariable("${table.entityPath}Id") Long ${table.entityPath}Id){
+            JsonResult<Map<String, Object>> resJson = new JsonResult<>();
+            Map<String, Object> ${table.entityPath} = ${table.entityPath}Service.mySelectMapById(${table.entityPath}Id);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+            resJson.setData(${table.entityPath});
+            resJson.setSuccess(true);
+            return resJson;
+    }
+
+    /**
+     * @description : 根据id假删除${table.entityPath}
+     * @author : ${author}
+     * @since : Create in ${date}
+     */
+    @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @ApiOperation(value = "/delete", notes = "根据id假删除${table.entityPath}")
+    @ResponseBody
+    public JsonResult<${entity}> fakeDeleteById(@ApiParam(name = "id", value = "${table.entityPath}Id") @RequestBody Long ${table.entityPath}Id){
+            Subject subject = SecurityUtils.getSubject();
+            JsonResult<${entity}> resJson = new JsonResult<>();
+            try{
+                //检查是否具有权限
+                subject.checkPermission("/front/${table.entityPath}/delete");
+                ${table.entityPath}Service.myFakeDeleteById(${table.entityPath}Id);
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+                resJson.setSuccess(true);
+            }catch (UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_CUSTOMIZE_EXCEPTION);
+                resJson.setSuccess(false);
+                resJson.setMessage(e.getMessage());
+            }
+            return resJson;
+    }
+
+    /**
+     * @description : 根据ids批量假删除${table.entityPath}
+     * @author : ${author}
+     * @since : Create in ${date}
+     */
+    @PutMapping(value = "/batch_delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @ApiOperation(value = "/batch_delete", notes = "根据ids批量假删除${table.entityPath}")
+    @ResponseBody
+    public JsonResult<${entity}> fakeBatchDelete(@ApiParam(name = "ids", value = "${table.entityPath}Ids") @RequestBody List<Long> ${table.entityPath}Ids){
+            Subject subject = SecurityUtils.getSubject();
+            JsonResult<${entity}> resJson = new JsonResult<>();
+            try{
+                //检查是否具有权限
+                subject.checkPermission("/front/${table.entityPath}/batch_delete");
+                resJson.setSuccess(${table.entityPath}Service.myFakeBatchDelete(${table.entityPath}Ids));
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+            }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_CUSTOMIZE_EXCEPTION);
+                resJson.setSuccess(false);
+                resJson.setMessage(e.getMessage());
+            }
+            return resJson;
+    }
+
+    /**
+     * @description : 新增或修改${table.entityPath}
+     * @author : ${author}
+     * @since : Create in ${date}
+     */
+    @PostMapping(value = "/create_update", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @ApiOperation(value = "/create_update", notes = "新增或修改${table.entityPath}")
+    @ResponseBody
+    public JsonResult<${entity}> ${table.entityPath}CreateUpdate(@ApiParam(name = "${table.entityPath}", value = "${entity}实体类") @RequestBody ${entity} ${table.entityPath}){
+            Subject subject = SecurityUtils.getSubject();
+            JsonResult<${entity}> resJson = new JsonResult<>();
+            try{
+                //检查是否具有权限
+                subject.checkPermission("/front/${table.entityPath}/create_update");
+                ${table.entityPath} = ${table.entityPath}Service.my${entity}CreateUpdate(${table.entityPath});
+                resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+                resJson.setData(${table.entityPath});
+                resJson.setSuccess(true);
+            }catch(UnauthorizedException e){
+                resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
+                resJson.setSuccess(false);
+                resJson.setMessage(e.getMessage());
+            }
+            return resJson;
+    }
+}

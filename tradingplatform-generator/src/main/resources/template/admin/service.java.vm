@@ -1,0 +1,167 @@
+##package ${package.Service};
+##
+##import ${package.Entity}.${entity};
+##import ${superServiceClassPackage};
+package com.secondhand.tradingplatformadminservice.service;
+
+import com.baomidou.mybatisplus.mapper.Wrapper;
+import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.${entity};
+import com.secondhand.tradingplatformcommon.base.BaseService.BaseService;
+
+import java.io.Serializable;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+
+/**
+ *   @description : ${entity} 服务接口
+ *   ---------------------------------
+ * 	 @author ${author}
+ *   @since ${date}
+ */
+public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
+
+        /**
+         * 根据id进行假删除
+         * @param ${table.entityPath}Id
+         * @return
+         */
+        Integer myFakeDeleteById(Long ${table.entityPath}Id);
+
+        /**
+         * 根据ids进行批量假删除
+         * @param ${table.entityPath}Ids
+         * @return
+         */
+        boolean myFakeBatchDelete(List<Long> ${table.entityPath}Ids);
+
+        /**
+         * 获取Map数据（Obj）
+         * @param ${table.entityPath}Id
+         * @return
+         */
+        Map<String, Object> mySelectMapById(Long ${table.entityPath}Id);
+
+        /**
+         * 新增或修改${table.entityPath}
+         * @param ${table.entityPath}
+         * @return
+         */
+        ${entity} my${entity}CreateUpdate(${entity} ${table.entityPath});
+
+        /**
+         * 分页获取${entity}列表数据（实体类）
+         * @param page
+         * @param ${table.entityPath}
+         * @return
+         */
+        Page<Map<String, Object>> mySelectPageWithParam(Page page, ${entity} ${table.entityPath});
+
+        /**
+         * 获取${entity}列表数据（Map）
+         * @param map
+         * @return
+         */
+        List<${entity}> mySelectListWithMap(Map<String, Object> map);
+
+        /**
+         * 根据wrapper获取map
+         * @param wrapper
+         * @return
+         */
+        Map<String, Object> mySelectMap(Wrapper<${entity}> wrapper);
+
+        /**
+         * 根据wrapper获取List
+         * @param wrapper
+         * @return
+         */
+        List<${entity}> mySelectList(Wrapper<${entity}> wrapper);
+
+        /**
+         * 插入${entity}
+         * @param ${table.entityPath}
+         * @return
+         */
+        boolean myInsert(${entity} ${table.entityPath});
+
+        /**
+         * 批量插入List<${entity}>
+         * @param ${table.entityPath}List
+         * @return
+         */
+        boolean myInsertBatch(List<${entity}> ${table.entityPath}List);
+
+        /**
+         * 插入或更新${table.entityPath}
+         * @param ${table.entityPath}
+         * @return
+         */
+        boolean myInsertOrUpdate(${entity} ${table.entityPath});
+
+        /**
+         * 批量插入或更新List<${entity}>
+         * @param ${table.entityPath}List
+         * @return
+         */
+        boolean myInsertOrUpdateBatch(List<${entity}> ${table.entityPath}List);
+
+        /**
+         * 根据${table.entityPath}Ids获取List
+         * @param ${table.entityPath}Ids
+         * @return
+         */
+        List<${entity}> mySelectBatchIds(Collection<? extends Serializable> ${table.entityPath}Ids);
+
+        /**
+         * 根据${table.entityPath}Id获取${entity}
+         * @param ${table.entityPath}Id
+         * @return
+         */
+        ${entity} mySelectById(Serializable ${table.entityPath}Id);
+
+        /**
+         * 根据wrapper查找Count
+         * @param wrapper
+         * @return
+         */
+        int mySelectCount(Wrapper<${entity}> wrapper);
+
+        /**
+         * 根据wrapper获取${entity}
+         * @param wrapper
+         * @return
+         */
+        ${entity} mySelectOne(Wrapper<${entity}> wrapper);
+
+        /**
+         * 根据wrapper获取List<Object>
+         * @param wrapper
+         * @return
+         */
+        List<Object> mySelectObjs(Wrapper<${entity}> wrapper);
+
+        /**
+         * 根据${table.entityPath}和wrapper更新${table.entityPath}
+         * @param ${table.entityPath}
+         * @param wrapper
+         * @return
+         */
+        boolean myUpdate(${entity} ${table.entityPath}, Wrapper<${entity}> wrapper);
+
+        /**
+         * 根据${table.entityPath}List更新${table.entityPath}
+         * @param ${table.entityPath}List
+         * @return
+         */
+        boolean myUpdateBatchById(List<${entity}> ${table.entityPath}List);
+
+        /**
+         * 根据${table.entityPath}Id修改${table.entityPath}
+         * @param ${table.entityPath}
+         * @return
+         */
+        boolean myUpdateById(${entity} ${table.entityPath});
+
+}

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+##<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+##<mapper namespace="${package.Mapper}.${table.mapperName}">
+<mapper namespace="com.secondhand.tradingplatformadminmapper.mapper.${entity}Mapper">
+
+    <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
+
+#if(${enableCache})
+	<!-- 开启二级缓存 -->
+	<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+
+#end
+	#if(${baseResultMap})
+		<!-- 通用查询映射结果 -->
+		<resultMap id="${table.entityPath}Map" type="com.secondhand.tradingplatformadminentity.entity.${entity}" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
+	#foreach($field in ${table.fields})
+		#if(${field.name} == "id" || ${field.name} == "uuid" || ${field.name} == "description" || ${field.name} == "deleted" || ${field.name} == "created_by" || ${field.name} == "created_at" || ${field.name} == "updated_by" || ${field.name} == "updated_at")
+
+		#else
+			#if(!${field.keyFlag})##生成普通字段
+				<result column="${field.name}" property="${field.propertyName}" jdbcType="#if(${field.propertyType} == "Integer" || ${field.propertyType} == "Long")INTEGER" />
+			#elseif(${field.propertyType} == "String")VARCHAR" />
+			#elseif(${field.propertyType} == "Boolean")BOOLEAN" />
+			#elseif(${field.propertyType} == "Float")FLOAT" />
+			#elseif(${field.propertyType} == "Date")DATE" />
+#end
+			#end
+		#end
+	#end
+		</resultMap>
+	#end
+
+	#if(${baseResultMap})
+        <!-- 通用查询映射结果 -->
+	##	<resultMap id="BaseResultMap" type="${package.Entity}.${entity}">
+	<resultMap id="${table.entityPath}MapSimple" type="com.secondhand.tradingplatformadminentity.entity.${entity}">
+			#foreach($field in ${table.fields})
+				#if(${field.name} == "id" || ${field.name} == "uuid" || ${field.name} == "description" || ${field.name} == "deleted" || ${field.name} == "created_by" || ${field.name} == "created_at" || ${field.name} == "updated_by" || ${field.name} == "updated_at")
+
+				#else
+					#if(!${field.keyFlag})##生成普通字段
+                        <result column="${field.name}" property="${field.propertyName}" jdbcType="#if(${field.propertyType} == "Integer" || ${field.propertyType} == "Long")INTEGER" />
+					#elseif(${field.propertyType} == "String")VARCHAR" />
+					#elseif(${field.propertyType} == "Boolean")BOOLEAN" />
+					#elseif(${field.propertyType} == "Float")FLOAT" />
+					#elseif(${field.propertyType} == "Date")DATE" />
+					#end
+					#end
+				#end
+			#end
+        </resultMap>
+	#end
+
+    <select id="selectMapById" resultType="java.util.Map">
+        select * from ${table.name} where id = #{${table.entityPath}Id} and deleted = false
+    </select>
+
+</mapper>

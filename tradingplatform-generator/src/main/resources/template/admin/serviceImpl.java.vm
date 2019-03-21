@@ -1,0 +1,209 @@
+##package ${package.ServiceImpl};
+##
+##import ${package.Entity}.${entity};
+##import ${package.Mapper}.${table.mapperName};
+##import ${package.Service}.${table.serviceName};
+package com.secondhand.tradingplatformadmincontroller.serviceimpl;
+
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
+import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.${entity};
+import com.secondhand.tradingplatformadminmapper.mapper.${entity}Mapper;
+import com.secondhand.tradingplatformadminservice.service.${entity}Service;
+import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
+import ${superServiceImplClassPackage};
+import com.secondhand.tradingplatformcommon.util.ToolUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.io.Serializable;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+
+/**
+ *   @description : ${entity} 服务实现类
+ *   ---------------------------------
+ * 	 @author ${author}
+ *   @since ${date}
+ */
+
+@Service
+@CacheConfig(cacheNames = "${table.entityPath}")
+public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.mapperName}, ${entity}> implements ${table.serviceName} {
+
+    @Autowired
+    private ${entity}Mapper ${table.entityPath}Mapper;
+
+    @Override
+    @CacheEvict(allEntries = true)
+    public Integer myFakeDeleteById(Long ${table.entityPath}Id) {
+        ${entity} ${table.entityPath} = new ${entity}();
+        ${table.entityPath}.setId(${table.entityPath}Id);
+        ${table.entityPath}.setDeleted(true);
+        return ${table.entityPath}Mapper.updateById(${table.entityPath});
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    @CacheEvict(allEntries = true)
+    public boolean myFakeBatchDelete(List<Long> ${table.entityPath}Ids) {
+        ${table.entityPath}Ids.forEach(${table.entityPath}Id->{
+            myFakeDeleteById(${table.entityPath}Id);
+        });
+        return true;
+    }
+
+    @Override
+    @Cacheable(key = "#p0")
+    public Map<String, Object> mySelectMapById(Long ${table.entityPath}Id) {
+        return ${table.entityPath}Mapper.selectMapById(${table.entityPath}Id);
+    }
+
+    @Override
+    @CacheEvict(allEntries = true)
+    public ${entity} my${entity}CreateUpdate(${entity} ${table.entityPath}) {
+        Long ${table.entityPath}Id = ${table.entityPath}.getId();
+        if (${table.entityPath}Id == null){
+            ${table.entityPath}.setUuid(ToolUtil.getUUID());
+            ${table.entityPath}Mapper.insert(${table.entityPath});
+        } else {
+            ${table.entityPath}Mapper.updateById(${table.entityPath});
+        }
+        return ${table.entityPath};
+    }
+
+    //以下是继承BaseServiceImpl
+    
+    @Override
+    @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p1.sorts")
+    public Page<Map<String, Object>> mySelectPageWithParam(Page page, ${entity} ${table.entityPath}) {
+
+        //判空
+        ${table.entityPath}.setDeleted(false);
+        Wrapper<${entity}> wrapper = new EntityWrapper<>(${table.entityPath});
+        //遍历排序
+        List<Sort> sorts = ${table.entityPath}.getSorts();
+        if (sorts == null){
+            //为null时，默认按created_at倒序
+            wrapper.orderBy("id", false);
+        } else {
+            //遍历排序
+            sorts.forEach( sort -> {
+                wrapper.orderBy(sort.getField(), sort.getAsc());
+            });
+        }
+        return this.selectMapsPage(page, wrapper);
+    }
+    
+    @Override
+    @Cacheable(key = "#p0")
+    public List<${entity}> mySelectListWithMap(Map<String, Object> map) {
+        return ${table.entityPath}Mapper.selectByMap(map);
+    }
+    
+    //以下是继承BaseMapper
+    
+    @Override
+    @Cacheable(key = "#p0.paramNameValuePairs")
+    public Map<String, Object> mySelectMap(Wrapper<${entity}> wrapper) {
+        return this.selectMap(wrapper);
+    }
+    
+    @Override
+    @Cacheable(key = "#p0.paramNameValuePairs")
+    public List<${entity}> mySelectList(Wrapper<${entity}> wrapper) {
+        return ${table.entityPath}Mapper.selectList(wrapper);
+    }
+    
+    @Override
+    @CacheEvict(allEntries = true)
+    public boolean myInsert(${entity} ${table.entityPath}) {
+        ${table.entityPath}.setUuid(ToolUtil.getUUID());
+        return this.insert(${table.entityPath});
+    }
+    
+    @Override
+    @CacheEvict(allEntries = true)
+    public boolean myInsertBatch(List<${entity}> ${table.entityPath}List) {
+        ${table.entityPath}List.forEach(${table.entityPath} -> {
+            ${table.entityPath}.setUuid(ToolUtil.getUUID());
+        });
+        return this.insertBatch(${table.entityPath}List);
+    }
+    
+    @Override
+    @CacheEvict(allEntries = true)
+    public boolean myInsertOrUpdate(${entity} ${table.entityPath}) {
+        //没有uuid的话要加上去
+        if (${table.entityPath}.getUuid().equals(null)){
+            ${table.entityPath}.setUuid(ToolUtil.getUUID());
+        }
+        return this.insertOrUpdate(${table.entityPath});
+    }
+    
+    @Override
+    @CacheEvict(allEntries = true)
+    public boolean myInsertOrUpdateBatch(List<${entity}> ${table.entityPath}List) {
+        ${table.entityPath}List.forEach(${table.entityPath} -> {
+            //没有uuid的话要加上去
+            if (${table.entityPath}.getUuid().equals(null)){
+                ${table.entityPath}.setUuid(ToolUtil.getUUID());
+            }
+        });
+        return this.insertOrUpdateBatch(${table.entityPath}List);
+    }
+    
+    @Override
+    @Cacheable(key = "#p0")
+    public List<${entity}> mySelectBatchIds(Collection<? extends Serializable> ${table.entityPath}Ids) {
+        return ${table.entityPath}Mapper.selectBatchIds(${table.entityPath}Ids);
+    }
+    
+    @Override
+    @Cacheable(key = "#p0")
+    public ${entity} mySelectById(Serializable ${table.entityPath}Id) {
+        return ${table.entityPath}Mapper.selectById(${table.entityPath}Id);
+    }
+    
+    @Override
+    @Cacheable(key = "#p0.paramNameValuePairs")
+    public int mySelectCount(Wrapper<${entity}> wrapper) {
+        return ${table.entityPath}Mapper.selectCount(wrapper);
+    }
+    
+    @Override
+    @Cacheable(key = "#p0.paramNameValuePairs")
+    public ${entity} mySelectOne(Wrapper<${entity}> wrapper) {
+        return this.selectOne(wrapper);
+    }
+
+    @Override
+    @Cacheable(key = "#p0.paramNameValuePairs")
+    public List<Object> mySelectObjs(Wrapper<${entity}> wrapper) {
+        return this.selectObjs(wrapper);
+    }
+    
+    @Override
+    @CacheEvict(allEntries = true)
+    public boolean myUpdate(${entity} ${table.entityPath}, Wrapper<${entity}> wrapper) {
+        return this.update(${table.entityPath}, wrapper);
+    }
+    
+    @Override
+    @CacheEvict(allEntries = true)
+    public boolean myUpdateBatchById(List<${entity}> ${table.entityPath}List) {
+        return this.updateBatchById(${table.entityPath}List);
+    }
+    
+    @Override
+    @CacheEvict(allEntries = true)
+    public boolean myUpdateById(${entity} ${table.entityPath}) {
+        return this.updateById(${table.entityPath});
+    }
+}

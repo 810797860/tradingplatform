@@ -12,7 +12,7 @@
     <modules>
         <module>tradingplatform-admin</module>
         <module>tradingplatform-common</module>
-        <module>tradingplatform-front</module>
+        <module>tradingplatform-gecco</module>
         <module>tradingplatform-generator</module>
     </modules>
 
