@@ -7,6 +7,9 @@
         <module>tradingplatform-gecco-entity</module>
         <module>tradingplatform-gecco-mapper</module>
         <module>tradingplatform-gecco-service</module>
+        <module>tradingplatform-gecco-reptile</module>
+        <module>tradingplatform-gecco-pipeline</module>
+        <module>tradingplatform-gecco-engine</module>
     </modules>
 
     <parent>
@@ -99,6 +102,7 @@
             <artifactId>tradingplatform-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
     </dependencies>
 
     <build>

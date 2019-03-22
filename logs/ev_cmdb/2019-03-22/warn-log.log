@@ -1,0 +1,1 @@
+2019-03-22 12:51:04.371 [main] WARN  com.secondhand.tradingplatformgeccocontroller.engine.spider.SpiderBeanFactory - there are multil 'https://item.jd.com/{code}.html' ,first htmlBean will be Override。

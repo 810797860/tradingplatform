@@ -1,0 +1,375 @@
+2019-03-22 10:28:41.783 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 10:28:42.064 [main] INFO  org.reflections.Reflections - Reflections took 219 ms to scan 3 urls, producing 60 keys and 207 values 
+2019-03-22 10:28:43.009 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 10:28:43.481 [main] INFO  org.reflections.Reflections - Reflections took 47 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 10:28:48.071 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 10:28:48.071 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 10:28:48.102 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 3 urls, producing 60 keys and 207 values 
+2019-03-22 10:28:48.102 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 10:28:48.133 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 10:30:22.384 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 10:30:23.243 [main] INFO  org.reflections.Reflections - Reflections took 687 ms to scan 3 urls, producing 60 keys and 207 values 
+2019-03-22 10:30:25.571 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 10:30:26.884 [main] INFO  org.reflections.Reflections - Reflections took 438 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 10:30:29.127 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 10:30:40.196 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 10:30:40.259 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 3 urls, producing 60 keys and 207 values 
+2019-03-22 10:30:40.274 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 10:30:40.306 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 10:30:59.065 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 10:30:59.553 [main] INFO  org.reflections.Reflections - Reflections took 425 ms to scan 3 urls, producing 60 keys and 207 values 
+2019-03-22 10:31:00.428 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 10:31:00.647 [main] INFO  org.reflections.Reflections - Reflections took 62 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 10:31:03.441 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 10:31:03.441 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 10:31:03.472 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 3 urls, producing 60 keys and 207 values 
+2019-03-22 10:31:03.472 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 10:31:03.488 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 10:44:35.751 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 10:44:36.314 [main] INFO  org.reflections.Reflections - Reflections took 500 ms to scan 3 urls, producing 60 keys and 207 values 
+2019-03-22 10:44:37.283 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 10:46:44.182 [main] INFO  org.reflections.Reflections - Reflections took 78 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 10:46:47.998 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 10:46:47.998 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 10:46:48.014 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 3 urls, producing 60 keys and 207 values 
+2019-03-22 10:46:48.014 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 10:47:17.155 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 14484 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 10:47:30.407 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 10:47:30.829 [main] INFO  org.reflections.Reflections - Reflections took 359 ms to scan 3 urls, producing 60 keys and 207 values 
+2019-03-22 10:47:31.720 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 10:48:25.203 [main] INFO  org.reflections.Reflections - Reflections took 47 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 10:49:09.183 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 10:49:09.578 [main] INFO  org.reflections.Reflections - Reflections took 333 ms to scan 3 urls, producing 60 keys and 207 values 
+2019-03-22 10:49:10.438 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 10:52:18.268 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 10:52:18.628 [main] INFO  org.reflections.Reflections - Reflections took 281 ms to scan 3 urls, producing 63 keys and 218 values 
+2019-03-22 10:52:19.581 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 10:52:27.378 [main] INFO  org.reflections.Reflections - Reflections took 79 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 10:52:31.238 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 10:52:31.238 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 10:52:31.270 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 32 ms to scan 3 urls, producing 63 keys and 218 values 
+2019-03-22 10:52:31.285 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 10:52:31.301 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 10:52:40.381 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 10:52:40.772 [main] INFO  org.reflections.Reflections - Reflections took 312 ms to scan 3 urls, producing 63 keys and 218 values 
+2019-03-22 10:52:41.756 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 10:52:41.975 [main] INFO  org.reflections.Reflections - Reflections took 62 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 10:52:45.533 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 10:52:45.533 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 10:52:45.564 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 3 urls, producing 63 keys and 218 values 
+2019-03-22 10:52:45.564 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 10:52:45.579 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 10:53:58.545 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 10:53:58.874 [main] INFO  org.reflections.Reflections - Reflections took 266 ms to scan 3 urls, producing 63 keys and 218 values 
+2019-03-22 10:53:59.514 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 10:53:59.749 [main] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 10:54:03.976 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 10:54:03.976 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 10:54:04.008 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 32 ms to scan 3 urls, producing 63 keys and 218 values 
+2019-03-22 10:54:04.008 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 10:54:04.023 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 10:56:48.123 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 10:56:48.466 [main] INFO  org.reflections.Reflections - Reflections took 265 ms to scan 3 urls, producing 63 keys and 218 values 
+2019-03-22 10:56:49.154 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 10:56:49.373 [main] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 10:56:51.812 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 10:56:51.812 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 10:56:51.844 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 32 ms to scan 3 urls, producing 63 keys and 218 values 
+2019-03-22 10:56:51.844 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 10:56:51.859 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 10:58:24.182 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 10:58:24.557 [main] INFO  org.reflections.Reflections - Reflections took 281 ms to scan 3 urls, producing 63 keys and 218 values 
+2019-03-22 10:58:25.291 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 10:58:25.494 [main] INFO  org.reflections.Reflections - Reflections took 62 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 10:58:29.019 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 10:58:29.019 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 10:58:29.050 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 3 urls, producing 63 keys and 218 values 
+2019-03-22 10:58:29.050 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 10:58:29.065 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 0 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 10:59:39.367 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 10:59:39.710 [main] INFO  org.reflections.Reflections - Reflections took 265 ms to scan 3 urls, producing 63 keys and 218 values 
+2019-03-22 10:59:40.398 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 10:59:40.632 [main] INFO  org.reflections.Reflections - Reflections took 78 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 10:59:43.409 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 10:59:43.409 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 10:59:43.440 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 3 urls, producing 63 keys and 218 values 
+2019-03-22 10:59:43.440 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 10:59:43.471 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:00:20.593 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 11:00:20.984 [main] INFO  org.reflections.Reflections - Reflections took 297 ms to scan 3 urls, producing 63 keys and 218 values 
+2019-03-22 11:00:21.625 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 11:00:21.859 [main] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:00:25.451 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 11:00:25.451 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 11:00:25.482 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 3 urls, producing 63 keys and 218 values 
+2019-03-22 11:00:25.498 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 11:00:25.513 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:16:10.905 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 11:16:11.264 [main] INFO  org.reflections.Reflections - Reflections took 266 ms to scan 3 urls, producing 63 keys and 218 values 
+2019-03-22 11:16:12.001 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 11:16:12.220 [main] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:16:15.471 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 11:16:15.471 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 11:16:15.503 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 32 ms to scan 3 urls, producing 63 keys and 218 values 
+2019-03-22 11:16:15.503 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 11:16:15.534 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:17:11.799 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 11:17:12.190 [main] INFO  org.reflections.Reflections - Reflections took 281 ms to scan 3 urls, producing 63 keys and 218 values 
+2019-03-22 11:17:12.924 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 11:17:13.143 [main] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:17:16.723 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 11:17:16.723 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 11:17:16.754 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 3 urls, producing 63 keys and 218 values 
+2019-03-22 11:17:16.754 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 11:17:16.785 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:17:22.873 [Tcom.secondhand.tradingplatformgeccocontroller0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {s}->https://item.jd.com:443: Read timed out
+2019-03-22 11:17:22.874 [Tcom.secondhand.tradingplatformgeccocontroller0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {s}->https://item.jd.com:443
+2019-03-22 11:18:13.047 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 11:18:13.375 [main] INFO  org.reflections.Reflections - Reflections took 265 ms to scan 3 urls, producing 63 keys and 218 values 
+2019-03-22 11:18:14.032 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 11:18:14.282 [main] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:18:19.175 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 11:18:19.175 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 11:18:19.207 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 32 ms to scan 3 urls, producing 63 keys and 218 values 
+2019-03-22 11:18:19.207 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 11:18:19.222 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 0 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:18:21.943 [Tcom.secondhand.tradingplatformgeccocontroller2] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {s}->https://item.jd.com:443: Connect to item.jd.com:443 [item.jd.com/112.91.125.129] failed: connect timed out
+2019-03-22 11:18:21.944 [Tcom.secondhand.tradingplatformgeccocontroller2] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {s}->https://item.jd.com:443
+2019-03-22 11:18:22.737 [Tcom.secondhand.tradingplatformgeccocontroller0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {s}->https://item.jd.com:443: Connect to item.jd.com:443 [item.jd.com/112.91.125.129] failed: connect timed out
+2019-03-22 11:18:22.737 [Tcom.secondhand.tradingplatformgeccocontroller0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {s}->https://item.jd.com:443
+2019-03-22 11:18:25.906 [Tcom.secondhand.tradingplatformgeccocontroller2] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {s}->https://item.jd.com:443: Connect to item.jd.com:443 [item.jd.com/112.91.125.129] failed: connect timed out
+2019-03-22 11:18:25.906 [Tcom.secondhand.tradingplatformgeccocontroller2] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {s}->https://item.jd.com:443
+2019-03-22 11:19:03.606 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 11:19:03.949 [main] INFO  org.reflections.Reflections - Reflections took 265 ms to scan 3 urls, producing 63 keys and 218 values 
+2019-03-22 11:19:04.621 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 11:19:04.824 [main] INFO  org.reflections.Reflections - Reflections took 47 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:19:07.441 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 11:19:07.441 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 11:19:07.472 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 3 urls, producing 63 keys and 218 values 
+2019-03-22 11:19:07.472 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 11:19:07.488 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:19:31.423 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 11:19:31.782 [main] INFO  org.reflections.Reflections - Reflections took 297 ms to scan 3 urls, producing 63 keys and 218 values 
+2019-03-22 11:19:32.734 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 11:19:32.953 [main] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:19:35.315 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 11:19:35.315 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 11:19:35.346 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 3 urls, producing 63 keys and 218 values 
+2019-03-22 11:19:35.346 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 11:19:35.377 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:23:43.214 [main] INFO  org.reflections.Reflections - Reflections took 188 ms to scan 2 urls, producing 37 keys and 144 values 
+2019-03-22 11:23:44.236 [main] INFO  com.geccocrawler.gecco.GeccoEngine - starts.json not found
+2019-03-22 11:23:44.298 [Spider-0] INFO  com.geccocrawler.gecco.downloader.Proxys - proxys not load
+2019-03-22 11:23:44.408 [main] INFO  org.reflections.Reflections - Reflections took 0 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:23:46.985 [main] INFO  com.geccocrawler.gecco.GeccoEngine - close gecco!
+2019-03-22 11:23:47.001 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 2 urls, producing 37 keys and 144 values 
+2019-03-22 11:23:47.001 [GeccoEngine] INFO  com.geccocrawler.gecco.GeccoEngine - starts.json not found
+2019-03-22 11:23:47.016 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:24:37.017 [main] INFO  org.reflections.Reflections - Reflections took 157 ms to scan 2 urls, producing 37 keys and 144 values 
+2019-03-22 11:24:37.733 [main] INFO  com.geccocrawler.gecco.GeccoEngine - starts.json not found
+2019-03-22 11:24:37.780 [Spider-0] INFO  com.geccocrawler.gecco.downloader.Proxys - proxys not load
+2019-03-22 11:24:37.905 [main] INFO  org.reflections.Reflections - Reflections took 0 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:24:41.730 [main] INFO  com.geccocrawler.gecco.GeccoEngine - close gecco!
+2019-03-22 11:24:41.745 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 2 urls, producing 37 keys and 144 values 
+2019-03-22 11:24:41.745 [GeccoEngine] INFO  com.geccocrawler.gecco.GeccoEngine - starts.json not found
+2019-03-22 11:24:41.761 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 0 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:25:47.343 [main] INFO  org.reflections.Reflections - Reflections took 484 ms to scan 2 urls, producing 37 keys and 144 values 
+2019-03-22 11:25:50.093 [main] INFO  com.geccocrawler.gecco.GeccoEngine - starts.json not found
+2019-03-22 11:25:50.187 [Spider-0] INFO  com.geccocrawler.gecco.downloader.Proxys - proxys not load
+2019-03-22 11:25:51.046 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:25:53.027 [main] INFO  com.geccocrawler.gecco.GeccoEngine - close gecco!
+2019-03-22 11:26:07.062 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 62 ms to scan 2 urls, producing 37 keys and 144 values 
+2019-03-22 11:26:07.109 [GeccoEngine] INFO  com.geccocrawler.gecco.GeccoEngine - starts.json not found
+2019-03-22 11:26:07.125 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 0 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:28:20.297 [main] INFO  org.reflections.Reflections - Reflections took 110 ms to scan 2 urls, producing 37 keys and 144 values 
+2019-03-22 11:28:21.015 [main] INFO  com.geccocrawler.gecco.GeccoEngine - starts.json not found
+2019-03-22 11:28:21.062 [Spider-0] INFO  com.geccocrawler.gecco.downloader.Proxys - proxys not load
+2019-03-22 11:28:21.187 [main] INFO  org.reflections.Reflections - Reflections took 0 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:28:25.370 [main] INFO  com.geccocrawler.gecco.GeccoEngine - close gecco!
+2019-03-22 11:28:25.385 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 2 urls, producing 37 keys and 144 values 
+2019-03-22 11:28:25.385 [GeccoEngine] INFO  com.geccocrawler.gecco.GeccoEngine - starts.json not found
+2019-03-22 11:28:25.401 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:28:56.452 [main] INFO  org.reflections.Reflections - Reflections took 172 ms to scan 2 urls, producing 37 keys and 144 values 
+2019-03-22 11:28:57.452 [main] INFO  com.geccocrawler.gecco.GeccoEngine - starts.json not found
+2019-03-22 11:28:57.499 [Spider-0] INFO  com.geccocrawler.gecco.downloader.Proxys - proxys not load
+2019-03-22 11:28:57.609 [main] INFO  org.reflections.Reflections - Reflections took 0 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:29:26.817 [main] INFO  com.geccocrawler.gecco.GeccoEngine - close gecco!
+2019-03-22 11:29:26.833 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 2 urls, producing 37 keys and 144 values 
+2019-03-22 11:29:26.833 [GeccoEngine] INFO  com.geccocrawler.gecco.GeccoEngine - starts.json not found
+2019-03-22 11:29:26.849 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:58:49.851 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 11:58:50.116 [main] INFO  org.reflections.Reflections - Reflections took 172 ms to scan 1 urls, producing 42 keys and 179 values 
+2019-03-22 11:58:50.851 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 11:58:51.069 [main] INFO  org.reflections.Reflections - Reflections took 62 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:58:52.826 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 11:58:52.826 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 11:58:52.842 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 42 keys and 179 values 
+2019-03-22 11:58:52.842 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 11:58:52.857 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:58:52.873 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 11:59:16.238 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 11:59:16.519 [main] INFO  org.reflections.Reflections - Reflections took 203 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 11:59:17.534 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 11:59:17.753 [main] INFO  org.reflections.Reflections - Reflections took 47 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:59:22.424 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 11:59:22.424 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 11:59:22.455 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 11:59:22.455 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 11:59:22.471 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 11:59:26.069 [Tcom.secondhand.tradingplatformgeccocontroller.jd2] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {s}->https://item.jd.com:443: Connect to item.jd.com:443 [item.jd.com/112.91.125.129] failed: connect timed out
+2019-03-22 11:59:26.070 [Tcom.secondhand.tradingplatformgeccocontroller.jd2] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {s}->https://item.jd.com:443
+2019-03-22 11:59:26.256 [Tcom.secondhand.tradingplatformgeccocontroller.jd1] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {s}->https://item.jd.com:443: Connect to item.jd.com:443 [item.jd.com/112.91.125.129] failed: connect timed out
+2019-03-22 11:59:26.256 [Tcom.secondhand.tradingplatformgeccocontroller.jd1] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {s}->https://item.jd.com:443
+2019-03-22 12:00:26.185 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 12:00:26.505 [main] INFO  org.reflections.Reflections - Reflections took 226 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 12:00:27.145 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 12:00:27.348 [main] INFO  org.reflections.Reflections - Reflections took 46 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 12:00:30.239 [Tcom.secondhand.tradingplatformgeccocontroller.jd0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {s}->https://www.jd.com:443: Connect to www.jd.com:443 [www.jd.com/112.91.125.129] failed: connect timed out
+2019-03-22 12:00:30.239 [Tcom.secondhand.tradingplatformgeccocontroller.jd0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {s}->https://www.jd.com:443
+2019-03-22 12:00:33.157 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 12:00:33.157 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 12:00:33.189 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 32 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 12:00:33.189 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 12:00:33.204 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 12:00:36.638 [Tcom.secondhand.tradingplatformgeccocontroller.jd2] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {s}->https://item.jd.com:443: Connect to item.jd.com:443 [item.jd.com/112.91.125.129] failed: connect timed out
+2019-03-22 12:00:36.638 [Tcom.secondhand.tradingplatformgeccocontroller.jd2] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {s}->https://item.jd.com:443
+2019-03-22 12:41:15.211 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 12:41:15.523 [main] INFO  org.reflections.Reflections - Reflections took 218 ms to scan 1 urls, producing 42 keys and 179 values 
+2019-03-22 12:41:16.352 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 12:41:16.560 [main] INFO  org.reflections.Reflections - Reflections took 47 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 12:41:17.482 [Tcom.secondhand.tradingplatformgeccoengine.jd0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {s}->https://www.jd.com:443: Connect to www.jd.com:443 [www.jd.com/112.91.125.129] failed: connect timed out
+2019-03-22 12:41:17.482 [Tcom.secondhand.tradingplatformgeccoengine.jd0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {s}->https://www.jd.com:443
+2019-03-22 12:41:18.498 [Tcom.secondhand.tradingplatformgeccoengine.jd0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {s}->https://www.jd.com:443: Connect to www.jd.com:443 [www.jd.com/112.91.125.129] failed: connect timed out
+2019-03-22 12:41:18.498 [Tcom.secondhand.tradingplatformgeccoengine.jd0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {s}->https://www.jd.com:443
+2019-03-22 12:41:19.508 [Tcom.secondhand.tradingplatformgeccoengine.jd0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {s}->https://www.jd.com:443: Connect to www.jd.com:443 [www.jd.com/112.91.125.129] failed: connect timed out
+2019-03-22 12:41:19.508 [Tcom.secondhand.tradingplatformgeccoengine.jd0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {s}->https://www.jd.com:443
+2019-03-22 12:41:22.489 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 12:41:22.489 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 12:41:22.520 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 1 urls, producing 42 keys and 179 values 
+2019-03-22 12:41:22.520 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 12:41:22.536 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 12:41:22.536 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 12:41:49.834 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 12:41:50.116 [main] INFO  org.reflections.Reflections - Reflections took 203 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 12:41:51.053 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 12:41:51.272 [main] INFO  org.reflections.Reflections - Reflections took 62 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 12:41:54.627 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 12:41:54.627 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 12:41:54.659 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 32 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 12:41:54.659 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 12:41:54.674 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 12:41:59.226 [Tcom.secondhand.tradingplatformgeccocontroller.jd1] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {s}->https://item.jd.com:443: Connect to item.jd.com:443 [item.jd.com/183.232.41.1] failed: connect timed out
+2019-03-22 12:41:59.227 [Tcom.secondhand.tradingplatformgeccocontroller.jd1] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {s}->https://item.jd.com:443
+2019-03-22 12:49:09.987 [main] INFO  com.secondhand.tradingplatformgeccocontroller.engine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 12:49:10.269 [main] INFO  org.reflections.Reflections - Reflections took 219 ms to scan 2 urls, producing 49 keys and 195 values 
+2019-03-22 12:49:10.566 [main] INFO  com.secondhand.tradingplatformgeccocontroller.engine.GeccoEngine - starts.json not found
+2019-03-22 12:49:10.882 [main] INFO  org.reflections.Reflections - Reflections took 114 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 12:49:47.488 [main] INFO  com.secondhand.tradingplatformgeccocontroller.engine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 12:49:47.722 [main] INFO  org.reflections.Reflections - Reflections took 172 ms to scan 2 urls, producing 49 keys and 195 values 
+2019-03-22 12:49:47.878 [main] INFO  com.secondhand.tradingplatformgeccocontroller.engine.GeccoEngine - starts.json not found
+2019-03-22 12:49:48.093 [main] INFO  org.reflections.Reflections - Reflections took 81 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 12:51:02.973 [main] INFO  com.secondhand.tradingplatformgeccocontroller.engine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 12:51:03.425 [main] INFO  org.reflections.Reflections - Reflections took 370 ms to scan 2 urls, producing 66 keys and 249 values 
+2019-03-22 12:51:04.371 [main] INFO  com.secondhand.tradingplatformgeccocontroller.engine.GeccoEngine - starts.json not found
+2019-03-22 12:51:04.777 [main] INFO  org.reflections.Reflections - Reflections took 218 ms to scan 165 urls, producing 0 keys and 0 values 
+2019-03-22 12:52:03.594 [main] INFO  com.secondhand.tradingplatformgeccocontroller.engine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 12:52:03.891 [main] INFO  org.reflections.Reflections - Reflections took 157 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 12:52:04.595 [main] INFO  com.secondhand.tradingplatformgeccocontroller.engine.GeccoEngine - starts.json not found
+2019-03-22 12:52:04.813 [main] INFO  org.reflections.Reflections - Reflections took 62 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 12:52:43.893 [main] INFO  com.secondhand.tradingplatformgeccocontroller.engine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 12:52:44.128 [main] INFO  org.reflections.Reflections - Reflections took 156 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 12:52:45.112 [main] INFO  com.secondhand.tradingplatformgeccocontroller.engine.GeccoEngine - starts.json not found
+2019-03-22 12:52:45.331 [main] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 12:55:42.665 [main] INFO  com.secondhand.tradingplatformgeccocontroller.engine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 12:55:42.899 [main] INFO  org.reflections.Reflections - Reflections took 172 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 12:55:43.587 [main] INFO  com.secondhand.tradingplatformgeccocontroller.engine.GeccoEngine - starts.json not found
+2019-03-22 12:55:43.821 [main] INFO  org.reflections.Reflections - Reflections took 62 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 12:55:47.335 [main] INFO  com.secondhand.tradingplatformgeccocontroller.engine.GeccoEngine - close gecco!
+2019-03-22 12:55:47.335 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccocontroller.engine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 12:55:47.366 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 12:55:47.366 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccocontroller.engine.GeccoEngine - starts.json not found
+2019-03-22 12:55:47.397 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 12:55:51.871 [Tcom.secondhand.tradingplatformgeccocontroller.jd2] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {s}->https://item.jd.com:443: Connect to item.jd.com:443 [item.jd.com/112.91.125.129] failed: connect timed out
+2019-03-22 12:55:51.872 [Tcom.secondhand.tradingplatformgeccocontroller.jd2] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {s}->https://item.jd.com:443
+2019-03-22 12:55:58.991 [Tcom.secondhand.tradingplatformgeccocontroller.jd1] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {s}->https://item.jd.com:443: Connect to item.jd.com:443 [item.jd.com/112.91.125.129] failed: connect timed out
+2019-03-22 12:55:58.991 [Tcom.secondhand.tradingplatformgeccocontroller.jd1] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {s}->https://item.jd.com:443
+2019-03-22 12:56:38.855 [main] INFO  com.secondhand.tradingplatformgeccocontroller.engine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 12:56:39.089 [main] INFO  org.reflections.Reflections - Reflections took 156 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 12:56:39.793 [main] INFO  com.secondhand.tradingplatformgeccocontroller.engine.GeccoEngine - starts.json not found
+2019-03-22 12:56:40.011 [main] INFO  org.reflections.Reflections - Reflections took 62 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 12:56:43.813 [main] INFO  com.secondhand.tradingplatformgeccocontroller.engine.GeccoEngine - close gecco!
+2019-03-22 12:56:43.813 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccocontroller.engine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 12:56:43.844 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 12:56:43.844 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccocontroller.engine.GeccoEngine - starts.json not found
+2019-03-22 12:56:43.860 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 12:58:10.955 [main] INFO  com.secondhand.tradingplatformgeccocontroller.engine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 12:58:11.158 [main] INFO  org.reflections.Reflections - Reflections took 141 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 12:58:12.173 [main] INFO  com.secondhand.tradingplatformgeccocontroller.engine.GeccoEngine - starts.json not found
+2019-03-22 12:58:12.392 [main] INFO  org.reflections.Reflections - Reflections took 47 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 12:58:15.314 [Tcom.secondhand.tradingplatformgeccocontroller.jd0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {s}->https://www.jd.com:443: Connect to www.jd.com:443 [www.jd.com/112.91.125.129] failed: connect timed out
+2019-03-22 12:58:15.314 [Tcom.secondhand.tradingplatformgeccocontroller.jd0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {s}->https://www.jd.com:443
+2019-03-22 12:58:19.822 [main] INFO  com.secondhand.tradingplatformgeccocontroller.engine.GeccoEngine - close gecco!
+2019-03-22 12:58:19.822 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccocontroller.engine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 12:58:19.854 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 32 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 12:58:19.854 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccocontroller.engine.GeccoEngine - starts.json not found
+2019-03-22 12:58:19.885 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 0 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 15:07:01.798 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 15:07:02.142 [main] INFO  org.reflections.Reflections - Reflections took 234 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 15:07:02.845 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 15:07:03.064 [main] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 15:07:07.177 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 15:07:07.177 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 15:07:07.192 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 15:07:07.192 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 15:07:07.208 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 15:07:57.274 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 15:07:57.586 [main] INFO  org.reflections.Reflections - Reflections took 219 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 15:07:58.258 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 15:07:58.477 [main] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 15:08:02.380 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 15:08:02.380 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 15:08:02.412 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 32 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 15:08:02.412 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 15:08:02.427 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 15:12:10.057 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 15:12:10.370 [main] INFO  org.reflections.Reflections - Reflections took 234 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 15:12:11.376 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 15:12:11.595 [main] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 15:12:15.706 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 15:12:15.706 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 15:12:15.738 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 32 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 15:12:15.753 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 15:12:15.769 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 15:12:44.009 [main] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 15:12:44.306 [main] INFO  org.reflections.Reflections - Reflections took 203 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 15:12:45.024 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 15:12:45.243 [main] INFO  org.reflections.Reflections - Reflections took 62 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 15:12:49.535 [main] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - close gecco!
+2019-03-22 15:12:49.535 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 15:12:49.566 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 15:12:49.566 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccoengine.GeccoEngine - starts.json not found
+2019-03-22 15:12:49.597 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 15:18:56.587 [main] INFO  com.secondhand.tradingplatformgeccocontroller.engine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 15:18:56.900 [main] INFO  org.reflections.Reflections - Reflections took 187 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 15:18:57.809 [main] INFO  com.secondhand.tradingplatformgeccocontroller.engine.GeccoEngine - starts.json not found
+2019-03-22 15:18:58.044 [main] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 15:19:01.824 [main] INFO  com.secondhand.tradingplatformgeccocontroller.engine.GeccoEngine - close gecco!
+2019-03-22 15:19:01.824 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccocontroller.engine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 15:19:01.855 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 15:19:01.855 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccocontroller.engine.GeccoEngine - starts.json not found
+2019-03-22 15:19:01.886 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 15:20:58.529 [main] INFO  com.secondhand.tradingplatformgeccocontroller.engine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 15:20:58.763 [main] INFO  org.reflections.Reflections - Reflections took 171 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 15:20:59.763 [main] INFO  com.secondhand.tradingplatformgeccocontroller.engine.GeccoEngine - starts.json not found
+2019-03-22 15:21:17.218 [main] INFO  org.reflections.Reflections - Reflections took 62 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 15:21:20.390 [Tcom.secondhand.tradingplatformgeccocontroller.jd0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {s}->https://www.jd.com:443: Connect to www.jd.com:443 [www.jd.com/112.91.125.129] failed: connect timed out
+2019-03-22 15:21:20.390 [Tcom.secondhand.tradingplatformgeccocontroller.jd0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {s}->https://www.jd.com:443
+2019-03-22 15:22:07.072 [main] INFO  com.secondhand.tradingplatformgeccocontroller.engine.GeccoEngine - close gecco!
+2019-03-22 15:22:07.072 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccocontroller.engine.downloader.proxy.FileProxys - proxys not load
+2019-03-22 15:22:07.119 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 47 ms to scan 2 urls, producing 47 keys and 195 values 
+2019-03-22 15:22:07.166 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccocontroller.engine.GeccoEngine - starts.json not found
+2019-03-22 15:22:31.651 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 10001 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 15:22:44.216 [Tcom.secondhand.tradingplatformgeccocontroller.jd1] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {s}->https://item.jd.com:443: Connect to item.jd.com:443 [item.jd.com/112.91.125.129] failed: connect timed out
+2019-03-22 15:22:44.216 [Tcom.secondhand.tradingplatformgeccocontroller.jd1] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {s}->https://item.jd.com:443
+2019-03-22 15:22:55.969 [Tcom.secondhand.tradingplatformgeccocontroller.jd2] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {s}->https://item.jd.com:443: Connect to item.jd.com:443 [item.jd.com/112.91.125.129] failed: connect timed out
+2019-03-22 15:22:57.969 [Tcom.secondhand.tradingplatformgeccocontroller.jd2] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {s}->https://item.jd.com:443
