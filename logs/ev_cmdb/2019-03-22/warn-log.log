@@ -1,1 +1,5 @@
 2019-03-22 12:51:04.371 [main] WARN  com.secondhand.tradingplatformgeccocontroller.engine.spider.SpiderBeanFactory - there are multil 'https://item.jd.com/{code}.html' ,first htmlBean will be Override。
+2019-03-22 15:45:09.172 [main] WARN  com.secondhand.tradingplatformgeccocontroller.spider.SpiderBeanFactory - there are multil 'https://item.jd.com/{code}.html' ,first htmlBean will be Override。
+2019-03-22 15:45:13.476 [GeccoEngine] WARN  com.secondhand.tradingplatformgeccocontroller.spider.SpiderBeanFactory - there are multil 'https://item.jd.com/{code}.html' ,first htmlBean will be Override。
+2019-03-22 15:45:42.403 [main] WARN  com.secondhand.tradingplatformgeccocontroller.spider.SpiderBeanFactory - there are multil 'https://item.jd.com/{code}.html' ,first htmlBean will be Override。
+2019-03-22 15:45:46.062 [GeccoEngine] WARN  com.secondhand.tradingplatformgeccocontroller.spider.SpiderBeanFactory - there are multil 'https://item.jd.com/{code}.html' ,first htmlBean will be Override。
