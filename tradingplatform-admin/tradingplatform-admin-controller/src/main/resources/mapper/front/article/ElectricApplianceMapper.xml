@@ -15,7 +15,7 @@
         <result column="details" property="details" jdbcType="VARCHAR"/>
         <result column="classification" property="classification" jdbcType="INTEGER"/>
         <result column="type" property="type" jdbcType="VARCHAR"/>
-        <result column="efficiency_rating" property="efficiencyRating" jdbcType="VARCHAR"/>
+        <result column="power" property="power" jdbcType="VARCHAR"/>
         <result column="model" property="model" jdbcType="VARCHAR"/>
         <result column="brand" property="brand" jdbcType="VARCHAR"/>
         <result column="user_id" property="userId" jdbcType="INTEGER"/>
@@ -37,7 +37,7 @@
         <result column="details" property="details" jdbcType="VARCHAR"/>
         <result column="classification" property="classification" jdbcType="INTEGER"/>
         <result column="type" property="type" jdbcType="VARCHAR"/>
-        <result column="efficiency_rating" property="efficiencyRating" jdbcType="VARCHAR"/>
+        <result column="power" property="power" jdbcType="VARCHAR"/>
         <result column="model" property="model" jdbcType="VARCHAR"/>
         <result column="brand" property="brand" jdbcType="VARCHAR"/>
         <result column="user_id" property="userId" jdbcType="INTEGER"/>

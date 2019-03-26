@@ -23,11 +23,11 @@ public class AllSort implements HtmlBean {
 	private List<Category> mobile;
 	
 	//家用电器
-	@HtmlField(cssPath=".category-items > div:nth-child(1) > div:nth-child(3) > div.mc > div.items > dl")
+	@HtmlField(cssPath="a")
 	private List<Category> domestic;
 	
 	//母婴
-	@HtmlField(cssPath=".category-items > div:nth-child(2) > div:nth-child(2) > div.mc > div.items > dl")
+	@HtmlField(cssPath="a")
 	private List<Category> baby;
 
 	public List<Category> getMobile() {

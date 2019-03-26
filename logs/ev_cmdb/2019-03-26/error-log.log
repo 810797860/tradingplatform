@@ -1,0 +1,563 @@
+2019-03-26 01:14:25.989 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 01:14:26.023 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 01:14:30.026 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 01:14:30.026 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 01:14:34.065 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 01:14:34.065 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 01:14:38.748 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 01:14:38.748 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 09:23:16.480 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 09:23:16.496 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 09:23:19.882 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 09:23:19.882 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 09:23:23.855 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 09:23:23.855 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 09:23:28.807 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 09:23:28.807 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 09:28:45.387 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1053490460.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:28:48.874 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1053490460.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:29:56.415 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1002500877.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:30:00.692 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1002500877.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:30:04.631 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1439184815.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:30:08.732 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1439184815.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:30:13.094 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1081788717.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:30:17.819 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1081788717.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:30:22.136 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1091143749.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:30:26.752 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1091143749.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:30:39.498 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1343345387.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:30:43.920 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1343345387.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:30:49.035 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1225571016.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:30:54.163 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1225571016.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:30:59.516 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1406303076.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:31:02.858 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1406303076.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:31:12.513 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1354638391.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:31:17.076 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1354638391.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:31:27.915 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1093139388.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:31:31.376 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1090723296.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:31:41.860 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1237695021.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:31:46.267 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1237678021.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:31:50.101 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1334911396.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:31:54.954 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1152023886.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:32:00.134 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1362841096.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:32:05.276 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1339717220.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:32:18.867 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1372429078.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:32:23.100 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1372429078.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:32:27.174 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1373300478.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:32:30.749 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1373300478.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:32:36.046 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1410281578.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:32:40.421 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1410281578.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:32:45.272 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1268767478.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:32:49.264 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1268767478.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:32:54.197 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1329062939.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:32:59.387 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1329062939.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:33:05.850 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1379187670.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:33:10.319 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1379187670.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:33:23.765 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1167034267.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:33:27.060 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1167034267.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:33:32.249 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1317865270.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:33:36.264 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1317865270.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 09:34:24.203 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1234562995.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-26 10:01:43.268 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:01:43.270 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:01:47.484 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:01:47.484 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:01:51.591 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:01:51.591 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:01:55.512 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:01:55.512 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:04:35.806 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:04:35.808 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:04:39.691 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:04:39.691 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:04:42.881 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:04:42.881 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:04:46.122 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:04:46.122 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:07:41.040 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:07:41.041 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:07:45.947 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:07:45.947 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:07:49.644 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:07:49.645 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:07:54.477 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:07:54.477 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:09:17.391 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:09:17.391 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:09:21.483 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:09:21.483 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:09:25.875 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:09:25.875 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:09:29.064 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:09:29.064 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:10:34.806 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:10:34.807 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:10:35.304 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:10:35.304 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:10:36.872 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:10:36.872 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:10:38.635 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:10:38.635 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:13:19.526 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:13:19.526 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:13:20.382 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:13:20.382 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:13:21.892 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:13:21.892 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:13:22.048 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:13:22.048 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:14:37.140 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:14:37.140 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:14:38.710 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:14:38.710 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:14:39.585 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:14:39.585 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:14:40.572 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:14:40.572 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:16:57.397 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:16:57.397 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:16:58.524 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:16:58.524 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:16:58.592 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:16:58.592 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException
+2019-03-26 10:16:59.035 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor - java.net.MalformedURLException: no protocol: 
+java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.getHost(DownloadMonitor.java:57)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMonitor.incrException(DownloadMonitor.java:75)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.DownloadMointorIntercetor.intercept(DownloadMointorIntercetor.java:25)
+	at com.secondhand.tradingplatformgeccocontroller.downloader.HttpClientDownloader$$EnhancerByCGLIB$$8d996d2.download(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.download(Spider.java:213)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:99)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-26 10:16:59.035 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider -  ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionorg.apache.http.client.ClientProtocolException

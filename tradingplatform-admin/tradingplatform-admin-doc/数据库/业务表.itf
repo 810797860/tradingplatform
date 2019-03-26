@@ -55,7 +55,7 @@ socket消息表(c_business_socket_message)
 -----------标签--------------
 电器品牌(brand)
 电器型号(model)
-电器能耗等级(efficiency_rating)
+电器功率(power)
 电器类型(type)
 电器分类(classification)
 -----------------------------
@@ -86,7 +86,7 @@ socket消息表(c_business_socket_message)
 -----------标签--------------
 图书开本(format)
 图书纸张(paper)
-图书包装(package)
+图书包装(enfold)
 图书是否套装(suited)
 图书国际标准书号ISBN(isbn)
 图书分类(classification)

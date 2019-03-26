@@ -1,0 +1,264 @@
+2019-03-26 01:13:44.158 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 01:13:44.699 [main] INFO  org.reflections.Reflections - Reflections took 428 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 01:13:45.963 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 01:13:46.470 [main] INFO  org.reflections.Reflections - Reflections took 70 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 01:13:49.251 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://fashion.dangdang.com:80: Connect to fashion.dangdang.com:80 [fashion.dangdang.com/60.29.254.43] failed: connect timed out
+2019-03-26 01:13:49.253 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://fashion.dangdang.com:80
+2019-03-26 01:13:54.590 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-26 01:13:54.591 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 01:13:54.618 [main] INFO  org.reflections.Reflections - Reflections took 26 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 01:13:54.625 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 01:13:54.642 [main] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 01:14:49.737 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://mingxieku.dangdang.com:80: Connect to mingxieku.dangdang.com:80 [mingxieku.dangdang.com/60.29.254.137] failed: connect timed out
+2019-03-26 01:14:49.737 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://mingxieku.dangdang.com:80
+2019-03-26 01:14:58.584 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://shop.dangdang.com:80: Read timed out
+2019-03-26 01:14:58.584 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://shop.dangdang.com:80
+2019-03-26 01:15:49.977 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://shop.dangdang.com:80: Read timed out
+2019-03-26 01:15:49.977 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://shop.dangdang.com:80
+2019-03-26 01:15:58.084 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://shop.dangdang.com:80: Read timed out
+2019-03-26 01:15:58.084 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://shop.dangdang.com:80
+2019-03-26 01:16:01.131 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://shop.dangdang.com:80: Read timed out
+2019-03-26 01:16:01.131 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://shop.dangdang.com:80
+2019-03-26 09:21:27.689 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 09:21:29.782 [main] INFO  org.reflections.Reflections - Reflections took 1890 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 09:21:31.376 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 09:21:31.970 [main] INFO  org.reflections.Reflections - Reflections took 109 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 09:21:36.109 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-26 09:21:36.109 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 09:21:36.140 [main] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 09:21:36.140 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 09:21:36.156 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 09:21:36.172 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-26 09:22:38.275 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 09:22:38.525 [main] INFO  org.reflections.Reflections - Reflections took 204 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 09:22:39.196 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 09:22:39.384 [main] INFO  org.reflections.Reflections - Reflections took 47 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 09:22:43.795 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-26 09:22:43.795 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 09:22:43.842 [main] INFO  org.reflections.Reflections - Reflections took 47 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 09:22:43.842 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 09:22:43.857 [main] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 09:23:38.993 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://mingxieku.dangdang.com:80: Connect to mingxieku.dangdang.com:80 [mingxieku.dangdang.com/60.29.254.137] failed: connect timed out
+2019-03-26 09:23:38.993 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://mingxieku.dangdang.com:80
+2019-03-26 09:23:46.460 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://shop.dangdang.com:80: Read timed out
+2019-03-26 09:23:46.460 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://shop.dangdang.com:80
+2019-03-26 09:24:34.853 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://shop.dangdang.com:80: Read timed out
+2019-03-26 09:24:34.853 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://shop.dangdang.com:80
+2019-03-26 09:24:43.744 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://shop.dangdang.com:80: Read timed out
+2019-03-26 09:24:43.744 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://shop.dangdang.com:80
+2019-03-26 09:24:46.791 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://shop.dangdang.com:80: Read timed out
+2019-03-26 09:24:46.791 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://shop.dangdang.com:80
+2019-03-26 09:25:22.462 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://shop.dangdang.com:80: Read timed out
+2019-03-26 09:25:22.462 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://shop.dangdang.com:80
+2019-03-26 09:26:28.860 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://shop.dangdang.com:80: Read timed out
+2019-03-26 09:26:28.860 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://shop.dangdang.com:80
+2019-03-26 09:26:31.907 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://shop.dangdang.com:80: Read timed out
+2019-03-26 09:26:31.907 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://shop.dangdang.com:80
+2019-03-26 09:27:22.904 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://shop.dangdang.com:80: Read timed out
+2019-03-26 09:27:22.904 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://shop.dangdang.com:80
+2019-03-26 09:27:57.313 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://shop.dangdang.com:80: Read timed out
+2019-03-26 09:27:57.313 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://shop.dangdang.com:80
+2019-03-26 09:30:33.466 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://img3m7.ddimg.cn:80: Connect to img3m7.ddimg.cn:80 [img3m7.ddimg.cn/27.45.163.2] failed: connect timed out
+2019-03-26 09:30:33.466 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://img3m7.ddimg.cn:80
+2019-03-26 09:30:36.466 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://img3m7.ddimg.cn:80: Connect to img3m7.ddimg.cn:80 [img3m7.ddimg.cn/27.45.163.2] failed: connect timed out
+2019-03-26 09:30:36.466 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://img3m7.ddimg.cn:80
+2019-03-26 09:30:39.466 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://img3m7.ddimg.cn:80: Connect to img3m7.ddimg.cn:80 [img3m7.ddimg.cn/27.45.163.2] failed: connect timed out
+2019-03-26 09:30:39.466 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://img3m7.ddimg.cn:80
+2019-03-26 09:31:09.482 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://img3m1.ddimg.cn:80: Connect to img3m1.ddimg.cn:80 [img3m1.ddimg.cn/27.45.163.2] failed: connect timed out
+2019-03-26 09:31:09.482 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://img3m1.ddimg.cn:80
+2019-03-26 09:31:12.482 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://img3m1.ddimg.cn:80: Connect to img3m1.ddimg.cn:80 [img3m1.ddimg.cn/27.45.163.2] failed: connect timed out
+2019-03-26 09:31:12.482 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://img3m1.ddimg.cn:80
+2019-03-26 09:31:38.735 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://img3m1.ddimg.cn:80: Connect to img3m1.ddimg.cn:80 [img3m1.ddimg.cn/27.45.163.2] failed: connect timed out
+2019-03-26 09:31:38.735 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://img3m1.ddimg.cn:80
+2019-03-26 09:31:41.735 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://img3m1.ddimg.cn:80: Connect to img3m1.ddimg.cn:80 [img3m1.ddimg.cn/27.45.163.2] failed: connect timed out
+2019-03-26 09:31:41.735 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://img3m1.ddimg.cn:80
+2019-03-26 09:33:05.819 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://img3m0.ddimg.cn:80: Connect to img3m0.ddimg.cn:80 [img3m0.ddimg.cn/27.45.163.2] failed: connect timed out
+2019-03-26 09:33:05.819 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://img3m0.ddimg.cn:80
+2019-03-26 09:33:17.749 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://img3m7.ddimg.cn:80: Connect to img3m7.ddimg.cn:80 [img3m7.ddimg.cn/27.45.163.2] failed: connect timed out
+2019-03-26 09:33:17.749 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://img3m7.ddimg.cn:80
+2019-03-26 09:33:20.749 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://img3m7.ddimg.cn:80: Connect to img3m7.ddimg.cn:80 [img3m7.ddimg.cn/27.45.163.2] failed: connect timed out
+2019-03-26 09:33:20.749 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://img3m7.ddimg.cn:80
+2019-03-26 09:33:23.749 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://img3m7.ddimg.cn:80: Connect to img3m7.ddimg.cn:80 [img3m7.ddimg.cn/27.45.163.2] failed: connect timed out
+2019-03-26 09:33:23.749 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://img3m7.ddimg.cn:80
+2019-03-26 09:33:52.890 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://shop.dangdang.com:80: Read timed out
+2019-03-26 09:33:52.890 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://shop.dangdang.com:80
+2019-03-26 09:34:13.438 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://shop.dangdang.com:80: Read timed out
+2019-03-26 09:34:13.438 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://shop.dangdang.com:80
+2019-03-26 09:34:33.953 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-26 09:59:42.004 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 09:59:42.266 [main] INFO  org.reflections.Reflections - Reflections took 203 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 09:59:42.940 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 09:59:43.157 [main] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 09:59:46.094 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://fashion.dangdang.com:80: Connect to fashion.dangdang.com:80 [fashion.dangdang.com/60.29.254.43] failed: connect timed out
+2019-03-26 09:59:46.094 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://fashion.dangdang.com:80
+2019-03-26 09:59:51.568 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-26 09:59:51.568 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 09:59:51.599 [main] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 09:59:51.615 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 09:59:51.615 [main] INFO  org.reflections.Reflections - Reflections took 0 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 09:59:51.631 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-26 10:01:03.662 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 10:01:03.997 [main] INFO  org.reflections.Reflections - Reflections took 268 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 10:01:04.761 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 10:01:04.996 [main] INFO  org.reflections.Reflections - Reflections took 60 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 10:01:11.985 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-26 10:01:11.985 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 10:01:12.014 [main] INFO  org.reflections.Reflections - Reflections took 28 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 10:01:12.019 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 10:01:12.038 [main] INFO  org.reflections.Reflections - Reflections took 17 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 10:01:15.020 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://fashion.dangdang.com:80: Connect to fashion.dangdang.com:80 [fashion.dangdang.com/60.29.254.43] failed: connect timed out
+2019-03-26 10:01:15.021 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://fashion.dangdang.com:80
+2019-03-26 10:02:10.904 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://shop.dangdang.com:80: Read timed out
+2019-03-26 10:02:10.904 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://shop.dangdang.com:80
+2019-03-26 10:03:56.907 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 10:03:57.292 [main] INFO  org.reflections.Reflections - Reflections took 311 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 10:03:57.973 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 10:03:58.187 [main] INFO  org.reflections.Reflections - Reflections took 54 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 10:04:03.346 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-26 10:04:03.347 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 10:04:03.374 [main] INFO  org.reflections.Reflections - Reflections took 26 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 10:04:03.378 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 10:04:03.392 [main] INFO  org.reflections.Reflections - Reflections took 13 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 10:04:56.796 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://mingxieku.dangdang.com:80: Connect to mingxieku.dangdang.com:80 [mingxieku.dangdang.com/60.29.254.137] failed: connect timed out
+2019-03-26 10:04:56.797 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://mingxieku.dangdang.com:80
+2019-03-26 10:04:59.798 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://mingxieku.dangdang.com:80: Connect to mingxieku.dangdang.com:80 [mingxieku.dangdang.com/60.29.254.137] failed: connect timed out
+2019-03-26 10:04:59.798 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://mingxieku.dangdang.com:80
+2019-03-26 10:05:55.356 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://shop.dangdang.com:80: Read timed out
+2019-03-26 10:05:55.356 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://shop.dangdang.com:80
+2019-03-26 10:06:02.327 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://shop.dangdang.com:80: Read timed out
+2019-03-26 10:06:02.327 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://shop.dangdang.com:80
+2019-03-26 10:06:05.378 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://shop.dangdang.com:80: Read timed out
+2019-03-26 10:06:05.378 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://shop.dangdang.com:80
+2019-03-26 10:06:31.372 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 10:06:31.689 [main] INFO  org.reflections.Reflections - Reflections took 247 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 10:06:32.408 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 10:06:32.634 [main] INFO  org.reflections.Reflections - Reflections took 62 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 10:06:36.247 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-26 10:06:36.248 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 10:06:36.279 [main] INFO  org.reflections.Reflections - Reflections took 30 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 10:06:36.285 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 10:06:36.299 [main] INFO  org.reflections.Reflections - Reflections took 13 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 10:06:36.304 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-26 10:06:59.607 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 10:07:00.067 [main] INFO  org.reflections.Reflections - Reflections took 390 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 10:07:01.027 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 10:07:01.473 [main] INFO  org.reflections.Reflections - Reflections took 131 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 10:07:04.301 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://fashion.dangdang.com:80: Connect to fashion.dangdang.com:80 [fashion.dangdang.com/60.29.254.43] failed: connect timed out
+2019-03-26 10:07:04.303 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://fashion.dangdang.com:80
+2019-03-26 10:07:09.147 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-26 10:07:09.148 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 10:07:09.174 [main] INFO  org.reflections.Reflections - Reflections took 25 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 10:07:09.181 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 10:07:09.196 [main] INFO  org.reflections.Reflections - Reflections took 13 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 10:08:08.352 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://shop.dangdang.com:80: Read timed out
+2019-03-26 10:08:08.352 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://shop.dangdang.com:80
+2019-03-26 10:08:40.391 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 10:08:40.735 [main] INFO  org.reflections.Reflections - Reflections took 281 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 10:08:41.410 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 10:08:41.645 [main] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 10:08:46.645 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-26 10:08:46.645 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 10:08:46.677 [main] INFO  org.reflections.Reflections - Reflections took 32 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 10:08:46.677 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 10:08:46.692 [main] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 10:08:49.687 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://fashion.dangdang.com:80: Connect to fashion.dangdang.com:80 [fashion.dangdang.com/60.29.254.43] failed: connect timed out
+2019-03-26 10:08:49.687 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://fashion.dangdang.com:80
+2019-03-26 10:09:39.780 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://mingxieku.dangdang.com:80: Connect to mingxieku.dangdang.com:80 [mingxieku.dangdang.com/60.29.254.137] failed: connect timed out
+2019-03-26 10:09:39.780 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://mingxieku.dangdang.com:80
+2019-03-26 10:10:20.881 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 10:10:21.198 [main] INFO  org.reflections.Reflections - Reflections took 237 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 10:10:21.976 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 10:10:22.243 [main] INFO  org.reflections.Reflections - Reflections took 78 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 10:10:27.401 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-26 10:10:27.402 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 10:10:27.429 [main] INFO  org.reflections.Reflections - Reflections took 26 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 10:10:27.436 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 10:10:27.451 [main] INFO  org.reflections.Reflections - Reflections took 14 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 10:11:25.280 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 10:11:25.624 [main] INFO  org.reflections.Reflections - Reflections took 250 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 10:11:26.344 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 10:11:26.579 [main] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 10:12:21.618 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 10:12:21.962 [main] INFO  org.reflections.Reflections - Reflections took 266 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 10:12:22.665 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 10:12:22.868 [main] INFO  org.reflections.Reflections - Reflections took 47 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 10:12:25.805 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://fashion.dangdang.com:80: Connect to fashion.dangdang.com:80 [fashion.dangdang.com/60.29.254.43] failed: connect timed out
+2019-03-26 10:12:25.806 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://fashion.dangdang.com:80
+2019-03-26 10:12:30.511 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-26 10:12:30.511 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 10:12:30.542 [main] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 10:12:30.542 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 10:12:30.558 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 10:12:30.574 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-26 10:13:02.240 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 10:13:02.587 [main] INFO  org.reflections.Reflections - Reflections took 225 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 10:13:03.312 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 10:13:03.565 [main] INFO  org.reflections.Reflections - Reflections took 78 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 10:13:06.455 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://fashion.dangdang.com:80: Connect to fashion.dangdang.com:80 [fashion.dangdang.com/60.29.254.43] failed: connect timed out
+2019-03-26 10:13:06.455 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://fashion.dangdang.com:80
+2019-03-26 10:13:11.666 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-26 10:13:11.666 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 10:13:11.698 [main] INFO  org.reflections.Reflections - Reflections took 32 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 10:13:11.698 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 10:13:11.713 [main] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 10:14:23.195 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 10:14:23.550 [main] INFO  org.reflections.Reflections - Reflections took 277 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 10:14:24.286 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 10:14:24.503 [main] INFO  org.reflections.Reflections - Reflections took 47 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 10:14:29.938 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-26 10:14:29.938 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 10:14:29.969 [main] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 10:14:29.969 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 10:14:29.985 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 10:15:11.058 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://shop.dangdang.com:80: Read timed out
+2019-03-26 10:15:11.058 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://shop.dangdang.com:80
+2019-03-26 10:15:58.193 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 10:15:58.550 [main] INFO  org.reflections.Reflections - Reflections took 263 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 10:15:59.302 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 10:15:59.503 [main] INFO  org.reflections.Reflections - Reflections took 47 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 10:16:02.425 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://fashion.dangdang.com:80: Connect to fashion.dangdang.com:80 [fashion.dangdang.com/60.29.254.43] failed: connect timed out
+2019-03-26 10:16:02.425 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://fashion.dangdang.com:80
+2019-03-26 10:16:05.440 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://fashion.dangdang.com:80: Connect to fashion.dangdang.com:80 [fashion.dangdang.com/60.29.254.43] failed: connect timed out
+2019-03-26 10:16:05.440 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://fashion.dangdang.com:80
+2019-03-26 10:16:08.440 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://fashion.dangdang.com:80: Connect to fashion.dangdang.com:80 [fashion.dangdang.com/60.29.254.43] failed: connect timed out
+2019-03-26 10:16:08.440 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://fashion.dangdang.com:80
+2019-03-26 10:16:13.907 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-26 10:16:50.221 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 10:16:50.252 [main] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 10:16:50.252 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 10:16:50.268 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 10:17:05.004 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://mingxieku.dangdang.com:80: Connect to mingxieku.dangdang.com:80 [mingxieku.dangdang.com/60.29.254.137] failed: connect timed out
+2019-03-26 10:17:05.004 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://mingxieku.dangdang.com:80
+2019-03-26 10:18:11.705 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://shop.dangdang.com:80: Read timed out
+2019-03-26 10:18:11.705 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://shop.dangdang.com:80
+2019-03-26 10:18:14.752 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://shop.dangdang.com:80: Read timed out
+2019-03-26 10:18:14.752 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://shop.dangdang.com:80
+2019-03-26 10:19:15.185 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 10:19:15.614 [main] INFO  org.reflections.Reflections - Reflections took 304 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 10:19:16.336 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 10:19:16.565 [main] INFO  org.reflections.Reflections - Reflections took 62 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 10:19:19.503 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://fashion.dangdang.com:80: Read timed out
+2019-03-26 10:19:19.503 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://fashion.dangdang.com:80
+2019-03-26 10:19:34.017 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-26 10:19:34.017 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 10:19:34.048 [main] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 10:19:34.048 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 10:19:34.080 [main] INFO  org.reflections.Reflections - Reflections took 32 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 10:19:35.096 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-03-26 10:19:38.690 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2019-03-26 10:19:44.534 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://img3m5.ddimg.cn:80: Connect to img3m5.ddimg.cn:80 [img3m5.ddimg.cn/27.45.163.2] failed: connect timed out
+2019-03-26 10:19:44.534 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://img3m5.ddimg.cn:80
+2019-03-26 10:20:44.738 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-26 10:22:11.517 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 10:22:11.857 [main] INFO  org.reflections.Reflections - Reflections took 258 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 10:22:12.569 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 10:22:12.810 [main] INFO  org.reflections.Reflections - Reflections took 65 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 10:22:15.704 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://fashion.dangdang.com:80: Connect to fashion.dangdang.com:80 [fashion.dangdang.com/60.29.254.43] failed: connect timed out
+2019-03-26 10:22:15.706 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://fashion.dangdang.com:80
+2019-03-26 10:22:20.365 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-26 10:22:20.366 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-26 10:22:20.395 [main] INFO  org.reflections.Reflections - Reflections took 28 ms to scan 2 urls, producing 74 keys and 289 values 
+2019-03-26 10:22:20.402 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-26 10:22:20.418 [main] INFO  org.reflections.Reflections - Reflections took 14 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-26 10:22:21.384 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-03-26 10:22:24.621 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]

@@ -121,20 +121,20 @@ public class SystemSelectItem {
     /**
      * 用户类型
      */
-    public static Long USER_TYPE = 100403L;
+    public static final Long USER_TYPE = 100403L;
 
     /**
      * 后台用户
      */
-    public static Long USER_TYPE_BACK_DESK = 100505L;
+    public static final Long USER_TYPE_BACK_DESK = 100505L;
 
     /**
      * 前台用户
      */
-    public static Long USER_TYPE_FRONT_DESK = 100506L;
+    public static final Long USER_TYPE_FRONT_DESK = 100506L;
 
     /**
      * 微信用户
      */
-    public static Long USER_TYPE_WECHAT_DESK = 100507L;
+    public static final Long USER_TYPE_WECHAT_DESK = 100507L;
 }

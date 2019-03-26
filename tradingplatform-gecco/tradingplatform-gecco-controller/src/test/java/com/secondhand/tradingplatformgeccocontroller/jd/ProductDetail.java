@@ -3,7 +3,7 @@ package com.secondhand.tradingplatformgeccocontroller.jd;
 import com.secondhand.tradingplatformgeccocontroller.annotation.*;
 import com.secondhand.tradingplatformgeccocontroller.spider.HtmlBean;
 
-@Gecco(matchUrl="https://item.jd.com/{code}.html", pipelines="consolePipeline")
+//@Gecco(matchUrl="https://item.jd.com/{code}.html", pipelines="consolePipeline")
 public class ProductDetail implements HtmlBean {
 
 	private static final long serialVersionUID = -377053120283382723L;

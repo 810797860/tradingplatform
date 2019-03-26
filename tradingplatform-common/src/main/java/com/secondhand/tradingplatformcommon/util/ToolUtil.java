@@ -158,6 +158,21 @@ public class ToolUtil {
     }
 
     /**
+     * 获取字符串形式的年月日时分秒
+     */
+    public static String getDateTime(){
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return df.format(new Date());
+    }
+
+    /**
+     * 爬虫返回值/空串
+     */
+    public static String getClawer(String str){
+        return str == null ? "" : str;
+    }
+
+    /**
      * 验证码校验
      *
      * @param request

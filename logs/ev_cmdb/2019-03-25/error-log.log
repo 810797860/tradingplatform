@@ -1,0 +1,225 @@
+2019-03-25 00:13:13.142 [Tcom.secondhand.tradingplatformgeccocontroller.electricAppliance0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://3c.electricAppliance.com/ ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionjava.net.UnknownHostException: 3c.electricAppliance.com
+2019-03-25 00:14:44.524 [Tcom.secondhand.tradingplatformgeccocontroller.electricAppliance0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://3c.electricAppliance.com/ ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadTimeoutExceptionorg.apache.http.conn.ConnectTimeoutException: Connect to 3c.electricAppliance.com:80 [3c.electricAppliance.com/98.124.199.1] failed: connect timed out
+2019-03-25 00:18:53.910 [Tcom.secondhand.tradingplatformgeccocontroller.electricAppliance0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://3c.dangdang.com/ ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.electricAppliance.DangPage cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangPage
+2019-03-25 00:20:10.472 [Tcom.secondhand.tradingplatformgeccocontroller.electricAppliance0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://3c.dangdang.com/ ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.electricAppliance.DangPage cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangPage
+2019-03-25 00:24:46.381 [Tcom.secondhand.tradingplatformgeccocontroller.electricAppliance0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1230566871.html ERROR : java.lang.NullPointerExceptionnull
+2019-03-25 00:24:50.838 [Tcom.secondhand.tradingplatformgeccocontroller.electricAppliance0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1157415471.html ERROR : java.lang.NullPointerExceptionnull
+2019-03-25 00:24:54.868 [Tcom.secondhand.tradingplatformgeccocontroller.electricAppliance0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1157401397.html ERROR : java.lang.NullPointerExceptionnull
+2019-03-25 00:48:02.805 [Tcom.secondhand.tradingplatformgeccocontroller.electricAppliance0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.render.AbstractRender - instance SpiderBean error
+java.lang.NullPointerException: null
+	at java.util.regex.Matcher.getTextLength(Matcher.java:1283)
+	at java.util.regex.Matcher.reset(Matcher.java:309)
+	at java.util.regex.Matcher.<init>(Matcher.java:229)
+	at java.util.regex.Pattern.matcher(Pattern.java:1093)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlParser.isTable(HtmlParser.java:283)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlParser.<init>(HtmlParser.java:39)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlFieldRender.injectHtmlField(HtmlFieldRender.java:40)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlFieldRender.render(HtmlFieldRender.java:29)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender.fieldRender(HtmlRender.java:35)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.CGLIB$fieldRender$0(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e$$FastClassByCGLIB$$b802755d.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.RenderMointorIntercetor.intercept(RenderMointorIntercetor.java:22)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.fieldRender(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.AbstractRender.inject(AbstractRender.java:58)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.CGLIB$inject$2(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e$$FastClassByCGLIB$$b802755d.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.RenderMointorIntercetor.intercept(RenderMointorIntercetor.java:15)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.inject(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:105)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-25 00:48:38.220 [Tcom.secondhand.tradingplatformgeccocontroller.electricAppliance0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://shop.dangdang.com/7970 ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadTimeoutExceptionorg.apache.http.conn.ConnectTimeoutException: Connect to shop.dangdang.com:80 [shop.dangdang.com/60.29.254.123] failed: connect timed out
+2019-03-25 09:58:22.111 [Tcom.secondhand.tradingplatformgeccocontroller.bookLibrary0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.render.FieldRenderException - cover render error : download image error : http://img3m2.ddimg.cn/0/23/26515962-1_w_4.jpg
+2019-03-25 10:30:40.317 [Tcom.secondhand.tradingplatformgeccocontroller.bookLibrary0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.render.FieldRenderException - cover render error : download image error : http://img3m0.ddimg.cn/31/18/26516290-1_w_5.jpg
+2019-03-25 10:44:20.946 [Tcom.secondhand.tradingplatformgeccocontroller.bookLibrary0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.render.AbstractRender - instance SpiderBean error
+java.lang.StringIndexOutOfBoundsException: String index out of range: -7
+	at java.lang.String.substring(String.java:1967)
+	at com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail.setStar(DangDetail.java:115)
+	at com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail$$BeanMapByCGLIB$$79834b5b.put(<generated>)
+	at net.sf.cglib.beans.BeanMap.put(BeanMap.java:172)
+	at net.sf.cglib.beans.BeanMap.putAll(BeanMap.java:245)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlFieldRender.render(HtmlFieldRender.java:34)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender.fieldRender(HtmlRender.java:35)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.CGLIB$fieldRender$0(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e$$FastClassByCGLIB$$b802755d.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.RenderMointorIntercetor.intercept(RenderMointorIntercetor.java:22)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.fieldRender(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.AbstractRender.inject(AbstractRender.java:58)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.CGLIB$inject$3(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e$$FastClassByCGLIB$$b802755d.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.RenderMointorIntercetor.intercept(RenderMointorIntercetor.java:15)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.inject(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:105)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-25 10:44:25.389 [Tcom.secondhand.tradingplatformgeccocontroller.bookLibrary0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.render.AbstractRender - instance SpiderBean error
+java.lang.StringIndexOutOfBoundsException: String index out of range: -7
+	at java.lang.String.substring(String.java:1967)
+	at com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail.setStar(DangDetail.java:115)
+	at com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail$$BeanMapByCGLIB$$79834b5b.put(<generated>)
+	at net.sf.cglib.beans.BeanMap.put(BeanMap.java:172)
+	at net.sf.cglib.beans.BeanMap.putAll(BeanMap.java:245)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlFieldRender.render(HtmlFieldRender.java:34)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender.fieldRender(HtmlRender.java:35)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.CGLIB$fieldRender$0(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e$$FastClassByCGLIB$$b802755d.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.RenderMointorIntercetor.intercept(RenderMointorIntercetor.java:22)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.fieldRender(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.AbstractRender.inject(AbstractRender.java:58)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.CGLIB$inject$3(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e$$FastClassByCGLIB$$b802755d.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.RenderMointorIntercetor.intercept(RenderMointorIntercetor.java:15)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.inject(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:105)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-25 10:45:53.314 [Tcom.secondhand.tradingplatformgeccocontroller.bookLibrary0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.render.AbstractRender - instance SpiderBean error
+java.lang.StringIndexOutOfBoundsException: String index out of range: -7
+	at java.lang.String.substring(String.java:1967)
+	at com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail.setStar(DangDetail.java:115)
+	at com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail$$BeanMapByCGLIB$$79834b5b.put(<generated>)
+	at net.sf.cglib.beans.BeanMap.put(BeanMap.java:172)
+	at net.sf.cglib.beans.BeanMap.putAll(BeanMap.java:245)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlFieldRender.render(HtmlFieldRender.java:34)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender.fieldRender(HtmlRender.java:35)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.CGLIB$fieldRender$0(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e$$FastClassByCGLIB$$b802755d.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.RenderMointorIntercetor.intercept(RenderMointorIntercetor.java:22)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.fieldRender(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.AbstractRender.inject(AbstractRender.java:58)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.CGLIB$inject$3(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e$$FastClassByCGLIB$$b802755d.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.RenderMointorIntercetor.intercept(RenderMointorIntercetor.java:15)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.inject(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:105)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-25 10:45:57.133 [Tcom.secondhand.tradingplatformgeccocontroller.bookLibrary0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.render.AbstractRender - instance SpiderBean error
+java.lang.StringIndexOutOfBoundsException: String index out of range: -7
+	at java.lang.String.substring(String.java:1967)
+	at com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail.setStar(DangDetail.java:115)
+	at com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail$$BeanMapByCGLIB$$79834b5b.put(<generated>)
+	at net.sf.cglib.beans.BeanMap.put(BeanMap.java:172)
+	at net.sf.cglib.beans.BeanMap.putAll(BeanMap.java:245)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlFieldRender.render(HtmlFieldRender.java:34)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender.fieldRender(HtmlRender.java:35)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.CGLIB$fieldRender$0(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e$$FastClassByCGLIB$$b802755d.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.RenderMointorIntercetor.intercept(RenderMointorIntercetor.java:22)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.fieldRender(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.AbstractRender.inject(AbstractRender.java:58)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.CGLIB$inject$3(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e$$FastClassByCGLIB$$b802755d.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.RenderMointorIntercetor.intercept(RenderMointorIntercetor.java:15)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.inject(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:105)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-25 10:56:46.756 [Tcom.secondhand.tradingplatformgeccocontroller.bookLibrary0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.render.AbstractRender - instance SpiderBean error
+java.lang.StringIndexOutOfBoundsException: String index out of range: -6
+	at java.lang.String.substring(String.java:1967)
+	at com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail.setStar(DangDetail.java:115)
+	at com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail$$BeanMapByCGLIB$$79834b5b.put(<generated>)
+	at net.sf.cglib.beans.BeanMap.put(BeanMap.java:172)
+	at net.sf.cglib.beans.BeanMap.putAll(BeanMap.java:245)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlFieldRender.render(HtmlFieldRender.java:34)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender.fieldRender(HtmlRender.java:35)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.CGLIB$fieldRender$0(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e$$FastClassByCGLIB$$b802755d.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.RenderMointorIntercetor.intercept(RenderMointorIntercetor.java:22)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.fieldRender(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.AbstractRender.inject(AbstractRender.java:58)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.CGLIB$inject$2(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e$$FastClassByCGLIB$$b802755d.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.RenderMointorIntercetor.intercept(RenderMointorIntercetor.java:15)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.inject(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:105)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-25 10:59:05.024 [Tcom.secondhand.tradingplatformgeccocontroller.bookLibrary0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://book.dangdang.com/ ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadTimeoutExceptionorg.apache.http.conn.ConnectTimeoutException: Connect to book.dangdang.com:80 [book.dangdang.com/60.29.241.103] failed: connect timed out
+2019-03-25 12:06:44.124 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.render.AbstractRender - instance SpiderBean error
+java.lang.StringIndexOutOfBoundsException: String index out of range: -6
+	at java.lang.String.substring(String.java:1967)
+	at com.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail.setStar(DangDetail.java:85)
+	at com.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail$$BeanMapByCGLIB$$9f7643d3.put(<generated>)
+	at net.sf.cglib.beans.BeanMap.put(BeanMap.java:172)
+	at net.sf.cglib.beans.BeanMap.putAll(BeanMap.java:245)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlFieldRender.render(HtmlFieldRender.java:34)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender.fieldRender(HtmlRender.java:35)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.CGLIB$fieldRender$0(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e$$FastClassByCGLIB$$b802755d.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.RenderMointorIntercetor.intercept(RenderMointorIntercetor.java:22)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.fieldRender(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.AbstractRender.inject(AbstractRender.java:58)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.CGLIB$inject$2(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e$$FastClassByCGLIB$$b802755d.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at com.secondhand.tradingplatformgeccocontroller.monitor.RenderMointorIntercetor.intercept(RenderMointorIntercetor.java:15)
+	at com.secondhand.tradingplatformgeccocontroller.spider.render.html.HtmlRender$$EnhancerByCGLIB$$682ec68e.inject(<generated>)
+	at com.secondhand.tradingplatformgeccocontroller.spider.Spider.run(Spider.java:105)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-25 12:07:49.100 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.render.FieldRenderException - cover render error : download image error : http://img3m0.ddimg.cn/77/5/1053490460-1_k_1.jpg
+2019-03-25 12:07:49.107 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1053490460.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 12:08:31.683 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1002500877.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 12:08:42.334 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1439184815.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 18:58:57.049 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1053490460.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 18:59:49.984 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1002500877.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 18:59:57.952 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1439184815.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:00:02.126 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1081788717.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:00:10.003 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1091143749.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:00:14.320 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1343345387.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:00:18.512 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1225571016.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:00:25.944 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1406303076.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:00:31.332 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1354638391.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:00:41.587 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1372429078.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:00:46.071 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1373300478.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:00:51.760 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1410281578.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:00:57.266 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1268767478.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:01:02.163 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1329062939.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:01:07.191 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1379187670.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:01:12.547 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1167034267.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:01:16.964 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1317865270.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:05:49.169 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1053490460.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:06:36.700 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1002500877.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:06:44.542 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1439184815.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:06:49.698 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1081788717.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:07:04.070 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1091143749.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:07:09.223 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1343345387.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:07:19.265 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1225571016.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:07:22.963 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1406303076.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:07:27.481 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1354638391.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:07:39.140 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1372429078.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:07:44.556 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1373300478.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:07:48.563 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1410281578.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:07:52.822 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1268767478.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:08:00.229 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1329062939.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:08:03.689 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1379187670.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:08:07.305 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1167034267.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:08:12.521 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1317865270.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:09:25.716 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1053490460.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:10:15.297 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1002500877.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:10:36.980 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.render.FieldRenderException - details render error : java.net.UnknownHostException: product.dangdang.com
+2019-03-25 19:10:37.762 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1439184815.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:10:42.291 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1081788717.html ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionjava.net.UnknownHostException: product.dangdang.com
+2019-03-25 19:10:46.936 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1091143749.html ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionjava.net.UnknownHostException: product.dangdang.com
+2019-03-25 19:10:53.495 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1343345387.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:10:58.878 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1225571016.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:11:06.669 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1406303076.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:11:11.560 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1354638391.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:11:27.524 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1372429078.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:11:32.429 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1373300478.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:11:36.057 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1410281578.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:11:39.653 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1268767478.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:11:44.612 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1329062939.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:12:00.754 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.render.FieldRenderException - cover render error : download image error : http://img3m0.ddimg.cn/58/16/1379187670-1_k_2.jpg
+2019-03-25 19:12:00.754 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1379187670.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:12:07.905 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1167034267.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:12:14.860 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://product.dangdang.com/1317865270.html ERROR : java.lang.ClassCastExceptioncom.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail cannot be cast to com.secondhand.tradingplatformgeccocontroller.bookLibrary.DangDetail
+2019-03-25 19:40:27.175 [Tcom.secondhand.tradingplatformgeccocontroller.sportsSpecial0] ERROR com.secondhand.tradingplatformgeccocontroller.spider.Spider - http://fashion.dangdang.com/sports ERROR : com.secondhand.tradingplatformgeccocontroller.downloader.DownloadExceptionjava.net.UnknownHostException: fashion.dangdang.com

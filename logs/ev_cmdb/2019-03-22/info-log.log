@@ -391,3 +391,741 @@
 2019-03-22 15:45:46.062 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 46 ms to scan 2 urls, producing 66 keys and 249 values 
 2019-03-22 15:45:46.062 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
 2019-03-22 15:45:46.078 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 16:07:55.039 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 16:07:55.336 [main] INFO  org.reflections.Reflections - Reflections took 219 ms to scan 2 urls, producing 66 keys and 249 values 
+2019-03-22 16:07:56.305 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 16:07:56.555 [main] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 16:08:36.992 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 16:08:36.992 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 16:08:37.024 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 32 ms to scan 2 urls, producing 66 keys and 249 values 
+2019-03-22 16:08:37.024 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 16:08:37.055 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 16:33:55.260 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 16:33:55.567 [main] INFO  org.reflections.Reflections - Reflections took 235 ms to scan 2 urls, producing 66 keys and 252 values 
+2019-03-22 16:33:56.431 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 16:33:56.670 [main] INFO  org.reflections.Reflections - Reflections took 64 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 16:34:00.182 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 16:34:53.061 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 16:34:53.398 [main] INFO  org.reflections.Reflections - Reflections took 273 ms to scan 2 urls, producing 66 keys and 252 values 
+2019-03-22 16:34:54.358 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 16:34:54.615 [main] INFO  org.reflections.Reflections - Reflections took 77 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 16:34:58.167 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 16:35:20.571 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 16:35:20.944 [main] INFO  org.reflections.Reflections - Reflections took 278 ms to scan 2 urls, producing 66 keys and 252 values 
+2019-03-22 16:35:21.687 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 16:35:21.932 [main] INFO  org.reflections.Reflections - Reflections took 73 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 16:35:24.215 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 16:38:27.398 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 16:38:27.742 [main] INFO  org.reflections.Reflections - Reflections took 250 ms to scan 2 urls, producing 66 keys and 252 values 
+2019-03-22 16:38:28.475 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 16:38:28.709 [main] INFO  org.reflections.Reflections - Reflections took 62 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 16:38:32.564 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 16:39:42.956 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 16:39:43.299 [main] INFO  org.reflections.Reflections - Reflections took 294 ms to scan 2 urls, producing 66 keys and 251 values 
+2019-03-22 16:39:44.206 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 16:39:44.449 [main] INFO  org.reflections.Reflections - Reflections took 78 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 16:39:47.569 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 16:41:01.364 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 16:41:01.716 [main] INFO  org.reflections.Reflections - Reflections took 259 ms to scan 2 urls, producing 66 keys and 251 values 
+2019-03-22 16:41:02.427 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 16:41:02.677 [main] INFO  org.reflections.Reflections - Reflections took 78 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 16:41:05.798 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 16:42:29.034 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 16:42:29.362 [main] INFO  org.reflections.Reflections - Reflections took 250 ms to scan 2 urls, producing 66 keys and 251 values 
+2019-03-22 16:42:30.081 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 16:42:30.331 [main] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 16:42:34.157 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 16:43:56.373 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 16:43:56.703 [main] INFO  org.reflections.Reflections - Reflections took 252 ms to scan 2 urls, producing 66 keys and 251 values 
+2019-03-22 16:43:57.589 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 16:43:57.825 [main] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 16:44:01.506 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 17:08:12.494 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 17:08:12.806 [main] INFO  org.reflections.Reflections - Reflections took 250 ms to scan 2 urls, producing 66 keys and 254 values 
+2019-03-22 17:08:13.681 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 17:08:13.899 [main] INFO  org.reflections.Reflections - Reflections took 47 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 17:08:16.212 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 17:10:59.096 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 17:10:59.416 [main] INFO  org.reflections.Reflections - Reflections took 242 ms to scan 2 urls, producing 66 keys and 254 values 
+2019-03-22 17:11:00.273 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 17:11:00.498 [main] INFO  org.reflections.Reflections - Reflections took 58 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 17:11:03.192 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 19:25:34.969 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 19:25:35.250 [main] INFO  org.reflections.Reflections - Reflections took 204 ms to scan 2 urls, producing 66 keys and 256 values 
+2019-03-22 19:25:36.234 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 19:25:36.500 [main] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 19:25:39.421 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-22 19:25:39.421 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 19:25:42.429 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-22 19:25:42.429 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 19:25:45.436 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-22 19:25:45.436 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 19:25:49.038 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 19:26:13.115 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 19:26:13.505 [main] INFO  org.reflections.Reflections - Reflections took 310 ms to scan 2 urls, producing 66 keys and 256 values 
+2019-03-22 19:26:14.333 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 19:26:14.563 [main] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 19:26:26.905 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 19:26:26.905 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 19:26:29.919 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 19:26:29.919 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 19:26:55.570 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Read timed out
+2019-03-22 19:26:55.570 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 19:26:59.609 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 19:26:59.609 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 19:27:02.618 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 19:27:02.618 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 19:41:39.673 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 19:41:40.035 [main] INFO  org.reflections.Reflections - Reflections took 283 ms to scan 2 urls, producing 66 keys and 256 values 
+2019-03-22 19:41:41.012 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 19:41:41.246 [main] INFO  org.reflections.Reflections - Reflections took 47 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 19:41:47.257 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-22 19:41:47.257 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 19:41:50.264 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-22 19:41:50.264 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 19:47:30.218 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 19:47:30.571 [main] INFO  org.reflections.Reflections - Reflections took 291 ms to scan 2 urls, producing 66 keys and 256 values 
+2019-03-22 19:47:31.420 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 19:47:31.643 [main] INFO  org.reflections.Reflections - Reflections took 51 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 19:47:34.608 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-22 19:47:34.610 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 19:47:37.858 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 19:47:37.858 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 19:47:37.890 [main] INFO  org.reflections.Reflections - Reflections took 32 ms to scan 2 urls, producing 66 keys and 256 values 
+2019-03-22 19:47:37.890 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 19:47:37.905 [main] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 19:47:49.275 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-22 19:47:49.275 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 19:47:49.275 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-22 19:47:49.275 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 19:47:49.275 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-22 19:47:49.275 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 19:47:51.771 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-22 19:47:51.771 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 19:47:51.771 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-22 19:47:51.771 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 19:47:51.771 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-22 19:47:51.771 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 19:47:54.073 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-22 19:47:54.073 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 19:47:54.073 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-22 19:47:54.073 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 19:47:54.073 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-22 19:47:54.073 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 19:47:55.848 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-22 19:47:55.848 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 19:47:55.848 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-22 19:47:55.848 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 19:47:55.848 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-22 19:47:55.848 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 19:47:58.478 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-22 19:47:58.478 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 19:47:58.478 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-22 19:47:58.478 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 19:47:58.478 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-22 19:47:58.478 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 19:48:37.321 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 19:48:37.594 [main] INFO  org.reflections.Reflections - Reflections took 216 ms to scan 2 urls, producing 66 keys and 256 values 
+2019-03-22 19:48:38.577 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 19:48:38.818 [main] INFO  org.reflections.Reflections - Reflections took 69 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 19:48:42.571 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 19:48:42.571 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 19:48:42.587 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 2 urls, producing 66 keys and 256 values 
+2019-03-22 19:48:42.605 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 19:48:42.621 [main] INFO  org.reflections.Reflections - Reflections took 14 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 19:50:16.018 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 19:50:16.325 [main] INFO  org.reflections.Reflections - Reflections took 245 ms to scan 2 urls, producing 66 keys and 256 values 
+2019-03-22 19:50:17.242 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 19:50:17.476 [main] INFO  org.reflections.Reflections - Reflections took 62 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 19:50:20.410 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-22 19:50:20.410 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 19:50:24.777 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 19:50:24.777 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 19:50:24.808 [main] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 2 urls, producing 66 keys and 256 values 
+2019-03-22 19:50:24.808 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 19:50:24.824 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 19:53:13.661 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 19:53:14.015 [main] INFO  org.reflections.Reflections - Reflections took 270 ms to scan 2 urls, producing 66 keys and 256 values 
+2019-03-22 19:53:15.014 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 19:53:15.257 [main] INFO  org.reflections.Reflections - Reflections took 68 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 19:53:20.742 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 19:53:20.743 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 19:53:20.771 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 27 ms to scan 2 urls, producing 66 keys and 256 values 
+2019-03-22 19:53:20.776 [GeccoEngine] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 19:53:20.792 [GeccoEngine] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 19:53:25.862 [Tcom.secondhand.tradingplatformgeccocontroller.jd1] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {s}->https://item.jd.com:443: Connect to item.jd.com:443 [item.jd.com/112.91.125.129] failed: connect timed out
+2019-03-22 19:53:25.863 [Tcom.secondhand.tradingplatformgeccocontroller.jd1] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {s}->https://item.jd.com:443
+2019-03-22 19:53:26.673 [Tcom.secondhand.tradingplatformgeccocontroller.jd2] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {s}->https://item.jd.com:443: Connect to item.jd.com:443 [item.jd.com/112.91.125.129] failed: connect timed out
+2019-03-22 19:53:26.673 [Tcom.secondhand.tradingplatformgeccocontroller.jd2] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {s}->https://item.jd.com:443
+2019-03-22 20:00:32.164 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:00:32.487 [main] INFO  org.reflections.Reflections - Reflections took 254 ms to scan 2 urls, producing 66 keys and 256 values 
+2019-03-22 20:00:33.345 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:00:33.580 [main] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:00:38.592 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 20:00:38.592 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:00:38.624 [main] INFO  org.reflections.Reflections - Reflections took 32 ms to scan 2 urls, producing 66 keys and 256 values 
+2019-03-22 20:00:38.624 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:00:38.643 [main] INFO  org.reflections.Reflections - Reflections took 19 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:01:06.722 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:01:07.082 [main] INFO  org.reflections.Reflections - Reflections took 281 ms to scan 2 urls, producing 66 keys and 256 values 
+2019-03-22 20:01:07.893 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:01:08.112 [main] INFO  org.reflections.Reflections - Reflections took 47 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:01:17.030 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 20:01:17.030 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:01:17.062 [main] INFO  org.reflections.Reflections - Reflections took 32 ms to scan 2 urls, producing 66 keys and 256 values 
+2019-03-22 20:01:17.062 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:01:17.077 [main] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:06:59.987 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:07:00.279 [main] INFO  org.reflections.Reflections - Reflections took 230 ms to scan 2 urls, producing 66 keys and 257 values 
+2019-03-22 20:07:01.174 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:07:01.408 [main] INFO  org.reflections.Reflections - Reflections took 62 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:07:04.329 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-22 20:07:04.329 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 20:07:07.336 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-22 20:07:07.336 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 20:07:10.378 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Read timed out
+2019-03-22 20:07:10.378 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 20:07:16.323 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 20:07:16.323 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:07:16.354 [main] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 2 urls, producing 66 keys and 257 values 
+2019-03-22 20:07:16.354 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:07:16.370 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:07:19.393 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 20:07:19.393 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 20:07:19.440 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang2] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Read timed out
+2019-03-22 20:07:19.440 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang2] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 20:07:22.440 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang2] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 20:07:22.440 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang2] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 20:08:14.940 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:08:15.279 [main] INFO  org.reflections.Reflections - Reflections took 273 ms to scan 2 urls, producing 66 keys and 257 values 
+2019-03-22 20:08:16.176 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:08:16.405 [main] INFO  org.reflections.Reflections - Reflections took 62 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:08:27.670 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-22 20:08:27.670 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 20:08:27.670 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-22 20:08:27.670 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 20:08:27.670 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-22 20:08:27.670 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 20:08:29.016 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 20:08:29.016 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:08:29.047 [main] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 2 urls, producing 66 keys and 257 values 
+2019-03-22 20:08:29.047 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:08:29.063 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:08:29.063 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 20:08:53.074 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:08:53.419 [main] INFO  org.reflections.Reflections - Reflections took 251 ms to scan 2 urls, producing 66 keys and 257 values 
+2019-03-22 20:08:54.190 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:08:54.458 [main] INFO  org.reflections.Reflections - Reflections took 84 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:09:05.378 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-22 20:09:05.378 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 20:09:05.378 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-22 20:09:05.378 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 20:09:05.378 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-22 20:09:05.378 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 20:09:07.745 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 20:09:07.746 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:09:07.769 [main] INFO  org.reflections.Reflections - Reflections took 22 ms to scan 2 urls, producing 66 keys and 257 values 
+2019-03-22 20:09:07.769 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:09:07.784 [main] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:09:07.784 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 20:10:53.871 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:10:54.764 [main] INFO  org.reflections.Reflections - Reflections took 713 ms to scan 2 urls, producing 66 keys and 257 values 
+2019-03-22 20:10:57.191 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:10:58.176 [main] INFO  org.reflections.Reflections - Reflections took 244 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:11:05.200 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 20:11:12.446 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:11:12.724 [main] INFO  org.reflections.Reflections - Reflections took 278 ms to scan 2 urls, producing 66 keys and 257 values 
+2019-03-22 20:11:12.759 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:11:12.862 [main] INFO  org.reflections.Reflections - Reflections took 98 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:18:44.409 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:18:44.721 [main] INFO  org.reflections.Reflections - Reflections took 265 ms to scan 2 urls, producing 66 keys and 256 values 
+2019-03-22 20:18:45.596 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:18:45.783 [main] INFO  org.reflections.Reflections - Reflections took 46 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:18:49.318 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 20:18:49.318 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:18:49.334 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 2 urls, producing 66 keys and 256 values 
+2019-03-22 20:18:49.350 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:18:49.365 [main] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:18:52.366 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 20:18:52.367 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 20:27:13.894 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:27:14.243 [main] INFO  org.reflections.Reflections - Reflections took 275 ms to scan 2 urls, producing 66 keys and 259 values 
+2019-03-22 20:27:15.109 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:27:15.336 [main] INFO  org.reflections.Reflections - Reflections took 67 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:27:21.250 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 20:27:21.251 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:27:21.277 [main] INFO  org.reflections.Reflections - Reflections took 25 ms to scan 2 urls, producing 66 keys and 259 values 
+2019-03-22 20:27:21.281 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:27:21.301 [main] INFO  org.reflections.Reflections - Reflections took 17 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:27:24.292 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang2] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 20:27:24.293 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang2] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 20:27:34.780 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang2] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Read timed out
+2019-03-22 20:27:34.780 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang2] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 20:27:37.781 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang2] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 20:27:37.781 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang2] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 20:27:39.609 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang1] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 20:27:39.609 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang1] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 20:31:47.645 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:31:47.925 [main] INFO  org.reflections.Reflections - Reflections took 218 ms to scan 2 urls, producing 66 keys and 261 values 
+2019-03-22 20:31:48.822 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:31:49.046 [main] INFO  org.reflections.Reflections - Reflections took 58 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:31:51.979 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 20:31:51.980 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:31:52.014 [main] INFO  org.reflections.Reflections - Reflections took 33 ms to scan 2 urls, producing 66 keys and 261 values 
+2019-03-22 20:31:52.019 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:31:52.036 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:31:55.028 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang2] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 20:31:55.028 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 20:31:55.029 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 20:31:55.029 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang2] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 20:32:44.749 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:32:45.063 [main] INFO  org.reflections.Reflections - Reflections took 244 ms to scan 2 urls, producing 66 keys and 261 values 
+2019-03-22 20:32:46.005 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:32:46.233 [main] INFO  org.reflections.Reflections - Reflections took 62 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:32:50.565 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 20:32:50.566 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:32:50.594 [main] INFO  org.reflections.Reflections - Reflections took 26 ms to scan 2 urls, producing 66 keys and 261 values 
+2019-03-22 20:32:50.599 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:32:50.623 [main] INFO  org.reflections.Reflections - Reflections took 20 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:32:53.628 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang1] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 20:32:53.628 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 20:32:53.629 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang1] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 20:32:53.629 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 20:42:36.314 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:42:36.728 [main] INFO  org.reflections.Reflections - Reflections took 315 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-22 20:42:37.538 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:42:37.787 [main] INFO  org.reflections.Reflections - Reflections took 67 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:42:40.786 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Read timed out
+2019-03-22 20:42:40.788 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 20:42:49.306 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 20:42:49.307 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:42:49.338 [main] INFO  org.reflections.Reflections - Reflections took 29 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-22 20:42:49.342 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:42:49.358 [main] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:46:36.259 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:46:36.684 [main] INFO  org.reflections.Reflections - Reflections took 352 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-22 20:46:37.528 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:46:37.769 [main] INFO  org.reflections.Reflections - Reflections took 67 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:46:41.698 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-22 20:46:41.700 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 20:46:47.517 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 20:46:47.518 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:46:47.549 [main] INFO  org.reflections.Reflections - Reflections took 30 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-22 20:46:47.554 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:46:47.570 [main] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:46:50.574 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang1] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 20:46:50.574 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang1] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 20:53:46.569 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:53:46.836 [main] INFO  org.reflections.Reflections - Reflections took 209 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-22 20:53:47.544 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:53:47.782 [main] INFO  org.reflections.Reflections - Reflections took 55 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:53:50.686 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-22 20:53:50.687 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 20:53:53.688 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-22 20:53:53.688 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 20:53:56.688 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-22 20:53:56.688 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 20:54:01.316 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 20:54:01.316 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:54:01.341 [main] INFO  org.reflections.Reflections - Reflections took 24 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-22 20:54:01.351 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:54:01.366 [main] INFO  org.reflections.Reflections - Reflections took 14 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:54:01.371 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 20:54:22.077 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:54:22.508 [main] INFO  org.reflections.Reflections - Reflections took 366 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-22 20:54:23.417 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:54:23.661 [main] INFO  org.reflections.Reflections - Reflections took 64 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:54:29.572 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-22 20:54:29.574 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 20:54:33.647 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 20:54:33.648 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:54:33.674 [main] INFO  org.reflections.Reflections - Reflections took 25 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-22 20:54:33.679 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:54:33.696 [main] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:54:37.710 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 20:54:37.710 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang1] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 20:54:37.710 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 20:54:37.710 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang1] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 20:55:32.976 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:55:33.434 [main] INFO  org.reflections.Reflections - Reflections took 385 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-22 20:55:34.373 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:55:34.632 [main] INFO  org.reflections.Reflections - Reflections took 59 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:55:37.522 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-22 20:55:37.524 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 20:55:40.525 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-22 20:55:40.525 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 20:55:43.448 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 20:55:43.448 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:55:43.475 [main] INFO  org.reflections.Reflections - Reflections took 22 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-22 20:55:43.480 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:55:43.497 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:55:46.494 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 20:55:46.494 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang2] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 20:55:46.494 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang1] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 20:55:46.494 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 20:55:46.494 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang2] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 20:55:46.494 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang1] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 20:55:49.495 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang1] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 20:55:49.495 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang1] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 20:58:05.670 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:58:06.150 [main] INFO  org.reflections.Reflections - Reflections took 406 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-22 20:58:07.109 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:58:07.322 [main] INFO  org.reflections.Reflections - Reflections took 59 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:58:13.263 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 20:58:13.264 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:58:13.294 [main] INFO  org.reflections.Reflections - Reflections took 29 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-22 20:58:13.300 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:58:13.322 [main] INFO  org.reflections.Reflections - Reflections took 18 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:58:22.383 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang2] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 20:58:22.384 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang2] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 20:58:46.063 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:58:46.507 [main] INFO  org.reflections.Reflections - Reflections took 369 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-22 20:58:47.351 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:58:47.560 [main] INFO  org.reflections.Reflections - Reflections took 52 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:58:53.799 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 20:58:53.800 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:58:53.826 [main] INFO  org.reflections.Reflections - Reflections took 24 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-22 20:58:53.830 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:58:53.847 [main] INFO  org.reflections.Reflections - Reflections took 14 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:58:59.861 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang2] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 20:58:59.862 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang2] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 20:59:07.522 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:59:07.999 [main] INFO  org.reflections.Reflections - Reflections took 403 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-22 20:59:29.776 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:59:30.161 [main] INFO  org.reflections.Reflections - Reflections took 297 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-22 20:59:30.906 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:59:31.125 [main] INFO  org.reflections.Reflections - Reflections took 56 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:59:36.788 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 20:59:36.789 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 20:59:36.818 [main] INFO  org.reflections.Reflections - Reflections took 28 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-22 20:59:36.823 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 20:59:36.841 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 20:59:39.858 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 20:59:39.858 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang1] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 20:59:39.859 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 20:59:39.859 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang1] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 21:00:27.282 [main] INFO  com.secondhand.tradingplatformgeccocontroller.TradingplatformGeccoControllerApplication - Starting TradingplatformGeccoControllerApplication on ojbk with PID 7924 (G:\idea\tradingplatform\tradingplatform-gecco\tradingplatform-gecco-controller\target\classes started by 81079_000 in G:\idea\tradingplatform)
+2019-03-22 21:00:27.285 [main] INFO  com.secondhand.tradingplatformgeccocontroller.TradingplatformGeccoControllerApplication - The following profiles are active: personal
+2019-03-22 21:00:27.463 [main] INFO  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5e1fa5b1: startup date [Fri Mar 22 21:00:27 CST 2019]; root of context hierarchy
+2019-03-22 21:00:29.837 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-22 21:00:30.873 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.context.properties.ConversionServiceDeducer$Factory' of type [org.springframework.boot.context.properties.ConversionServiceDeducer$Factory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-22 21:00:30.881 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'taskExecutorConfig' of type [com.secondhand.tradingplatformgeccocontroller.config.TaskExecutorConfig$$EnhancerBySpringCGLIB$$f5f175d9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-22 21:00:30.959 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-22 21:00:31.006 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConfig' of type [com.secondhand.tradingplatformgeccocontroller.config.RedisConfig$$EnhancerBySpringCGLIB$$1f00d32] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-22 21:00:31.015 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ec713fa5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-22 21:00:31.027 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-22 21:00:31.113 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-22 21:00:32.036 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8077 (http)
+2019-03-22 21:00:32.064 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8077"]
+2019-03-22 21:00:32.100 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-03-22 21:00:32.100 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.34
+2019-03-22 21:00:32.116 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [F:\software\installation\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;F:\software\installation\jdk1.8\bin;F:\software\installation\jdk1.8\jre\bin;F:\software\installation\maven3.5\apache-maven-3.5.3\bin;F:\software\installation\git\Git\cmd;F:\software\installation\python2.7;C:\Program Files\MySQL\MySQL Server 8.0\bin;F:\software\installation\SQLServer\SQL2\120\DTS\Binn\;F:\software\installation\SQLServer\SQL2\Client SDK\ODBC\110\Tools\Binn\;F:\software\installation\SQLServer\SQL3\120\Tools\Binn\;F:\software\installation\SQLServer\SQL2\120\Tools\Binn\;F:\software\installation\SQLServer\SQL3\120\Tools\Binn\ManagementStudio\;F:\software\installation\SQLServer\SQL3\120\DTS\Binn\;F:\software\installation\mysql\MySQL Utilities 1.3.4\;.]
+2019-03-22 21:00:32.316 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-03-22 21:00:32.316 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 4853 ms
+2019-03-22 21:00:33.247 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-03-22 21:00:33.247 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'sessionRepositoryFilter' to: [/*]
+2019-03-22 21:00:33.247 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-03-22 21:00:33.248 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-03-22 21:00:33.248 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2019-03-22 21:00:33.248 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*]
+2019-03-22 21:00:33.248 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.RegistrationBean - Filter webStatFilter was not registered (possibly already registered?)
+2019-03-22 21:00:33.248 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*]
+2019-03-22 21:00:33.249 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2019-03-22 21:00:33.249 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*]
+2019-03-22 21:00:33.249 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.RegistrationBean - Servlet statViewServlet was not registered (possibly already registered?)
+2019-03-22 21:00:34.680 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-03-22 21:00:35.864 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/front/test/delete],methods=[PUT],consumes=[application/json],produces=[application/json]}" onto public com.secondhand.tradingplatformcommon.jsonResult.JsonResult<com.secondhand.tradingplatformgeccoentity.entity.Test> com.secondhand.tradingplatformgeccocontroller.controller.TestController.fakeDeleteById(java.lang.Long)
+2019-03-22 21:00:35.865 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/front/test/query],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public com.secondhand.tradingplatformcommon.jsonResult.TableJson<java.util.Map<java.lang.String, java.lang.Object>> com.secondhand.tradingplatformgeccocontroller.controller.TestController.getTestList(com.secondhand.tradingplatformgeccoentity.entity.Test)
+2019-03-22 21:00:35.865 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/front/test/create_update],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public com.secondhand.tradingplatformcommon.jsonResult.JsonResult<com.secondhand.tradingplatformgeccoentity.entity.Test> com.secondhand.tradingplatformgeccocontroller.controller.TestController.testCreateUpdate(com.secondhand.tradingplatformgeccoentity.entity.Test)
+2019-03-22 21:00:35.866 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/front/test/batch_delete],methods=[PUT],consumes=[application/json],produces=[application/json]}" onto public com.secondhand.tradingplatformcommon.jsonResult.JsonResult<com.secondhand.tradingplatformgeccoentity.entity.Test> com.secondhand.tradingplatformgeccocontroller.controller.TestController.fakeBatchDelete(java.util.List<java.lang.Long>)
+2019-03-22 21:00:35.866 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/front/test/get_map_by_id/{testId}],methods=[GET],produces=[application/json]}" onto public com.secondhand.tradingplatformcommon.jsonResult.JsonResult<java.util.Map<java.lang.String, java.lang.Object>> com.secondhand.tradingplatformgeccocontroller.controller.TestController.getTestByIdForMap(java.lang.Long)
+2019-03-22 21:00:35.871 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/swagger-resources/configuration/ui]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2019-03-22 21:00:35.871 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/swagger-resources]}" onto public org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2019-03-22 21:00:35.872 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/swagger-resources/configuration/security]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2019-03-22 21:00:35.875 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-03-22 21:00:35.876 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-03-22 21:00:36.247 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-03-22 21:00:36.293 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService  'taskExecutor'
+2019-03-22 21:00:36.528 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService  'clientInboundChannelExecutor'
+2019-03-22 21:00:36.539 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService  'clientOutboundChannelExecutor'
+2019-03-22 21:00:36.566 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService  'messageBrokerTaskScheduler'
+2019-03-22 21:00:36.636 [main] INFO  org.springframework.web.socket.server.support.WebSocketHandlerMapping - Mapped URL path [/ws/**] onto handler of type [class org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler]
+2019-03-22 21:00:36.656 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService  'brokerChannelExecutor'
+2019-03-22 21:00:37.014 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5e1fa5b1: startup date [Fri Mar 22 21:00:27 CST 2019]; root of context hierarchy
+2019-03-22 21:00:37.102 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-22 21:00:37.102 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-22 21:00:38.612 [main] INFO  org.springframework.ui.freemarker.SpringTemplateLoader - SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5e1fa5b1: startup date [Fri Mar 22 21:00:27 CST 2019]; root of context hierarchy] and template loader path [classpath:/templates/]
+2019-03-22 21:00:38.613 [main] INFO  org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2019-03-22 21:00:40.031 [main] INFO  io.lettuce.core.EpollProvider - Starting without optional epoll library
+2019-03-22 21:00:40.032 [main] INFO  io.lettuce.core.KqueueProvider - Starting without optional kqueue library
+2019-03-22 21:00:41.158 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2019-03-22 21:00:41.159 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2019-03-22 21:00:41.159 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'wallFilter' has been autodetected for JMX exposure
+2019-03-22 21:00:41.159 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'wallConfig' has been autodetected for JMX exposure
+2019-03-22 21:00:41.160 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'statFilter' has been autodetected for JMX exposure
+2019-03-22 21:00:41.160 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'slf4jLogFilter' has been autodetected for JMX exposure
+2019-03-22 21:00:41.168 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'slf4jLogFilter': registering with JMX server as MBean [com.alibaba.druid.filter.logging:name=slf4jLogFilter,type=Slf4jLogFilter]
+2019-03-22 21:00:41.170 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'wallConfig': registering with JMX server as MBean [com.alibaba.druid.wall:name=wallConfig,type=WallConfig]
+2019-03-22 21:00:41.171 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.spring.boot.autoconfigure:name=dataSource,type=DruidDataSourceWrapper]
+2019-03-22 21:00:41.172 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'wallFilter': registering with JMX server as MBean [com.alibaba.druid.wall:name=wallFilter,type=WallFilter]
+2019-03-22 21:00:41.173 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter]
+2019-03-22 21:00:41.177 [main] INFO  org.springframework.context.support.DefaultLifecycleProcessor - Starting beans in phase 2147483647
+2019-03-22 21:00:41.177 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2019-03-22 21:00:41.232 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2019-03-22 21:00:41.356 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2019-03-22 21:00:41.984 [main] INFO  org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler - Starting...
+2019-03-22 21:00:41.985 [main] INFO  org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2019-03-22 21:00:41.986 [main] INFO  org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler - Started.
+2019-03-22 21:00:42.080 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8077"]
+2019-03-22 21:00:42.081 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-03-22 21:00:42.161 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8077 (http) with context path ''
+2019-03-22 21:00:42.166 [main] INFO  com.secondhand.tradingplatformgeccocontroller.TradingplatformGeccoControllerApplication - Started TradingplatformGeccoControllerApplication in 16.171 seconds (JVM running for 18.222)
+2019-03-22 21:00:56.450 [http-nio-8077-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-03-22 21:00:56.450 [http-nio-8077-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2019-03-22 21:00:56.475 [http-nio-8077-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 25 ms
+2019-03-22 21:01:33.018 [main] INFO  com.secondhand.tradingplatformgeccocontroller.TradingplatformGeccoControllerApplication - Starting TradingplatformGeccoControllerApplication on ojbk with PID 11208 (G:\idea\tradingplatform\tradingplatform-gecco\tradingplatform-gecco-controller\target\classes started by 81079_000 in G:\idea\tradingplatform)
+2019-03-22 21:01:33.032 [main] INFO  com.secondhand.tradingplatformgeccocontroller.TradingplatformGeccoControllerApplication - The following profiles are active: personal
+2019-03-22 21:01:33.083 [main] INFO  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2d1dee39: startup date [Fri Mar 22 21:01:33 CST 2019]; root of context hierarchy
+2019-03-22 21:01:34.166 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-22 21:01:34.603 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.context.properties.ConversionServiceDeducer$Factory' of type [org.springframework.boot.context.properties.ConversionServiceDeducer$Factory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-22 21:01:34.613 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'taskExecutorConfig' of type [com.secondhand.tradingplatformgeccocontroller.config.TaskExecutorConfig$$EnhancerBySpringCGLIB$$a7bb377a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-22 21:01:34.677 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-22 21:01:34.723 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConfig' of type [com.secondhand.tradingplatformgeccocontroller.config.RedisConfig$$EnhancerBySpringCGLIB$$b3b9ced3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-22 21:01:34.732 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9e3b0146] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-22 21:01:34.743 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-22 21:01:34.755 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-22 21:01:35.263 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8077 (http)
+2019-03-22 21:01:35.277 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8077"]
+2019-03-22 21:01:35.292 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-03-22 21:01:35.292 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.34
+2019-03-22 21:01:35.297 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [F:\software\installation\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;F:\software\installation\jdk1.8\bin;F:\software\installation\jdk1.8\jre\bin;F:\software\installation\maven3.5\apache-maven-3.5.3\bin;F:\software\installation\git\Git\cmd;F:\software\installation\python2.7;C:\Program Files\MySQL\MySQL Server 8.0\bin;F:\software\installation\SQLServer\SQL2\120\DTS\Binn\;F:\software\installation\SQLServer\SQL2\Client SDK\ODBC\110\Tools\Binn\;F:\software\installation\SQLServer\SQL3\120\Tools\Binn\;F:\software\installation\SQLServer\SQL2\120\Tools\Binn\;F:\software\installation\SQLServer\SQL3\120\Tools\Binn\ManagementStudio\;F:\software\installation\SQLServer\SQL3\120\DTS\Binn\;F:\software\installation\mysql\MySQL Utilities 1.3.4\;.]
+2019-03-22 21:01:35.434 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-03-22 21:01:35.434 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2351 ms
+2019-03-22 21:01:35.950 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-03-22 21:01:35.951 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'sessionRepositoryFilter' to: [/*]
+2019-03-22 21:01:35.951 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-03-22 21:01:35.951 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-03-22 21:01:35.951 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2019-03-22 21:01:35.951 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*]
+2019-03-22 21:01:35.951 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.RegistrationBean - Filter webStatFilter was not registered (possibly already registered?)
+2019-03-22 21:01:35.951 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*]
+2019-03-22 21:01:35.952 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2019-03-22 21:01:35.953 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*]
+2019-03-22 21:01:35.953 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.RegistrationBean - Servlet statViewServlet was not registered (possibly already registered?)
+2019-03-22 21:01:36.857 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-03-22 21:01:37.597 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/front/test/get_map_by_id/{testId}],methods=[GET],produces=[application/json]}" onto public com.secondhand.tradingplatformcommon.jsonResult.JsonResult<java.util.Map<java.lang.String, java.lang.Object>> com.secondhand.tradingplatformgeccocontroller.controller.TestController.getTestByIdForMap(java.lang.Long)
+2019-03-22 21:01:37.598 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/front/test/delete],methods=[PUT],consumes=[application/json],produces=[application/json]}" onto public com.secondhand.tradingplatformcommon.jsonResult.JsonResult<com.secondhand.tradingplatformgeccoentity.entity.Test> com.secondhand.tradingplatformgeccocontroller.controller.TestController.fakeDeleteById(java.lang.Long)
+2019-03-22 21:01:37.598 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/front/test/batch_delete],methods=[PUT],consumes=[application/json],produces=[application/json]}" onto public com.secondhand.tradingplatformcommon.jsonResult.JsonResult<com.secondhand.tradingplatformgeccoentity.entity.Test> com.secondhand.tradingplatformgeccocontroller.controller.TestController.fakeBatchDelete(java.util.List<java.lang.Long>)
+2019-03-22 21:01:37.599 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/front/test/query],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public com.secondhand.tradingplatformcommon.jsonResult.TableJson<java.util.Map<java.lang.String, java.lang.Object>> com.secondhand.tradingplatformgeccocontroller.controller.TestController.getTestList(com.secondhand.tradingplatformgeccoentity.entity.Test)
+2019-03-22 21:01:37.599 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/front/test/create_update],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public com.secondhand.tradingplatformcommon.jsonResult.JsonResult<com.secondhand.tradingplatformgeccoentity.entity.Test> com.secondhand.tradingplatformgeccocontroller.controller.TestController.testCreateUpdate(com.secondhand.tradingplatformgeccoentity.entity.Test)
+2019-03-22 21:01:37.603 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/swagger-resources]}" onto public org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2019-03-22 21:01:37.604 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/swagger-resources/configuration/ui]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2019-03-22 21:01:37.605 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/swagger-resources/configuration/security]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2019-03-22 21:01:37.608 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-03-22 21:01:37.608 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-03-22 21:01:37.869 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-03-22 21:01:37.906 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService  'taskExecutor'
+2019-03-22 21:01:38.073 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService  'clientInboundChannelExecutor'
+2019-03-22 21:01:38.086 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService  'clientOutboundChannelExecutor'
+2019-03-22 21:01:38.125 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService  'messageBrokerTaskScheduler'
+2019-03-22 21:01:38.176 [main] INFO  org.springframework.web.socket.server.support.WebSocketHandlerMapping - Mapped URL path [/ws/**] onto handler of type [class org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler]
+2019-03-22 21:01:38.198 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService  'brokerChannelExecutor'
+2019-03-22 21:01:38.479 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2d1dee39: startup date [Fri Mar 22 21:01:33 CST 2019]; root of context hierarchy
+2019-03-22 21:01:38.568 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-22 21:01:38.568 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-22 21:01:39.060 [main] INFO  org.springframework.ui.freemarker.SpringTemplateLoader - SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2d1dee39: startup date [Fri Mar 22 21:01:33 CST 2019]; root of context hierarchy] and template loader path [classpath:/templates/]
+2019-03-22 21:01:39.061 [main] INFO  org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2019-03-22 21:01:39.274 [main] INFO  io.lettuce.core.EpollProvider - Starting without optional epoll library
+2019-03-22 21:01:39.275 [main] INFO  io.lettuce.core.KqueueProvider - Starting without optional kqueue library
+2019-03-22 21:01:39.813 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2019-03-22 21:01:39.815 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2019-03-22 21:01:39.815 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'wallFilter' has been autodetected for JMX exposure
+2019-03-22 21:01:39.815 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'wallConfig' has been autodetected for JMX exposure
+2019-03-22 21:01:39.816 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'statFilter' has been autodetected for JMX exposure
+2019-03-22 21:01:39.816 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'slf4jLogFilter' has been autodetected for JMX exposure
+2019-03-22 21:01:39.823 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'slf4jLogFilter': registering with JMX server as MBean [com.alibaba.druid.filter.logging:name=slf4jLogFilter,type=Slf4jLogFilter]
+2019-03-22 21:01:39.825 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'wallConfig': registering with JMX server as MBean [com.alibaba.druid.wall:name=wallConfig,type=WallConfig]
+2019-03-22 21:01:39.826 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.spring.boot.autoconfigure:name=dataSource,type=DruidDataSourceWrapper]
+2019-03-22 21:01:39.827 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'wallFilter': registering with JMX server as MBean [com.alibaba.druid.wall:name=wallFilter,type=WallFilter]
+2019-03-22 21:01:39.828 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter]
+2019-03-22 21:01:39.833 [main] INFO  org.springframework.context.support.DefaultLifecycleProcessor - Starting beans in phase 2147483647
+2019-03-22 21:01:39.833 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2019-03-22 21:01:39.850 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2019-03-22 21:01:39.895 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2019-03-22 21:01:40.170 [main] INFO  org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler - Starting...
+2019-03-22 21:01:40.171 [main] INFO  org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2019-03-22 21:01:40.172 [main] INFO  org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler - Started.
+2019-03-22 21:01:40.228 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8077"]
+2019-03-22 21:01:40.229 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-03-22 21:01:40.247 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8077 (http) with context path ''
+2019-03-22 21:01:40.251 [main] INFO  com.secondhand.tradingplatformgeccocontroller.TradingplatformGeccoControllerApplication - Started TradingplatformGeccoControllerApplication in 7.679 seconds (JVM running for 8.929)
+2019-03-22 21:02:36.928 [http-nio-8077-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-03-22 21:02:36.929 [http-nio-8077-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2019-03-22 21:02:36.955 [http-nio-8077-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 26 ms
+2019-03-22 21:02:38.197 [MessageBroker-2] INFO  org.springframework.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 4, active threads = 1, queued tasks = 2, completed tasks = 1]
+2019-03-22 21:03:20.584 [main] INFO  com.secondhand.tradingplatformgeccocontroller.TradingplatformGeccoControllerApplication - Starting TradingplatformGeccoControllerApplication on ojbk with PID 10540 (G:\idea\tradingplatform\tradingplatform-gecco\tradingplatform-gecco-controller\target\classes started by 81079_000 in G:\idea\tradingplatform)
+2019-03-22 21:03:20.589 [main] INFO  com.secondhand.tradingplatformgeccocontroller.TradingplatformGeccoControllerApplication - The following profiles are active: personal
+2019-03-22 21:03:20.644 [main] INFO  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@77258e59: startup date [Fri Mar 22 21:03:20 CST 2019]; root of context hierarchy
+2019-03-22 21:03:21.656 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-22 21:03:22.090 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.context.properties.ConversionServiceDeducer$Factory' of type [org.springframework.boot.context.properties.ConversionServiceDeducer$Factory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-22 21:03:22.098 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'taskExecutorConfig' of type [com.secondhand.tradingplatformgeccocontroller.config.TaskExecutorConfig$$EnhancerBySpringCGLIB$$e81e969f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-22 21:03:22.162 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-22 21:03:22.208 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConfig' of type [com.secondhand.tradingplatformgeccocontroller.config.RedisConfig$$EnhancerBySpringCGLIB$$f41d2df8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-22 21:03:22.217 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$de9e606b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-22 21:03:22.228 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-22 21:03:22.240 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-22 21:03:22.806 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8077 (http)
+2019-03-22 21:03:22.821 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8077"]
+2019-03-22 21:03:22.841 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-03-22 21:03:22.842 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.34
+2019-03-22 21:03:22.846 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [F:\software\installation\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;F:\software\installation\jdk1.8\bin;F:\software\installation\jdk1.8\jre\bin;F:\software\installation\maven3.5\apache-maven-3.5.3\bin;F:\software\installation\git\Git\cmd;F:\software\installation\python2.7;C:\Program Files\MySQL\MySQL Server 8.0\bin;F:\software\installation\SQLServer\SQL2\120\DTS\Binn\;F:\software\installation\SQLServer\SQL2\Client SDK\ODBC\110\Tools\Binn\;F:\software\installation\SQLServer\SQL3\120\Tools\Binn\;F:\software\installation\SQLServer\SQL2\120\Tools\Binn\;F:\software\installation\SQLServer\SQL3\120\Tools\Binn\ManagementStudio\;F:\software\installation\SQLServer\SQL3\120\DTS\Binn\;F:\software\installation\mysql\MySQL Utilities 1.3.4\;.]
+2019-03-22 21:03:22.982 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-03-22 21:03:22.982 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2338 ms
+2019-03-22 21:03:23.492 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-03-22 21:03:23.492 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'sessionRepositoryFilter' to: [/*]
+2019-03-22 21:03:23.493 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-03-22 21:03:23.493 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-03-22 21:03:23.493 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2019-03-22 21:03:23.493 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*]
+2019-03-22 21:03:23.493 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.RegistrationBean - Filter webStatFilter was not registered (possibly already registered?)
+2019-03-22 21:03:23.493 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*]
+2019-03-22 21:03:23.494 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2019-03-22 21:03:23.494 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*]
+2019-03-22 21:03:23.494 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.RegistrationBean - Servlet statViewServlet was not registered (possibly already registered?)
+2019-03-22 21:03:24.344 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-03-22 21:03:25.067 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/front/test/query],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public com.secondhand.tradingplatformcommon.jsonResult.TableJson<java.util.Map<java.lang.String, java.lang.Object>> com.secondhand.tradingplatformgeccocontroller.controller.TestController.getTestList(com.secondhand.tradingplatformgeccoentity.entity.Test)
+2019-03-22 21:03:25.068 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/front/test/delete],methods=[PUT],consumes=[application/json],produces=[application/json]}" onto public com.secondhand.tradingplatformcommon.jsonResult.JsonResult<com.secondhand.tradingplatformgeccoentity.entity.Test> com.secondhand.tradingplatformgeccocontroller.controller.TestController.fakeDeleteById(java.lang.Long)
+2019-03-22 21:03:25.068 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/front/test/batch_delete],methods=[PUT],consumes=[application/json],produces=[application/json]}" onto public com.secondhand.tradingplatformcommon.jsonResult.JsonResult<com.secondhand.tradingplatformgeccoentity.entity.Test> com.secondhand.tradingplatformgeccocontroller.controller.TestController.fakeBatchDelete(java.util.List<java.lang.Long>)
+2019-03-22 21:03:25.068 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/front/test/create_update],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public com.secondhand.tradingplatformcommon.jsonResult.JsonResult<com.secondhand.tradingplatformgeccoentity.entity.Test> com.secondhand.tradingplatformgeccocontroller.controller.TestController.testCreateUpdate(com.secondhand.tradingplatformgeccoentity.entity.Test)
+2019-03-22 21:03:25.069 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/front/test/get_map_by_id/{testId}],methods=[GET],produces=[application/json]}" onto public com.secondhand.tradingplatformcommon.jsonResult.JsonResult<java.util.Map<java.lang.String, java.lang.Object>> com.secondhand.tradingplatformgeccocontroller.controller.TestController.getTestByIdForMap(java.lang.Long)
+2019-03-22 21:03:25.074 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/swagger-resources/configuration/ui]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2019-03-22 21:03:25.074 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/swagger-resources]}" onto public org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2019-03-22 21:03:25.075 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/swagger-resources/configuration/security]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2019-03-22 21:03:25.078 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-03-22 21:03:25.079 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-03-22 21:03:25.350 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-03-22 21:03:25.385 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService  'taskExecutor'
+2019-03-22 21:03:25.548 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService  'clientInboundChannelExecutor'
+2019-03-22 21:03:25.560 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService  'clientOutboundChannelExecutor'
+2019-03-22 21:03:25.583 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService  'messageBrokerTaskScheduler'
+2019-03-22 21:03:25.629 [main] INFO  org.springframework.web.socket.server.support.WebSocketHandlerMapping - Mapped URL path [/ws/**] onto handler of type [class org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler]
+2019-03-22 21:03:25.649 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService  'brokerChannelExecutor'
+2019-03-22 21:03:25.927 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@77258e59: startup date [Fri Mar 22 21:03:20 CST 2019]; root of context hierarchy
+2019-03-22 21:03:26.009 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-22 21:03:26.009 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-22 21:03:26.502 [main] INFO  org.springframework.ui.freemarker.SpringTemplateLoader - SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@77258e59: startup date [Fri Mar 22 21:03:20 CST 2019]; root of context hierarchy] and template loader path [classpath:/templates/]
+2019-03-22 21:03:26.503 [main] INFO  org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2019-03-22 21:03:26.728 [main] INFO  io.lettuce.core.EpollProvider - Starting without optional epoll library
+2019-03-22 21:03:26.730 [main] INFO  io.lettuce.core.KqueueProvider - Starting without optional kqueue library
+2019-03-22 21:03:27.221 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2019-03-22 21:03:27.222 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2019-03-22 21:03:27.222 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'wallFilter' has been autodetected for JMX exposure
+2019-03-22 21:03:27.222 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'wallConfig' has been autodetected for JMX exposure
+2019-03-22 21:03:27.223 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'statFilter' has been autodetected for JMX exposure
+2019-03-22 21:03:27.223 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'slf4jLogFilter' has been autodetected for JMX exposure
+2019-03-22 21:03:27.231 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'slf4jLogFilter': registering with JMX server as MBean [com.alibaba.druid.filter.logging:name=slf4jLogFilter,type=Slf4jLogFilter]
+2019-03-22 21:03:27.232 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'wallConfig': registering with JMX server as MBean [com.alibaba.druid.wall:name=wallConfig,type=WallConfig]
+2019-03-22 21:03:27.233 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.spring.boot.autoconfigure:name=dataSource,type=DruidDataSourceWrapper]
+2019-03-22 21:03:27.234 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'wallFilter': registering with JMX server as MBean [com.alibaba.druid.wall:name=wallFilter,type=WallFilter]
+2019-03-22 21:03:27.235 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter]
+2019-03-22 21:03:27.239 [main] INFO  org.springframework.context.support.DefaultLifecycleProcessor - Starting beans in phase 2147483647
+2019-03-22 21:03:27.240 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2019-03-22 21:03:27.255 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2019-03-22 21:03:27.301 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2019-03-22 21:03:27.574 [main] INFO  org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler - Starting...
+2019-03-22 21:03:27.575 [main] INFO  org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2019-03-22 21:03:27.576 [main] INFO  org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler - Started.
+2019-03-22 21:03:27.629 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8077"]
+2019-03-22 21:03:27.630 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-03-22 21:03:27.648 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8077 (http) with context path ''
+2019-03-22 21:03:27.651 [main] INFO  com.secondhand.tradingplatformgeccocontroller.TradingplatformGeccoControllerApplication - Started TradingplatformGeccoControllerApplication in 7.534 seconds (JVM running for 8.655)
+2019-03-22 21:03:51.123 [http-nio-8077-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-03-22 21:03:51.123 [http-nio-8077-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2019-03-22 21:03:51.148 [http-nio-8077-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 24 ms
+2019-03-22 21:05:42.077 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 21:05:42.419 [main] INFO  org.reflections.Reflections - Reflections took 255 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-22 21:05:43.158 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 21:05:43.391 [main] INFO  org.reflections.Reflections - Reflections took 57 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 21:05:46.297 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-22 21:05:46.299 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 21:05:49.299 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-22 21:05:49.299 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 21:05:54.660 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 21:05:54.661 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 21:05:54.687 [main] INFO  org.reflections.Reflections - Reflections took 25 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-22 21:05:54.692 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 21:05:54.708 [main] INFO  org.reflections.Reflections - Reflections took 13 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 21:05:57.730 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 21:05:57.730 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang2] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 21:05:57.730 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang1] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 21:05:57.730 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 21:05:57.730 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang2] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 21:05:57.730 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang1] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 21:07:04.662 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang1] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 21:07:04.662 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 21:07:04.662 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang1] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 21:07:04.662 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 21:07:32.221 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 21:07:32.641 [main] INFO  org.reflections.Reflections - Reflections took 352 ms to scan 2 urls, producing 74 keys and 270 values 
+2019-03-22 21:07:33.657 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 21:07:33.884 [main] INFO  org.reflections.Reflections - Reflections took 56 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 21:07:44.816 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-22 21:07:44.817 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 21:07:44.818 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-22 21:07:44.818 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 21:07:44.818 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-22 21:07:44.818 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-22 21:07:47.406 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 21:07:47.406 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 21:07:47.435 [main] INFO  org.reflections.Reflections - Reflections took 26 ms to scan 2 urls, producing 74 keys and 270 values 
+2019-03-22 21:07:47.447 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 21:07:47.462 [main] INFO  org.reflections.Reflections - Reflections took 13 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 21:07:47.467 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 21:08:17.964 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 21:08:18.377 [main] INFO  org.reflections.Reflections - Reflections took 314 ms to scan 2 urls, producing 74 keys and 270 values 
+2019-03-22 21:08:19.066 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 21:08:19.292 [main] INFO  org.reflections.Reflections - Reflections took 54 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 21:08:24.164 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 21:08:24.165 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 21:08:24.195 [main] INFO  org.reflections.Reflections - Reflections took 29 ms to scan 2 urls, producing 74 keys and 270 values 
+2019-03-22 21:08:24.201 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 21:08:24.219 [main] INFO  org.reflections.Reflections - Reflections took 14 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 21:09:50.558 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang2] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 21:09:50.559 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang2] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 21:15:26.795 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 21:15:27.088 [main] INFO  org.reflections.Reflections - Reflections took 226 ms to scan 2 urls, producing 74 keys and 270 values 
+2019-03-22 21:15:27.793 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 21:15:28.016 [main] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 21:15:32.208 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 21:15:32.209 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 21:15:32.241 [main] INFO  org.reflections.Reflections - Reflections took 30 ms to scan 2 urls, producing 74 keys and 270 values 
+2019-03-22 21:15:32.249 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 21:15:32.265 [main] INFO  org.reflections.Reflections - Reflections took 14 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 21:15:35.552 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 21:15:35.553 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 22:23:59.468 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 22:23:59.932 [main] INFO  org.reflections.Reflections - Reflections took 387 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-22 22:24:00.800 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 22:24:01.006 [main] INFO  org.reflections.Reflections - Reflections took 55 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 22:24:07.812 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 22:24:07.813 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 22:24:07.840 [main] INFO  org.reflections.Reflections - Reflections took 26 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-22 22:24:07.845 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 22:24:07.861 [main] INFO  org.reflections.Reflections - Reflections took 13 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 22:24:21.877 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 22:24:21.878 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 22:24:24.879 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 22:24:24.879 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 22:24:34.216 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 22:24:34.216 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-22 22:24:46.658 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 22:24:47.077 [main] INFO  org.reflections.Reflections - Reflections took 345 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-22 22:24:48.000 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 22:24:48.236 [main] INFO  org.reflections.Reflections - Reflections took 58 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 22:24:53.427 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-22 22:24:53.428 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-22 22:24:53.455 [main] INFO  org.reflections.Reflections - Reflections took 26 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-22 22:24:53.459 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-22 22:24:53.472 [main] INFO  org.reflections.Reflections - Reflections took 12 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-22 22:24:56.463 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-22 22:24:56.464 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80

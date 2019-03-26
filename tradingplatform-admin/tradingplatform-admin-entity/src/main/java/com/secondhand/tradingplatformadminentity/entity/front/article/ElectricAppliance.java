@@ -79,12 +79,12 @@ public class ElectricAppliance extends BaseEntity {
     private String type;
 
     /**
-     * 电器能耗等级
+     * 电器功率
      */
-    @ApiModelProperty("电器能耗等级")
-    @TableField("efficiency_rating")
+    @ApiModelProperty("电器功率")
+    @TableField("power")
 
-    private String efficiencyRating;
+    private String power;
 
     /**
      * 电器型号
@@ -198,12 +198,12 @@ public class ElectricAppliance extends BaseEntity {
         this.type = type;
     }
 
-    public String getEfficiencyRating() {
-        return efficiencyRating;
+    public String getPower() {
+        return power;
     }
 
-    public void setEfficiencyRating(String efficiencyRating) {
-        this.efficiencyRating = efficiencyRating;
+    public void setPower(String power) {
+        this.power = power;
     }
 
     public String getModel() {
@@ -279,7 +279,7 @@ public class ElectricAppliance extends BaseEntity {
                 ", details=" + details +
                 ", classification=" + classification +
                 ", type=" + type +
-                ", efficiencyRating=" + efficiencyRating +
+                ", power=" + power +
                 ", model=" + model +
                 ", brand=" + brand +
                 ", userId=" + userId +

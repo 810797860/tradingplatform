@@ -1,0 +1,994 @@
+2019-03-23 01:02:03.453 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:02:03.967 [main] INFO  org.reflections.Reflections - Reflections took 434 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:02:05.037 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:02:05.258 [main] INFO  org.reflections.Reflections - Reflections took 53 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:02:08.171 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:02:08.173 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:02:11.215 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Read timed out
+2019-03-23 01:02:11.215 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:02:14.216 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:02:14.216 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:02:20.099 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 01:02:20.100 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:02:20.129 [main] INFO  org.reflections.Reflections - Reflections took 28 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:02:20.139 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:02:20.153 [main] INFO  org.reflections.Reflections - Reflections took 13 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:02:20.157 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 01:02:42.907 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:02:43.166 [main] INFO  org.reflections.Reflections - Reflections took 197 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:02:43.894 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:02:44.110 [main] INFO  org.reflections.Reflections - Reflections took 53 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:02:47.017 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:02:47.019 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:02:50.020 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:02:50.020 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:02:53.021 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:02:53.021 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:02:58.507 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 01:03:08.922 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:03:08.960 [main] INFO  org.reflections.Reflections - Reflections took 36 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:03:08.964 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:03:08.978 [main] INFO  org.reflections.Reflections - Reflections took 13 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:03:08.983 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 01:03:41.786 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:03:42.342 [main] INFO  org.reflections.Reflections - Reflections took 481 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:03:43.303 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:03:43.548 [main] INFO  org.reflections.Reflections - Reflections took 67 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:03:46.443 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:03:46.445 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:03:49.736 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 01:03:54.963 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:03:54.995 [main] INFO  org.reflections.Reflections - Reflections took 30 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:03:55.000 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:03:55.015 [main] INFO  org.reflections.Reflections - Reflections took 14 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:04:41.768 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:04:42.070 [main] INFO  org.reflections.Reflections - Reflections took 227 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:04:42.823 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:04:43.075 [main] INFO  org.reflections.Reflections - Reflections took 64 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:04:45.971 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:04:45.973 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:04:48.959 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 01:04:53.937 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:04:53.969 [main] INFO  org.reflections.Reflections - Reflections took 29 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:04:53.974 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:04:53.990 [main] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:06:36.259 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:06:36.720 [main] INFO  org.reflections.Reflections - Reflections took 390 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:06:37.660 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:06:37.889 [main] INFO  org.reflections.Reflections - Reflections took 61 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:06:40.803 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:06:40.804 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:06:43.805 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:06:43.805 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:06:46.806 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:06:46.806 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:06:51.468 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 01:06:51.469 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:06:51.504 [main] INFO  org.reflections.Reflections - Reflections took 33 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:06:51.514 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:06:51.528 [main] INFO  org.reflections.Reflections - Reflections took 13 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:06:51.532 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 01:07:01.760 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:07:02.232 [main] INFO  org.reflections.Reflections - Reflections took 395 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:07:03.130 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:07:03.342 [main] INFO  org.reflections.Reflections - Reflections took 57 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:07:06.249 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:07:06.251 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:07:09.251 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:07:09.251 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:07:13.422 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 01:07:22.075 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:07:22.104 [main] INFO  org.reflections.Reflections - Reflections took 27 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:07:22.108 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:07:22.125 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:08:56.575 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:08:56.958 [main] INFO  org.reflections.Reflections - Reflections took 317 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:08:57.918 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:08:58.150 [main] INFO  org.reflections.Reflections - Reflections took 56 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:09:01.061 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:09:01.063 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:09:04.396 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 01:09:07.410 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:09:07.436 [main] INFO  org.reflections.Reflections - Reflections took 25 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:09:07.443 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:09:07.461 [main] INFO  org.reflections.Reflections - Reflections took 17 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:09:46.152 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:09:46.598 [main] INFO  org.reflections.Reflections - Reflections took 379 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:09:47.549 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:09:47.780 [main] INFO  org.reflections.Reflections - Reflections took 57 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:09:50.678 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:09:50.680 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:09:55.111 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 01:09:57.553 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:09:57.577 [main] INFO  org.reflections.Reflections - Reflections took 23 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:09:57.585 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:09:57.599 [main] INFO  org.reflections.Reflections - Reflections took 12 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:09:58.116 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-03-23 01:19:17.807 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:19:18.236 [main] INFO  org.reflections.Reflections - Reflections took 356 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:19:19.160 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:19:19.383 [main] INFO  org.reflections.Reflections - Reflections took 58 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:19:22.156 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 01:19:22.156 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:19:22.187 [main] INFO  org.reflections.Reflections - Reflections took 30 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:19:22.191 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:19:22.207 [main] INFO  org.reflections.Reflections - Reflections took 14 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:23:34.814 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:23:35.218 [main] INFO  org.reflections.Reflections - Reflections took 338 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:23:36.231 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:23:36.453 [main] INFO  org.reflections.Reflections - Reflections took 57 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:23:39.364 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:23:39.366 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:23:42.366 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:23:42.366 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:23:46.478 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 01:23:46.479 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:23:46.503 [main] INFO  org.reflections.Reflections - Reflections took 23 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:23:46.511 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:23:46.526 [main] INFO  org.reflections.Reflections - Reflections took 13 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:24:22.143 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:24:22.625 [main] INFO  org.reflections.Reflections - Reflections took 404 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:24:23.513 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:24:23.717 [main] INFO  org.reflections.Reflections - Reflections took 52 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:24:26.636 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:24:26.637 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:24:29.638 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:24:29.638 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:24:32.639 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:24:32.639 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:24:38.317 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 01:24:38.317 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:24:38.352 [main] INFO  org.reflections.Reflections - Reflections took 34 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:24:38.356 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:24:38.373 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:24:38.377 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 01:25:12.690 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:25:13.095 [main] INFO  org.reflections.Reflections - Reflections took 335 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:25:13.990 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:25:14.211 [main] INFO  org.reflections.Reflections - Reflections took 59 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:25:17.119 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:25:17.121 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:25:21.702 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 01:25:24.079 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:25:24.104 [main] INFO  org.reflections.Reflections - Reflections took 24 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:25:24.109 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:25:24.126 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:26:21.562 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:26:21.946 [main] INFO  org.reflections.Reflections - Reflections took 311 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:26:22.841 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:26:23.051 [main] INFO  org.reflections.Reflections - Reflections took 54 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:26:26.134 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 01:26:32.551 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:26:32.576 [main] INFO  org.reflections.Reflections - Reflections took 24 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:26:32.584 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:26:32.601 [main] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:26:53.544 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:26:53.943 [main] INFO  org.reflections.Reflections - Reflections took 327 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:26:54.930 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:26:55.173 [main] INFO  org.reflections.Reflections - Reflections took 55 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:26:58.398 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 01:26:59.999 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:27:00.028 [main] INFO  org.reflections.Reflections - Reflections took 28 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:27:00.035 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:27:00.054 [main] INFO  org.reflections.Reflections - Reflections took 18 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:27:22.567 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:27:22.983 [main] INFO  org.reflections.Reflections - Reflections took 346 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:27:23.832 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:27:24.047 [main] INFO  org.reflections.Reflections - Reflections took 55 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:27:27.005 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 01:27:28.502 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:27:28.527 [main] INFO  org.reflections.Reflections - Reflections took 24 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:27:28.535 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:27:28.555 [main] INFO  org.reflections.Reflections - Reflections took 18 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:27:31.584 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Read timed out
+2019-03-23 01:27:31.585 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 01:28:12.551 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:28:12.953 [main] INFO  org.reflections.Reflections - Reflections took 324 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:28:13.859 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:28:14.079 [main] INFO  org.reflections.Reflections - Reflections took 53 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:28:16.983 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:28:16.984 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:28:20.802 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 01:28:22.455 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:28:22.485 [main] INFO  org.reflections.Reflections - Reflections took 29 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:28:22.491 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:28:22.509 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:30:30.024 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:30:30.443 [main] INFO  org.reflections.Reflections - Reflections took 355 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:30:31.353 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:30:31.564 [main] INFO  org.reflections.Reflections - Reflections took 56 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:30:35.516 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 01:30:36.406 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:30:36.433 [main] INFO  org.reflections.Reflections - Reflections took 26 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:30:36.443 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:30:36.465 [main] INFO  org.reflections.Reflections - Reflections took 19 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:31:31.811 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:31:32.295 [main] INFO  org.reflections.Reflections - Reflections took 419 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:31:33.140 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:31:33.371 [main] INFO  org.reflections.Reflections - Reflections took 56 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:31:36.728 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 01:31:36.729 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:31:36.755 [main] INFO  org.reflections.Reflections - Reflections took 25 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:31:36.763 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:31:36.782 [main] INFO  org.reflections.Reflections - Reflections took 18 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:31:49.347 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:31:49.711 [main] INFO  org.reflections.Reflections - Reflections took 297 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:31:50.676 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:31:50.896 [main] INFO  org.reflections.Reflections - Reflections took 57 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:31:53.811 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:31:53.813 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:31:58.197 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 01:31:58.197 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:31:58.222 [main] INFO  org.reflections.Reflections - Reflections took 24 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:31:58.226 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:31:58.244 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:32:23.274 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:32:23.717 [main] INFO  org.reflections.Reflections - Reflections took 369 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:32:24.738 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:32:24.960 [main] INFO  org.reflections.Reflections - Reflections took 54 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:32:27.865 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:32:27.867 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:32:30.868 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:32:30.868 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:32:33.869 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:32:33.869 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:32:41.735 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:32:42.167 [main] INFO  org.reflections.Reflections - Reflections took 360 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:32:43.130 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:32:43.393 [main] INFO  org.reflections.Reflections - Reflections took 56 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:32:46.312 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:32:46.313 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:32:49.314 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:32:49.314 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:32:55.610 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:32:56.072 [main] INFO  org.reflections.Reflections - Reflections took 392 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:32:57.006 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:32:57.217 [main] INFO  org.reflections.Reflections - Reflections took 53 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:33:00.128 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:33:00.130 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:33:02.949 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 01:33:04.030 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:33:04.055 [main] INFO  org.reflections.Reflections - Reflections took 24 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:33:04.059 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:33:04.074 [main] INFO  org.reflections.Reflections - Reflections took 12 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:34:03.255 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:34:03.686 [main] INFO  org.reflections.Reflections - Reflections took 363 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:34:04.596 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:34:04.809 [main] INFO  org.reflections.Reflections - Reflections took 55 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 01:34:07.722 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 01:34:07.724 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 01:34:10.574 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 01:34:10.575 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 01:34:10.599 [main] INFO  org.reflections.Reflections - Reflections took 23 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 01:34:10.607 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 01:34:10.623 [main] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 17:47:18.007 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 17:47:18.391 [main] INFO  org.reflections.Reflections - Reflections took 254 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 17:47:22.292 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 17:47:24.731 [main] INFO  org.reflections.Reflections - Reflections took 69 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 17:47:26.511 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 17:47:26.512 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 17:47:29.513 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 17:47:29.513 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 17:47:32.514 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 17:47:32.514 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 17:47:38.403 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 17:47:38.404 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 17:47:38.435 [main] INFO  org.reflections.Reflections - Reflections took 30 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 17:47:38.449 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 17:47:38.467 [main] INFO  org.reflections.Reflections - Reflections took 17 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 17:47:38.472 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 17:47:57.229 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 17:47:57.741 [main] INFO  org.reflections.Reflections - Reflections took 413 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 17:47:58.595 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 17:47:58.823 [main] INFO  org.reflections.Reflections - Reflections took 61 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 17:48:01.745 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 17:48:01.746 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 17:48:06.403 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 17:48:10.087 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 17:48:10.114 [main] INFO  org.reflections.Reflections - Reflections took 25 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 17:48:10.120 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 17:48:10.139 [main] INFO  org.reflections.Reflections - Reflections took 17 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 17:51:22.270 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 17:51:22.644 [main] INFO  org.reflections.Reflections - Reflections took 300 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 17:51:23.635 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 17:51:23.850 [main] INFO  org.reflections.Reflections - Reflections took 53 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 17:51:27.834 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 17:51:27.835 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 17:51:27.861 [main] INFO  org.reflections.Reflections - Reflections took 25 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 17:51:27.865 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 17:51:27.878 [main] INFO  org.reflections.Reflections - Reflections took 12 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 17:55:38.434 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 17:55:38.876 [main] INFO  org.reflections.Reflections - Reflections took 347 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 17:55:39.648 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 17:55:39.890 [main] INFO  org.reflections.Reflections - Reflections took 59 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 17:55:44.600 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 17:55:44.600 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 17:55:44.627 [main] INFO  org.reflections.Reflections - Reflections took 26 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 17:55:44.632 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 17:55:44.648 [main] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 17:56:14.253 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 17:56:14.671 [main] INFO  org.reflections.Reflections - Reflections took 350 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 17:56:15.639 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 17:56:15.864 [main] INFO  org.reflections.Reflections - Reflections took 55 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 17:56:18.791 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 17:56:18.793 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 17:56:21.794 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 17:56:21.794 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 17:56:24.795 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 17:56:24.795 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 17:56:29.190 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 17:56:29.191 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 17:56:29.221 [main] INFO  org.reflections.Reflections - Reflections took 28 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 17:56:29.232 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 17:56:29.247 [main] INFO  org.reflections.Reflections - Reflections took 13 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 17:56:29.251 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 17:56:36.588 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 17:56:37.037 [main] INFO  org.reflections.Reflections - Reflections took 373 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 17:56:38.003 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 17:56:38.223 [main] INFO  org.reflections.Reflections - Reflections took 60 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 17:56:41.127 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 17:56:41.129 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 17:56:44.129 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 17:56:44.129 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 17:56:47.174 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Read timed out
+2019-03-23 17:56:47.174 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 17:56:51.135 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 17:56:53.188 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 17:56:53.218 [main] INFO  org.reflections.Reflections - Reflections took 26 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 17:56:53.222 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 17:56:53.240 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 18:06:23.922 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 18:06:24.451 [main] INFO  org.reflections.Reflections - Reflections took 444 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 18:06:25.548 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 18:06:25.787 [main] INFO  org.reflections.Reflections - Reflections took 59 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 18:06:56.062 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 18:06:56.429 [main] INFO  org.reflections.Reflections - Reflections took 278 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 18:06:57.224 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 18:06:57.478 [main] INFO  org.reflections.Reflections - Reflections took 62 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 18:07:02.213 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 18:07:02.214 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 18:07:02.239 [main] INFO  org.reflections.Reflections - Reflections took 24 ms to scan 2 urls, producing 74 keys and 268 values 
+2019-03-23 18:07:02.243 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 18:07:02.260 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 18:07:05.252 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-23 18:07:05.253 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 18:12:59.127 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 18:12:59.458 [main] INFO  org.reflections.Reflections - Reflections took 249 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 18:13:00.211 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 18:13:00.451 [main] INFO  org.reflections.Reflections - Reflections took 66 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 18:13:03.376 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 18:13:03.378 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 18:13:06.379 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 18:13:06.379 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 18:13:12.018 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 18:13:12.019 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 18:13:12.045 [main] INFO  org.reflections.Reflections - Reflections took 24 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 18:13:12.051 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 18:13:12.066 [main] INFO  org.reflections.Reflections - Reflections took 13 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 18:13:15.058 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-23 18:13:15.058 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 18:13:18.059 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-23 18:13:18.059 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 18:22:02.514 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 18:22:03.007 [main] INFO  org.reflections.Reflections - Reflections took 403 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 18:22:04.086 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 18:22:04.344 [main] INFO  org.reflections.Reflections - Reflections took 57 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 18:22:08.022 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 18:22:08.023 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 18:22:08.053 [main] INFO  org.reflections.Reflections - Reflections took 29 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 18:22:08.059 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 18:22:08.081 [main] INFO  org.reflections.Reflections - Reflections took 19 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 18:22:22.093 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-23 18:22:22.094 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 19:39:51.781 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 19:39:52.386 [main] INFO  org.reflections.Reflections - Reflections took 492 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 19:39:53.480 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 19:39:53.711 [main] INFO  org.reflections.Reflections - Reflections took 56 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 19:40:04.638 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 19:40:04.640 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 19:40:04.640 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 19:40:04.640 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 19:40:04.641 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 19:40:04.641 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 19:40:06.717 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 19:40:06.717 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 19:40:06.752 [main] INFO  org.reflections.Reflections - Reflections took 33 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 19:40:06.758 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 19:40:06.773 [main] INFO  org.reflections.Reflections - Reflections took 14 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 19:40:06.779 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 19:41:19.460 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 19:41:19.790 [main] INFO  org.reflections.Reflections - Reflections took 224 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 19:41:20.482 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 19:41:20.754 [main] INFO  org.reflections.Reflections - Reflections took 55 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 19:41:31.891 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 19:41:31.893 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 19:41:31.894 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 19:41:31.894 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 19:41:31.894 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 19:41:31.894 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 19:41:33.989 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 19:41:33.990 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 19:41:34.029 [main] INFO  org.reflections.Reflections - Reflections took 37 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 19:41:34.036 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 19:41:34.056 [main] INFO  org.reflections.Reflections - Reflections took 18 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 19:41:34.061 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 19:43:07.722 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 19:43:08.050 [main] INFO  org.reflections.Reflections - Reflections took 234 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 19:43:08.807 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 19:43:09.041 [main] INFO  org.reflections.Reflections - Reflections took 47 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 19:43:20.539 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 19:43:20.540 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 19:43:20.553 [main] INFO  org.reflections.Reflections - Reflections took 12 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 19:43:20.569 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 19:43:20.584 [main] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 19:43:49.065 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.SocketTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Read timed out
+2019-03-23 19:43:49.067 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 19:45:17.468 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 19:45:17.906 [main] INFO  org.reflections.Reflections - Reflections took 354 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 19:45:18.955 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 19:45:19.202 [main] INFO  org.reflections.Reflections - Reflections took 56 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 19:45:22.105 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 19:45:22.107 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 19:45:25.108 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 19:45:25.108 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 19:45:28.109 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 19:45:28.109 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 19:45:34.353 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 19:45:34.354 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 19:45:34.390 [main] INFO  org.reflections.Reflections - Reflections took 35 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 19:45:34.394 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 19:45:34.408 [main] INFO  org.reflections.Reflections - Reflections took 12 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 19:45:34.412 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 19:45:46.277 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 19:45:46.733 [main] INFO  org.reflections.Reflections - Reflections took 377 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 19:45:47.637 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 19:45:47.858 [main] INFO  org.reflections.Reflections - Reflections took 56 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 19:45:50.982 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 19:45:50.984 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 19:45:53.985 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 19:45:53.985 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 19:45:56.985 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 19:45:56.985 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 19:46:01.767 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 19:46:01.767 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 19:46:01.811 [main] INFO  org.reflections.Reflections - Reflections took 42 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 19:46:01.818 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 19:46:01.836 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 19:46:01.842 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 19:46:19.687 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 19:46:20.130 [main] INFO  org.reflections.Reflections - Reflections took 366 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 19:46:20.999 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 19:46:21.221 [main] INFO  org.reflections.Reflections - Reflections took 57 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 19:46:29.994 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 19:46:29.995 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 19:46:30.023 [main] INFO  org.reflections.Reflections - Reflections took 27 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 19:46:30.029 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 19:46:30.044 [main] INFO  org.reflections.Reflections - Reflections took 13 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 19:46:36.072 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-23 19:46:36.073 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 19:46:39.074 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-23 19:46:39.074 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 19:46:42.076 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-23 19:46:42.076 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 19:59:20.777 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 19:59:21.299 [main] INFO  org.reflections.Reflections - Reflections took 432 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 19:59:22.304 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 19:59:22.562 [main] INFO  org.reflections.Reflections - Reflections took 74 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 19:59:33.471 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 19:59:33.473 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 19:59:33.473 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 19:59:33.473 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 19:59:33.474 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 19:59:33.474 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 19:59:36.291 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 19:59:36.291 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 19:59:36.323 [main] INFO  org.reflections.Reflections - Reflections took 29 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 19:59:36.333 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 19:59:36.347 [main] INFO  org.reflections.Reflections - Reflections took 13 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 19:59:36.352 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 20:00:09.396 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 20:00:09.711 [main] INFO  org.reflections.Reflections - Reflections took 197 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 20:00:10.384 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 20:00:10.604 [main] INFO  org.reflections.Reflections - Reflections took 56 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 20:00:21.542 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:00:21.544 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:00:21.545 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:00:21.545 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:00:21.545 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:00:21.545 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:00:23.357 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 20:00:23.358 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 20:00:23.390 [main] INFO  org.reflections.Reflections - Reflections took 30 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 20:00:23.397 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 20:00:23.413 [main] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 20:00:23.419 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 20:00:48.553 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 20:00:48.898 [main] INFO  org.reflections.Reflections - Reflections took 273 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 20:00:49.603 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 20:00:49.843 [main] INFO  org.reflections.Reflections - Reflections took 58 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 20:01:00.762 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:01:00.764 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:01:00.764 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:01:00.764 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:01:00.764 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:01:00.764 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:01:02.212 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 20:01:02.212 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 20:01:02.243 [main] INFO  org.reflections.Reflections - Reflections took 30 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 20:01:02.253 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 20:01:02.270 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 20:01:02.274 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 20:02:14.727 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 20:02:15.973 [main] INFO  org.reflections.Reflections - Reflections took 1004 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 20:02:19.009 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 20:02:20.308 [main] INFO  org.reflections.Reflections - Reflections took 330 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 20:02:30.314 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:02:30.318 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:02:30.319 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:02:30.320 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:02:30.320 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:02:30.320 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:02:32.934 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 20:02:43.590 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 20:02:43.653 [main] INFO  org.reflections.Reflections - Reflections took 60 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 20:02:43.671 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 20:02:43.690 [main] INFO  org.reflections.Reflections - Reflections took 18 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 20:02:43.699 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 20:03:09.218 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 20:03:09.670 [main] INFO  org.reflections.Reflections - Reflections took 328 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 20:03:10.685 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 20:03:11.029 [main] INFO  org.reflections.Reflections - Reflections took 94 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 20:03:21.913 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:03:21.915 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:03:21.915 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:03:21.915 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:03:21.916 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:03:21.916 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:03:23.123 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 20:03:23.124 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 20:03:23.167 [main] INFO  org.reflections.Reflections - Reflections took 39 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 20:03:23.181 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 20:03:23.201 [main] INFO  org.reflections.Reflections - Reflections took 18 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 20:03:23.207 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 20:03:38.825 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 20:03:39.709 [main] INFO  org.reflections.Reflections - Reflections took 766 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 20:03:40.998 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 20:03:41.287 [main] INFO  org.reflections.Reflections - Reflections took 81 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 20:03:52.258 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:03:52.260 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:03:52.260 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:03:52.260 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:03:52.260 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:03:52.260 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:03:53.538 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 20:03:53.540 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 20:03:53.575 [main] INFO  org.reflections.Reflections - Reflections took 33 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 20:03:53.589 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 20:03:53.611 [main] INFO  org.reflections.Reflections - Reflections took 20 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 20:03:53.617 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 20:03:57.830 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 20:03:58.567 [main] INFO  org.reflections.Reflections - Reflections took 635 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 20:03:59.919 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 20:04:00.226 [main] INFO  org.reflections.Reflections - Reflections took 79 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 20:04:11.134 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:04:11.137 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:04:11.137 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:04:11.137 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:04:11.138 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:04:11.138 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:04:13.846 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 20:04:13.847 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 20:04:13.892 [main] INFO  org.reflections.Reflections - Reflections took 43 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 20:04:13.896 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 20:04:13.916 [main] INFO  org.reflections.Reflections - Reflections took 18 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 20:04:13.926 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 20:04:27.775 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 20:04:28.477 [main] INFO  org.reflections.Reflections - Reflections took 602 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 20:04:29.775 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 20:04:30.083 [main] INFO  org.reflections.Reflections - Reflections took 76 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 20:04:41.345 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:04:41.346 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:04:41.347 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:04:41.347 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:04:41.347 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:04:41.347 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:04:44.109 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 20:05:26.630 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 20:05:26.666 [main] INFO  org.reflections.Reflections - Reflections took 35 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 20:05:26.684 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 20:05:26.705 [main] INFO  org.reflections.Reflections - Reflections took 18 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 20:05:26.710 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 20:10:05.723 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 20:10:06.260 [main] INFO  org.reflections.Reflections - Reflections took 458 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 20:10:07.261 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 20:10:07.495 [main] INFO  org.reflections.Reflections - Reflections took 58 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 20:10:18.624 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:10:18.626 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:10:18.626 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:10:18.626 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:10:18.626 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:10:18.626 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:10:20.445 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 20:11:16.829 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 20:11:16.874 [main] INFO  org.reflections.Reflections - Reflections took 44 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 20:11:16.880 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 20:11:16.900 [main] INFO  org.reflections.Reflections - Reflections took 18 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 20:11:16.906 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 20:11:19.444 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 20:11:19.967 [main] INFO  org.reflections.Reflections - Reflections took 445 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 20:11:21.014 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 20:11:21.264 [main] INFO  org.reflections.Reflections - Reflections took 64 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 20:11:32.177 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:11:32.178 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:11:32.179 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:11:32.179 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:11:32.180 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:11:32.180 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:11:34.764 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 20:11:34.765 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 20:11:34.802 [main] INFO  org.reflections.Reflections - Reflections took 36 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 20:11:34.816 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 20:11:34.832 [main] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 20:11:34.838 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 20:11:51.876 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 20:11:52.465 [main] INFO  org.reflections.Reflections - Reflections took 500 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 20:11:53.357 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 20:11:53.699 [main] INFO  org.reflections.Reflections - Reflections took 85 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 20:12:04.795 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:12:04.797 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:12:04.798 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:12:04.798 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:12:04.798 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 20:12:04.798 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 20:12:07.549 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 20:12:07.550 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 20:12:07.597 [main] INFO  org.reflections.Reflections - Reflections took 45 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 20:12:07.614 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 20:12:07.638 [main] INFO  org.reflections.Reflections - Reflections took 23 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 20:12:07.646 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 20:13:22.904 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 20:13:23.434 [main] INFO  org.reflections.Reflections - Reflections took 398 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 20:13:24.416 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 20:13:24.750 [main] INFO  org.reflections.Reflections - Reflections took 91 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 20:13:32.885 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 20:13:32.886 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 20:13:32.932 [main] INFO  org.reflections.Reflections - Reflections took 45 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 20:13:32.939 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 20:13:32.957 [main] INFO  org.reflections.Reflections - Reflections took 17 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 20:13:32.964 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:08:24.292 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:08:26.370 [main] INFO  org.reflections.Reflections - Reflections took 1578 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:08:28.089 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:08:29.073 [main] INFO  org.reflections.Reflections - Reflections took 156 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:08:39.683 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:08:39.683 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:08:39.683 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:08:39.683 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:08:39.683 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:08:39.683 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:08:41.115 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:08:41.131 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:08:41.146 [main] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:08:41.162 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:08:41.177 [main] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:08:41.177 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:09:10.233 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:09:10.498 [main] INFO  org.reflections.Reflections - Reflections took 203 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:09:11.186 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:09:11.420 [main] INFO  org.reflections.Reflections - Reflections took 62 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:09:14.373 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 21:09:14.373 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:09:26.633 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:09:26.633 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:09:26.664 [main] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:09:26.664 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:09:26.680 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:09:32.695 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://product.dangdang.com:80: Connect to product.dangdang.com:80 [product.dangdang.com/60.29.254.84] failed: connect timed out
+2019-03-23 21:09:32.695 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:17:41.959 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:17:42.276 [main] INFO  org.reflections.Reflections - Reflections took 221 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:17:43.131 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:17:43.360 [main] INFO  org.reflections.Reflections - Reflections took 53 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:17:55.362 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:17:55.363 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:17:55.399 [main] INFO  org.reflections.Reflections - Reflections took 35 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:17:55.403 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:17:55.417 [main] INFO  org.reflections.Reflections - Reflections took 13 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:17:55.422 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:18:04.187 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:18:04.685 [main] INFO  org.reflections.Reflections - Reflections took 368 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:18:05.478 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:18:05.701 [main] INFO  org.reflections.Reflections - Reflections took 58 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:18:10.816 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:18:10.816 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:18:10.857 [main] INFO  org.reflections.Reflections - Reflections took 41 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:18:10.862 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:18:10.875 [main] INFO  org.reflections.Reflections - Reflections took 11 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:18:14.745 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:18:14.745 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:18:14.745 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:18:14.745 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:18:14.745 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:18:14.745 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:18:17.612 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:18:17.613 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:18:17.613 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:18:17.613 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:18:17.613 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:18:17.613 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:18:47.462 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:18:47.786 [main] INFO  org.reflections.Reflections - Reflections took 220 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:18:48.486 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:18:48.708 [main] INFO  org.reflections.Reflections - Reflections took 47 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:18:59.673 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:18:59.673 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:18:59.673 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:18:59.673 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:18:59.673 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:18:59.673 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:19:01.293 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:19:01.293 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:19:01.331 [main] INFO  org.reflections.Reflections - Reflections took 36 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:19:01.336 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:19:01.350 [main] INFO  org.reflections.Reflections - Reflections took 13 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:19:01.355 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:19:40.214 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:19:41.267 [main] INFO  org.reflections.Reflections - Reflections took 846 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:19:43.849 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:19:44.997 [main] INFO  org.reflections.Reflections - Reflections took 304 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:19:55.261 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:19:55.264 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:19:55.265 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:19:55.265 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:19:55.265 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:19:55.266 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:19:57.027 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:20:28.481 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:20:28.541 [main] INFO  org.reflections.Reflections - Reflections took 56 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:20:28.561 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:20:28.580 [main] INFO  org.reflections.Reflections - Reflections took 18 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:20:28.587 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:20:48.951 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:20:49.258 [main] INFO  org.reflections.Reflections - Reflections took 233 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:20:50.006 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:20:50.239 [main] INFO  org.reflections.Reflections - Reflections took 53 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:21:01.563 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:21:01.563 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:21:01.563 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:21:01.563 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:21:01.563 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:21:01.563 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:21:03.611 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:21:03.611 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:21:03.642 [main] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:21:03.658 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:21:03.674 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:21:03.674 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:21:50.288 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:21:51.300 [main] INFO  org.reflections.Reflections - Reflections took 797 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:21:53.769 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:21:54.813 [main] INFO  org.reflections.Reflections - Reflections took 265 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:22:05.001 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:22:05.003 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:22:05.003 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:22:05.003 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:22:05.003 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:22:05.003 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:22:06.437 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:22:11.379 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:22:11.442 [main] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:22:11.458 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:22:11.489 [main] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:22:11.489 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:23:52.163 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:23:52.546 [main] INFO  org.reflections.Reflections - Reflections took 269 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:23:53.221 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:23:53.440 [main] INFO  org.reflections.Reflections - Reflections took 62 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:23:56.402 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 21:23:56.402 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:23:59.409 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 21:23:59.409 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:24:02.412 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 21:24:02.412 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:24:11.105 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:24:11.105 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:24:11.136 [main] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:24:11.136 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:24:11.152 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:24:11.167 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:24:41.081 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:24:41.409 [main] INFO  org.reflections.Reflections - Reflections took 250 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:24:42.185 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:24:42.420 [main] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:24:45.362 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 21:24:45.362 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:24:48.367 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 21:24:48.367 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:24:52.094 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:24:52.095 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:24:52.121 [main] INFO  org.reflections.Reflections - Reflections took 25 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:24:52.126 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:24:52.145 [main] INFO  org.reflections.Reflections - Reflections took 18 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:25:03.175 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:03.175 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:03.175 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:03.175 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:03.175 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:03.175 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:05.702 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:05.702 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:05.702 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:05.702 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:05.702 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:05.702 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:07.252 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:07.252 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:07.253 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:07.253 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:07.253 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:07.253 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:08.461 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:08.461 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:08.461 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:08.461 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:08.461 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:08.461 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:09.507 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:09.507 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:09.507 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:09.507 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:09.507 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:09.507 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:10.952 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:10.953 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:10.953 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:10.953 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:10.953 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:10.953 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:12.143 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:12.143 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:12.143 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:12.143 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:12.143 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:12.143 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:14.273 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:14.273 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:14.273 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:14.273 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:14.273 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:14.273 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:17.253 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:17.253 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:17.253 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:17.253 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:17.253 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:17.253 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:18.709 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:18.709 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:18.709 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:18.709 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:18.709 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:18.709 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:20.622 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:20.622 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:20.623 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:20.623 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:20.623 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:20.623 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:23.440 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:23.440 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:23.440 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:23.440 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:23.440 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://product.dangdang.com:80: product.dangdang.com
+2019-03-23 21:25:23.440 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://product.dangdang.com:80
+2019-03-23 21:25:31.395 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:25:31.811 [main] INFO  org.reflections.Reflections - Reflections took 352 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:25:32.700 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:25:32.825 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:25:32.825 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:25:32.825 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:25:32.825 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:25:32.825 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:25:32.825 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:25:32.939 [main] INFO  org.reflections.Reflections - Reflections took 62 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:25:35.140 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:25:35.140 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:25:35.171 [main] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:25:35.171 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:25:35.187 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:25:35.202 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:25:40.976 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:25:41.409 [main] INFO  org.reflections.Reflections - Reflections took 344 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:25:42.308 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:25:42.417 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:25:42.417 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:25:42.417 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:25:42.417 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:25:42.417 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:25:42.417 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:25:42.524 [main] INFO  org.reflections.Reflections - Reflections took 52 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:25:44.659 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:25:44.659 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:25:44.690 [main] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:25:44.690 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:25:44.705 [main] INFO  org.reflections.Reflections - Reflections took 15 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:25:44.705 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:25:48.588 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:25:49.012 [main] INFO  org.reflections.Reflections - Reflections took 356 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:25:49.892 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:25:49.993 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:25:49.993 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:25:49.993 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:25:49.993 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:25:49.993 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:25:49.993 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:25:50.102 [main] INFO  org.reflections.Reflections - Reflections took 55 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:25:51.876 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:25:51.876 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:25:51.907 [main] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:25:51.922 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:25:51.941 [main] INFO  org.reflections.Reflections - Reflections took 19 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:25:51.945 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:25:56.203 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:25:56.593 [main] INFO  org.reflections.Reflections - Reflections took 328 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:25:57.596 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:25:57.705 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:25:57.705 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:25:57.705 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:25:57.705 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:25:57.705 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:25:57.705 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:25:57.805 [main] INFO  org.reflections.Reflections - Reflections took 52 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:26:00.529 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:26:00.529 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:26:00.560 [main] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:26:00.560 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:26:00.576 [main] INFO  org.reflections.Reflections - Reflections took 16 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:26:00.576 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:26:44.718 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:26:45.035 [main] INFO  org.reflections.Reflections - Reflections took 239 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:26:45.717 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:26:45.943 [main] INFO  org.reflections.Reflections - Reflections took 55 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:26:49.945 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:26:49.946 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:26:49.969 [main] INFO  org.reflections.Reflections - Reflections took 22 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:26:49.969 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:26:49.985 [main] INFO  org.reflections.Reflections - Reflections took 0 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:28:10.387 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:28:10.815 [main] INFO  org.reflections.Reflections - Reflections took 368 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:28:11.734 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:28:11.942 [main] INFO  org.reflections.Reflections - Reflections took 63 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:28:22.942 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:28:22.944 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:28:22.945 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:28:22.945 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:28:22.945 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (java.net.UnknownHostException) caught when processing request to {}->http://3c.dangdang.com:80: 3c.dangdang.com
+2019-03-23 21:28:22.945 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:28:25.806 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:28:25.807 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:28:25.840 [main] INFO  org.reflections.Reflections - Reflections took 31 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:28:25.850 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:28:25.864 [main] INFO  org.reflections.Reflections - Reflections took 12 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:28:25.870 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:28:49.115 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:28:49.433 [main] INFO  org.reflections.Reflections - Reflections took 234 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:28:50.131 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:28:50.334 [main] INFO  org.reflections.Reflections - Reflections took 47 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:28:56.321 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - I/O exception (org.apache.http.conn.ConnectTimeoutException) caught when processing request to {}->http://3c.dangdang.com:80: Connect to 3c.dangdang.com:80 [3c.dangdang.com/60.29.241.157] failed: connect timed out
+2019-03-23 21:28:56.321 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  org.apache.http.impl.execchain.RetryExec - Retrying request to {}->http://3c.dangdang.com:80
+2019-03-23 21:29:00.903 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 21:29:00.904 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 21:29:00.933 [main] INFO  org.reflections.Reflections - Reflections took 27 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 21:29:00.939 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 21:29:00.954 [main] INFO  org.reflections.Reflections - Reflections took 14 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 21:29:01.692 [Tcom.secondhand.tradingplatformgeccocontroller.dangdang0] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-03-23 22:00:36.368 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 22:00:36.802 [main] INFO  org.reflections.Reflections - Reflections took 355 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 22:00:37.761 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 22:00:37.978 [main] INFO  org.reflections.Reflections - Reflections took 56 ms to scan 1 urls, producing 3 keys and 6 values 
+2019-03-23 22:00:43.499 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - close gecco!
+2019-03-23 22:00:43.500 [main] INFO  com.secondhand.tradingplatformgeccocontroller.downloader.proxy.FileProxys - proxys not load
+2019-03-23 22:00:43.527 [main] INFO  org.reflections.Reflections - Reflections took 26 ms to scan 2 urls, producing 74 keys and 269 values 
+2019-03-23 22:00:43.534 [main] INFO  com.secondhand.tradingplatformgeccocontroller.GeccoEngine - starts.json not found
+2019-03-23 22:00:43.549 [main] INFO  org.reflections.Reflections - Reflections took 14 ms to scan 1 urls, producing 3 keys and 6 values 
