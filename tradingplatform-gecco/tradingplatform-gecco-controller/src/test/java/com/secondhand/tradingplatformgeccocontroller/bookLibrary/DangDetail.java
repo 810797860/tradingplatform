@@ -4,7 +4,7 @@ import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import com.secondhand.tradingplatformgeccocontroller.annotation.*;
 import com.secondhand.tradingplatformgeccocontroller.spider.HtmlBean;
 
-@Gecco(matchUrl = "http://product.dangdang.com/{id}.html", pipelines = {"consolePipeline", "bookLibraryDetailPipeline"})
+//@Gecco(matchUrl = "http://product.dangdang.com/{id}.html", pipelines = {"consolePipeline", "bookLibraryDetailPipeline"})
 public class DangDetail implements HtmlBean{
 
     private static final long serialVersionUID = -1L;

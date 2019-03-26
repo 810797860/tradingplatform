@@ -148,7 +148,7 @@ public class TradingplatformGeccoControllerApplicationTests {
     }
 
     public static void insertSportsSpecial(com.secondhand.tradingplatformgeccocontroller.sportsSpecial.DangDetail dangDetail){
-/*        try {
+        try {
             if (jdbcTemplate == null){
                 init();
             }
@@ -167,7 +167,7 @@ public class TradingplatformGeccoControllerApplicationTests {
                         "" + "','" +
                         "jpg" + "','" +
                         0 + "','" +
-                        "G:/data/file/tradingplatform/2019-03-25/" + name + ".jpg" + "','" +
+                        "G:/data/file/tradingplatform/2019-03-26/" + name + ".jpg" + "','" +
                         "" + "','" +
                         "image/jpeg" + "','" +
                         ToolUtil.getUUID() + "','" +
@@ -185,9 +185,10 @@ public class TradingplatformGeccoControllerApplicationTests {
                     ToolUtil.getDateTime() + "','" +
                     ToolUtil.getClawer(dangDetail.getPattern()) + "','" +
                     ToolUtil.getClawer(dangDetail.getBrand()) + "','" +
+                    0 + "','" +
                     dangDetail.getStar() + "','" +
                     dangDetail.getCommentNum() + "','" +
-                    (dangDetail.getPrice().indexOf("-") == -1 ? dangDetail.getPrice().substring(0, dangDetail.getPrice().indexOf("-")) : dangDetail.getPrice()) + "','" +
+                    dangDetail.getPrice() + "','" +
                     (cover == 0 ? "" : Long.valueOf(cover).toString()) + "','" +
                     ToolUtil.getClawer(dangDetail.getTitle()) + "','" +
                     ToolUtil.getClawer(dangDetail.getClassification()) + "','" +
@@ -195,7 +196,7 @@ public class TradingplatformGeccoControllerApplicationTests {
                     "')");
         } catch (Exception e){
             e.printStackTrace();
-        }*/
+        }
     }
 
     @PostConstruct

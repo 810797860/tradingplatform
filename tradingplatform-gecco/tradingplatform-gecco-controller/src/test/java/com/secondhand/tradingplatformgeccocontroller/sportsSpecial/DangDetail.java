@@ -3,7 +3,7 @@ package com.secondhand.tradingplatformgeccocontroller.sportsSpecial;
 import com.secondhand.tradingplatformgeccocontroller.annotation.*;
 import com.secondhand.tradingplatformgeccocontroller.spider.HtmlBean;
 
-@Gecco(matchUrl = "http://product.dangdang.com/{id}.html{suffix}", pipelines = {"consolePipeline", "bookLibraryDetailPipeline"})
+//@Gecco(matchUrl = "http://product.dangdang.com/{id}.html{suffix}", pipelines = {"consolePipeline", "sportsSpecialDetailPipeline"})
 public class DangDetail implements HtmlBean{
 
     private static final long serialVersionUID = -1L;
@@ -77,7 +77,7 @@ public class DangDetail implements HtmlBean{
     }
 
     public void setPrice(String price) {
-        this.price = price;
+        this.price = price.indexOf("-") == -1 ? price : price.substring(0, price.indexOf("-"));
     }
 
     public String getCover() {
@@ -117,7 +117,7 @@ public class DangDetail implements HtmlBean{
     }
 
     public void setPattern(String pattern) {
-        this.pattern = pattern;
+        this.pattern = pattern.substring(3, pattern.length());
     }
 
     public String getClassification() {

@@ -23,6 +23,9 @@ public class DangListPipeline implements Pipeline<DangPage> {
             List<HrefBean> hrefBeans = list.getHrefBeanList();
             for (HrefBean hrefBean : hrefBeans){
                 String url = hrefBean.getUrl();
+                if (url.indexOf("http://product.dangdang.com") == -1){
+                    continue;
+                }
                 HttpRequest httpRequest = dangPage.getRequest();
                 httpRequests.add(httpRequest.subRequest(url));
             }

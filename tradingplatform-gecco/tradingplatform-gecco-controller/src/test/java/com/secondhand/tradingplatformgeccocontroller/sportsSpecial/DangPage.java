@@ -53,7 +53,7 @@ public class DangPage implements HtmlBean{
                 .classpath("com.secondhand.tradingplatformgeccocontroller.sportsSpecial")
                 .start(DangListPipeline.httpRequests)
                 .thread(1)
-                .interval(1000)
+                .interval(4000)
                 .run();
     }
 }
