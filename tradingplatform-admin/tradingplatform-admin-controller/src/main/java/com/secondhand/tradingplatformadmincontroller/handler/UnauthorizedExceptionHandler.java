@@ -18,7 +18,7 @@ import java.io.PrintWriter;
  * @author 81079
  */
 
-@ControllerAdvice
+@ControllerAdvice("UnauthorizedExceptionHandler")
 public class UnauthorizedExceptionHandler {
     @ExceptionHandler({UnauthorizedException.class})
     @ResponseStatus(HttpStatus.UNAUTHORIZED)

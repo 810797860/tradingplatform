@@ -16,10 +16,7 @@ import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -30,10 +27,10 @@ import java.util.Map;
  * @description : 登录控制器
  * @since : Create in 2018-12-04
  */
-@RestController
+@CrossOrigin
 @Api(value = "/front", description = "登录控制器")
 @RequestMapping("/front")
-@Controller("frontLogInController")
+@RestController("frontLogInController")
 public class LogInController {
 
     /**

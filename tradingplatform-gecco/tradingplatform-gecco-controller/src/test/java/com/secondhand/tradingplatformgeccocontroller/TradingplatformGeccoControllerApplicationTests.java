@@ -199,6 +199,58 @@ public class TradingplatformGeccoControllerApplicationTests {
         }
     }
 
+    public static void insertDigitalSquare(com.secondhand.tradingplatformgeccocontroller.digitalSquare.DangDetail dangDetail){
+        try {
+            if (jdbcTemplate == null){
+                init();
+            }
+
+            Integer cover = 0;
+
+            if (dangDetail.getCover() != null) {
+                int tempSeparate = dangDetail.getCover().lastIndexOf("\\");
+                if (tempSeparate == -1){
+                    tempSeparate = dangDetail.getCover().lastIndexOf("/") + 1;
+                }
+                String name = dangDetail.getCover().substring(tempSeparate, dangDetail.getCover().indexOf(".jpg"));
+                cover = jdbcTemplate.queryForObject("SELECT MAX(id) FROM `c_business_annex`", Integer.TYPE) + 1;
+                jdbcTemplate.update("INSERT INTO c_business_annex(name, type, extension, size, path, md5, content_type, uuid, description, deleted) VALUES('" +
+                        name + "','" +
+                        "" + "','" +
+                        "jpg" + "','" +
+                        0 + "','" +
+                        "G:/data/file/tradingplatform/2019-03-27/" + name + ".jpg" + "','" +
+                        "" + "','" +
+                        "image/jpeg" + "','" +
+                        ToolUtil.getUUID() + "','" +
+                        "" + "','" +
+                        '\0' +
+                        "')");
+            }
+
+            jdbcTemplate.update("INSERT INTO c_business_digital_square(uuid, details, classification, back_check_status, not_pass_reason, back_check_time, pattern, brand, user_id, star, comment_num, price, cover, title, description, deleted) VALUES('" +
+                    ToolUtil.getUUID() + "','" +
+                    ToolUtil.getClawer(dangDetail.getDetails().getDetail()) + "','" +
+                    0 + "','" +
+                    BusinessSelectItem.BACK_STATUS_EXAMINATION_PASSED + "','" +
+                    "" + "','" +
+                    ToolUtil.getDateTime() + "','" +
+                    ToolUtil.getClawer(dangDetail.getPattern()) + "','" +
+                    ToolUtil.getClawer(dangDetail.getBrand()) + "','" +
+                    0 + "','" +
+                    dangDetail.getStar() + "','" +
+                    dangDetail.getCommentNum() + "','" +
+                    dangDetail.getPrice() + "','" +
+                    (cover == 0 ? "" : Long.valueOf(cover).toString()) + "','" +
+                    ToolUtil.getClawer(dangDetail.getTitle()) + "','" +
+                    ToolUtil.getClawer(dangDetail.getClassification()) + "','" +
+                    '\0' +
+                    "')");
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     @PostConstruct
     public void initDataSource(){
         if (dataSource == null){
