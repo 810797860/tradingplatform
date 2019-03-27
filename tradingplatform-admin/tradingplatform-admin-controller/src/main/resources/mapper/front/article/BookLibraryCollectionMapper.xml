@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.secondhand.tradingplatformadminmapper.mapper.front.article.BookLibraryCollectionMapper">
+
+    <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
+
+		<!-- 通用查询映射结果 -->
+		<resultMap id="bookLibraryCollectionMap" type="com.secondhand.tradingplatformadminentity.entity.front.article.BookLibraryCollection" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
+
+
+				<result column="book_id" property="bookId" jdbcType="INTEGER" />
+				<result column="user_id" property="userId" jdbcType="INTEGER" />
+
+
+
+
+
+
+		</resultMap>
+
+        <!-- 通用查询映射结果 -->
+		<resultMap id="bookLibraryCollectionMapSimple" type="com.secondhand.tradingplatformadminentity.entity.front.article.BookLibraryCollection">
+
+
+                        <result column="book_id" property="bookId" jdbcType="INTEGER" />
+                        <result column="user_id" property="userId" jdbcType="INTEGER" />
+
+
+
+
+
+
+        </resultMap>
+
+    <select id="selectMapById" resultType="java.util.Map">
+        select * from c_business_book_library_collection where id = #{bookLibraryCollectionId} and deleted = false
+    </select>
+
+</mapper>

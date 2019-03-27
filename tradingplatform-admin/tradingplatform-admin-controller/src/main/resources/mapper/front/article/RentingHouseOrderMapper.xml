@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.secondhand.tradingplatformadminmapper.mapper.front.article.RentingHouseOrderMapper">
+
+    <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
+
+		<!-- 通用查询映射结果 -->
+		<resultMap id="rentingHouseOrderMap" type="com.secondhand.tradingplatformadminentity.entity.front.article.RentingHouseOrder" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
+
+
+				<result column="order_status" property="orderStatus" jdbcType="INTEGER" />
+				<result column="quantity" property="quantity" jdbcType="INTEGER" />
+				<result column="price" property="price" jdbcType="FLOAT" />
+				<result column="renting_id" property="rentingId" jdbcType="INTEGER" />
+				<result column="user_id" property="userId" jdbcType="INTEGER" />
+
+
+
+
+
+
+		</resultMap>
+
+        <!-- 通用查询映射结果 -->
+		<resultMap id="rentingHouseOrderMapSimple" type="com.secondhand.tradingplatformadminentity.entity.front.article.RentingHouseOrder">
+
+
+                        <result column="order_status" property="orderStatus" jdbcType="INTEGER" />
+                        <result column="quantity" property="quantity" jdbcType="INTEGER" />
+                        <result column="price" property="price" jdbcType="FLOAT" />
+                        <result column="renting_id" property="rentingId" jdbcType="INTEGER" />
+                        <result column="user_id" property="userId" jdbcType="INTEGER" />
+
+
+
+
+
+
+        </resultMap>
+
+    <select id="selectMapById" resultType="java.util.Map">
+        select * from c_business_renting_house_order where id = #{rentingHouseOrderId} and deleted = false
+    </select>
+
+</mapper>
