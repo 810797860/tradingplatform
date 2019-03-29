@@ -1,0 +1,149 @@
+运动专场表(c_business_sports_special)
+运动标题(title)
+运动封面(cover)
+运动价格(price)
+运动星级(star)
+运动评论数(comment_num)
+所属用户(user_id)
+-----------标签--------------
+运动品牌(brand)
+运动型号(pattern)
+运动分类(classification)
+-----------------------------
+运动详情(details)
+后台审核时间(back_check_time)
+不通过理由(not_pass_reason)
+后台审核状态(back_check_status)
+
+{
+    name:获取分页列表
+    url:/front/digitalSquare/query
+    contentType:application/json
+    type:post
+    //传参例子
+    post-example:{
+        {
+            "page":{
+                "current": 1,//当前页数
+                "size": 10//一页的大小
+            }, "sorts":[{
+                    "field": "id",//按...排序
+                    "isAsc": true //顺序、倒序
+                }]
+        }
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+
+{
+    name:根据id获取digitalSquareMap
+    url:/front/digitalSquare/get_map_by_id/1      //1为digitalSquareId
+    contentType:application/json
+    type:get
+    //传参例子
+    post-example:{
+
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+
+{
+    name:根据id假删除digitalSquare
+    url:/front/digitalSquare/delete
+    contentType:application/json
+    type:put
+    //传参例子
+    post-example:{
+        1   //1为digitalSquareId
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+{
+    name:根据ids批量假删除digitalSquare
+    url:/front/digitalSquare/batch_delete
+    contentType:application/json
+    type:put
+    //传参例子
+    post-example:{
+        [1,44]   //[1,44]为digitalSquareIds的数组
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+{
+    name:新增或修改digitalSquare
+    url:/front/digitalSquare/create_update
+    contentType:application/json
+    type:put
+    //传参例子
+    post-example:{
+        //id不为空时，修改id为1的值
+        {
+        	"id": 1,
+        	"sex": 1
+        }
+        //id为空时，新增一条数据
+        {
+            "sex": 1
+        }
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}

@@ -1,0 +1,156 @@
+图书专库表(c_business_book_library)
+图书标题(title)
+图书封面(cover)
+图书价格(price)
+图书星级(star)
+图书评论数(comment_num)
+所属用户(user_id)
+图书作者(author)
+图书出版社(publishing_house)
+出版时间(published_time)
+-----------标签--------------
+图书开本(format)
+图书纸张(paper)
+图书包装(enfold)
+图书是否套装(suited)
+图书国际标准书号ISBN(isbn)
+图书分类(classification)
+-----------------------------
+图书详情(details)
+后台审核时间(back_check_time)
+不通过理由(not_pass_reason)
+后台审核状态(back_check_status)
+
+{
+    name:获取分页列表
+    url:/front/bookLibrary/query
+    contentType:application/json
+    type:post
+    //传参例子
+    post-example:{
+        {
+            "page":{
+                "current": 1,//当前页数
+                "size": 10//一页的大小
+            }, "sorts":[{
+                    "field": "id",//按...排序
+                    "isAsc": true //顺序、倒序
+                }]
+        }
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+
+
+{
+    name:根据id获取bookLibraryMap
+    url:/front/bookLibrary/get_map_by_id/1      //1为bookLibraryId
+    contentType:application/json
+    type:get
+    //传参例子
+    post-example:{
+
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+
+{
+    name:根据id假删除bookLibrary
+    url:/front/bookLibrary/delete
+    contentType:application/json
+    type:put
+    //传参例子
+    post-example:{
+        1   //1为bookLibraryId
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+{
+    name:根据ids批量假删除bookLibrary
+    url:/front/bookLibrary/batch_delete
+    contentType:application/json
+    type:put
+    //传参例子
+    post-example:{
+        [1,44]   //[1,44]为bookLibraryIds的数组
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
+
+{
+    name:新增或修改bookLibrary
+    url:/front/bookLibrary/create_update
+    contentType:application/json
+    type:put
+    //传参例子
+    post-example:{
+        //id不为空时，修改id为1的值
+        {
+        	"id": 1,
+        	"sex": 1
+        }
+        //id为空时，新增一条数据
+        {
+            "sex": 1
+        }
+    }
+    //返回接口例子
+    response-example:{
+
+    }
+    //注入参数
+    model-example:{
+
+    }
+    //错误码
+    status-item:{
+
+    }
+}
