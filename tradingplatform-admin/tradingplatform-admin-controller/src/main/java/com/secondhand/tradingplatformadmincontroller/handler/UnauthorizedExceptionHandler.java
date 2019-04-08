@@ -1,3 +1,4 @@
+/*
 package com.secondhand.tradingplatformadmincontroller.handler;
 
 import org.apache.shiro.authz.UnauthorizedException;
@@ -12,11 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+*/
 /**
  * 拦截无权访问接口异常
  *
  * @author 81079
- */
+ *//*
+
 
 @ControllerAdvice("UnauthorizedExceptionHandler")
 public class UnauthorizedExceptionHandler {
@@ -39,3 +42,4 @@ public class UnauthorizedExceptionHandler {
         }
     }
 }
+*/

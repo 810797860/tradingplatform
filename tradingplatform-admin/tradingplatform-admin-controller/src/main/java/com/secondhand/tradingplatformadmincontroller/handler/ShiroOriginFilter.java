@@ -1,13 +1,9 @@
 package com.secondhand.tradingplatformadmincontroller.handler;
 
-import com.alibaba.fastjson.JSONObject;
-
 import javax.servlet.*;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Arrays;
 
 /**
  * 全局拦截器
@@ -36,9 +32,9 @@ public class ShiroOriginFilter implements Filter {
         httpServletResponse.addHeader("X-Powered-By", "3.2.1");
         //sql,xss过滤
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
-        XssHttpServletRequestWrapper xssHttpServletRequestWrapper = new XssHttpServletRequestWrapper(
-                httpServletRequest);
-        filterChain.doFilter(xssHttpServletRequestWrapper, servletResponse);
+/*        XssHttpServletRequestWrapper xssHttpServletRequestWrapper = new XssHttpServletRequestWrapper(
+                httpServletRequest);*/
+        filterChain.doFilter(httpServletRequest, servletResponse);
 
 /*        servletRequest.setCharacterEncoding("utf-8");
         servletResponse.setContentType("text/html;charset=utf-8");

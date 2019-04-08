@@ -67,8 +67,11 @@ public class LogInController {
             token.clear();
             throw new CustomizeException(CustomizeStatus.LOGIN_WRONG_PASSWORD, this.getClass());
         } finally {
+            Long type = null;
             //进行判断，是否为后台用户
-            Long type = Long.valueOf(session.getAttribute(MagicalValue.USER_TYPE).toString());
+            if (session.getAttribute(MagicalValue.USER_TYPE) != null){
+                type = Long.valueOf(session.getAttribute(MagicalValue.USER_TYPE).toString());
+            }
             if (!type.equals(SystemSelectItem.USER_TYPE_BACK_DESK)) {
                 //跳回登录页面
                 //前端调用/logout退出
