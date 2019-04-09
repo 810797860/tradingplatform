@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.secondhand.tradingplatformadminmapper.mapper.front.personal.ShoppingCartMapper">
+
+	<cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="shoppingCartMap" type="com.secondhand.tradingplatformadminentity.entity.front.personal.ShoppingCart" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
+		<result column="title" property="title" jdbcType="VARCHAR"/>
+		<result column="user_id" property="userId" jdbcType="INTEGER" />
+	</resultMap>
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="shoppingCartMapSimple" type="com.secondhand.tradingplatformadminentity.entity.front.personal.ShoppingCart">
+		<result column="title" property="title" jdbcType="VARCHAR"/>
+		<result column="user_id" property="userId" jdbcType="INTEGER" />
+	</resultMap>
+
+	<select id="mySelectTotalWithParam" resultType="java.lang.Long">
+		SELECT COUNT(1) FROM ( SELECT
+		cbea.title AS title,
+		cbea.created_at AS created_at
+		FROM c_business_electric_appliance_order cbeao JOIN c_business_electric_appliance cbea ON (
+		cbeao.electric_id = cbea.id
+		AND cbeao.user_id = #{shoppingCart.userId}
+		AND cbeao.order_status = 200126
+		AND cbea.deleted = FALSE
+		AND cbeao.deleted = FALSE
+		) UNION SELECT
+		cbbl.title AS title,
+		cbbl.created_at AS created_at
+		FROM c_business_book_library_order cbblo JOIN c_business_book_library cbbl ON (
+		cbblo.book_id = cbbl.id
+		AND cbblo.user_id = #{shoppingCart.userId}
+		AND cbblo.order_status = 200126
+		AND cbbl.deleted = FALSE
+		AND cbblo.deleted = FALSE
+		) UNION SELECT
+		cbss.title AS title,
+		cbss.created_at AS created_at
+		FROM c_business_sports_special_order cbsso JOIN c_business_sports_special cbss ON (
+		cbsso.sports_id = cbss.id
+		AND cbsso.user_id = #{shoppingCart.userId}
+		AND cbsso.order_status = 200126
+		AND cbss.deleted = FALSE
+		AND cbsso.deleted = FALSE
+		) UNION SELECT
+		cbds.title AS title,
+		cbds.created_at AS created_at
+		FROM c_business_digital_square_order cbdso JOIN c_business_digital_square cbds ON (
+		cbdso.digital_id = cbds.id
+		AND cbdso.user_id = #{shoppingCart.userId}
+		AND cbdso.order_status = 200126
+		AND cbds.deleted = FALSE
+		AND cbdso.deleted = FALSE
+		) UNION SELECT
+		cbrh.title AS title,
+		cbrh.created_at AS created_at
+		FROM c_business_renting_house_order cbrho JOIN c_business_renting_house cbrh ON (
+		cbrho.renting_id = cbrh.id
+		AND cbrho.user_id = #{shoppingCart.userId}
+		AND cbrho.order_status = 200126
+		AND cbrh.deleted = FALSE
+		AND cbrho.deleted = FALSE ) ) myDual
+		<if test = "null != shoppingCart.title">
+			where myDual.title LIKE concat('%',#{shoppingCart.title},'%')
+		</if>
+	</select>
+
+	<select id="mySelectListWithParam" resultType="java.util.Map">
+		SELECT * FROM ( SELECT
+		cbea.id AS id,
+		cbeao.id AS order_id,
+		cbea.cover AS cover,
+		cbea.title AS title,
+		cbea.description AS description,
+		cbea.price AS price,
+		200120 AS category,
+		cbeao.created_at AS created_at
+		FROM c_business_electric_appliance_order cbeao JOIN c_business_electric_appliance cbea ON (
+		cbeao.electric_id = cbea.id
+		AND cbeao.user_id = #{shoppingCart.userId}
+		AND cbeao.order_status = 200126
+		AND cbea.deleted = FALSE
+		AND cbeao.deleted = FALSE
+		) UNION SELECT
+		cbbl.id AS id,
+		cbblo.id AS order_id,
+		cbbl.cover AS cover,
+		cbbl.title AS title,
+		cbbl.description AS description,
+		cbbl.price AS price,
+		200121 AS category,
+		cbblo.created_at AS created_at
+		FROM c_business_book_library_order cbblo JOIN c_business_book_library cbbl ON (
+		cbblo.book_id = cbbl.id
+		AND cbblo.user_id = #{shoppingCart.userId}
+		AND cbblo.order_status = 200126
+		AND cbbl.deleted = FALSE
+		AND cbblo.deleted = FALSE
+		) UNION SELECT
+		cbss.id AS id,
+		cbsso.id AS order_id,
+		cbss.cover AS cover,
+		cbss.title AS title,
+		cbss.description AS description,
+		cbss.price AS price,
+		200122 AS category,
+		cbsso.created_at AS created_at
+		FROM c_business_sports_special_order cbsso JOIN c_business_sports_special cbss ON (
+		cbsso.sports_id = cbss.id
+		AND cbsso.user_id = #{shoppingCart.userId}
+		AND cbsso.order_status = 200126
+		AND cbss.deleted = FALSE
+		AND cbsso.deleted = FALSE
+		) UNION SELECT
+		cbds.id AS id,
+		cbdso.id AS order_id,
+		cbds.cover AS cover,
+		cbds.title AS title,
+		cbds.description AS description,
+		cbds.price AS price,
+		200123 AS category,
+		cbdso.created_at AS created_at
+		FROM c_business_digital_square_order cbdso JOIN c_business_digital_square cbds ON (
+		cbdso.digital_id = cbds.id
+		AND cbdso.user_id = #{shoppingCart.userId}
+		AND cbdso.order_status = 200126
+		AND cbds.deleted = FALSE
+		AND cbdso.deleted = FALSE
+		) UNION SELECT
+		cbrh.id AS id,
+		cbrho.id AS order_id,
+		cbrh.cover AS cover,
+		cbrh.title AS title,
+		cbrh.description AS description,
+		cbrh.price AS price,
+		200124 AS category,
+		cbrho.created_at AS created_at
+		FROM c_business_renting_house_order cbrho JOIN c_business_renting_house cbrh ON (
+		cbrho.renting_id = cbrh.id
+		AND cbrho.user_id = #{shoppingCart.userId}
+		AND cbrho.order_status = 200126
+		AND cbrh.deleted = FALSE
+		AND cbrho.deleted = FALSE ) ) myDual
+		<if test = "null != shoppingCart.title">
+			where myDual.title LIKE concat('%',#{shoppingCart.title},'%')
+		</if>
+		ORDER BY myDual.created_at DESC limit ${lowerLimit}, ${upperLimit}
+	</select>
+
+</mapper>

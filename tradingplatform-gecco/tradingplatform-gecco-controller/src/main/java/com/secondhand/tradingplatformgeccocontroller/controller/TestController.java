@@ -46,7 +46,7 @@ public class TestController extends BaseController {
         Page resPage = test.getPage();
         Integer current = resPage.getCurrent();
         Integer size = resPage.getSize();
-        if (current == null && size == null) {
+        if (current == null || size == null) {
             resJson.setSuccess(false);
             resJson.setMessage("异常信息：页数和页的大小不能为空");
             return resJson;
