@@ -137,4 +137,24 @@ public class SystemSelectItem {
      * 微信用户
      */
     public static final Long USER_TYPE_WECHAT_DESK = 100507L;
+
+    /**
+     * 后台审核状态
+     */
+    public static final Long BACK_CHECK_STATUS = 100404L;
+
+    /**
+     * 待审核
+     */
+    public static final Long BACK_STATUS_PENDING_REVIEW = 100508L;
+
+    /**
+     * 审核通过
+     */
+    public static final Long BACK_STATUS_EXAMINATION_PASSED = 100509L;
+
+    /**
+     * 审核不通过
+     */
+    public static final Long BACK_STATUS_AUDIT_NOT_PASSED = 100510L;
 }

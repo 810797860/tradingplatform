@@ -9,9 +9,12 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * @author 81079
+ */
 @ControllerAdvice
 @ResponseBody
-@Api(description = "自定义异常拦截器")
+@Api(description = "异常拦截器")
 public class CustomizeExceptionHandler{
 
     @ExceptionHandler(CustomizeException.class)

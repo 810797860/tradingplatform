@@ -1,6 +1,7 @@
 package com.secondhand.tradingplatformadmincontroller.controller.front.shiro;
 
 import com.secondhand.tradingplatformadmincontroller.shiro.DesUserToken;
+import com.secondhand.tradingplatformadminentity.entity.admin.shiro.User;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
 import com.secondhand.tradingplatformcommon.pojo.CustomizeStatus;
@@ -13,9 +14,9 @@ import io.swagger.annotations.ApiParam;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.LockedAccountException;
+import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -77,5 +78,31 @@ public class LogInController {
                 throw new CustomizeException(CustomizeStatus.LOGIN_LOG_IN_ERROR, this.getClass());
             }
         }
+    }
+
+    /**
+     * @description : 获取用户登录信息
+     * @author : zhangjk
+     * @since : Create in 2018-12-04
+     */
+    @GetMapping(value = "/login_information", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @ApiOperation(value = "/login_information", notes = "获取用户登录信息")
+    public JsonResult<User> getLoginInformation() throws CustomizeException {
+        Session session = SecurityUtils.getSubject().getSession();
+        Object userObj = session.getAttribute(MagicalValue.USER_SESSION);
+        //如果获取不了，则未登录
+        if (ToolUtil.objIsEmpty(userObj)){
+            throw new CustomizeException(CustomizeStatus.LOGIN_HAS_EXPIRED, this.getClass());
+        }
+        //强转
+        User user = (User) userObj;
+        //把重要信息隐藏
+        user.setPassword(null);
+        //返回登录信息
+        JsonResult<User> resJson = new JsonResult<>();
+        resJson.setData(user);
+        resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+        resJson.setSuccess(true);
+        return resJson;
     }
 }

@@ -8,7 +8,6 @@
         <result column="password" property="password" jdbcType="VARCHAR"></result>
         <result column="salt" property="salt" jdbcType="VARCHAR"></result>
         <result column="name" property="name" jdbcType="VARCHAR"></result>
-        <result column="birthday" property="birthday" jdbcType="DATETIME"></result>
         <result column="sex" property="sex" jdbcType="INTEGER"></result>
         <result column="email" property="email" jdbcType="VARCHAR"></result>
         <result column="phone" property="phone" jdbcType="VARCHAR"></result>
@@ -25,7 +24,6 @@
         <result column="password" property="password" jdbcType="VARCHAR"></result>
         <result column="salt" property="salt" jdbcType="VARCHAR"></result>
         <result column="name" property="name" jdbcType="VARCHAR"></result>
-        <result column="birthday" property="birthday" jdbcType="DATETIME"></result>
         <result column="sex" property="sex" jdbcType="INTEGER"></result>
         <result column="email" property="email" jdbcType="VARCHAR"></result>
         <result column="phone" property="phone" jdbcType="VARCHAR"></result>

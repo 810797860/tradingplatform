@@ -43,12 +43,6 @@ public class User extends BaseEntity {
     @TableField("name")
     private String name;
 
-    @ApiModelProperty("生日")
-    @TableField("birthday")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    private Date birthday;
-
     @ApiModelProperty("性别（1：男 2：女）")
     @TableField("sex")
     private Integer sex;
@@ -123,14 +117,6 @@ public class User extends BaseEntity {
         this.name = name;
     }
 
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
-
     public Integer getSex() {
         return sex;
     }
@@ -203,7 +189,6 @@ public class User extends BaseEntity {
                 ", password='" + password + '\'' +
                 ", salt='" + salt + '\'' +
                 ", name='" + name + '\'' +
-                ", birthday=" + birthday +
                 ", sex=" + sex +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +

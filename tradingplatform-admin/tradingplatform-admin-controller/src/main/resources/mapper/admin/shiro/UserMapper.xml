@@ -12,11 +12,11 @@
         <result column="account" property="account" jdbcType="VARCHAR"/>
         <result column="password" property="password" jdbcType="VARCHAR"/>
         <result column="user_name" property="userName" jdbcType="VARCHAR"/>
-        <result column="birthday" property="birthday" jdbcType="DATE"/>
         <result column="sex" property="sex" jdbcType="INTEGER"/>
         <result column="email" property="email" jdbcType="VARCHAR"/>
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
         <result column="type" property="type" jdbcType="INTEGER"/>
+        <result column="school_address" property="schoolAddress" jdbcType="INTEGER"/>
 
     </resultMap>
 
@@ -27,11 +27,11 @@
         <result column="account" property="account" jdbcType="VARCHAR"/>
         <result column="password" property="password" jdbcType="VARCHAR"/>
         <result column="user_name" property="userName" jdbcType="VARCHAR"/>
-        <result column="birthday" property="birthday" jdbcType="DATE"/>
         <result column="sex" property="sex" jdbcType="INTEGER"/>
         <result column="email" property="email" jdbcType="VARCHAR"/>
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
         <result column="type" property="type" jdbcType="INTEGER"/>
+        <result column="school_address" property="schoolAddress" jdbcType="INTEGER"/>
 
     </resultMap>
 

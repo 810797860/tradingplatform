@@ -56,17 +56,6 @@ public class User extends BaseEntity {
     private String userName;
 
     /**
-     * 生日
-     */
-    @ApiModelProperty("生日")
-    @TableField("birthday")
-
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-
-    private Date birthday;
-
-    /**
      * 性别
      */
     @ApiModelProperty("性别")
@@ -93,6 +82,11 @@ public class User extends BaseEntity {
     @ApiModelProperty("用户类型")
     @TableField("type")
     private Long type;
+
+
+    @ApiModelProperty("学校住址")
+    @TableField("school_address")
+    private Long schoolAddress;
 
 
     public Long getAvatar() {
@@ -127,14 +121,6 @@ public class User extends BaseEntity {
         this.userName = userName;
     }
 
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
-
     public Long getSex() {
         return sex;
     }
@@ -167,6 +153,14 @@ public class User extends BaseEntity {
         this.type = type;
     }
 
+    public Long getSchoolAddress() {
+        return schoolAddress;
+    }
+
+    public void setSchoolAddress(Long schoolAddress) {
+        this.schoolAddress = schoolAddress;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -174,11 +168,11 @@ public class User extends BaseEntity {
                 ", account='" + account + '\'' +
                 ", password='" + password + '\'' +
                 ", userName='" + userName + '\'' +
-                ", birthday=" + birthday +
                 ", sex=" + sex +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 ", type=" + type +
+                ", schoolAddress=" + schoolAddress +
                 '}';
     }
 }

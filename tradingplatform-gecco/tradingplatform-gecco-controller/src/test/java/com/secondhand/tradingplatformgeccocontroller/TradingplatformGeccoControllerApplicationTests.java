@@ -1,7 +1,7 @@
 package com.secondhand.tradingplatformgeccocontroller;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.secondhand.tradingplatformcommon.pojo.BusinessSelectItem;
+import com.secondhand.tradingplatformcommon.pojo.SystemSelectItem;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -64,7 +64,7 @@ public class TradingplatformGeccoControllerApplicationTests {
             jdbcTemplate.update("INSERT INTO c_business_electric_appliance(uuid, power, back_check_status, not_pass_reason, back_check_time, details, type, model, brand, user_id, comment_num, star, price, cover, title, description, deleted ) VALUES('" +
                     ToolUtil.getUUID() + "','" +
                     ToolUtil.getClawer(dangDetail.getPower()) + "','" +
-                    BusinessSelectItem.BACK_STATUS_EXAMINATION_PASSED + "','" +
+                    SystemSelectItem.BACK_STATUS_EXAMINATION_PASSED + "','" +
                     "" + "','" +
                     ToolUtil.getDateTime() + "','" +
                     ToolUtil.getClawer(dangDetail.getDetails().getDetail()) + "','" +
@@ -121,7 +121,7 @@ public class TradingplatformGeccoControllerApplicationTests {
         String detail = dangDetail.getDetails().getDetail().replaceAll("'", "\\\\'");
         jdbcTemplate.update("INSERT INTO c_business_book_library(uuid, back_check_status, not_pass_reason, back_check_time, details, classification, isbn, suited, enfold, paper, format, published_time, publishing_house, author, comment_num, star, price, cover, title, description, deleted) VALUES('" +
                 ToolUtil.getUUID() + "','" +
-                BusinessSelectItem.BACK_STATUS_EXAMINATION_PASSED + "','" +
+                SystemSelectItem.BACK_STATUS_EXAMINATION_PASSED + "','" +
                 "" + "','" +
                 ToolUtil.getDateTime() + "','" +
                 ToolUtil.getClawer(detail) + "','" +
@@ -180,7 +180,7 @@ public class TradingplatformGeccoControllerApplicationTests {
                     ToolUtil.getUUID() + "','" +
                     ToolUtil.getClawer(dangDetail.getDetails().getDetail()) + "','" +
                     0 + "','" +
-                    BusinessSelectItem.BACK_STATUS_EXAMINATION_PASSED + "','" +
+                    SystemSelectItem.BACK_STATUS_EXAMINATION_PASSED + "','" +
                     "" + "','" +
                     ToolUtil.getDateTime() + "','" +
                     ToolUtil.getClawer(dangDetail.getPattern()) + "','" +
@@ -232,7 +232,7 @@ public class TradingplatformGeccoControllerApplicationTests {
                     ToolUtil.getUUID() + "','" +
                     ToolUtil.getClawer(dangDetail.getDetails().getDetail()) + "','" +
                     0 + "','" +
-                    BusinessSelectItem.BACK_STATUS_EXAMINATION_PASSED + "','" +
+                    SystemSelectItem.BACK_STATUS_EXAMINATION_PASSED + "','" +
                     "" + "','" +
                     ToolUtil.getDateTime() + "','" +
                     ToolUtil.getClawer(dangDetail.getPattern()) + "','" +
