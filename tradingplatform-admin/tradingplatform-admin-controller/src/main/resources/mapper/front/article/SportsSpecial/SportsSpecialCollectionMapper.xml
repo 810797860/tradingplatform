@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.secondhand.tradingplatformadminmapper.mapper.front.article.SportsSpecial.SportsSpecialCollectionMapper">
+
+    <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
+
+		<!-- 通用查询映射结果 -->
+		<resultMap id="sportsSpecialCollectionMap" type="com.secondhand.tradingplatformadminentity.entity.front.article.SportsSpecial.SportsSpecialCollection" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
+
+
+				<result column="sports_id" property="sportsId" jdbcType="INTEGER" />
+				<result column="user_id" property="userId" jdbcType="INTEGER" />
+
+
+
+
+
+
+		</resultMap>
+
+        <!-- 通用查询映射结果 -->
+		<resultMap id="sportsSpecialCollectionMapSimple" type="com.secondhand.tradingplatformadminentity.entity.front.article.SportsSpecial.SportsSpecialCollection">
+
+
+                        <result column="sports_id" property="sportsId" jdbcType="INTEGER" />
+                        <result column="user_id" property="userId" jdbcType="INTEGER" />
+
+
+
+
+
+
+        </resultMap>
+
+    <select id="selectMapById" resultType="java.util.Map">
+        select * from c_business_sports_special_collection where id = #{sportsSpecialCollectionId} and deleted = false
+    </select>
+
+</mapper>

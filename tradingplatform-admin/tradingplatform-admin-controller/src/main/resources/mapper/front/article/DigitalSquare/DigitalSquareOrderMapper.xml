@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.secondhand.tradingplatformadminmapper.mapper.front.article.DigitalSquare.DigitalSquareOrderMapper">
+
+    <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
+
+		<!-- 通用查询映射结果 -->
+		<resultMap id="digitalSquareOrderMap" type="com.secondhand.tradingplatformadminentity.entity.front.article.DigitalSquare.DigitalSquareOrder" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
+
+
+				<result column="order_status" property="orderStatus" jdbcType="INTEGER" />
+				<result column="quantity" property="quantity" jdbcType="INTEGER" />
+				<result column="price" property="price" jdbcType="FLOAT" />
+				<result column="digital_id" property="digitalId" jdbcType="INTEGER" />
+				<result column="user_id" property="userId" jdbcType="INTEGER" />
+
+
+
+
+
+
+		</resultMap>
+
+        <!-- 通用查询映射结果 -->
+		<resultMap id="digitalSquareOrderMapSimple" type="com.secondhand.tradingplatformadminentity.entity.front.article.DigitalSquare.DigitalSquareOrder">
+
+
+                        <result column="order_status" property="orderStatus" jdbcType="INTEGER" />
+                        <result column="quantity" property="quantity" jdbcType="INTEGER" />
+                        <result column="price" property="price" jdbcType="FLOAT" />
+                        <result column="digital_id" property="digitalId" jdbcType="INTEGER" />
+                        <result column="user_id" property="userId" jdbcType="INTEGER" />
+
+
+
+
+
+
+        </resultMap>
+
+    <select id="selectMapById" resultType="java.util.Map">
+        select * from c_business_digital_square_order where id = #{digitalSquareOrderId} and deleted = false
+    </select>
+
+</mapper>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.secondhand.tradingplatformadminmapper.mapper.front.article.ElectricAppliance.ElectricApplianceCollectionMapper">
+
+    <cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
+
+		<!-- 通用查询映射结果 -->
+		<resultMap id="electricApplianceCollectionMap" type="com.secondhand.tradingplatformadminentity.entity.front.article.ElectricAppliance.ElectricApplianceCollection" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
+
+
+				<result column="electric_id" property="electricId" jdbcType="INTEGER" />
+				<result column="user_id" property="userId" jdbcType="INTEGER" />
+
+
+
+
+
+
+		</resultMap>
+
+        <!-- 通用查询映射结果 -->
+		<resultMap id="electricApplianceCollectionMapSimple" type="com.secondhand.tradingplatformadminentity.entity.front.article.ElectricAppliance.ElectricApplianceCollection">
+
+
+                        <result column="electric_id" property="electricId" jdbcType="INTEGER" />
+                        <result column="user_id" property="userId" jdbcType="INTEGER" />
+
+
+
+
+
+
+        </resultMap>
+
+    <select id="selectMapById" resultType="java.util.Map">
+        select * from c_business_electric_appliance_collection where id = #{electricApplianceCollectionId} and deleted = false
+    </select>
+
+</mapper>
