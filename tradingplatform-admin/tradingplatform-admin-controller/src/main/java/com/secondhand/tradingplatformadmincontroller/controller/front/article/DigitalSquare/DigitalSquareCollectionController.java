@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.UnauthorizedException;
+import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -142,6 +143,9 @@ public class DigitalSquareCollectionController extends BaseController {
             try{
                 //检查是否具有权限
                 subject.checkPermission("/front/digitalSquareCollection/create_update");
+                Session session = subject.getSession();
+                Long userId = Long.valueOf(session.getAttribute(MagicalValue.USER_SESSION_ID).toString());
+                digitalSquareCollection.setUserId(userId);
                 digitalSquareCollection = digitalSquareCollectionService.myDigitalSquareCollectionCreateUpdate(digitalSquareCollection);
                 resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setData(digitalSquareCollection);

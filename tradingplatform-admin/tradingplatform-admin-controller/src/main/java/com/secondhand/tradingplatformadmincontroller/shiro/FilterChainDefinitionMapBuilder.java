@@ -76,9 +76,6 @@ public class FilterChainDefinitionMapBuilder {
         filterChainDefinitionMap.put("/front/otherCategories/query", "anon");
         filterChainDefinitionMap.put("/front/otherCategories/get_map_by_id/*", "anon");
 
-        //测试
-        filterChainDefinitionMap.put("/front/shoppingCart/query", "anon");
-
         return (LinkedHashMap<String, String>) filterChainDefinitionMap;
     }
 }

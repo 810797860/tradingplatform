@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.secondhand.tradingplatformadminmapper.mapper.front.personal.MyCommentMapper">
+
+	<cache type="com.secondhand.tradingplatformcommon.redisCache.RedisCache"></cache>
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="myCommentMap" type="com.secondhand.tradingplatformadminentity.entity.front.personal.MyComment" extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
+		<result column="title" property="title" jdbcType="VARCHAR"/>
+		<result column="user_id" property="userId" jdbcType="INTEGER" />
+	</resultMap>
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="myCommentMapSimple" type="com.secondhand.tradingplatformadminentity.entity.front.personal.MyComment">
+		<result column="title" property="title" jdbcType="VARCHAR"/>
+		<result column="user_id" property="userId" jdbcType="INTEGER" />
+	</resultMap>
+
+	<select id="mySelectTotalWithParam" resultType="java.lang.Long">
+		SELECT COUNT(1) FROM ( SELECT
+		cbea.title AS title,
+		cbea.created_at AS created_at
+		FROM c_business_electric_appliance_evaluation cbeae JOIN c_business_electric_appliance cbea ON (
+		cbeae.electric_id = cbea.id
+		AND cbeae.user_id = #{myComment.userId}
+		AND cbeae.back_check_status = 100509
+		AND cbea.deleted = FALSE
+		AND cbeae.deleted = FALSE
+		) UNION SELECT
+		cbbl.title AS title,
+		cbbl.created_at AS created_at
+		FROM c_business_book_library_evaluation cbble JOIN c_business_book_library cbbl ON (
+		cbble.book_id = cbbl.id
+		AND cbble.user_id = #{myComment.userId}
+		AND cbble.back_check_status = 100509
+		AND cbbl.deleted = FALSE
+		AND cbble.deleted = FALSE
+		) UNION SELECT
+		cbss.title AS title,
+		cbss.created_at AS created_at
+		FROM c_business_sports_special_evaluation cbsse JOIN c_business_sports_special cbss ON (
+		cbsse.sports_id = cbss.id
+		AND cbsse.user_id = #{myComment.userId}
+		AND cbsse.back_check_status = 100509
+		AND cbss.deleted = FALSE
+		AND cbsse.deleted = FALSE
+		) UNION SELECT
+		cbds.title AS title,
+		cbds.created_at AS created_at
+		FROM c_business_digital_square_evaluation cbdse JOIN c_business_digital_square cbds ON (
+		cbdse.digital_id = cbds.id
+		AND cbdse.user_id = #{myComment.userId}
+		AND cbdse.back_check_status = 100509
+		AND cbds.deleted = FALSE
+		AND cbdse.deleted = FALSE
+		) UNION SELECT
+		cbrh.title AS title,
+		cbrh.created_at AS created_at
+		FROM c_business_renting_house_evaluation cbrhe JOIN c_business_renting_house cbrh ON (
+		cbrhe.renting_id = cbrh.id
+		AND cbrhe.user_id = #{myComment.userId}
+		AND cbrhe.back_check_status = 100509
+		AND cbrh.deleted = FALSE
+		AND cbrhe.deleted = FALSE
+		) ) myDual
+		<if test = "null != myComment.title">
+			where myDual.title LIKE concat('%',#{myComment.title},'%')
+		</if>
+	</select>
+
+	<select id="mySelectListWithParam" resultType="java.util.Map">
+		SELECT * FROM ( SELECT
+		cbea.id AS id,
+		cbeae.id AS evaluation_id,
+		cbea.title AS title,
+		cbea.cover AS cover,
+		cbeae.content AS content,
+		cbeae.star AS star,
+		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
+		FROM s_base_user sbu WHERE (sbu.id = cbeae.user_id) ) AS user_info,
+		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
+		FROM s_base_user sbu WHERE (sbu.id = cbea.user_id) ) AS sale_user,
+		200120 AS category,
+		cbeae.created_at AS created_at
+		FROM c_business_electric_appliance_evaluation cbeae JOIN c_business_electric_appliance cbea ON (
+		cbeae.electric_id = cbea.id
+		AND cbeae.user_id = #{myComment.userId}
+		AND cbeae.back_check_status = 100509
+		AND cbea.deleted = FALSE
+		AND cbeae.deleted = FALSE
+		) UNION SELECT
+		cbbl.id AS id,
+		cbble.id AS evaluation_id,
+		cbbl.title AS title,
+		cbbl.cover AS cover,
+		cbble.content AS content,
+		cbble.star AS star,
+		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
+		FROM s_base_user sbu WHERE (sbu.id = cbble.user_id) ) AS user_info,
+		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
+		FROM s_base_user sbu WHERE (sbu.id = cbbl.user_id) ) AS sale_user,
+		200121 AS category,
+		cbble.created_at AS created_at
+		FROM c_business_book_library_evaluation cbble JOIN c_business_book_library cbbl ON (
+		cbble.book_id = cbbl.id
+		AND cbble.user_id = #{myComment.userId}
+		AND cbble.back_check_status = 100509
+		AND cbbl.deleted = FALSE
+		AND cbble.deleted = FALSE
+		) UNION SELECT
+		cbss.id AS id,
+		cbsse.id AS evaluation_id,
+		cbss.title AS title,
+		cbss.cover AS cover,
+		cbsse.content AS content,
+		cbsse.star AS star,
+		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
+		FROM s_base_user sbu WHERE (sbu.id = cbsse.user_id) ) AS user_info,
+		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
+		FROM s_base_user sbu WHERE (sbu.id = cbss.user_id) ) AS sale_user,
+		200122 AS category,
+		cbsse.created_at AS created_at
+		FROM c_business_sports_special_evaluation cbsse JOIN c_business_sports_special cbss ON (
+		cbsse.sports_id = cbss.id
+		AND cbsse.user_id = #{myComment.userId}
+		AND cbsse.back_check_status = 100509
+		AND cbss.deleted = FALSE
+		AND cbsse.deleted = FALSE
+		) UNION SELECT
+		cbds.id AS id,
+		cbdse.id AS evaluation_id,
+		cbds.title AS title,
+		cbds.cover AS cover,
+		cbdse.content AS content,
+		cbdse.star AS star,
+		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
+		FROM s_base_user sbu WHERE (sbu.id = cbdse.user_id) ) AS user_info,
+		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
+		FROM s_base_user sbu WHERE (sbu.id = cbds.user_id) ) AS sale_user,
+		200123 AS category,
+		cbdse.created_at AS created_at
+		FROM c_business_digital_square_evaluation cbdse JOIN c_business_digital_square cbds ON (
+		cbdse.digital_id = cbds.id
+		AND cbdse.user_id = #{myComment.userId}
+		AND cbdse.back_check_status = 100509
+		AND cbds.deleted = FALSE
+		AND cbdse.deleted = FALSE
+		) UNION SELECT
+		cbrh.id AS id,
+		cbrhe.id AS evaluation_id,
+		cbrh.title AS title,
+		cbrh.cover AS cover,
+		cbrhe.content AS content,
+		cbrhe.star AS star,
+		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
+		FROM s_base_user sbu WHERE (sbu.id = cbrhe.user_id) ) AS user_info,
+		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
+		FROM s_base_user sbu WHERE (sbu.id = cbrh.user_id) ) AS sale_user,
+		200124 AS category,
+		cbrhe.created_at AS created_at
+		FROM c_business_renting_house_evaluation cbrhe JOIN c_business_renting_house cbrh ON (
+		cbrhe.renting_id = cbrh.id
+		AND cbrhe.user_id = #{myComment.userId}
+		AND cbrhe.back_check_status = 100509
+		AND cbrh.deleted = FALSE
+		AND cbrhe.deleted = FALSE
+		) ) myDual
+		<if test = "null != myComment.title">
+			where myDual.title LIKE concat('%',#{myComment.title},'%')
+		</if>
+		ORDER BY myDual.created_at DESC limit ${lowerLimit}, ${upperLimit}
+	</select>
+
+	<select id="mySelectSaleTotalWithParam" resultType="java.lang.Long">
+		SELECT COUNT(1) FROM ( SELECT
+		cbea.title AS title,
+		cbea.created_at AS created_at
+		FROM c_business_electric_appliance_evaluation cbeae JOIN c_business_electric_appliance cbea ON (
+		cbeae.electric_id = cbea.id
+		AND cbea.user_id = #{myComment.userId}
+		AND cbeae.back_check_status = 100509
+		AND cbea.deleted = FALSE
+		AND cbeae.deleted = FALSE
+		) UNION SELECT
+		cbbl.title AS title,
+		cbbl.created_at AS created_at
+		FROM c_business_book_library_evaluation cbble JOIN c_business_book_library cbbl ON (
+		cbble.book_id = cbbl.id
+		AND cbbl.user_id = #{myComment.userId}
+		AND cbble.back_check_status = 100509
+		AND cbbl.deleted = FALSE
+		AND cbble.deleted = FALSE
+		) UNION SELECT
+		cbss.title AS title,
+		cbss.created_at AS created_at
+		FROM c_business_sports_special_evaluation cbsse JOIN c_business_sports_special cbss ON (
+		cbsse.sports_id = cbss.id
+		AND cbss.user_id = #{myComment.userId}
+		AND cbsse.back_check_status = 100509
+		AND cbss.deleted = FALSE
+		AND cbsse.deleted = FALSE
+		) UNION SELECT
+		cbds.title AS title,
+		cbds.created_at AS created_at
+		FROM c_business_digital_square_evaluation cbdse JOIN c_business_digital_square cbds ON (
+		cbdse.digital_id = cbds.id
+		AND cbds.user_id = #{myComment.userId}
+		AND cbdse.back_check_status = 100509
+		AND cbds.deleted = FALSE
+		AND cbdse.deleted = FALSE
+		) UNION SELECT
+		cbrh.title AS title,
+		cbrh.created_at AS created_at
+		FROM c_business_renting_house_evaluation cbrhe JOIN c_business_renting_house cbrh ON (
+		cbrhe.renting_id = cbrh.id
+		AND cbrh.user_id = #{myComment.userId}
+		AND cbrhe.back_check_status = 100509
+		AND cbrh.deleted = FALSE
+		AND cbrhe.deleted = FALSE
+		) ) myDual
+		<if test = "null != myComment.title">
+			where myDual.title LIKE concat('%',#{myComment.title},'%')
+		</if>
+	</select>
+
+	<select id="mySelectSaleListWithParam" resultType="java.util.Map">
+		SELECT * FROM ( SELECT
+		cbea.id AS id,
+		cbeae.id AS evaluation_id,
+		cbea.title AS title,
+		cbea.cover AS cover,
+		cbeae.content AS content,
+		cbeae.star AS star,
+		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
+		FROM s_base_user sbu WHERE (sbu.id = cbeae.user_id) ) AS user_info,
+		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
+		FROM s_base_user sbu WHERE (sbu.id = cbea.user_id) ) AS sale_user,
+		200120 AS category,
+		cbeae.created_at AS created_at
+		FROM c_business_electric_appliance_evaluation cbeae JOIN c_business_electric_appliance cbea ON (
+		cbeae.electric_id = cbea.id
+		AND cbea.user_id = #{myComment.userId}
+		AND cbeae.back_check_status = 100509
+		AND cbea.deleted = FALSE
+		AND cbeae.deleted = FALSE
+		) UNION SELECT
+		cbbl.id AS id,
+		cbble.id AS evaluation_id,
+		cbbl.title AS title,
+		cbbl.cover AS cover,
+		cbble.content AS content,
+		cbble.star AS star,
+		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
+		FROM s_base_user sbu WHERE (sbu.id = cbble.user_id) ) AS user_info,
+		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
+		FROM s_base_user sbu WHERE (sbu.id = cbbl.user_id) ) AS sale_user,
+		200121 AS category,
+		cbble.created_at AS created_at
+		FROM c_business_book_library_evaluation cbble JOIN c_business_book_library cbbl ON (
+		cbble.book_id = cbbl.id
+		AND cbbl.user_id = #{myComment.userId}
+		AND cbble.back_check_status = 100509
+		AND cbbl.deleted = FALSE
+		AND cbble.deleted = FALSE
+		) UNION SELECT
+		cbss.id AS id,
+		cbsse.id AS evaluation_id,
+		cbss.title AS title,
+		cbss.cover AS cover,
+		cbsse.content AS content,
+		cbsse.star AS star,
+		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
+		FROM s_base_user sbu WHERE (sbu.id = cbsse.user_id) ) AS user_info,
+		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
+		FROM s_base_user sbu WHERE (sbu.id = cbss.user_id) ) AS sale_user,
+		200122 AS category,
+		cbsse.created_at AS created_at
+		FROM c_business_sports_special_evaluation cbsse JOIN c_business_sports_special cbss ON (
+		cbsse.sports_id = cbss.id
+		AND cbss.user_id = #{myComment.userId}
+		AND cbsse.back_check_status = 100509
+		AND cbss.deleted = FALSE
+		AND cbsse.deleted = FALSE
+		) UNION SELECT
+		cbds.id AS id,
+		cbdse.id AS evaluation_id,
+		cbds.title AS title,
+		cbds.cover AS cover,
+		cbdse.content AS content,
+		cbdse.star AS star,
+		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
+		FROM s_base_user sbu WHERE (sbu.id = cbdse.user_id) ) AS user_info,
+		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
+		FROM s_base_user sbu WHERE (sbu.id = cbds.user_id) ) AS sale_user,
+		200123 AS category,
+		cbdse.created_at AS created_at
+		FROM c_business_digital_square_evaluation cbdse JOIN c_business_digital_square cbds ON (
+		cbdse.digital_id = cbds.id
+		AND cbds.user_id = #{myComment.userId}
+		AND cbdse.back_check_status = 100509
+		AND cbds.deleted = FALSE
+		AND cbdse.deleted = FALSE
+		) UNION SELECT
+		cbrh.id AS id,
+		cbrhe.id AS evaluation_id,
+		cbrh.title AS title,
+		cbrh.cover AS cover,
+		cbrhe.content AS content,
+		cbrhe.star AS star,
+		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
+		FROM s_base_user sbu WHERE (sbu.id = cbrhe.user_id) ) AS user_info,
+		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
+		FROM s_base_user sbu WHERE (sbu.id = cbrh.user_id) ) AS sale_user,
+		200124 AS category,
+		cbrhe.created_at AS created_at
+		FROM c_business_renting_house_evaluation cbrhe JOIN c_business_renting_house cbrh ON (
+		cbrhe.renting_id = cbrh.id
+		AND cbrh.user_id = #{myComment.userId}
+		AND cbrhe.back_check_status = 100509
+		AND cbrh.deleted = FALSE
+		AND cbrhe.deleted = FALSE
+		) ) myDual
+		<if test = "null != myComment.title">
+			where myDual.title LIKE concat('%',#{myComment.title},'%')
+		</if>
+		ORDER BY myDual.created_at DESC limit ${lowerLimit}, ${upperLimit}
+	</select>
+
+</mapper>

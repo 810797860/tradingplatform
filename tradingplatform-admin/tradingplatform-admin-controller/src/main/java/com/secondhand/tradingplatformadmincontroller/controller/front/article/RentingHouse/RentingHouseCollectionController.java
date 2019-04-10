@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.UnauthorizedException;
+import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -142,6 +143,9 @@ public class RentingHouseCollectionController extends BaseController {
             try{
                 //检查是否具有权限
                 subject.checkPermission("/front/rentingHouseCollection/create_update");
+                Session session = subject.getSession();
+                Long userId = Long.valueOf(session.getAttribute(MagicalValue.USER_SESSION_ID).toString());
+                rentingHouseCollection.setUserId(userId);
                 rentingHouseCollection = rentingHouseCollectionService.myRentingHouseCollectionCreateUpdate(rentingHouseCollection);
                 resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setData(rentingHouseCollection);

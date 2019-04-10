@@ -1,14 +1,17 @@
 package com.secondhand.tradingplatformadmincontroller.controller.front.article.BookLibrary;
 
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.front.important.FrontSelectItem;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
+import com.secondhand.tradingplatformcommon.pojo.BusinessSelectItem;
 import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.UnauthorizedException;
+import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -142,6 +145,10 @@ public class BookLibraryOrderController extends BaseController {
             try{
                 //检查是否具有权限
                 subject.checkPermission("/front/bookLibraryOrder/create_update");
+                Session session = subject.getSession();
+                Long userId = Long.valueOf(session.getAttribute(MagicalValue.USER_SESSION_ID).toString());
+                bookLibraryOrder.setUserId(userId);
+                bookLibraryOrder.setOrderStatus(BusinessSelectItem.ORDER_STATUS_SHOPPING_CART);
                 bookLibraryOrder = bookLibraryOrderService.myBookLibraryOrderCreateUpdate(bookLibraryOrder);
                 resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setData(bookLibraryOrder);
