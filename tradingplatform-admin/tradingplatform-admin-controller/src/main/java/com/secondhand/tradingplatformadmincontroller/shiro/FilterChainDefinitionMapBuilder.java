@@ -12,6 +12,13 @@ public class FilterChainDefinitionMapBuilder {
 
     public static LinkedHashMap<String, String> addFilterChainDefinitionMap(Map<String, String> filterChainDefinitionMap) {
 
+        //Swagger2入口
+        filterChainDefinitionMap.put("/swagger-ui.html", "anon");
+        filterChainDefinitionMap.put("/v2/api-docs", "anon");
+        filterChainDefinitionMap.put("/swagger-ui.html/**", "anon");
+        filterChainDefinitionMap.put("/swagger-resources/**", "anon");
+        filterChainDefinitionMap.put("/webjars/springfox-swagger-ui/**", "anon");
+
         //验证码
         filterChainDefinitionMap.put("/admin/kaptcha/default", "anon");
 

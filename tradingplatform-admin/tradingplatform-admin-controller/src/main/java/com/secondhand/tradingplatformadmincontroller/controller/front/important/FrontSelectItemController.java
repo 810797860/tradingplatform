@@ -35,31 +35,31 @@ public class FrontSelectItemController extends BaseController {
     @Autowired
     private FrontSelectItemService frontSelectItemService;
 
-    /**
-     * @description : 获取分页列表
-     * @author : zhangjk
-     * @since : Create in 2019-03-15
-     */
-    @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    @ApiOperation(value = "/query", notes = "获取分页列表")
-    @ResponseBody
-    public TableJson<Map<String, Object>> getFrontSelectItemList(@ApiParam(name = "frontSelectItem", value = "FrontSelectItem 实体类") @RequestBody FrontSelectItem frontSelectItem) {
-        TableJson<Map<String, Object>> resJson = new TableJson<>();
-        Page resPage = frontSelectItem.getPage();
-        Integer current = resPage.getCurrent();
-        Integer size = resPage.getSize();
-        if (current == null || size == null) {
-            resJson.setSuccess(false);
-            resJson.setMessage("异常信息：页数和页的大小不能为空");
+        /**
+         * @description : 获取分页列表
+         * @author : zhangjk
+         * @since : Create in 2019-03-15
+         */
+        @PostMapping(value = "/query", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
+        @ApiOperation(value = "/query", notes = "获取分页列表")
+        @ResponseBody
+        public TableJson<Map<String, Object>> getFrontSelectItemList(@ApiParam(name = "frontSelectItem", value = "FrontSelectItem 实体类") @RequestBody FrontSelectItem frontSelectItem) {
+            TableJson<Map<String, Object>> resJson = new TableJson<>();
+            Page resPage = frontSelectItem.getPage();
+            Integer current = resPage.getCurrent();
+            Integer size = resPage.getSize();
+            if (current == null || size == null) {
+                resJson.setSuccess(false);
+                resJson.setMessage("异常信息：页数和页的大小不能为空");
+                return resJson;
+            }
+            Page<Map<String, Object>> frontSelectItemPage = new Page(current, size);
+            frontSelectItemPage = frontSelectItemService.mySelectPageWithParam(frontSelectItemPage, frontSelectItem);
+            resJson.setRecordsTotal(frontSelectItemPage.getTotal());
+            resJson.setData(frontSelectItemPage.getRecords());
+            resJson.setSuccess(true);
             return resJson;
         }
-        Page<Map<String, Object>> frontSelectItemPage = new Page(current, size);
-        frontSelectItemPage = frontSelectItemService.mySelectPageWithParam(frontSelectItemPage, frontSelectItem);
-        resJson.setRecordsTotal(frontSelectItemPage.getTotal());
-        resJson.setData(frontSelectItemPage.getRecords());
-        resJson.setSuccess(true);
-        return resJson;
-    }
 
     /**
      * @description : 通过id获取frontSelectItemMap
