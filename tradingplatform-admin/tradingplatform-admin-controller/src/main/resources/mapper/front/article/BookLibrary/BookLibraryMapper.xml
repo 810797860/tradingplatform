@@ -57,37 +57,8 @@
     </resultMap>
 
     <select id="selectMapById" resultType="java.util.Map">
-        select
-        cbbl.id,
-        cbbl.uuid,
-        cbbl.back_check_status,
-        cbbl.not_pass_reason,
-        cbbl.back_check_time,
-        cbbl.details,
-        cbbl.classification,
-        cbbl.isbn,
-        cbbl.suited,
-        cbbl.enfold,
-        cbbl.paper,
-        cbbl.format,
-        cbbl.published_time,
-        cbbl.publishing_house,
-        cbbl.author,
-        ( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '","phone":"', IFNULL(sbu.phone,''), '"}' )
-        FROM s_base_user sbu WHERE (sbu.id = cbbl.user_id) ) AS user_id,
-        cbbl.comment_num,
-        cbbl.star,
-        cbbl.price,
-        cbbl.cover,
-        cbbl.title,
-        cbbl.description,
-        cbbl.deleted,
-        cbbl.created_by,
-        cbbl.created_at,
-        cbbl.updated_by,
-        cbbl.updated_at
-        from c_business_book_library cbbl where cbbl.id = #{bookLibraryId} and cbbl.deleted = false
+        select c_business_book_library.id as id, c_business_book_library.star as star, (select concat('{"id":"', cbfsi.id, '","pid":"', cbfsi.pid, '","title":"', cbfsi.title, '"}') from c_business_front_select_item cbfsi where (cbfsi.id = c_business_book_library.classification)) AS classification, c_business_book_library.deleted as deleted, c_business_book_library.format as format, c_business_book_library.comment_num as comment_num, c_business_book_library.details as details, c_business_book_library.description as description, c_business_book_library.paper as paper, c_business_book_library.updated_at as updated_at, ( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '","phone":"', IFNULL(sbu.phone, ''), '"}' ) FROM s_base_user sbu WHERE (sbu.id = c_business_book_library.user_id) ) AS user_id, c_business_book_library.back_check_time as back_check_time, c_business_book_library.title as title, c_business_book_library.enfold as enfold, c_business_book_library.updated_by as updated_by, c_business_book_library.author as author, c_business_book_library.not_pass_reason as not_pass_reason, c_business_book_library.cover as cover, c_business_book_library.suited as suited, c_business_book_library.publishing_house as publishing_house, (select concat('{"id":"', sbsi.id, '","pid":"', sbsi.pid, '","title":"', sbsi.title, '"}') from s_base_select_item sbsi where (sbsi.id = c_business_book_library.back_check_status)) AS back_check_status, c_business_book_library.price as price, c_business_book_library.isbn as isbn, c_business_book_library.created_by as created_by, c_business_book_library.published_time as published_time, c_business_book_library.created_at as created_at
+        from c_business_book_library where c_business_book_library.id = #{bookLibraryId} and c_business_book_library.deleted = false
     </select>
-
 
 </mapper>

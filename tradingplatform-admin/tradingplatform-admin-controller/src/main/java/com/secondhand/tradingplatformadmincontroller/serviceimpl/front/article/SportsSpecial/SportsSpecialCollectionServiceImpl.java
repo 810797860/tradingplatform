@@ -82,6 +82,8 @@ public class SportsSpecialCollectionServiceImpl extends BaseServiceImpl<SportsSp
         //判空
         sportsSpecialCollection.setDeleted(false);
         Wrapper<SportsSpecialCollection> wrapper = new EntityWrapper<>(sportsSpecialCollection);
+        //自动生成sql回显
+        wrapper.setSqlSelect("c_business_sports_special_collection.id as id, c_business_sports_special_collection.created_by as created_by, c_business_sports_special_collection.deleted as deleted, c_business_sports_special_collection.description as description, c_business_sports_special_collection.updated_at as updated_at, ( SELECT concat( '{\"id\":\"', sbu.id, '\",\"user_name\":\"', sbu.user_name, '\",\"phone\":\"', IFNULL(sbu.phone, ''), '\"}' ) FROM s_base_user sbu WHERE (sbu.id = c_business_sports_special_collection.user_id) ) AS user_id, c_business_sports_special_collection.updated_by as updated_by, ( SELECT concat( '{\"id\":\"', cbss.id, '\",\"title\":\"', cbss.title, '\",\"cover\":\"', cbss.cover, '\",\"price\":\"', cbss.price, '\"}' ) FROM c_business_sports_special cbss WHERE (cbss.id = c_business_sports_special_collection.sports_id) ) AS sports_id, c_business_sports_special_collection.created_at as created_at");
         //遍历排序
         List<Sort> sorts = sportsSpecialCollection.getSorts();
         if (sorts == null){

@@ -82,6 +82,8 @@ public class DigitalSquareEvaluationServiceImpl extends BaseServiceImpl<DigitalS
         //判空
         digitalSquareEvaluation.setDeleted(false);
         Wrapper<DigitalSquareEvaluation> wrapper = new EntityWrapper<>(digitalSquareEvaluation);
+        //自定义sql回显
+        wrapper.setSqlSelect("c_business_digital_square_evaluation.id as id, (select concat('{\"id\":\"', sbsi.id, '\",\"pid\":\"', sbsi.pid, '\",\"title\":\"', sbsi.title, '\"}') from s_base_select_item sbsi where (sbsi.id = c_business_digital_square_evaluation.back_check_status)) AS back_check_status, c_business_digital_square_evaluation.description as description, c_business_digital_square_evaluation.updated_at as updated_at, c_business_digital_square_evaluation.not_pass_reason as not_pass_reason, ( SELECT concat( '{\"id\":\"', sbu.id, '\",\"user_name\":\"', sbu.user_name, '\",\"phone\":\"', IFNULL(sbu.phone, ''), '\"}' ) FROM s_base_user sbu WHERE (sbu.id = c_business_digital_square_evaluation.user_id) ) AS user_id, c_business_digital_square_evaluation.updated_by as updated_by, ( SELECT concat( '{\"id\":\"', cbds.id, '\",\"title\":\"', cbds.title, '\",\"cover\":\"', cbds.cover, '\",\"price\":\"', cbds.price, '\"}' ) FROM c_business_digital_square cbds WHERE (cbds.id = c_business_digital_square_evaluation.digital_id) ) AS digital_id, c_business_digital_square_evaluation.star as star, c_business_digital_square_evaluation.created_by as created_by, c_business_digital_square_evaluation.content as content, c_business_digital_square_evaluation.deleted as deleted, c_business_digital_square_evaluation.created_at as created_at");
         //遍历排序
         List<Sort> sorts = digitalSquareEvaluation.getSorts();
         if (sorts == null){

@@ -82,6 +82,8 @@ public class SportsSpecialEvaluationServiceImpl extends BaseServiceImpl<SportsSp
         //判空
         sportsSpecialEvaluation.setDeleted(false);
         Wrapper<SportsSpecialEvaluation> wrapper = new EntityWrapper<>(sportsSpecialEvaluation);
+        //自动生成sql回显
+        wrapper.setSqlSelect("c_business_sports_special_evaluation.id as id, ( SELECT concat( '{\"id\":\"', cbss.id, '\",\"title\":\"', cbss.title, '\",\"cover\":\"', cbss.cover, '\",\"price\":\"', cbss.price, '\"}' ) FROM c_business_sports_special cbss WHERE (cbss.id = c_business_sports_special_evaluation.sports_id) ) AS sports_id, c_business_sports_special_evaluation.star as star, c_business_sports_special_evaluation.created_by as created_by, c_business_sports_special_evaluation.content as content, c_business_sports_special_evaluation.deleted as deleted, (select concat('{\"id\":\"', sbsi.id, '\",\"pid\":\"', sbsi.pid, '\",\"title\":\"', sbsi.title, '\"}') from s_base_select_item sbsi where (sbsi.id = c_business_sports_special_evaluation.back_check_status)) AS back_check_status, c_business_sports_special_evaluation.description as description, c_business_sports_special_evaluation.updated_at as updated_at, c_business_sports_special_evaluation.not_pass_reason as not_pass_reason, ( SELECT concat( '{\"id\":\"', sbu.id, '\",\"user_name\":\"', sbu.user_name, '\",\"phone\":\"', IFNULL(sbu.phone, ''), '\"}' ) FROM s_base_user sbu WHERE (sbu.id = c_business_sports_special_evaluation.user_id) ) AS user_id, c_business_sports_special_evaluation.updated_by as updated_by, c_business_sports_special_evaluation.created_at as created_at");
         //遍历排序
         List<Sort> sorts = sportsSpecialEvaluation.getSorts();
         if (sorts == null){

@@ -82,6 +82,8 @@ public class ElectricApplianceOrderServiceImpl extends BaseServiceImpl<ElectricA
         //判空
         electricApplianceOrder.setDeleted(false);
         Wrapper<ElectricApplianceOrder> wrapper = new EntityWrapper<>(electricApplianceOrder);
+        //自定义sql回显
+        wrapper.setSqlSelect("c_business_electric_appliance_order.id as id, c_business_electric_appliance_order.quantity as quantity, c_business_electric_appliance_order.deleted as deleted, (select concat('{\"id\":\"', cbfsi.id, '\",\"pid\":\"', cbfsi.pid, '\",\"title\":\"', cbfsi.title, '\"}') from c_business_front_select_item cbfsi where (cbfsi.id = c_business_electric_appliance_order.order_status)) AS order_status, c_business_electric_appliance_order.description as description, c_business_electric_appliance_order.updated_at as updated_at, ( SELECT concat( '{\"id\":\"', sbu.id, '\",\"user_name\":\"', sbu.user_name, '\",\"phone\":\"', IFNULL(sbu.phone, ''), '\"}' ) FROM s_base_user sbu WHERE (sbu.id = c_business_electric_appliance_order.user_id) ) AS user_id, c_business_electric_appliance_order.updated_by as updated_by, ( SELECT concat( '{\"id\":\"', cbea.id, '\",\"title\":\"', cbea.title, '\",\"cover\":\"', cbea.cover, '\",\"price\":\"', cbea.price, '\"}' ) FROM c_business_electric_appliance cbea WHERE (cbea.id = c_business_electric_appliance_order.electric_id) ) AS electric_id, c_business_electric_appliance_order.price as price, c_business_electric_appliance_order.created_by as created_by, c_business_electric_appliance_order.created_at as created_at");
         //遍历排序
         List<Sort> sorts = electricApplianceOrder.getSorts();
         if (sorts == null){

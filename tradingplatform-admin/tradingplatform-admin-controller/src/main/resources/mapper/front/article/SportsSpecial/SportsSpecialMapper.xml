@@ -45,30 +45,8 @@
     </resultMap>
 
     <select id="selectMapById" resultType="java.util.Map">
-        SELECT
-        cbss.id,
-        cbss.uuid,
-        cbss.details,
-        cbss.classification,
-        cbss.back_check_status,
-        cbss.not_pass_reason,
-        cbss.back_check_time,
-        cbss.pattern,
-        cbss.brand,
-        ( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '","phone":"', IFNULL(sbu.phone,''), '"}' )
-        FROM s_base_user sbu WHERE (sbu.id = cbss.user_id) ) AS user_id,
-        cbss.star,
-        cbss.comment_num,
-        cbss.price,
-        cbss.cover,
-        cbss.title,
-        cbss.description,
-        cbss.deleted,
-        cbss.created_by,
-        cbss.created_at,
-        cbss.updated_by,
-        cbss.updated_at
-        from c_business_sports_special cbss where cbss.id = #{sportsSpecialId} and cbss.deleted = false
+        SELECT c_business_sports_special.id as id, c_business_sports_special.cover as cover, c_business_sports_special.details as details, c_business_sports_special.pattern as pattern, c_business_sports_special.price as price, c_business_sports_special.created_by as created_by, c_business_sports_special.back_check_time as back_check_time, c_business_sports_special.comment_num as comment_num, c_business_sports_special.deleted as deleted, c_business_sports_special.not_pass_reason as not_pass_reason, c_business_sports_special.star as star, c_business_sports_special.description as description, (select concat('{"id":"', sbsi.id, '","pid":"', sbsi.pid, '","title":"', sbsi.title, '"}') from s_base_select_item sbsi where (sbsi.id = c_business_sports_special.back_check_status)) AS back_check_status, c_business_sports_special.updated_at as updated_at, ( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '","phone":"', IFNULL(sbu.phone, ''), '"}' ) FROM s_base_user sbu WHERE (sbu.id = c_business_sports_special.user_id) ) AS user_id, c_business_sports_special.title as title, (select concat('{"id":"', cbfsi.id, '","pid":"', cbfsi.pid, '","title":"', cbfsi.title, '"}') from c_business_front_select_item cbfsi where (cbfsi.id = c_business_sports_special.classification)) AS classification, c_business_sports_special.updated_by as updated_by, c_business_sports_special.brand as brand, c_business_sports_special.created_at as created_at
+        from c_business_sports_special where c_business_sports_special.id = #{sportsSpecialId} and c_business_sports_special.deleted = false
     </select>
 
 </mapper>

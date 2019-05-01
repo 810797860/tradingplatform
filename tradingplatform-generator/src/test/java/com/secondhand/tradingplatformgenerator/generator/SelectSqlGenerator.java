@@ -27,7 +27,7 @@ public class SelectSqlGenerator {
     @Test
     public void testSelectSqlGenerator() {
 
-        Select select = new Select("s_base_select_item");
+        Select select = new Select("c_business_sports_special");
 
         //准备承载selectSql
         StringBuilder selectSql = new StringBuilder();
@@ -39,7 +39,7 @@ public class SelectSqlGenerator {
         StringBuilder tableAlias = select.getTableAlias();
 
         //select的头部
-        selectSql.append("select ");
+//        selectSql.append("select ");
 
         /**
          * 使用字典表查询该表字段
@@ -71,9 +71,81 @@ public class SelectSqlGenerator {
 
 //====================================================================================================================
             //特殊关联字段的拼接
-            if (tempParameter.equals("pid")) {
+            if (tempParameter.equals("book_id")) {
+                select.setSelectSql(selectSql);
+                selectSql = concatSql(select, tempParameter, SelectEnum.C_BUSINESS_BOOK_LIBRARY);
+                continue;
+            }
+
+            if (tempParameter.equals("digital_id")) {
+                select.setSelectSql(selectSql);
+                selectSql = concatSql(select, tempParameter, SelectEnum.C_BUSINESS_DIGITAL_SQUARE);
+                continue;
+            }
+
+            if (tempParameter.equals("electric_id")) {
+                select.setSelectSql(selectSql);
+                selectSql = concatSql(select, tempParameter, SelectEnum.C_BUSINESS_ELECTRIC_APPLIANCE);
+                continue;
+            }
+
+            if (tempParameter.equals("renting_id")) {
+                select.setSelectSql(selectSql);
+                selectSql = concatSql(select, tempParameter, SelectEnum.C_BUSINESS_RENTING_HOUSE);
+                continue;
+            }
+
+            if (tempParameter.equals("sports_id")) {
+                select.setSelectSql(selectSql);
+                selectSql = concatSql(select, tempParameter, SelectEnum.C_BUSINESS_SPORTS_SPECIAL);
+                continue;
+            }
+
+            if (tempParameter.equals("item_id")){
                 select.setSelectSql(selectSql);
                 selectSql = concatSql(select, tempParameter, SelectEnum.S_BASE_SELECT_ITEM);
+                continue;
+            }
+
+            if (tempParameter.equals("back_check_status")){
+                select.setSelectSql(selectSql);
+                selectSql = concatSql(select, tempParameter, SelectEnum.S_BASE_SELECT_ITEM);
+                continue;
+            }
+
+            if (tempParameter.equals("item_ids")){
+                select.setSelectSql(selectSql);
+                selectSql = concatSql(select, tempParameter, SelectEnum.S_BASE_SELECT_ITEM_GROUP);
+                continue;
+            }
+
+            if (tempParameter.equals("order_status")){
+                select.setSelectSql(selectSql);
+                selectSql = concatSql(select, tempParameter, SelectEnum.C_BUSINESS_FRONT_SELECT_ITEM);
+                continue;
+            }
+
+            if (tempParameter.equals("classification")){
+                select.setSelectSql(selectSql);
+                selectSql = concatSql(select, tempParameter, SelectEnum.C_BUSINESS_FRONT_SELECT_ITEM);
+                continue;
+            }
+
+            if (tempParameter.equals("matching")){
+                select.setSelectSql(selectSql);
+                selectSql = concatSql(select, tempParameter, SelectEnum.C_BUSINESS_FRONT_SELECT_ITEM);
+                continue;
+            }
+
+            if (tempParameter.equals("reply_id")) {
+                select.setSelectSql(selectSql);
+                selectSql = concatSql(select, tempParameter, SelectEnum.S_BASE_USER);
+                continue;
+            }
+
+            if (tempParameter.equals("user_id")) {
+                select.setSelectSql(selectSql);
+                selectSql = concatSql(select, tempParameter, SelectEnum.S_BASE_USER);
                 continue;
             }
 //====================================================================================================================
@@ -98,10 +170,10 @@ public class SelectSqlGenerator {
         selectSql.append(".created_at as created_at ");
 
         //select的尾部
-        selectSql.append("from ");
-        selectSql.append(tableName);
-        selectSql.append(" ");
-        selectSql.append(tableAlias);
+//        selectSql.append("from ");
+//        selectSql.append(tableName);
+//        selectSql.append(" ");
+//        selectSql.append(tableAlias);
 
         System.out.println(selectSql.toString());
         System.out.println("-----------------------------------------------");

@@ -82,6 +82,8 @@ public class RentingHouseOrderServiceImpl extends BaseServiceImpl<RentingHouseOr
         //判空
         rentingHouseOrder.setDeleted(false);
         Wrapper<RentingHouseOrder> wrapper = new EntityWrapper<>(rentingHouseOrder);
+        //自动生成sql回显
+        wrapper.setSqlSelect("c_business_renting_house_order.id as id, ( SELECT concat( '{\"id\":\"', sbu.id, '\",\"user_name\":\"', sbu.user_name, '\",\"phone\":\"', IFNULL(sbu.phone, ''), '\"}' ) FROM s_base_user sbu WHERE (sbu.id = c_business_renting_house_order.user_id) ) AS user_id, c_business_renting_house_order.updated_by as updated_by, ( SELECT concat( '{\"id\":\"', cbrh.id, '\",\"title\":\"', cbrh.title, '\",\"cover\":\"', cbrh.cover, '\",\"price\":\"', cbrh.price, '\"}' ) FROM c_business_renting_house cbrh WHERE (cbrh.id = c_business_renting_house_order.renting_id) ) AS renting_id, c_business_renting_house_order.price as price, c_business_renting_house_order.created_by as created_by, c_business_renting_house_order.quantity as quantity, c_business_renting_house_order.deleted as deleted, (select concat('{\"id\":\"', cbfsi.id, '\",\"pid\":\"', cbfsi.pid, '\",\"title\":\"', cbfsi.title, '\"}') from c_business_front_select_item cbfsi where (cbfsi.id = c_business_renting_house_order.order_status)) AS order_status, c_business_renting_house_order.description as description, c_business_renting_house_order.updated_at as updated_at, c_business_renting_house_order.created_at as created_at");
         //遍历排序
         List<Sort> sorts = rentingHouseOrder.getSorts();
         if (sorts == null){

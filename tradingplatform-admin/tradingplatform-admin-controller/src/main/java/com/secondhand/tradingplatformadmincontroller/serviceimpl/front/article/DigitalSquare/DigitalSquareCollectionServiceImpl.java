@@ -82,6 +82,8 @@ public class DigitalSquareCollectionServiceImpl extends BaseServiceImpl<DigitalS
         //判空
         digitalSquareCollection.setDeleted(false);
         Wrapper<DigitalSquareCollection> wrapper = new EntityWrapper<>(digitalSquareCollection);
+        //自动生成sql回显
+        wrapper.setSqlSelect("c_business_digital_square_collection.id as id, ( SELECT concat( '{\"id\":\"', sbu.id, '\",\"user_name\":\"', sbu.user_name, '\",\"phone\":\"', IFNULL(sbu.phone, ''), '\"}' ) FROM s_base_user sbu WHERE (sbu.id = c_business_digital_square_collection.user_id) ) AS user_id, c_business_digital_square_collection.updated_by as updated_by, ( SELECT concat( '{\"id\":\"', cbds.id, '\",\"title\":\"', cbds.title, '\",\"cover\":\"', cbds.cover, '\",\"price\":\"', cbds.price, '\"}' ) FROM c_business_digital_square cbds WHERE (cbds.id = c_business_digital_square_collection.digital_id) ) AS digital_id, c_business_digital_square_collection.created_by as created_by, c_business_digital_square_collection.deleted as deleted, c_business_digital_square_collection.description as description, c_business_digital_square_collection.updated_at as updated_at, c_business_digital_square_collection.created_at as created_at");
         //遍历排序
         List<Sort> sorts = digitalSquareCollection.getSorts();
         if (sorts == null){

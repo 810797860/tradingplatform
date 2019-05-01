@@ -82,6 +82,8 @@ public class RentingHouseEvaluationServiceImpl extends BaseServiceImpl<RentingHo
         //判空
         rentingHouseEvaluation.setDeleted(false);
         Wrapper<RentingHouseEvaluation> wrapper = new EntityWrapper<>(rentingHouseEvaluation);
+        //自动生成sql回显
+        wrapper.setSqlSelect("c_business_renting_house_evaluation.id as id, ( SELECT concat( '{\"id\":\"', cbrh.id, '\",\"title\":\"', cbrh.title, '\",\"cover\":\"', cbrh.cover, '\",\"price\":\"', cbrh.price, '\"}' ) FROM c_business_renting_house cbrh WHERE (cbrh.id = c_business_renting_house_evaluation.renting_id) ) AS renting_id, c_business_renting_house_evaluation.star as star, c_business_renting_house_evaluation.created_by as created_by, c_business_renting_house_evaluation.content as content, c_business_renting_house_evaluation.deleted as deleted, (select concat('{\"id\":\"', sbsi.id, '\",\"pid\":\"', sbsi.pid, '\",\"title\":\"', sbsi.title, '\"}') from s_base_select_item sbsi where (sbsi.id = c_business_renting_house_evaluation.back_check_status)) AS back_check_status, c_business_renting_house_evaluation.description as description, c_business_renting_house_evaluation.updated_at as updated_at, c_business_renting_house_evaluation.not_pass_reason as not_pass_reason, ( SELECT concat( '{\"id\":\"', sbu.id, '\",\"user_name\":\"', sbu.user_name, '\",\"phone\":\"', IFNULL(sbu.phone, ''), '\"}' ) FROM s_base_user sbu WHERE (sbu.id = c_business_renting_house_evaluation.user_id) ) AS user_id, c_business_renting_house_evaluation.updated_by as updated_by, c_business_renting_house_evaluation.created_at as created_at");
         //遍历排序
         List<Sort> sorts = rentingHouseEvaluation.getSorts();
         if (sorts == null){

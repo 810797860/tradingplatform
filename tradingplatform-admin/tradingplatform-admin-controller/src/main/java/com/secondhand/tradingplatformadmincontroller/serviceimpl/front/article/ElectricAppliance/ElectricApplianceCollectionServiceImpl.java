@@ -82,6 +82,8 @@ public class ElectricApplianceCollectionServiceImpl extends BaseServiceImpl<Elec
         //判空
         electricApplianceCollection.setDeleted(false);
         Wrapper<ElectricApplianceCollection> wrapper = new EntityWrapper<>(electricApplianceCollection);
+        //自定义sql回显
+        wrapper.setSqlSelect("c_business_electric_appliance_collection.id as id, ( SELECT concat( '{\"id\":\"', sbu.id, '\",\"user_name\":\"', sbu.user_name, '\",\"phone\":\"', IFNULL(sbu.phone, ''), '\"}' ) FROM s_base_user sbu WHERE (sbu.id = c_business_electric_appliance_collection.user_id) ) AS user_id, c_business_electric_appliance_collection.updated_by as updated_by, ( SELECT concat( '{\"id\":\"', cbea.id, '\",\"title\":\"', cbea.title, '\",\"cover\":\"', cbea.cover, '\",\"price\":\"', cbea.price, '\"}' ) FROM c_business_electric_appliance cbea WHERE (cbea.id = c_business_electric_appliance_collection.electric_id) ) AS electric_id, c_business_electric_appliance_collection.created_by as created_by, c_business_electric_appliance_collection.deleted as deleted, c_business_electric_appliance_collection.description as description, c_business_electric_appliance_collection.updated_at as updated_at, c_business_electric_appliance_collection.created_at as created_at");
         //遍历排序
         List<Sort> sorts = electricApplianceCollection.getSorts();
         if (sorts == null){

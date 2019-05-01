@@ -82,6 +82,8 @@ public class BookLibraryCollectionServiceImpl extends BaseServiceImpl<BookLibrar
         //判空
         bookLibraryCollection.setDeleted(false);
         Wrapper<BookLibraryCollection> wrapper = new EntityWrapper<>(bookLibraryCollection);
+        //自动生成sql来回显
+        wrapper.setSqlSelect("c_business_book_library_collection.id as id, c_business_book_library_collection.deleted as deleted, c_business_book_library_collection.description as description, c_business_book_library_collection.updated_at as updated_at, ( SELECT concat( '{\"id\":\"', sbu.id, '\",\"user_name\":\"', sbu.user_name, '\",\"phone\":\"', IFNULL(sbu.phone, ''), '\"}' ) FROM s_base_user sbu WHERE (sbu.id = c_business_book_library_collection.user_id) ) AS user_id, c_business_book_library_collection.updated_by as updated_by, ( SELECT concat( '{\"id\":\"', cbbl.id, '\",\"title\":\"', cbbl.title, '\",\"cover\":\"', cbbl.cover, '\",\"price\":\"', cbbl.price, '\"}' ) FROM c_business_book_library cbbl WHERE (cbbl.id = c_business_book_library_collection.book_id) ) AS book_id, c_business_book_library_collection.created_by as created_by, c_business_book_library_collection.created_at as created_at");
         //遍历排序
         List<Sort> sorts = bookLibraryCollection.getSorts();
         if (sorts == null){

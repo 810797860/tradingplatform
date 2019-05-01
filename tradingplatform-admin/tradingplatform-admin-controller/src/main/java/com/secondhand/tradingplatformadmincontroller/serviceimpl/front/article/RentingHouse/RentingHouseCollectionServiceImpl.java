@@ -82,6 +82,8 @@ public class RentingHouseCollectionServiceImpl extends BaseServiceImpl<RentingHo
         //判空
         rentingHouseCollection.setDeleted(false);
         Wrapper<RentingHouseCollection> wrapper = new EntityWrapper<>(rentingHouseCollection);
+        //根据自动生成sql回显
+        wrapper.setSqlSelect("c_business_renting_house_collection.id as id, c_business_renting_house_collection.created_by as created_by, c_business_renting_house_collection.deleted as deleted, c_business_renting_house_collection.description as description, c_business_renting_house_collection.updated_at as updated_at, ( SELECT concat( '{\"id\":\"', sbu.id, '\",\"user_name\":\"', sbu.user_name, '\",\"phone\":\"', IFNULL(sbu.phone, ''), '\"}' ) FROM s_base_user sbu WHERE (sbu.id = c_business_renting_house_collection.user_id) ) AS user_id, c_business_renting_house_collection.updated_by as updated_by, ( SELECT concat( '{\"id\":\"', cbrh.id, '\",\"title\":\"', cbrh.title, '\",\"cover\":\"', cbrh.cover, '\",\"price\":\"', cbrh.price, '\"}' ) FROM c_business_renting_house cbrh WHERE (cbrh.id = c_business_renting_house_collection.renting_id) ) AS renting_id, c_business_renting_house_collection.created_at as created_at");
         //遍历排序
         List<Sort> sorts = rentingHouseCollection.getSorts();
         if (sorts == null){

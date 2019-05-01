@@ -50,32 +50,8 @@
     </resultMap>
 
     <select id="selectMapById" resultType="java.util.Map">
-        SELECT
-        cbea.id,
-        cbea.uuid,
-        cbea.power,
-        cbea.back_check_status,
-        cbea.not_pass_reason,
-        cbea.back_check_time,
-        cbea.details,
-        cbea.classification,
-        cbea.type,
-        cbea.model,
-        cbea.brand,
-        ( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '","phone":"', IFNULL(sbu.phone,''), '"}' )
-        FROM s_base_user sbu WHERE (sbu.id = cbea.user_id) ) AS user_id,
-        cbea.comment_num,
-        cbea.star,
-        cbea.price,
-        cbea.cover,
-        cbea.title,
-        cbea.description,
-        cbea.deleted,
-        cbea.created_by,
-        cbea.created_at,
-        cbea.updated_by,
-        cbea.updated_at
-        from c_business_electric_appliance cbea where cbea.id = #{electricApplianceId} and cbea.deleted = false
+        SELECT c_business_electric_appliance.id as id, c_business_electric_appliance.price as price, (select concat('{"id":"', sbsi.id, '","pid":"', sbsi.pid, '","title":"', sbsi.title, '"}') from s_base_select_item sbsi where (sbsi.id = c_business_electric_appliance.back_check_status)) AS back_check_status, c_business_electric_appliance.created_by as created_by, c_business_electric_appliance.type as type, c_business_electric_appliance.star as star, c_business_electric_appliance.power as power, c_business_electric_appliance.deleted as deleted, (select concat('{"id":"', cbfsi.id, '","pid":"', cbfsi.pid, '","title":"', cbfsi.title, '"}') from c_business_front_select_item cbfsi where (cbfsi.id = c_business_electric_appliance.classification)) AS classification, c_business_electric_appliance.comment_num as comment_num, c_business_electric_appliance.description as description, c_business_electric_appliance.details as details, c_business_electric_appliance.updated_at as updated_at, ( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '","phone":"', IFNULL(sbu.phone, ''), '"}' ) FROM s_base_user sbu WHERE (sbu.id = c_business_electric_appliance.user_id) ) AS user_id, c_business_electric_appliance.title as title, c_business_electric_appliance.back_check_time as back_check_time, c_business_electric_appliance.updated_by as updated_by, c_business_electric_appliance.brand as brand, c_business_electric_appliance.cover as cover, c_business_electric_appliance.not_pass_reason as not_pass_reason, c_business_electric_appliance.model as model, c_business_electric_appliance.created_at as created_at
+        from c_business_electric_appliance where c_business_electric_appliance.id = #{electricApplianceId} and c_business_electric_appliance.deleted = false
     </select>
 
 </mapper>

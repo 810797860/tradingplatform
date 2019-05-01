@@ -58,35 +58,8 @@
 
     <select id="selectMapById" resultType="java.util.Map">
         SELECT
-        cbrh.id,
-        cbrh.uuid,
-        cbrh.back_check_status,
-        cbrh.not_pass_reason,
-        cbrh.back_check_time,
-        cbrh.details,
-        cbrh.classification,
-        cbrh.matching,
-        cbrh.community,
-        cbrh.genre,
-        cbrh.decoration,
-        cbrh.floor_layer,
-        cbrh.oriented,
-        cbrh.area,
-        cbrh.house_type,
-        ( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '","phone":"', IFNULL(sbu.phone,''), '"}' )
-        FROM s_base_user sbu WHERE (sbu.id = cbrh.user_id) ) AS user_id,
-        cbrh.comment_num,
-        cbrh.star,
-        cbrh.price,
-        cbrh.cover,
-        cbrh.title,
-        cbrh.description,
-        cbrh.deleted,
-        cbrh.created_by,
-        cbrh.created_at,
-        cbrh.updated_by,
-        cbrh.updated_at
-        from c_business_renting_house cbrh where cbrh.id = #{rentingHouseId} and cbrh.deleted = false
+        c_business_renting_house.id as id, (select concat('{"id":"', cbfsi.id, '","pid":"', cbfsi.pid, '","title":"', cbfsi.title, '"}') from c_business_front_select_item cbfsi where (cbfsi.id = c_business_renting_house.classification)) AS classification, c_business_renting_house.deleted as deleted, c_business_renting_house.floor_layer as floor_layer, c_business_renting_house.comment_num as comment_num, c_business_renting_house.details as details, c_business_renting_house.description as description, c_business_renting_house.decoration as decoration, c_business_renting_house.updated_at as updated_at, ( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '","phone":"', IFNULL(sbu.phone, ''), '"}' ) FROM s_base_user sbu WHERE (sbu.id = c_business_renting_house.user_id) ) AS user_id, c_business_renting_house.back_check_time as back_check_time, c_business_renting_house.title as title, c_business_renting_house.genre as genre, c_business_renting_house.updated_by as updated_by, c_business_renting_house.house_type as house_type, c_business_renting_house.not_pass_reason as not_pass_reason, c_business_renting_house.cover as cover, c_business_renting_house.community as community, c_business_renting_house.area as area, (select concat('{"id":"', sbsi.id, '","pid":"', sbsi.pid, '","title":"', sbsi.title, '"}') from s_base_select_item sbsi where (sbsi.id = c_business_renting_house.back_check_status)) AS back_check_status, c_business_renting_house.price as price, (select concat('{"id":"', cbfsi.id, '","pid":"', cbfsi.pid, '","title":"', cbfsi.title, '"}') from c_business_front_select_item cbfsi where (cbfsi.id = c_business_renting_house.matching)) AS matching, c_business_renting_house.created_by as created_by, c_business_renting_house.oriented as oriented, c_business_renting_house.star as star, c_business_renting_house.created_at as created_at
+        from c_business_renting_house where c_business_renting_house.id = #{rentingHouseId} and c_business_renting_house.deleted = false
     </select>
 
 </mapper>
