@@ -57,7 +57,36 @@
     </resultMap>
 
     <select id="selectMapById" resultType="java.util.Map">
-        select * from c_business_book_library where id = #{bookLibraryId} and deleted = false
+        select
+        cbbl.id,
+        cbbl.uuid,
+        cbbl.back_check_status,
+        cbbl.not_pass_reason,
+        cbbl.back_check_time,
+        cbbl.details,
+        cbbl.classification,
+        cbbl.isbn,
+        cbbl.suited,
+        cbbl.enfold,
+        cbbl.paper,
+        cbbl.format,
+        cbbl.published_time,
+        cbbl.publishing_house,
+        cbbl.author,
+        ( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '","phone":"', IFNULL(sbu.phone,''), '"}' )
+        FROM s_base_user sbu WHERE (sbu.id = cbbl.user_id) ) AS user_id,
+        cbbl.comment_num,
+        cbbl.star,
+        cbbl.price,
+        cbbl.cover,
+        cbbl.title,
+        cbbl.description,
+        cbbl.deleted,
+        cbbl.created_by,
+        cbbl.created_at,
+        cbbl.updated_by,
+        cbbl.updated_at
+        from c_business_book_library cbbl where cbbl.id = #{bookLibraryId} and cbbl.deleted = false
     </select>
 
 

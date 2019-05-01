@@ -45,7 +45,30 @@
     </resultMap>
 
     <select id="selectMapById" resultType="java.util.Map">
-        select * from c_business_digital_square where id = #{digitalSquareId} and deleted = false
+        SELECT
+        cbds.id,
+        cbds.uuid,
+        cbds.back_check_status,
+        cbds.not_pass_reason,
+        cbds.back_check_time,
+        cbds.details,
+        cbds.classification,
+        cbds.pattern,
+        cbds.brand,
+        ( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '","phone":"', IFNULL(sbu.phone,''), '"}' )
+        FROM s_base_user sbu WHERE (sbu.id = cbds.user_id) ) AS user_id,
+        cbds.comment_num,
+        cbds.star,
+        cbds.price,
+        cbds.cover,
+        cbds.title,
+        cbds.description,
+        cbds.deleted,
+        cbds.created_by,
+        cbds.created_at,
+        cbds.updated_by,
+        cbds.updated_at
+        from c_business_digital_square cbds where cbds.id = #{digitalSquareId} and cbds.deleted = false
     </select>
 
 

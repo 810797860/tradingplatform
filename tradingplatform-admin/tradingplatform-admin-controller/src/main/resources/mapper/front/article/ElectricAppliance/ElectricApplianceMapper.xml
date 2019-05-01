@@ -50,7 +50,32 @@
     </resultMap>
 
     <select id="selectMapById" resultType="java.util.Map">
-        select * from c_business_electric_appliance where id = #{electricApplianceId} and deleted = false
+        SELECT
+        cbea.id,
+        cbea.uuid,
+        cbea.power,
+        cbea.back_check_status,
+        cbea.not_pass_reason,
+        cbea.back_check_time,
+        cbea.details,
+        cbea.classification,
+        cbea.type,
+        cbea.model,
+        cbea.brand,
+        ( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '","phone":"', IFNULL(sbu.phone,''), '"}' )
+        FROM s_base_user sbu WHERE (sbu.id = cbea.user_id) ) AS user_id,
+        cbea.comment_num,
+        cbea.star,
+        cbea.price,
+        cbea.cover,
+        cbea.title,
+        cbea.description,
+        cbea.deleted,
+        cbea.created_by,
+        cbea.created_at,
+        cbea.updated_by,
+        cbea.updated_at
+        from c_business_electric_appliance cbea where cbea.id = #{electricApplianceId} and cbea.deleted = false
     </select>
 
 </mapper>

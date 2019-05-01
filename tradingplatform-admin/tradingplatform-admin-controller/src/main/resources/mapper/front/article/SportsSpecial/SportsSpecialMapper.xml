@@ -8,7 +8,6 @@
     <resultMap id="sportsSpecialMap" type="com.secondhand.tradingplatformadminentity.entity.front.article.SportsSpecial.SportsSpecial"
                extends="com.secondhand.tradingplatformadminmapper.mapper.BaseEntityMapper.baseEntityMapper">
 
-
         <result column="back_check_status" property="backCheckStatus" jdbcType="INTEGER"/>
         <result column="not_pass_reason" property="notPassReason" jdbcType="VARCHAR"/>
         <result column="back_check_time" property="backCheckTime" jdbcType="DATE"/>
@@ -29,7 +28,6 @@
     <resultMap id="sportsSpecialMapSimple"
                type="com.secondhand.tradingplatformadminentity.entity.front.article.SportsSpecial.SportsSpecial">
 
-
         <result column="back_check_status" property="backCheckStatus" jdbcType="INTEGER"/>
         <result column="not_pass_reason" property="notPassReason" jdbcType="VARCHAR"/>
         <result column="back_check_time" property="backCheckTime" jdbcType="DATE"/>
@@ -47,8 +45,30 @@
     </resultMap>
 
     <select id="selectMapById" resultType="java.util.Map">
-        select * from c_business_sports_special where id = #{sportsSpecialId} and deleted = false
+        SELECT
+        cbss.id,
+        cbss.uuid,
+        cbss.details,
+        cbss.classification,
+        cbss.back_check_status,
+        cbss.not_pass_reason,
+        cbss.back_check_time,
+        cbss.pattern,
+        cbss.brand,
+        ( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '","phone":"', IFNULL(sbu.phone,''), '"}' )
+        FROM s_base_user sbu WHERE (sbu.id = cbss.user_id) ) AS user_id,
+        cbss.star,
+        cbss.comment_num,
+        cbss.price,
+        cbss.cover,
+        cbss.title,
+        cbss.description,
+        cbss.deleted,
+        cbss.created_by,
+        cbss.created_at,
+        cbss.updated_by,
+        cbss.updated_at
+        from c_business_sports_special cbss where cbss.id = #{sportsSpecialId} and cbss.deleted = false
     </select>
-
 
 </mapper>
