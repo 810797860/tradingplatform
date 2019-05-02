@@ -60,7 +60,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     }
 
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "'mySelectMapById : ' + #p0")
     public Map<String, Object> mySelectMapById(Long ${table.entityPath}Id) {
         return ${table.entityPath}Mapper.selectMapById(${table.entityPath}Id);
     }
@@ -81,7 +81,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     //以下是继承BaseServiceImpl
     
     @Override
-    @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p1.sorts")
+    @Cacheable(key = "'mySelectPageWithParam : ' + #p0 + ',' + #p1 + ',' + #p1.sorts")
     public Page<Map<String, Object>> mySelectPageWithParam(Page page, ${entity} ${table.entityPath}) {
 
         //判空
@@ -102,7 +102,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     }
     
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "'mySelectListWithMap : ' + #p0")
     public List<${entity}> mySelectListWithMap(Map<String, Object> map) {
         return ${table.entityPath}Mapper.selectByMap(map);
     }
@@ -110,13 +110,13 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     //以下是继承BaseMapper
     
     @Override
-    @Cacheable(key = "#p0.paramNameValuePairs")
+    @Cacheable(key = "'mySelectMap : ' + #p0.paramNameValuePairs")
     public Map<String, Object> mySelectMap(Wrapper<${entity}> wrapper) {
         return this.selectMap(wrapper);
     }
     
     @Override
-    @Cacheable(key = "#p0.paramNameValuePairs")
+    @Cacheable(key = "'mySelectList : ' + #p0.paramNameValuePairs")
     public List<${entity}> mySelectList(Wrapper<${entity}> wrapper) {
         return ${table.entityPath}Mapper.selectList(wrapper);
     }
@@ -160,19 +160,19 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     }
     
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "'mySelectBatchIds : ' + #p0")
     public List<${entity}> mySelectBatchIds(Collection<? extends Serializable> ${table.entityPath}Ids) {
         return ${table.entityPath}Mapper.selectBatchIds(${table.entityPath}Ids);
     }
     
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "'mySelectById : ' + #p0")
     public ${entity} mySelectById(Serializable ${table.entityPath}Id) {
         return ${table.entityPath}Mapper.selectById(${table.entityPath}Id);
     }
     
     @Override
-    @Cacheable(key = "#p0.paramNameValuePairs")
+    @Cacheable(key = "'mySelectCount : ' + #p0.paramNameValuePairs")
     public int mySelectCount(Wrapper<${entity}> wrapper) {
         return ${table.entityPath}Mapper.selectCount(wrapper);
     }

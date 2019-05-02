@@ -76,6 +76,13 @@ public interface SportsSpecialCollectionService extends BaseService<SportsSpecia
         List<SportsSpecialCollection> mySelectList(Wrapper<SportsSpecialCollection> wrapper);
 
         /**
+         * 根据userId获取收藏的ids
+         * @param userId
+         * @return
+         */
+        List<Object> mySelectCollectionList(Long userId);
+
+        /**
          * 插入SportsSpecialCollection
          * @param sportsSpecialCollection
          * @return

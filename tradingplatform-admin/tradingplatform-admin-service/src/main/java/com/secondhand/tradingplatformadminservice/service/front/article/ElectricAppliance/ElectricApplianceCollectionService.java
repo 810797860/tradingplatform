@@ -76,6 +76,13 @@ public interface ElectricApplianceCollectionService extends BaseService<Electric
         List<ElectricApplianceCollection> mySelectList(Wrapper<ElectricApplianceCollection> wrapper);
 
         /**
+         * 根据userId获取收藏的ids
+         * @param userId
+         * @return
+         */
+        List<Object> mySelectCollectionList(Long userId);
+
+        /**
          * 插入ElectricApplianceCollection
          * @param electricApplianceCollection
          * @return

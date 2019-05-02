@@ -76,6 +76,13 @@ public interface RentingHouseCollectionService extends BaseService<RentingHouseC
         List<RentingHouseCollection> mySelectList(Wrapper<RentingHouseCollection> wrapper);
 
         /**
+         * 根据userId获取收藏的ids
+         * @param userId
+         * @return
+         */
+        List<Object> mySelectCollectionList(Long userId);
+
+        /**
          * 插入RentingHouseCollection
          * @param rentingHouseCollection
          * @return

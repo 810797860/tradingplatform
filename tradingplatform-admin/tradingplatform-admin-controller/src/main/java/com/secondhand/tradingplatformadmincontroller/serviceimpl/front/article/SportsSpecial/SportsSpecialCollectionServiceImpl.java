@@ -117,6 +117,17 @@ public class SportsSpecialCollectionServiceImpl extends BaseServiceImpl<SportsSp
     public List<SportsSpecialCollection> mySelectList(Wrapper<SportsSpecialCollection> wrapper) {
         return sportsSpecialCollectionMapper.selectList(wrapper);
     }
+
+    @Override
+    @Cacheable(key = "'mySelectCollectionList : ' + #p0")
+    public List<Object> mySelectCollectionList(Long userId) {
+        Wrapper<SportsSpecialCollection> wrapper = new EntityWrapper<>();
+        //没被删除的
+        wrapper.setSqlSelect("sports_id");
+        wrapper.where("user_id = {0}", userId)
+                .and("deleted = {0}", false);
+        return sportsSpecialCollectionMapper.selectObjs(wrapper);
+    }
     
     @Override
     @CacheEvict(allEntries = true)

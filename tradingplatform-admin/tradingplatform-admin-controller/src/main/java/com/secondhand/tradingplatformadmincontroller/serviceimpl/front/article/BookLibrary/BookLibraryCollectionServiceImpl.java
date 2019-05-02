@@ -117,7 +117,18 @@ public class BookLibraryCollectionServiceImpl extends BaseServiceImpl<BookLibrar
     public List<BookLibraryCollection> mySelectList(Wrapper<BookLibraryCollection> wrapper) {
         return bookLibraryCollectionMapper.selectList(wrapper);
     }
-    
+
+    @Override
+    @Cacheable(key = "'mySelectCollectionList : ' + #p0")
+    public List<Object> mySelectCollectionList(Long userId) {
+        Wrapper<BookLibraryCollection> wrapper = new EntityWrapper<>();
+        //没被删除的
+        wrapper.setSqlSelect("book_id");
+        wrapper.where("user_id = {0}", userId)
+                .and("deleted = {0}", false);
+        return bookLibraryCollectionMapper.selectObjs(wrapper);
+    }
+
     @Override
     @CacheEvict(allEntries = true)
     public boolean myInsert(BookLibraryCollection bookLibraryCollection) {

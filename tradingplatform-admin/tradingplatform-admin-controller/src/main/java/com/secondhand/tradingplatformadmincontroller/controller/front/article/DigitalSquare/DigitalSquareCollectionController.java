@@ -64,6 +64,33 @@ public class DigitalSquareCollectionController extends BaseController {
     }
 
     /**
+     * @description : 用户获取收藏digitalSquare的ids列表
+     * @author : zhangjk
+     * @since : Create in 2019-03-27
+     */
+    @GetMapping(value = "/query_collection", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @ApiOperation(value = "/query_collection", notes="用户获取收藏digitalSquare的ids列表")
+    @ResponseBody
+    public JsonResult<List<Object>> getDigitalSquareAdvisoryCollectionList() {
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<List<Object>> resJson = new JsonResult<>();
+        try {
+            //检查是否具有权限
+            subject.checkPermission("/front/digitalSquareCollection/query_collection");
+            Session session = subject.getSession();
+            Long userId = Long.valueOf(session.getAttribute(MagicalValue.USER_SESSION_ID).toString());
+            resJson.setData(digitalSquareCollectionService.mySelectCollectionList(userId));
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+            resJson.setSuccess(true);
+        }catch (UnauthorizedException e){
+            resJson.setCode(MagicalValue.CODE_OF_CUSTOMIZE_EXCEPTION);
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
+    }
+
+    /**
      * @description : 通过id获取digitalSquareCollectionMap
      * @author : zhangjk
      * @since : Create in 2019-03-27

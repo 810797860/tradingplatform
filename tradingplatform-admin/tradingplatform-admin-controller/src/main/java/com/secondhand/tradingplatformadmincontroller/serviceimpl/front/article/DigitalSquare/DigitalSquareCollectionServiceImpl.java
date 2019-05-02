@@ -117,6 +117,17 @@ public class DigitalSquareCollectionServiceImpl extends BaseServiceImpl<DigitalS
     public List<DigitalSquareCollection> mySelectList(Wrapper<DigitalSquareCollection> wrapper) {
         return digitalSquareCollectionMapper.selectList(wrapper);
     }
+
+    @Override
+    @Cacheable(key = "'mySelectCollectionList : ' + #p0")
+    public List<Object> mySelectCollectionList(Long userId) {
+        Wrapper<DigitalSquareCollection> wrapper = new EntityWrapper<>();
+        //没被删除的
+        wrapper.setSqlSelect("digital_id");
+        wrapper.where("user_id = {0}", userId)
+                .and("deleted = {0}", false);
+        return digitalSquareCollectionMapper.selectObjs(wrapper);
+    }
     
     @Override
     @CacheEvict(allEntries = true)

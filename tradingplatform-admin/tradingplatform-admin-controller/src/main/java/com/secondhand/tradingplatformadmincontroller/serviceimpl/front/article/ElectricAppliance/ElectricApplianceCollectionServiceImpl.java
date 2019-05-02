@@ -117,6 +117,17 @@ public class ElectricApplianceCollectionServiceImpl extends BaseServiceImpl<Elec
     public List<ElectricApplianceCollection> mySelectList(Wrapper<ElectricApplianceCollection> wrapper) {
         return electricApplianceCollectionMapper.selectList(wrapper);
     }
+
+    @Override
+    @Cacheable(key = "'mySelectCollectionList : ' + #p0")
+    public List<Object> mySelectCollectionList(Long userId) {
+        Wrapper<ElectricApplianceCollection> wrapper = new EntityWrapper<>();
+        //没被删除的
+        wrapper.setSqlSelect("electric_id");
+        wrapper.where("user_id = {0}", userId)
+                .and("deleted = {0}", false);
+        return electricApplianceCollectionMapper.selectObjs(wrapper);
+    }
     
     @Override
     @CacheEvict(allEntries = true)

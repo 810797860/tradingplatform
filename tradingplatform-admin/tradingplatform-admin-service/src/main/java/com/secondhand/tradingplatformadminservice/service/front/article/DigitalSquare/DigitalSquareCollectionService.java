@@ -76,6 +76,13 @@ public interface DigitalSquareCollectionService extends BaseService<DigitalSquar
         List<DigitalSquareCollection> mySelectList(Wrapper<DigitalSquareCollection> wrapper);
 
         /**
+         * 根据userId获取收藏的ids
+         * @param userId
+         * @return
+         */
+        List<Object> mySelectCollectionList(Long userId);
+
+        /**
          * 插入DigitalSquareCollection
          * @param digitalSquareCollection
          * @return

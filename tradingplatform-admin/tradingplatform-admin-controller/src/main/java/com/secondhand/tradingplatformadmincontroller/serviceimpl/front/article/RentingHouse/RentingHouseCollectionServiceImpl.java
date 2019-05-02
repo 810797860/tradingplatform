@@ -117,6 +117,17 @@ public class RentingHouseCollectionServiceImpl extends BaseServiceImpl<RentingHo
     public List<RentingHouseCollection> mySelectList(Wrapper<RentingHouseCollection> wrapper) {
         return rentingHouseCollectionMapper.selectList(wrapper);
     }
+
+    @Override
+    @Cacheable(key = "'mySelectCollectionList : ' + #p0")
+    public List<Object> mySelectCollectionList(Long userId) {
+        Wrapper<RentingHouseCollection> wrapper = new EntityWrapper<>();
+        //没被删除的
+        wrapper.setSqlSelect("renting_id");
+        wrapper.where("user_id = {0}", userId)
+                .and("deleted = {0}", false);
+        return rentingHouseCollectionMapper.selectObjs(wrapper);
+    }
     
     @Override
     @CacheEvict(allEntries = true)

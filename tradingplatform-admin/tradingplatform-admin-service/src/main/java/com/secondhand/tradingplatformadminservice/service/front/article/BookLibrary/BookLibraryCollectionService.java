@@ -76,6 +76,13 @@ public interface BookLibraryCollectionService extends BaseService<BookLibraryCol
         List<BookLibraryCollection> mySelectList(Wrapper<BookLibraryCollection> wrapper);
 
         /**
+         * 根据userId获取收藏的ids
+         * @param userId
+         * @return
+         */
+        List<Object> mySelectCollectionList(Long userId);
+
+        /**
          * 插入BookLibraryCollection
          * @param bookLibraryCollection
          * @return
