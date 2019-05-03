@@ -24,7 +24,7 @@ public class MysqlGenerator {
     private static String packageClass = "tradingplatformgenerator";
     private static String projectName = "secondhand";
     private static String authorName = "zhangjk";
-    private static String[] table = new String[]{"c_business_renting_house_order"};
+    private static String[] table = new String[]{"c_business_sports_special"};
     private static String[] prefix = new String[]{"c_business"};
     private static File file = new File(packageName);
     private static String path = file.getAbsolutePath();
@@ -151,12 +151,12 @@ public class MysqlGenerator {
                         .setServiceImpl("")
 
                         //生成后台页面模板
-                        .setController("/template/front/controller.java.vm")
-                        .setEntity("/template/front/entity.java.vm")
-                        .setMapper("/template/front/mapper.java.vm")
-                        .setXml("/template/front/mapper.xml.vm")
-                        .setService("/template/front/service.java.vm")
-                        .setServiceImpl("/template/front/serviceImpl.java.vm")
+                        .setController("/template/admin/controller.java.vm")
+                        .setEntity("/template/admin/entity.java.vm")
+                        .setMapper("/template/admin/mapper.java.vm")
+                        .setXml("/template/admin/mapper.xml.vm")
+                        .setService("/template/admin/service.java.vm")
+                        .setServiceImpl("/template/admin/serviceImpl.java.vm")
 
                         //生成前端页面模板
                         //生成gecco模板

@@ -35,6 +35,14 @@ public interface BookLibraryService extends BaseService<BookLibrary> {
     boolean myFakeBatchDelete(List<Long> bookLibraryIds);
 
     /**
+     * 根据ids进行批量审核通过
+     *
+     * @param bookLibraryIds
+     * @return
+     */
+    boolean myExaminationBatchPass(List<Long> bookLibraryIds);
+
+    /**
      * 获取Map数据（Obj）
      *
      * @param bookLibraryId

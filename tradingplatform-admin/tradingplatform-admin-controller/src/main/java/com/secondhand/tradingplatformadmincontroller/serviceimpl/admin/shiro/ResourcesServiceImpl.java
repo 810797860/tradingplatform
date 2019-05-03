@@ -91,7 +91,7 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
             //role_resources表默认给管理员也配上权限
             RoleResources roleResources = new RoleResources();
             roleResources.setUuid(ToolUtil.getUUID());
-            roleResources.setRoleId(MagicalValue.FRONT_END_ROLE_ID);
+            roleResources.setRoleId(MagicalValue.ADMINISTRATOR_ID);
             //新增后resources就会有id了，我也不知道为什么
             roleResources.setResourcesId(resources.getId());
             roleResourcesService.myInsert(roleResources);

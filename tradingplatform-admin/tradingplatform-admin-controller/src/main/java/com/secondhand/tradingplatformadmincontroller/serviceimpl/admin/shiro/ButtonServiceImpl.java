@@ -80,11 +80,12 @@ public class ButtonServiceImpl extends BaseServiceImpl<ButtonMapper, Button> imp
         Long buttonId = button.getId();
         if (buttonId == null) {
             button.setUuid(ToolUtil.getUUID());
-            Integer insertId = buttonMapper.insert(button);
+            buttonMapper.insert(button);
+            Long insertId = button.getId();
 
             //默认给管理员也加上去
             RoleButton roleButton = new RoleButton();
-            roleButton.setButtonId(Long.valueOf(insertId));
+            roleButton.setButtonId(insertId);
             roleButton.setRoleId(MagicalValue.ADMINISTRATOR_ID);
             roleButton.setUuid(ToolUtil.getUUID());
             roleButtonService.myInsert(roleButton);

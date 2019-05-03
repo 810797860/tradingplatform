@@ -1,5 +1,6 @@
 package com.secondhand.tradingplatformadmincontroller.serviceimpl.front.article.BookLibrary;
 
+import com.baomidou.mybatisplus.enums.SqlLike;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
@@ -8,6 +9,7 @@ import com.secondhand.tradingplatformadminmapper.mapper.front.article.BookLibrar
 import com.secondhand.tradingplatformadminservice.service.front.article.BookLibrary.BookLibraryService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
+import com.secondhand.tradingplatformcommon.pojo.SystemSelectItem;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
@@ -55,6 +57,20 @@ public class BookLibraryServiceImpl extends BaseServiceImpl<BookLibraryMapper, B
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
+    @CacheEvict(allEntries = true)
+    public boolean myExaminationBatchPass(List<Long> bookLibraryIds) {
+        bookLibraryIds.forEach(bookLibraryId -> {
+            BookLibrary bookLibrary = new BookLibrary();
+            bookLibrary.setId(bookLibraryId);
+            bookLibrary.setBackCheckStatus(SystemSelectItem.BACK_STATUS_EXAMINATION_PASSED);
+            bookLibrary.setNotPassReason("");
+            myUpdateById(bookLibrary);
+        });
+        return true;
+    }
+
+    @Override
     @Cacheable(key = "#p0")
     public Map<String, Object> mySelectMapById(Long bookLibraryId) {
         return bookLibraryMapper.selectMapById(bookLibraryId);
@@ -82,6 +98,13 @@ public class BookLibraryServiceImpl extends BaseServiceImpl<BookLibraryMapper, B
         //判空
         bookLibrary.setDeleted(false);
         Wrapper<BookLibrary> wrapper = new EntityWrapper<>(bookLibrary);
+        //自定义sql回显
+        wrapper.setSqlSelect("c_business_book_library.id as id, c_business_book_library.comment_num as comment_num, c_business_book_library.details as details, c_business_book_library.description as description, c_business_book_library.paper as paper, c_business_book_library.updated_at as updated_at, ( SELECT concat( '{\"id\":\"', sbu.id, '\",\"user_name\":\"', sbu.user_name, '\",\"phone\":\"', IFNULL(sbu.phone, ''), '\"}' ) FROM s_base_user sbu WHERE (sbu.id = c_business_book_library.user_id) ) AS user_id, c_business_book_library.back_check_time as back_check_time, c_business_book_library.title as title, c_business_book_library.enfold as enfold, c_business_book_library.updated_by as updated_by, c_business_book_library.author as author, c_business_book_library.not_pass_reason as not_pass_reason, c_business_book_library.cover as cover, c_business_book_library.suited as suited, c_business_book_library.publishing_house as publishing_house, (select concat('{\"id\":\"', sbsi.id, '\",\"pid\":\"', sbsi.pid, '\",\"title\":\"', sbsi.title, '\"}') from s_base_select_item sbsi where (sbsi.id = c_business_book_library.back_check_status)) AS back_check_status, c_business_book_library.price as price, c_business_book_library.isbn as isbn, c_business_book_library.created_by as created_by, c_business_book_library.published_time as published_time, c_business_book_library.star as star, (select concat('{\"id\":\"', cbfsi.id, '\",\"pid\":\"', cbfsi.pid, '\",\"title\":\"', cbfsi.title, '\"}') from c_business_front_select_item cbfsi where (cbfsi.id = c_business_book_library.classification)) AS classification, c_business_book_library.deleted as deleted, c_business_book_library.format as format, c_business_book_library.created_at as created_at")
+        //字符串模糊匹配
+                .like("title", bookLibrary.getTitle(), SqlLike.DEFAULT)
+                .like("price", bookLibrary.getPrice() == null ? null : (bookLibrary.getPrice() % 1 == 0 ? new Integer(bookLibrary.getPrice().intValue()).toString() : bookLibrary.getPrice().toString()), SqlLike.DEFAULT);
+        bookLibrary.setTitle(null);
+        bookLibrary.setPrice(null);
         //遍历排序
         List<Sort> sorts = bookLibrary.getSorts();
         if (sorts == null) {

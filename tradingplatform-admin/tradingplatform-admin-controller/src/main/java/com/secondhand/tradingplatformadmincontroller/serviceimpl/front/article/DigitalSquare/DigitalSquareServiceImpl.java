@@ -1,5 +1,6 @@
 package com.secondhand.tradingplatformadmincontroller.serviceimpl.front.article.DigitalSquare;
 
+import com.baomidou.mybatisplus.enums.SqlLike;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
@@ -8,6 +9,7 @@ import com.secondhand.tradingplatformadminmapper.mapper.front.article.DigitalSqu
 import com.secondhand.tradingplatformadminservice.service.front.article.DigitalSquare.DigitalSquareService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
+import com.secondhand.tradingplatformcommon.pojo.SystemSelectItem;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
@@ -55,6 +57,20 @@ public class DigitalSquareServiceImpl extends BaseServiceImpl<DigitalSquareMappe
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
+    @CacheEvict(allEntries = true)
+    public boolean myExaminationBatchPass(List<Long> digitalSquareIds) {
+        digitalSquareIds.forEach(digitalSquareId -> {
+            DigitalSquare digitalSquare = new DigitalSquare();
+            digitalSquare.setId(digitalSquareId);
+            digitalSquare.setBackCheckStatus(SystemSelectItem.BACK_STATUS_EXAMINATION_PASSED);
+            digitalSquare.setNotPassReason("");
+            myUpdateById(digitalSquare);
+        });
+        return true;
+    }
+
+    @Override
     @Cacheable(key = "#p0")
     public Map<String, Object> mySelectMapById(Long digitalSquareId) {
         return digitalSquareMapper.selectMapById(digitalSquareId);
@@ -82,6 +98,13 @@ public class DigitalSquareServiceImpl extends BaseServiceImpl<DigitalSquareMappe
         //判空
         digitalSquare.setDeleted(false);
         Wrapper<DigitalSquare> wrapper = new EntityWrapper<>(digitalSquare);
+        //自动生成sql回显
+        wrapper.setSqlSelect("c_business_digital_square.id as id, c_business_digital_square.details as details, c_business_digital_square.comment_num as comment_num, c_business_digital_square.description as description, c_business_digital_square.back_check_time as back_check_time, c_business_digital_square.updated_at as updated_at, ( SELECT concat( '{\"id\":\"', sbu.id, '\",\"user_name\":\"', sbu.user_name, '\",\"phone\":\"', IFNULL(sbu.phone, ''), '\"}' ) FROM s_base_user sbu WHERE (sbu.id = c_business_digital_square.user_id) ) AS user_id, c_business_digital_square.title as title, c_business_digital_square.not_pass_reason as not_pass_reason, c_business_digital_square.updated_by as updated_by, c_business_digital_square.brand as brand, c_business_digital_square.cover as cover, (select concat('{\"id\":\"', sbsi.id, '\",\"pid\":\"', sbsi.pid, '\",\"title\":\"', sbsi.title, '\"}') from s_base_select_item sbsi where (sbsi.id = c_business_digital_square.back_check_status)) AS back_check_status, c_business_digital_square.pattern as pattern, c_business_digital_square.price as price, c_business_digital_square.created_by as created_by, (select concat('{\"id\":\"', cbfsi.id, '\",\"pid\":\"', cbfsi.pid, '\",\"title\":\"', cbfsi.title, '\"}') from c_business_front_select_item cbfsi where (cbfsi.id = c_business_digital_square.classification)) AS classification, c_business_digital_square.star as star, c_business_digital_square.deleted as deleted, c_business_digital_square.created_at as created_at")
+                //字符串模糊匹配
+                .like("title", digitalSquare.getTitle(), SqlLike.DEFAULT)
+                .like("price", digitalSquare.getPrice() == null ? null : (digitalSquare.getPrice() % 1 == 0 ? new Integer(digitalSquare.getPrice().intValue()).toString() : digitalSquare.getPrice().toString()), SqlLike.DEFAULT);
+        digitalSquare.setTitle(null);
+        digitalSquare.setPrice(null);
         //遍历排序
         List<Sort> sorts = digitalSquare.getSorts();
         if (sorts == null) {

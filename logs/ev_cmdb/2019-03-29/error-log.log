@@ -1,2 +1,0 @@
-2019-03-29 09:53:42.267 [http-nio-8006-exec-2] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象获取失败java.lang.ClassCastException: org.apache.ibatis.cache.CacheKey cannot be cast to java.lang.String
-2019-03-29 09:53:42.454 [http-nio-8006-exec-2] ERROR com.secondhand.tradingplatformcommon.redisCache.RedisCache - 缓存对象保存失败java.lang.ClassCastException: org.apache.ibatis.cache.CacheKey cannot be cast to java.lang.String

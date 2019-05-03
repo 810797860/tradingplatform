@@ -35,6 +35,14 @@ public interface ElectricApplianceService extends BaseService<ElectricAppliance>
     boolean myFakeBatchDelete(List<Long> electricApplianceIds);
 
     /**
+     * 根据ids进行批量审核通过
+     *
+     * @param electricApplianceIds
+     * @return
+     */
+    boolean myExaminationBatchPass(List<Long> electricApplianceIds);
+
+    /**
      * 获取Map数据（Obj）
      *
      * @param electricApplianceId

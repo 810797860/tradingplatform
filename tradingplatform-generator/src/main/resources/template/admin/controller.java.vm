@@ -1,9 +1,9 @@
 ##package ${package.Controller};
 package com.secondhand.tradingplat${table.entityPath}admincontroller.controller;
 
-##import com.secondhand.tradingplatformadminentity.entity.admin.shiro.Button;
-##import com.secondhand.tradingplatformadminservice.service.admin.shiro.MenuButtonService;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.admin.shiro.Button;
+import com.secondhand.tradingplatformadminservice.service.admin.shiro.MenuButtonService;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
 import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
@@ -16,6 +16,7 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
     #if(${superControllerClassPackage})
@@ -26,7 +27,8 @@ import ${superControllerClassPackage};
 import com.secondhand.tradingplatformadminentity.entity.${entity};
 import com.secondhand.tradingplatformadminservice.service.${entity}Service;
 
-##import java.util.HashMap;
+import java.util.HashMap;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 

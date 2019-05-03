@@ -35,6 +35,14 @@ public interface SportsSpecialService extends BaseService<SportsSpecial> {
     boolean myFakeBatchDelete(List<Long> sportsSpecialIds);
 
     /**
+     * 根据ids进行批量审核通过
+     *
+     * @param sportsSpecialIds
+     * @return
+     */
+    boolean myExaminationBatchPass(List<Long> sportsSpecialIds);
+
+    /**
      * 获取Map数据（Obj）
      *
      * @param sportsSpecialId

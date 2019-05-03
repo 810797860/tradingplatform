@@ -35,6 +35,14 @@ public interface DigitalSquareService extends BaseService<DigitalSquare> {
     boolean myFakeBatchDelete(List<Long> digitalSquareIds);
 
     /**
+     * 根据ids进行批量审核通过
+     *
+     * @param digitalSquareIds
+     * @return
+     */
+    boolean myExaminationBatchPass(List<Long> digitalSquareIds);
+
+    /**
      * 获取Map数据（Obj）
      *
      * @param digitalSquareId

@@ -1,5 +1,6 @@
 package com.secondhand.tradingplatformadmincontroller.serviceimpl.front.article.ElectricAppliance;
 
+import com.baomidou.mybatisplus.enums.SqlLike;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
@@ -8,6 +9,7 @@ import com.secondhand.tradingplatformadminmapper.mapper.front.article.ElectricAp
 import com.secondhand.tradingplatformadminservice.service.front.article.ElectricAppliance.ElectricApplianceService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
+import com.secondhand.tradingplatformcommon.pojo.SystemSelectItem;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
@@ -55,6 +57,20 @@ public class ElectricApplianceServiceImpl extends BaseServiceImpl<ElectricApplia
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
+    @CacheEvict(allEntries = true)
+    public boolean myExaminationBatchPass(List<Long> electricApplianceIds) {
+        electricApplianceIds.forEach(electricApplianceId -> {
+            ElectricAppliance electricAppliance = new ElectricAppliance();
+            electricAppliance.setId(electricApplianceId);
+            electricAppliance.setBackCheckStatus(SystemSelectItem.BACK_STATUS_EXAMINATION_PASSED);
+            electricAppliance.setNotPassReason("");
+            myUpdateById(electricAppliance);
+        });
+        return true;
+    }
+
+    @Override
     @Cacheable(key = "#p0")
     public Map<String, Object> mySelectMapById(Long electricApplianceId) {
         return electricApplianceMapper.selectMapById(electricApplianceId);
@@ -82,6 +98,13 @@ public class ElectricApplianceServiceImpl extends BaseServiceImpl<ElectricApplia
         //判空
         electricAppliance.setDeleted(false);
         Wrapper<ElectricAppliance> wrapper = new EntityWrapper<>(electricAppliance);
+        //自定义sql回显
+        wrapper.setSqlSelect("c_business_electric_appliance.id as id, (select concat('{\"id\":\"', cbfsi.id, '\",\"pid\":\"', cbfsi.pid, '\",\"title\":\"', cbfsi.title, '\"}') from c_business_front_select_item cbfsi where (cbfsi.id = c_business_electric_appliance.classification)) AS classification, c_business_electric_appliance.comment_num as comment_num, c_business_electric_appliance.description as description, c_business_electric_appliance.details as details, c_business_electric_appliance.updated_at as updated_at, ( SELECT concat( '{\"id\":\"', sbu.id, '\",\"user_name\":\"', sbu.user_name, '\",\"phone\":\"', IFNULL(sbu.phone, ''), '\"}' ) FROM s_base_user sbu WHERE (sbu.id = c_business_electric_appliance.user_id) ) AS user_id, c_business_electric_appliance.title as title, c_business_electric_appliance.back_check_time as back_check_time, c_business_electric_appliance.updated_by as updated_by, c_business_electric_appliance.brand as brand, c_business_electric_appliance.cover as cover, c_business_electric_appliance.not_pass_reason as not_pass_reason, c_business_electric_appliance.model as model, c_business_electric_appliance.price as price, (select concat('{\"id\":\"', sbsi.id, '\",\"pid\":\"', sbsi.pid, '\",\"title\":\"', sbsi.title, '\"}') from s_base_select_item sbsi where (sbsi.id = c_business_electric_appliance.back_check_status)) AS back_check_status, c_business_electric_appliance.created_by as created_by, c_business_electric_appliance.type as type, c_business_electric_appliance.star as star, c_business_electric_appliance.power as power, c_business_electric_appliance.deleted as deleted, c_business_electric_appliance.created_at as created_at")
+                //字符串模糊匹配
+                .like("title", electricAppliance.getTitle(), SqlLike.DEFAULT)
+                .like("price", electricAppliance.getPrice() == null ? null : (electricAppliance.getPrice() % 1 == 0 ? new Integer(electricAppliance.getPrice().intValue()).toString() : electricAppliance.getPrice().toString()), SqlLike.DEFAULT);
+        electricAppliance.setTitle(null);
+        electricAppliance.setPrice(null);
         //遍历排序
         List<Sort> sorts = electricAppliance.getSorts();
         if (sorts == null) {
