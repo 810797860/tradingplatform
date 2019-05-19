@@ -6,8 +6,12 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.front.article.ElectricAppliance.ElectricApplianceOrder;
 import com.secondhand.tradingplatformadminmapper.mapper.front.article.ElectricAppliance.ElectricApplianceOrderMapper;
 import com.secondhand.tradingplatformadminservice.service.front.article.ElectricAppliance.ElectricApplianceOrderService;
+import com.secondhand.tradingplatformadminservice.service.front.article.ElectricAppliance.ElectricApplianceService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
+import com.secondhand.tradingplatformcommon.pojo.BusinessSelectItem;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeStatus;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
@@ -34,6 +38,9 @@ public class ElectricApplianceOrderServiceImpl extends BaseServiceImpl<ElectricA
 
     @Autowired
     private ElectricApplianceOrderMapper electricApplianceOrderMapper;
+
+    @Autowired
+    private ElectricApplianceService electricApplianceService;
 
     @Override
     @CacheEvict(allEntries = true)
@@ -202,5 +209,33 @@ public class ElectricApplianceOrderServiceImpl extends BaseServiceImpl<ElectricA
     @CacheEvict(allEntries = true)
     public boolean myUpdateById(ElectricApplianceOrder electricApplianceOrder) {
         return this.updateById(electricApplianceOrder);
+    }
+
+    @Override
+    @CacheEvict(allEntries = true)
+    @Transactional(rollbackFor = Exception.class)
+    public Float mySettlementByListId(List<Long> electricApplianceOrderLists, Float balance) {
+
+        final Float[] tempBalance = {balance};
+
+        //遍历结算
+        electricApplianceOrderLists.forEach(electricApplianceOrderId -> {
+
+            //先找出该订单
+            ElectricApplianceOrder electricApplianceOrder = this.mySelectById(electricApplianceOrderId);
+            //扣掉余额
+            tempBalance[0] = tempBalance[0] - electricApplianceOrder.getPrice() * electricApplianceOrder.getQuantity();
+            if (tempBalance[0] >= 0) {
+                //修改订单的状态
+                electricApplianceOrder.setOrderStatus(BusinessSelectItem.ORDER_STATUS_PAID);
+            } else {
+                try {
+                    throw new CustomizeException(CustomizeStatus.ELECTRIC_APPLIANCE_INSUFFICIENT_BALANCE, this.getClass());
+                } catch (CustomizeException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        return tempBalance[0];
     }
 }

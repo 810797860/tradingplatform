@@ -160,4 +160,11 @@ public interface DigitalSquareOrderService extends BaseService<DigitalSquareOrde
          */
         boolean myUpdateById(DigitalSquareOrder digitalSquareOrder);
 
+        /**
+         * 结算
+         * @param digitalSquareOrderLists
+         * @param balance
+         * @return
+         */
+        Float mySettlementByListId(List<Long> digitalSquareOrderLists, Float balance);
 }

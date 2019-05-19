@@ -160,4 +160,11 @@ public interface BookLibraryOrderService extends BaseService<BookLibraryOrder> {
          */
         boolean myUpdateById(BookLibraryOrder bookLibraryOrder);
 
+        /**
+         * 结算
+         * @param bookLibraryOrderLists
+         * @param balance
+         * @return
+         */
+        Float mySettlementByListId(List<Long> bookLibraryOrderLists, Float balance);
 }

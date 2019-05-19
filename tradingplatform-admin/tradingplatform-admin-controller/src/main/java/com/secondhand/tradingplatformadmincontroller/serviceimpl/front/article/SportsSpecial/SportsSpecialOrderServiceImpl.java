@@ -8,6 +8,9 @@ import com.secondhand.tradingplatformadminmapper.mapper.front.article.SportsSpec
 import com.secondhand.tradingplatformadminservice.service.front.article.SportsSpecial.SportsSpecialOrderService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
+import com.secondhand.tradingplatformcommon.pojo.BusinessSelectItem;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeStatus;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
@@ -202,5 +205,33 @@ public class SportsSpecialOrderServiceImpl extends BaseServiceImpl<SportsSpecial
     @CacheEvict(allEntries = true)
     public boolean myUpdateById(SportsSpecialOrder sportsSpecialOrder) {
         return this.updateById(sportsSpecialOrder);
+    }
+
+    @Override
+    @CacheEvict(allEntries = true)
+    @Transactional(rollbackFor = Exception.class)
+    public Float mySettlementByListId(List<Long> sportsSpecialOrderLists, Float balance) {
+
+        final Float[] tempBalance = {balance};
+
+        //遍历结算
+        sportsSpecialOrderLists.forEach(sportsSpecialOrderId -> {
+
+            //先找出该订单
+            SportsSpecialOrder sportsSpecialOrder = this.mySelectById(sportsSpecialOrderId);
+            //扣掉余额
+            tempBalance[0] = tempBalance[0] - sportsSpecialOrder.getPrice() * sportsSpecialOrder.getQuantity();
+            if (tempBalance[0] >= 0) {
+                //修改订单的状态
+                sportsSpecialOrder.setOrderStatus(BusinessSelectItem.ORDER_STATUS_PAID);
+            } else {
+                try {
+                    throw new CustomizeException(CustomizeStatus.SPORTS_SPECIAL_INSUFFICIENT_BALANCE, this.getClass());
+                } catch (CustomizeException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        return tempBalance[0];
     }
 }

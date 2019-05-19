@@ -77,7 +77,7 @@
 		cbeae.content AS content,
 		cbeae.star AS star,
 		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
-		FROM s_base_user sbu WHERE (sbu.id = cbeae.user_id) ) AS user_info,
+		FROM s_base_user sbu WHERE (sbu.id = cbeae.user_id) ) AS user_id,
 		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
 		FROM s_base_user sbu WHERE (sbu.id = cbea.user_id) ) AS sale_user,
 		200120 AS category,
@@ -96,7 +96,7 @@
 		cbble.content AS content,
 		cbble.star AS star,
 		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
-		FROM s_base_user sbu WHERE (sbu.id = cbble.user_id) ) AS user_info,
+		FROM s_base_user sbu WHERE (sbu.id = cbble.user_id) ) AS user_id,
 		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
 		FROM s_base_user sbu WHERE (sbu.id = cbbl.user_id) ) AS sale_user,
 		200121 AS category,
@@ -115,7 +115,7 @@
 		cbsse.content AS content,
 		cbsse.star AS star,
 		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
-		FROM s_base_user sbu WHERE (sbu.id = cbsse.user_id) ) AS user_info,
+		FROM s_base_user sbu WHERE (sbu.id = cbsse.user_id) ) AS user_id,
 		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
 		FROM s_base_user sbu WHERE (sbu.id = cbss.user_id) ) AS sale_user,
 		200122 AS category,
@@ -134,7 +134,7 @@
 		cbdse.content AS content,
 		cbdse.star AS star,
 		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
-		FROM s_base_user sbu WHERE (sbu.id = cbdse.user_id) ) AS user_info,
+		FROM s_base_user sbu WHERE (sbu.id = cbdse.user_id) ) AS user_id,
 		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
 		FROM s_base_user sbu WHERE (sbu.id = cbds.user_id) ) AS sale_user,
 		200123 AS category,
@@ -153,7 +153,7 @@
 		cbrhe.content AS content,
 		cbrhe.star AS star,
 		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
-		FROM s_base_user sbu WHERE (sbu.id = cbrhe.user_id) ) AS user_info,
+		FROM s_base_user sbu WHERE (sbu.id = cbrhe.user_id) ) AS user_id,
 		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
 		FROM s_base_user sbu WHERE (sbu.id = cbrh.user_id) ) AS sale_user,
 		200124 AS category,
@@ -232,7 +232,7 @@
 		cbeae.content AS content,
 		cbeae.star AS star,
 		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
-		FROM s_base_user sbu WHERE (sbu.id = cbeae.user_id) ) AS user_info,
+		FROM s_base_user sbu WHERE (sbu.id = cbeae.user_id) ) AS user_id,
 		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
 		FROM s_base_user sbu WHERE (sbu.id = cbea.user_id) ) AS sale_user,
 		200120 AS category,
@@ -251,7 +251,7 @@
 		cbble.content AS content,
 		cbble.star AS star,
 		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
-		FROM s_base_user sbu WHERE (sbu.id = cbble.user_id) ) AS user_info,
+		FROM s_base_user sbu WHERE (sbu.id = cbble.user_id) ) AS user_id,
 		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
 		FROM s_base_user sbu WHERE (sbu.id = cbbl.user_id) ) AS sale_user,
 		200121 AS category,
@@ -270,7 +270,7 @@
 		cbsse.content AS content,
 		cbsse.star AS star,
 		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
-		FROM s_base_user sbu WHERE (sbu.id = cbsse.user_id) ) AS user_info,
+		FROM s_base_user sbu WHERE (sbu.id = cbsse.user_id) ) AS user_id,
 		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
 		FROM s_base_user sbu WHERE (sbu.id = cbss.user_id) ) AS sale_user,
 		200122 AS category,
@@ -289,7 +289,7 @@
 		cbdse.content AS content,
 		cbdse.star AS star,
 		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
-		FROM s_base_user sbu WHERE (sbu.id = cbdse.user_id) ) AS user_info,
+		FROM s_base_user sbu WHERE (sbu.id = cbdse.user_id) ) AS user_id,
 		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
 		FROM s_base_user sbu WHERE (sbu.id = cbds.user_id) ) AS sale_user,
 		200123 AS category,
@@ -308,7 +308,7 @@
 		cbrhe.content AS content,
 		cbrhe.star AS star,
 		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
-		FROM s_base_user sbu WHERE (sbu.id = cbrhe.user_id) ) AS user_info,
+		FROM s_base_user sbu WHERE (sbu.id = cbrhe.user_id) ) AS user_id,
 		( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '"}' )
 		FROM s_base_user sbu WHERE (sbu.id = cbrh.user_id) ) AS sale_user,
 		200124 AS category,

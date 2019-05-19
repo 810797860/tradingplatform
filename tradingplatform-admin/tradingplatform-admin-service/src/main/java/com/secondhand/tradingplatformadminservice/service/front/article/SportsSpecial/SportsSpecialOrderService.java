@@ -160,4 +160,11 @@ public interface SportsSpecialOrderService extends BaseService<SportsSpecialOrde
          */
         boolean myUpdateById(SportsSpecialOrder sportsSpecialOrder);
 
+        /**
+         * 结算
+         * @param sportsSpecialOrderLists
+         * @param balance
+         * @return
+         */
+        Float mySettlementByListId(List<Long> sportsSpecialOrderLists, Float balance);
 }

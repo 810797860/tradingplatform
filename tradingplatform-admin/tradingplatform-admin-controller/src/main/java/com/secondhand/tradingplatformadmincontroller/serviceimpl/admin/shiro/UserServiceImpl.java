@@ -241,4 +241,15 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper, User> implement
     public boolean myUpdateById(User user) {
         return this.updateById(user);
     }
+
+    @Override
+    @Cacheable(key = "'mySelectUserByUserName:' + #p0")
+    public User mySelectUserByUserName(String userName) {
+
+        Wrapper<User> wrapper = new EntityWrapper<>();
+        //设置条件
+        wrapper.where("user_name = {0}", userName)
+                .where("deleted = {0}", false);
+        return this.mySelectOne(wrapper);
+    }
 }

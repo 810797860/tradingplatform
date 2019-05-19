@@ -83,6 +83,11 @@ public class FilterChainDefinitionMapBuilder {
         filterChainDefinitionMap.put("/front/otherCategories/query", "anon");
         filterChainDefinitionMap.put("/front/otherCategories/get_map_by_id/*", "anon");
 
+        //支付的，先全部过滤吧
+        filterChainDefinitionMap.put("/front/payment/codePay.html", "anon");
+        filterChainDefinitionMap.put("/front/payment/recharge.html", "anon");
+        filterChainDefinitionMap.put("/front/payment/notify.html", "anon");
+
         return (LinkedHashMap<String, String>) filterChainDefinitionMap;
     }
 }

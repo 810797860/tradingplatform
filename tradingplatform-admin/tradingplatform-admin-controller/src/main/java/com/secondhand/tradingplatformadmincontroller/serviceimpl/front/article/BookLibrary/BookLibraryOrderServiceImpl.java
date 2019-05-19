@@ -8,6 +8,9 @@ import com.secondhand.tradingplatformadminmapper.mapper.front.article.BookLibrar
 import com.secondhand.tradingplatformadminservice.service.front.article.BookLibrary.BookLibraryOrderService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
+import com.secondhand.tradingplatformcommon.pojo.BusinessSelectItem;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeStatus;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
@@ -202,5 +205,33 @@ public class BookLibraryOrderServiceImpl extends BaseServiceImpl<BookLibraryOrde
     @CacheEvict(allEntries = true)
     public boolean myUpdateById(BookLibraryOrder bookLibraryOrder) {
         return this.updateById(bookLibraryOrder);
+    }
+
+    @Override
+    @CacheEvict(allEntries = true)
+    @Transactional(rollbackFor = Exception.class)
+    public Float mySettlementByListId(List<Long> bookLibraryOrderLists, Float balance) {
+
+        final Float[] tempBalance = {balance};
+
+        //遍历结算
+        bookLibraryOrderLists.forEach(bookLibraryOrderId -> {
+
+            //先找出该订单
+            BookLibraryOrder bookLibraryOrder = this.mySelectById(bookLibraryOrderId);
+            //扣掉余额
+            tempBalance[0] = tempBalance[0] - bookLibraryOrder.getPrice() * bookLibraryOrder.getQuantity();
+            if (tempBalance[0] >= 0) {
+                //修改订单的状态
+                bookLibraryOrder.setOrderStatus(BusinessSelectItem.ORDER_STATUS_PAID);
+            } else {
+                try {
+                    throw new CustomizeException(CustomizeStatus.BOOK_LIBRARY_INSUFFICIENT_BALANCE, this.getClass());
+                } catch (CustomizeException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        return tempBalance[0];
     }
 }

@@ -160,4 +160,11 @@ public interface RentingHouseOrderService extends BaseService<RentingHouseOrder>
          */
         boolean myUpdateById(RentingHouseOrder rentingHouseOrder);
 
+        /**
+         * 结算
+         * @param rentingHouseOrderLists
+         * @param balance
+         * @return
+         */
+        Float mySettlementByListId(List<Long> rentingHouseOrderLists, Float balance);
 }

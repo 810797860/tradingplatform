@@ -27,7 +27,17 @@ public enum CustomizeStatus {
     FILE_DOWNLOAD_FAILED(703, "文件下载失败"),
     FILE_CONTINUES_TO_DOWNLOAD_FAILED(704, "文件继续下载失败"),
 
-    ADMIN_USER_ACCOUNT_ALREADY_EXISTS(801, "后台用户该账号已存在");
+    ADMIN_USER_ACCOUNT_ALREADY_EXISTS(801, "后台用户该账号已存在"),
+
+    PAYMENT_VERIFICATION_FAILED(901, "支付验证失败"),
+    ELECTRIC_APPLIANCE_INSUFFICIENT_BALANCE(902, "电器商城余额不足"),
+    BOOK_LIBRARY_INSUFFICIENT_BALANCE(903, "图书专库余额不足"),
+    SPORTS_SPECIAL_INSUFFICIENT_BALANCE(904, "运动专场余额不足"),
+    DIGITAL_SQUARE_INSUFFICIENT_BALANCE(905, "数码广场余额不足"),
+    RENTING_HOUSE_INSUFFICIENT_BALANCE(906, "租房专区余额不足"),
+
+    UNAUTHORIZED_PERMISSION_DENIED(1001, "用户没有权限");
+
     private int code;
     private String information;
 

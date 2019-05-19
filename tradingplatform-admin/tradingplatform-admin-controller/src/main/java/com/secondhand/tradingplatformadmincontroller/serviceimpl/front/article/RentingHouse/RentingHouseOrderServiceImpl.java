@@ -8,6 +8,9 @@ import com.secondhand.tradingplatformadminmapper.mapper.front.article.RentingHou
 import com.secondhand.tradingplatformadminservice.service.front.article.RentingHouse.RentingHouseOrderService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
+import com.secondhand.tradingplatformcommon.pojo.BusinessSelectItem;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeStatus;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
@@ -202,5 +205,33 @@ public class RentingHouseOrderServiceImpl extends BaseServiceImpl<RentingHouseOr
     @CacheEvict(allEntries = true)
     public boolean myUpdateById(RentingHouseOrder rentingHouseOrder) {
         return this.updateById(rentingHouseOrder);
+    }
+
+    @Override
+    @CacheEvict(allEntries = true)
+    @Transactional(rollbackFor = Exception.class)
+    public Float mySettlementByListId(List<Long> rentingHouseOrderLists, Float balance) {
+
+        final Float[] tempBalance = {balance};
+
+        //遍历结算
+        rentingHouseOrderLists.forEach(rentingHouseOrderId -> {
+
+            //先找出该订单
+            RentingHouseOrder rentingHouseOrder = this.mySelectById(rentingHouseOrderId);
+            //扣掉余额
+            tempBalance[0] = tempBalance[0] - rentingHouseOrder.getPrice() * rentingHouseOrder.getQuantity();
+            if (tempBalance[0] >= 0) {
+                //修改订单的状态
+                rentingHouseOrder.setOrderStatus(BusinessSelectItem.ORDER_STATUS_PAID);
+            } else {
+                try {
+                    throw new CustomizeException(CustomizeStatus.RENTING_HOUSE_INSUFFICIENT_BALANCE, this.getClass());
+                } catch (CustomizeException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        return tempBalance[0];
     }
 }

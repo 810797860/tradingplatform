@@ -95,7 +95,7 @@
 		AND cbblc.deleted = FALSE
 		) UNION SELECT
 		cbss.id AS id,
-		cbssc.id as collection_id
+		cbssc.id as collection_id,
 		cbss.cover AS cover,
 		cbss.title AS title,
 		cbss.price AS price,

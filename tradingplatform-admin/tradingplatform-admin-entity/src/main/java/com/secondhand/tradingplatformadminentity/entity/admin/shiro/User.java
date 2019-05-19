@@ -79,14 +79,27 @@ public class User extends BaseEntity {
     private String phone;
 
 
+    /**
+     * 用户类型
+     */
     @ApiModelProperty("用户类型")
     @TableField("type")
     private Long type;
 
 
+    /**
+     * 学校住址
+     */
     @ApiModelProperty("学校住址")
     @TableField("school_address")
     private Long schoolAddress;
+
+    /**
+     * 余额
+     */
+    @ApiModelProperty("余额")
+    @TableField("balance")
+    private Float balance;
 
 
     public Long getAvatar() {
@@ -161,6 +174,14 @@ public class User extends BaseEntity {
         this.schoolAddress = schoolAddress;
     }
 
+    public Float getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Float balance) {
+        this.balance = balance;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -173,6 +194,7 @@ public class User extends BaseEntity {
                 ", phone='" + phone + '\'' +
                 ", type=" + type +
                 ", schoolAddress=" + schoolAddress +
+                ", balance=" + balance +
                 '}';
     }
 }

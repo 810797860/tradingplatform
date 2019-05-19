@@ -17,6 +17,7 @@
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
         <result column="type" property="type" jdbcType="INTEGER"/>
         <result column="school_address" property="schoolAddress" jdbcType="INTEGER"/>
+        <result column="balance" property="balance" jdbcType="FLOAT"/>
 
     </resultMap>
 
@@ -32,6 +33,7 @@
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
         <result column="type" property="type" jdbcType="INTEGER"/>
         <result column="school_address" property="schoolAddress" jdbcType="INTEGER"/>
+        <result column="balance" property="balance" jdbcType="FLOAT"/>
 
     </resultMap>
 

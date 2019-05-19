@@ -181,4 +181,10 @@ public interface UserService extends BaseService<User> {
      */
     boolean myUpdateById(User user);
 
+    /**
+     * 根据名字找用户
+     * @param userName
+     * @return
+     */
+    User mySelectUserByUserName(String userName);
 }

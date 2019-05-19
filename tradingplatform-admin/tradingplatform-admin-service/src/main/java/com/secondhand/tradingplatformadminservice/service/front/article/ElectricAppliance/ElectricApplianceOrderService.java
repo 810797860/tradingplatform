@@ -160,4 +160,11 @@ public interface ElectricApplianceOrderService extends BaseService<ElectricAppli
          */
         boolean myUpdateById(ElectricApplianceOrder electricApplianceOrder);
 
+        /**
+         * 结算
+         * @param electricApplianceOrderLists
+         * @param balance
+         * @return
+         */
+        Float mySettlementByListId(List<Long> electricApplianceOrderLists, Float balance);
 }

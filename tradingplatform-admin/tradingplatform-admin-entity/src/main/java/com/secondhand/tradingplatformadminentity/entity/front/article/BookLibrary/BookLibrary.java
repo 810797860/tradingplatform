@@ -166,7 +166,6 @@ public class BookLibrary extends BaseEntity {
      */
     @ApiModelProperty("图书价格")
     @TableField("price")
-
     private Float price;
 
     /**
