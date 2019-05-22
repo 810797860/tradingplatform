@@ -26,13 +26,13 @@ public class MyCommentServiceImpl extends BaseServiceImpl<MyCommentMapper, MyCom
     private MyCommentMapper myCommentMapper;
 
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "'mySelectTotalWithParam:' + #p0")
     public Long mySelectTotalWithParam(MyComment myComment) {
         return myCommentMapper.mySelectTotalWithParam(myComment);
     }
 
     @Override
-    @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p2")
+    @Cacheable(key = "'mySelectListWithParam:' + #p0 + ',' + #p1 + ',' + #p2")
     public List<Map<String, Object>> mySelectListWithParam(MyComment myComment, int current, int size) {
         //计算分页
         int lowerLimit = (current - 1) * size;
@@ -42,13 +42,13 @@ public class MyCommentServiceImpl extends BaseServiceImpl<MyCommentMapper, MyCom
     }
 
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "'mySelectSaleTotalWithParam' + #p0")
     public Long mySelectSaleTotalWithParam(MyComment myComment) {
         return myCommentMapper.mySelectSaleTotalWithParam(myComment);
     }
 
     @Override
-    @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p2")
+    @Cacheable(key = "'mySelectSaleListWithParam:' + #p0 + ',' + #p1 + ',' + #p2")
     public List<Map<String, Object>> mySelectSaleListWithParam(MyComment myComment, int current, int size) {
         //计算分页
         int lowerLimit = (current - 1) * size;

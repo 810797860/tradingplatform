@@ -26,13 +26,13 @@ public class MyTransactionServiceImpl extends BaseServiceImpl<MyTransactionMappe
     private MyTransactionMapper myTransactionMapper;
 
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "'mySelectTotalWithParam:' + #p0")
     public Long mySelectTotalWithParam(MyTransaction myTransaction) {
         return myTransactionMapper.mySelectTotalWithParam(myTransaction);
     }
 
     @Override
-    @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p2")
+    @Cacheable(key = "'mySelectListWithParam:' + #p0 + ',' + #p1 + ',' + #p2")
     public List<Map<String, Object>> mySelectListWithParam(MyTransaction myTransaction, int current, int size) {
         //计算分页
         int lowerLimit = (current - 1) * size;
@@ -42,13 +42,13 @@ public class MyTransactionServiceImpl extends BaseServiceImpl<MyTransactionMappe
     }
 
     @Override
-    @Cacheable(key = "#p0")
+    @Cacheable(key = "'mySelectSaleTotalWithParam:' + #p0")
     public Long mySelectSaleTotalWithParam(MyTransaction myTransaction) {
         return myTransactionMapper.mySelectSaleTotalWithParam(myTransaction);
     }
 
     @Override
-    @Cacheable(key = "#p0 + ',' + #p1 + ',' + #p2")
+    @Cacheable(key = "'mySelectSaleListWithParam:' + #p0 + ',' + #p1 + ',' + #p2")
     public List<Map<String, Object>> mySelectSaleListWithParam(MyTransaction myTransaction, int current, int size) {
         //计算分页
         int lowerLimit = (current - 1) * size;
