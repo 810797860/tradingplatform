@@ -141,7 +141,7 @@ public class ShoppingCartController extends BaseController {
         //拼接返回结果
         JsonResult<Float> resJson = new JsonResult<>();
         resJson.setData(balance);
-        resJson.setCode(200);
+        resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
         resJson.setSuccess(true);
         return resJson;
     }

@@ -88,6 +88,9 @@ public class FilterChainDefinitionMapBuilder {
         filterChainDefinitionMap.put("/front/payment/recharge.html", "anon");
         filterChainDefinitionMap.put("/front/payment/notify.html", "anon");
 
+        //测试阿里云发邮件的接口
+        filterChainDefinitionMap.put("/admin/test/myTestSendEmail", "anon");
+
         return (LinkedHashMap<String, String>) filterChainDefinitionMap;
     }
 }

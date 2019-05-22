@@ -105,7 +105,6 @@ public class TestController extends BaseController {
         JsonResult<Test> resJson = new JsonResult<>();
         resJson.setSuccess(testService.myFakeBatchDelete(testIds));
         resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
-
         return resJson;
     }
 
@@ -123,7 +122,6 @@ public class TestController extends BaseController {
         resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
         resJson.setData(test);
         resJson.setSuccess(true);
-
         return resJson;
     }
 }
