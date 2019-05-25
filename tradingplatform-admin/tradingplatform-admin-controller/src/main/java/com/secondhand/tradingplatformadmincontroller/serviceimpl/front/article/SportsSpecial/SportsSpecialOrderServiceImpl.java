@@ -1,10 +1,16 @@
 package com.secondhand.tradingplatformadmincontroller.serviceimpl.front.article.SportsSpecial;
 
+import com.aliyuncs.exceptions.ClientException;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.admin.shiro.User;
+import com.secondhand.tradingplatformadminentity.entity.front.article.SportsSpecial.SportsSpecial;
 import com.secondhand.tradingplatformadminentity.entity.front.article.SportsSpecial.SportsSpecialOrder;
+import com.secondhand.tradingplatformadminmapper.mapper.admin.shiro.UserMapper;
+import com.secondhand.tradingplatformadminmapper.mapper.front.article.SportsSpecial.SportsSpecialMapper;
 import com.secondhand.tradingplatformadminmapper.mapper.front.article.SportsSpecial.SportsSpecialOrderMapper;
+import com.secondhand.tradingplatformadminservice.service.admin.business.ShortMessageService;
 import com.secondhand.tradingplatformadminservice.service.front.article.SportsSpecial.SportsSpecialOrderService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
@@ -38,8 +44,17 @@ public class SportsSpecialOrderServiceImpl extends BaseServiceImpl<SportsSpecial
     @Autowired
     private SportsSpecialOrderMapper sportsSpecialOrderMapper;
 
+    @Autowired
+    private SportsSpecialMapper sportsSpecialMapper;
+
+    @Autowired
+    private UserMapper userMapper;
+
+    @Autowired
+    private ShortMessageService shortMessageService;
+
     @Override
-    @CacheEvict(allEntries = true)
+    @CacheEvict(cacheNames = {"sportsSpecialOrder", "shoppingCart"}, allEntries = true)
     public Integer myFakeDeleteById(Long sportsSpecialOrderId) {
         SportsSpecialOrder sportsSpecialOrder = new SportsSpecialOrder();
         sportsSpecialOrder.setId(sportsSpecialOrderId);
@@ -64,7 +79,7 @@ public class SportsSpecialOrderServiceImpl extends BaseServiceImpl<SportsSpecial
     }
 
     @Override
-    @CacheEvict(allEntries = true)
+    @CacheEvict(cacheNames = {"sportsSpecialOrder", "shoppingCart"}, allEntries = true)
     public SportsSpecialOrder mySportsSpecialOrderCreateUpdate(SportsSpecialOrder sportsSpecialOrder) {
         Long sportsSpecialOrderId = sportsSpecialOrder.getId();
         if (sportsSpecialOrderId == null){
@@ -208,7 +223,7 @@ public class SportsSpecialOrderServiceImpl extends BaseServiceImpl<SportsSpecial
     }
 
     @Override
-    @CacheEvict(allEntries = true)
+    @Cacheable(key = "'mySettlementByListId' + #p0 + #p1")
     @Transactional(rollbackFor = Exception.class)
     public Float mySettlementByListId(List<Long> sportsSpecialOrderLists, Float balance) {
 
@@ -233,5 +248,32 @@ public class SportsSpecialOrderServiceImpl extends BaseServiceImpl<SportsSpecial
             }
         });
         return tempBalance[0];
+    }
+
+    @Override
+    @Cacheable(key = "'myNotifyByListId' + #p0")
+    @Transactional(rollbackFor = Exception.class)
+    public void myNotifyByListId(List<Long> sportsSpecialOrderLists) {
+
+        //遍历发短信
+        sportsSpecialOrderLists.forEach(sportsSpecialOrderId -> {
+
+            //先找卖家的电话号码（商品id->userId->phone）
+            //先找该条订单的信息
+            SportsSpecialOrder sportsSpecialOrder = this.mySelectById(sportsSpecialOrderId);
+            //找该条商品的信息
+            SportsSpecial sportsSpecial = sportsSpecialMapper.selectById(sportsSpecialOrder.getSportsId());
+            //找phone
+            User user = userMapper.selectById(sportsSpecial.getUserId());
+            String phone = user.getPhone();
+            //如果该用户有验证手机号码
+            if (!ToolUtil.strIsEmpty(phone)){
+                try {
+                    shortMessageService.notifyPurchaseSuccess(phone);
+                } catch (ClientException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }

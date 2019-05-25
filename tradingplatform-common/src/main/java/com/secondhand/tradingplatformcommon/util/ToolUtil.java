@@ -154,7 +154,7 @@ public class ToolUtil {
      */
     public static String getMinutesAndSeconds() {
         SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss");
-        return df.format(new Date());
+        return df.format(new Date()).replaceAll(":", "");
     }
 
     /**
@@ -181,11 +181,29 @@ public class ToolUtil {
      */
     public static boolean checkVerifyCode(HttpServletRequest request, String frontCaptcha) {
 
-        //获取生成的验证码
+        //获取session中的验证码
         HttpSession session = request.getSession();
         String captcha = session.getAttribute(MagicalValue.STRING_OF_KAPTCHA).toString();
         //判断
         if (strIsEmpty(frontCaptcha) || !captcha.equals(frontCaptcha)) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * 判断手机短信的验证码(备用)
+     * @param request
+     * @param frontVerification
+     * @return
+     */
+    public static boolean checkMessageCode(HttpServletRequest request, String frontVerification){
+
+        //获取session中的验证码
+        HttpSession session = request.getSession();
+        String verificationCode = session.getAttribute(MagicalValue.STRING_OF_VERIFICATION).toString();
+        //判断
+        if (strIsEmpty(verificationCode) || !verificationCode.equals(frontVerification)){
             return false;
         }
         return true;

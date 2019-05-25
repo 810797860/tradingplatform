@@ -1,12 +1,17 @@
 package com.secondhand.tradingplatformadmincontroller.serviceimpl.front.article.ElectricAppliance;
 
+import com.aliyuncs.exceptions.ClientException;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.admin.shiro.User;
+import com.secondhand.tradingplatformadminentity.entity.front.article.ElectricAppliance.ElectricAppliance;
 import com.secondhand.tradingplatformadminentity.entity.front.article.ElectricAppliance.ElectricApplianceOrder;
+import com.secondhand.tradingplatformadminmapper.mapper.admin.shiro.UserMapper;
+import com.secondhand.tradingplatformadminmapper.mapper.front.article.ElectricAppliance.ElectricApplianceMapper;
 import com.secondhand.tradingplatformadminmapper.mapper.front.article.ElectricAppliance.ElectricApplianceOrderMapper;
+import com.secondhand.tradingplatformadminservice.service.admin.business.ShortMessageService;
 import com.secondhand.tradingplatformadminservice.service.front.article.ElectricAppliance.ElectricApplianceOrderService;
-import com.secondhand.tradingplatformadminservice.service.front.article.ElectricAppliance.ElectricApplianceService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
 import com.secondhand.tradingplatformcommon.pojo.BusinessSelectItem;
@@ -40,10 +45,16 @@ public class ElectricApplianceOrderServiceImpl extends BaseServiceImpl<ElectricA
     private ElectricApplianceOrderMapper electricApplianceOrderMapper;
 
     @Autowired
-    private ElectricApplianceService electricApplianceService;
+    private ElectricApplianceMapper electricApplianceMapper;
+
+    @Autowired
+    private UserMapper userMapper;
+
+    @Autowired
+    private ShortMessageService shortMessageService;
 
     @Override
-    @CacheEvict(allEntries = true)
+    @CacheEvict(cacheNames = {"electricApplianceOrder", "shoppingCart"}, allEntries = true)
     public Integer myFakeDeleteById(Long electricApplianceOrderId) {
         ElectricApplianceOrder electricApplianceOrder = new ElectricApplianceOrder();
         electricApplianceOrder.setId(electricApplianceOrderId);
@@ -68,7 +79,7 @@ public class ElectricApplianceOrderServiceImpl extends BaseServiceImpl<ElectricA
     }
 
     @Override
-    @CacheEvict(allEntries = true)
+    @CacheEvict(cacheNames = {"electricApplianceOrder", "shoppingCart"}, allEntries = true)
     public ElectricApplianceOrder myElectricApplianceOrderCreateUpdate(ElectricApplianceOrder electricApplianceOrder) {
         Long electricApplianceOrderId = electricApplianceOrder.getId();
         if (electricApplianceOrderId == null){
@@ -212,7 +223,7 @@ public class ElectricApplianceOrderServiceImpl extends BaseServiceImpl<ElectricA
     }
 
     @Override
-    @CacheEvict(allEntries = true)
+    @Cacheable(key = "'mySettlementByListId:' + #p0 + #p1")
     @Transactional(rollbackFor = Exception.class)
     public Float mySettlementByListId(List<Long> electricApplianceOrderLists, Float balance) {
 
@@ -237,5 +248,32 @@ public class ElectricApplianceOrderServiceImpl extends BaseServiceImpl<ElectricA
             }
         });
         return tempBalance[0];
+    }
+
+    @Override
+    @Cacheable(key = "'myNotifyByListId' + #p0")
+    @Transactional(rollbackFor = Exception.class)
+    public void myNotifyByListId(List<Long> electricApplianceOrderLists) {
+
+        //遍历发短信
+        electricApplianceOrderLists.forEach(electricApplianceOrderId -> {
+
+            //先找卖家的电话号码（商品id->userId->phone）
+            //先找该条订单的信息
+            ElectricApplianceOrder electricApplianceOrder = this.mySelectById(electricApplianceOrderId);
+            //找该条商品的信息
+            ElectricAppliance electricAppliance = electricApplianceMapper.selectById(electricApplianceOrder.getElectricId());
+            //找phone
+            User user = userMapper.selectById(electricAppliance.getUserId());
+            String phone = user.getPhone();
+            //如果该用户有验证手机号码
+            if (!ToolUtil.strIsEmpty(phone)){
+                try {
+                    shortMessageService.notifyPurchaseSuccess(phone);
+                } catch (ClientException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }

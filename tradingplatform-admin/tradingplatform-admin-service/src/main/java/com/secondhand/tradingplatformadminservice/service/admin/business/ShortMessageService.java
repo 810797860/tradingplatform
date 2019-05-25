@@ -2,7 +2,8 @@ package com.secondhand.tradingplatformadminservice.service.admin.business;
 
 import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
 import com.aliyuncs.exceptions.ClientException;
-import com.secondhand.tradingplatformcommon.base.BaseService.BaseService;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author zhangjk
@@ -13,9 +14,19 @@ import com.secondhand.tradingplatformcommon.base.BaseService.BaseService;
 public interface ShortMessageService{
 
     /**
-     * 测试发送邮件
+     * 发送验证码
+     * @param httpServletRequest
+     * @param phoneNumbers
      * @return
      * @throws ClientException
      */
-    SendSmsResponse testSendEmail() throws ClientException;
+    SendSmsResponse sendVerificationCode(HttpServletRequest httpServletRequest, String phoneNumbers) throws ClientException;
+
+    /**
+     * 通知购买成功
+     * @param phoneNumbers
+     * @return
+     * @throws ClientException
+     */
+    SendSmsResponse notifyPurchaseSuccess(String phoneNumbers) throws ClientException;
 }

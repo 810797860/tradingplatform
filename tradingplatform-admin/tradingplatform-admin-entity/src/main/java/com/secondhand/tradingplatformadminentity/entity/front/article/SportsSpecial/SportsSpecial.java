@@ -131,8 +131,14 @@ public class SportsSpecial extends BaseEntity {
      */
     @ApiModelProperty("运动标题")
     @TableField("title")
-
     private String title;
+
+    /**
+     * 运动售后保障
+     */
+    @ApiModelProperty("运动售后保障")
+    @TableField("warranty")
+    private String warranty;
 
     public Long getBackCheckStatus() {
         return backCheckStatus;
@@ -238,23 +244,31 @@ public class SportsSpecial extends BaseEntity {
         this.title = title;
     }
 
+    public String getWarranty() {
+        return warranty;
+    }
+
+    public void setWarranty(String warranty) {
+        this.warranty = warranty;
+    }
 
     @Override
     public String toString() {
         return "SportsSpecial{" +
-                ", backCheckStatus=" + backCheckStatus +
-                ", notPassReason=" + notPassReason +
+                "backCheckStatus=" + backCheckStatus +
+                ", notPassReason='" + notPassReason + '\'' +
                 ", backCheckTime=" + backCheckTime +
-                ", details=" + details +
+                ", details='" + details + '\'' +
                 ", classification=" + classification +
-                ", pattern=" + pattern +
-                ", brand=" + brand +
+                ", pattern='" + pattern + '\'' +
+                ", brand='" + brand + '\'' +
                 ", userId=" + userId +
                 ", star=" + star +
                 ", commentNum=" + commentNum +
                 ", price=" + price +
-                ", cover=" + cover +
-                ", title=" + title +
-                "}";
+                ", cover='" + cover + '\'' +
+                ", title='" + title + '\'' +
+                ", warranty='" + warranty + '\'' +
+                '}';
     }
 }

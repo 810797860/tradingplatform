@@ -179,8 +179,14 @@ public class RentingHouse extends BaseEntity {
      */
     @ApiModelProperty("租房标题")
     @TableField("title")
-
     private String title;
+
+    /**
+     * 租房售后保障
+     */
+    @ApiModelProperty("租房售后保障")
+    @TableField("warranty")
+    private String warranty;
 
     public Long getBackCheckStatus() {
         return backCheckStatus;
@@ -334,29 +340,37 @@ public class RentingHouse extends BaseEntity {
         this.title = title;
     }
 
+    public String getWarranty() {
+        return warranty;
+    }
+
+    public void setWarranty(String warranty) {
+        this.warranty = warranty;
+    }
 
     @Override
     public String toString() {
         return "RentingHouse{" +
-                ", backCheckStatus=" + backCheckStatus +
-                ", notPassReason=" + notPassReason +
+                "backCheckStatus=" + backCheckStatus +
+                ", notPassReason='" + notPassReason + '\'' +
                 ", backCheckTime=" + backCheckTime +
-                ", details=" + details +
+                ", details='" + details + '\'' +
                 ", classification=" + classification +
                 ", matching=" + matching +
-                ", community=" + community +
-                ", genre=" + genre +
-                ", decoration=" + decoration +
-                ", floorLayer=" + floorLayer +
-                ", oriented=" + oriented +
+                ", community='" + community + '\'' +
+                ", genre='" + genre + '\'' +
+                ", decoration='" + decoration + '\'' +
+                ", floorLayer='" + floorLayer + '\'' +
+                ", oriented='" + oriented + '\'' +
                 ", area=" + area +
-                ", houseType=" + houseType +
+                ", houseType='" + houseType + '\'' +
                 ", userId=" + userId +
                 ", commentNum=" + commentNum +
                 ", star=" + star +
                 ", price=" + price +
-                ", cover=" + cover +
-                ", title=" + title +
-                "}";
+                ", cover='" + cover + '\'' +
+                ", title='" + title + '\'' +
+                ", warranty='" + warranty + '\'' +
+                '}';
     }
 }

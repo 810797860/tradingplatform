@@ -138,6 +138,33 @@ public class ShoppingCartController extends BaseController {
         user.setBalance(balance);
         userService.myUpdateById(user);
 
+        //结算完毕后，分别发短信
+        if (parameter.containsKey("electricApplianceOrder")) {
+            List<Long> electricApplianceOrderLists = parameter.get("electricApplianceOrder");
+            //发短信
+            electricApplianceOrderService.myNotifyByListId(electricApplianceOrderLists);
+        }
+        if (parameter.containsKey("bookLibraryOrder")) {
+            List<Long> bookLibraryOrderLists = parameter.get("bookLibraryOrder");
+            //发短信
+            bookLibraryOrderService.myNotifyByListId(bookLibraryOrderLists);
+        }
+        if (parameter.containsKey("sportsSpecialOrder")) {
+            List<Long> sportsSpecialOrderLists = parameter.get("sportsSpecialOrder");
+            //发短信
+            sportsSpecialOrderService.myNotifyByListId(sportsSpecialOrderLists);
+        }
+        if (parameter.containsKey("digitalSquareOrder")) {
+            List<Long> digitalSquareOrderLists = parameter.get("digitalSquareOrder");
+            //发短信
+            digitalSquareOrderService.myNotifyByListId(digitalSquareOrderLists);
+        }
+        if (parameter.containsKey("rentingHouseOrder")) {
+            List<Long> rentingHouseOrderLists = parameter.get("rentingHouseOrder");
+            //发短信
+            rentingHouseOrderService.myNotifyByListId(rentingHouseOrderLists);
+        }
+
         //拼接返回结果
         JsonResult<Float> resJson = new JsonResult<>();
         resJson.setData(balance);

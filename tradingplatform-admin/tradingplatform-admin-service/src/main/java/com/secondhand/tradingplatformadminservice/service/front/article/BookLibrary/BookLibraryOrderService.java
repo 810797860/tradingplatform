@@ -167,4 +167,10 @@ public interface BookLibraryOrderService extends BaseService<BookLibraryOrder> {
          * @return
          */
         Float mySettlementByListId(List<Long> bookLibraryOrderLists, Float balance);
+
+        /**
+         * 根据订单id给相应的人发短信
+         * @param bookLibraryOrderLists
+         */
+        void myNotifyByListId(List<Long> bookLibraryOrderLists);
 }

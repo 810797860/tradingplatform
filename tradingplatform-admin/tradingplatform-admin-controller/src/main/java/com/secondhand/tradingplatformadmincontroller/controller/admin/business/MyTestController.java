@@ -8,12 +8,15 @@ import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author : zhangjk
@@ -36,9 +39,9 @@ public class MyTestController extends BaseController{
     @GetMapping(value = "/myTestSendEmail", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/myTestSendEmail", notes = "测试阿里云发送邮件")
     @ResponseBody
-    public JsonResult<SendSmsResponse> myTestSendEmail() throws ClientException {
+    public JsonResult<SendSmsResponse> myTestSendEmail(@ApiParam(name = "httpServletRequest", value = "服务器请求") HttpServletRequest httpServletRequest) throws ClientException {
         JsonResult<SendSmsResponse> resJson = new JsonResult<>();
-        SendSmsResponse sendSmsResponse = shortMessageService.testSendEmail();
+        SendSmsResponse sendSmsResponse = shortMessageService.sendVerificationCode(httpServletRequest, "13652288353");
         resJson.setData(sendSmsResponse);
         resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
         resJson.setSuccess(true);

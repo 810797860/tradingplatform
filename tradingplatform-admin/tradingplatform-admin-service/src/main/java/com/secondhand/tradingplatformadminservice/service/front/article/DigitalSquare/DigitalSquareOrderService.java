@@ -167,4 +167,10 @@ public interface DigitalSquareOrderService extends BaseService<DigitalSquareOrde
          * @return
          */
         Float mySettlementByListId(List<Long> digitalSquareOrderLists, Float balance);
+
+        /**
+         * 根据订单id给相应的人发短信
+         * @param digitalSquareOrderLists
+         */
+        void myNotifyByListId(List<Long> digitalSquareOrderLists);
 }

@@ -167,4 +167,10 @@ public interface ElectricApplianceOrderService extends BaseService<ElectricAppli
          * @return
          */
         Float mySettlementByListId(List<Long> electricApplianceOrderLists, Float balance);
+
+        /**
+         * 根据订单id给相应的人发短信
+         * @param electricApplianceOrderLists
+         */
+        void myNotifyByListId(List<Long> electricApplianceOrderLists);
 }

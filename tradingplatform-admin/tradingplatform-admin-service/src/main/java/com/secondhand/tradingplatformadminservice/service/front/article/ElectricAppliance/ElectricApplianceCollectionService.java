@@ -21,9 +21,10 @@ public interface ElectricApplianceCollectionService extends BaseService<Electric
         /**
          * 根据id进行假删除
          * @param electricApplianceCollectionId
+         * @param userId
          * @return
          */
-        Integer myFakeDeleteById(Long electricApplianceCollectionId);
+        Integer myFakeDeleteById(Long electricApplianceCollectionId, Long userId);
 
         /**
          * 根据ids进行批量假删除

@@ -3,8 +3,10 @@ package com.secondhand.tradingplatformadmincontroller.serviceimpl.front.article.
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.front.article.ElectricAppliance.ElectricAppliance;
 import com.secondhand.tradingplatformadminentity.entity.front.article.ElectricAppliance.ElectricApplianceCollection;
 import com.secondhand.tradingplatformadminmapper.mapper.front.article.ElectricAppliance.ElectricApplianceCollectionMapper;
+import com.secondhand.tradingplatformadminmapper.mapper.front.article.ElectricAppliance.ElectricApplianceMapper;
 import com.secondhand.tradingplatformadminservice.service.front.article.ElectricAppliance.ElectricApplianceCollectionService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
@@ -35,11 +37,21 @@ public class ElectricApplianceCollectionServiceImpl extends BaseServiceImpl<Elec
     @Autowired
     private ElectricApplianceCollectionMapper electricApplianceCollectionMapper;
 
+    @Autowired
+    private ElectricApplianceMapper electricApplianceMapper;
+
     @Override
-    @CacheEvict(allEntries = true)
-    public Integer myFakeDeleteById(Long electricApplianceCollectionId) {
+    @CacheEvict(cacheNames = {"electricApplianceCollection", "myCollection"}, allEntries = true)
+    public Integer myFakeDeleteById(Long electricApplianceId, Long userId) {
+        //这里传的是商品id，要把收藏id找出来
+        ElectricAppliance electricAppliance = electricApplianceMapper.selectById(electricApplianceId);
+        //找出那一条收藏记录
         ElectricApplianceCollection electricApplianceCollection = new ElectricApplianceCollection();
-        electricApplianceCollection.setId(electricApplianceCollectionId);
+        electricApplianceCollection.setUserId(userId);
+        electricApplianceCollection.setElectricId(electricAppliance.getId());
+        electricApplianceCollection.setDeleted(false);
+        electricApplianceCollection = electricApplianceCollectionMapper.selectOne(electricApplianceCollection);
+        //假删除
         electricApplianceCollection.setDeleted(true);
         return electricApplianceCollectionMapper.updateById(electricApplianceCollection);
     }
@@ -49,7 +61,7 @@ public class ElectricApplianceCollectionServiceImpl extends BaseServiceImpl<Elec
     @CacheEvict(allEntries = true)
     public boolean myFakeBatchDelete(List<Long> electricApplianceCollectionIds) {
         electricApplianceCollectionIds.forEach(electricApplianceCollectionId->{
-            myFakeDeleteById(electricApplianceCollectionId);
+            myFakeDeleteById(electricApplianceCollectionId, 48L);
         });
         return true;
     }
@@ -61,7 +73,7 @@ public class ElectricApplianceCollectionServiceImpl extends BaseServiceImpl<Elec
     }
 
     @Override
-    @CacheEvict(allEntries = true)
+    @CacheEvict(cacheNames = {"electricApplianceCollection", "myCollection"}, allEntries = true)
     public ElectricApplianceCollection myElectricApplianceCollectionCreateUpdate(ElectricApplianceCollection electricApplianceCollection) {
         Long electricApplianceCollectionId = electricApplianceCollection.getId();
         if (electricApplianceCollectionId == null){

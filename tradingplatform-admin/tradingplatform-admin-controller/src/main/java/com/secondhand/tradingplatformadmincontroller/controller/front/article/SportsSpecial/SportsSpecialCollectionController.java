@@ -121,7 +121,9 @@ public class SportsSpecialCollectionController extends BaseController {
             try{
                 //检查是否具有权限
                 subject.checkPermission("/front/sportsSpecialCollection/delete");
-                sportsSpecialCollectionService.myFakeDeleteById(sportsSpecialCollectionId);
+                Session session = subject.getSession();
+                Long userId = Long.valueOf(session.getAttribute(MagicalValue.USER_SESSION_ID).toString());
+                sportsSpecialCollectionService.myFakeDeleteById(sportsSpecialCollectionId, userId);
                 resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setSuccess(true);
             }catch (UnauthorizedException e){

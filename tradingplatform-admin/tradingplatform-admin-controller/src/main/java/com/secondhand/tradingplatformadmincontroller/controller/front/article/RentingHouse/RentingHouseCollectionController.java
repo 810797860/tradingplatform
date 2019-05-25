@@ -121,7 +121,9 @@ public class RentingHouseCollectionController extends BaseController {
             try{
                 //检查是否具有权限
                 subject.checkPermission("/front/rentingHouseCollection/delete");
-                rentingHouseCollectionService.myFakeDeleteById(rentingHouseCollectionId);
+                Session session = subject.getSession();
+                Long userId = Long.valueOf(session.getAttribute(MagicalValue.USER_SESSION_ID).toString());
+                rentingHouseCollectionService.myFakeDeleteById(rentingHouseCollectionId, userId);
                 resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setSuccess(true);
             }catch (UnauthorizedException e){

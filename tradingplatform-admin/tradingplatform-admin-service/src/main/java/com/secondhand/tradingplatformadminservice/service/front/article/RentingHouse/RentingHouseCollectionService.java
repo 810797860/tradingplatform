@@ -21,9 +21,10 @@ public interface RentingHouseCollectionService extends BaseService<RentingHouseC
         /**
          * 根据id进行假删除
          * @param rentingHouseCollectionId
+         * @param userId
          * @return
          */
-        Integer myFakeDeleteById(Long rentingHouseCollectionId);
+        Integer myFakeDeleteById(Long rentingHouseCollectionId, Long userId);
 
         /**
          * 根据ids进行批量假删除

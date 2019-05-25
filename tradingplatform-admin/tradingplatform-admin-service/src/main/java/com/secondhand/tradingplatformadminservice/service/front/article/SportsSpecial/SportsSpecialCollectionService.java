@@ -21,9 +21,10 @@ public interface SportsSpecialCollectionService extends BaseService<SportsSpecia
         /**
          * 根据id进行假删除
          * @param sportsSpecialCollectionId
+         * @param userId
          * @return
          */
-        Integer myFakeDeleteById(Long sportsSpecialCollectionId);
+        Integer myFakeDeleteById(Long sportsSpecialCollectionId, Long userId);
 
         /**
          * 根据ids进行批量假删除

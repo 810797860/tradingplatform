@@ -3,8 +3,10 @@ package com.secondhand.tradingplatformadmincontroller.serviceimpl.front.article.
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.front.article.SportsSpecial.SportsSpecial;
 import com.secondhand.tradingplatformadminentity.entity.front.article.SportsSpecial.SportsSpecialCollection;
 import com.secondhand.tradingplatformadminmapper.mapper.front.article.SportsSpecial.SportsSpecialCollectionMapper;
+import com.secondhand.tradingplatformadminmapper.mapper.front.article.SportsSpecial.SportsSpecialMapper;
 import com.secondhand.tradingplatformadminservice.service.front.article.SportsSpecial.SportsSpecialCollectionService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
@@ -35,11 +37,21 @@ public class SportsSpecialCollectionServiceImpl extends BaseServiceImpl<SportsSp
     @Autowired
     private SportsSpecialCollectionMapper sportsSpecialCollectionMapper;
 
+    @Autowired
+    private SportsSpecialMapper sportsSpecialMapper;
+
     @Override
-    @CacheEvict(allEntries = true)
-    public Integer myFakeDeleteById(Long sportsSpecialCollectionId) {
+    @CacheEvict(cacheNames = {"sportsSpecialCollection", "myCollection"}, allEntries = true)
+    public Integer myFakeDeleteById(Long sportsSpecialId, Long userId) {
+        //这里传的是商品id，要把收藏id找出来
+        SportsSpecial sportsSpecial = sportsSpecialMapper.selectById(sportsSpecialId);
+        //找出那一条收藏记录
         SportsSpecialCollection sportsSpecialCollection = new SportsSpecialCollection();
-        sportsSpecialCollection.setId(sportsSpecialCollectionId);
+        sportsSpecialCollection.setUserId(userId);
+        sportsSpecialCollection.setSportsId(sportsSpecial.getId());
+        sportsSpecialCollection.setDeleted(false);
+        sportsSpecialCollection = sportsSpecialCollectionMapper.selectOne(sportsSpecialCollection);
+        //假删除
         sportsSpecialCollection.setDeleted(true);
         return sportsSpecialCollectionMapper.updateById(sportsSpecialCollection);
     }
@@ -49,7 +61,7 @@ public class SportsSpecialCollectionServiceImpl extends BaseServiceImpl<SportsSp
     @CacheEvict(allEntries = true)
     public boolean myFakeBatchDelete(List<Long> sportsSpecialCollectionIds) {
         sportsSpecialCollectionIds.forEach(sportsSpecialCollectionId->{
-            myFakeDeleteById(sportsSpecialCollectionId);
+            myFakeDeleteById(sportsSpecialCollectionId, 48L);
         });
         return true;
     }
@@ -61,7 +73,7 @@ public class SportsSpecialCollectionServiceImpl extends BaseServiceImpl<SportsSp
     }
 
     @Override
-    @CacheEvict(allEntries = true)
+    @CacheEvict(cacheNames = {"sportsSpecialCollection", "myCollection"}, allEntries = true)
     public SportsSpecialCollection mySportsSpecialCollectionCreateUpdate(SportsSpecialCollection sportsSpecialCollection) {
         Long sportsSpecialCollectionId = sportsSpecialCollection.getId();
         if (sportsSpecialCollectionId == null){

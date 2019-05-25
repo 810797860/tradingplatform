@@ -51,7 +51,6 @@ public class BookLibrary extends BaseEntity {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-
     private Date backCheckTime;
 
     /**
@@ -59,7 +58,6 @@ public class BookLibrary extends BaseEntity {
      */
     @ApiModelProperty("图书详情")
     @TableField("details")
-
     private String details;
 
     /**
@@ -75,7 +73,6 @@ public class BookLibrary extends BaseEntity {
      */
     @ApiModelProperty("图书国际标准书号ISBN")
     @TableField("isbn")
-
     private String isbn;
 
     /**
@@ -181,8 +178,14 @@ public class BookLibrary extends BaseEntity {
      */
     @ApiModelProperty("图书标题")
     @TableField("title")
-
     private String title;
+
+    /**
+     * 图书售后保障
+     */
+    @ApiModelProperty("图书售后保障")
+    @TableField("warranty")
+    private String warranty;
 
     public Long getBackCheckStatus() {
         return backCheckStatus;
@@ -336,29 +339,37 @@ public class BookLibrary extends BaseEntity {
         this.title = title;
     }
 
+    public String getWarranty() {
+        return warranty;
+    }
+
+    public void setWarranty(String warranty) {
+        this.warranty = warranty;
+    }
 
     @Override
     public String toString() {
         return "BookLibrary{" +
-                ", backCheckStatus=" + backCheckStatus +
-                ", notPassReason=" + notPassReason +
+                "backCheckStatus=" + backCheckStatus +
+                ", notPassReason='" + notPassReason + '\'' +
                 ", backCheckTime=" + backCheckTime +
-                ", details=" + details +
+                ", details='" + details + '\'' +
                 ", classification=" + classification +
-                ", isbn=" + isbn +
+                ", isbn='" + isbn + '\'' +
                 ", suited=" + suited +
-                ", enfold=" + enfold +
-                ", paper=" + paper +
-                ", format=" + format +
+                ", enfold='" + enfold + '\'' +
+                ", paper='" + paper + '\'' +
+                ", format='" + format + '\'' +
                 ", publishedTime=" + publishedTime +
-                ", publishingHouse=" + publishingHouse +
-                ", author=" + author +
+                ", publishingHouse='" + publishingHouse + '\'' +
+                ", author='" + author + '\'' +
                 ", userId=" + userId +
                 ", commentNum=" + commentNum +
                 ", star=" + star +
                 ", price=" + price +
-                ", cover=" + cover +
-                ", title=" + title +
-                "}";
+                ", cover='" + cover + '\'' +
+                ", title='" + title + '\'' +
+                ", warranty='" + warranty + '\'' +
+                '}';
     }
 }

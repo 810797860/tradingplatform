@@ -131,9 +131,14 @@ public class DigitalSquare extends BaseEntity {
      */
     @ApiModelProperty("数码标题")
     @TableField("title")
-
     private String title;
 
+    /**
+     * 数码售后保障
+     */
+    @ApiModelProperty("数码售后保障")
+    @TableField("warranty")
+    private String warranty;
 
     public Long getBackCheckStatus() {
         return backCheckStatus;
@@ -239,23 +244,31 @@ public class DigitalSquare extends BaseEntity {
         this.title = title;
     }
 
+    public String getWarranty() {
+        return warranty;
+    }
+
+    public void setWarranty(String warranty) {
+        this.warranty = warranty;
+    }
 
     @Override
     public String toString() {
         return "DigitalSquare{" +
-                ", backCheckStatus=" + backCheckStatus +
-                ", notPassReason=" + notPassReason +
+                "backCheckStatus=" + backCheckStatus +
+                ", notPassReason='" + notPassReason + '\'' +
                 ", backCheckTime=" + backCheckTime +
-                ", details=" + details +
+                ", details='" + details + '\'' +
                 ", classification=" + classification +
-                ", pattern=" + pattern +
-                ", brand=" + brand +
+                ", pattern='" + pattern + '\'' +
+                ", brand='" + brand + '\'' +
                 ", userId=" + userId +
                 ", commentNum=" + commentNum +
                 ", star=" + star +
                 ", price=" + price +
-                ", cover=" + cover +
-                ", title=" + title +
-                "}";
+                ", cover='" + cover + '\'' +
+                ", title='" + title + '\'' +
+                ", warranty='" + warranty + '\'' +
+                '}';
     }
 }

@@ -167,4 +167,10 @@ public interface SportsSpecialOrderService extends BaseService<SportsSpecialOrde
          * @return
          */
         Float mySettlementByListId(List<Long> sportsSpecialOrderLists, Float balance);
+
+        /**
+         * 根据订单id给相应的人发短信
+         * @param sportsSpecialOrderLists
+         */
+        void myNotifyByListId(List<Long> sportsSpecialOrderLists);
 }

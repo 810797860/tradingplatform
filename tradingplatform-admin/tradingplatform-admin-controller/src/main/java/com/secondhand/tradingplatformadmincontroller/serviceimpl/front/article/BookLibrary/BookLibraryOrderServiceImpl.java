@@ -1,10 +1,16 @@
 package com.secondhand.tradingplatformadmincontroller.serviceimpl.front.article.BookLibrary;
 
+import com.aliyuncs.exceptions.ClientException;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.admin.shiro.User;
+import com.secondhand.tradingplatformadminentity.entity.front.article.BookLibrary.BookLibrary;
 import com.secondhand.tradingplatformadminentity.entity.front.article.BookLibrary.BookLibraryOrder;
+import com.secondhand.tradingplatformadminmapper.mapper.admin.shiro.UserMapper;
+import com.secondhand.tradingplatformadminmapper.mapper.front.article.BookLibrary.BookLibraryMapper;
 import com.secondhand.tradingplatformadminmapper.mapper.front.article.BookLibrary.BookLibraryOrderMapper;
+import com.secondhand.tradingplatformadminservice.service.admin.business.ShortMessageService;
 import com.secondhand.tradingplatformadminservice.service.front.article.BookLibrary.BookLibraryOrderService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
@@ -38,8 +44,17 @@ public class BookLibraryOrderServiceImpl extends BaseServiceImpl<BookLibraryOrde
     @Autowired
     private BookLibraryOrderMapper bookLibraryOrderMapper;
 
+    @Autowired
+    private BookLibraryMapper bookLibraryMapper;
+
+    @Autowired
+    private UserMapper userMapper;
+
+    @Autowired
+    private ShortMessageService shortMessageService;
+
     @Override
-    @CacheEvict(allEntries = true)
+    @CacheEvict(cacheNames = {"bookLibraryOrder", "shoppingCart"}, allEntries = true)
     public Integer myFakeDeleteById(Long bookLibraryOrderId) {
         BookLibraryOrder bookLibraryOrder = new BookLibraryOrder();
         bookLibraryOrder.setId(bookLibraryOrderId);
@@ -64,7 +79,7 @@ public class BookLibraryOrderServiceImpl extends BaseServiceImpl<BookLibraryOrde
     }
 
     @Override
-    @CacheEvict(allEntries = true)
+    @CacheEvict(cacheNames = {"bookLibraryOrder", "shoppingCart"}, allEntries = true)
     public BookLibraryOrder myBookLibraryOrderCreateUpdate(BookLibraryOrder bookLibraryOrder) {
         Long bookLibraryOrderId = bookLibraryOrder.getId();
         if (bookLibraryOrderId == null){
@@ -208,7 +223,7 @@ public class BookLibraryOrderServiceImpl extends BaseServiceImpl<BookLibraryOrde
     }
 
     @Override
-    @CacheEvict(allEntries = true)
+    @Cacheable(key = "'mySettlementByListId:' + #p0 + #p1")
     @Transactional(rollbackFor = Exception.class)
     public Float mySettlementByListId(List<Long> bookLibraryOrderLists, Float balance) {
 
@@ -233,5 +248,32 @@ public class BookLibraryOrderServiceImpl extends BaseServiceImpl<BookLibraryOrde
             }
         });
         return tempBalance[0];
+    }
+
+    @Override
+    @Cacheable(key = "'myNotifyByListId' + #p0")
+    @Transactional(rollbackFor = Exception.class)
+    public void myNotifyByListId(List<Long> bookLibraryOrderLists) {
+
+        //遍历发短信
+        bookLibraryOrderLists.forEach(bookLibraryOrderId -> {
+
+            //先找卖家的电话号码（商品id->userId->phone）
+            //先找该条订单的信息
+            BookLibraryOrder bookLibraryOrder = this.mySelectById(bookLibraryOrderId);
+            //找该条商品的信息
+            BookLibrary bookLibrary = bookLibraryMapper.selectById(bookLibraryOrder.getBookId());
+            //找phone
+            User user = userMapper.selectById(bookLibrary.getUserId());
+            String phone = user.getPhone();
+            //如果该用户有验证手机号码
+            if (!ToolUtil.strIsEmpty(phone)){
+                try {
+                    shortMessageService.notifyPurchaseSuccess(phone);
+                } catch (ClientException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }

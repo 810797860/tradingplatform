@@ -128,7 +128,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
         } else {
             annex = fileUpload(name, md5value, chunks, chunk, name, file, uploadFolderPath);
             if (annex != null) {
-                annex.setType("resource");
+                annex.setType("image/jpeg");
                 annex.setUuid(ToolUtil.getUUID());
                 annexMapper.insert(annex);
             }
@@ -212,7 +212,7 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
             //文件后缀名
             String suffix = "";
             if (name.lastIndexOf(MagicalValue.DECIMAL_POINT) != -1) {
-                suffix = name.substring(name.lastIndexOf(MagicalValue.DECIMAL_POINT));
+                suffix = name.substring(name.lastIndexOf(MagicalValue.DECIMAL_POINT) + 1);
             }
 
             //判断文件是否分块
@@ -225,15 +225,16 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
                 return annex;
             } else {
                 //不是分块上传，直接保存
-                fileName = temporaryName + suffix;
+                fileName = temporaryName + MagicalValue.DECIMAL_POINT + suffix;
                 saveFile(uploadFolderPath + File.separator, fileName, file);
                 Annex annex = new Annex();
-                annex.setName(file.getName());
+                annex.setName(fileName.substring(0, fileName.indexOf(MagicalValue.DECIMAL_POINT)));
                 annex.setExtension(suffix);
                 annex.setSize(Float.parseFloat(Long.toString(file.getSize())));
                 annex.setContentType(file.getContentType());
-                annex.setPath(uploadFolderPath + File.separator + file.getName());
+                annex.setPath(uploadFolderPath + File.separator + fileName);
                 annex.setMd5(md5value);
+                annex.setType("image/jpeg");
                 return annex;
             }
         } catch (Exception e) {
@@ -254,13 +255,22 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
     @Transactional(rollbackFor = Exception.class)
     public boolean saveFile(String savePath, String fileFullName, MultipartFile file) throws IOException {
         byte[] data = readInputStream(file.getInputStream());
-        File uploadFile = new File(savePath + fileFullName);
         //判断文件夹是否存在，不存在就创建一个
         File uploadFileDirectory = new File(savePath);
         if (!uploadFileDirectory.exists()) {
             uploadFileDirectory.mkdir();
         }
-
+/*        String uploadFilePath = savePath + fileFullName;
+        //设置路径/或\全改为\\
+        uploadFilePath = uploadFilePath.replaceAll("\\\\", "\\\\\\\\");
+        uploadFilePath = uploadFilePath.replaceAll("/", "\\\\\\\\");*/
+        File uploadFile = new File(savePath + fileFullName);
+        //先把该文件创建出来
+        try {
+            uploadFile.createNewFile();
+        } catch (IOException ex){
+            ex.printStackTrace();
+        }
         //创建文件输出流
         try (FileOutputStream outputStream = new FileOutputStream(uploadFile)) {
             outputStream.write(data);

@@ -21,9 +21,10 @@ public interface BookLibraryCollectionService extends BaseService<BookLibraryCol
         /**
          * 根据id进行假删除
          * @param bookLibraryCollectionId
+         * @param userId
          * @return
          */
-        Integer myFakeDeleteById(Long bookLibraryCollectionId);
+        Integer myFakeDeleteById(Long bookLibraryId, Long userId);
 
         /**
          * 根据ids进行批量假删除

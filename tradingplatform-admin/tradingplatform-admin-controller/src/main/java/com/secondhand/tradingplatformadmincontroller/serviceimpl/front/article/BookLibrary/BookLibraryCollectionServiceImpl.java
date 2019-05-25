@@ -3,8 +3,10 @@ package com.secondhand.tradingplatformadmincontroller.serviceimpl.front.article.
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.front.article.BookLibrary.BookLibrary;
 import com.secondhand.tradingplatformadminentity.entity.front.article.BookLibrary.BookLibraryCollection;
 import com.secondhand.tradingplatformadminmapper.mapper.front.article.BookLibrary.BookLibraryCollectionMapper;
+import com.secondhand.tradingplatformadminmapper.mapper.front.article.BookLibrary.BookLibraryMapper;
 import com.secondhand.tradingplatformadminservice.service.front.article.BookLibrary.BookLibraryCollectionService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
@@ -35,11 +37,21 @@ public class BookLibraryCollectionServiceImpl extends BaseServiceImpl<BookLibrar
     @Autowired
     private BookLibraryCollectionMapper bookLibraryCollectionMapper;
 
+    @Autowired
+    private BookLibraryMapper bookLibraryMapper;
+
     @Override
-    @CacheEvict(allEntries = true)
-    public Integer myFakeDeleteById(Long bookLibraryCollectionId) {
+    @CacheEvict(cacheNames = {"bookLibraryCollection", "myCollection"}, allEntries = true)
+    public Integer myFakeDeleteById(Long bookLibraryId, Long userId) {
+        //这里传的是商品id，要把收藏id找出来
+        BookLibrary bookLibrary = bookLibraryMapper.selectById(bookLibraryId);
+        //找出那一条收藏记录
         BookLibraryCollection bookLibraryCollection = new BookLibraryCollection();
-        bookLibraryCollection.setId(bookLibraryCollectionId);
+        bookLibraryCollection.setUserId(userId);
+        bookLibraryCollection.setBookId(bookLibrary.getId());
+        bookLibraryCollection.setDeleted(false);
+        bookLibraryCollection = bookLibraryCollectionMapper.selectOne(bookLibraryCollection);
+        //假删除
         bookLibraryCollection.setDeleted(true);
         return bookLibraryCollectionMapper.updateById(bookLibraryCollection);
     }
@@ -49,7 +61,7 @@ public class BookLibraryCollectionServiceImpl extends BaseServiceImpl<BookLibrar
     @CacheEvict(allEntries = true)
     public boolean myFakeBatchDelete(List<Long> bookLibraryCollectionIds) {
         bookLibraryCollectionIds.forEach(bookLibraryCollectionId->{
-            myFakeDeleteById(bookLibraryCollectionId);
+            myFakeDeleteById(bookLibraryCollectionId, 48L);
         });
         return true;
     }
@@ -61,7 +73,7 @@ public class BookLibraryCollectionServiceImpl extends BaseServiceImpl<BookLibrar
     }
 
     @Override
-    @CacheEvict(allEntries = true)
+    @CacheEvict(cacheNames = {"bookLibraryCollection", "myCollection"}, allEntries = true)
     public BookLibraryCollection myBookLibraryCollectionCreateUpdate(BookLibraryCollection bookLibraryCollection) {
         Long bookLibraryCollectionId = bookLibraryCollection.getId();
         if (bookLibraryCollectionId == null){

@@ -21,9 +21,10 @@ public interface DigitalSquareCollectionService extends BaseService<DigitalSquar
         /**
          * 根据id进行假删除
          * @param digitalSquareCollectionId
+         * @param userId
          * @return
          */
-        Integer myFakeDeleteById(Long digitalSquareCollectionId);
+        Integer myFakeDeleteById(Long digitalSquareCollectionId, Long userId);
 
         /**
          * 根据ids进行批量假删除

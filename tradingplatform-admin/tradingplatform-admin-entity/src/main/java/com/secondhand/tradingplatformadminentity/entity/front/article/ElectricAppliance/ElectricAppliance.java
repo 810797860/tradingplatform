@@ -147,8 +147,14 @@ public class ElectricAppliance extends BaseEntity {
      */
     @ApiModelProperty("电器标题")
     @TableField("title")
-
     private String title;
+
+    /**
+     * 电器售后保障
+     */
+    @ApiModelProperty("电器售后保障")
+    @TableField("warranty")
+    private String warranty;
 
     public Long getBackCheckStatus() {
         return backCheckStatus;
@@ -270,24 +276,33 @@ public class ElectricAppliance extends BaseEntity {
         this.title = title;
     }
 
+    public String getWarranty() {
+        return warranty;
+    }
+
+    public void setWarranty(String warranty) {
+        this.warranty = warranty;
+    }
+
     @Override
     public String toString() {
         return "ElectricAppliance{" +
-                ", backCheckStatus=" + backCheckStatus +
-                ", notPassReason=" + notPassReason +
+                "backCheckStatus=" + backCheckStatus +
+                ", notPassReason='" + notPassReason + '\'' +
                 ", backCheckTime=" + backCheckTime +
-                ", details=" + details +
+                ", details='" + details + '\'' +
                 ", classification=" + classification +
-                ", type=" + type +
-                ", power=" + power +
-                ", model=" + model +
-                ", brand=" + brand +
+                ", type='" + type + '\'' +
+                ", power='" + power + '\'' +
+                ", model='" + model + '\'' +
+                ", brand='" + brand + '\'' +
                 ", userId=" + userId +
                 ", commentNum=" + commentNum +
                 ", star=" + star +
                 ", price=" + price +
-                ", cover=" + cover +
-                ", title=" + title +
-                "}";
+                ", cover='" + cover + '\'' +
+                ", title='" + title + '\'' +
+                ", warranty='" + warranty + '\'' +
+                '}';
     }
 }

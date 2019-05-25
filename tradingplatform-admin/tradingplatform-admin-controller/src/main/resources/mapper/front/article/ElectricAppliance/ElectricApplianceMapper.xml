@@ -24,7 +24,7 @@
         <result column="price" property="price" jdbcType="FLOAT"/>
         <result column="cover" property="cover" jdbcType="VARCHAR"/>
         <result column="title" property="title" jdbcType="VARCHAR"/>
-
+        <result column="warranty" property="warranty" jdbcType="VARCHAR"/>
     </resultMap>
 
     <!-- 通用查询映射结果 -->
@@ -46,11 +46,11 @@
         <result column="price" property="price" jdbcType="FLOAT"/>
         <result column="cover" property="cover" jdbcType="VARCHAR"/>
         <result column="title" property="title" jdbcType="VARCHAR"/>
-
+        <result column="warranty" property="warranty" jdbcType="VARCHAR"/>
     </resultMap>
 
     <select id="selectMapById" resultType="java.util.Map">
-        SELECT c_business_electric_appliance.id as id, c_business_electric_appliance.price as price, (select concat('{"id":"', sbsi.id, '","pid":"', sbsi.pid, '","title":"', sbsi.title, '"}') from s_base_select_item sbsi where (sbsi.id = c_business_electric_appliance.back_check_status)) AS back_check_status, c_business_electric_appliance.created_by as created_by, c_business_electric_appliance.type as type, c_business_electric_appliance.star as star, c_business_electric_appliance.power as power, c_business_electric_appliance.deleted as deleted, (select concat('{"id":"', cbfsi.id, '","pid":"', cbfsi.pid, '","title":"', cbfsi.title, '"}') from c_business_front_select_item cbfsi where (cbfsi.id = c_business_electric_appliance.classification)) AS classification, c_business_electric_appliance.comment_num as comment_num, c_business_electric_appliance.description as description, c_business_electric_appliance.details as details, c_business_electric_appliance.updated_at as updated_at, ( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '","phone":"', IFNULL(sbu.phone, ''), '"}' ) FROM s_base_user sbu WHERE (sbu.id = c_business_electric_appliance.user_id) ) AS user_id, c_business_electric_appliance.title as title, c_business_electric_appliance.back_check_time as back_check_time, c_business_electric_appliance.updated_by as updated_by, c_business_electric_appliance.brand as brand, c_business_electric_appliance.cover as cover, c_business_electric_appliance.not_pass_reason as not_pass_reason, c_business_electric_appliance.model as model, c_business_electric_appliance.created_at as created_at
+        SELECT c_business_electric_appliance.id as id, c_business_electric_appliance.price as price, (select concat('{"id":"', sbsi.id, '","pid":"', sbsi.pid, '","title":"', sbsi.title, '"}') from s_base_select_item sbsi where (sbsi.id = c_business_electric_appliance.back_check_status)) AS back_check_status, c_business_electric_appliance.created_by as created_by, c_business_electric_appliance.type as type, c_business_electric_appliance.star as star, c_business_electric_appliance.power as power, c_business_electric_appliance.deleted as deleted, (select concat('{"id":"', cbfsi.id, '","pid":"', cbfsi.pid, '","title":"', cbfsi.title, '"}') from c_business_front_select_item cbfsi where (cbfsi.id = c_business_electric_appliance.classification)) AS classification, c_business_electric_appliance.comment_num as comment_num, c_business_electric_appliance.description as description, c_business_electric_appliance.details as details, c_business_electric_appliance.updated_at as updated_at, ( SELECT concat( '{"id":"', sbu.id, '","user_name":"', sbu.user_name, '","phone":"', IFNULL(sbu.phone, ''), '"}' ) FROM s_base_user sbu WHERE (sbu.id = c_business_electric_appliance.user_id) ) AS user_id, c_business_electric_appliance.title as title, c_business_electric_appliance.back_check_time as back_check_time, c_business_electric_appliance.updated_by as updated_by, c_business_electric_appliance.brand as brand, c_business_electric_appliance.cover as cover, c_business_electric_appliance.not_pass_reason as not_pass_reason, c_business_electric_appliance.model as model, c_business_electric_appliance.created_at as created_at, c_business_electric_appliance.warranty as warranty
         from c_business_electric_appliance where c_business_electric_appliance.id = #{electricApplianceId} and c_business_electric_appliance.deleted = false
     </select>
 

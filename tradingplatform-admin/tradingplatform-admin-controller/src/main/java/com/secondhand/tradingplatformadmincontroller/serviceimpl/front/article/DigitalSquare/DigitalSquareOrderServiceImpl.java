@@ -1,10 +1,16 @@
 package com.secondhand.tradingplatformadmincontroller.serviceimpl.front.article.DigitalSquare;
 
+import com.aliyuncs.exceptions.ClientException;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.admin.shiro.User;
+import com.secondhand.tradingplatformadminentity.entity.front.article.DigitalSquare.DigitalSquare;
 import com.secondhand.tradingplatformadminentity.entity.front.article.DigitalSquare.DigitalSquareOrder;
+import com.secondhand.tradingplatformadminmapper.mapper.admin.shiro.UserMapper;
+import com.secondhand.tradingplatformadminmapper.mapper.front.article.DigitalSquare.DigitalSquareMapper;
 import com.secondhand.tradingplatformadminmapper.mapper.front.article.DigitalSquare.DigitalSquareOrderMapper;
+import com.secondhand.tradingplatformadminservice.service.admin.business.ShortMessageService;
 import com.secondhand.tradingplatformadminservice.service.front.article.DigitalSquare.DigitalSquareOrderService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
@@ -38,8 +44,17 @@ public class DigitalSquareOrderServiceImpl extends BaseServiceImpl<DigitalSquare
     @Autowired
     private DigitalSquareOrderMapper digitalSquareOrderMapper;
 
+    @Autowired
+    private DigitalSquareMapper digitalSquareMapper;
+
+    @Autowired
+    private UserMapper userMapper;
+
+    @Autowired
+    private ShortMessageService shortMessageService;
+
     @Override
-    @CacheEvict(allEntries = true)
+    @CacheEvict(cacheNames = {"digitalSquareOrder", "shoppingCart"}, allEntries = true)
     public Integer myFakeDeleteById(Long digitalSquareOrderId) {
         DigitalSquareOrder digitalSquareOrder = new DigitalSquareOrder();
         digitalSquareOrder.setId(digitalSquareOrderId);
@@ -64,7 +79,7 @@ public class DigitalSquareOrderServiceImpl extends BaseServiceImpl<DigitalSquare
     }
 
     @Override
-    @CacheEvict(allEntries = true)
+    @CacheEvict(cacheNames = {"digitalSquareOrder", "shoppingCart"}, allEntries = true)
     public DigitalSquareOrder myDigitalSquareOrderCreateUpdate(DigitalSquareOrder digitalSquareOrder) {
         Long digitalSquareOrderId = digitalSquareOrder.getId();
         if (digitalSquareOrderId == null){
@@ -208,7 +223,7 @@ public class DigitalSquareOrderServiceImpl extends BaseServiceImpl<DigitalSquare
     }
 
     @Override
-    @CacheEvict(allEntries = true)
+    @Cacheable(key = "'mySettlementByListId' + #p0 + #p1")
     @Transactional(rollbackFor = Exception.class)
     public Float mySettlementByListId(List<Long> digitalSquareOrderLists, Float balance) {
 
@@ -233,5 +248,32 @@ public class DigitalSquareOrderServiceImpl extends BaseServiceImpl<DigitalSquare
             }
         });
         return tempBalance[0];
+    }
+
+    @Override
+    @Cacheable(key = "'myNotifyByListId' + #p0")
+    @Transactional(rollbackFor = Exception.class)
+    public void myNotifyByListId(List<Long> digitalSquareOrderLists) {
+
+        //遍历发短信
+        digitalSquareOrderLists.forEach(digitalSquareOrderId -> {
+
+            //先找卖家的电话号码（商品id->userId->phone）
+            //先找该条订单的信息
+            DigitalSquareOrder digitalSquareOrder = this.mySelectById(digitalSquareOrderId);
+            //找该条商品的信息
+            DigitalSquare digitalSquare = digitalSquareMapper.selectById(digitalSquareOrder.getDigitalId());
+            //找phone
+            User user = userMapper.selectById(digitalSquare.getUserId());
+            String phone = user.getPhone();
+            //如果该用户有验证手机号码
+            if (!ToolUtil.strIsEmpty(phone)){
+                try {
+                    shortMessageService.notifyPurchaseSuccess(phone);
+                } catch (ClientException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }

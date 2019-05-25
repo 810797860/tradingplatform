@@ -3,8 +3,10 @@ package com.secondhand.tradingplatformadmincontroller.serviceimpl.front.article.
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.front.article.DigitalSquare.DigitalSquare;
 import com.secondhand.tradingplatformadminentity.entity.front.article.DigitalSquare.DigitalSquareCollection;
 import com.secondhand.tradingplatformadminmapper.mapper.front.article.DigitalSquare.DigitalSquareCollectionMapper;
+import com.secondhand.tradingplatformadminmapper.mapper.front.article.DigitalSquare.DigitalSquareMapper;
 import com.secondhand.tradingplatformadminservice.service.front.article.DigitalSquare.DigitalSquareCollectionService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
@@ -35,11 +37,21 @@ public class DigitalSquareCollectionServiceImpl extends BaseServiceImpl<DigitalS
     @Autowired
     private DigitalSquareCollectionMapper digitalSquareCollectionMapper;
 
+    @Autowired
+    private DigitalSquareMapper digitalSquareMapper;
+
     @Override
-    @CacheEvict(allEntries = true)
-    public Integer myFakeDeleteById(Long digitalSquareCollectionId) {
+    @CacheEvict(cacheNames = {"digitalSquareCollection", "myCollection"}, allEntries = true)
+    public Integer myFakeDeleteById(Long digitalSquareId, Long userId) {
+        //这里传的是商品id，要把收藏id找出来
+        DigitalSquare digitalSquare = digitalSquareMapper.selectById(digitalSquareId);
+        //找出那一条收藏记录
         DigitalSquareCollection digitalSquareCollection = new DigitalSquareCollection();
-        digitalSquareCollection.setId(digitalSquareCollectionId);
+        digitalSquareCollection.setUserId(userId);
+        digitalSquareCollection.setDigitalId(digitalSquare.getId());
+        digitalSquareCollection.setDeleted(false);
+        digitalSquareCollection = digitalSquareCollectionMapper.selectOne(digitalSquareCollection);
+        //假删除
         digitalSquareCollection.setDeleted(true);
         return digitalSquareCollectionMapper.updateById(digitalSquareCollection);
     }
@@ -49,7 +61,7 @@ public class DigitalSquareCollectionServiceImpl extends BaseServiceImpl<DigitalS
     @CacheEvict(allEntries = true)
     public boolean myFakeBatchDelete(List<Long> digitalSquareCollectionIds) {
         digitalSquareCollectionIds.forEach(digitalSquareCollectionId->{
-            myFakeDeleteById(digitalSquareCollectionId);
+            myFakeDeleteById(digitalSquareCollectionId, 48L);
         });
         return true;
     }
@@ -61,7 +73,7 @@ public class DigitalSquareCollectionServiceImpl extends BaseServiceImpl<DigitalS
     }
 
     @Override
-    @CacheEvict(allEntries = true)
+    @CacheEvict(cacheNames = {"digitalSquareCollection", "myCollection"}, allEntries = true)
     public DigitalSquareCollection myDigitalSquareCollectionCreateUpdate(DigitalSquareCollection digitalSquareCollection) {
         Long digitalSquareCollectionId = digitalSquareCollection.getId();
         if (digitalSquareCollectionId == null){

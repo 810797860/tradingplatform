@@ -89,4 +89,6 @@ public class MagicalValue {
     public static int CODE_OF_UNAUTHORIZED_EXCEPTION = 511;
 
     public static int CODE_OF_CUSTOMIZE_EXCEPTION = 512;
+
+    public static String STRING_OF_VERIFICATION = "verification";
 }

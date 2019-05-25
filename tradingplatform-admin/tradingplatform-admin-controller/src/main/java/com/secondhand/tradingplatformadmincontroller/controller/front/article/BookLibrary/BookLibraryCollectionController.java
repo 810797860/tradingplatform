@@ -115,13 +115,15 @@ public class BookLibraryCollectionController extends BaseController {
     @PutMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/delete", notes = "根据id假删除bookLibraryCollection")
     @ResponseBody
-    public JsonResult<BookLibraryCollection> fakeDeleteById(@ApiParam(name = "id", value = "bookLibraryCollectionId") @RequestBody Long bookLibraryCollectionId){
+    public JsonResult<BookLibraryCollection> fakeDeleteById(@ApiParam(name = "id", value = "bookLibraryId") @RequestBody Long bookLibraryId){
             Subject subject = SecurityUtils.getSubject();
             JsonResult<BookLibraryCollection> resJson = new JsonResult<>();
             try{
                 //检查是否具有权限
                 subject.checkPermission("/front/bookLibraryCollection/delete");
-                bookLibraryCollectionService.myFakeDeleteById(bookLibraryCollectionId);
+                Session session = subject.getSession();
+                Long userId = Long.valueOf(session.getAttribute(MagicalValue.USER_SESSION_ID).toString());
+                bookLibraryCollectionService.myFakeDeleteById(bookLibraryId, userId);
                 resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setSuccess(true);
             }catch (UnauthorizedException e){

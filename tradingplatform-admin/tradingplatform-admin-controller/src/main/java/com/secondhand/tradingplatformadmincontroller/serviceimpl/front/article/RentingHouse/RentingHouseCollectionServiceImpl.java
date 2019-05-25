@@ -3,8 +3,10 @@ package com.secondhand.tradingplatformadmincontroller.serviceimpl.front.article.
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.front.article.RentingHouse.RentingHouse;
 import com.secondhand.tradingplatformadminentity.entity.front.article.RentingHouse.RentingHouseCollection;
 import com.secondhand.tradingplatformadminmapper.mapper.front.article.RentingHouse.RentingHouseCollectionMapper;
+import com.secondhand.tradingplatformadminmapper.mapper.front.article.RentingHouse.RentingHouseMapper;
 import com.secondhand.tradingplatformadminservice.service.front.article.RentingHouse.RentingHouseCollectionService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
@@ -35,11 +37,21 @@ public class RentingHouseCollectionServiceImpl extends BaseServiceImpl<RentingHo
     @Autowired
     private RentingHouseCollectionMapper rentingHouseCollectionMapper;
 
+    @Autowired
+    private RentingHouseMapper rentingHouseMapper;
+
     @Override
-    @CacheEvict(allEntries = true)
-    public Integer myFakeDeleteById(Long rentingHouseCollectionId) {
+    @CacheEvict(cacheNames = {"rentingHouseCollection", "myCollection"}, allEntries = true)
+    public Integer myFakeDeleteById(Long rentingHouseId, Long userId) {
+        //这里传的是商品id，要把收藏id找出来
+        RentingHouse rentingHouse = rentingHouseMapper.selectById(rentingHouseId);
+        //找出那一条收藏记录
         RentingHouseCollection rentingHouseCollection = new RentingHouseCollection();
-        rentingHouseCollection.setId(rentingHouseCollectionId);
+        rentingHouseCollection.setUserId(userId);
+        rentingHouseCollection.setRentingId(rentingHouse.getId());
+        rentingHouseCollection.setDeleted(false);
+        rentingHouseCollection = rentingHouseCollectionMapper.selectOne(rentingHouseCollection);
+        //假删除
         rentingHouseCollection.setDeleted(true);
         return rentingHouseCollectionMapper.updateById(rentingHouseCollection);
     }
@@ -49,7 +61,7 @@ public class RentingHouseCollectionServiceImpl extends BaseServiceImpl<RentingHo
     @CacheEvict(allEntries = true)
     public boolean myFakeBatchDelete(List<Long> rentingHouseCollectionIds) {
         rentingHouseCollectionIds.forEach(rentingHouseCollectionId->{
-            myFakeDeleteById(rentingHouseCollectionId);
+            myFakeDeleteById(rentingHouseCollectionId, 48L);
         });
         return true;
     }
@@ -61,7 +73,7 @@ public class RentingHouseCollectionServiceImpl extends BaseServiceImpl<RentingHo
     }
 
     @Override
-    @CacheEvict(allEntries = true)
+    @CacheEvict(cacheNames = {"rentingHouseCollection", "myCollection"}, allEntries = true)
     public RentingHouseCollection myRentingHouseCollectionCreateUpdate(RentingHouseCollection rentingHouseCollection) {
         Long rentingHouseCollectionId = rentingHouseCollection.getId();
         if (rentingHouseCollectionId == null){

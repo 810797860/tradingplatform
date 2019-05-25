@@ -121,7 +121,9 @@ public class ElectricApplianceCollectionController extends BaseController {
             try{
                 //检查是否具有权限
                 subject.checkPermission("/front/electricApplianceCollection/delete");
-                electricApplianceCollectionService.myFakeDeleteById(electricApplianceCollectionId);
+                Session session = subject.getSession();
+                Long userId = Long.valueOf(session.getAttribute(MagicalValue.USER_SESSION_ID).toString());
+                electricApplianceCollectionService.myFakeDeleteById(electricApplianceCollectionId, userId);
                 resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
                 resJson.setSuccess(true);
             }catch (UnauthorizedException e){

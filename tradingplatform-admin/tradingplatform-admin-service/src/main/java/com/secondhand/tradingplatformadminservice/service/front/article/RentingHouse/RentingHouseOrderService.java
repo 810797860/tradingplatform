@@ -167,4 +167,10 @@ public interface RentingHouseOrderService extends BaseService<RentingHouseOrder>
          * @return
          */
         Float mySettlementByListId(List<Long> rentingHouseOrderLists, Float balance);
+
+        /**
+         * 根据订单id给相应的人发短信
+         * @param rentingHouseOrderLists
+         */
+        void myNotifyByListId(List<Long> rentingHouseOrderLists);
 }
