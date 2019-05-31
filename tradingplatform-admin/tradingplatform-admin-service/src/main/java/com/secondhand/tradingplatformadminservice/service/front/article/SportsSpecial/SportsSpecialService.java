@@ -1,9 +1,11 @@
 package com.secondhand.tradingplatformadminservice.service.front.article.SportsSpecial;
 
+import com.aliyuncs.exceptions.ClientException;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.front.article.SportsSpecial.SportsSpecial;
 import com.secondhand.tradingplatformcommon.base.BaseService.BaseService;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -188,4 +190,14 @@ public interface SportsSpecialService extends BaseService<SportsSpecial> {
      */
     boolean myUpdateById(SportsSpecial sportsSpecial);
 
+    /**
+     * 立即购买sportsSpecial
+     * @param sportsSpecialId
+     * @param balance
+     * @param userId
+     * @return
+     * @throws CustomizeException
+     * @throws ClientException
+     */
+    Float mySettlementById(Long sportsSpecialId, Float balance, Long userId) throws CustomizeException, ClientException;
 }

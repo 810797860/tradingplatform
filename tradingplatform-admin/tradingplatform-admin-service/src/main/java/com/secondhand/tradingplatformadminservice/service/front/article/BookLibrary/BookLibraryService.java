@@ -1,9 +1,11 @@
 package com.secondhand.tradingplatformadminservice.service.front.article.BookLibrary;
 
+import com.aliyuncs.exceptions.ClientException;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.front.article.BookLibrary.BookLibrary;
 import com.secondhand.tradingplatformcommon.base.BaseService.BaseService;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -188,4 +190,14 @@ public interface BookLibraryService extends BaseService<BookLibrary> {
      */
     boolean myUpdateById(BookLibrary bookLibrary);
 
+    /**
+     * 立即购买bookLibrary
+     * @param bookLibraryId
+     * @param balance
+     * @param userId
+     * @return
+     * @throws CustomizeException
+     * @throws ClientException
+     */
+    Float mySettlementById(Long bookLibraryId, Float balance, Long userId) throws CustomizeException, ClientException;
 }

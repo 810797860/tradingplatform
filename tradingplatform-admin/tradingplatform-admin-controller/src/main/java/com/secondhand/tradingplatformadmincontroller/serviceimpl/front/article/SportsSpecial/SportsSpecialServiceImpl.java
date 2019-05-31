@@ -1,14 +1,23 @@
 package com.secondhand.tradingplatformadmincontroller.serviceimpl.front.article.SportsSpecial;
 
+import com.aliyuncs.exceptions.ClientException;
 import com.baomidou.mybatisplus.enums.SqlLike;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.admin.shiro.User;
 import com.secondhand.tradingplatformadminentity.entity.front.article.SportsSpecial.SportsSpecial;
+import com.secondhand.tradingplatformadminentity.entity.front.article.SportsSpecial.SportsSpecialOrder;
+import com.secondhand.tradingplatformadminmapper.mapper.admin.shiro.UserMapper;
 import com.secondhand.tradingplatformadminmapper.mapper.front.article.SportsSpecial.SportsSpecialMapper;
+import com.secondhand.tradingplatformadminmapper.mapper.front.article.SportsSpecial.SportsSpecialOrderMapper;
+import com.secondhand.tradingplatformadminservice.service.admin.business.ShortMessageService;
 import com.secondhand.tradingplatformadminservice.service.front.article.SportsSpecial.SportsSpecialService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
+import com.secondhand.tradingplatformcommon.pojo.BusinessSelectItem;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeStatus;
 import com.secondhand.tradingplatformcommon.pojo.SystemSelectItem;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +45,15 @@ public class SportsSpecialServiceImpl extends BaseServiceImpl<SportsSpecialMappe
 
     @Autowired
     private SportsSpecialMapper sportsSpecialMapper;
+
+    @Autowired
+    private SportsSpecialOrderMapper sportsSpecialOrderMapper;
+
+    @Autowired
+    private UserMapper userMapper;
+
+    @Autowired
+    private ShortMessageService shortMessageService;
 
     @Override
     @CacheEvict(allEntries = true)
@@ -223,5 +241,40 @@ public class SportsSpecialServiceImpl extends BaseServiceImpl<SportsSpecialMappe
     @CacheEvict(allEntries = true)
     public boolean myUpdateById(SportsSpecial sportsSpecial) {
         return this.updateById(sportsSpecial);
+    }
+
+    @Override
+    @CacheEvict(cacheNames = "sportsSpecialOrder", allEntries = true)
+    @Transactional(rollbackFor = Exception.class)
+    public Float mySettlementById(Long sportsSpecialId, Float balance, Long userId) throws CustomizeException, ClientException {
+
+        //先增加一条订单到购物车
+        //先找价格
+        SportsSpecial sportsSpecial = sportsSpecialMapper.selectById(sportsSpecialId);
+        Float price = sportsSpecial.getPrice();
+        SportsSpecialOrder sportsSpecialOrder = new SportsSpecialOrder();
+        sportsSpecialOrder.setOrderStatus(BusinessSelectItem.ORDER_STATUS_PAID);
+        sportsSpecialOrder.setUserId(userId);
+        sportsSpecialOrder.setSportsId(sportsSpecialId);
+        sportsSpecialOrder.setPrice(price);
+        sportsSpecialOrder.setQuantity(1);
+        sportsSpecialOrder.setUuid(ToolUtil.getUUID());
+        sportsSpecialOrderMapper.insert(sportsSpecialOrder);
+
+        //相减
+        balance = balance - price;
+        if (balance < 0){
+            throw new CustomizeException(CustomizeStatus.SPORTS_SPECIAL_INSUFFICIENT_BALANCE, this.getClass());
+        }
+
+        //给卖家短信
+        //找phone
+        User user = userMapper.selectById(sportsSpecial.getUserId());
+        String phone = user.getPhone();
+        //如果该用户有验证手机号码
+        if (!ToolUtil.strIsEmpty(phone)){
+            shortMessageService.notifyPurchaseSuccess(phone);
+        }
+        return balance;
     }
 }

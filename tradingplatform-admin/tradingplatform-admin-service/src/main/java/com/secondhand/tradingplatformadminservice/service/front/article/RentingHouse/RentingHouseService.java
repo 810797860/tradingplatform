@@ -1,9 +1,11 @@
 package com.secondhand.tradingplatformadminservice.service.front.article.RentingHouse;
 
+import com.aliyuncs.exceptions.ClientException;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.secondhand.tradingplatformadminentity.entity.front.article.RentingHouse.RentingHouse;
 import com.secondhand.tradingplatformcommon.base.BaseService.BaseService;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -180,4 +182,14 @@ public interface RentingHouseService extends BaseService<RentingHouse> {
      */
     boolean myUpdateById(RentingHouse rentingHouse);
 
+    /**
+     * 立即购买rentingHouse
+     * @param rentingHouseId
+     * @param balance
+     * @param userId
+     * @return
+     * @throws CustomizeException
+     * @throws ClientException
+     */
+    Float mySettlementById(Long rentingHouseId, Float balance, Long userId) throws CustomizeException, ClientException;
 }

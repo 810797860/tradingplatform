@@ -41,8 +41,7 @@ public class MyTestController extends BaseController{
     @ResponseBody
     public JsonResult<SendSmsResponse> myTestSendEmail(@ApiParam(name = "httpServletRequest", value = "服务器请求") HttpServletRequest httpServletRequest) throws ClientException {
         JsonResult<SendSmsResponse> resJson = new JsonResult<>();
-        SendSmsResponse sendSmsResponse = shortMessageService.sendVerificationCode(httpServletRequest, "13652288353");
-        resJson.setData(sendSmsResponse);
+        SendSmsResponse sendSmsResponse = shortMessageService.sendVerificationCode(httpServletRequest, "13652288353");resJson.setData(sendSmsResponse);
         resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
         resJson.setSuccess(true);
         return resJson;

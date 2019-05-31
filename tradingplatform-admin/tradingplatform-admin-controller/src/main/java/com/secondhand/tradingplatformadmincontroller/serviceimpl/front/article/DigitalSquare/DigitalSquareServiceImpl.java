@@ -1,14 +1,23 @@
 package com.secondhand.tradingplatformadmincontroller.serviceimpl.front.article.DigitalSquare;
 
+import com.aliyuncs.exceptions.ClientException;
 import com.baomidou.mybatisplus.enums.SqlLike;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.admin.shiro.User;
 import com.secondhand.tradingplatformadminentity.entity.front.article.DigitalSquare.DigitalSquare;
+import com.secondhand.tradingplatformadminentity.entity.front.article.DigitalSquare.DigitalSquareOrder;
+import com.secondhand.tradingplatformadminmapper.mapper.admin.shiro.UserMapper;
 import com.secondhand.tradingplatformadminmapper.mapper.front.article.DigitalSquare.DigitalSquareMapper;
+import com.secondhand.tradingplatformadminmapper.mapper.front.article.DigitalSquare.DigitalSquareOrderMapper;
+import com.secondhand.tradingplatformadminservice.service.admin.business.ShortMessageService;
 import com.secondhand.tradingplatformadminservice.service.front.article.DigitalSquare.DigitalSquareService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
+import com.secondhand.tradingplatformcommon.pojo.BusinessSelectItem;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeStatus;
 import com.secondhand.tradingplatformcommon.pojo.SystemSelectItem;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +45,15 @@ public class DigitalSquareServiceImpl extends BaseServiceImpl<DigitalSquareMappe
 
     @Autowired
     private DigitalSquareMapper digitalSquareMapper;
+
+    @Autowired
+    private DigitalSquareOrderMapper digitalSquareOrderMapper;
+
+    @Autowired
+    private UserMapper userMapper;
+
+    @Autowired
+    private ShortMessageService shortMessageService;
 
     @Override
     @CacheEvict(allEntries = true)
@@ -223,5 +241,40 @@ public class DigitalSquareServiceImpl extends BaseServiceImpl<DigitalSquareMappe
     @CacheEvict(allEntries = true)
     public boolean myUpdateById(DigitalSquare digitalSquare) {
         return this.updateById(digitalSquare);
+    }
+
+    @Override
+    @CacheEvict(cacheNames = "digitalSquareOrder", allEntries = true)
+    @Transactional(rollbackFor = Exception.class)
+    public Float mySettlementById(Long digitalSquareId, Float balance, Long userId) throws CustomizeException, ClientException {
+
+        //先增加一条订单到购物车
+        //先找价格
+        DigitalSquare digitalSquare = digitalSquareMapper.selectById(digitalSquareId);
+        Float price = digitalSquare.getPrice();
+        DigitalSquareOrder digitalSquareOrder = new DigitalSquareOrder();
+        digitalSquareOrder.setOrderStatus(BusinessSelectItem.ORDER_STATUS_PAID);
+        digitalSquareOrder.setUserId(userId);
+        digitalSquareOrder.setDigitalId(digitalSquareId);
+        digitalSquareOrder.setPrice(price);
+        digitalSquareOrder.setQuantity(1);
+        digitalSquareOrder.setUuid(ToolUtil.getUUID());
+        digitalSquareOrderMapper.insert(digitalSquareOrder);
+
+        //相减
+        balance = balance - price;
+        if (balance < 0){
+            throw new CustomizeException(CustomizeStatus.DIGITAL_SQUARE_INSUFFICIENT_BALANCE, this.getClass());
+        }
+
+        //给卖家短信
+        //找phone
+        User user = userMapper.selectById(digitalSquare.getUserId());
+        String phone = user.getPhone();
+        //如果该用户有验证手机号码
+        if (!ToolUtil.strIsEmpty(phone)){
+            shortMessageService.notifyPurchaseSuccess(phone);
+        }
+        return balance;
     }
 }

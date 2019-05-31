@@ -1,13 +1,22 @@
 package com.secondhand.tradingplatformadmincontroller.serviceimpl.front.article.RentingHouse;
 
+import com.aliyuncs.exceptions.ClientException;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.admin.shiro.User;
 import com.secondhand.tradingplatformadminentity.entity.front.article.RentingHouse.RentingHouse;
+import com.secondhand.tradingplatformadminentity.entity.front.article.RentingHouse.RentingHouseOrder;
+import com.secondhand.tradingplatformadminmapper.mapper.admin.shiro.UserMapper;
 import com.secondhand.tradingplatformadminmapper.mapper.front.article.RentingHouse.RentingHouseMapper;
+import com.secondhand.tradingplatformadminmapper.mapper.front.article.RentingHouse.RentingHouseOrderMapper;
+import com.secondhand.tradingplatformadminservice.service.admin.business.ShortMessageService;
 import com.secondhand.tradingplatformadminservice.service.front.article.RentingHouse.RentingHouseService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
+import com.secondhand.tradingplatformcommon.pojo.BusinessSelectItem;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeStatus;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
@@ -34,6 +43,15 @@ public class RentingHouseServiceImpl extends BaseServiceImpl<RentingHouseMapper,
 
     @Autowired
     private RentingHouseMapper rentingHouseMapper;
+
+    @Autowired
+    private RentingHouseOrderMapper rentingHouseOrderMapper;
+
+    @Autowired
+    private UserMapper userMapper;
+
+    @Autowired
+    private ShortMessageService shortMessageService;
 
     @Override
     @CacheEvict(allEntries = true)
@@ -200,5 +218,40 @@ public class RentingHouseServiceImpl extends BaseServiceImpl<RentingHouseMapper,
     @CacheEvict(allEntries = true)
     public boolean myUpdateById(RentingHouse rentingHouse) {
         return this.updateById(rentingHouse);
+    }
+
+    @Override
+    @CacheEvict(cacheNames = "rentingHouseOrder", allEntries = true)
+    @Transactional(rollbackFor = Exception.class)
+    public Float mySettlementById(Long rentingHouseId, Float balance, Long userId) throws CustomizeException, ClientException {
+
+        //先增加一条订单到购物车
+        //先找价格
+        RentingHouse rentingHouse = rentingHouseMapper.selectById(rentingHouseId);
+        Float price = rentingHouse.getPrice();
+        RentingHouseOrder rentingHouseOrder = new RentingHouseOrder();
+        rentingHouseOrder.setOrderStatus(BusinessSelectItem.ORDER_STATUS_PAID);
+        rentingHouseOrder.setUserId(userId);
+        rentingHouseOrder.setRentingId(rentingHouseId);
+        rentingHouseOrder.setPrice(price);
+        rentingHouseOrder.setQuantity(1);
+        rentingHouseOrder.setUuid(ToolUtil.getUUID());
+        rentingHouseOrderMapper.insert(rentingHouseOrder);
+
+        //相减
+        balance = balance - price;
+        if (balance < 0){
+            throw new CustomizeException(CustomizeStatus.RENTING_HOUSE_INSUFFICIENT_BALANCE, this.getClass());
+        }
+
+        //给卖家短信
+        //找phone
+        User user = userMapper.selectById(rentingHouse.getUserId());
+        String phone = user.getPhone();
+        //如果该用户有验证手机号码
+        if (!ToolUtil.strIsEmpty(phone)){
+            shortMessageService.notifyPurchaseSuccess(phone);
+        }
+        return balance;
     }
 }

@@ -29,4 +29,19 @@ public interface ShortMessageService{
      * @throws ClientException
      */
     SendSmsResponse notifyPurchaseSuccess(String phoneNumbers) throws ClientException;
+
+    /**
+     * 每日短信
+     * @param city
+     * @param weather
+     * @param tem1
+     * @param tem2
+     * @param clothes
+     * @param yi
+     * @param ji
+     * @param phoneNumbers
+     * @return
+     * @throws ClientException
+     */
+    SendSmsResponse dailyTextMessage(String city, String weather, String tem1, String tem2, String clothes, String yi, String ji, String phoneNumbers) throws ClientException;
 }

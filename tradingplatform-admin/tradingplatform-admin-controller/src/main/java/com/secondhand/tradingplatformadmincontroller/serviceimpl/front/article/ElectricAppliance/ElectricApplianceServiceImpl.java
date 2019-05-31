@@ -1,14 +1,23 @@
 package com.secondhand.tradingplatformadmincontroller.serviceimpl.front.article.ElectricAppliance;
 
+import com.aliyuncs.exceptions.ClientException;
 import com.baomidou.mybatisplus.enums.SqlLike;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.admin.shiro.User;
 import com.secondhand.tradingplatformadminentity.entity.front.article.ElectricAppliance.ElectricAppliance;
+import com.secondhand.tradingplatformadminentity.entity.front.article.ElectricAppliance.ElectricApplianceOrder;
+import com.secondhand.tradingplatformadminmapper.mapper.admin.shiro.UserMapper;
 import com.secondhand.tradingplatformadminmapper.mapper.front.article.ElectricAppliance.ElectricApplianceMapper;
+import com.secondhand.tradingplatformadminmapper.mapper.front.article.ElectricAppliance.ElectricApplianceOrderMapper;
+import com.secondhand.tradingplatformadminservice.service.admin.business.ShortMessageService;
 import com.secondhand.tradingplatformadminservice.service.front.article.ElectricAppliance.ElectricApplianceService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
+import com.secondhand.tradingplatformcommon.pojo.BusinessSelectItem;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeStatus;
 import com.secondhand.tradingplatformcommon.pojo.SystemSelectItem;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +45,15 @@ public class ElectricApplianceServiceImpl extends BaseServiceImpl<ElectricApplia
 
     @Autowired
     private ElectricApplianceMapper electricApplianceMapper;
+
+    @Autowired
+    private ElectricApplianceOrderMapper electricApplianceOrderMapper;
+
+    @Autowired
+    private UserMapper userMapper;
+
+    @Autowired
+    private ShortMessageService shortMessageService;
 
     @Override
     @CacheEvict(allEntries = true)
@@ -223,5 +241,40 @@ public class ElectricApplianceServiceImpl extends BaseServiceImpl<ElectricApplia
     @CacheEvict(allEntries = true)
     public boolean myUpdateById(ElectricAppliance electricAppliance) {
         return this.updateById(electricAppliance);
+    }
+
+    @Override
+    @CacheEvict(cacheNames = "electricApplianceOrder", allEntries = true)
+    @Transactional(rollbackFor = Exception.class)
+    public Float mySettlementById(Long electricApplianceId, Float balance, Long userId) throws CustomizeException, ClientException {
+
+        //先增加一条订单到购物车
+        //先找价格
+        ElectricAppliance electricAppliance = electricApplianceMapper.selectById(electricApplianceId);
+        Float price = electricAppliance.getPrice();
+        ElectricApplianceOrder electricApplianceOrder = new ElectricApplianceOrder();
+        electricApplianceOrder.setOrderStatus(BusinessSelectItem.ORDER_STATUS_PAID);
+        electricApplianceOrder.setUserId(userId);
+        electricApplianceOrder.setElectricId(electricApplianceId);
+        electricApplianceOrder.setPrice(price);
+        electricApplianceOrder.setQuantity(1);
+        electricApplianceOrder.setUuid(ToolUtil.getUUID());
+        electricApplianceOrderMapper.insert(electricApplianceOrder);
+
+        //相减
+        balance = balance - price;
+        if (balance < 0){
+            throw new CustomizeException(CustomizeStatus.ELECTRIC_APPLIANCE_INSUFFICIENT_BALANCE, this.getClass());
+        }
+
+        //给卖家短信
+        //找phone
+        User user = userMapper.selectById(electricAppliance.getUserId());
+        String phone = user.getPhone();
+        //如果该用户有验证手机号码
+        if (!ToolUtil.strIsEmpty(phone)){
+            shortMessageService.notifyPurchaseSuccess(phone);
+        }
+        return balance;
     }
 }

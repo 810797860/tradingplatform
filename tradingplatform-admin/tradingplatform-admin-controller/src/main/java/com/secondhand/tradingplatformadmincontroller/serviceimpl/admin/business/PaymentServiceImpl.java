@@ -111,7 +111,7 @@ public class PaymentServiceImpl implements PaymentService{
             //先找用户名
             String userName = params.get("pay_id");
             User user = userServiceImpl.mySelectUserByUserName(userName);
-            if (ToolUtil.objIsEmpty(user)){
+            if (!ToolUtil.objIsEmpty(user)){
                 //找充了多少钱
                 Float price = Float.parseFloat(params.get("price"));
                 user.setBalance(user.getBalance() + price);

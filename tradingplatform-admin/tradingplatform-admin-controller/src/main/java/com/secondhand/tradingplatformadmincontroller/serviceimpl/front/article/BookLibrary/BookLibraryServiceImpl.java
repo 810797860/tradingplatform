@@ -1,14 +1,23 @@
 package com.secondhand.tradingplatformadmincontroller.serviceimpl.front.article.BookLibrary;
 
+import com.aliyuncs.exceptions.ClientException;
 import com.baomidou.mybatisplus.enums.SqlLike;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.admin.shiro.User;
 import com.secondhand.tradingplatformadminentity.entity.front.article.BookLibrary.BookLibrary;
+import com.secondhand.tradingplatformadminentity.entity.front.article.BookLibrary.BookLibraryOrder;
+import com.secondhand.tradingplatformadminmapper.mapper.admin.shiro.UserMapper;
 import com.secondhand.tradingplatformadminmapper.mapper.front.article.BookLibrary.BookLibraryMapper;
+import com.secondhand.tradingplatformadminmapper.mapper.front.article.BookLibrary.BookLibraryOrderMapper;
+import com.secondhand.tradingplatformadminservice.service.admin.business.ShortMessageService;
 import com.secondhand.tradingplatformadminservice.service.front.article.BookLibrary.BookLibraryService;
 import com.secondhand.tradingplatformcommon.base.BaseEntity.Sort;
 import com.secondhand.tradingplatformcommon.base.BaseServiceImpl.BaseServiceImpl;
+import com.secondhand.tradingplatformcommon.pojo.BusinessSelectItem;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeStatus;
 import com.secondhand.tradingplatformcommon.pojo.SystemSelectItem;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +45,15 @@ public class BookLibraryServiceImpl extends BaseServiceImpl<BookLibraryMapper, B
 
     @Autowired
     private BookLibraryMapper bookLibraryMapper;
+
+    @Autowired
+    private BookLibraryOrderMapper bookLibraryOrderMapper;
+
+    @Autowired
+    private UserMapper userMapper;
+
+    @Autowired
+    private ShortMessageService shortMessageService;
 
     @Override
     @CacheEvict(allEntries = true)
@@ -223,5 +241,40 @@ public class BookLibraryServiceImpl extends BaseServiceImpl<BookLibraryMapper, B
     @CacheEvict(allEntries = true)
     public boolean myUpdateById(BookLibrary bookLibrary) {
         return this.updateById(bookLibrary);
+    }
+
+    @Override
+    @CacheEvict(cacheNames = "bookLibraryOrder", allEntries = true)
+    @Transactional(rollbackFor = Exception.class)
+    public Float mySettlementById(Long bookLibraryId, Float balance, Long userId) throws CustomizeException, ClientException {
+
+        //先增加一条订单到购物车
+        //先找价格
+        BookLibrary bookLibrary = bookLibraryMapper.selectById(bookLibraryId);
+        Float price = bookLibrary.getPrice();
+        BookLibraryOrder bookLibraryOrder = new BookLibraryOrder();
+        bookLibraryOrder.setOrderStatus(BusinessSelectItem.ORDER_STATUS_PAID);
+        bookLibraryOrder.setUserId(userId);
+        bookLibraryOrder.setBookId(bookLibraryId);
+        bookLibraryOrder.setPrice(price);
+        bookLibraryOrder.setQuantity(1);
+        bookLibraryOrder.setUuid(ToolUtil.getUUID());
+        bookLibraryOrderMapper.insert(bookLibraryOrder);
+
+        //相减
+        balance = balance - price;
+        if (balance < 0){
+            throw new CustomizeException(CustomizeStatus.BOOK_LIBRARY_INSUFFICIENT_BALANCE, this.getClass());
+        }
+
+        //给卖家短信
+        //找phone
+        User user = userMapper.selectById(bookLibrary.getUserId());
+        String phone = user.getPhone();
+        //如果该用户有验证手机号码
+        if (!ToolUtil.strIsEmpty(phone)){
+            shortMessageService.notifyPurchaseSuccess(phone);
+        }
+        return balance;
     }
 }

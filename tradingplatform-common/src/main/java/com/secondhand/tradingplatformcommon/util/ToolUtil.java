@@ -224,4 +224,25 @@ public class ToolUtil {
         return false;
     }
 
+    /**
+     * 把字符串中的unicode转成中文
+     * @param asciiCode
+     * @return
+     */
+    public static String asciiToNative(String asciiCode) {
+        String[] asciis = asciiCode.split("\\\\u");
+        String nativeValue = asciis[0];
+        try {
+            for (int i = 1; i < asciis.length; i++) {
+                String code = asciis[i];
+                nativeValue += (char) Integer.parseInt(code.substring(0, 4), 16);
+                if (code.length() > 4) {
+                    nativeValue += code.substring(4, code.length());
+                }
+            }
+        } catch (NumberFormatException e) {
+            return asciiCode;
+        }
+        return nativeValue;
+    }
 }

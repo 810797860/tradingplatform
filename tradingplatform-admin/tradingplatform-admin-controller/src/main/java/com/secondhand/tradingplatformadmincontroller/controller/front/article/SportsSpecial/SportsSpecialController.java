@@ -1,8 +1,11 @@
 package com.secondhand.tradingplatformadmincontroller.controller.front.article.SportsSpecial;
 
+import com.aliyuncs.exceptions.ClientException;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.secondhand.tradingplatformadminentity.entity.admin.shiro.User;
 import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
 import com.secondhand.tradingplatformcommon.jsonResult.TableJson;
+import com.secondhand.tradingplatformcommon.pojo.CustomizeException;
 import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import com.secondhand.tradingplatformcommon.pojo.SystemSelectItem;
 import io.swagger.annotations.Api;
@@ -153,6 +156,39 @@ public class SportsSpecialController extends BaseController {
             resJson.setData(sportsSpecial);
             resJson.setSuccess(true);
         } catch (UnauthorizedException e) {
+            resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
+            resJson.setSuccess(false);
+            resJson.setMessage(e.getMessage());
+        }
+        return resJson;
+    }
+
+    /**
+     * @description : 立即购买sportsSpecial
+     * @author : zhangjk
+     * @since : Create in 2019-04-09
+     */
+    @GetMapping(value = "/settlement/{sportsSpecialId}", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @ApiOperation(value = "/settlement/{sportsSpecialId}", notes = "立即购买sportsSpecial")
+    @ResponseBody
+    public JsonResult<Float> toSettlement(@ApiParam(name = "id", value = "sportsSpecialId") @PathVariable(value = "sportsSpecialId") Long sportsSpecialId) throws ClientException, CustomizeException {
+
+        Subject subject = SecurityUtils.getSubject();
+        JsonResult<Float> resJson = new JsonResult<>();
+        try {
+            //检查是否具有权限
+            subject.checkPermission("/front/sportsSpecialOrder/create_update");
+            Session session = SecurityUtils.getSubject().getSession();
+            //先找出这个人余款有多少
+            User user = (User) session.getAttribute(MagicalValue.USER_SESSION);
+            Float balance = user.getBalance();
+            balance = sportsSpecialService.mySettlementById(sportsSpecialId, balance, user.getId());
+
+            //拼接返回结果
+            resJson.setData(balance);
+            resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+            resJson.setSuccess(true);
+        } catch (UnauthorizedException e){
             resJson.setCode(MagicalValue.CODE_OF_UNAUTHORIZED_EXCEPTION);
             resJson.setSuccess(false);
             resJson.setMessage(e.getMessage());
