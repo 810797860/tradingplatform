@@ -25,7 +25,7 @@ public class ShiroOriginFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
         HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
-        httpServletResponse.addHeader("Access-Control-Allow-Origin", "http://localhost:8080");
+        httpServletResponse.addHeader("Access-Control-Allow-Origin", "http://www.oooojbk.com:8024");
         httpServletResponse.addHeader("Access-Control-Allow-Headers", "Content-Type,Content-Length,Authorization,Accept,X-Requested-With");
         httpServletResponse.addHeader("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS,HEAD");
         httpServletResponse.addHeader("Access-Control-Allow-Credentials", "true");
