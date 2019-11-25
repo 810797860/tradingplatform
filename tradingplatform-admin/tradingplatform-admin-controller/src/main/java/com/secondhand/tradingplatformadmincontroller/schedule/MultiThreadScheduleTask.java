@@ -134,7 +134,9 @@ public class MultiThreadScheduleTask {
         shortMessageService.dailyTextMessage(city, weather, tem1, tem2, humidity, yi, ji, "13809221266");
         shortMessageService.dailyTextMessage(city, weather, tem1, tem2, humidity, yi, ji, "13724926828");
         shortMessageService.dailyTextMessage(city, weather, tem1, tem2, humidity, yi, ji, "13068714662");
+        shortMessageService.dailyTextMessage(city, weather, tem1, tem2, humidity, yi, ji, "13925962430");
+        shortMessageService.dailyTextMessage(city, weather, tem1, tem2, humidity, yi, ji, "13265683120");
         shortMessageService.dailyTextMessage(gCity, gWeather, gTem1, gTem2, gHumidity, yi, ji, "13652288353");
-//        System.out.println("已经发送了，可以关闭程序了");
+        //        System.out.println("已经发送了，可以关闭程序了");
     }
 }
