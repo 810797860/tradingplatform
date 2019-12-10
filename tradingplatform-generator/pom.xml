@@ -102,6 +102,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.secondhand.tradingplatformgenerator.generator.MysqlGenerator</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>
