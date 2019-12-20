@@ -147,7 +147,9 @@ public class AnnexServiceImpl extends BaseServiceImpl<AnnexMapper, Annex> implem
     @Override
     public void myGetImageByAnnexId(Long annexId, HttpServletResponse response) throws IOException, CustomizeException {
         ///static/default.png默认图片
-        InputStream is = this.getClass().getResourceAsStream("/static/default.png");
+        //InputStream is = this.getClass().getResourceAsStream("/static/default.png");
+        //因为找不到，所以先注释掉
+        InputStream is = null;
         if (annexId != null) {
             Annex annex = annexMapper.selectById(annexId);
             if (annex != null) {
