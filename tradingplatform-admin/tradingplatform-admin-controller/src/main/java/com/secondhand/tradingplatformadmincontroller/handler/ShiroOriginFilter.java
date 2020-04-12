@@ -4,6 +4,9 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 全局拦截器
@@ -25,7 +28,17 @@ public class ShiroOriginFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
         HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
-        httpServletResponse.addHeader("Access-Control-Allow-Origin", "http://www.oooojbk.com:8024");
+        // 设置允许多个域名请求
+        String[] allowDomains = {"http://www.oooojbk.com:8024", "http://localhost:8024"};
+        Set allowOrigins = new HashSet(Arrays.asList(allowDomains));
+        HttpServletRequest req = (HttpServletRequest) servletRequest;
+        String originHeads = req.getHeader("Origin");
+        if(allowOrigins.contains(originHeads)){
+            //设置允许跨域的配置
+            // 这里填写你允许进行跨域的主机ip（正式上线时可以动态配置具体允许的域名和IP）
+            httpServletResponse.setHeader("Access-Control-Allow-Origin", originHeads);
+        }
+//        httpServletResponse.addHeader("Access-Control-Allow-Origin", "http://www.oooojbk.com:8024");
         httpServletResponse.addHeader("Access-Control-Allow-Headers", "Content-Type,Content-Length,Authorization,Accept,X-Requested-With");
         httpServletResponse.addHeader("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS,HEAD");
         httpServletResponse.addHeader("Access-Control-Allow-Credentials", "true");
