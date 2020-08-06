@@ -1,44 +1,42 @@
-package com.secondhand.tradingplatformadmincontroller.schedule;
+package com.secondhand.tradingplatformadmincontroller.controller.front.important;
 
 import com.aliyuncs.exceptions.ClientException;
 import com.google.gson.Gson;
 import com.secondhand.tradingplatformadminservice.service.admin.business.ShortMessageService;
+import com.secondhand.tradingplatformcommon.base.BaseController.BaseController;
+import com.secondhand.tradingplatformcommon.jsonResult.JsonResult;
+import com.secondhand.tradingplatformcommon.pojo.MagicalValue;
 import com.secondhand.tradingplatformcommon.util.ToolUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
-import org.springframework.scheduling.annotation.Async;
-import org.springframework.scheduling.annotation.EnableAsync;
-import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 多线程定时任务
- *
- * @author 81079
- * @EnableScheduling 开启定时业务
- * @EnableAsync 开启多线程
+ * 手动调用发送短信接口
+ * @author Administrator
+ * @date 2020/8/6
  */
-@Component
-@EnableScheduling
-@EnableAsync
-public class MultiThreadScheduleTask {
+@Controller("frontMultiThreadScheduleController")
+@Api(value = "/front/multiThreadSchedule", description = "MultiThreadSchedule 控制器")
+@RequestMapping("/front/multiThreadSchedule")
+public class MultiThreadScheduleController extends BaseController {
 
     @Autowired
     private ShortMessageService shortMessageService;
 
-    /**
-     * 每天早上七点执行
-     */
-    @Async("taskExecutor")
-    @Scheduled(cron = "0 0 7 * * ?")
-//    @Scheduled(cron = "0 */1 * * * ?")
-    public void scheduleTest() throws ClientException {
-
+    @GetMapping(value = "/send_messages/{mobilePhoneNumber}", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @ApiOperation(value = "/send_messages/{mobilePhoneNumber}", notes = "手动发送天气短信")
+    @ResponseBody
+    public JsonResult<String> sendMessages(@ApiParam(name = "手机号码", value = "mobilePhoneNumber") @PathVariable("mobilePhoneNumber") String mobilePhoneNumber) throws ClientException {
         //定义的变量
         //先默认为佛山
         String city = "佛山";
@@ -131,13 +129,23 @@ public class MultiThreadScheduleTask {
                 yi = "诸事不忌";
             }
         }
-        shortMessageService.dailyTextMessage(city, weather, tem1, tem2, humidity, yi, ji, "13809221266");
-        shortMessageService.dailyTextMessage(city, weather, tem1, tem2, humidity, yi, ji, "13724926828");
-        shortMessageService.dailyTextMessage(city, weather, tem1, tem2, humidity, yi, ji, "13068714662");
-        shortMessageService.dailyTextMessage(city, weather, tem1, tem2, humidity, yi, ji, "13925962430");
-        shortMessageService.dailyTextMessage(city, weather, tem1, tem2, humidity, yi, ji, "13265683120");
-        shortMessageService.dailyTextMessage(city, weather, tem1, tem2, humidity, yi, ji, "13652288353");
+        if (ToolUtil.strIsEmpty(mobilePhoneNumber)) {
+            shortMessageService.dailyTextMessage(city, weather, tem1, tem2, humidity, yi, ji, "13809221266");
+            shortMessageService.dailyTextMessage(city, weather, tem1, tem2, humidity, yi, ji, "13724926828");
+            shortMessageService.dailyTextMessage(city, weather, tem1, tem2, humidity, yi, ji, "13068714662");
+            shortMessageService.dailyTextMessage(city, weather, tem1, tem2, humidity, yi, ji, "13925962430");
+            shortMessageService.dailyTextMessage(city, weather, tem1, tem2, humidity, yi, ji, "13265683120");
+            shortMessageService.dailyTextMessage(city, weather, tem1, tem2, humidity, yi, ji, "13652288353");
+        } else {
+            shortMessageService.dailyTextMessage(city, weather, tem1, tem2, humidity, yi, ji, mobilePhoneNumber);
+        }
 //        shortMessageService.dailyTextMessage(gCity, gWeather, gTem1, gTem2, gHumidity, yi, ji, "13652288353");
         //        System.out.println("已经发送了，可以关闭程序了");
+        JsonResult<String> resJson = new JsonResult<>();
+        resJson.setCode(MagicalValue.CODE_OF_SUCCESS);
+        resJson.setData("ok");
+        resJson.setSuccess(true);
+        return resJson;
     }
+
 }
