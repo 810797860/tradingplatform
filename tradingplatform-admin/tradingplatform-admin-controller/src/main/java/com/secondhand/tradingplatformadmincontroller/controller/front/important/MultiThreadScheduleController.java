@@ -33,8 +33,8 @@ public class MultiThreadScheduleController extends BaseController {
     @Autowired
     private ShortMessageService shortMessageService;
 
-    @GetMapping(value = "/send_messages/{mobilePhoneNumber}", produces = {MediaType.APPLICATION_JSON_VALUE})
-    @ApiOperation(value = "/send_messages/{mobilePhoneNumber}", notes = "手动发送天气短信")
+    @GetMapping(value = "/send_messages", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @ApiOperation(value = "/send_messages", notes = "手动发送天气短信")
     @ResponseBody
     public JsonResult<String> sendMessages(@ApiParam(name = "手机号码", value = "mobilePhoneNumber") @RequestParam(value = "mobilePhoneNumber", required = false) String mobilePhoneNumber) throws ClientException {
         //定义的变量
