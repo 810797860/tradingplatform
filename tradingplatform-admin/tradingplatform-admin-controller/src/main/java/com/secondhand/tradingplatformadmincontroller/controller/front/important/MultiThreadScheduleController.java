@@ -36,7 +36,7 @@ public class MultiThreadScheduleController extends BaseController {
     @GetMapping(value = "/send_messages/{mobilePhoneNumber}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "/send_messages/{mobilePhoneNumber}", notes = "手动发送天气短信")
     @ResponseBody
-    public JsonResult<String> sendMessages(@ApiParam(name = "手机号码", value = "mobilePhoneNumber") @PathVariable("mobilePhoneNumber") String mobilePhoneNumber) throws ClientException {
+    public JsonResult<String> sendMessages(@ApiParam(name = "手机号码", value = "mobilePhoneNumber") @RequestParam(value = "mobilePhoneNumber", required = false) String mobilePhoneNumber) throws ClientException {
         //定义的变量
         //先默认为佛山
         String city = "佛山";
